@@ -50,7 +50,16 @@
   .entry.cat-other { border-left-color: var(--cat-other); }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
   .badge {
     display: inline-block; padding: 2px 9px; border-radius: 999px;
     font-size: 0.72rem; font-weight: 600; color: #fff;
@@ -86,211 +95,385 @@
 </header>
 <article class="entry cat-research">
   <h2>Meta, ‘Muse Spark’ 공개…멀티모달 추론·도구사용·멀티에이전트 오케스트레이션 (2026.4.8)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">메타 AI(공식 블로그)</span> · <span class="deadline">마감일·시행일: Muse Spark는 현재 meta.ai 및 Meta AI 앱에서 제공, ‘Contemplating mode’는 점진적 롤아웃 예정</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">메타 AI(공식 블로그)</span> · <span class="deadline">마감일·시행일: Muse Spark는 현재 meta.ai 및 Meta AI 앱에서 제공, ‘Contemplating mode’는 점진적 롤아웃 예정</span></span><button type="button" class="copy-btn" data-copy="Meta, ‘Muse Spark’ 공개…멀티모달 추론·도구사용·멀티에이전트 오케스트레이션 (2026.4.8)
+
+메타는 ‘Muse Spark’를 Muse 모델 패밀리의 첫 모델로 소개했다. Muse Spark는 멀티모달 추론, 도구 사용, 시각적 체인오브쏘트, 멀티에이전트 오케스트레이션을 지원하며, 일부 사용자 대상 프라이빗 API 프리뷰도 연다. 또한 여러 에이전트를 병렬로 추론시키는 ‘Contemplating mode’를 공개하며 성능 평가에서 개선 수치를 제시했다. 안전성 측면에서는 배포 전후로 위협모델·평가 프로토콜에 따른 점검을 수행했으며, 생물·화학 무기 등 고위험 영역에서 거부 성향이 강하다고 밝혔다.
+
+https://ai.meta.com/blog/introducing-muse-spark-msl/" onclick="copyEntry(this)">복사</button></div>
   <p>메타는 ‘Muse Spark’를 Muse 모델 패밀리의 첫 모델로 소개했다. Muse Spark는 멀티모달 추론, 도구 사용, 시각적 체인오브쏘트, 멀티에이전트 오케스트레이션을 지원하며, 일부 사용자 대상 프라이빗 API 프리뷰도 연다. 또한 여러 에이전트를 병렬로 추론시키는 ‘Contemplating mode’를 공개하며 성능 평가에서 개선 수치를 제시했다. 안전성 측면에서는 배포 전후로 위협모델·평가 프로토콜에 따른 점검을 수행했으며, 생물·화학 무기 등 고위험 영역에서 거부 성향이 강하다고 밝혔다.</p>
   <p class="url"><a href="https://ai.meta.com/blog/introducing-muse-spark-msl/">https://ai.meta.com/blog/introducing-muse-spark-msl/</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>AI Continent Action Plan, 5대 분야에서 주요 성과(2026.4.9)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">유럽 AI 혁신의 달(2026.10.14~2026.11.17) 개최 예정</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">유럽 AI 혁신의 달(2026.10.14~2026.11.17) 개최 예정</span></span><button type="button" class="copy-btn" data-copy="AI Continent Action Plan, 5대 분야에서 주요 성과(2026.4.9)
+
+유럽 집행위원회는 AI Continent Action Plan이 5대 축(인프라·데이터·인재·도입·신뢰할 수 있는 AI)에서 성과를 내고 있다고 밝혔다. 슈퍼컴퓨터 기반 ‘AI 팩토리’ 19개를 배치했으며, 지역 접근을 위한 안테나 13개와 ‘AI 기가팩토리’도 곧 도입될 예정이다. 데이터 측면에서는 Data Union Strategy와 AI Omnibus를 통해 데이터 접근·공유를 촉진하고 기업의 법적 확실성과 준수비용 절감을 목표로 한다. 또한 ICT 인재 이동을 돕는 EU-인도 법률 게이트웨이 사무소, 생성형 AI·첨단컴퓨팅 특화 프로그램을 위한 AI Skills Academy, 산업·공공 부문 AI 도입을 위한 Apply AI Strategy(이미 10억 유로 규모 공모 포함) 등의 추진 상황을 소개했다.
+
+https://digital-strategy.ec.europa.eu/en/news/ai-continent-action-plan-delivers-major-milestones" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위원회는 AI Continent Action Plan이 5대 축(인프라·데이터·인재·도입·신뢰할 수 있는 AI)에서 성과를 내고 있다고 밝혔다. 슈퍼컴퓨터 기반 ‘AI 팩토리’ 19개를 배치했으며, 지역 접근을 위한 안테나 13개와 ‘AI 기가팩토리’도 곧 도입될 예정이다. 데이터 측면에서는 Data Union Strategy와 AI Omnibus를 통해 데이터 접근·공유를 촉진하고 기업의 법적 확실성과 준수비용 절감을 목표로 한다. 또한 ICT 인재 이동을 돕는 EU-인도 법률 게이트웨이 사무소, 생성형 AI·첨단컴퓨팅 특화 프로그램을 위한 AI Skills Academy, 산업·공공 부문 AI 도입을 위한 Apply AI Strategy(이미 10억 유로 규모 공모 포함) 등의 추진 상황을 소개했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/ai-continent-action-plan-delivers-major-milestones">https://digital-strategy.ec.europa.eu/en/news/ai-continent-action-plan-delivers-major-milestones</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>유럽 집행위, 이탈리아 ‘광자(포토닉) 칩’ 개발 지원을 위한 2억1100만 유로 국가지원 승인 (2026.4.9)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 이탈리아 ‘광자(포토닉) 칩’ 개발 지원을 위한 2억1100만 유로 국가지원 승인 (2026.4.9)
+
+유럽 집행위는 비공개 해제 후 경쟁 웹사이트의 국가지원 등록부(사건번호 SA.115733)에 결정문을 공개할 예정입니다.
+
+유럽 집행위원회는 EU 국가지원 규정에 따라 이탈리아의 2억1100만 유로 규모 지원안을 승인했습니다. 이 지원은 이탈리아 중소기업 CamGraPhIC가 그래핀 기반 광학 트랜시버(데이터를 빛으로 송수신하는 칩 부품)를 개발하는 데 직접 보조금 형태로 제공됩니다. 집행위는 해당 조치가 필요하고 적절하며, 공적 지원이 없으면 투자가 이뤄지지 않는 ‘인센티브 효과’가 있고, 경쟁과 역내 무역에 부정적 영향이 과도하지 않다고 판단했습니다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu211-million-italian-state-aid-measure-support-photonic-chips-development" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위는 비공개 해제 후 경쟁 웹사이트의 국가지원 등록부(사건번호 SA.115733)에 결정문을 공개할 예정입니다.</p>
 <p>유럽 집행위원회는 EU 국가지원 규정에 따라 이탈리아의 2억1100만 유로 규모 지원안을 승인했습니다. 이 지원은 이탈리아 중소기업 CamGraPhIC가 그래핀 기반 광학 트랜시버(데이터를 빛으로 송수신하는 칩 부품)를 개발하는 데 직접 보조금 형태로 제공됩니다. 집행위는 해당 조치가 필요하고 적절하며, 공적 지원이 없으면 투자가 이뤄지지 않는 ‘인센티브 효과’가 있고, 경쟁과 역내 무역에 부정적 영향이 과도하지 않다고 판단했습니다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu211-million-italian-state-aid-measure-support-photonic-chips-development">https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu211-million-italian-state-aid-measure-support-photonic-chips-development</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>유럽연합 집행위, ‘AI 대륙 행동계획’ 1주년 맞아 AI 도입·정책 관련 신규 보고서 2건 발표 (2026.4.9)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="유럽연합 집행위, ‘AI 대륙 행동계획’ 1주년 맞아 AI 도입·정책 관련 신규 보고서 2건 발표 (2026.4.9)
+
+유럽연합 집행위는 ‘AI 대륙 행동계획’ 1주년을 맞아 AI 도입(공공행정) 보고서와 EU의 AI 정책 10년을 다룬 Science for Policy 브리프를 공개했다. 지난 1년간 AI 팩토리(19개)와 안테나(13개) 운영 확대, AI 기가팩토리 관심표현(16개 회원국 60개 사이트에서 76건) 등 인프라·데이터·역량·규제 단순화가 추진됐다고 밝혔다. 공공행정 분야 보고서는 AI 도입을 정책·규정·원칙에 정착(Anchoring), 공공행정 역량 조정(Adapting), 고영향 분야 적용(Applying) 등 3가지 활동으로 제시한다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-marks-one-year-ai-continent-action-plan-two-new-reports-ai-adoption-and-policymaking" onclick="copyEntry(this)">복사</button></div>
   <p>유럽연합 집행위는 ‘AI 대륙 행동계획’ 1주년을 맞아 AI 도입(공공행정) 보고서와 EU의 AI 정책 10년을 다룬 Science for Policy 브리프를 공개했다. 지난 1년간 AI 팩토리(19개)와 안테나(13개) 운영 확대, AI 기가팩토리 관심표현(16개 회원국 60개 사이트에서 76건) 등 인프라·데이터·역량·규제 단순화가 추진됐다고 밝혔다. 공공행정 분야 보고서는 AI 도입을 정책·규정·원칙에 정착(Anchoring), 공공행정 역량 조정(Adapting), 고영향 분야 적용(Applying) 등 3가지 활동으로 제시한다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-marks-one-year-ai-continent-action-plan-two-new-reports-ai-adoption-and-policymaking">https://digital-strategy.ec.europa.eu/en/news/commission-marks-one-year-ai-continent-action-plan-two-new-reports-ai-adoption-and-policymaking</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>(2026.4.9) 지중해 협력 ‘디지털 전환’ 첫 이니셔티브 출범</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(EU 디지털 전략)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(EU 디지털 전략)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.9) 지중해 협력 ‘디지털 전환’ 첫 이니셔티브 출범
+
+유럽 집행위원회는 2025년 말 출범한 ‘지중해 협력(Pact for the Mediterranean)’의 디지털 분야 첫 성과로, 북아프리카와 중동 국가를 대상으로 디지털 전환 프로그램을 시작했다. 독일 정부가 공동으로 재원을 지원하며, 시민·공공행정·기업의 디지털 서비스 접근성 개선, 디지털 규제 정합성, 사이버보안 강화, 디지털 역량 향상을 목표로 한다. 프로그램은 (1) EU 기준에 맞춘 통신 규제 정렬과 국가 규제기관 역량 강화 및 지역 협력 네트워크 구축, (2) 국가 차원의 사이버보안 프레임워크·거버넌스 개선, (3) EU DigComp 기준에 따른 지역 디지털 역량 개발과 학습·전문성 교류를 위한 플랫폼·네트워크 구축에 중점을 둔다. 공식 출범은 모로코 마라케시에서 열린 GITEX Africa에서 진행됐다.
+
+https://digital-strategy.ec.europa.eu/en/news/pact-mediterranean-delivers-eu-unveils-first-digital-initiative-region" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위원회는 2025년 말 출범한 ‘지중해 협력(Pact for the Mediterranean)’의 디지털 분야 첫 성과로, 북아프리카와 중동 국가를 대상으로 디지털 전환 프로그램을 시작했다. 독일 정부가 공동으로 재원을 지원하며, 시민·공공행정·기업의 디지털 서비스 접근성 개선, 디지털 규제 정합성, 사이버보안 강화, 디지털 역량 향상을 목표로 한다. 프로그램은 (1) EU 기준에 맞춘 통신 규제 정렬과 국가 규제기관 역량 강화 및 지역 협력 네트워크 구축, (2) 국가 차원의 사이버보안 프레임워크·거버넌스 개선, (3) EU DigComp 기준에 따른 지역 디지털 역량 개발과 학습·전문성 교류를 위한 플랫폼·네트워크 구축에 중점을 둔다. 공식 출범은 모로코 마라케시에서 열린 GITEX Africa에서 진행됐다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/pact-mediterranean-delivers-eu-unveils-first-digital-initiative-region">https://digital-strategy.ec.europa.eu/en/news/pact-mediterranean-delivers-eu-unveils-first-digital-initiative-region</a></p>
 </article>
 <article class="entry cat-other">
   <h2>미국 직장인 AI 사용자 절반은 업무에도 주로 활용(2026.4.9)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">Epoch AI(서브스택)·Ipsos 공동 설문</span> · <span class="deadline">Epoch AI/Ipsos 설문은 2026.3.3~3.5 기간 Ipsos KnowledgePanel(응답 2,021명)로 진행</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Epoch AI(서브스택)·Ipsos 공동 설문</span> · <span class="deadline">Epoch AI/Ipsos 설문은 2026.3.3~3.5 기간 Ipsos KnowledgePanel(응답 2,021명)로 진행</span></span><button type="button" class="copy-btn" data-copy="미국 직장인 AI 사용자 절반은 업무에도 주로 활용(2026.4.9)
+
+미국에서 최근 1주일 내 AI 도구를 사용한 직장인 중 절반은 업무에 개인 용도만큼(또는 그 이상) AI를 사용한다고 응답했다. AI는 업무에서 기존 작업을 대체하는 경우(27%)와 새로운 작업을 만들어내는 경우(21%)가 모두 나타났으며, 유급 구독(무료가 아닌 유료) 사용자가 업무 활용 비중이 더 높았다. 특히 고용주가 제공한 구독자는 무료 이용자보다 업무 활용 비율이 더 높게 조사됐다.
+
+https://epochai.substack.com/p/ai-is-a-common-workplace-tool-half" onclick="copyEntry(this)">복사</button></div>
   <p>미국에서 최근 1주일 내 AI 도구를 사용한 직장인 중 절반은 업무에 개인 용도만큼(또는 그 이상) AI를 사용한다고 응답했다. AI는 업무에서 기존 작업을 대체하는 경우(27%)와 새로운 작업을 만들어내는 경우(21%)가 모두 나타났으며, 유급 구독(무료가 아닌 유료) 사용자가 업무 활용 비중이 더 높았다. 특히 고용주가 제공한 구독자는 무료 이용자보다 업무 활용 비율이 더 높게 조사됐다.</p>
   <p class="url"><a href="https://epochai.substack.com/p/ai-is-a-common-workplace-tool-half">https://epochai.substack.com/p/ai-is-a-common-workplace-tool-half</a></p>
 </article>
 <article class="entry cat-other">
   <h2>재단(파운데이션) 모델의 개인정보 침해 위험과 거버넌스 필요성(2026.4.10)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">스탠퍼드 HAI(Stanford HAI)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">스탠퍼드 HAI(Stanford HAI)</span></span><button type="button" class="copy-btn" data-copy="재단(파운데이션) 모델의 개인정보 침해 위험과 거버넌스 필요성(2026.4.10)
+
+재단 모델은 기존 AI보다 더 광범위하고 아직 충분히 다뤄지지 않은 개인정보 위험을 개인과 사회에 동시에 초래한다고 지적한다. 학습 단계의 대규모 개인정보 수집, 출력에서의 민감정보 기억·재현, 챗봇 인터페이스를 통한 사용자의 무의식적 정보 노출 전 과정에서 위험이 발생하며, 프롬프트 인젝션·데이터 포이즈닝·모델 인버전 같은 공격으로 프라이버시 보호가 우회될 수 있다. 현행 프레임워크(GDPR 등)는 재단 모델의 구축 방식과 근본적으로 맞지 않지만, EU와 미국 모두 개발자 행동을 실질적으로 바꿀 포괄적 규칙이 부족하므로 정책은 학습 데이터 파이프라인에서 개인데이터 제거, 프라이버시-바이-디자인, 투명성·해석가능성 강화, 출력 제약 등을 포함한 거버넌스를 검토해야 한다.
+
+https://hai.stanford.edu/policy/data-privacy-and-foundation-models-can-we-have-both" onclick="copyEntry(this)">복사</button></div>
   <p>재단 모델은 기존 AI보다 더 광범위하고 아직 충분히 다뤄지지 않은 개인정보 위험을 개인과 사회에 동시에 초래한다고 지적한다. 학습 단계의 대규모 개인정보 수집, 출력에서의 민감정보 기억·재현, 챗봇 인터페이스를 통한 사용자의 무의식적 정보 노출 전 과정에서 위험이 발생하며, 프롬프트 인젝션·데이터 포이즈닝·모델 인버전 같은 공격으로 프라이버시 보호가 우회될 수 있다. 현행 프레임워크(GDPR 등)는 재단 모델의 구축 방식과 근본적으로 맞지 않지만, EU와 미국 모두 개발자 행동을 실질적으로 바꿀 포괄적 규칙이 부족하므로 정책은 학습 데이터 파이프라인에서 개인데이터 제거, 프라이버시-바이-디자인, 투명성·해석가능성 강화, 출력 제약 등을 포함한 거버넌스를 검토해야 한다.</p>
   <p class="url"><a href="https://hai.stanford.edu/policy/data-privacy-and-foundation-models-can-we-have-both">https://hai.stanford.edu/policy/data-privacy-and-foundation-models-can-we-have-both</a></p>
 </article>
 <article class="entry cat-company">
   <h2>OpenAI Safety Fellowship 소개 (2026.4.10)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">오픈AI(openai.com)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">오픈AI(openai.com)</span></span><button type="button" class="copy-btn" data-copy="OpenAI Safety Fellowship 소개 (2026.4.10)
+
+본문 내용 확인 필요. 현재 제공된 정보(제목·URL·출처)만으로는 프로그램의 구체 내용(대상, 기간, 선발 방식, 주요 활동 등)을 확정해 요약할 수 없습니다. 세부 사항은 페이지 본문 확인 후 정리 필요합니다.
+
+https://openai.com/index/introducing-openai-safety-fellowship/" onclick="copyEntry(this)">복사</button></div>
   <p>본문 내용 확인 필요. 현재 제공된 정보(제목·URL·출처)만으로는 프로그램의 구체 내용(대상, 기간, 선발 방식, 주요 활동 등)을 확정해 요약할 수 없습니다. 세부 사항은 페이지 본문 확인 후 정리 필요합니다.</p>
   <p class="url"><a href="https://openai.com/index/introducing-openai-safety-fellowship/">https://openai.com/index/introducing-openai-safety-fellowship/</a></p>
 </article>
 <article class="entry cat-company">
   <h2>Introducing Trusted Access for Cyber (2026.4.10)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">OpenAI</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">OpenAI</span></span><button type="button" class="copy-btn" data-copy="Introducing Trusted Access for Cyber (2026.4.10)
+
+본문 확인 필요: 제공된 정보(URL·제목·출처)만으로는 해당 페이지의 구체적인 내용(정책/서비스 내용, 대상, 일정, 발표 범위 등)을 확인할 수 없습니다. 제목 기준으로는 ‘사이버 분야에서의 신뢰할 수 있는 접근(Trusted Access)’과 관련된 내용일 가능성이 있으나, 세부 내용은 확인 필요입니다.
+
+https://openai.com/index/trusted-access-for-cyber/" onclick="copyEntry(this)">복사</button></div>
   <p>본문 확인 필요: 제공된 정보(URL·제목·출처)만으로는 해당 페이지의 구체적인 내용(정책/서비스 내용, 대상, 일정, 발표 범위 등)을 확인할 수 없습니다. 제목 기준으로는 ‘사이버 분야에서의 신뢰할 수 있는 접근(Trusted Access)’과 관련된 내용일 가능성이 있으나, 세부 내용은 확인 필요입니다.</p>
   <p class="url"><a href="https://openai.com/index/trusted-access-for-cyber/">https://openai.com/index/trusted-access-for-cyber/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>OpenAI, 사이버보안 리스크 우려를 이유로 새 모델을 단계적 배포(2026.4.9)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">Axios</span> · <span class="deadline">확인 필요: 기사에서 언급된 ‘사이버보안 리스크’의 구체 내용과 배포 일정(단계별 시점)은 본문 확인이 필요합니다.</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Axios</span> · <span class="deadline">확인 필요: 기사에서 언급된 ‘사이버보안 리스크’의 구체 내용과 배포 일정(단계별 시점)은 본문 확인이 필요합니다.</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 사이버보안 리스크 우려를 이유로 새 모델을 단계적 배포(2026.4.9)
+
+본문을 확인할 수 없어, OpenAI가 새 모델을 사이버보안 관련 우려와 함께 단계적으로 배포한다는 점만 요약했습니다. 기사에서 구체적으로 어떤 보안 리스크(예: 악용 가능성, 취약점 등)와 배포 범위·일정이 어떻게 제시되는지는 확인이 필요합니다.
+
+https://www.axios.com/2026/04/09/openai-new-model-cyber-mythos-anthopic" onclick="copyEntry(this)">복사</button></div>
   <p>본문을 확인할 수 없어, OpenAI가 새 모델을 사이버보안 관련 우려와 함께 단계적으로 배포한다는 점만 요약했습니다. 기사에서 구체적으로 어떤 보안 리스크(예: 악용 가능성, 취약점 등)와 배포 범위·일정이 어떻게 제시되는지는 확인이 필요합니다.</p>
   <p class="url"><a href="https://www.axios.com/2026/04/09/openai-new-model-cyber-mythos-anthopic">https://www.axios.com/2026/04/09/openai-new-model-cyber-mythos-anthopic</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2></h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">AI 인프라 경쟁에서 소프트웨어 최적화·생태계가 ‘잠금(lock-in)’을 만든다 (2026.04.09)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">AI 인프라 경쟁에서 소프트웨어 최적화·생태계가 ‘잠금(lock-in)’을 만든다 (2026.04.09)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+본 보고서는 2026년 전 세계 AI 지출이 2.5조 달러에 이를 전망이며, 그중 절반 이상이 서버·가속기·데이터센터 등 인프라에 집중된다고 설명한다. NVIDIA GPU 지배력은 하드웨어 성능뿐 아니라 CUDA 이후 축적된 소프트웨어 생태계와 최적화 격차로 인해 동일 칩에서도 처리량이 3배 이상 달라질 수 있다고 분석한다. AI 소프트웨어 스택을 프레임워크·컴파일러·가속 라이브러리·드라이버/런타임 4계층으로 나누고, 성능 종속·설계 종속·구조적 종속 등 3가지 잠금 메커니즘이 중첩될수록 전환비용이 커진다고 제시한다. 이를 K-NPU에 적용하면 프레임워크 진입은 이뤘지만 컴파일러·라이브러리 성능 격차 해소와 운영 생태계 규모 확보가 과제로 남아 있으며, 이를 위해 SW 생태계 R&amp;D 확대, 글로벌 오픈소스 표준 참여, 공공 실증환경 제공, TCO 기반 평가, 전문 인력 양성을 제언한다.
+
+https://www.spri.kr/posts/view/23966?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
   <p>출처: 소프트웨어정책연구소(SPRi)</p>
 <p>본 보고서는 2026년 전 세계 AI 지출이 2.5조 달러에 이를 전망이며, 그중 절반 이상이 서버·가속기·데이터센터 등 인프라에 집중된다고 설명한다. NVIDIA GPU 지배력은 하드웨어 성능뿐 아니라 CUDA 이후 축적된 소프트웨어 생태계와 최적화 격차로 인해 동일 칩에서도 처리량이 3배 이상 달라질 수 있다고 분석한다. AI 소프트웨어 스택을 프레임워크·컴파일러·가속 라이브러리·드라이버/런타임 4계층으로 나누고, 성능 종속·설계 종속·구조적 종속 등 3가지 잠금 메커니즘이 중첩될수록 전환비용이 커진다고 제시한다. 이를 K-NPU에 적용하면 프레임워크 진입은 이뤘지만 컴파일러·라이브러리 성능 격차 해소와 운영 생태계 규모 확보가 과제로 남아 있으며, 이를 위해 SW 생태계 R&amp;D 확대, 글로벌 오픈소스 표준 참여, 공공 실증환경 제공, TCO 기반 평가, 전문 인력 양성을 제언한다.</p>
   <p class="url"><a href="https://www.spri.kr/posts/view/23966?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23966?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=</a></p>
 </article>
 <article class="entry cat-research">
   <h2>무기화된 Claude 소스코드 유출, FBI 감청 도구 침해 및 Cisco 소스코드 절도와 맞물린 공급망 보안 위기 (2026.4.4)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">중요 일정: 없음</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">중요 일정: 없음</span></span><button type="button" class="copy-btn" data-copy="무기화된 Claude 소스코드 유출, FBI 감청 도구 침해 및 Cisco 소스코드 절도와 맞물린 공급망 보안 위기 (2026.4.4)
+
+해커들이 유출된 Anthropic의 Claude AI 소스코드를 악성코드를 포함한 형태로 온라인에 배포하고 있으며, GitHub 및 포럼에서 정상 저장소로 위장해 내려받는 사용자가 백도어와 자격정보 탈취 기능에 감염될 수 있다고 전했다. 동시에 FBI는 법원 승인 감청에 사용되는 감시 도구가 침해를 당해 국가안보 위험이 발생했다고 확인했으며, Cisco도 진행 중인 공급망 공격의 일환으로 소스코드를 절도당했다고 밝혔다. 보안 전문가들은 이번 사건들이 짧은 기간에 동시다발적으로 발생해 AI 보안 취약점과 중요 인프라 공격이 한 단계 더 고도화된 신호라고 경고했다.
+
+https://www.techbuzz.ai/articles/claude-code-leak-weaponized-with-malware-in-security-crisis" onclick="copyEntry(this)">복사</button></div>
   <p>해커들이 유출된 Anthropic의 Claude AI 소스코드를 악성코드를 포함한 형태로 온라인에 배포하고 있으며, GitHub 및 포럼에서 정상 저장소로 위장해 내려받는 사용자가 백도어와 자격정보 탈취 기능에 감염될 수 있다고 전했다. 동시에 FBI는 법원 승인 감청에 사용되는 감시 도구가 침해를 당해 국가안보 위험이 발생했다고 확인했으며, Cisco도 진행 중인 공급망 공격의 일환으로 소스코드를 절도당했다고 밝혔다. 보안 전문가들은 이번 사건들이 짧은 기간에 동시다발적으로 발생해 AI 보안 취약점과 중요 인프라 공격이 한 단계 더 고도화된 신호라고 경고했다.</p>
   <p class="url"><a href="https://www.techbuzz.ai/articles/claude-code-leak-weaponized-with-malware-in-security-crisis">https://www.techbuzz.ai/articles/claude-code-leak-weaponized-with-malware-in-security-crisis</a></p>
 </article>
 <article class="entry cat-research">
   <h2>OpenAI, 초지능 AI 시대를 가정한 경제 정책 아이디어 제시(2026.4.6)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요: 본문 내용(정책 항목·세부 내용·발표 시점 등) 확인이 필요합니다.</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요: 본문 내용(정책 항목·세부 내용·발표 시점 등) 확인이 필요합니다.</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 초지능 AI 시대를 가정한 경제 정책 아이디어 제시(2026.4.6)
+
+WSJ 페이지 본문을 확인할 수 없어, OpenAI가 초지능(superintelligence) 환경을 전제로 어떤 경제 정책 아이디어를 제안하는지 구체 내용은 확인이 필요합니다. 다만 제목과 메타정보 기준으로는 초지능 AI 미래에 대비한 경제 정책 논의를 다루는 것으로 보입니다.
+
+https://www.wsj.com/tech/ai/what-to-know-about-openais-ideas-for-a-world-with-superintelligence-e97d6e7b?st=PCiaxi&amp;reflink=desktopwebshare_permalink&amp;utm_source=tldrai" onclick="copyEntry(this)">복사</button></div>
   <p>WSJ 페이지 본문을 확인할 수 없어, OpenAI가 초지능(superintelligence) 환경을 전제로 어떤 경제 정책 아이디어를 제안하는지 구체 내용은 확인이 필요합니다. 다만 제목과 메타정보 기준으로는 초지능 AI 미래에 대비한 경제 정책 논의를 다루는 것으로 보입니다.</p>
   <p class="url"><a href="https://www.wsj.com/tech/ai/what-to-know-about-openais-ideas-for-a-world-with-superintelligence-e97d6e7b?st=PCiaxi&amp;reflink=desktopwebshare_permalink&amp;utm_source=tldrai">https://www.wsj.com/tech/ai/what-to-know-about-openais-ideas-for-a-world-with-superintelligence-e97d6e7b?st=PCiaxi&amp;reflink=desktopwebshare_permalink&amp;utm_source=tldrai</a></p>
 </article>
 <article class="entry cat-research">
   <h2>오픈소스 GLM-5.1, 코딩 벤치마크에서 프론티어 모델을 능가 (2026.4.7)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요: 본문 내용(실험 조건, 벤치마크명, 수치, 비교 대상)이 제공되지 않아 구체 성능 근거는 확인 필요</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요: 본문 내용(실험 조건, 벤치마크명, 수치, 비교 대상)이 제공되지 않아 구체 성능 근거는 확인 필요</span></span><button type="button" class="copy-btn" data-copy="오픈소스 GLM-5.1, 코딩 벤치마크에서 프론티어 모델을 능가 (2026.4.7)
+
+z.ai 블로그 글은 오픈소스 모델 GLM-5.1이 코딩 관련 벤치마크에서 프론티어 모델보다 우수한 성과를 보였다고 소개한다. 다만 제공된 정보에는 벤치마크의 정확한 명칭과 비교 기준, 성능 수치가 없어 세부 내용은 확인 필요다.
+
+https://z.ai/blog/glm-5.1" onclick="copyEntry(this)">복사</button></div>
   <p>z.ai 블로그 글은 오픈소스 모델 GLM-5.1이 코딩 관련 벤치마크에서 프론티어 모델보다 우수한 성과를 보였다고 소개한다. 다만 제공된 정보에는 벤치마크의 정확한 명칭과 비교 기준, 성능 수치가 없어 세부 내용은 확인 필요다.</p>
   <p class="url"><a href="https://z.ai/blog/glm-5.1">https://z.ai/blog/glm-5.1</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책에 반하는 요청 차단 (2025.6.30)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책에 반하는 요청 차단 (2025.6.30)
+
+웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었다고 안내한다. 차단 사유 확인을 위해 탐지 시간, 탐지된 클라이언트 IP, 탐지된 URL 정보가 함께 제시된다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250630-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었다고 안내한다. 차단 사유 확인을 위해 탐지 시간, 탐지된 클라이언트 IP, 탐지된 URL 정보가 함께 제시된다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250630-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250630-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>의료 AI 패러다임 변화 등(IITP 디지털 아웃룩 2025-7월호) 관련 페이지 접근 차단 (2025.8.1)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="의료 AI 패러다임 변화 등(IITP 디지털 아웃룩 2025-7월호) 관련 페이지 접근 차단 (2025.8.1)
+
+웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었다고 안내합니다. 차단 사유로 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL) 정보가 함께 표시됩니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250801-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었다고 안내합니다. 차단 사유로 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL) 정보가 함께 표시됩니다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250801-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250801-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책 위반 요청 차단 (2025.9.1)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책 위반 요청 차단 (2025.9.1)
+
+웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다는 안내가 제시된다. 차단 관련 정보로 탐지 시간(Detect time), 탐지 클라이언트 IP(Detect client IP), 탐지 URL(Detect URL)이 함께 표시된다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250901-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다는 안내가 제시된다. 차단 관련 정보로 탐지 시간(Detect time), 탐지 클라이언트 IP(Detect client IP), 탐지 URL(Detect URL)이 함께 표시된다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250901-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250901-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>디지털 산업·기술 하이라이트 外 [IITP 디지털 아웃룩 2025-9월호] (2025.10.2)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">요청/응답이 웹 방화벽 보안 정책에 위배되어 차단됨(탐지: 시간, 클라이언트 IP, URL)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">요청/응답이 웹 방화벽 보안 정책에 위배되어 차단됨(탐지: 시간, 클라이언트 IP, URL)</span></span><button type="button" class="copy-btn" data-copy="디지털 산업·기술 하이라이트 外 [IITP 디지털 아웃룩 2025-9월호] (2025.10.2)
+
+웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다는 안내가 제시되어 있습니다. 차단 사유와 관련해 탐지 시간, 클라이언트 IP, 탐지 URL 정보가 함께 표시됩니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251002-000015" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다는 안내가 제시되어 있습니다. 차단 사유와 관련해 탐지 시간, 클라이언트 IP, 탐지 URL 정보가 함께 표시됩니다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251002-000015">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251002-000015</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>주요국 소버린 AI 추진 현황 분석 관련 페이지 접근 차단(2025.10.16)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽 보안 정책에 반하는 요청/응답이 차단됨(탐지: Detect time, Detect client IP, Detect URL)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽 보안 정책에 반하는 요청/응답이 차단됨(탐지: Detect time, Detect client IP, Detect URL)</span></span><button type="button" class="copy-btn" data-copy="주요국 소버린 AI 추진 현황 분석 관련 페이지 접근 차단(2025.10.16)
+
+해당 페이지 요청이 웹 방화벽 보안 정책에 위배되어 차단되었다는 안내가 표시됩니다. 차단 사유와 관련해 탐지 시간, 클라이언트 IP, 요청 URL을 확인하는 항목이 함께 제시됩니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251016-000012" onclick="copyEntry(this)">복사</button></div>
   <p>해당 페이지 요청이 웹 방화벽 보안 정책에 위배되어 차단되었다는 안내가 표시됩니다. 차단 사유와 관련해 탐지 시간, 클라이언트 IP, 요청 URL을 확인하는 항목이 함께 제시됩니다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251016-000012">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251016-000012</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>양자 컴퓨터 보안 위협 관련 주요국 대응(2025.10.24)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="양자 컴퓨터 보안 위협 관련 주요국 대응(2025.10.24)
+
+웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었으며, 탐지 시간·클라이언트 IP·요청 URL을 기준으로 탐지한 것으로 안내한다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251024-000007" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었으며, 탐지 시간·클라이언트 IP·요청 URL을 기준으로 탐지한 것으로 안내한다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251024-000007">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251024-000007</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>영국 사이버 성장 실행계획 外 (2025.11.3)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="영국 사이버 성장 실행계획 外 (2025.11.3)
+
+웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다고 안내한다. 차단과 관련해 탐지 시간, 탐지된 클라이언트 IP, 탐지된 URL 정보를 확인할 수 있다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251103-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다고 안내한다. 차단과 관련해 탐지 시간, 탐지된 클라이언트 IP, 탐지된 URL 정보를 확인할 수 있다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251103-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251103-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>(2025.11.11) 웹 방화벽 보안 정책에 반하는 요청이 차단됨</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었으며, 차단 사유로 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)이 함께 기록됨</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었으며, 차단 사유로 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)이 함께 기록됨</span></span><button type="button" class="copy-btn" data-copy="(2025.11.11) 웹 방화벽 보안 정책에 반하는 요청이 차단됨
+
+
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251111-000001" onclick="copyEntry(this)">복사</button></div>
   
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251111-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251111-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책에 반하는 요청/응답 차단 (2025.12.1)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책에 반하는 요청/응답 차단 (2025.12.1)
+
+웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었으며, 차단 사유와 관련해 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)을 확인하도록 안내합니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251201-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었으며, 차단 사유와 관련해 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)을 확인하도록 안내합니다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251201-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251201-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책에 반하는 요청·응답 차단 (2025.12.4)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">탐지 항목: 탐지 시간, 탐지 클라이언트 IP, 탐지 URL</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">탐지 항목: 탐지 시간, 탐지 클라이언트 IP, 탐지 URL</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책에 반하는 요청·응답 차단 (2025.12.4)
+
+웹 방화벽 보안 정책에 위배되는 요청/응답은 차단되었다고 안내합니다. 또한 차단 관련 탐지 정보로 탐지 시간, 클라이언트 IP, URL을 확인하도록 되어 있습니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251204-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 위배되는 요청/응답은 차단되었다고 안내합니다. 또한 차단 관련 탐지 정보로 탐지 시간, 클라이언트 IP, URL을 확인하도록 되어 있습니다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251204-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251204-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책에 위배되는 요청이 차단됨 (2025.12.22)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽에서 보안 정책 위반 요청이 차단되었으며, 차단 과정에서 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)이 기록된 것으로 안내됨.</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽에서 보안 정책 위반 요청이 차단되었으며, 차단 과정에서 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)이 기록된 것으로 안내됨.</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책에 위배되는 요청이 차단됨 (2025.12.22)
+
+
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251222-000001" onclick="copyEntry(this)">복사</button></div>
   
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251222-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251222-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책에 위배된 요청 차단 (2025.12.24)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책에 위배된 요청 차단 (2025.12.24)
+
+웹 방화벽 보안 정책과 상충하는 요청/응답이 차단되었다고 안내합니다. 차단 과정에서 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), 요청 URL(Detect URL) 정보가 함께 표시됩니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251224-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책과 상충하는 요청/응답이 차단되었다고 안내합니다. 차단 과정에서 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), 요청 URL(Detect URL) 정보가 함께 표시됩니다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251224-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-251224-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책에 반하는 요청이 차단됨 (2026.1.2)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책에 반하는 요청이 차단됨 (2026.1.2)
+
+웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었다고 안내한다. 차단과 관련해 탐지 시간, 클라이언트 IP, URL을 확인하도록 표시되어 있다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260102-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었다고 안내한다. 차단과 관련해 탐지 시간, 클라이언트 IP, URL을 확인하도록 표시되어 있다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260102-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260102-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>(2026.1.2) 웹 방화벽 보안 정책에 반하는 요청이 차단됨</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="(2026.1.2) 웹 방화벽 보안 정책에 반하는 요청이 차단됨
+
+웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었으며, 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL) 정보가 함께 표시됨.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260102-000002" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었으며, 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL) 정보가 함께 표시됨.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260102-000002">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260102-000002</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>(2026.1.5) 웹 방화벽 보안 정책에 반하는 요청이 차단됨</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었으며, 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL) 정보가 함께 표시됨.</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었으며, 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL) 정보가 함께 표시됨.</span></span><button type="button" class="copy-btn" data-copy="(2026.1.5) 웹 방화벽 보안 정책에 반하는 요청이 차단됨
+
+
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260105-000001" onclick="copyEntry(this)">복사</button></div>
   
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260105-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260105-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>주요국의 AI데이터 활용 정책(ICT SPOT ISSUE, 2026.1.9)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽 보안 정책에 위배되는 요청/응답이 차단됨</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽 보안 정책에 위배되는 요청/응답이 차단됨</span></span><button type="button" class="copy-btn" data-copy="주요국의 AI데이터 활용 정책(ICT SPOT ISSUE, 2026.1.9)
+
+페이지 본문은 웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었음을 안내합니다. 차단 사유와 관련해 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)을 확인한다고 명시돼 있습니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260109-000005" onclick="copyEntry(this)">복사</button></div>
   <p>페이지 본문은 웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었음을 안내합니다. 차단 사유와 관련해 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)을 확인한다고 명시돼 있습니다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260109-000005">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260109-000005</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>에이젠틱AI·피지컬AI·사이버보안 관련 AI·ICT Brief(2026.1.30)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">요청/응답이 웹 방화벽 보안 정책에 위배되어 차단됨(탐지: 시간, 클라이언트 IP, URL)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">요청/응답이 웹 방화벽 보안 정책에 위배되어 차단됨(탐지: 시간, 클라이언트 IP, URL)</span></span><button type="button" class="copy-btn" data-copy="에이젠틱AI·피지컬AI·사이버보안 관련 AI·ICT Brief(2026.1.30)
+
+본문은 웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다고 안내합니다. 차단 사유를 확인하기 위한 탐지 항목으로 탐지 시간, 클라이언트 IP, URL이 제시되어 있습니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260130-000001" onclick="copyEntry(this)">복사</button></div>
   <p>본문은 웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다고 안내합니다. 차단 사유를 확인하기 위한 탐지 항목으로 탐지 시간, 클라이언트 IP, URL이 제시되어 있습니다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260130-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260130-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책에 위배되는 요청이 차단됨 (2026.2.2)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽에서 차단된 요청은 탐지 시점(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)을 기준으로 확인됨</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span> · <span class="deadline">웹 방화벽에서 차단된 요청은 탐지 시점(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)을 기준으로 확인됨</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책에 위배되는 요청이 차단됨 (2026.2.2)
+
+웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다고 안내한다. 차단 사유를 확인하기 위해 탐지 시간, 클라이언트 IP, 요청 URL 정보가 함께 표시된다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260202-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다고 안내한다. 차단 사유를 확인하기 위해 탐지 시간, 클라이언트 IP, 요청 URL 정보가 함께 표시된다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260202-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260202-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책에 위배되는 요청이 차단됨 (2026.2.6)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책에 위배되는 요청이 차단됨 (2026.2.6)
+
+웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다는 안내가 표시된다. 탐지 시간(Detect time), 탐지 클라이언트 IP(Detect client IP), 탐지 URL(Detect URL) 정보가 함께 제공된다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260206-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다는 안내가 표시된다. 탐지 시간(Detect time), 탐지 클라이언트 IP(Detect client IP), 탐지 URL(Detect URL) 정보가 함께 제공된다.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260206-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260206-000001</a></p>
 </article>
 <article class="entry cat-notice">
   <h2>웹 방화벽 보안 정책에 위배되는 요청이 차단됨 (2026.2.13)</h2>
-  <div class="meta"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">공지</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="웹 방화벽 보안 정책에 위배되는 요청이 차단됨 (2026.2.13)
+
+웹 방화벽 보안 정책과 상충하는 요청/응답이 차단되었으며, 차단 관련 탐지 항목으로 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)이 표시됨.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260213-000001" onclick="copyEntry(this)">복사</button></div>
   <p>웹 방화벽 보안 정책과 상충하는 요청/응답이 차단되었으며, 차단 관련 탐지 항목으로 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL)이 표시됨.</p>
   <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260213-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260213-000001</a></p>
 </article>
 <footer>AI Safety pipeline · daily_digest_html</footer>
 </div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
 </body>
 </html>

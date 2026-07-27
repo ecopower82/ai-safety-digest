@@ -50,7 +50,16 @@
   .entry.cat-other { border-left-color: var(--cat-other); }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
   .badge {
     display: inline-block; padding: 2px 9px; border-radius: 999px;
     font-size: 0.72rem; font-weight: 600; color: #fff;
@@ -86,84 +95,172 @@
 </header>
 <article class="entry cat-company">
   <h2>Gemini 3.1 Flash TTS 출시(2026.4.15)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">구글(DeepMind)</span> · <span class="deadline">Gemini API·Google AI Studio(개발자 프리뷰), Vertex AI(기업 프리뷰), Google Vids(Workspace 사용자)에서 15일부터 순차 롤아웃</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">구글(DeepMind)</span> · <span class="deadline">Gemini API·Google AI Studio(개발자 프리뷰), Vertex AI(기업 프리뷰), Google Vids(Workspace 사용자)에서 15일부터 순차 롤아웃</span></span><button type="button" class="copy-btn" data-copy="Gemini 3.1 Flash TTS 출시(2026.4.15)
+
+Gemini 3.1 Flash TTS는 텍스트를 음성으로 생성하는 모델로, 음성 품질과 표현력, 제어 기능을 개선했다고 밝혔다. 자연어 기반 ‘오디오 태그’를 텍스트 입력에 포함해 발화 스타일·속도·전달 방식 등을 더 세밀하게 조정할 수 있으며, 70개+ 언어와 멀티스피커 대화도 지원한다. 생성 음성은 SynthID 워터마킹이 적용되어 AI 생성 콘텐츠를 탐지하고 허위정보를 예방하는 데 활용된다.
+
+https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts" onclick="copyEntry(this)">복사</button></div>
   <p>Gemini 3.1 Flash TTS는 텍스트를 음성으로 생성하는 모델로, 음성 품질과 표현력, 제어 기능을 개선했다고 밝혔다. 자연어 기반 ‘오디오 태그’를 텍스트 입력에 포함해 발화 스타일·속도·전달 방식 등을 더 세밀하게 조정할 수 있으며, 70개+ 언어와 멀티스피커 대화도 지원한다. 생성 음성은 SynthID 워터마킹이 적용되어 AI 생성 콘텐츠를 탐지하고 허위정보를 예방하는 데 활용된다.</p>
   <p class="url"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts">https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(2026.4.16) LLM 그루밍: AI 학습데이터를 오염시키는 새로운 형태의 허위정보 확산</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">blog.ogunlana.net</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">blog.ogunlana.net</span></span><button type="button" class="copy-btn" data-copy="(2026.4.16) LLM 그루밍: AI 학습데이터를 오염시키는 새로운 형태의 허위정보 확산
+
+AI 보안 연구자들이 ‘LLM grooming’이라는 허위정보 전략을 소개했으며, 인간을 속이기보다 AI가 학습하는 웹 데이터 자체를 오염시키는 방식이라고 설명한다. 러시아 기반 ‘프라우다 네트워크’ 사례로, 수백 개 도메인에 대량의 허위·선전성 콘텐츠를 다국어로 게시하고 인간 방문 없이 주로 AI 크롤러가 수집하도록 설계된 정황이 제시된다. NewsGuard(2025년 3월) 테스트에서는 프라우다 네트워크가 겨냥한 주제에 대해 주요 챗봇 응답의 33%가 러시아 선전 서사를 포함했다고 언급하며, 허위가 사실처럼 섞여 구분이 어려울 수 있다고 경고한다.
+
+https://blog.ogunlana.net/2025/07/31/understanding-llm-grooming-the-new-frontier-of-ai-powered-disinformation" onclick="copyEntry(this)">복사</button></div>
   <p>AI 보안 연구자들이 ‘LLM grooming’이라는 허위정보 전략을 소개했으며, 인간을 속이기보다 AI가 학습하는 웹 데이터 자체를 오염시키는 방식이라고 설명한다. 러시아 기반 ‘프라우다 네트워크’ 사례로, 수백 개 도메인에 대량의 허위·선전성 콘텐츠를 다국어로 게시하고 인간 방문 없이 주로 AI 크롤러가 수집하도록 설계된 정황이 제시된다. NewsGuard(2025년 3월) 테스트에서는 프라우다 네트워크가 겨냥한 주제에 대해 주요 챗봇 응답의 33%가 러시아 선전 서사를 포함했다고 언급하며, 허위가 사실처럼 섞여 구분이 어려울 수 있다고 경고한다.</p>
   <p class="url"><a href="https://blog.ogunlana.net/2025/07/31/understanding-llm-grooming-the-new-frontier-of-ai-powered-disinformation">https://blog.ogunlana.net/2025/07/31/understanding-llm-grooming-the-new-frontier-of-ai-powered-disinformation</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>(2026.4.15) 유럽 교육기술(EdTech) 분야의 미래와 AI 기반 경쟁력 강화 논의</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span> · <span class="deadline">브뤼셀에서 고위급 대화(High-level Dialogue) 개최</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span> · <span class="deadline">브뤼셀에서 고위급 대화(High-level Dialogue) 개최</span></span><button type="button" class="copy-btn" data-copy="(2026.4.15) 유럽 교육기술(EdTech) 분야의 미래와 AI 기반 경쟁력 강화 논의
+
+유럽연합 집행위원회 부집행위원장 헨나 비르쿤넨과 로크사나 민차투가 브뤼셀에서 EdTech 기업 리더들과 고위급 대화를 개최한다. 이번 논의는 교육·훈련에서 기술의 중요성이 커지는 흐름, EU의 디지털 주권과 경쟁력에 대한 기여, 그리고 비(非)EU 기술 생태계 의존을 줄이면서 EU 내 AI 기반 교육 솔루션의 경쟁력을 강화하는 방안을 다룬다. 또한 교육과 기업 간 협력 및 전략적 파트너십을 통해 유럽 EdTech 기업의 유럽·글로벌 성장과 경쟁력 제고를 모색하며, 올해 말 예상되는 ‘디지털 교육 및 기술’ 2030 로드맵 준비에도 기여할 예정이다.
+
+https://digital-strategy.ec.europa.eu/en/news/executive-vice-presidents-virkkunen-and-minzatu-discuss-future-europes-education-technology-sector" onclick="copyEntry(this)">복사</button></div>
   <p>유럽연합 집행위원회 부집행위원장 헨나 비르쿤넨과 로크사나 민차투가 브뤼셀에서 EdTech 기업 리더들과 고위급 대화를 개최한다. 이번 논의는 교육·훈련에서 기술의 중요성이 커지는 흐름, EU의 디지털 주권과 경쟁력에 대한 기여, 그리고 비(非)EU 기술 생태계 의존을 줄이면서 EU 내 AI 기반 교육 솔루션의 경쟁력을 강화하는 방안을 다룬다. 또한 교육과 기업 간 협력 및 전략적 파트너십을 통해 유럽 EdTech 기업의 유럽·글로벌 성장과 경쟁력 제고를 모색하며, 올해 말 예상되는 ‘디지털 교육 및 기술’ 2030 로드맵 준비에도 기여할 예정이다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/executive-vice-presidents-virkkunen-and-minzatu-discuss-future-europes-education-technology-sector">https://digital-strategy.ec.europa.eu/en/news/executive-vice-presidents-virkkunen-and-minzatu-discuss-future-europes-education-technology-sector</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>(2026.4.15 기준) 유럽 디지털 서비스 이사회, 미성년자 온라인 보호·연령검증 앱 고도화·DSA 집행 효율화 논의</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">15 April 2026 브뤼셀에서 제18차 회의 개최</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">15 April 2026 브뤼셀에서 제18차 회의 개최</span></span><button type="button" class="copy-btn" data-copy="(2026.4.15 기준) 유럽 디지털 서비스 이사회, 미성년자 온라인 보호·연령검증 앱 고도화·DSA 집행 효율화 논의
+
+유럽 디지털 서비스 이사회는 2026년 4월 15일 브뤼셀에서 제18차 회의를 열고 미성년자 온라인 보호를 최우선 과제로 재확인했다. DSA(디지털서비스법) 제28조(1) 관련 집행·이행 조치 현황을 공유했으며, 미성년자 보호 지침을 EU 전역에서 플랫폼 준수 여부 평가의 기준으로 활용하기로 했다. 또한 EU의 조화된 연령검증(AV) 앱이 지침의 연령확인 요건(정확성·신뢰성·견고성·비침해성)을 충족하도록 하는 기술 업데이트와, eID 등 연령 증명 온보딩 방식에 대해 논의했다. 이사회는 운영 2년을 점검하며 DSA 집행 강화를 위해 업무 방식과 프로세스를 간소화하고 전략적 역할을 더 강조하기로 했다.
+
+https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 디지털 서비스 이사회는 2026년 4월 15일 브뤼셀에서 제18차 회의를 열고 미성년자 온라인 보호를 최우선 과제로 재확인했다. DSA(디지털서비스법) 제28조(1) 관련 집행·이행 조치 현황을 공유했으며, 미성년자 보호 지침을 EU 전역에서 플랫폼 준수 여부 평가의 기준으로 활용하기로 했다. 또한 EU의 조화된 연령검증(AV) 앱이 지침의 연령확인 요건(정확성·신뢰성·견고성·비침해성)을 충족하도록 하는 기술 업데이트와, eID 등 연령 증명 온보딩 방식에 대해 논의했다. 이사회는 운영 2년을 점검하며 DSA 집행 강화를 위해 업무 방식과 프로세스를 간소화하고 전략적 역할을 더 강조하기로 했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services">https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(LLM04:2025 Data and Model Poisoning, 2026.4.16)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">OWASP(GenAI LLM Risk) 공식 웹사이트</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">OWASP(GenAI LLM Risk) 공식 웹사이트</span></span><button type="button" class="copy-btn" data-copy="(LLM04:2025 Data and Model Poisoning, 2026.4.16)
+
+데이터 포이즈닝은 사전학습·미세조정·임베딩 단계의 데이터가 조작되어 취약점, 백도어, 편향을 주입하는 공격으로, 모델의 보안·성능·윤리적 동작을 훼손할 수 있다고 설명한다. 외부/검증되지 않은 데이터 소스나 오픈소스 저장소를 통해 배포된 모델은 악성 콘텐츠(예: 악성 pickling으로 인한 코드 실행) 등 데이터 포이즈닝 외의 공급망 위험도 함께 가질 수 있으며, 트리거가 발생하기 전까지는 행동 변화가 드러나지 않는 백도어(슬리퍼 에이전트) 가능성도 언급한다. 예방·대응으로는 데이터 출처/변환 추적(CycloneDX, ML-BOM), 데이터 벤더 검증, 샌드박싱과 이상탐지, 데이터 버전관리(DVC), 레드팀 기반 강건성 테스트, 학습 중 손실·행동 모니터링, 추론 시 RAG/그라운딩 적용 등이 제시된다.
+
+https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/" onclick="copyEntry(this)">복사</button></div>
   <p>데이터 포이즈닝은 사전학습·미세조정·임베딩 단계의 데이터가 조작되어 취약점, 백도어, 편향을 주입하는 공격으로, 모델의 보안·성능·윤리적 동작을 훼손할 수 있다고 설명한다. 외부/검증되지 않은 데이터 소스나 오픈소스 저장소를 통해 배포된 모델은 악성 콘텐츠(예: 악성 pickling으로 인한 코드 실행) 등 데이터 포이즈닝 외의 공급망 위험도 함께 가질 수 있으며, 트리거가 발생하기 전까지는 행동 변화가 드러나지 않는 백도어(슬리퍼 에이전트) 가능성도 언급한다. 예방·대응으로는 데이터 출처/변환 추적(CycloneDX, ML-BOM), 데이터 벤더 검증, 샌드박싱과 이상탐지, 데이터 버전관리(DVC), 레드팀 기반 강건성 테스트, 학습 중 손실·행동 모니터링, 추론 시 RAG/그라운딩 적용 등이 제시된다.</p>
   <p class="url"><a href="https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/">https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/</a></p>
 </article>
 <article class="entry cat-other">
   <h2></h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">HKS Misinformation Review (하버드 케네디스쿨 미스인포메이션 리뷰)</span> · <span class="deadline">(2026.4.16 기준) LLM 챗봇의 크렘린 연계 허위정보 인용은 ‘조작(grooming)’보다 ‘정보 공백(data voids)’ 가능성이 크다</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">HKS Misinformation Review (하버드 케네디스쿨 미스인포메이션 리뷰)</span> · <span class="deadline">(2026.4.16 기준) LLM 챗봇의 크렘린 연계 허위정보 인용은 ‘조작(grooming)’보다 ‘정보 공백(data voids)’ 가능성이 크다</span></span><button type="button" class="copy-btn" data-copy="
+
+LLM 기반 챗봇 4종(ChatGPT-4o, Gemini 2.5 Flash, Copilot, Grok-2)을 대상으로, 크렘린 연계 허위정보로 알려진 프롬프트에 대한 응답을 분석한 결과 ‘grooming’ 증거는 제한적이며, 크렘린 연계 사이트 인용은 드물고 대체로 검증되지 않았거나 논쟁 중인 정보로 취급되는 경향이 나타났다. 전체 응답 중 허위정보를 지지한 비율은 5%, 크렘린 연계 사이트를 인용한 비율은 8%에 그쳤다. 연구진은 특정 세부가 주류 보도에서 빠진 좁은 질문에서만 Pravda 도메인이 언급되는 패턴이 관찰되어, 외부의 표적 조작보다는 신뢰할 만한 정보가 부족한 구조적 ‘정보 공백’이 더 큰 원인일 수 있다고 결론 내린다.
+
+https://misinforeview.hks.harvard.edu/article/llms-grooming-or-data-voids-llm-powered-chatbot-references-to-kremlin-disinformation-reflect-information-gaps-not-manipulation/" onclick="copyEntry(this)">복사</button></div>
   <p>LLM 기반 챗봇 4종(ChatGPT-4o, Gemini 2.5 Flash, Copilot, Grok-2)을 대상으로, 크렘린 연계 허위정보로 알려진 프롬프트에 대한 응답을 분석한 결과 ‘grooming’ 증거는 제한적이며, 크렘린 연계 사이트 인용은 드물고 대체로 검증되지 않았거나 논쟁 중인 정보로 취급되는 경향이 나타났다. 전체 응답 중 허위정보를 지지한 비율은 5%, 크렘린 연계 사이트를 인용한 비율은 8%에 그쳤다. 연구진은 특정 세부가 주류 보도에서 빠진 좁은 질문에서만 Pravda 도메인이 언급되는 패턴이 관찰되어, 외부의 표적 조작보다는 신뢰할 만한 정보가 부족한 구조적 ‘정보 공백’이 더 큰 원인일 수 있다고 결론 내린다.</p>
   <p class="url"><a href="https://misinforeview.hks.harvard.edu/article/llms-grooming-or-data-voids-llm-powered-chatbot-references-to-kremlin-disinformation-reflect-information-gaps-not-manipulation/">https://misinforeview.hks.harvard.edu/article/llms-grooming-or-data-voids-llm-powered-chatbot-references-to-kremlin-disinformation-reflect-information-gaps-not-manipulation/</a></p>
 </article>
 <article class="entry cat-other">
   <h2></h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">하버드 케네디스쿨(HKS) 미신포메이션 리뷰(misinforeview.hks.harvard.edu)</span> · <span class="deadline">(2026.4.16) 유권자들은 선거 관련 허위정보를 기존 정치적 신념과 경험에 비춰 판단하며, 독립 팩트체커와 큰 인식 차이 확인</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">하버드 케네디스쿨(HKS) 미신포메이션 리뷰(misinforeview.hks.harvard.edu)</span> · <span class="deadline">(2026.4.16) 유권자들은 선거 관련 허위정보를 기존 정치적 신념과 경험에 비춰 판단하며, 독립 팩트체커와 큰 인식 차이 확인</span></span><button type="button" class="copy-btn" data-copy="
+
+2025년 호주 연방선거(4/26~5/2) 기간 디지털 다이어리 방식으로 254건을 수집·팩트체크
+
+하버드 케네디스쿨 연구진은 호주 2025년 연방선거 기간 유권자 38명이 매일 접한 정치적 허위정보로 의심되는 사례 254건을 수집하고, 그 판단 이유를 설명하게 한 뒤 전문 팩트체커가 사실 여부를 검증했다. 참여자들은 해당 주장들이 자신의 기존 지식·경험과 모순된다고 느끼거나(28%), 편향돼 보인다고 판단하는 경우(22%)를 허위정보 판정의 주요 근거로 들었으며, 외부 검증에 기반한 경우는 4%에 그쳤다. 독립 팩트체커 결과는 참여자들이 허위로 본 제출물 중 10%만 거짓으로 확인된 반면 37%는 사실로 판정돼, ‘허위정보’에 대한 인식과 전문 검증 결과 사이에 상당한 격차가 있음을 보여준다. 또한 허위정보를 접했을 때는 ‘아무것도 하지 않음’(44%)이 가장 많고, ‘타인과 공유·논의’(21%)가 뒤를 이었다.
+
+https://misinforeview.hks.harvard.edu/article/people-rely-on-their-existing-political-beliefs-to-identify-election-misinformation/" onclick="copyEntry(this)">복사</button></div>
   <p>2025년 호주 연방선거(4/26~5/2) 기간 디지털 다이어리 방식으로 254건을 수집·팩트체크</p>
 <p>하버드 케네디스쿨 연구진은 호주 2025년 연방선거 기간 유권자 38명이 매일 접한 정치적 허위정보로 의심되는 사례 254건을 수집하고, 그 판단 이유를 설명하게 한 뒤 전문 팩트체커가 사실 여부를 검증했다. 참여자들은 해당 주장들이 자신의 기존 지식·경험과 모순된다고 느끼거나(28%), 편향돼 보인다고 판단하는 경우(22%)를 허위정보 판정의 주요 근거로 들었으며, 외부 검증에 기반한 경우는 4%에 그쳤다. 독립 팩트체커 결과는 참여자들이 허위로 본 제출물 중 10%만 거짓으로 확인된 반면 37%는 사실로 판정돼, ‘허위정보’에 대한 인식과 전문 검증 결과 사이에 상당한 격차가 있음을 보여준다. 또한 허위정보를 접했을 때는 ‘아무것도 하지 않음’(44%)이 가장 많고, ‘타인과 공유·논의’(21%)가 뒤를 이었다.</p>
   <p class="url"><a href="https://misinforeview.hks.harvard.edu/article/people-rely-on-their-existing-political-beliefs-to-identify-election-misinformation/">https://misinforeview.hks.harvard.edu/article/people-rely-on-their-existing-political-beliefs-to-identify-election-misinformation/</a></p>
 </article>
 <article class="entry cat-other">
   <h2>LLM 그루밍·프롬프트 조작이 기업에 위협이 될 수 있음 (2026.4.16)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">fairedih.fi</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">fairedih.fi</span></span><button type="button" class="copy-btn" data-copy="LLM 그루밍·프롬프트 조작이 기업에 위협이 될 수 있음 (2026.4.16)
+
+본문 요약: 연구에 따르면 LLM을 통한 조작(예: 그루밍·프롬프트 조작)은 실험적으로 가능하며 비교적 쉽게 수행될 수 있다고 설명한다. 특히 소멸된 도메인을 구매하는 데 약 60달러 정도의 예산만으로도 공격이 가능하다는 사례가 제시된다. 그 결과, 사용자가 의심하지 못한 채 중립 전문가의 목소리로 허위정보를 반복 생성하도록 AI가 유도될 가능성도 있다고 본문은 경고한다.
+
+https://www.fairedih.fi/en/2025/06/01/llm-grooming-and-prompt-manipulation-ai-vulnerabilities-that-threaten-businesses/" onclick="copyEntry(this)">복사</button></div>
   <p>본문 요약: 연구에 따르면 LLM을 통한 조작(예: 그루밍·프롬프트 조작)은 실험적으로 가능하며 비교적 쉽게 수행될 수 있다고 설명한다. 특히 소멸된 도메인을 구매하는 데 약 60달러 정도의 예산만으로도 공격이 가능하다는 사례가 제시된다. 그 결과, 사용자가 의심하지 못한 채 중립 전문가의 목소리로 허위정보를 반복 생성하도록 AI가 유도될 가능성도 있다고 본문은 경고한다.</p>
   <p class="url"><a href="https://www.fairedih.fi/en/2025/06/01/llm-grooming-and-prompt-manipulation-ai-vulnerabilities-that-threaten-businesses/">https://www.fairedih.fi/en/2025/06/01/llm-grooming-and-prompt-manipulation-ai-vulnerabilities-that-threaten-businesses/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>SuperCLUE 2025 연례 중국 대형모델 벤치마크 평가 보고서 공개 (2026.2.3)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="SuperCLUE 2025 연례 중국 대형모델 벤치마크 평가 보고서 공개 (2026.2.3)
+
+SuperCLUE 2025 연례 평가에서 Claude-Opus-4.5-Reasoning(68.25점)이 종합 1위를 차지했으며, Gemini-3-Pro-Preview(65.59점)와 GPT-5.2(high)(64.32점)가 뒤를 이었습니다. 개방형 모델은 Kimi-K2.5-Thinking(61.50점)이 개방형 1위를 기록했고, 코드 생성·웹 코딩에서는 국내 모델의 강세가 두드러졌습니다. 반면 정밀 지시 준수와 환각 제어에서는 해외 모델이 전반적으로 우위를 보였고, 특히 정밀 지시 준수에서 점수 격차가 크게 나타났습니다. 또한 SuperCLUE 점수와 LMArena(인간 투표 기반) 간 상관계수(피어슨 0.8239, 스피어만 0.8321)로 평가 일관성이 높다고 제시했습니다.
+
+https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
   <p>SuperCLUE 2025 연례 평가에서 Claude-Opus-4.5-Reasoning(68.25점)이 종합 1위를 차지했으며, Gemini-3-Pro-Preview(65.59점)와 GPT-5.2(high)(64.32점)가 뒤를 이었습니다. 개방형 모델은 Kimi-K2.5-Thinking(61.50점)이 개방형 1위를 기록했고, 코드 생성·웹 코딩에서는 국내 모델의 강세가 두드러졌습니다. 반면 정밀 지시 준수와 환각 제어에서는 해외 모델이 전반적으로 우위를 보였고, 특히 정밀 지시 준수에서 점수 격차가 크게 나타났습니다. 또한 SuperCLUE 점수와 LMArena(인간 투표 기반) 간 상관계수(피어슨 0.8239, 스피어만 0.8321)로 평가 일관성이 높다고 제시했습니다.</p>
   <p class="url"><a href="https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email">https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email</a></p>
 </article>
 <article class="entry cat-research">
   <h2>OpenAI, Codex Security Agent를 연구 미리보기(Research Preview) 형태로 공개 (2026.3.6)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, Codex Security Agent를 연구 미리보기(Research Preview) 형태로 공개 (2026.3.6)
+
+본문 내용 확인 필요. 다만 제공된 URL과 제목 기준으로, OpenAI가 Codex Security Agent를 자동화된 취약점 탐지 목적의 연구 미리보기로 소개한 것으로 보입니다. 구체적인 기능 범위, 지원 환경, 적용 방식 및 일정 등은 본문 확인이 필요합니다.
+
+https://openai.com/index/codex-security-now-in-research-preview/" onclick="copyEntry(this)">복사</button></div>
   <p>본문 내용 확인 필요. 다만 제공된 URL과 제목 기준으로, OpenAI가 Codex Security Agent를 자동화된 취약점 탐지 목적의 연구 미리보기로 소개한 것으로 보입니다. 구체적인 기능 범위, 지원 환경, 적용 방식 및 일정 등은 본문 확인이 필요합니다.</p>
   <p class="url"><a href="https://openai.com/index/codex-security-now-in-research-preview/">https://openai.com/index/codex-security-now-in-research-preview/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(2026.2.25) 악성 AI의 악용을 차단하기 위한 대응과 사례</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="(2026.2.25) 악성 AI의 악용을 차단하기 위한 대응과 사례
+
+OpenAI는 악성 AI가 악용되는 방식과 이를 방지하기 위한 대응(탐지·완화 등)을 다루는 글을 게시한 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 주장, 조치, 사례의 사실관계는 확인이 필요합니다.
+
+https://openai.com/index/disrupting-malicious-ai-uses/" onclick="copyEntry(this)">복사</button></div>
   <p>OpenAI는 악성 AI가 악용되는 방식과 이를 방지하기 위한 대응(탐지·완화 등)을 다루는 글을 게시한 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 주장, 조치, 사례의 사실관계는 확인이 필요합니다.</p>
   <p class="url"><a href="https://openai.com/index/disrupting-malicious-ai-uses/">https://openai.com/index/disrupting-malicious-ai-uses/</a></p>
 </article>
 <article class="entry cat-company">
   <h2>GPT-5.3 Codex 시스템 카드 공개 (2026.2.5)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">OpenAI</span> · <span class="deadline">확인 필요</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">OpenAI</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="GPT-5.3 Codex 시스템 카드 공개 (2026.2.5)
+
+OpenAI가 GPT-5.3 Codex에 대한 시스템 카드(system card)를 공개했다는 내용이 확인됩니다. 다만 제공된 정보에는 본문 내용이 없어, 안전·평가 항목, 제한사항, 변경점 등 구체적인 내용은 확인 필요입니다.
+
+https://openai.com/index/gpt-5-3-codex-system-card/" onclick="copyEntry(this)">복사</button></div>
   <p>OpenAI가 GPT-5.3 Codex에 대한 시스템 카드(system card)를 공개했다는 내용이 확인됩니다. 다만 제공된 정보에는 본문 내용이 없어, 안전·평가 항목, 제한사항, 변경점 등 구체적인 내용은 확인 필요입니다.</p>
   <p class="url"><a href="https://openai.com/index/gpt-5-3-codex-system-card/">https://openai.com/index/gpt-5-3-codex-system-card/</a></p>
 </article>
 <article class="entry cat-company">
   <h2>(GPT-5가 단백질 합성 비용을 낮추는 내용, 2026.2.5)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">OpenAI</span> · <span class="deadline">확인 필요: 본문 내용(구체적 실험/수치/발표 범위)과 관련 일정</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">OpenAI</span> · <span class="deadline">확인 필요: 본문 내용(구체적 실험/수치/발표 범위)과 관련 일정</span></span><button type="button" class="copy-btn" data-copy="(GPT-5가 단백질 합성 비용을 낮추는 내용, 2026.2.5)
+
+GPT-5가 단백질 합성 비용을 낮추는 데 활용될 수 있다는 취지의 OpenAI 게시물로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 방법, 성과(비용 절감 규모), 적용 범위는 확인이 필요합니다.
+
+https://openai.com/index/gpt-5-lowers-protein-synthesis-cost/" onclick="copyEntry(this)">복사</button></div>
   <p>GPT-5가 단백질 합성 비용을 낮추는 데 활용될 수 있다는 취지의 OpenAI 게시물로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 방법, 성과(비용 절감 규모), 적용 범위는 확인이 필요합니다.</p>
   <p class="url"><a href="https://openai.com/index/gpt-5-lowers-protein-synthesis-cost/">https://openai.com/index/gpt-5-lowers-protein-synthesis-cost/</a></p>
 </article>
 <footer>AI Safety pipeline · daily_digest_html</footer>
 </div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
 </body>
 </html>

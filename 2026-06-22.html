@@ -50,7 +50,16 @@
   .entry.cat-other { border-left-color: var(--cat-other); }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
   .badge {
     display: inline-block; padding: 2px 9px; border-radius: 999px;
     font-size: 0.72rem; font-weight: 600; color: #fff;
@@ -86,122 +95,238 @@
 </header>
 <article class="entry cat-other">
   <h2>AI가 교실을 바꿀수록 교육의 핵심(자격화·사회화·주체화) 중 무엇이 약해지는지 점검하고, 마찰을 보존하는 설계가 필요하다는 논지(2026.6.21)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">ai-ethics.kr</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">ai-ethics.kr</span></span><button type="button" class="copy-btn" data-copy="AI가 교실을 바꿀수록 교육의 핵심(자격화·사회화·주체화) 중 무엇이 약해지는지 점검하고, 마찰을 보존하는 설계가 필요하다는 논지(2026.6.21)
+
+생성형 AI가 에세이·코드 작성 등을 돕는 환경에서 학생 성적·수행이 조건부로만 좋아지고 접근이 끊기면 악화되거나 전반 수행이 낮아졌다는 연구·조사가 소개된다. 대학 강사 설문에서는 AI가 비판적 사고를 약화하고 과의존을 우려한다는 응답이 높게 나타났으며, 디지털교과서의 제도 변화도 언급된다. 이어서 교육의 기능을 자격화·사회화·주체화로 나눌 때 AI 튜터는 주로 자격화에 관여하고 관계·주체화 영역의 공백이 남는다고 설명한다. 또한 해답을 즉시 주지 않도록 질문 중심 설계, 규칙 재설정, 마찰을 보존하는 학습 운영이 필요하다고 제안한다.
+
+https://ai-ethics.kr/education-in-the-age-of-ai-2026-06-22" onclick="copyEntry(this)">복사</button></div>
   <p>생성형 AI가 에세이·코드 작성 등을 돕는 환경에서 학생 성적·수행이 조건부로만 좋아지고 접근이 끊기면 악화되거나 전반 수행이 낮아졌다는 연구·조사가 소개된다. 대학 강사 설문에서는 AI가 비판적 사고를 약화하고 과의존을 우려한다는 응답이 높게 나타났으며, 디지털교과서의 제도 변화도 언급된다. 이어서 교육의 기능을 자격화·사회화·주체화로 나눌 때 AI 튜터는 주로 자격화에 관여하고 관계·주체화 영역의 공백이 남는다고 설명한다. 또한 해답을 즉시 주지 않도록 질문 중심 설계, 규칙 재설정, 마찰을 보존하는 학습 운영이 필요하다고 제안한다.</p>
   <p class="url"><a href="https://ai-ethics.kr/education-in-the-age-of-ai-2026-06-22">https://ai-ethics.kr/education-in-the-age-of-ai-2026-06-22</a></p>
 </article>
 <article class="entry cat-research">
   <h2>KSAFE-MM: 한국 문화 맥락을 반영한 멀티모달 안전 벤치마크(2026.5.28)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv.org</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv.org</span></span><button type="button" class="copy-btn" data-copy="KSAFE-MM: 한국 문화 맥락을 반영한 멀티모달 안전 벤치마크(2026.5.28)
+
+KSAFE-MM는 한국어 문화 리스크를 평가하기 위해 일반 안전 위협과 문화 의존 취약점을 함께 다루는 멀티모달 안전 벤치마크를 제안한다. 기존 안전 평가가 영어 중심이며 일반적 위해만 다루는 한계를 지적하고, 한국 문화 맥락에 맞게 언어적 contextualization과 실제 맥락에서 유도한 시각 쿼리를 구성한다. 또한 jailbreak-style 텍스트 쿼리를 결합해 공격 성공률(ASR)을 높이는 경향을 분석했으며, 문화 맥락 기반 공격에 모델이 더 취약하다고 보고한다.
+
+https://arxiv.org/html/2605.28013v1" onclick="copyEntry(this)">복사</button></div>
   <p>KSAFE-MM는 한국어 문화 리스크를 평가하기 위해 일반 안전 위협과 문화 의존 취약점을 함께 다루는 멀티모달 안전 벤치마크를 제안한다. 기존 안전 평가가 영어 중심이며 일반적 위해만 다루는 한계를 지적하고, 한국 문화 맥락에 맞게 언어적 contextualization과 실제 맥락에서 유도한 시각 쿼리를 구성한다. 또한 jailbreak-style 텍스트 쿼리를 결합해 공격 성공률(ASR)을 높이는 경향을 분석했으며, 문화 맥락 기반 공격에 모델이 더 취약하다고 보고한다.</p>
   <p class="url"><a href="https://arxiv.org/html/2605.28013v1">https://arxiv.org/html/2605.28013v1</a></p>
 </article>
 <article class="entry cat-other">
   <h2>Professors Fear AI Will Rot Students’ Brains. The Research Shows It’s More Complicated Than That.</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">chronicle.com</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">chronicle.com</span></span><button type="button" class="copy-btn" data-copy="Professors Fear AI Will Rot Students’ Brains. The Research Shows It’s More Complicated Than That.
+
+요약불가
+
+https://chronicle.com/article/the-student-brain-on-ai" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://chronicle.com/article/the-student-brain-on-ai">https://chronicle.com/article/the-student-brain-on-ai</a></p>
 </article>
 <article class="entry cat-other">
   <h2>생성형 AI 시대에도 ‘생각(think)’이 필요한가(2026.4.14)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">유네스코(UNESCO)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">유네스코(UNESCO)</span></span><button type="button" class="copy-btn" data-copy="생성형 AI 시대에도 ‘생각(think)’이 필요한가(2026.4.14)
+
+생성형 AI(GenAI)가 학습과 지식 전달, 인간 고유성에 대한 기존 인식을 단기간에 바꿔 교육 현장에 빠르게 침투했다고 설명한다. 단순 부정행위를 막는 문제를 넘어, AI를 ‘지식’ 중심 사회에서 어떤 역할로 배치할지 논의가 필요하다고 강조한다. 또한 GenAI가 인지 발달에 미칠 영향과 함께, 2021년 윤리 원칙 및 2023년 생성형 AI 교육·연구 가이드를 통해 AI가 인간에게 실제로 기여하도록 하려는 노력을 소개한다. 진정한 역량은 이해·분석·조직·의미 부여 능력이며, 학습·성찰·사고는 인간의 성장(호기심, 사회성, 비판적 사고)과 연결되므로 어떤 기계도 이를 완전히 대체할 수 없다고 전한다.
+
+https://courier.unesco.org/en/articles/artificial-intelligence-do-we-still-need-think" onclick="copyEntry(this)">복사</button></div>
   <p>생성형 AI(GenAI)가 학습과 지식 전달, 인간 고유성에 대한 기존 인식을 단기간에 바꿔 교육 현장에 빠르게 침투했다고 설명한다. 단순 부정행위를 막는 문제를 넘어, AI를 ‘지식’ 중심 사회에서 어떤 역할로 배치할지 논의가 필요하다고 강조한다. 또한 GenAI가 인지 발달에 미칠 영향과 함께, 2021년 윤리 원칙 및 2023년 생성형 AI 교육·연구 가이드를 통해 AI가 인간에게 실제로 기여하도록 하려는 노력을 소개한다. 진정한 역량은 이해·분석·조직·의미 부여 능력이며, 학습·성찰·사고는 인간의 성장(호기심, 사회성, 비판적 사고)과 연결되므로 어떤 기계도 이를 완전히 대체할 수 없다고 전한다.</p>
   <p class="url"><a href="https://courier.unesco.org/en/articles/artificial-intelligence-do-we-still-need-think">https://courier.unesco.org/en/articles/artificial-intelligence-do-we-still-need-think</a></p>
 </article>
 <article class="entry cat-other">
   <h2>AI 시대에 “생각하는 학습”이 필요한 이유(기사·공고 게재일: 2026.4.2)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">유네스코(UNESCO) 커리어(Eloïse Heinzer, Wayne Holmes)</span> · <span class="deadline">UNESCO는 AI가 인간의 학습·판단을 대체하기보다 보완해야 하며, 학생·교사를 위한 AI 역량 프레임워크와 2023년 가이던스를 통해 책임 있는 활용을 권고함</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">유네스코(UNESCO) 커리어(Eloïse Heinzer, Wayne Holmes)</span> · <span class="deadline">UNESCO는 AI가 인간의 학습·판단을 대체하기보다 보완해야 하며, 학생·교사를 위한 AI 역량 프레임워크와 2023년 가이던스를 통해 책임 있는 활용을 권고함</span></span><button type="button" class="copy-btn" data-copy="AI 시대에 “생각하는 학습”이 필요한 이유(기사·공고 게재일: 2026.4.2)
+
+생성형 AI가 글쓰기·방정식 해결·코딩 등을 통해 학습을 대체할 수 있을 것처럼 보이지만, 교육의 핵심인 사회화·주체성 형성에는 직접적으로 기여하지 못해 학습 자체는 여전히 필요하다는 주장이다. 생성형 AI 출력은 인터넷 기반 학습의 편향과 오류를 포함할 수 있고, 학생은 출력의 신뢰성을 비판적으로 검토하는 학습을 해야 한다. 또한 메타분석과 추가 연구들에서 ChatGPT 접근이 학습 성과에 “확실한 긍정 효과”를 보여주지 않거나, 접근을 중단하면 성과가 떨어지는 ‘cognitive crutch’ 양상이 보고되며, 장기기억·인지능력 약화 가능성도 제기된다.
+
+https://courier.unesco.org/en/articles/learning-think-ai-era" onclick="copyEntry(this)">복사</button></div>
   <p>생성형 AI가 글쓰기·방정식 해결·코딩 등을 통해 학습을 대체할 수 있을 것처럼 보이지만, 교육의 핵심인 사회화·주체성 형성에는 직접적으로 기여하지 못해 학습 자체는 여전히 필요하다는 주장이다. 생성형 AI 출력은 인터넷 기반 학습의 편향과 오류를 포함할 수 있고, 학생은 출력의 신뢰성을 비판적으로 검토하는 학습을 해야 한다. 또한 메타분석과 추가 연구들에서 ChatGPT 접근이 학습 성과에 “확실한 긍정 효과”를 보여주지 않거나, 접근을 중단하면 성과가 떨어지는 ‘cognitive crutch’ 양상이 보고되며, 장기기억·인지능력 약화 가능성도 제기된다.</p>
   <p class="url"><a href="https://courier.unesco.org/en/articles/learning-think-ai-era">https://courier.unesco.org/en/articles/learning-think-ai-era</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>The AI Act Advisory Forum convenes its kick-off meeting (2026.6.19)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="The AI Act Advisory Forum convenes its kick-off meeting (2026.6.19)
+
+요약불가
+
+https://digital-strategy.ec.europa.eu/en/news/ai-act-advisory-forum-convenes-its-kick-meeting" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/ai-act-advisory-forum-convenes-its-kick-meeting">https://digital-strategy.ec.europa.eu/en/news/ai-act-advisory-forum-convenes-its-kick-meeting</a></p>
 </article>
 <article class="entry cat-intl">
   <h2></h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="deadline">유럽 집행위, ‘Frontier AI Grand Challenge’ 우승 컨소시엄으로 EUROPA 선정(기사·공고 게재일 2026.6.19)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="deadline">유럽 집행위, ‘Frontier AI Grand Challenge’ 우승 컨소시엄으로 EUROPA 선정(기사·공고 게재일 2026.6.19)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 유럽 집행위원회(EU Digital Strategy)
+
+2026년 2월 시작한 공모(Frontier AI Grand Challenge)로, EUROPA 컨소시엄(이탈리아 Domyn이 이끎)이 최종 우승으로 선정됐다. EUROPA는 24개 공식 EU 언어를 모두 포괄하는 오픈소스 AI 모델을 개발하며, 모델은 공개 이용 가능하고 글로벌 최고 수준 성능을 목표로 한다. 유럽의 자체 인프라에서 고도 AI 개발 역량을 강화하고 기업·연구자·공공기관이 언어 다양성을 기반으로 AI 혜택을 더 넓게 받도록 하겠다는 취지다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-selects-europa-consortium-winner-frontier-ai-grand-challenge-project-build-european-open" onclick="copyEntry(this)">복사</button></div>
   <p>출처: 유럽 집행위원회(EU Digital Strategy)</p>
 <p>2026년 2월 시작한 공모(Frontier AI Grand Challenge)로, EUROPA 컨소시엄(이탈리아 Domyn이 이끎)이 최종 우승으로 선정됐다. EUROPA는 24개 공식 EU 언어를 모두 포괄하는 오픈소스 AI 모델을 개발하며, 모델은 공개 이용 가능하고 글로벌 최고 수준 성능을 목표로 한다. 유럽의 자체 인프라에서 고도 AI 개발 역량을 강화하고 기업·연구자·공공기관이 언어 다양성을 기반으로 AI 혜택을 더 넓게 받도록 하겠다는 취지다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-selects-europa-consortium-winner-frontier-ai-grand-challenge-project-build-european-open">https://digital-strategy.ec.europa.eu/en/news/commission-selects-europa-consortium-winner-frontier-ai-grand-challenge-project-build-european-open</a></p>
 </article>
 <article class="entry cat-research">
   <h2>The Late Channel: Chain-of-Thought Becomes Causal and Decodable Only Late in a 27B Reasoning Agent (2026.6.20)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="The Late Channel: Chain-of-Thought Becomes Causal and Decodable Only Late in a 27B Reasoning Agent (2026.6.20)
+
+이 연구는 27B 추론 에이전트(Qwen3.6-27B)에서 chain-of-thought(CoT) 기반 판단 정보가 언제(어느 레이어에서) 인과적으로 작동하고, 언제 해독 가능해지는지 기계적으로 밝힌다. 11개 레이어의 sparse autoencoder(d_sae=40960)를 사용해 CoT 결정 상태를 no-CoT 실행으로 decode-re-encode하는 단일 causal-patch test를 하고, SAE reconstruction error와 random-feature baseline을 통제한다. 하드 multi-step 문제(n=60, 16 CoT-flips)에서 CoT features patch는 layer 59에서 delta-logp +2.72[+2.18,+3.28]로 reasoned answer를 회복했으며, layer 47까지 효과는 ~0(early -0.02 vs late +2.13, disjoint 95% CI)이고 16/16 flipped items가 일치했다. 또한 trap 시나리오의 tool call(n=32, 10 flips)에서는 late +1.65[+1.17,+2.12] vs early +0.08이었다(early/late 대비: late가 더 큼).
+
+https://github.com/OpenInterpretability/openinterp-swebench-harness" onclick="copyEntry(this)">복사</button></div>
   <p>이 연구는 27B 추론 에이전트(Qwen3.6-27B)에서 chain-of-thought(CoT) 기반 판단 정보가 언제(어느 레이어에서) 인과적으로 작동하고, 언제 해독 가능해지는지 기계적으로 밝힌다. 11개 레이어의 sparse autoencoder(d_sae=40960)를 사용해 CoT 결정 상태를 no-CoT 실행으로 decode-re-encode하는 단일 causal-patch test를 하고, SAE reconstruction error와 random-feature baseline을 통제한다. 하드 multi-step 문제(n=60, 16 CoT-flips)에서 CoT features patch는 layer 59에서 delta-logp +2.72[+2.18,+3.28]로 reasoned answer를 회복했으며, layer 47까지 효과는 ~0(early -0.02 vs late +2.13, disjoint 95% CI)이고 16/16 flipped items가 일치했다. 또한 trap 시나리오의 tool call(n=32, 10 flips)에서는 late +1.65[+1.17,+2.12] vs early +0.08이었다(early/late 대비: late가 더 큼).</p>
   <p class="url"><a href="https://github.com/OpenInterpretability/openinterp-swebench-harness">https://github.com/OpenInterpretability/openinterp-swebench-harness</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(스탠퍼드 HAI 기사 게재일: 2026.02.22) AI 챗봇의 당일 뉴스 응답은 전반적으로 높지만 지역·언어별 편차와 오답 취약성이 큼</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">스탠퍼드 HAI(Stanford HAI)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">스탠퍼드 HAI(Stanford HAI)</span></span><button type="button" class="copy-btn" data-copy="(스탠퍼드 HAI 기사 게재일: 2026.02.22) AI 챗봇의 당일 뉴스 응답은 전반적으로 높지만 지역·언어별 편차와 오답 취약성이 큼
+
+스탠퍼드 HAI 연구진은 6개 상용 AI 챗봇을 6개 지역·언어의 당일 뉴스 2,100개(총 12,600개 응답) 객관식 질문으로 평가해 대체로 90%대 정확도를 보였다고 밝혔다. 다만 지역 간 성능 격차가 컸으며 특히 Hindi는 최저로, 오류율이 다른 지역 대비 크게 높게 나타났다. 또한 질문의 전제가 약간 틀리면 견고성이 급격히 떨어져, 적대적 조건에서 Grok 4는 70.0% 정확도인 반면 GPT-5는 19.0%까지 하락했다. 오류는 추론 자체보다 ‘증거 검색 실패’와 ‘출처 대체로 인한 사실 불일치’ 비중이 높고, 인용 URL 또한 합의되지 않은 방식으로 영어권 소스에 의존하는 경향이 관찰됐다.
+
+https://hai.stanford.edu/news/reading-todays-headlines-through-ai-a-real-time-audit-of-six-commercial-chatbots" onclick="copyEntry(this)">복사</button></div>
   <p>스탠퍼드 HAI 연구진은 6개 상용 AI 챗봇을 6개 지역·언어의 당일 뉴스 2,100개(총 12,600개 응답) 객관식 질문으로 평가해 대체로 90%대 정확도를 보였다고 밝혔다. 다만 지역 간 성능 격차가 컸으며 특히 Hindi는 최저로, 오류율이 다른 지역 대비 크게 높게 나타났다. 또한 질문의 전제가 약간 틀리면 견고성이 급격히 떨어져, 적대적 조건에서 Grok 4는 70.0% 정확도인 반면 GPT-5는 19.0%까지 하락했다. 오류는 추론 자체보다 ‘증거 검색 실패’와 ‘출처 대체로 인한 사실 불일치’ 비중이 높고, 인용 URL 또한 합의되지 않은 방식으로 영어권 소스에 의존하는 경향이 관찰됐다.</p>
   <p class="url"><a href="https://hai.stanford.edu/news/reading-todays-headlines-through-ai-a-real-time-audit-of-six-commercial-chatbots">https://hai.stanford.edu/news/reading-todays-headlines-through-ai-a-real-time-audit-of-six-commercial-chatbots</a></p>
 </article>
 <article class="entry cat-other">
   <h2>PsychAdapter로 성격·나이·정신건강 특성을 수치 입력해 “사람 같은” 텍스트를 생성(2026.6.3)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">스탠퍼드 대학교 인간중심 AI 연구소(Human-Centered AI, HAI)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">스탠퍼드 대학교 인간중심 AI 연구소(Human-Centered AI, HAI)</span></span><button type="button" class="copy-btn" data-copy="PsychAdapter로 성격·나이·정신건강 특성을 수치 입력해 “사람 같은” 텍스트를 생성(2026.6.3)
+
+PsychAdapter는 연속 심리 점수(성격 Big Five, 우울, 삶의 만족, 나이 등)를 LLM에 직접 입력해 특정 프로필을 반영한 텍스트를 생성하는 방식이다. 기존 LLM이 “language from nobody”처럼 목소리가 평탄해지는 문제를, 사람 간 차이를 연속적인 차원에서 다시 반영하는 데 초점을 둔다. 연구팀은 전문가 평가에서 성격 적합도 87%, 정신건강 적합도 97%를 보고했으며, 실제 환자를 쓰지 않고도 증상 프로필에 맞춘 AI 환자 시뮬레이션이나 교육 자료 개인화 등에 활용할 수 있다고 설명했다. 또한 AI 생성물은 반드시 표시돼야 하며, 악용(마이크로 타겟팅·영향작전) 가능성도 함께 언급했다.
+
+https://hai.stanford.edu/news/todays-ai-talks-like-nobody-new-research-gives-it-real-personality" onclick="copyEntry(this)">복사</button></div>
   <p>PsychAdapter는 연속 심리 점수(성격 Big Five, 우울, 삶의 만족, 나이 등)를 LLM에 직접 입력해 특정 프로필을 반영한 텍스트를 생성하는 방식이다. 기존 LLM이 “language from nobody”처럼 목소리가 평탄해지는 문제를, 사람 간 차이를 연속적인 차원에서 다시 반영하는 데 초점을 둔다. 연구팀은 전문가 평가에서 성격 적합도 87%, 정신건강 적합도 97%를 보고했으며, 실제 환자를 쓰지 않고도 증상 프로필에 맞춘 AI 환자 시뮬레이션이나 교육 자료 개인화 등에 활용할 수 있다고 설명했다. 또한 AI 생성물은 반드시 표시돼야 하며, 악용(마이크로 타겟팅·영향작전) 가능성도 함께 언급했다.</p>
   <p class="url"><a href="https://hai.stanford.edu/news/todays-ai-talks-like-nobody-new-research-gives-it-real-personality">https://hai.stanford.edu/news/todays-ai-talks-like-nobody-new-research-gives-it-real-personality</a></p>
 </article>
 <article class="entry cat-other">
   <h2>미국 ‘No Fakes Act’가 상원 사법위원회에서 표결로 진전(2026.6.18)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">news.bgov.com (Bloomberg Government News)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">news.bgov.com (Bloomberg Government News)</span></span><button type="button" class="copy-btn" data-copy="미국 ‘No Fakes Act’가 상원 사법위원회에서 표결로 진전(2026.6.18)
+
+요약: 상원 사법위원회가 목소리(voice)로 표결해 AI 딥페이크 등으로부터 미국 시민의 초상(voice·likeness)을 보호하는 법안을 진전시켰다. S.4591 ‘No Fakes Act’는 5월에 개정·재발의된 법안으로, 동의 없이 개인을 디지털로 모방한 AI 생성 콘텐츠를 온라인 플랫폼이 삭제하도록 책임을 부여한다. 이를 이행하지 않으면 금전적 제재(벌금)가 부과된다.
+
+https://news.bgov.com/bloomberg-government-news/ai-deepfakes-bill-advances-through-senate-judiciary-committee" onclick="copyEntry(this)">복사</button></div>
   <p>요약: 상원 사법위원회가 목소리(voice)로 표결해 AI 딥페이크 등으로부터 미국 시민의 초상(voice·likeness)을 보호하는 법안을 진전시켰다. S.4591 ‘No Fakes Act’는 5월에 개정·재발의된 법안으로, 동의 없이 개인을 디지털로 모방한 AI 생성 콘텐츠를 온라인 플랫폼이 삭제하도록 책임을 부여한다. 이를 이행하지 않으면 금전적 제재(벌금)가 부과된다.</p>
   <p class="url"><a href="https://news.bgov.com/bloomberg-government-news/ai-deepfakes-bill-advances-through-senate-judiciary-committee">https://news.bgov.com/bloomberg-government-news/ai-deepfakes-bill-advances-through-senate-judiciary-committee</a></p>
 </article>
 <article class="entry cat-other">
   <h2>Bernie Sanders pitches $1,000 annual payout from public ownership of AI</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">washingtonpost.com</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">washingtonpost.com</span></span><button type="button" class="copy-btn" data-copy="Bernie Sanders pitches $1,000 annual payout from public ownership of AI
+
+요약불가
+
+https://washingtonpost.com/business/2026/06/18/bernie-sanders-proposes-wealth-fund-give-americans-stake-ai" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://washingtonpost.com/business/2026/06/18/bernie-sanders-proposes-wealth-fund-give-americans-stake-ai">https://washingtonpost.com/business/2026/06/18/bernie-sanders-proposes-wealth-fund-give-americans-stake-ai</a></p>
 </article>
 <article class="entry cat-research">
   <h2>AI 선도 거버넌스 규칙·표준 논의를 위한 미국 주도 AI 연합 제안(2026.6.17)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">CNBC</span> · <span class="deadline">프론티어 AI 모델에 대한 미국의 주도적 국제협력 논의는 G7(프랑스 에비앙) 비공개 회의에서 제기됐으며, 최근 AI 모델의 사이버 역량 고도화와 수출통제 이슈가 배경으로 언급됨</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">CNBC</span> · <span class="deadline">프론티어 AI 모델에 대한 미국의 주도적 국제협력 논의는 G7(프랑스 에비앙) 비공개 회의에서 제기됐으며, 최근 AI 모델의 사이버 역량 고도화와 수출통제 이슈가 배경으로 언급됨</span></span><button type="button" class="copy-btn" data-copy="AI 선도 거버넌스 규칙·표준 논의를 위한 미국 주도 AI 연합 제안(2026.6.17)
+
+Anthropic CEO 다리오 아모데이와 Google DeepMind CEO 데미스 하사비스는 G7 정상회의 계기 비공개 런치에서 AI 규칙과 표준을 만들기 위한 미국 주도의 국제 연합 구성을 제안했다. 회의에는 OpenAI CEO 샘 올트먼 등 약 10여 명의 테크 임원과 주요국 인사들이 참석했으며, 아모데이는 프론티어 모델에 대한 구조화된 접근과 대(對)중국 배제형 반도체·핵심부품 거래, AI의 사이버·생물테러·정보 분야 위험 대응을 위한 협력을 언급한 것으로 전해졌다. 또한 미국의 수출통제 이후 Anthropic이 최신 모델(Fable 5, Mythos 5) 접근을 비활성화한 점과, OpenAI가 GPT-5.5 Cyber를 제한적 미리보기로 제공해 온 점이 논의 배경으로 거론됐다.
+
+https://www.cnbc.com/2026/06/17/anthropic-amodei-google-hassabis-us-ai-coalition-g7.html" onclick="copyEntry(this)">복사</button></div>
   <p>Anthropic CEO 다리오 아모데이와 Google DeepMind CEO 데미스 하사비스는 G7 정상회의 계기 비공개 런치에서 AI 규칙과 표준을 만들기 위한 미국 주도의 국제 연합 구성을 제안했다. 회의에는 OpenAI CEO 샘 올트먼 등 약 10여 명의 테크 임원과 주요국 인사들이 참석했으며, 아모데이는 프론티어 모델에 대한 구조화된 접근과 대(對)중국 배제형 반도체·핵심부품 거래, AI의 사이버·생물테러·정보 분야 위험 대응을 위한 협력을 언급한 것으로 전해졌다. 또한 미국의 수출통제 이후 Anthropic이 최신 모델(Fable 5, Mythos 5) 접근을 비활성화한 점과, OpenAI가 GPT-5.5 Cyber를 제한적 미리보기로 제공해 온 점이 논의 배경으로 거론됐다.</p>
   <p class="url"><a href="https://www.cnbc.com/2026/06/17/anthropic-amodei-google-hassabis-us-ai-coalition-g7.html">https://www.cnbc.com/2026/06/17/anthropic-amodei-google-hassabis-us-ai-coalition-g7.html</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(기사·2026.6.12) 중국, 대규모 휴머노이드 로봇 ‘실전 배치’ 프로그램 추진</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">eWeek</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">eWeek</span></span><button type="button" class="copy-btn" data-copy="(기사·2026.6.12) 중국, 대규모 휴머노이드 로봇 ‘실전 배치’ 프로그램 추진
+
+2026년 6월 말까지 지자체가 실행계획을 제출하고, 11월 말까지 진행상황을 보고해야 하며, 2026년 말까지 핵심 휴머노이드 제품의 적용 검증과 정기 배치를 목표로 함.
+
+중국 정부가 휴머노이드 로봇과 embodied artificial intelligence를 실제 산업 현장에 적용하기 위한 전국 단위 프로그램을 추진한다. 현장 시연 중심에서 공장·물류·병원·재난 대응 등 다양한 업무 현장으로 로봇을 배치하는 방향으로 전환하며, 2026년 말까지 100개 이상의 고부가 응용 시나리오와 1만 대 이상의 로봇 배치를 목표로 한다. 지자체는 6월 말까지 계획을 제출하고 11월 말까지 진행을 보고해야 하며, 실제 배치 데이터를 통해 소프트웨어·하드웨어 성능과 embodied AI 품질을 개선하겠다는 취지다.
+
+https://www.eweek.com/news/humanoid-robots-work-mode-2026-apac-china/?" onclick="copyEntry(this)">복사</button></div>
   <p>2026년 6월 말까지 지자체가 실행계획을 제출하고, 11월 말까지 진행상황을 보고해야 하며, 2026년 말까지 핵심 휴머노이드 제품의 적용 검증과 정기 배치를 목표로 함.</p>
 <p>중국 정부가 휴머노이드 로봇과 embodied artificial intelligence를 실제 산업 현장에 적용하기 위한 전국 단위 프로그램을 추진한다. 현장 시연 중심에서 공장·물류·병원·재난 대응 등 다양한 업무 현장으로 로봇을 배치하는 방향으로 전환하며, 2026년 말까지 100개 이상의 고부가 응용 시나리오와 1만 대 이상의 로봇 배치를 목표로 한다. 지자체는 6월 말까지 계획을 제출하고 11월 말까지 진행을 보고해야 하며, 실제 배치 데이터를 통해 소프트웨어·하드웨어 성능과 embodied AI 품질을 개선하겠다는 취지다.</p>
   <p class="url"><a href="https://www.eweek.com/news/humanoid-robots-work-mode-2026-apac-china/?">https://www.eweek.com/news/humanoid-robots-work-mode-2026-apac-china/?</a></p>
 </article>
 <article class="entry cat-research">
   <h2></h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="deadline">(2026.6.17) 미국 AI 챗봇 사용 증가에도 AI 영향·속도에 대한 회의감도 동반</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="deadline">(2026.6.17) 미국 AI 챗봇 사용 증가에도 AI 영향·속도에 대한 회의감도 동반</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 퓨 리서치 센터(Pew Research Center)
+
+미국 성인 5,119명을 2026.2.17~2.2.23 조사한 결과, AI 챗봇을 ‘이용한 적 있음’은 2024년 33%에서 2026년 49%로 증가해 절반 수준에 이르렀다. 다만 사용 목적은 정보탐색(42%)과 업무(고용자 기준 38%)가 중심이고, 감정적 지지(10%)·동반(4%) 같은 개인적 용도는 상대적으로 낮았다. 한편 챗봇이 생산성이나 정보에 도움을 준다고 보는 의견이 일부 있으나, 많은 응답자는 AI가 개인과 사회에 미칠 영향이 긍정보다 부정적이라고 예측하고 AI 발전 속도가 너무 빠르며 개인정보 위험을 높일 수 있다고 보는 경향이 나타났다.
+
+https://www.pewresearch.org/internet/2026/06/17/americans-and-ai-2026-chatbots-smart-devices-and-views-on-impact/?" onclick="copyEntry(this)">복사</button></div>
   <p>출처: 퓨 리서치 센터(Pew Research Center)</p>
 <p>미국 성인 5,119명을 2026.2.17~2.2.23 조사한 결과, AI 챗봇을 ‘이용한 적 있음’은 2024년 33%에서 2026년 49%로 증가해 절반 수준에 이르렀다. 다만 사용 목적은 정보탐색(42%)과 업무(고용자 기준 38%)가 중심이고, 감정적 지지(10%)·동반(4%) 같은 개인적 용도는 상대적으로 낮았다. 한편 챗봇이 생산성이나 정보에 도움을 준다고 보는 의견이 일부 있으나, 많은 응답자는 AI가 개인과 사회에 미칠 영향이 긍정보다 부정적이라고 예측하고 AI 발전 속도가 너무 빠르며 개인정보 위험을 높일 수 있다고 보는 경향이 나타났다.</p>
   <p class="url"><a href="https://www.pewresearch.org/internet/2026/06/17/americans-and-ai-2026-chatbots-smart-devices-and-views-on-impact/?">https://www.pewresearch.org/internet/2026/06/17/americans-and-ai-2026-chatbots-smart-devices-and-views-on-impact/?</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(에이전트 리소스 발견 ARD 오픈 규격 공개 2026.6.17)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">마이크로소프트(Microsoft) 공식 웹페이지</span> · <span class="deadline">ARD는 AI 클라이언트가 작업에 맞는 agentic resources(예: MCP 서버, API, 워크플로)를 자동으로 찾아 연결할 수 있도록 하는 오픈 표준 규격이다. Microsoft는 GoDaddy, Google, Hugging Face 등과 협력해 공개 규격을 만들었고, GitHub는 이를 기반으로 GitHub Copilot이 런타임에 적절한 MCP 서버·스킬·도구·에이전트를 동적으로 발견/호출하는 agent finder를 공개했다. 또한 Hugging Face는 ARD의 참조 구현인 Discover Tool로 Hub 및 기타 ARD 서비스에서 다수의 스킬과 MCP 서버를 검색할 수 있게 한다. ARD는 단일 전역 카탈로그보다 여러 discovery service가 각자 색인·랭킹을 운영하도록 하며, 이는 조직의 통제와 정책에 맞춘 결과 제공을 가능하게 한다.</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">마이크로소프트(Microsoft) 공식 웹페이지</span> · <span class="deadline">ARD는 AI 클라이언트가 작업에 맞는 agentic resources(예: MCP 서버, API, 워크플로)를 자동으로 찾아 연결할 수 있도록 하는 오픈 표준 규격이다. Microsoft는 GoDaddy, Google, Hugging Face 등과 협력해 공개 규격을 만들었고, GitHub는 이를 기반으로 GitHub Copilot이 런타임에 적절한 MCP 서버·스킬·도구·에이전트를 동적으로 발견/호출하는 agent finder를 공개했다. 또한 Hugging Face는 ARD의 참조 구현인 Discover Tool로 Hub 및 기타 ARD 서비스에서 다수의 스킬과 MCP 서버를 검색할 수 있게 한다. ARD는 단일 전역 카탈로그보다 여러 discovery service가 각자 색인·랭킹을 운영하도록 하며, 이는 조직의 통제와 정책에 맞춘 결과 제공을 가능하게 한다.</span></span><button type="button" class="copy-btn" data-copy="(에이전트 리소스 발견 ARD 오픈 규격 공개 2026.6.17)
+
+
+
+https://commandline.microsoft.com/agentic-resource-discovery-specification-ard/?" onclick="copyEntry(this)">복사</button></div>
   
   <p class="url"><a href="https://commandline.microsoft.com/agentic-resource-discovery-specification-ard/?">https://commandline.microsoft.com/agentic-resource-discovery-specification-ard/?</a></p>
 </article>
 <article class="entry cat-aisi">
   <h2>(AISI Work) (2025.01.01)</h2>
-  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="(AISI Work) (2025.01.01)
+
+요약불가
+
+https://www.aisi.gov.uk/blog/test-blog" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://www.aisi.gov.uk/blog/test-blog">https://www.aisi.gov.uk/blog/test-blog</a></p>
 </article>
 <article class="entry cat-research">
   <h2>U.S. Raises Concerns Over Possible Transfer of Advanced Chipmaking Technology to China (2026.6.19)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="U.S. Raises Concerns Over Possible Transfer of Advanced Chipmaking Technology to China (2026.6.19)
+
+요약불가
+
+https://www.bloomberg.com/news/articles/2026-06-19/us-tells-asml-it-s-concerned-china-may-have-top-chip-tool?" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://www.bloomberg.com/news/articles/2026-06-19/us-tells-asml-it-s-concerned-china-may-have-top-chip-tool?">https://www.bloomberg.com/news/articles/2026-06-19/us-tells-asml-it-s-concerned-china-may-have-top-chip-tool?</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Senator Claims Frontier AI Rapidly Compromised Classified Systems (2026.6.14)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Senator Claims Frontier AI Rapidly Compromised Classified Systems (2026.6.14)
+
+요약불가
+
+https://www.economist.com/briefing/2026/06/14/donald-trumps-blocking-of-anthropic-is-capricious-and-chaotic" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://www.economist.com/briefing/2026/06/14/donald-trumps-blocking-of-anthropic-is-capricious-and-chaotic">https://www.economist.com/briefing/2026/06/14/donald-trumps-blocking-of-anthropic-is-capricious-and-chaotic</a></p>
 </article>
 <footer>AI Safety pipeline · daily_digest_html</footer>
 </div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
 </body>
 </html>

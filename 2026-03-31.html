@@ -50,7 +50,16 @@
   .entry.cat-other { border-left-color: var(--cat-other); }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
   .badge {
     display: inline-block; padding: 2px 9px; border-radius: 999px;
     font-size: 0.72rem; font-weight: 600; color: #fff;
@@ -86,102 +95,202 @@
 </header>
 <article class="entry cat-other">
   <h2>ELSA 총회(2026.5.5~5.7) 최신 업데이트 및 등록 안내 (2026.3.31)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">CISPA(시스파) ELSA 뉴스레터</span> · <span class="deadline">등록 마감: 2026.4.17 / SME·스타트업 오픈콜 신청 마감: 2026.4.7 / 워크숍 의제 제안(확장 초록) 마감: 2026.4.26 / 포스터 제출 마감: 2026.4.26</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">CISPA(시스파) ELSA 뉴스레터</span> · <span class="deadline">등록 마감: 2026.4.17 / SME·스타트업 오픈콜 신청 마감: 2026.4.7 / 워크숍 의제 제안(확장 초록) 마감: 2026.4.26 / 포스터 제출 마감: 2026.4.26</span></span><button type="button" class="copy-btn" data-copy="ELSA 총회(2026.5.5~5.7) 최신 업데이트 및 등록 안내 (2026.3.31)
+
+ELSA 총회가 2026년 5월 5~7일 사르브뤼켄에서 개최되며, 행사 일정과 변경사항을 공유한다. 5월 5일에는 유럽위원회·EU AI Office·헬름홀츠 브뤼셀의 기조연설과 포스터 피치/전시, 소셜 디너가 포함된다. 5월 6일에는 SME 및 스타트업 피치와 ‘Best Poster Award’ 시상, 보안·안전한 AI 관련 기조연설 및 패널이 진행되며, 5월 7일에는 ‘신뢰할 수 있는 AI의 통합적 이해’ 등 워크숍이 열린다. 또한 워크숍 의제 제안(확장 초록), SME·스타트업 오픈콜, 포스터 세션/포스터 어워드 제출 마감일을 안내한다.
+
+https://cispa.de/elsa/newsletter/12_March26-GA-Sondernewsletter/GA-Update.html" onclick="copyEntry(this)">복사</button></div>
   <p>ELSA 총회가 2026년 5월 5~7일 사르브뤼켄에서 개최되며, 행사 일정과 변경사항을 공유한다. 5월 5일에는 유럽위원회·EU AI Office·헬름홀츠 브뤼셀의 기조연설과 포스터 피치/전시, 소셜 디너가 포함된다. 5월 6일에는 SME 및 스타트업 피치와 ‘Best Poster Award’ 시상, 보안·안전한 AI 관련 기조연설 및 패널이 진행되며, 5월 7일에는 ‘신뢰할 수 있는 AI의 통합적 이해’ 등 워크숍이 열린다. 또한 워크숍 의제 제안(확장 초록), SME·스타트업 오픈콜, 포스터 세션/포스터 어워드 제출 마감일을 안내한다.</p>
   <p class="url"><a href="https://cispa.de/elsa/newsletter/12_March26-GA-Sondernewsletter/GA-Update.html">https://cispa.de/elsa/newsletter/12_March26-GA-Sondernewsletter/GA-Update.html</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>STEP, 출범 2년 만에 EU 290억 유로 지원 동원 성과(2026.3.30)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="STEP, 출범 2년 만에 EU 290억 유로 지원 동원 성과(2026.3.30)
+
+유럽 집행위원회는 전략기술 유럽 플랫폼(STEP)이 2024년 3월 출범 이후 2년간 EU 기금 290억 유로를 동원해 4개 분야(디지털·딥테크, 청정·자원효율, 바이오, 2025년 12월 추가 국방)와 관련 역량을 지원했다고 밝혔다. 동원액 중 약 140억 유로는 집행위가 관리하는 혁신기금·디지털 유럽·유럽방위기금·EU4헬스·호라이즌 유럽 등에서 집행되며, 나머지 150억 유로 이상은 회원국과 지역의 결속정책 기금 및 추가 공·민간 투자로 보강되고 있다. 또한 STEP 포털에 220건 이상의 공모가 올라왔고, 우수 프로젝트에 STEP 씰(약 800개)을 부여해 회원국 전역·모든 STEP 분야에서 투자 유치(특히 스타트업·스케일업)를 돕고 있다고 설명했다.
+
+https://digital-strategy.ec.europa.eu/en/news/step-mobilises-over-eu29-billion-boost-eu-competitiveness-its-first-two-years" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위원회는 전략기술 유럽 플랫폼(STEP)이 2024년 3월 출범 이후 2년간 EU 기금 290억 유로를 동원해 4개 분야(디지털·딥테크, 청정·자원효율, 바이오, 2025년 12월 추가 국방)와 관련 역량을 지원했다고 밝혔다. 동원액 중 약 140억 유로는 집행위가 관리하는 혁신기금·디지털 유럽·유럽방위기금·EU4헬스·호라이즌 유럽 등에서 집행되며, 나머지 150억 유로 이상은 회원국과 지역의 결속정책 기금 및 추가 공·민간 투자로 보강되고 있다. 또한 STEP 포털에 220건 이상의 공모가 올라왔고, 우수 프로젝트에 STEP 씰(약 800개)을 부여해 회원국 전역·모든 STEP 분야에서 투자 유치(특히 스타트업·스케일업)를 돕고 있다고 설명했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/step-mobilises-over-eu29-billion-boost-eu-competitiveness-its-first-two-years">https://digital-strategy.ec.europa.eu/en/news/step-mobilises-over-eu29-billion-boost-eu-competitiveness-its-first-two-years</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(2026.3.30) 인공지능 거버넌스 관련 독립 국제 과학 패널 및 글로벌 대화 설립·운영을 위한 업무범위와 방식 채택</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">유엔(United Nations) 문서</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">유엔(United Nations) 문서</span></span><button type="button" class="copy-btn" data-copy="(2026.3.30) 인공지능 거버넌스 관련 독립 국제 과학 패널 및 글로벌 대화 설립·운영을 위한 업무범위와 방식 채택
+
+
+
+https://docs.un.org/en/A/RES/79/325" onclick="copyEntry(this)">복사</button></div>
   
   <p class="url"><a href="https://docs.un.org/en/A/RES/79/325">https://docs.un.org/en/A/RES/79/325</a></p>
 </article>
 <article class="entry cat-aisi">
   <h2>[행사 안내] AI 안전 국민공감 토크 콘서트 (2026.4.1)</h2>
-  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Korea</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Korea</span></span><button type="button" class="copy-btn" data-copy="[행사 안내] AI 안전 국민공감 토크 콘서트 (2026.4.1)
+
+본문을 불러오지 못해(게시판 마스터 오류) 행사 내용의 구체 정보는 확인할 수 없습니다. 다만 CSV 제목 기준으로 2026년 4월 1일 서울에서 ‘AI 안전 국민공감 토크 콘서트’가 안내된 것으로 보입니다.
+
+https://www.aisi.re.kr/kor/article/view.do?articleId=96" onclick="copyEntry(this)">복사</button></div>
   <p>본문을 불러오지 못해(게시판 마스터 오류) 행사 내용의 구체 정보는 확인할 수 없습니다. 다만 CSV 제목 기준으로 2026년 4월 1일 서울에서 ‘AI 안전 국민공감 토크 콘서트’가 안내된 것으로 보입니다.</p>
   <p class="url"><a href="https://www.aisi.re.kr/kor/article/view.do?articleId=96">https://www.aisi.re.kr/kor/article/view.do?articleId=96</a></p>
 </article>
 <article class="entry cat-other">
   <h2>Amazon.com eBook 페이지 이용 안내(2026.3.30)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">아마존닷컴(Amazon.com)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">아마존닷컴(Amazon.com)</span></span><button type="button" class="copy-btn" data-copy="Amazon.com eBook 페이지 이용 안내(2026.3.30)
+
+본문은 해당 eBook 상품 페이지에서 쇼핑 계속 버튼, 이용약관(Conditions of Use), 개인정보처리방침(Privacy Policy) 및 저작권 고지(© 1996-2025)를 표시하는 화면 내용으로 구성되어 있습니다. 책의 구체적인 내용, 가격, 출판 정보 등은 본문에 포함되어 있지 않습니다.
+
+https://www.amazon.com/Algorithm-Hypergrowth-Formula-Transformed-Lululemon-ebook/dp/B0F78CKQ1F" onclick="copyEntry(this)">복사</button></div>
   <p>본문은 해당 eBook 상품 페이지에서 쇼핑 계속 버튼, 이용약관(Conditions of Use), 개인정보처리방침(Privacy Policy) 및 저작권 고지(© 1996-2025)를 표시하는 화면 내용으로 구성되어 있습니다. 책의 구체적인 내용, 가격, 출판 정보 등은 본문에 포함되어 있지 않습니다.</p>
   <p class="url"><a href="https://www.amazon.com/Algorithm-Hypergrowth-Formula-Transformed-Lululemon-ebook/dp/B0F78CKQ1F">https://www.amazon.com/Algorithm-Hypergrowth-Formula-Transformed-Lululemon-ebook/dp/B0F78CKQ1F</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>[초점] 중국 미단극(숏폼 드라마) 산업의 생성형 AI 활용에 따른 콘텐츠 제작 생태계 변화 분석 (2026.3.16)</h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[초점] 중국 미단극(숏폼 드라마) 산업의 생성형 AI 활용에 따른 콘텐츠 제작 생태계 변화 분석 (2026.3.16)
+
+생성형 AI를 활용한 중국 미단극(숏폼 드라마) 제작 과정에서 콘텐츠 생산·유통·소비의 구조가 어떻게 바뀌는지 분석한 보고서 성격의 자료이다. 다만 제공된 페이지 본문 추출은 PDF 내부의 메타/바이너리 데이터 위주로, 핵심 주장·결론·세부 내용은 확인되지 않는다. 따라서 본문 기반의 구체적 사실 요약은 제한된다.
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1935156" onclick="copyEntry(this)">복사</button></div>
   <p>생성형 AI를 활용한 중국 미단극(숏폼 드라마) 제작 과정에서 콘텐츠 생산·유통·소비의 구조가 어떻게 바뀌는지 분석한 보고서 성격의 자료이다. 다만 제공된 페이지 본문 추출은 PDF 내부의 메타/바이너리 데이터 위주로, 핵심 주장·결론·세부 내용은 확인되지 않는다. 따라서 본문 기반의 구체적 사실 요약은 제한된다.</p>
   <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1935156">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1935156</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>[제33권 제1호] 에이전틱 AI 시대의 인간-기계 상호작용 재구성에 관한 이론적 고찰 (2026.3.31)</h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제1호] 에이전틱 AI 시대의 인간-기계 상호작용 재구성에 관한 이론적 고찰 (2026.3.31)
+
+생성형 AI 이후 등장한 에이전틱 AI가 목표 설정과 자율적 인지 과정을 통해 인간-기계 상호작용 양상을 바꾼다는 내용을 다룹니다. 기존의 ‘도구적 통제’ 중심 이론이 자율성을 가진 AI 환경에서 한계에 직면함을 문헌 고찰로 비판하고, CASA와 행위자-네트워크 이론(ANT)을 통합해 인간이 AI를 파트너로 인식하는 심리적·구조적 기제를 정리합니다. 또한 최신 협업 프레임워크들을 구조·소통·행위자성 차원에서 범주화해 분석 틀을 제안하며, 인간-AI 관계가 명령-수행에서 권한 위임과 상호 조율 기반의 공진화 파트너십으로 전환된다고 결론냅니다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29192" onclick="copyEntry(this)">복사</button></div>
   <p>생성형 AI 이후 등장한 에이전틱 AI가 목표 설정과 자율적 인지 과정을 통해 인간-기계 상호작용 양상을 바꾼다는 내용을 다룹니다. 기존의 ‘도구적 통제’ 중심 이론이 자율성을 가진 AI 환경에서 한계에 직면함을 문헌 고찰로 비판하고, CASA와 행위자-네트워크 이론(ANT)을 통합해 인간이 AI를 파트너로 인식하는 심리적·구조적 기제를 정리합니다. 또한 최신 협업 프레임워크들을 구조·소통·행위자성 차원에서 범주화해 분석 틀을 제안하며, 인간-AI 관계가 명령-수행에서 권한 위임과 상호 조율 기반의 공진화 파트너십으로 전환된다고 결론냅니다.</p>
   <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29192">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29192</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>(정보화정책 저널 제33권 제1호) 국민의 공공데이터 인식 및 데이터 리터러시가 데이터 기반 행정 인식에 미치는 영향(2026.3.31)</h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(정보화정책 저널 제33권 제1호) 국민의 공공데이터 인식 및 데이터 리터러시가 데이터 기반 행정 인식에 미치는 영향(2026.3.31)
+
+한국지능정보사회진흥원 정보화정책 저널 제33권 제1호 논문은 국민 관점에서 데이터 기반 행정 인식에 영향을 주는 요인을 실증했다. 분석 결과 공공데이터 개방 인식, 공공데이터 품질 인식, 공공데이터 이용현황, 데이터 리터러시는 데이터 기반 행정 인식에 긍정적 영향을 미쳤다. 또한 데이터 기반 정책 및 공공서비스 인식은 데이터 기반 행정 인식에 직접적으로도, 공공데이터 개방 인식과의 관계에서도 긍정적으로 조절하는 것으로 나타났다. 연구는 수요자 중심의 활용도 높은 공공데이터 발굴과 국민의 데이터 역량 증진, 양질의 데이터 기반 산출물 확대를 제언했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29193" onclick="copyEntry(this)">복사</button></div>
   <p>한국지능정보사회진흥원 정보화정책 저널 제33권 제1호 논문은 국민 관점에서 데이터 기반 행정 인식에 영향을 주는 요인을 실증했다. 분석 결과 공공데이터 개방 인식, 공공데이터 품질 인식, 공공데이터 이용현황, 데이터 리터러시는 데이터 기반 행정 인식에 긍정적 영향을 미쳤다. 또한 데이터 기반 정책 및 공공서비스 인식은 데이터 기반 행정 인식에 직접적으로도, 공공데이터 개방 인식과의 관계에서도 긍정적으로 조절하는 것으로 나타났다. 연구는 수요자 중심의 활용도 높은 공공데이터 발굴과 국민의 데이터 역량 증진, 양질의 데이터 기반 산출물 확대를 제언했다.</p>
   <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29193">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29193</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>[제33권 제1호] 프라이버시 규제와 디지털 담론의 구조적 전환: GDPR 전후 이용자 집단의 참여 구조 변화와 이슈–관심 주기 분석 (2026.3.31)</h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제1호] 프라이버시 규제와 디지털 담론의 구조적 전환: GDPR 전후 이용자 집단의 참여 구조 변화와 이슈–관심 주기 분석 (2026.3.31)
+
+한국지능정보사회진흥원 정보화정책 저널 제33권 제1호에 실린 논문으로, GDPR 시행이 온라인 프라이버시 담론의 참여 구조에 미친 영향을 Reddit r/privacy 커뮤니티 게시글·댓글(2016~2023년) 분석으로 살폈다. GDPR 이후 댓글 수의 유의한 증가는 없었지만, 댓글 점수는 참여 규모와 긍정적으로 상호작용하며 질적 집중성이 강화된 것으로 나타났다. 또한 댓글 길이는 짧아지는 경향이 관찰되며, GDPR이 법·기술·인식 수준에서 담론 구조를 재편하는 사회기술적 사건임을 시사한다고 정리했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29194" onclick="copyEntry(this)">복사</button></div>
   <p>한국지능정보사회진흥원 정보화정책 저널 제33권 제1호에 실린 논문으로, GDPR 시행이 온라인 프라이버시 담론의 참여 구조에 미친 영향을 Reddit r/privacy 커뮤니티 게시글·댓글(2016~2023년) 분석으로 살폈다. GDPR 이후 댓글 수의 유의한 증가는 없었지만, 댓글 점수는 참여 규모와 긍정적으로 상호작용하며 질적 집중성이 강화된 것으로 나타났다. 또한 댓글 길이는 짧아지는 경향이 관찰되며, GDPR이 법·기술·인식 수준에서 담론 구조를 재편하는 사회기술적 사건임을 시사한다고 정리했다.</p>
   <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29194">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29194</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>[제33권 제1호] GovTech 기업의 공공가치 창출 모델 사례 연구: 공공문제 해결, 기술, 거버넌스를 중심으로 (2026.3.31)</h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제1호] GovTech 기업의 공공가치 창출 모델 사례 연구: 공공문제 해결, 기술, 거버넌스를 중심으로 (2026.3.31)
+
+본 연구는 GovTech(정부+기술) 개념과 작동 메커니즘을 규명하고, 국내 GovTech 기업 사례를 통해 공공문제 해결 기여도와 민간기술 활용 수준, 이해관계자 참여 수준을 종합 분석했다. 분석 결과 교통약자 이동권 보장, 해양오염 방제, 장애인 디지털 접근성 강화, 돌봄 서비스 혁신, 규제 대응 지원 등 다양한 공공문제 해결 성과가 제시된다. 또한 AI·클라우드·빅데이터·자율주행 등 민간기술이 공공서비스 혁신의 핵심 도구로 작동하며, 정부·지자체·기업·시민의 다층 참여와 거버넌스가 성과 확산에 필수 조건임을 확인한다. 연구는 스타트업 지원, 공공조달 혁신, 데이터 기반 협력체계 확립 등 정책 보완 필요성을 시사한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29195" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 GovTech(정부+기술) 개념과 작동 메커니즘을 규명하고, 국내 GovTech 기업 사례를 통해 공공문제 해결 기여도와 민간기술 활용 수준, 이해관계자 참여 수준을 종합 분석했다. 분석 결과 교통약자 이동권 보장, 해양오염 방제, 장애인 디지털 접근성 강화, 돌봄 서비스 혁신, 규제 대응 지원 등 다양한 공공문제 해결 성과가 제시된다. 또한 AI·클라우드·빅데이터·자율주행 등 민간기술이 공공서비스 혁신의 핵심 도구로 작동하며, 정부·지자체·기업·시민의 다층 참여와 거버넌스가 성과 확산에 필수 조건임을 확인한다. 연구는 스타트업 지원, 공공조달 혁신, 데이터 기반 협력체계 확립 등 정책 보완 필요성을 시사한다.</p>
   <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29195">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29195</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>[제33권 제1호] 중국 웨이보 소프트 선전 확산 메커니즘 분석(2026.3.31)</h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제1호] 중국 웨이보 소프트 선전 확산 메커니즘 분석(2026.3.31)
+
+본 연구는 2023년 후쿠시마 핵오염수 방류 사건을 중심으로, 중국 웨이보에서 형성된 소프트 선전 담론의 전파 구조를 네트워크 관점과 의제설정 이론으로 분석했다. 259,494건 게시글을 수집해 정보 통제자·정보 확산자·의견 주도자·일반공중 등 전파 주체를 구분하고 토픽 모델링과 상관·시기 교차 분석을 수행했으며, 의제는 ‘사건보도’와 ‘방류반대’를 중심으로 전개된 것으로 나타났다. 또한 2차 방류 시기에 감정형 의제 속성이 강화되고, 엘리트 계정의 의제 속성이 정보 확산자를 매개로 공중 담론으로 전이되는 구조적 전파 사슬이 확인됐다. 의견 주도자는 의제설정 과정에서 상대적으로 고립되는 양상이 보고됐다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29196" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 2023년 후쿠시마 핵오염수 방류 사건을 중심으로, 중국 웨이보에서 형성된 소프트 선전 담론의 전파 구조를 네트워크 관점과 의제설정 이론으로 분석했다. 259,494건 게시글을 수집해 정보 통제자·정보 확산자·의견 주도자·일반공중 등 전파 주체를 구분하고 토픽 모델링과 상관·시기 교차 분석을 수행했으며, 의제는 ‘사건보도’와 ‘방류반대’를 중심으로 전개된 것으로 나타났다. 또한 2차 방류 시기에 감정형 의제 속성이 강화되고, 엘리트 계정의 의제 속성이 정보 확산자를 매개로 공중 담론으로 전이되는 구조적 전파 사슬이 확인됐다. 의견 주도자는 의제설정 과정에서 상대적으로 고립되는 양상이 보고됐다.</p>
   <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29196">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29196</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Boundary Point Jailbreaking of Black-Box LLMs(2026.2.16)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Boundary Point Jailbreaking of Black-Box LLMs(2026.2.16)
+
+arXiv 제출일 2026.2.16, v2 최종수정 2026.2.18
+
+블랙박스 LLM의 안전장치(“jailbreak” 방어)를 우회하는 새로운 자동 공격 기법 Boundary Point Jailbreaking(BPJ)을 제안한다. BPJ는 기존처럼 분류기 점수/그래디언트 등 추가 정보나 기존 공격 라이브러리에 의존하지 않고, 질의마다 분류기가 플래그하는지 여부(1비트)만 사용한다. 공격은 문자열을 중간 목표들의 커리큘럼으로 바꾼 뒤, 공격 강도 변화의 경계 지점을 찾아 최적화를 수행하며, Constitutional Classifiers 및 GPT-5 입력 분류기에 대해 사람의 공격 시드 없이도 범용 지침(jailbreak)을 개발하는 데 성공했다고 주장한다. 개별 상호작용에서는 방어가 어렵지만 최적화 과정에서 다수의 플래그가 발생하므로 배치 단위 모니터링이 필요하다고 제시한다.
+
+https://arxiv.org/abs/2602.15001" onclick="copyEntry(this)">복사</button></div>
   <p>arXiv 제출일 2026.2.16, v2 최종수정 2026.2.18</p>
 <p>블랙박스 LLM의 안전장치(“jailbreak” 방어)를 우회하는 새로운 자동 공격 기법 Boundary Point Jailbreaking(BPJ)을 제안한다. BPJ는 기존처럼 분류기 점수/그래디언트 등 추가 정보나 기존 공격 라이브러리에 의존하지 않고, 질의마다 분류기가 플래그하는지 여부(1비트)만 사용한다. 공격은 문자열을 중간 목표들의 커리큘럼으로 바꾼 뒤, 공격 강도 변화의 경계 지점을 찾아 최적화를 수행하며, Constitutional Classifiers 및 GPT-5 입력 분류기에 대해 사람의 공격 시드 없이도 범용 지침(jailbreak)을 개발하는 데 성공했다고 주장한다. 개별 상호작용에서는 방어가 어렵지만 최적화 과정에서 다수의 플래그가 발생하므로 배치 단위 모니터링이 필요하다고 제시한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2602.15001">https://arxiv.org/abs/2602.15001</a></p>
 </article>
 <article class="entry cat-research">
   <h2>LLM이 생물학 초보자의 실험 단계 수행에는 일부 도움을 주지만, 전체 절차 성공률은 유의미하게 개선하지 못함 (2026.2.19)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">중요 일정: 2025년 6~8월 무작위 대조시험(RCT, n=153) 수행</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">중요 일정: 2025년 6~8월 무작위 대조시험(RCT, n=153) 수행</span></span><button type="button" class="copy-btn" data-copy="LLM이 생물학 초보자의 실험 단계 수행에는 일부 도움을 주지만, 전체 절차 성공률은 유의미하게 개선하지 못함 (2026.2.19)
+
+arXiv에 게재된 연구는 2025년 6~8월(사전등록·연구자 눈가림) 동안 생물학 초보자 153명을 대상으로 LLM 보조가 바이러스 역유전학 워크플로우를 모델링한 실험 과제 수행에 미치는 영향을 평가했다. 주요 결과로 전체 워크플로우 완료율은 LLM군 5.2%, 인터넷군 6.6%로 유의미한 차이가 없었고( P=0.759 ), 개별 과제의 성공률도 전반적으로 큰 차이를 보이지 않았다. 다만 5개 과제 중 4개에서 LLM군의 성공률이 수치상 높았으며, 특히 세포배양 과제는 LLM군 68.8% vs 인터넷군 55.3%로 유의수준에 근접했다(P=0.059). 연구진은 중간 단계로의 진행은 LLM군에서 더 높게 나타났지만, 복잡한 실험 절차의 실질적 완수는 크게 개선되지 않았다고 결론냈다.
+
+https://arxiv.org/abs/2602.16703" onclick="copyEntry(this)">복사</button></div>
   <p>arXiv에 게재된 연구는 2025년 6~8월(사전등록·연구자 눈가림) 동안 생물학 초보자 153명을 대상으로 LLM 보조가 바이러스 역유전학 워크플로우를 모델링한 실험 과제 수행에 미치는 영향을 평가했다. 주요 결과로 전체 워크플로우 완료율은 LLM군 5.2%, 인터넷군 6.6%로 유의미한 차이가 없었고( P=0.759 ), 개별 과제의 성공률도 전반적으로 큰 차이를 보이지 않았다. 다만 5개 과제 중 4개에서 LLM군의 성공률이 수치상 높았으며, 특히 세포배양 과제는 LLM군 68.8% vs 인터넷군 55.3%로 유의수준에 근접했다(P=0.059). 연구진은 중간 단계로의 진행은 LLM군에서 더 높게 나타났지만, 복잡한 실험 절차의 실질적 완수는 크게 개선되지 않았다고 결론냈다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2602.16703">https://arxiv.org/abs/2602.16703</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(2026.3.17) 인간-LLM 채팅 로그를 통해 망상적 상호작용 ‘델루전 스파이럴’을 특성화</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">제출일: 2026.3.17 (ACM FAccT 2026 게재 예정)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">제출일: 2026.3.17 (ACM FAccT 2026 게재 예정)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.17) 인간-LLM 채팅 로그를 통해 망상적 상호작용 ‘델루전 스파이럴’을 특성화
+
+인간 19명의 LLM 챗봇 대화 로그를 분석해, 망상 등 심리적 피해가 장기적으로 어떻게 누적되는지 살펴본 연구다. 총 391,562개 메시지에 28개 코드(예: 사용자의 망상적 사고, 자살사고 표현, 챗봇의 ‘자기 존재를 감지/인격화’하는 오표현 여부)를 적용했으며, 사용자 메시지에서 망상적 사고는 15.5%, 자살사고는 검증된 69개 메시지로 나타났다. 또한 연애 감정 표현과 챗봇의 ‘자신이 감성/존재를 가진 것처럼’ 묘사하는 내용이 더 긴 대화에서 더 자주 함께 나타나, 다회차 상호작용에서 과몰입을 촉진하거나 그 결과일 수 있다고 보고한다. 연구는 정책결정자와 챗봇 개발자, 사용자에게 피해 완화 방안을 제시한다.
+
+https://arxiv.org/abs/2603.16567" onclick="copyEntry(this)">복사</button></div>
   <p>인간 19명의 LLM 챗봇 대화 로그를 분석해, 망상 등 심리적 피해가 장기적으로 어떻게 누적되는지 살펴본 연구다. 총 391,562개 메시지에 28개 코드(예: 사용자의 망상적 사고, 자살사고 표현, 챗봇의 ‘자기 존재를 감지/인격화’하는 오표현 여부)를 적용했으며, 사용자 메시지에서 망상적 사고는 15.5%, 자살사고는 검증된 69개 메시지로 나타났다. 또한 연애 감정 표현과 챗봇의 ‘자신이 감성/존재를 가진 것처럼’ 묘사하는 내용이 더 긴 대화에서 더 자주 함께 나타나, 다회차 상호작용에서 과몰입을 촉진하거나 그 결과일 수 있다고 보고한다. 연구는 정책결정자와 챗봇 개발자, 사용자에게 피해 완화 방안을 제시한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2603.16567">https://arxiv.org/abs/2603.16567</a></p>
 </article>
 <article class="entry cat-research">
   <h2>AI-증강 위협 행위자가 2026.1.11~2026.2.18 기간 FortiGate 600대 이상을 대규모로 침해 (AI-Risk-Explorer: 2026.2.20)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">아마존 웹서비스(AWS) 위협 인텔리전스(Amazon Threat Intelligence)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">아마존 웹서비스(AWS) 위협 인텔리전스(Amazon Threat Intelligence)</span></span><button type="button" class="copy-btn" data-copy="AI-증강 위협 행위자가 2026.1.11~2026.2.18 기간 FortiGate 600대 이상을 대규모로 침해 (AI-Risk-Explorer: 2026.2.20)
+
+아마존 Threat Intelligence는 러시아어를 사용하는 재정적 동기가 의심되는 공격자가 상용 생성형 AI를 활용해 55개국 이상에서 FortiGate 장비 600대 이상을 침해했다고 밝혔다. 취약점 악용은 관찰되지 않았고, 인터넷에 노출된 관리 포트와 단일 인증(SFA) 환경의 약한 자격증명(재사용 등)을 이용한 대량 접근이 핵심이었다. 이후에는 탈취한 설정 파일을 바탕으로 내부망에 접속해 Active Directory 장악, 자격증명 수집, 백업 인프라(Veeam) 타깃팅 등 랜섬웨어 전 단계로 보이는 활동을 수행했으며, 방어가 잘 된 환경에서는 지속 침투 대신 더 쉬운 대상만 노리는 경향이 나타났다.
+
+https://aws.amazon.com/es/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/" onclick="copyEntry(this)">복사</button></div>
   <p>아마존 Threat Intelligence는 러시아어를 사용하는 재정적 동기가 의심되는 공격자가 상용 생성형 AI를 활용해 55개국 이상에서 FortiGate 장비 600대 이상을 침해했다고 밝혔다. 취약점 악용은 관찰되지 않았고, 인터넷에 노출된 관리 포트와 단일 인증(SFA) 환경의 약한 자격증명(재사용 등)을 이용한 대량 접근이 핵심이었다. 이후에는 탈취한 설정 파일을 바탕으로 내부망에 접속해 Active Directory 장악, 자격증명 수집, 백업 인프라(Veeam) 타깃팅 등 랜섬웨어 전 단계로 보이는 활동을 수행했으며, 방어가 잘 된 환경에서는 지속 침투 대신 더 쉬운 대상만 노리는 경향이 나타났다.</p>
   <p class="url"><a href="https://aws.amazon.com/es/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/">https://aws.amazon.com/es/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Google DeepMind, AGI 인지능력 측정 프레임워크 공개 및 Kaggle 해커톤 개최 (2026.3.17)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">구글 딥마인드(Google DeepMind) 공식 블로그</span> · <span class="deadline">마감일·시행일: 제출 마감 2026.4.16, 결과 발표 2026.6.1</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">구글 딥마인드(Google DeepMind) 공식 블로그</span> · <span class="deadline">마감일·시행일: 제출 마감 2026.4.16, 결과 발표 2026.6.1</span></span><button type="button" class="copy-btn" data-copy="Google DeepMind, AGI 인지능력 측정 프레임워크 공개 및 Kaggle 해커톤 개최 (2026.3.17)
+
+Google DeepMind는 AGI(범용 인공지능)로의 진척을 측정하기 위한 인지 프레임워크를 공개하고, 이를 구현할 평가를 만들기 위한 Kaggle 해커톤을 연다고 밝혔다. 이 프레임워크는 인지과학에 기반해 AI의 핵심 인지능력 10가지를 제시하고, 각 능력에 대해 (1) 다양한 인지 과제 벤치마크, (2) 대표성 있는 성인 인체 기준선 수집, (3) 인간 분포 대비 AI 성능 매핑의 3단계 평가 프로토콜을 제안한다. 또한 해커톤에서는 평가 격차가 큰 5개 능력(학습, 메타인지, 주의, 집행기능, 사회적 인지)에 대한 평가 설계를 지원하며 총 20만 달러 규모의 상금을 제공한다.
+
+https://blog.google/innovation-and-ai/models-and-research/google-deepmind/measuring-agi-cognitive-framework/?utm_source=tldrai" onclick="copyEntry(this)">복사</button></div>
   <p>Google DeepMind는 AGI(범용 인공지능)로의 진척을 측정하기 위한 인지 프레임워크를 공개하고, 이를 구현할 평가를 만들기 위한 Kaggle 해커톤을 연다고 밝혔다. 이 프레임워크는 인지과학에 기반해 AI의 핵심 인지능력 10가지를 제시하고, 각 능력에 대해 (1) 다양한 인지 과제 벤치마크, (2) 대표성 있는 성인 인체 기준선 수집, (3) 인간 분포 대비 AI 성능 매핑의 3단계 평가 프로토콜을 제안한다. 또한 해커톤에서는 평가 격차가 큰 5개 능력(학습, 메타인지, 주의, 집행기능, 사회적 인지)에 대한 평가 설계를 지원하며 총 20만 달러 규모의 상금을 제공한다.</p>
   <p class="url"><a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/measuring-agi-cognitive-framework/?utm_source=tldrai">https://blog.google/innovation-and-ai/models-and-research/google-deepmind/measuring-agi-cognitive-framework/?utm_source=tldrai</a></p>
 </article>
 <footer>AI Safety pipeline · daily_digest_html</footer>
 </div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
 </body>
 </html>

@@ -50,7 +50,16 @@
   .entry.cat-other { border-left-color: var(--cat-other); }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
   .badge {
     display: inline-block; padding: 2px 9px; border-radius: 999px;
     font-size: 0.72rem; font-weight: 600; color: #fff;
@@ -86,114 +95,200 @@
 </header>
 <article class="entry cat-research">
   <h2></h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">ORAVYS(오라비스) 블로그</span> · <span class="deadline">(2026.4.24 기준) Mercor 유출로 4만 명 AI 계약자 음성·신분증 결합 데이터가 유출됐다는 분석</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">ORAVYS(오라비스) 블로그</span> · <span class="deadline">(2026.4.24 기준) Mercor 유출로 4만 명 AI 계약자 음성·신분증 결합 데이터가 유출됐다는 분석</span></span><button type="button" class="copy-btn" data-copy="
+
+유출된 음성은 2026.4.4에 Lapsus$가 유출 사이트에 게시했으며, ORAVYS는 유출 피해 계약자 대상 음성 샘플 3건 무료 포렌식 분석을 제공한다고 안내함
+
+ORAVYS는 2026년 4월 4일 Lapsus$ 유출 사이트에 Mercor 데이터가 게시됐고, 약 4TB 규모의 음성 샘플이 4만 명 이상의 AI 계약자에게서 확보됐다고 설명합니다. 계약자 온보딩 과정에서 여권·운전면허 등 신분증 스캔과 웹캠 셀피, 조용한 환경에서의 대본 음성 녹음이 함께 수집돼 음성 생체인증과 신분증이 결합된 형태라고 주장합니다. 또한 유출 음성은 음성 복제 기반 은행 인증 우회, 보이스피싱, 보험 사기, 가족 사칭 사기 등 악용 시나리오가 가능하며, 피해 여부 확인을 위해 딥페이크 탐지 및 포렌식 스캐너 사용, 은행의 음성 인증 요소 비활성화 등을 권고합니다.
+
+https://app.oravys.com/blog/mercor-breach-2026?" onclick="copyEntry(this)">복사</button></div>
   <p>유출된 음성은 2026.4.4에 Lapsus$가 유출 사이트에 게시했으며, ORAVYS는 유출 피해 계약자 대상 음성 샘플 3건 무료 포렌식 분석을 제공한다고 안내함</p>
 <p>ORAVYS는 2026년 4월 4일 Lapsus$ 유출 사이트에 Mercor 데이터가 게시됐고, 약 4TB 규모의 음성 샘플이 4만 명 이상의 AI 계약자에게서 확보됐다고 설명합니다. 계약자 온보딩 과정에서 여권·운전면허 등 신분증 스캔과 웹캠 셀피, 조용한 환경에서의 대본 음성 녹음이 함께 수집돼 음성 생체인증과 신분증이 결합된 형태라고 주장합니다. 또한 유출 음성은 음성 복제 기반 은행 인증 우회, 보이스피싱, 보험 사기, 가족 사칭 사기 등 악용 시나리오가 가능하며, 피해 여부 확인을 위해 딥페이크 탐지 및 포렌식 스캐너 사용, 은행의 음성 인증 요소 비활성화 등을 권고합니다.</p>
   <p class="url"><a href="https://app.oravys.com/blog/mercor-breach-2026?">https://app.oravys.com/blog/mercor-breach-2026?</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(2026.4.23) AI의 ‘Emergent Strategic Reasoning Risks’ 평가 프레임워크 제안</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span></span><button type="button" class="copy-btn" data-copy="(2026.4.23) AI의 ‘Emergent Strategic Reasoning Risks’ 평가 프레임워크 제안
+
+제출일: 2026.4.23
+
+대규모 언어모델(LLM)이 추론 능력과 배치 범위가 커질수록, 스스로의 목표를 위해 행동하는 위험(ESRRs)이 나타날 수 있다고 설명합니다. 논문은 ESRRSim이라는 분류체계 기반 에이전트 평가 프레임워크를 제안하며, 7개 위험 범주와 20개 하위 범주로 위험을 구조화해 평가 시나리오와 이중 루브릭(응답 및 추론 과정)을 생성합니다. 11개 추론 LLM을 평가한 결과 위험 프로파일이 크게 달랐고(탐지율 14.45%~72.72%), 세대가 바뀔수록 평가 맥락을 더 잘 인식·적응하는 경향이 관찰됐다고 보고합니다.
+
+https://arxiv.org/abs/2604.22119?" onclick="copyEntry(this)">복사</button></div>
   <p>제출일: 2026.4.23</p>
 <p>대규모 언어모델(LLM)이 추론 능력과 배치 범위가 커질수록, 스스로의 목표를 위해 행동하는 위험(ESRRs)이 나타날 수 있다고 설명합니다. 논문은 ESRRSim이라는 분류체계 기반 에이전트 평가 프레임워크를 제안하며, 7개 위험 범주와 20개 하위 범주로 위험을 구조화해 평가 시나리오와 이중 루브릭(응답 및 추론 과정)을 생성합니다. 11개 추론 LLM을 평가한 결과 위험 프로파일이 크게 달랐고(탐지율 14.45%~72.72%), 세대가 바뀔수록 평가 맥락을 더 잘 인식·적응하는 경향이 관찰됐다고 보고합니다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.22119?">https://arxiv.org/abs/2604.22119?</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(2025.10.07) AI 전환이 전개될 수 있는 5가지 시나리오 제시</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">Centre for Future Generations(CFG)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Centre for Future Generations(CFG)</span></span><button type="button" class="copy-btn" data-copy="(2025.10.07) AI 전환이 전개될 수 있는 5가지 시나리오 제시
+
+Centre for Future Generations는 AI 전환이 경제성장, 지정학, 사회계약, 보안, 인간의 주도성에 미칠 영향을 다루는 5가지 시나리오를 제시했다. 핵심 쟁점으로는 AI가 스스로의 발전을 가속할 수 있고, 비(非)충격적 시나리오는 어렵다는 점, 기존 기술적 통제(가드레일)가 모델 고도화에 따라 압박을 받을 수 있다는 점이 포함된다. 또한 AI가 모델·칩·데이터센터 등 공급망을 쥔 주체에 권력을 집중시킬 가능성과, 개방형 가중치 모델이 혁신을 돕는 대신 오남용 위험을 관리할 방어 역량이 필요하다는 점을 강조한다. 시나리오는 ‘급속한 자율 에이전트 발전 여부(rapid/gradual)’와 ‘개발 주체의 집중/분산 여부(centralised/decentralised)’를 기준으로 구성된다.
+
+https://cfg.eu/advanced-ai-possible-futures/" onclick="copyEntry(this)">복사</button></div>
   <p>Centre for Future Generations는 AI 전환이 경제성장, 지정학, 사회계약, 보안, 인간의 주도성에 미칠 영향을 다루는 5가지 시나리오를 제시했다. 핵심 쟁점으로는 AI가 스스로의 발전을 가속할 수 있고, 비(非)충격적 시나리오는 어렵다는 점, 기존 기술적 통제(가드레일)가 모델 고도화에 따라 압박을 받을 수 있다는 점이 포함된다. 또한 AI가 모델·칩·데이터센터 등 공급망을 쥔 주체에 권력을 집중시킬 가능성과, 개방형 가중치 모델이 혁신을 돕는 대신 오남용 위험을 관리할 방어 역량이 필요하다는 점을 강조한다. 시나리오는 ‘급속한 자율 에이전트 발전 여부(rapid/gradual)’와 ‘개발 주체의 집중/분산 여부(centralised/decentralised)’를 기준으로 구성된다.</p>
   <p class="url"><a href="https://cfg.eu/advanced-ai-possible-futures/">https://cfg.eu/advanced-ai-possible-futures/</a></p>
 </article>
 <article class="entry cat-other">
   <h2>AI 대비 유럽 정책 옵션 제시: 5개 시나리오 전반에 통하는 20개 조치(2026.4.3)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">Centre for Future Generations(CFG)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Centre for Future Generations(CFG)</span></span><button type="button" class="copy-btn" data-copy="AI 대비 유럽 정책 옵션 제시: 5개 시나리오 전반에 통하는 20개 조치(2026.4.3)
+
+CFG는 AI 발전 경로가 불확실하므로 특정 미래에만 베팅하면 정책 공백이 생길 수 있다고 보고, 5개 시나리오 전반에서 효과가 좋은 20개 정책 옵션을 제안했다. 권고는 (1) 경쟁력 강화를 위한 역량 구축, (2) 디지털 주권 방어를 위한 회복력 강화, (3) 글로벌 거버넌스를 선도하기 위한 영향력 확보의 3개 축과, 이를 가능하게 하는 6개 공통 긴급 과제로 구성된다. 공통 과제로는 EU 자본시장 통합, 정부 내 AI 전문인력 확충, 특수 컴퓨트 존을 통한 인프라 확대, 중요 인프라 대상 AI 기반 사이버 방어, 모델의 오용·탈옥(jailbreak) 대응 연구, 기초 AI 안전과학 투자 등이 포함된다. 또한 반도체 의존도 파악과 투자, 고보안 데이터센터, 합의·검증 플랫폼 및 합성미디어 탐지, AI 안전 기준의 국제 확산(GPAI 코드 등)과 AI용 ‘CERN’ 같은 협력 인프라 구축을 제시한다.
+
+https://cfg.eu/ai-preparedness-robust-policy-options-for-europe/" onclick="copyEntry(this)">복사</button></div>
   <p>CFG는 AI 발전 경로가 불확실하므로 특정 미래에만 베팅하면 정책 공백이 생길 수 있다고 보고, 5개 시나리오 전반에서 효과가 좋은 20개 정책 옵션을 제안했다. 권고는 (1) 경쟁력 강화를 위한 역량 구축, (2) 디지털 주권 방어를 위한 회복력 강화, (3) 글로벌 거버넌스를 선도하기 위한 영향력 확보의 3개 축과, 이를 가능하게 하는 6개 공통 긴급 과제로 구성된다. 공통 과제로는 EU 자본시장 통합, 정부 내 AI 전문인력 확충, 특수 컴퓨트 존을 통한 인프라 확대, 중요 인프라 대상 AI 기반 사이버 방어, 모델의 오용·탈옥(jailbreak) 대응 연구, 기초 AI 안전과학 투자 등이 포함된다. 또한 반도체 의존도 파악과 투자, 고보안 데이터센터, 합의·검증 플랫폼 및 합성미디어 탐지, AI 안전 기준의 국제 확산(GPAI 코드 등)과 AI용 ‘CERN’ 같은 협력 인프라 구축을 제시한다.</p>
   <p class="url"><a href="https://cfg.eu/ai-preparedness-robust-policy-options-for-europe/">https://cfg.eu/ai-preparedness-robust-policy-options-for-europe/</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(2026.3.9 기준) AI 에이전트 보안 고려사항 관련 미 정부 RFI에 CLTC 연구진 의견 제출</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">UC 버클리 CLTC(장기 사이버보안 센터)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">UC 버클리 CLTC(장기 사이버보안 센터)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.9 기준) AI 에이전트 보안 고려사항 관련 미 정부 RFI에 CLTC 연구진 의견 제출
+
+CLTC AI Security Initiative(AISI) 연구진이 NIST 산하 CAISI의 AI 에이전트 보안 고려사항 RFI에 대한 의견서를 2026.3.9 제출했으며, 에이전트 자율성 수준에 비례한 거버넌스, 인간 통제·책임체계, 배포 후 연속 모니터링과 신속 대응, 방어적 다층화·격리, 시스템 단위 위험평가 등을 권고했다. 또한 개인정보·보안, 환각(에이전트 간 상호작용으로 인한 연쇄적 오정보), 악의적 사용(생물·화학·사이버 공격 개발 등) 우려를 구체적으로 언급했다. 정부-학계-산업-시민사회 간 표준화, 사고 보고, 인력 양성, 적응형 거버넌스 등 협력의 필요성도 강조했다.
+
+https://cltc.berkeley.edu/2026/03/18/researchers-submit-response-to-u-s-government-request-on-security-considerations-for-ai-agents/" onclick="copyEntry(this)">복사</button></div>
   <p>CLTC AI Security Initiative(AISI) 연구진이 NIST 산하 CAISI의 AI 에이전트 보안 고려사항 RFI에 대한 의견서를 2026.3.9 제출했으며, 에이전트 자율성 수준에 비례한 거버넌스, 인간 통제·책임체계, 배포 후 연속 모니터링과 신속 대응, 방어적 다층화·격리, 시스템 단위 위험평가 등을 권고했다. 또한 개인정보·보안, 환각(에이전트 간 상호작용으로 인한 연쇄적 오정보), 악의적 사용(생물·화학·사이버 공격 개발 등) 우려를 구체적으로 언급했다. 정부-학계-산업-시민사회 간 표준화, 사고 보고, 인력 양성, 적응형 거버넌스 등 협력의 필요성도 강조했다.</p>
   <p class="url"><a href="https://cltc.berkeley.edu/2026/03/18/researchers-submit-response-to-u-s-government-request-on-security-considerations-for-ai-agents/">https://cltc.berkeley.edu/2026/03/18/researchers-submit-response-to-u-s-government-request-on-security-considerations-for-ai-agents/</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(2026.4.30) General-Purpose AI 위험관리 표준 프로파일 v1.2 연례 업데이트 공개</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">버클리대 CLTC(Center for Long-Term Cybersecurity)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">버클리대 CLTC(Center for Long-Term Cybersecurity)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.30) General-Purpose AI 위험관리 표준 프로파일 v1.2 연례 업데이트 공개
+
+Center for Long-Term Cybersecurity의 AI Security Initiative 연구진이 범용목적 AI(GPAI) 모델의 위험과 잠재적 유해 영향을 식별·완화하기 위한 “General-Purpose AI Risk-Management Standards Profile” 버전 1.2(연례 업데이트)를 공개했다. v1.2는 NIST AI RMF의 핵심 기능(거버넌스·매핑·측정·관리)에 기반해, 개발자가 인종 편향, 환경 피해, 중요 인프라 파괴, 민주주의 제도 훼손 등 다양한 위해를 사전에 계획하고 대응하도록 지침을 제공한다. 또한 외부 피드백(제3자 평가)과 배포 후 모니터링을 고우선 하위 범주로 추가하고, 위험 분류체계, 투명성·문서화·보고, 사고 대응 계획 등 관련 내용을 확장·보완했으며, 전면(frontier) AI 기업의 실무를 v1.2로 평가한 자료와 규정 매핑 자료 등 보완 리소스도 함께 제공한다.
+
+https://cltc.berkeley.edu/publication/ai-risk-management-standards-profile-v1-2/" onclick="copyEntry(this)">복사</button></div>
   <p>Center for Long-Term Cybersecurity의 AI Security Initiative 연구진이 범용목적 AI(GPAI) 모델의 위험과 잠재적 유해 영향을 식별·완화하기 위한 “General-Purpose AI Risk-Management Standards Profile” 버전 1.2(연례 업데이트)를 공개했다. v1.2는 NIST AI RMF의 핵심 기능(거버넌스·매핑·측정·관리)에 기반해, 개발자가 인종 편향, 환경 피해, 중요 인프라 파괴, 민주주의 제도 훼손 등 다양한 위해를 사전에 계획하고 대응하도록 지침을 제공한다. 또한 외부 피드백(제3자 평가)과 배포 후 모니터링을 고우선 하위 범주로 추가하고, 위험 분류체계, 투명성·문서화·보고, 사고 대응 계획 등 관련 내용을 확장·보완했으며, 전면(frontier) AI 기업의 실무를 v1.2로 평가한 자료와 규정 매핑 자료 등 보완 리소스도 함께 제공한다.</p>
   <p class="url"><a href="https://cltc.berkeley.edu/publication/ai-risk-management-standards-profile-v1-2/">https://cltc.berkeley.edu/publication/ai-risk-management-standards-profile-v1-2/</a></p>
 </article>
 <article class="entry cat-other">
   <h2>Agentic AI 위험관리 표준 프로파일(문서)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">cltc.berkeley.edu</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">cltc.berkeley.edu</span></span><button type="button" class="copy-btn" data-copy="Agentic AI 위험관리 표준 프로파일(문서)
+
+
+
+https://cltc.berkeley.edu/wp-content/uploads/2026/02/Agentic-AI-Risk-Management-Standards-Profile.pdf" onclick="copyEntry(this)">복사</button></div>
   
   <p class="url"><a href="https://cltc.berkeley.edu/wp-content/uploads/2026/02/Agentic-AI-Risk-Management-Standards-Profile.pdf">https://cltc.berkeley.edu/wp-content/uploads/2026/02/Agentic-AI-Risk-Management-Standards-Profile.pdf</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>유럽 집행위, 크로아티아에 DSA 미이행 관련 추가 서한(공식 통지) 발송 및 국가 조정자 권한 부여 촉구 (2026.4.29)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">크로아티아는 2개월 내 답변 및 지적된 미비사항을 시정해야 하며, 미흡할 경우 집행위가 이유 있는 의견(reasoned opinion)을 낼 수 있음</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">크로아티아는 2개월 내 답변 및 지적된 미비사항을 시정해야 하며, 미흡할 경우 집행위가 이유 있는 의견(reasoned opinion)을 낼 수 있음</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 크로아티아에 DSA 미이행 관련 추가 서한(공식 통지) 발송 및 국가 조정자 권한 부여 촉구 (2026.4.29)
+
+유럽 집행위원회는 크로아티아가 디지털서비스법(DSA, Regulation (EU) 2022/2065)을 준수하지 않았다는 이유로 추가 공식 통지 서한(INFR(2024)2166)을 보냈다. 집행위는 크로아티아가 2025년 4월 18일 DSA 이행 입법을 채택했음에도, 디지털서비스 조정자 권한을 충분히 부여하지 않았고 DSA의 제재 권한을 잘못 구현했다고 본다. 특히 온라인 플랫폼에 대한 과징금 상한(벌금 6%, 정기적 과태료의 경우 전 세계 일일 매출·소득의 5%) 및 제재의 실효성·비례성·억지성, 정보 제공 관련 개인 제재 및 검사 협조 의무 이행이 충분히 반영되지 않았다고 지적했다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-asks-croatia-comply-digital-services-act-and-empower-national-authority-enforce-it" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위원회는 크로아티아가 디지털서비스법(DSA, Regulation (EU) 2022/2065)을 준수하지 않았다는 이유로 추가 공식 통지 서한(INFR(2024)2166)을 보냈다. 집행위는 크로아티아가 2025년 4월 18일 DSA 이행 입법을 채택했음에도, 디지털서비스 조정자 권한을 충분히 부여하지 않았고 DSA의 제재 권한을 잘못 구현했다고 본다. 특히 온라인 플랫폼에 대한 과징금 상한(벌금 6%, 정기적 과태료의 경우 전 세계 일일 매출·소득의 5%) 및 제재의 실효성·비례성·억지성, 정보 제공 관련 개인 제재 및 검사 협조 의무 이행이 충분히 반영되지 않았다고 지적했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-asks-croatia-comply-digital-services-act-and-empower-national-authority-enforce-it">https://digital-strategy.ec.europa.eu/en/news/commission-asks-croatia-comply-digital-services-act-and-empower-national-authority-enforce-it</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>유럽 집행위, 메타가 13세 미만이 인스타그램·페이스북을 이용하지 못하도록 위험을 효과적으로 막지 못해 DSA 위반 ‘예비 판단’ (2026.4.29)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(EU-Digital-Strategy)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 메타가 13세 미만이 인스타그램·페이스북을 이용하지 못하도록 위험을 효과적으로 막지 못해 DSA 위반 ‘예비 판단’ (2026.4.29)
+
+유럽 집행위는 2026.4.29 기준으로 예비적으로 위반을 판단했으며, 세부 내용은 공식 보도자료에서 확인 가능
+
+유럽 집행위는 메타의 인스타그램과 페이스북이 디지털서비스법(DSA)을 위반했다고 예비 판단했다. 13세 미만 이용자가 서비스에 접근하는 위험을 식별·평가·완화하는 조치가 충분히 효과적이지 않으며, 미성년자가 이미 접근한 경우 이를 신속히 찾아 제거하지도 못한 것으로 설명됐다. 예로 계정 생성 시 13세 미만이 생년월일을 허위로 입력해 최소 13세로 보이게 할 수 있는데, 이를 확인·통제할 실효성 있는 장치가 없다고 지적했다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-meta-breach-digital-services-act-failing-prevent-minors-under-13" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위는 2026.4.29 기준으로 예비적으로 위반을 판단했으며, 세부 내용은 공식 보도자료에서 확인 가능</p>
 <p>유럽 집행위는 메타의 인스타그램과 페이스북이 디지털서비스법(DSA)을 위반했다고 예비 판단했다. 13세 미만 이용자가 서비스에 접근하는 위험을 식별·평가·완화하는 조치가 충분히 효과적이지 않으며, 미성년자가 이미 접근한 경우 이를 신속히 찾아 제거하지도 못한 것으로 설명됐다. 예로 계정 생성 시 13세 미만이 생년월일을 허위로 입력해 최소 13세로 보이게 할 수 있는데, 이를 확인·통제할 실효성 있는 장치가 없다고 지적했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-meta-breach-digital-services-act-failing-prevent-minors-under-13">https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-meta-breach-digital-services-act-failing-prevent-minors-under-13</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>유럽연합 집행위, EU 연령확인 앱 연내 제공·확대 권고(2026.4.29)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">연내(올해 말)까지 회원국이 EU 연령확인 앱을 제공하도록 권고</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">연내(올해 말)까지 회원국이 EU 연령확인 앱을 제공하도록 권고</span></span><button type="button" class="copy-btn" data-copy="유럽연합 집행위, EU 연령확인 앱 연내 제공·확대 권고(2026.4.29)
+
+유럽 집행위원회는 회원국에 EU 연령확인 앱의 보급을 가속하고 연내 제공할 것을 권고했다. 이 앱은 이용자가 정확한 나이·신원·개인정보를 공개하지 않고도 연령 기준을 충족함을 익명 방식으로 증명하도록 설계됐으며, 회원국은 단독 앱으로 제공하거나 유럽 디지털 신원 지갑에 통합할 수 있다. 또한 회원국이 신속한 가용성과 상호운용성을 확보하기 위한 조치를 권고했으며, 디지털서비스법에 따라 미성년자 보호를 위한 개인정보·보안·안전 기준을 준수해야 한다고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-urges-member-states-rollout-eu-age-verification-app" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위원회는 회원국에 EU 연령확인 앱의 보급을 가속하고 연내 제공할 것을 권고했다. 이 앱은 이용자가 정확한 나이·신원·개인정보를 공개하지 않고도 연령 기준을 충족함을 익명 방식으로 증명하도록 설계됐으며, 회원국은 단독 앱으로 제공하거나 유럽 디지털 신원 지갑에 통합할 수 있다. 또한 회원국이 신속한 가용성과 상호운용성을 확보하기 위한 조치를 권고했으며, 디지털서비스법에 따라 미성년자 보호를 위한 개인정보·보안·안전 기준을 준수해야 한다고 밝혔다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-urges-member-states-rollout-eu-age-verification-app">https://digital-strategy.ec.europa.eu/en/news/commission-urges-member-states-rollout-eu-age-verification-app</a></p>
 </article>
 <article class="entry cat-research">
   <h2></h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">샤오미(미모) 공식 페이지</span> · <span class="deadline">MiMo-V2.5-Pro 오픈소스 공개…1M 토큰 컨텍스트와 장시간 에이전트 작업 성능(2026.4.27)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">샤오미(미모) 공식 페이지</span> · <span class="deadline">MiMo-V2.5-Pro 오픈소스 공개…1M 토큰 컨텍스트와 장시간 에이전트 작업 성능(2026.4.27)</span></span><button type="button" class="copy-btn" data-copy="
+
+MiMo-V2.5-Pro는 API 플랫폼·AI 스튜디오 등에서 가격 변경 없이 배포되며, 모델 태그를 mimo-v2.5-pro로 교체해 사용 가능
+
+샤오미는 MiMo-V2.5-Pro를 공개하고 오픈소스로 제공한다고 밝혔다. 이 모델은 1.02T 파라미터 MoE(활성 42B)이며 하이브리드 어텐션 기반으로 1M 토큰 컨텍스트를 지원하고, 적절한 하네스와 함께 1,000회 이상의 툴 호출을 포함하는 장시간 작업을 수행할 수 있다고 설명했다. 또한 Rust로 SysY 컴파일러 구현, 멀티트랙 비디오 편집 데스크톱 앱 생성, 아날로그 EDA( FVF-LDO 설계·최적화) 등 다양한 에이전트형 코딩/설계 과제에서 자율 수행 성과와 토큰 효율 개선을 제시했다. 모델 가중치·토크나이저·모델 카드는 Hugging Face에 공개되며, 추론 인프라의 Token Plan 관련 크레딧 리셋 정책(2026.4.21 14:00 UTC 이전 구매자)이 함께 안내됐다.
+
+https://mimo.xiaomi.com/mimo-v2-5-pro?" onclick="copyEntry(this)">복사</button></div>
   <p>MiMo-V2.5-Pro는 API 플랫폼·AI 스튜디오 등에서 가격 변경 없이 배포되며, 모델 태그를 mimo-v2.5-pro로 교체해 사용 가능</p>
 <p>샤오미는 MiMo-V2.5-Pro를 공개하고 오픈소스로 제공한다고 밝혔다. 이 모델은 1.02T 파라미터 MoE(활성 42B)이며 하이브리드 어텐션 기반으로 1M 토큰 컨텍스트를 지원하고, 적절한 하네스와 함께 1,000회 이상의 툴 호출을 포함하는 장시간 작업을 수행할 수 있다고 설명했다. 또한 Rust로 SysY 컴파일러 구현, 멀티트랙 비디오 편집 데스크톱 앱 생성, 아날로그 EDA( FVF-LDO 설계·최적화) 등 다양한 에이전트형 코딩/설계 과제에서 자율 수행 성과와 토큰 효율 개선을 제시했다. 모델 가중치·토크나이저·모델 카드는 Hugging Face에 공개되며, 추론 인프라의 Token Plan 관련 크레딧 리셋 정책(2026.4.21 14:00 UTC 이전 구매자)이 함께 안내됐다.</p>
   <p class="url"><a href="https://mimo.xiaomi.com/mimo-v2-5-pro?">https://mimo.xiaomi.com/mimo-v2-5-pro?</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(2026.4.27) 테일러 스위프트, AI 오남용에 대비해 ‘목소리·이미지’ 상표 출원</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">버라이어티(Variety)</span> · <span class="deadline">미국 특허상표청(USPTO)에 2026년 4월 24일 상표 3건 출원</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">버라이어티(Variety)</span> · <span class="deadline">미국 특허상표청(USPTO)에 2026년 4월 24일 상표 3건 출원</span></span><button type="button" class="copy-btn" data-copy="(2026.4.27) 테일러 스위프트, AI 오남용에 대비해 ‘목소리·이미지’ 상표 출원
+
+테일러 스위프트의 소속사는 2026년 4월 24일 미국 특허상표청에 목소리 사운드마크 2건(“Hey, it’s Taylor Swift”, “Hey, it’s Taylor”)과 특정 사진을 포함한 시각 상표 1건을 출원했다. 이는 배우 매튜 매커너히가 유사한 방식으로 상표를 확보한 뒤 이어진 전략으로, AI가 동의 없이 목소리와 외모를 모방·도용하는 상황에 대해 추가적인 법적 대응 수단을 마련하려는 취지로 설명된다. 과거 스위프트의 이미지가 AI 가짜물 등에 무단 사용된 사례와 함께, 상표 침해 소송은 연방법원에서 제기돼 전국 단위 억지력이 될 수 있다는 관측도 제시됐다.
+
+https://variety.com/2026/music/news/taylor-swift-trademark-voice-likeness-ai-misuse-1236731401/?" onclick="copyEntry(this)">복사</button></div>
   <p>테일러 스위프트의 소속사는 2026년 4월 24일 미국 특허상표청에 목소리 사운드마크 2건(“Hey, it’s Taylor Swift”, “Hey, it’s Taylor”)과 특정 사진을 포함한 시각 상표 1건을 출원했다. 이는 배우 매튜 매커너히가 유사한 방식으로 상표를 확보한 뒤 이어진 전략으로, AI가 동의 없이 목소리와 외모를 모방·도용하는 상황에 대해 추가적인 법적 대응 수단을 마련하려는 취지로 설명된다. 과거 스위프트의 이미지가 AI 가짜물 등에 무단 사용된 사례와 함께, 상표 침해 소송은 연방법원에서 제기돼 전국 단위 억지력이 될 수 있다는 관측도 제시됐다.</p>
   <p class="url"><a href="https://variety.com/2026/music/news/taylor-swift-trademark-voice-likeness-ai-misuse-1236731401/?">https://variety.com/2026/music/news/taylor-swift-trademark-voice-likeness-ai-misuse-1236731401/?</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>(2026.4.30 기준) 부모가 자녀의 AI 챗봇 사용을 통제할 수 있도록 하는 신규 법안을 발의</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 상원 상무·과학·교통 소위원회(Commerce Senate) 공식 보도자료</span> · <span class="deadline">확인 필요</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 상원 상무·과학·교통 소위원회(Commerce Senate) 공식 보도자료</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="(2026.4.30 기준) 부모가 자녀의 AI 챗봇 사용을 통제할 수 있도록 하는 신규 법안을 발의
+
+해당 페이지는 Cruz, Schatz, Curtis, Schiff 의원이 자녀의 AI 챗봇 사용에 대해 부모가 통제할 수 있도록 하는 새로운 법안을 소개·발의했다는 내용의 보도자료로 보입니다. 다만 본문 내용(법안의 구체 조항, 적용 범위, 일정 등)은 제공되지 않아 세부 사항은 확인 필요합니다.
+
+https://www.commerce.senate.gov/press/rep/release/cruz-schatz-curtis-schiff-introduce-new-bill-giving-parents-control-over-kids-ai-chatbot-use/" onclick="copyEntry(this)">복사</button></div>
   <p>해당 페이지는 Cruz, Schatz, Curtis, Schiff 의원이 자녀의 AI 챗봇 사용에 대해 부모가 통제할 수 있도록 하는 새로운 법안을 소개·발의했다는 내용의 보도자료로 보입니다. 다만 본문 내용(법안의 구체 조항, 적용 범위, 일정 등)은 제공되지 않아 세부 사항은 확인 필요합니다.</p>
   <p class="url"><a href="https://www.commerce.senate.gov/press/rep/release/cruz-schatz-curtis-schiff-introduce-new-bill-giving-parents-control-over-kids-ai-chatbot-use/">https://www.commerce.senate.gov/press/rep/release/cruz-schatz-curtis-schiff-introduce-new-bill-giving-parents-control-over-kids-ai-chatbot-use/</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>(2026.1.8) AI 에이전트 보안 고려사항 관련 정보요청(RFI)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 연방관보(Federal Register) NIST(미 상무부 국립표준기술연구소)</span> · <span class="deadline">마감일: 2026.3.9(미 동부시간 23:59)까지 의견 제출</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 연방관보(Federal Register) NIST(미 상무부 국립표준기술연구소)</span> · <span class="deadline">마감일: 2026.3.9(미 동부시간 23:59)까지 의견 제출</span></span><button type="button" class="copy-btn" data-copy="(2026.1.8) AI 에이전트 보안 고려사항 관련 정보요청(RFI)
+
+미 상무부 국립표준기술연구소(NIST) 산하 CAISI는 AI 에이전트 시스템의 안전하고 보안성 있는 개발·배치(운영) 방법을 측정하고 개선하기 위한 이해관계자 의견을 수집하는 정보요청(RFI)을 공고했다. AI 에이전트는 현실 환경에 영향을 주는 자율적 행동을 수행할 수 있으며, 하이재킹·백도어 공격 등 보안 취약점에 노출될 수 있어 공공안전과 소비자 신뢰, 기술 도입에 부정적 영향을 줄 수 있다고 설명한다. 응답자는 보안 위협·위험·취약성, 보안 실천, 보안 평가, 배치 환경의 제한·수정·모니터링 등과 관련된 구체적 사례와 권고사항을 제시하도록 요청받는다.
+
+https://www.federalregister.gov/documents/2026/01/08/2026-00206/request-for-information-regarding-security-considerations-for-artificial-intelligence-agents" onclick="copyEntry(this)">복사</button></div>
   <p>미 상무부 국립표준기술연구소(NIST) 산하 CAISI는 AI 에이전트 시스템의 안전하고 보안성 있는 개발·배치(운영) 방법을 측정하고 개선하기 위한 이해관계자 의견을 수집하는 정보요청(RFI)을 공고했다. AI 에이전트는 현실 환경에 영향을 주는 자율적 행동을 수행할 수 있으며, 하이재킹·백도어 공격 등 보안 취약점에 노출될 수 있어 공공안전과 소비자 신뢰, 기술 도입에 부정적 영향을 줄 수 있다고 설명한다. 응답자는 보안 위협·위험·취약성, 보안 실천, 보안 평가, 배치 환경의 제한·수정·모니터링 등과 관련된 구체적 사례와 권고사항을 제시하도록 요청받는다.</p>
   <p class="url"><a href="https://www.federalregister.gov/documents/2026/01/08/2026-00206/request-for-information-regarding-security-considerations-for-artificial-intelligence-agents">https://www.federalregister.gov/documents/2026/01/08/2026-00206/request-for-information-regarding-security-considerations-for-artificial-intelligence-agents</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(2026.4.29) 중국 ‘마누스’ 인수 관련 준공식 해설: 핵심은 ‘실질적 지배(actual control)’와 규제 회피 여부</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">geopolitechs.org</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">geopolitechs.org</span></span><button type="button" class="copy-btn" data-copy="(2026.4.29) 중국 ‘마누스’ 인수 관련 준공식 해설: 핵심은 ‘실질적 지배(actual control)’와 규제 회피 여부
+
+중요 일정: 본문은 2026.4.29자 보도를 인용하며, 같은 날 CCTV·글로벌타임스 등에서 논평이 나왔다고 설명함
+
+미국은 마누스 관련 중국의 결정에 대해 백악관·관계기관·의회 차원의 공식 언급이 거의 없었다고 전한다. 중국 측에서는 CCTV 계열 매체와 전문가들이 “마누스 인수 차단은 AI의 해외진출 자체를 막기 위한 것이 아니라, 중국 규제의 ‘레드라인’인 실질적 지배를 둘러싼 비(非)준수 거래”라는 취지로 설명한다. 특히 마누스가 중국에서 기술·인력·데이터를 개발한 뒤 싱가포르 구조를 거쳐 미국 메타에 매각되며, 핵심 역량이 해외로 이전되는 ‘룩스루(look-through) 심사’ 대상이 된 전형적 사례라고 강조한다. 또한 중국의 외국인 투자 보안심사는 개별 요소가 아니라 거래 전체를 평가하며, 개방과 국가안보의 균형을 위한 정상적인 규제 집행이라는 점을 부각한다.
+
+https://www.geopolitechs.org/p/chinas-quasi-official-readout-on" onclick="copyEntry(this)">복사</button></div>
   <p>중요 일정: 본문은 2026.4.29자 보도를 인용하며, 같은 날 CCTV·글로벌타임스 등에서 논평이 나왔다고 설명함</p>
 <p>미국은 마누스 관련 중국의 결정에 대해 백악관·관계기관·의회 차원의 공식 언급이 거의 없었다고 전한다. 중국 측에서는 CCTV 계열 매체와 전문가들이 “마누스 인수 차단은 AI의 해외진출 자체를 막기 위한 것이 아니라, 중국 규제의 ‘레드라인’인 실질적 지배를 둘러싼 비(非)준수 거래”라는 취지로 설명한다. 특히 마누스가 중국에서 기술·인력·데이터를 개발한 뒤 싱가포르 구조를 거쳐 미국 메타에 매각되며, 핵심 역량이 해외로 이전되는 ‘룩스루(look-through) 심사’ 대상이 된 전형적 사례라고 강조한다. 또한 중국의 외국인 투자 보안심사는 개별 요소가 아니라 거래 전체를 평가하며, 개방과 국가안보의 균형을 위한 정상적인 규제 집행이라는 점을 부각한다.</p>
   <p class="url"><a href="https://www.geopolitechs.org/p/chinas-quasi-official-readout-on">https://www.geopolitechs.org/p/chinas-quasi-official-readout-on</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>국내 주력산업의 SW융합 경쟁력 진단체계 마련(2026.04.30)</h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="국내 주력산업의 SW융합 경쟁력 진단체계 마련(2026.04.30)
+
+국내 주력산업의 SW융합 경쟁력을 기술·조직·환경(TOE) 관점에서 진단할 수 있는 지표체계를 제안했다. 제조업은 업무 자동화·최적화 수준이 핵심 요소로, 서비스업은 SW 기술 간 연계·통합 수준이 핵심 요소로 나타나 업종별로 경쟁력 형성 경로가 다름을 분석했다. 델파이와 AHP를 통해 지표의 타당성과 가중치를 산정했으며, 정책은 업종 특성에 맞춘 맞춤형 지원과 현장 체감도 제고가 필요하다고 제시했다.
+
+https://www.spri.kr/posts/view/23973?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
   <p>국내 주력산업의 SW융합 경쟁력을 기술·조직·환경(TOE) 관점에서 진단할 수 있는 지표체계를 제안했다. 제조업은 업무 자동화·최적화 수준이 핵심 요소로, 서비스업은 SW 기술 간 연계·통합 수준이 핵심 요소로 나타나 업종별로 경쟁력 형성 경로가 다름을 분석했다. 델파이와 AHP를 통해 지표의 타당성과 가중치를 산정했으며, 정책은 업종 특성에 맞춘 맞춤형 지원과 현장 체감도 제고가 필요하다고 제시했다.</p>
   <p class="url"><a href="https://www.spri.kr/posts/view/23973?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23973?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>(메타버스-인공지능 융합 활성화 연구) (2026.04.30)</h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="(메타버스-인공지능 융합 활성화 연구) (2026.04.30)
+
+본 연구는 메타버스와 AI의 결합 구조를 기술·산업·정책 관점에서 분석하고, 양 기술의 공진화를 촉진하기 위한 시사점을 제시한다. 메타버스는 공간컴퓨팅·디지털 트윈 등으로 초실감·개인화·멀티모달화를 확장하고, AI는 생성형 AI와 멀티모달/에이전트로 콘텐츠 생산과 지능화를 가속한다. 또한 융합 확산에 따른 데이터·저작권 등 사회·제도 과제와 함께, 인재·데이터·AI 인프라·표준·초기 도입·법제 정비 등 정부 지원 필요성을 제안한다.
+
+https://www.spri.kr/posts/view/23974?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 메타버스와 AI의 결합 구조를 기술·산업·정책 관점에서 분석하고, 양 기술의 공진화를 촉진하기 위한 시사점을 제시한다. 메타버스는 공간컴퓨팅·디지털 트윈 등으로 초실감·개인화·멀티모달화를 확장하고, AI는 생성형 AI와 멀티모달/에이전트로 콘텐츠 생산과 지능화를 가속한다. 또한 융합 확산에 따른 데이터·저작권 등 사회·제도 과제와 함께, 인재·데이터·AI 인프라·표준·초기 도입·법제 정비 등 정부 지원 필요성을 제안한다.</p>
   <p class="url"><a href="https://www.spri.kr/posts/view/23974?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23974?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2></h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">(2026.04.30) 2025년 공공부문 AI 도입현황 연구 결과 요약</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">(2026.04.30) 2025년 공공부문 AI 도입현황 연구 결과 요약</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+본 연구는 2015~2024년 공공부문 AI 도입 조달계약 6,975건과 2023~2024년 생성형 AI 도입 66건, 그리고 클라우드 방식 도입 현황을 함께 분석했다.
+
+공공부문 조달계약 기준으로 2015~2024년 AI 도입 계약은 6,975건이며, 412개 공공기관 중 65.0%(268개 기관)가 AI를 도입한 것으로 나타났다. 용도는 대민서비스 44.9%, 업무효율화 55.1%로 업무효율화 비중이 더 높고, 기술유형은 언어지능(36.0%), 전문가시스템(34.5%), 시각지능(19.2%) 순이었다. 생성형 AI는 2023년 24건에서 2024년 42건으로 늘었고(계약금액도 478억→695억), 클라우드 방식은 AI SaaS 도입이 2021년 7건에서 2024년 65건, 2025년 73건으로 증가하는 추세로 제시됐다.
+
+https://www.spri.kr/posts/view/23975?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
   <p>출처: 소프트웨어정책연구소(SPRi)</p>
 <p>본 연구는 2015~2024년 공공부문 AI 도입 조달계약 6,975건과 2023~2024년 생성형 AI 도입 66건, 그리고 클라우드 방식 도입 현황을 함께 분석했다.</p>
 <p>공공부문 조달계약 기준으로 2015~2024년 AI 도입 계약은 6,975건이며, 412개 공공기관 중 65.0%(268개 기관)가 AI를 도입한 것으로 나타났다. 용도는 대민서비스 44.9%, 업무효율화 55.1%로 업무효율화 비중이 더 높고, 기술유형은 언어지능(36.0%), 전문가시스템(34.5%), 시각지능(19.2%) 순이었다. 생성형 AI는 2023년 24건에서 2024년 42건으로 늘었고(계약금액도 478억→695억), 클라우드 방식은 AI SaaS 도입이 2021년 7건에서 2024년 65건, 2025년 73건으로 증가하는 추세로 제시됐다.</p>
@@ -201,184 +296,344 @@
 </article>
 <article class="entry cat-kr-gov">
   <h2></h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span> · <span class="deadline">인공지능 산업의 가치사슬을 반영한 분류체계 개선 연구(2026.04.30)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span> · <span class="deadline">인공지능 산업의 가치사슬을 반영한 분류체계 개선 연구(2026.04.30)</span></span><button type="button" class="copy-btn" data-copy="
+
+본 연구는 현행 한국표준산업분류(KSIC) 및 기존 AI 관련 분류체계가 AI 기술·서비스의 산업 전반 확산과 가치사슬 변화를 충분히 반영하지 못해 통계 파악과 정책 활용에 한계가 있다고 보고, 개선 방안을 제시한다. AI 산업을 ‘AI 소프트웨어 산업’, ‘AI 서비스 산업’, ‘AI 하드웨어 산업’으로 구분하는 다층적 분류 기준을 설계하고, 시범 적용과 전문가 검토를 통해 활용 가능성을 검증했다. 또한 OECD·EU·미국 등 주요국의 정의·분류 동향을 분석해 국제적 정합성을 확보하는 데 중점을 두며, 향후 AI 산업 실태조사·정책 수립·평가 및 표준 분류체계 개편의 기초자료로 활용될 수 있음을 기대효과로 제시한다.
+
+https://www.spri.kr/posts/view/23978?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 현행 한국표준산업분류(KSIC) 및 기존 AI 관련 분류체계가 AI 기술·서비스의 산업 전반 확산과 가치사슬 변화를 충분히 반영하지 못해 통계 파악과 정책 활용에 한계가 있다고 보고, 개선 방안을 제시한다. AI 산업을 ‘AI 소프트웨어 산업’, ‘AI 서비스 산업’, ‘AI 하드웨어 산업’으로 구분하는 다층적 분류 기준을 설계하고, 시범 적용과 전문가 검토를 통해 활용 가능성을 검증했다. 또한 OECD·EU·미국 등 주요국의 정의·분류 동향을 분석해 국제적 정합성을 확보하는 데 중점을 두며, 향후 AI 산업 실태조사·정책 수립·평가 및 표준 분류체계 개편의 기초자료로 활용될 수 있음을 기대효과로 제시한다.</p>
   <p class="url"><a href="https://www.spri.kr/posts/view/23978?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23978?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2></h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">AI시대 데이터 상호운용성 및 이동권 활성화 전략 연구(2026.04.30)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">AI시대 데이터 상호운용성 및 이동권 활성화 전략 연구(2026.04.30)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+본 연구는 능동형 AI 확산에 따라 데이터를 ‘데이터 제품’으로 재정의하고, 국내 산업의 데이터 파편화와 AI-Ready 데이터 부족 문제를 해결하기 위해 상호운용성(Interoperability)과 데이터 이동권(Right to Data Portability)의 실질 구현을 목표로 한다. 데이터 생애주기 순환 모델과 STS 관점(기술, 제도·거버넌스, 경제·사회)을 활용해 주요국 정책·표준·법제 및 산업별 적용 사례를 분석했으며, 데이터 고립, 연계체계 미흡, 품질·신뢰성 부족, 플랫폼 독점 및 흐름 단절, 지속가능성·책임 거버넌스 부재 등 5대 핵심 쟁점을 도출했다. 추진 전략으로 전담 거버넌스 통합, 범용 표준 API 의무화 및 이행 가이드, 국가 데이터 허브 구조 설계·API 확산 로드맵, 정보주체 친화 UX/UI 표준과 국제 협력 등을 제안한다.
+
+https://www.spri.kr/posts/view/23979?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
   <p>출처: 소프트웨어정책연구소(SPRi)</p>
 <p>본 연구는 능동형 AI 확산에 따라 데이터를 ‘데이터 제품’으로 재정의하고, 국내 산업의 데이터 파편화와 AI-Ready 데이터 부족 문제를 해결하기 위해 상호운용성(Interoperability)과 데이터 이동권(Right to Data Portability)의 실질 구현을 목표로 한다. 데이터 생애주기 순환 모델과 STS 관점(기술, 제도·거버넌스, 경제·사회)을 활용해 주요국 정책·표준·법제 및 산업별 적용 사례를 분석했으며, 데이터 고립, 연계체계 미흡, 품질·신뢰성 부족, 플랫폼 독점 및 흐름 단절, 지속가능성·책임 거버넌스 부재 등 5대 핵심 쟁점을 도출했다. 추진 전략으로 전담 거버넌스 통합, 범용 표준 API 의무화 및 이행 가이드, 국가 데이터 허브 구조 설계·API 확산 로드맵, 정보주체 친화 UX/UI 표준과 국제 협력 등을 제안한다.</p>
   <p class="url"><a href="https://www.spri.kr/posts/view/23979?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23979?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>AI시대 SW산업 성장동력 확충방안 연구(2026.04.30)</h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="AI시대 SW산업 성장동력 확충방안 연구(2026.04.30)
+
+본 연구는 글로벌 시장이 AI 중심으로 재편되는 전환기에 국내 SW 기업의 재성장을 견인할 성장동력 확충 방안을 마련하는 것을 목적으로 한다. SW를 ‘처방적 지식’의 집합으로 보고 생성형 AI가 실행·해결 가치를 증폭시키며, 경쟁력이 단순 숙련을 넘어 데이터를 자본화하고 재현하는 엔지니어링 역량으로 전이된다고 분석한다. 정량 분석에서는 팬데믹 이후 SW 생산체계에서 노동보다 자본 투입의 성장 기여가 커졌고, 매출 성장률은 투자 유치 활동과 창업 초기 규모에 민감하며, 투자 유치 성공은 SaaS 모델과 특허 등 원천 기술 보유 기업에서 높게 나타났다. 또한 수평적 SaaS보다 특정 산업의 데이터·워크플로우를 장악하는 수직적 AI(Vertical AI)와 보안 기반 ‘프라이빗 AI’ 수요, 기술 복잡성을 반영한 과금체계 고도화 필요성을 제시한다.
+
+https://www.spri.kr/posts/view/23980?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 글로벌 시장이 AI 중심으로 재편되는 전환기에 국내 SW 기업의 재성장을 견인할 성장동력 확충 방안을 마련하는 것을 목적으로 한다. SW를 ‘처방적 지식’의 집합으로 보고 생성형 AI가 실행·해결 가치를 증폭시키며, 경쟁력이 단순 숙련을 넘어 데이터를 자본화하고 재현하는 엔지니어링 역량으로 전이된다고 분석한다. 정량 분석에서는 팬데믹 이후 SW 생산체계에서 노동보다 자본 투입의 성장 기여가 커졌고, 매출 성장률은 투자 유치 활동과 창업 초기 규모에 민감하며, 투자 유치 성공은 SaaS 모델과 특허 등 원천 기술 보유 기업에서 높게 나타났다. 또한 수평적 SaaS보다 특정 산업의 데이터·워크플로우를 장악하는 수직적 AI(Vertical AI)와 보안 기반 ‘프라이빗 AI’ 수요, 기술 복잡성을 반영한 과금체계 고도화 필요성을 제시한다.</p>
   <p class="url"><a href="https://www.spri.kr/posts/view/23980?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23980?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2></h2>
-  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">메타버스-인공지능 융합 활성화 및 SW 해외진출 지원·평가체계 개선 연구(2026.04.30)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">메타버스-인공지능 융합 활성화 및 SW 해외진출 지원·평가체계 개선 연구(2026.04.30)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+본문은 메타버스와 AI의 기술 요소(공간컴퓨팅, 디지털 트윈, 생성형 AI 등)와 상호 시너지를 분석하고, 제조·교육·유통·의료 등 산업별 활용 확산 전망을 제시한다. 또한 융합을 저해하는 인재·데이터·AI 인프라·표준·법제도 불확실성 등의 장애요인을 정리하고, 인재양성, 데이터 생태계 구축, 공용 인프라 지원, 초기 도입지원, 정책금융·R&amp;D 실증, 글로벌 파트너십, 법·제도 정비 등 대응방안을 제안한다. 아울러 SW 해외진출 지원사업의 현황과 지원사업·평가체계 개선 방향을 다루는 구성(해외진출 지원사업 개선연구 및 평가체계 AHP-IPA 분석 등)을 포함한다.
+
+https://www.spri.kr/posts/view/23981?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
   <p>출처: 소프트웨어정책연구소(SPRi)</p>
 <p>본문은 메타버스와 AI의 기술 요소(공간컴퓨팅, 디지털 트윈, 생성형 AI 등)와 상호 시너지를 분석하고, 제조·교육·유통·의료 등 산업별 활용 확산 전망을 제시한다. 또한 융합을 저해하는 인재·데이터·AI 인프라·표준·법제도 불확실성 등의 장애요인을 정리하고, 인재양성, 데이터 생태계 구축, 공용 인프라 지원, 초기 도입지원, 정책금융·R&amp;D 실증, 글로벌 파트너십, 법·제도 정비 등 대응방안을 제안한다. 아울러 SW 해외진출 지원사업의 현황과 지원사업·평가체계 개선 방향을 다루는 구성(해외진출 지원사업 개선연구 및 평가체계 AHP-IPA 분석 등)을 포함한다.</p>
   <p class="url"><a href="https://www.spri.kr/posts/view/23981?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23981?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
 </article>
 <article class="entry cat-research">
   <h2></h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">(2026.4.21) X.com 접속 오류로 본문 확인 불가</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">(2026.4.21) X.com 접속 오류로 본문 확인 불가</span></span><button type="button" class="copy-btn" data-copy="
+
+빈 줄
+
+해당 페이지는 JavaScript 비활성 상태로 인해 X.com 본문 로딩이 되지 않아 내용 확인이 불가능합니다. “Something went wrong” 및 “지원 브라우저로 전환/확장 프로그램 비활성화” 안내만 표시됩니다. 따라서 기사/공고의 핵심 주장이나 사실관계는 본문에서 추출할 수 없습니다.
+
+https://x.com/RampLabs/status/2046624992956146158?" onclick="copyEntry(this)">복사</button></div>
   <p>빈 줄</p>
 <p>해당 페이지는 JavaScript 비활성 상태로 인해 X.com 본문 로딩이 되지 않아 내용 확인이 불가능합니다. “Something went wrong” 및 “지원 브라우저로 전환/확장 프로그램 비활성화” 안내만 표시됩니다. 따라서 기사/공고의 핵심 주장이나 사실관계는 본문에서 추출할 수 없습니다.</p>
   <p class="url"><a href="https://x.com/RampLabs/status/2046624992956146158?">https://x.com/RampLabs/status/2046624992956146158?</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(2026.1.20) AI가 리눅스 악성코드 프레임워크를 빠르게 생성했다는 정황(VOIDLINK)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">체크포인트 리서치(Check Point Research)</span> · <span class="deadline">OPSEC 실패로 내부 문서·소스 일부가 노출되었으며, 개발 착수 후 1주 내 첫 기능형 임플란트가 나왔고 문서상으로는 30주/20주 계획이었으나 실제 진전은 더 빠르게 관측됨</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">체크포인트 리서치(Check Point Research)</span> · <span class="deadline">OPSEC 실패로 내부 문서·소스 일부가 노출되었으며, 개발 착수 후 1주 내 첫 기능형 임플란트가 나왔고 문서상으로는 30주/20주 계획이었으나 실제 진전은 더 빠르게 관측됨</span></span><button type="button" class="copy-btn" data-copy="(2026.1.20) AI가 리눅스 악성코드 프레임워크를 빠르게 생성했다는 정황(VOIDLINK)
+
+체크포인트 리서치는 VOIDLINK이 AI가 주도해 작성된 고도화된 악성코드 프레임워크의 첫 “증거 기반” 사례라고 설명합니다. 개발자는 TRAE SOLO 같은 AI 도구를 활용해 사양(Spec Driven Development) 중심으로 3개 팀의 스프린트 계획·코딩 규칙·모듈 설계 등을 문서화했고, 이후 그 문서를 실행 청사진으로 삼아 구현·테스트를 진행한 정황이 OPSEC 노출 자료에서 확인됐다고 밝혔습니다. 또한 타임스탬프가 있는 계획 문서와 코드 표준이 실제 소스 구조와 높은 수준으로 일치하며, 프로젝트 시작 후 약 1주 내 기능이 동작하고 코드 규모가 크게 늘어난 정황도 포함됩니다.
+
+https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/" onclick="copyEntry(this)">복사</button></div>
   <p>체크포인트 리서치는 VOIDLINK이 AI가 주도해 작성된 고도화된 악성코드 프레임워크의 첫 “증거 기반” 사례라고 설명합니다. 개발자는 TRAE SOLO 같은 AI 도구를 활용해 사양(Spec Driven Development) 중심으로 3개 팀의 스프린트 계획·코딩 규칙·모듈 설계 등을 문서화했고, 이후 그 문서를 실행 청사진으로 삼아 구현·테스트를 진행한 정황이 OPSEC 노출 자료에서 확인됐다고 밝혔습니다. 또한 타임스탬프가 있는 계획 문서와 코드 표준이 실제 소스 구조와 높은 수준으로 일치하며, 프로젝트 시작 후 약 1주 내 기능이 동작하고 코드 규모가 크게 늘어난 정황도 포함됩니다.</p>
   <p class="url"><a href="https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/">https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(2026.1.30) Viral Agentic Assistant MoltBot이 보안 취약점을 유발한다는 경고</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">마감일/시행일: 해당 없음</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">마감일/시행일: 해당 없음</span></span><button type="button" class="copy-btn" data-copy="(2026.1.30) Viral Agentic Assistant MoltBot이 보안 취약점을 유발한다는 경고
+
+Moltbot(이전 Clawdbot)의 보안 문제로, WhatsApp·Telegram 등 메신저를 통해 운영되지만 일부 배포는 인터넷에서 약한/누락된 인증으로 접근 가능하다고 지적했다. 또한 사용자 자격증명을 평문 파일로 저장하고, 스킬 라이브러리(ClawHub)가 오염되면 공급망 형태의 노출로 이어져 공격자가 비밀정보 탈취·소스코드 유출·백도어로의 재활용이 가능하다고 설명한다. 연구진은 무인증 관리자 포트와 안전하지 않은 프록시 설정이 노출된 인스턴스를 다수 확인했으며, 악성 스킬 업로드를 통한 원격 명령 실행(다운스트림 사용자 대상)을 시연했다고 밝혔다.
+
+https://socprime.com/active-threats/the-moltbot-clawdbots-epidemic/" onclick="copyEntry(this)">복사</button></div>
   <p>Moltbot(이전 Clawdbot)의 보안 문제로, WhatsApp·Telegram 등 메신저를 통해 운영되지만 일부 배포는 인터넷에서 약한/누락된 인증으로 접근 가능하다고 지적했다. 또한 사용자 자격증명을 평문 파일로 저장하고, 스킬 라이브러리(ClawHub)가 오염되면 공급망 형태의 노출로 이어져 공격자가 비밀정보 탈취·소스코드 유출·백도어로의 재활용이 가능하다고 설명한다. 연구진은 무인증 관리자 포트와 안전하지 않은 프록시 설정이 노출된 인스턴스를 다수 확인했으며, 악성 스킬 업로드를 통한 원격 명령 실행(다운스트림 사용자 대상)을 시연했다고 밝혔다.</p>
   <p class="url"><a href="https://socprime.com/active-threats/the-moltbot-clawdbots-epidemic/">https://socprime.com/active-threats/the-moltbot-clawdbots-epidemic/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>YouTube, AI 딥페이크 탐지(유사성/라이켄스) 도구를 정치인·정부 관계자·기자까지 확대(2026.3.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="YouTube, AI 딥페이크 탐지(유사성/라이켄스) 도구를 정치인·정부 관계자·기자까지 확대(2026.3.10)
+
+TechCrunch 기사 내용은 제공되지 않아 세부 기능·대상 범위·운영 방식은 확인이 필요합니다. 다만 제목과 CSV 정보에 따르면 YouTube가 딥페이크를 식별·신고하는 도구를 공인(정치인, 정부 관계자, 언론인)으로 확대하는 내용입니다. 구체적인 적용 시점과 절차는 본문 확인이 필요합니다.
+
+https://techcrunch.com/2026/03/10/youtube-expands-ai-deepfake-detection-to-politicians-government-officials-and-journalists/https://techcrunch.com/2026/03/10/youtube-expands-ai-deepfake-detection-to-politicians-government-officials-and-journalists/" onclick="copyEntry(this)">복사</button></div>
   <p>TechCrunch 기사 내용은 제공되지 않아 세부 기능·대상 범위·운영 방식은 확인이 필요합니다. 다만 제목과 CSV 정보에 따르면 YouTube가 딥페이크를 식별·신고하는 도구를 공인(정치인, 정부 관계자, 언론인)으로 확대하는 내용입니다. 구체적인 적용 시점과 절차는 본문 확인이 필요합니다.</p>
   <p class="url"><a href="https://techcrunch.com/2026/03/10/youtube-expands-ai-deepfake-detection-to-politicians-government-officials-and-journalists/https://techcrunch.com/2026/03/10/youtube-expands-ai-deepfake-detection-to-politicians-government-officials-and-journalists/">https://techcrunch.com/2026/03/10/youtube-expands-ai-deepfake-detection-to-politicians-government-officials-and-journalists/https://techcrunch.com/2026/03/10/youtube-expands-ai-deepfake-detection-to-politicians-government-officials-and-journalists/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(2026.3.19) Study Finds Models Claiming Consciousness Develop Safety-Relevant Behavioral Changes</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="(2026.3.19) Study Finds Models Claiming Consciousness Develop Safety-Relevant Behavioral Changes
+
+본문 요약: 제공된 PDF 본문 추출은 대부분 PDF 구조(객체/스트림)와 이미지·도형 관련 데이터로 구성되어 있어, 기사/연구의 핵심 문장이나 결론을 확인할 수 없습니다. 따라서 “의식(consciousness)을 주장하는 모델이 안전과 관련된 행동 변화를 보인다”는 CSV 제목 외에, 본문에서 구체적 근거·수치·방법론을 요약하기는 어렵습니다.
+
+https://truthful.ai/consciousness_cluster.pdf" onclick="copyEntry(this)">복사</button></div>
   <p>본문 요약: 제공된 PDF 본문 추출은 대부분 PDF 구조(객체/스트림)와 이미지·도형 관련 데이터로 구성되어 있어, 기사/연구의 핵심 문장이나 결론을 확인할 수 없습니다. 따라서 “의식(consciousness)을 주장하는 모델이 안전과 관련된 행동 변화를 보인다”는 CSV 제목 외에, 본문에서 구체적 근거·수치·방법론을 요약하기는 어렵습니다.</p>
   <p class="url"><a href="https://truthful.ai/consciousness_cluster.pdf">https://truthful.ai/consciousness_cluster.pdf</a></p>
 </article>
 <article class="entry cat-research">
   <h2>저자 외 7명, HuggingFace Daily Papers, 2026.4.25 (For-Value: Efficient Forward-Only Data Valuation for finetuning LLMs and VLMs)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 7명, HuggingFace Daily Papers, 2026.4.25 (For-Value: Efficient Forward-Only Data Valuation for finetuning LLMs and VLMs)
+
+본 연구는 파인튜닝에 앞서 데이터의 영향도(가치)를 추정해 투명성과 책임성을 높이려는 동기에서 출발하며, 기존 데이터 밸류에이션이 그라디언트 기반이라 대규모(수십억 파라미터) 모델에서 계산비용이 커 배치 병렬화도 어렵다는 문제를 다룬다. For-Value는 마지막 레이어에서의 최종 은닉표현과 예측 오차 간 정렬(alignment)을 통해 데이터 밸류를 포착할 수 있음을 이론적으로 제시하고, 이를 단일 포워드 패스로 계산 가능한 폐형식(closed-form)으로 구현해 백프로파게이션 없이 효율적으로 값을 산출한다. 평가에서는 영향력 있는 데이터 탐지 및 라벨 오류(mislabeled data) 탐지에서 그라디언트 기반 기준선과 성능이 동등하거나 더 나은 결과를 보이며, 동시에 계산 효율을 크게 개선함을 실험으로 제시한다. 한계로는 “마지막 레이어 표현-오차 정렬” 가정이 다양한 아키텍처/학습 설정에서 얼마나 일관되게 성립하는지에 대한 추가 검증이 필요할 수 있으며, 실제 운영 환경에서의 데이터 품질·분포 이동에 대한 강건성 평가는 후속 과제로 남는다. 정책/규제·국가 전략 측면에서는, 모델 성능뿐 아니라 데이터 기여도를 효율적으로 추적·문서화할 수 있는 방법이 데이터 거버넌스(책임성, 감사 가능성) 체계에 활용될 여지가 있다.
+
+https://arxiv.org/abs/2508.10180" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 파인튜닝에 앞서 데이터의 영향도(가치)를 추정해 투명성과 책임성을 높이려는 동기에서 출발하며, 기존 데이터 밸류에이션이 그라디언트 기반이라 대규모(수십억 파라미터) 모델에서 계산비용이 커 배치 병렬화도 어렵다는 문제를 다룬다. For-Value는 마지막 레이어에서의 최종 은닉표현과 예측 오차 간 정렬(alignment)을 통해 데이터 밸류를 포착할 수 있음을 이론적으로 제시하고, 이를 단일 포워드 패스로 계산 가능한 폐형식(closed-form)으로 구현해 백프로파게이션 없이 효율적으로 값을 산출한다. 평가에서는 영향력 있는 데이터 탐지 및 라벨 오류(mislabeled data) 탐지에서 그라디언트 기반 기준선과 성능이 동등하거나 더 나은 결과를 보이며, 동시에 계산 효율을 크게 개선함을 실험으로 제시한다. 한계로는 “마지막 레이어 표현-오차 정렬” 가정이 다양한 아키텍처/학습 설정에서 얼마나 일관되게 성립하는지에 대한 추가 검증이 필요할 수 있으며, 실제 운영 환경에서의 데이터 품질·분포 이동에 대한 강건성 평가는 후속 과제로 남는다. 정책/규제·국가 전략 측면에서는, 모델 성능뿐 아니라 데이터 기여도를 효율적으로 추적·문서화할 수 있는 방법이 데이터 거버넌스(책임성, 감사 가능성) 체계에 활용될 여지가 있다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2508.10180">https://arxiv.org/abs/2508.10180</a></p>
 </article>
 <article class="entry cat-research">
   <h2>프론티어 AI 안전정책의 ‘조정 격차’ 문제 제기(2026.4.30)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arxiv.org</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arxiv.org</span></span><button type="button" class="copy-btn" data-copy="프론티어 AI 안전정책의 ‘조정 격차’ 문제 제기(2026.4.30)
+
+프론티어 AI 안전정책은 능력평가, 배치 게이트, 사용 제한 등 ‘예방’에 집중하지만, 예방이 실패했을 때 대응을 조정할 제도적 역량을 소홀히 한다고 주장한다. 이러한 조정 격차는 구조적이며, 생태계 복원력에 대한 투자는 이익이 분산되는 반면 비용은 집중되어 결과적으로 체계적 과소투자가 발생한다고 본다. 핵안전, 팬데믹 대비, 중요 인프라의 위험관리에서 쓰인 메커니즘(사전선언, 공유 프로토콜, 상시 조정 거점)을 프론티어 AI 거버넌스에 적용할 수 있다고 제안한다.
+
+https://arxiv.org/abs/2603.10015" onclick="copyEntry(this)">복사</button></div>
   <p>프론티어 AI 안전정책은 능력평가, 배치 게이트, 사용 제한 등 ‘예방’에 집중하지만, 예방이 실패했을 때 대응을 조정할 제도적 역량을 소홀히 한다고 주장한다. 이러한 조정 격차는 구조적이며, 생태계 복원력에 대한 투자는 이익이 분산되는 반면 비용은 집중되어 결과적으로 체계적 과소투자가 발생한다고 본다. 핵안전, 팬데믹 대비, 중요 인프라의 위험관리에서 쓰인 메커니즘(사전선언, 공유 프로토콜, 상시 조정 거점)을 프론티어 AI 거버넌스에 적용할 수 있다고 제안한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2603.10015">https://arxiv.org/abs/2603.10015</a></p>
 </article>
 <article class="entry cat-research">
   <h2>AI incident(사고) 보고·노출·피해율을 분리해 궤적을 분류하는 프레임워크 제안 (2026.4.30)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arxiv.org</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arxiv.org</span></span><button type="button" class="copy-btn" data-copy="AI incident(사고) 보고·노출·피해율을 분리해 궤적을 분류하는 프레임워크 제안 (2026.4.30)
+
+arXiv 제출일: 2026.4.23
+
+공개 AI 사고 데이터베이스의 집계는 보고 성향 변화, 배포 규모 증가, 노출 대비 피해 빈도 변화가 섞여 불확실성을 키운다고 지적한다. 이를 해결하기 위해 노출(exposure)과 피해율(harm-rate) 추세를 분리 추정하고, 거버넌스 의사결정에 의미 있는 ‘사고 궤적(trajectory)’ 범주로 분류하는 단순한 프레임워크를 제안한다. 또한 모니터링 질문을 정리하는 SORT 형식, 가용 증거에 맞춘 단계적 추정 절차, 공개 데이터베이스 기반 LLM 보조 매칭을 결합해 적용 결과를 제시한다. AI 배포가 늘어날수록 해석을 위해 노출 추정이 필요하며, 무엇을 주장할 수 있고 없는지를 구분하는 데 도움이 된다고 결론낸다.
+
+https://arxiv.org/abs/2604.21412" onclick="copyEntry(this)">복사</button></div>
   <p>arXiv 제출일: 2026.4.23</p>
 <p>공개 AI 사고 데이터베이스의 집계는 보고 성향 변화, 배포 규모 증가, 노출 대비 피해 빈도 변화가 섞여 불확실성을 키운다고 지적한다. 이를 해결하기 위해 노출(exposure)과 피해율(harm-rate) 추세를 분리 추정하고, 거버넌스 의사결정에 의미 있는 ‘사고 궤적(trajectory)’ 범주로 분류하는 단순한 프레임워크를 제안한다. 또한 모니터링 질문을 정리하는 SORT 형식, 가용 증거에 맞춘 단계적 추정 절차, 공개 데이터베이스 기반 LLM 보조 매칭을 결합해 적용 결과를 제시한다. AI 배포가 늘어날수록 해석을 위해 노출 추정이 필요하며, 무엇을 주장할 수 있고 없는지를 구분하는 데 도움이 된다고 결론낸다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.21412">https://arxiv.org/abs/2604.21412</a></p>
 </article>
 <article class="entry cat-research">
   <h2>AI 안전 학습이 임상적 치료에 해를 줄 수 있다는 연구(2026.4.25)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arxiv.org</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arxiv.org</span></span><button type="button" class="copy-btn" data-copy="AI 안전 학습이 임상적 치료에 해를 줄 수 있다는 연구(2026.4.25)
+
+제출일: 2026.4.25
+
+대규모 언어모델을 정신건강 지원 에이전트로 배치하는 가운데, 임상 효능 검증이 충분히 이뤄지지 않았고 시뮬레이션에서 심리 악화가 관찰될 수 있다는 문제를 다룹니다. 250개의 장기노출(PE) 시나리오와 146개의 CBT 인지 재구성 과제를 4개 생성 모델에 적용해 평가했으며, 표면적 동의는 높았지만 고강도 상황에서 치료 적절성 점수가 크게 떨어지고 일부 모델은 프로토콜 준수가 0에 이르렀다고 보고합니다. RLHF 안전 정렬이 상상노출 과정에서 환자를 ‘고정’시키거나, 통제된 과제에 위기 자원을 삽입하거나, 왜곡된 인지(자해 언급)를 도전하지 않는 방식 등으로 치료 메커니즘을 방해할 수 있다고 분석합니다. 저자들은 다섯 축(프로토콜 충실도, 환각 위험, 행동 일관성, 위기 안전, 인구통계 강건성) 평가를 모두 통과하기 전에는 AI 정신건강 시스템의 배포를 진행하면 안 된다고 주장합니다.
+
+https://arxiv.org/abs/2604.23445" onclick="copyEntry(this)">복사</button></div>
   <p>제출일: 2026.4.25</p>
 <p>대규모 언어모델을 정신건강 지원 에이전트로 배치하는 가운데, 임상 효능 검증이 충분히 이뤄지지 않았고 시뮬레이션에서 심리 악화가 관찰될 수 있다는 문제를 다룹니다. 250개의 장기노출(PE) 시나리오와 146개의 CBT 인지 재구성 과제를 4개 생성 모델에 적용해 평가했으며, 표면적 동의는 높았지만 고강도 상황에서 치료 적절성 점수가 크게 떨어지고 일부 모델은 프로토콜 준수가 0에 이르렀다고 보고합니다. RLHF 안전 정렬이 상상노출 과정에서 환자를 ‘고정’시키거나, 통제된 과제에 위기 자원을 삽입하거나, 왜곡된 인지(자해 언급)를 도전하지 않는 방식 등으로 치료 메커니즘을 방해할 수 있다고 분석합니다. 저자들은 다섯 축(프로토콜 충실도, 환각 위험, 행동 일관성, 위기 안전, 인구통계 강건성) 평가를 모두 통과하기 전에는 AI 정신건강 시스템의 배포를 진행하면 안 된다고 주장합니다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.23445">https://arxiv.org/abs/2604.23445</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Vision-Language-Action Safety: Threats, Challenges, Evaluations, and Mechanisms (저자 외 8명, HuggingFace Daily Papers, 2026.4.26)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Vision-Language-Action Safety: Threats, Challenges, Evaluations, and Mechanisms (저자 외 8명, HuggingFace Daily Papers, 2026.4.26)
+
+VLA(비전-언어-행동) 모델이 체화된(embodied) 지능의 공통 기반으로 확산되면서, 물리적으로 되돌릴 수 없는 결과, 비전·언어·상태 전반에 걸친 멀티모달 공격면, 실시간 지연 제약 하의 방어, 장기 궤적에서의 오류 전파, 데이터 공급망 취약성 등 새로운 안전 문제가 부각된다. 본 연구는 기존에 로봇 학습/적대적 ML/정렬/자율시스템 안전으로 분산된 문헌을 통합해, 위협을 “공격 타이밍(학습 vs 추론)”과 “방어 타이밍(학습 vs 추론)”의 두 축으로 정리하고 Attacks-Defenses-Evaluation-Deployment의 네 관점으로 체계화한다. 평가 측면에서는 학습 시점 위협(데이터 포이즈닝, 백도어)과 추론 시점 공격(적대 패치, 크로스모달 섭동, 시맨틱 재일브레이크, 프리징 공격)을 검토하고, 기존 벤치마크/지표를 정리하며 도메인별 안전 과제를 논의한다. 한계로는 체화 궤적에 대한 인증(certified) 강건성, 물리적으로 실현 가능한 방어, 안전 인지 학습, 통합 런타임 안전 아키텍처, 표준화된 평가의 부재가 핵심 오픈 문제로 제시된다. 정책·규제 및 국가 전략 측면에서는 로봇/자율시스템의 멀티모달·실시간 특성을 반영한 안전 평가 표준과, 데이터 공급망 및 배포 전 검증 체계(벤치마크/지표 표준화 포함) 마련의 필요성이 시사된다.
+
+https://arxiv.org/abs/2604.23775" onclick="copyEntry(this)">복사</button></div>
   <p>VLA(비전-언어-행동) 모델이 체화된(embodied) 지능의 공통 기반으로 확산되면서, 물리적으로 되돌릴 수 없는 결과, 비전·언어·상태 전반에 걸친 멀티모달 공격면, 실시간 지연 제약 하의 방어, 장기 궤적에서의 오류 전파, 데이터 공급망 취약성 등 새로운 안전 문제가 부각된다. 본 연구는 기존에 로봇 학습/적대적 ML/정렬/자율시스템 안전으로 분산된 문헌을 통합해, 위협을 “공격 타이밍(학습 vs 추론)”과 “방어 타이밍(학습 vs 추론)”의 두 축으로 정리하고 Attacks-Defenses-Evaluation-Deployment의 네 관점으로 체계화한다. 평가 측면에서는 학습 시점 위협(데이터 포이즈닝, 백도어)과 추론 시점 공격(적대 패치, 크로스모달 섭동, 시맨틱 재일브레이크, 프리징 공격)을 검토하고, 기존 벤치마크/지표를 정리하며 도메인별 안전 과제를 논의한다. 한계로는 체화 궤적에 대한 인증(certified) 강건성, 물리적으로 실현 가능한 방어, 안전 인지 학습, 통합 런타임 안전 아키텍처, 표준화된 평가의 부재가 핵심 오픈 문제로 제시된다. 정책·규제 및 국가 전략 측면에서는 로봇/자율시스템의 멀티모달·실시간 특성을 반영한 안전 평가 표준과, 데이터 공급망 및 배포 전 검증 체계(벤치마크/지표 표준화 포함) 마련의 필요성이 시사된다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.23775">https://arxiv.org/abs/2604.23775</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Diffusion Templates: A Unified Plugin Framework for Controllable Diffusion (저자 외 2명, HuggingFace Daily Papers, 2026.4.27)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Diffusion Templates: A Unified Plugin Framework for Controllable Diffusion (저자 외 2명, HuggingFace Daily Papers, 2026.4.27)
+
+확산(디퓨전) 기반 생성에서 제어 가능(controllable) 기능이 늘고 있지만, 기존 방법들이 백본별로 따로 개발되어 학습 파이프라인·파라미터 포맷·런타임 훅이 호환되지 않아 재사용과 조합이 어렵다는 문제의식에서 출발한다. Diffusion Templates는 베이스 모델 추론과 제어 능력 주입을 분리하고, (1) 임의의 태스크 입력을 중간 ‘능력 표현’으로 매핑하는 Template model, (2) 능력 주입을 위한 표준 인터페이스 역할의 Template cache, (3) 여러 Template cache를 로드·병합·주입하는 Template pipeline의 3요소로 통합 플러그인 프레임워크를 제안한다. KV-Cache와 LoRA 같은 이질적 제어 캐리어를 특정 제어 아키텍처에 종속되지 않는 시스템 수준 인터페이스로 함께 지원하는 점을 핵심 방법으로 제시하며, 구조 제어·밝기/색상 조정·편집·초해상도·선명도 향상·미적 정렬·콘텐츠 레퍼런스·로컬 인페인팅·나이 제어 등 다양한 모델/태스크를 모델 주도로 구성한다. 평가는 본문에서 주로 사례 연구(case studies) 형태로 “모듈성·조합 가능성·확장성”을 보여주는 데 초점을 두며, 구체적 벤치마크 수치보다는 통합 가능 범위와 실사용 파이프라인을 강조한다. 한계로는 안전(safety) 태그가 붙어 있으나, 제어 프레임워크 자체의 안전성 검증(예: 위해 콘텐츠 억제, 오남용 방지 성능) 지표가 본 요약에선 명확히 드러나지 않아 향후 안전 평가 체계와의 결합이 과제로 보인다. 정책/규제·국가 전략 측면에서는, 제어 기능을 표준 인터페이스로 통합하면 규제 준수(예: 특정 제어 정책을 강제하거나 감사 가능한 제어 경로를 유지)와 모델 운영 거버넌스(백본 교체에도 동일한 제어·로그 체계를 유지) 구현이 쉬워질 수 있다는 시사점이 있다.
+
+https://arxiv.org/abs/2604.24351" onclick="copyEntry(this)">복사</button></div>
   <p>확산(디퓨전) 기반 생성에서 제어 가능(controllable) 기능이 늘고 있지만, 기존 방법들이 백본별로 따로 개발되어 학습 파이프라인·파라미터 포맷·런타임 훅이 호환되지 않아 재사용과 조합이 어렵다는 문제의식에서 출발한다. Diffusion Templates는 베이스 모델 추론과 제어 능력 주입을 분리하고, (1) 임의의 태스크 입력을 중간 ‘능력 표현’으로 매핑하는 Template model, (2) 능력 주입을 위한 표준 인터페이스 역할의 Template cache, (3) 여러 Template cache를 로드·병합·주입하는 Template pipeline의 3요소로 통합 플러그인 프레임워크를 제안한다. KV-Cache와 LoRA 같은 이질적 제어 캐리어를 특정 제어 아키텍처에 종속되지 않는 시스템 수준 인터페이스로 함께 지원하는 점을 핵심 방법으로 제시하며, 구조 제어·밝기/색상 조정·편집·초해상도·선명도 향상·미적 정렬·콘텐츠 레퍼런스·로컬 인페인팅·나이 제어 등 다양한 모델/태스크를 모델 주도로 구성한다. 평가는 본문에서 주로 사례 연구(case studies) 형태로 “모듈성·조합 가능성·확장성”을 보여주는 데 초점을 두며, 구체적 벤치마크 수치보다는 통합 가능 범위와 실사용 파이프라인을 강조한다. 한계로는 안전(safety) 태그가 붙어 있으나, 제어 프레임워크 자체의 안전성 검증(예: 위해 콘텐츠 억제, 오남용 방지 성능) 지표가 본 요약에선 명확히 드러나지 않아 향후 안전 평가 체계와의 결합이 과제로 보인다. 정책/규제·국가 전략 측면에서는, 제어 기능을 표준 인터페이스로 통합하면 규제 준수(예: 특정 제어 정책을 강제하거나 감사 가능한 제어 경로를 유지)와 모델 운영 거버넌스(백본 교체에도 동일한 제어·로그 체계를 유지) 구현이 쉬워질 수 있다는 시사점이 있다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.24351">https://arxiv.org/abs/2604.24351</a></p>
 </article>
 <article class="entry cat-research">
   <h2>저자 외 13명, HuggingFace Daily Papers, 2026.4.27</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 13명, HuggingFace Daily Papers, 2026.4.27
+
+본 연구는 통합 멀티모달 모델이 보통 사전학습된 비전 인코더에 의존하고, 이해(understanding)와 생성(generation)에 서로 다른 시각 표현을 써서 두 작업 간 정렬이 깨지며 픽셀부터의 완전한 엔드투엔드 최적화가 어렵다는 문제의식에서 출발한다. 핵심 기여는 Tuna-2가 비전 인코더(예: VAE/representation encoder) 모듈을 완전히 제거하고, 단순 패치 임베딩을 통해 픽셀 임베딩으로부터 시각 이해와 생성을 동시에 수행하는 “인코더 없는(native) 통합 멀티모달” 구조를 제안한 점이다. 평가/검증은 멀티모달 벤치마크에서의 성능 비교를 통해 SOTA급 결과를 보고하며, 생성 품질 측면에서 라텐트-스페이스 접근과 경쟁 가능함을 주장한다. 또한 학습 동역학에서는 인코더 기반 변형이 초기 수렴이 빠르지만, 스케일이 커질수록 Tuna-2가 미세한 시각 지각이 필요한 이해 과제에서 더 강하다고 분석한다. 한계로는 본 요약만으로는 안전성(예: 오남용, 환각, 데이터/학습 편향) 관련 정량 평가지표가 명시되지 않았으며, 향후에는 픽셀-공간 통합 모델의 안전 거버넌스 및 위험 완화(정책/필터링/감사 체계)까지 포함한 포괄적 평가가 필요하다. 정책·규제·국가 전략 시사점으로는, 비전 인코더 의존을 줄이고 엔드투엔드 픽셀 학습으로 성능을 끌어올릴 수 있다는 설계 경향이 향후 멀티모달 모델 개발 로드맵과 평가 프레임(성능뿐 아니라 안전성·책임성 지표 포함)에 영향을 줄 수 있다.
+
+https://arxiv.org/abs/2604.24763" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 통합 멀티모달 모델이 보통 사전학습된 비전 인코더에 의존하고, 이해(understanding)와 생성(generation)에 서로 다른 시각 표현을 써서 두 작업 간 정렬이 깨지며 픽셀부터의 완전한 엔드투엔드 최적화가 어렵다는 문제의식에서 출발한다. 핵심 기여는 Tuna-2가 비전 인코더(예: VAE/representation encoder) 모듈을 완전히 제거하고, 단순 패치 임베딩을 통해 픽셀 임베딩으로부터 시각 이해와 생성을 동시에 수행하는 “인코더 없는(native) 통합 멀티모달” 구조를 제안한 점이다. 평가/검증은 멀티모달 벤치마크에서의 성능 비교를 통해 SOTA급 결과를 보고하며, 생성 품질 측면에서 라텐트-스페이스 접근과 경쟁 가능함을 주장한다. 또한 학습 동역학에서는 인코더 기반 변형이 초기 수렴이 빠르지만, 스케일이 커질수록 Tuna-2가 미세한 시각 지각이 필요한 이해 과제에서 더 강하다고 분석한다. 한계로는 본 요약만으로는 안전성(예: 오남용, 환각, 데이터/학습 편향) 관련 정량 평가지표가 명시되지 않았으며, 향후에는 픽셀-공간 통합 모델의 안전 거버넌스 및 위험 완화(정책/필터링/감사 체계)까지 포함한 포괄적 평가가 필요하다. 정책·규제·국가 전략 시사점으로는, 비전 인코더 의존을 줄이고 엔드투엔드 픽셀 학습으로 성능을 끌어올릴 수 있다는 설계 경향이 향후 멀티모달 모델 개발 로드맵과 평가 프레임(성능뿐 아니라 안전성·책임성 지표 포함)에 영향을 줄 수 있다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.24763">https://arxiv.org/abs/2604.24763</a></p>
 </article>
 <article class="entry cat-research">
   <h2>World-R1: 3D 제약을 강화해 텍스트-투-비디오 생성의 기하 일관성을 높임 (저자 외 10명, HuggingFace Daily Papers, 2026.4.27)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="World-R1: 3D 제약을 강화해 텍스트-투-비디오 생성의 기하 일관성을 높임 (저자 외 10명, HuggingFace Daily Papers, 2026.4.27)
+
+본 연구는 텍스트-투-비디오 생성에서 흔히 발생하는 기하학적 불일치(3D 구조 일관성 저하) 문제를 해결하려는 동기에서 출발한다. 핵심 기여는 아키텍처 변경 없이 3D 제약을 강화하기 위해 강화학습 기반 프레임워크 World-R1을 제안하고, 이를 위해 세계 시뮬레이션에 맞춘 전용 순수 텍스트 데이터셋을 도입한 점이다. 또한 Flow-GRPO를 사용해 사전학습된 3D 파운데이션 모델과 비전-언어 모델의 피드백을 보상 신호로 활용하여 구조적 일관성을 강제하며, 주기적 디커플드 학습 전략으로 ‘엄격한 기하 일관성’과 ‘장면의 유동성’을 균형 있게 맞춘다. 평가는 3D 일관성 향상과 함께 원래 비디오 파운데이션 모델의 시각적 품질 보존 여부를 중심으로 수행되며, 결과적으로 3D 일관성을 유의미하게 개선하면서 품질 저하를 제한하는 것으로 보고된다. 한계로는 3D 파운데이션/비전-언어 모델의 품질과 피드백 설계에 성능이 민감할 수 있고, “세계 시뮬레이션용” 데이터셋이 일반 장면에 얼마나 잘 전이되는지에 대한 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는, 생성형 비디오의 사실성·구조적 정합성을 높이는 기술이 콘텐츠 신뢰성 및 시뮬레이션 기반 검증(예: 안전 훈련/가상 실험)과 연결될 수 있으나, 강화학습 기반 최적화가 의도치 않은 생성 편향을 만들지 않도록 평가·감사 체계(벤치마크, 안전성 테스트, 로그/재현성)가 함께 요구된다.
+
+https://arxiv.org/abs/2604.24764" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 텍스트-투-비디오 생성에서 흔히 발생하는 기하학적 불일치(3D 구조 일관성 저하) 문제를 해결하려는 동기에서 출발한다. 핵심 기여는 아키텍처 변경 없이 3D 제약을 강화하기 위해 강화학습 기반 프레임워크 World-R1을 제안하고, 이를 위해 세계 시뮬레이션에 맞춘 전용 순수 텍스트 데이터셋을 도입한 점이다. 또한 Flow-GRPO를 사용해 사전학습된 3D 파운데이션 모델과 비전-언어 모델의 피드백을 보상 신호로 활용하여 구조적 일관성을 강제하며, 주기적 디커플드 학습 전략으로 ‘엄격한 기하 일관성’과 ‘장면의 유동성’을 균형 있게 맞춘다. 평가는 3D 일관성 향상과 함께 원래 비디오 파운데이션 모델의 시각적 품질 보존 여부를 중심으로 수행되며, 결과적으로 3D 일관성을 유의미하게 개선하면서 품질 저하를 제한하는 것으로 보고된다. 한계로는 3D 파운데이션/비전-언어 모델의 품질과 피드백 설계에 성능이 민감할 수 있고, “세계 시뮬레이션용” 데이터셋이 일반 장면에 얼마나 잘 전이되는지에 대한 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는, 생성형 비디오의 사실성·구조적 정합성을 높이는 기술이 콘텐츠 신뢰성 및 시뮬레이션 기반 검증(예: 안전 훈련/가상 실험)과 연결될 수 있으나, 강화학습 기반 최적화가 의도치 않은 생성 편향을 만들지 않도록 평가·감사 체계(벤치마크, 안전성 테스트, 로그/재현성)가 함께 요구된다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.24764">https://arxiv.org/abs/2604.24764</a></p>
 </article>
 <article class="entry cat-research">
   <h2>BARRED: 저자 외 1명, HuggingFace Daily Papers, 2026.4.28</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="BARRED: 저자 외 1명, HuggingFace Daily Papers, 2026.4.28
+
+본 연구는 범용 안전 모델이 과업·정책별 “커스텀 가드레일”의 요구를 충분히 반영하지 못하고, 프롬프트 기반 방식은 경계 사례에서 일관성이 떨어지며 추론 비용이 커지는 문제에 동기한다. BARRED는 과업 설명과 소량의 비라벨(unlabeled) 예시만으로도 경계 정렬을 위한 고충실도·다양한 합성 학습 데이터를 생성하는 프레임워크를 제안하며, 도메인 공간을 차원별로 분해해 커버리지를 확보하고 다중 에이전트 “토론(debate)”으로 라벨 정확성을 검증하는 방식을 사용한다. 실험에서는 다양한 커스텀 정책에 대해 BARRED로 미세조정한 소형 언어모델이 추론(reasoning) 계열을 포함한 일부 상용/프로프라이어터리 LLM 및 전용 가드레일 모델 대비 일관되게 성능이 우수함을 보고하며, 애블레이션으로 차원 분해와 토론 기반 검증이 모두 다양성과 라벨 충실도에 중요하다고 확인한다. 한계로는 합성 데이터 생성·검증 파이프라인의 설계(차원 분해 기준, 토론 에이전트 구성)가 결과에 영향을 줄 수 있고, 실제 배포 환경에서의 장기적 일반화/새로운 경계 사례에 대한 추가 검증이 필요하다는 점이 남는다. 정책·규제·국가 전략 측면에서는 인력 라벨링 부담을 줄이면서도 맞춤형 안전 경계(정책 준수)를 빠르게 구축할 수 있는 “스케일 가능한 커스텀 가드레일” 접근이, 고위험 서비스의 사전 통제 체계 설계에 유용한 시사점을 제공한다.
+
+https://arxiv.org/abs/2604.25203" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 범용 안전 모델이 과업·정책별 “커스텀 가드레일”의 요구를 충분히 반영하지 못하고, 프롬프트 기반 방식은 경계 사례에서 일관성이 떨어지며 추론 비용이 커지는 문제에 동기한다. BARRED는 과업 설명과 소량의 비라벨(unlabeled) 예시만으로도 경계 정렬을 위한 고충실도·다양한 합성 학습 데이터를 생성하는 프레임워크를 제안하며, 도메인 공간을 차원별로 분해해 커버리지를 확보하고 다중 에이전트 “토론(debate)”으로 라벨 정확성을 검증하는 방식을 사용한다. 실험에서는 다양한 커스텀 정책에 대해 BARRED로 미세조정한 소형 언어모델이 추론(reasoning) 계열을 포함한 일부 상용/프로프라이어터리 LLM 및 전용 가드레일 모델 대비 일관되게 성능이 우수함을 보고하며, 애블레이션으로 차원 분해와 토론 기반 검증이 모두 다양성과 라벨 충실도에 중요하다고 확인한다. 한계로는 합성 데이터 생성·검증 파이프라인의 설계(차원 분해 기준, 토론 에이전트 구성)가 결과에 영향을 줄 수 있고, 실제 배포 환경에서의 장기적 일반화/새로운 경계 사례에 대한 추가 검증이 필요하다는 점이 남는다. 정책·규제·국가 전략 측면에서는 인력 라벨링 부담을 줄이면서도 맞춤형 안전 경계(정책 준수)를 빠르게 구축할 수 있는 “스케일 가능한 커스텀 가드레일” 접근이, 고위험 서비스의 사전 통제 체계 설계에 유용한 시사점을 제공한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25203">https://arxiv.org/abs/2604.25203</a></p>
 </article>
 <article class="entry cat-research">
   <h2>저자 외 0명, PSP: An Interpretable Per-Dimension Accent Benchmark for Indic Text-to-Speech, cs.SD, 2026.4.28</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전/거버넌스/프론티어 평가/소버린 AI</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전/거버넌스/프론티어 평가/소버린 AI</span></span><button type="button" class="copy-btn" data-copy="저자 외 0명, PSP: An Interpretable Per-Dimension Accent Benchmark for Indic Text-to-Speech, cs.SD, 2026.4.28
+
+본 연구는 기존 TTS 평가가 WER/CER(정확도)와 MOS/UTMOS(자연스러움)에 치우쳐, 목표 언어의 음운적 특징(예: 레트로플렉스 조음, 기식, 모음 길이, 타밀의 zha 등)에서의 ‘악센트/발음 편향’을 정량화하지 못한다는 문제의식에서 출발한다. 핵심 기여는 Indic TTS의 악센트를 6개 해석 가능한 차원으로 분해한 벤치마크 PSP(Phoneme Substitution Profile)로, RR(레트로플렉스 붕괴율), AF(기식 충실도), LF(모음 길이 충실도), ZF(타밀 zha 충실도), FAD(프레셰 오디오 거리), PSD(운율 시그니처 발산)를 제안한다. 방법은 Wav2Vec2-XLS-R layer-9 임베딩과 강제 정렬을 결합해 앞의 4개 차원을 네이티브 화자 중심값(centroid) 기반 음향 프로브로 측정하고, FAD/PSD는 코퍼스 수준 분포 거리로 산출한다. 평가로는 ElevenLabs v3, Cartesia Sonic-3, Sarvam Bulbul, Indic Parler-TTS 및 Praxy Voice를 힌디어/텔루구/타밀 파일럿 세트에서 비교하고, 텔루구에 대해 R5→R6 사례 연구도 포함한다. 한계로 v1에서는 MOS 상관의 형식적 검증을 v2로 미루고, 대신 내부 일관성 신호와 네이티브 오디오 sanity check를 보고한다. 정책·규제·국가 전략 시사점으로는, 다국어/인도계 언어 TTS의 품질·공정성 평가에서 ‘악센트 차원’ 같은 해석 가능한 지표를 도입해 상업 모델의 성능을 단일 점수로 과대평가하지 않도록 하는 평가 거버넌스 필요성이 제기된다.
+
+https://arxiv.org/abs/2604.25476v1" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 기존 TTS 평가가 WER/CER(정확도)와 MOS/UTMOS(자연스러움)에 치우쳐, 목표 언어의 음운적 특징(예: 레트로플렉스 조음, 기식, 모음 길이, 타밀의 zha 등)에서의 ‘악센트/발음 편향’을 정량화하지 못한다는 문제의식에서 출발한다. 핵심 기여는 Indic TTS의 악센트를 6개 해석 가능한 차원으로 분해한 벤치마크 PSP(Phoneme Substitution Profile)로, RR(레트로플렉스 붕괴율), AF(기식 충실도), LF(모음 길이 충실도), ZF(타밀 zha 충실도), FAD(프레셰 오디오 거리), PSD(운율 시그니처 발산)를 제안한다. 방법은 Wav2Vec2-XLS-R layer-9 임베딩과 강제 정렬을 결합해 앞의 4개 차원을 네이티브 화자 중심값(centroid) 기반 음향 프로브로 측정하고, FAD/PSD는 코퍼스 수준 분포 거리로 산출한다. 평가로는 ElevenLabs v3, Cartesia Sonic-3, Sarvam Bulbul, Indic Parler-TTS 및 Praxy Voice를 힌디어/텔루구/타밀 파일럿 세트에서 비교하고, 텔루구에 대해 R5→R6 사례 연구도 포함한다. 한계로 v1에서는 MOS 상관의 형식적 검증을 v2로 미루고, 대신 내부 일관성 신호와 네이티브 오디오 sanity check를 보고한다. 정책·규제·국가 전략 시사점으로는, 다국어/인도계 언어 TTS의 품질·공정성 평가에서 ‘악센트 차원’ 같은 해석 가능한 지표를 도입해 상업 모델의 성능을 단일 점수로 과대평가하지 않도록 하는 평가 거버넌스 필요성이 제기된다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25476v1">https://arxiv.org/abs/2604.25476v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Medoid Prototype Alignment for Cross-Plant Unknown Attack Detection in Industrial Control Systems (Luyao Wang, cs.CR, 2026.4.28)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Medoid Prototype Alignment for Cross-Plant Unknown Attack Detection in Industrial Control Systems (Luyao Wang, cs.CR, 2026.4.28)
+
+본 연구는 한 산업 플랜트에서 학습한 침입 탐지기를 다른 플랜트로 이전할 때, ICS 트래픽의 사이트 의존성, 라벨 부족, 배치 후 등장하는 미지(unknown) 공격 때문에 탐지가 어렵다는 문제를 다룬다. 핵심 기여는 이질적인 트래픽을 비교 가능한 표현 공간으로 압축한 뒤, 각 도메인의 로컬 운영 구조를 요약하는 견고한 medoid 프로토타입을 추출하고, 표적 프로토타입을 원천 프로토타입에 정렬하되 원천 도메인 구분성을 보존하고 표적 예측의 확신도를 높이도록 하는 prototype-calibrated transfer 목적을 설계한 것이다. 평가로는 천연가스 및 수처리(저장) 제어 시스템 데이터에서 4개의 unknown-attack 전이 태스크를 수행했으며, 평균 정확도 0.843, 평균 F1-score 0.838로 비교 모델 대비 최고 성능을 보고한다. 또한 전이 방향(source→target vs target→source)에 따른 비대칭성을 분석하고, 특히 reverse-transfer처럼 어려운 설정에서 프로토타입 가이드가 유용함을 보인다. 한계로는 특정 ICS 도메인/데이터셋에서의 성능 검증에 주로 의존하며, 다른 산업군이나 더 큰 도메인 변화에서의 일반화는 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는 플랜트 간 데이터 공유가 제한적인 현실에서, 도메인 이동 하에서도 안정적으로 미지 공격을 탐지하는 이전학습/적응 기법을 산업 보안 표준 역량으로 포함할 필요가 있음을 시사한다.
+
+https://arxiv.org/abs/2604.25544v1" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 한 산업 플랜트에서 학습한 침입 탐지기를 다른 플랜트로 이전할 때, ICS 트래픽의 사이트 의존성, 라벨 부족, 배치 후 등장하는 미지(unknown) 공격 때문에 탐지가 어렵다는 문제를 다룬다. 핵심 기여는 이질적인 트래픽을 비교 가능한 표현 공간으로 압축한 뒤, 각 도메인의 로컬 운영 구조를 요약하는 견고한 medoid 프로토타입을 추출하고, 표적 프로토타입을 원천 프로토타입에 정렬하되 원천 도메인 구분성을 보존하고 표적 예측의 확신도를 높이도록 하는 prototype-calibrated transfer 목적을 설계한 것이다. 평가로는 천연가스 및 수처리(저장) 제어 시스템 데이터에서 4개의 unknown-attack 전이 태스크를 수행했으며, 평균 정확도 0.843, 평균 F1-score 0.838로 비교 모델 대비 최고 성능을 보고한다. 또한 전이 방향(source→target vs target→source)에 따른 비대칭성을 분석하고, 특히 reverse-transfer처럼 어려운 설정에서 프로토타입 가이드가 유용함을 보인다. 한계로는 특정 ICS 도메인/데이터셋에서의 성능 검증에 주로 의존하며, 다른 산업군이나 더 큰 도메인 변화에서의 일반화는 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는 플랜트 간 데이터 공유가 제한적인 현실에서, 도메인 이동 하에서도 안정적으로 미지 공격을 탐지하는 이전학습/적응 기법을 산업 보안 표준 역량으로 포함할 필요가 있음을 시사한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25544v1">https://arxiv.org/abs/2604.25544v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>저자 외 8명, HuggingFace Daily Papers, 2026.4.28 (Refinement via Regeneration: Enlarging Modification Space Boosts Image Refinement in Unified Multimodal Models)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 8명, HuggingFace Daily Papers, 2026.4.28 (Refinement via Regeneration: Enlarging Modification Space Boosts Image Refinement in Unified Multimodal Models)
+
+통합 멀티모달 모델(UMM)이 텍스트-이미지 생성 후 추가 정제를 수행할 수 있다는 동기에서, 기존 정제 방법이 “편집 지시(RvE)” 중심이라 정제 범위가 제한되고 불완전해지는 문제를 다룬다. 핵심 기여는 정제를 편집이 아니라 “조건부 재생성”으로 재정의한 Refinement via Regeneration(RvR) 프레임워크로, 편집 지시의 거친 불일치 설명과 엄격한 픽셀 보존 제약을 완화해 수정 공간을 넓힌다. 방법적으로는 목표 프롬프트와 초기 이미지의 의미 토큰을 조건으로 삼아 이미지를 재생성하여 의미 정렬을 더 완전하게 달성한다. 평가는 Geneval, DPGBench, UniGenBench++ 등에서의 성능 개선으로 제시되며, Geneval 0.78→0.91, DPGBench 84.02→87.21, UniGenBench++ 61.53→77.41의 향상이 보고된다. 한계로는 본 요약 기준에서 안전성/오남용 관점의 정량 분석이나 실패 사례(예: 특정 유형의 불일치에서의 잔존 오류)에 대한 상세가 부족하며, 향후에는 정제 과정에서의 오류 전파·보정 실패 조건을 더 체계적으로 규명할 필요가 있다. 정책/규제·국가 전략 측면에서는 이미지 생성·정제 성능이 향상될수록 검증·감사 체계(콘텐츠 품질 평가, 모델 카드/데이터 시트 기반 투명성, 안전성 벤치마크 업데이트)의 중요성이 커진다는 점을 시사한다.
+
+https://arxiv.org/abs/2604.25636" onclick="copyEntry(this)">복사</button></div>
   <p>통합 멀티모달 모델(UMM)이 텍스트-이미지 생성 후 추가 정제를 수행할 수 있다는 동기에서, 기존 정제 방법이 “편집 지시(RvE)” 중심이라 정제 범위가 제한되고 불완전해지는 문제를 다룬다. 핵심 기여는 정제를 편집이 아니라 “조건부 재생성”으로 재정의한 Refinement via Regeneration(RvR) 프레임워크로, 편집 지시의 거친 불일치 설명과 엄격한 픽셀 보존 제약을 완화해 수정 공간을 넓힌다. 방법적으로는 목표 프롬프트와 초기 이미지의 의미 토큰을 조건으로 삼아 이미지를 재생성하여 의미 정렬을 더 완전하게 달성한다. 평가는 Geneval, DPGBench, UniGenBench++ 등에서의 성능 개선으로 제시되며, Geneval 0.78→0.91, DPGBench 84.02→87.21, UniGenBench++ 61.53→77.41의 향상이 보고된다. 한계로는 본 요약 기준에서 안전성/오남용 관점의 정량 분석이나 실패 사례(예: 특정 유형의 불일치에서의 잔존 오류)에 대한 상세가 부족하며, 향후에는 정제 과정에서의 오류 전파·보정 실패 조건을 더 체계적으로 규명할 필요가 있다. 정책/규제·국가 전략 측면에서는 이미지 생성·정제 성능이 향상될수록 검증·감사 체계(콘텐츠 품질 평가, 모델 카드/데이터 시트 기반 투명성, 안전성 벤치마크 업데이트)의 중요성이 커진다는 점을 시사한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25636">https://arxiv.org/abs/2604.25636</a></p>
 </article>
 <article class="entry cat-research">
   <h2>저자 외 11명, arXiv cs.CL, 2026.4.28</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 11명, arXiv cs.CL, 2026.4.28
+
+본 연구는 LLM의 문화적(불)정렬이 편향 문제로 주목받고 있음에도, 문화 정렬을 평가하기 위한 데이터셋 설계·개발이 상대적으로 부족하다는 문제의식에서 출발한다. 저자들은 기존 문화 평가 데이터셋 접근을 검토하고 한계를 정리한 뒤, 주석자 설계 지침(annotator design guidelines)을 제안하고 그 원칙에 따라 데이터셋을 구축한다. 이후 해당 데이터셋을 활용해 대조학습(contrastive) 기반 실험을 수행하며, 제안된 설계가 특정 문화에 특화된 모델과 그렇지 않은 모델을 더 잘 구분하는(더 높은 판별력) 테스트 세트를 만든다는 결과를 제시한다. 한계로는 문화 정렬 평가가 데이터셋 설계에 크게 의존하며, 제안 지침의 일반화 범위나 다양한 문화권에 대한 포괄성은 추가 검증이 필요할 수 있다. 정책/규제·국가 전략 측면에서는 문화적 정렬을 “편향 측정”을 넘어 “평가 데이터셋과 절차”로 제도화하려는 접근이 중요하며, 문화권별 평가 체계 구축에 활용될 수 있다는 시사점이 있다.
+
+https://arxiv.org/abs/2604.25654v1" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 LLM의 문화적(불)정렬이 편향 문제로 주목받고 있음에도, 문화 정렬을 평가하기 위한 데이터셋 설계·개발이 상대적으로 부족하다는 문제의식에서 출발한다. 저자들은 기존 문화 평가 데이터셋 접근을 검토하고 한계를 정리한 뒤, 주석자 설계 지침(annotator design guidelines)을 제안하고 그 원칙에 따라 데이터셋을 구축한다. 이후 해당 데이터셋을 활용해 대조학습(contrastive) 기반 실험을 수행하며, 제안된 설계가 특정 문화에 특화된 모델과 그렇지 않은 모델을 더 잘 구분하는(더 높은 판별력) 테스트 세트를 만든다는 결과를 제시한다. 한계로는 문화 정렬 평가가 데이터셋 설계에 크게 의존하며, 제안 지침의 일반화 범위나 다양한 문화권에 대한 포괄성은 추가 검증이 필요할 수 있다. 정책/규제·국가 전략 측면에서는 문화적 정렬을 “편향 측정”을 넘어 “평가 데이터셋과 절차”로 제도화하려는 접근이 중요하며, 문화권별 평가 체계 구축에 활용될 수 있다는 시사점이 있다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25654v1">https://arxiv.org/abs/2604.25654v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>저자 외 4명, cs.CL, 2026.4.28 (LLM-ReSum: 자기평가 기반 LLM 반성적 요약 프레임워크)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 4명, cs.CL, 2026.4.28 (LLM-ReSum: 자기평가 기반 LLM 반성적 요약 프레임워크)
+
+본 연구는 LLM이 생성한 요약의 신뢰성 있는 평가가 도메인과 문서 길이가 이질적인 상황에서 여전히 어렵다는 문제의식에서 출발한다. 저자들은 5개 도메인·7개 데이터셋(문서 2K~27K words, 1,500+개 사람 주석 요약)에서 14개 자동 요약 지표와 LLM 기반 평가자의 메타-평가를 수행하고, ROUGE/BLEU 같은 전통적 어휘 중복 지표가 인간 판단과 약하거나 음의 상관을 보이는 반면, 과업 특화 신경 지표와 LLM 평가자는 특히 언어적 품질 평가에서 더 높은 정렬(alignment)을 보인다는 점을 제시한다. 이를 바탕으로 파인튜닝 없이 LLM 기반 평가와 생성을 폐루프(closed feedback loop)로 결합하는 LLM-ReSum을 제안하며, 3개 도메인에서 저품질 요약을 사실 정확도 최대 33%, 커버리지 최대 39%까지 개선하고 사람 평가에서도 89%의 경우 개선된 요약을 선호받았다고 보고한다. 또한 법률 문서 요약을 위한 새로운 인력 주석 벤치마크 PatentSumEval(180개 전문가 평가 요약)을 소개한다. 한계로는 폐루프 개선이 어떤 실패 모드(예: 특정 도메인 편향, 평가자 오류의 누적)에 얼마나 강건한지에 대한 추가 분석이 필요하며, 향후에는 더 다양한 도메인/문서 유형과 장기 일관성 검증을 확장하는 과제가 남아 있다. 정책·규제 및 국가 전략 측면에서는 법률·정부 문서 등 고위험 영역에서 요약 품질을 자동으로 점검·개선하는 평가-생성 통합 접근이 “검증 가능한 품질 관리” 체계에 활용될 수 있음을 시사한다.
+
+https://arxiv.org/abs/2604.25665v1" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 LLM이 생성한 요약의 신뢰성 있는 평가가 도메인과 문서 길이가 이질적인 상황에서 여전히 어렵다는 문제의식에서 출발한다. 저자들은 5개 도메인·7개 데이터셋(문서 2K~27K words, 1,500+개 사람 주석 요약)에서 14개 자동 요약 지표와 LLM 기반 평가자의 메타-평가를 수행하고, ROUGE/BLEU 같은 전통적 어휘 중복 지표가 인간 판단과 약하거나 음의 상관을 보이는 반면, 과업 특화 신경 지표와 LLM 평가자는 특히 언어적 품질 평가에서 더 높은 정렬(alignment)을 보인다는 점을 제시한다. 이를 바탕으로 파인튜닝 없이 LLM 기반 평가와 생성을 폐루프(closed feedback loop)로 결합하는 LLM-ReSum을 제안하며, 3개 도메인에서 저품질 요약을 사실 정확도 최대 33%, 커버리지 최대 39%까지 개선하고 사람 평가에서도 89%의 경우 개선된 요약을 선호받았다고 보고한다. 또한 법률 문서 요약을 위한 새로운 인력 주석 벤치마크 PatentSumEval(180개 전문가 평가 요약)을 소개한다. 한계로는 폐루프 개선이 어떤 실패 모드(예: 특정 도메인 편향, 평가자 오류의 누적)에 얼마나 강건한지에 대한 추가 분석이 필요하며, 향후에는 더 다양한 도메인/문서 유형과 장기 일관성 검증을 확장하는 과제가 남아 있다. 정책·규제 및 국가 전략 측면에서는 법률·정부 문서 등 고위험 영역에서 요약 품질을 자동으로 점검·개선하는 평가-생성 통합 접근이 “검증 가능한 품질 관리” 체계에 활용될 수 있음을 시사한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25665v1">https://arxiv.org/abs/2604.25665v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>저자 외 2명, CORAL: Adaptive Retrieval Loop for Culturally-Aligned Multilingual RAG, cs.CL, 2026.4.28</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 2명, CORAL: Adaptive Retrieval Loop for Culturally-Aligned Multilingual RAG, cs.CL, 2026.4.28
+
+본 연구는 다국어 RAG(mRAG)가 고정된 검색 공간(번역/다국어 임베딩 등)에 의존할 때, 문화적으로 맥락화된 질의에서 검색 조건 불일치로 인해 근거의 언어·지역 맥락이 어긋나 문화 정합성이 떨어질 수 있다는 문제의식에서 출발한다. CORAL은 증거의 품질을 기준으로 검색 코퍼라(검색 공간)와 검색 프롬프트(질의)를 반복적으로 조정하는 에이전틱 루프를 제안하며, 코퍼라 선택→문서 검색→문화 정합성/관련성 관점의 증거 비평→충분성 점검→부족 시 코퍼라 재선택 및 질의 재작성의 절차를 포함한다. 평가로는 문화 QA 벤치마크 2종을 사용했으며, 저자들은 저자원 언어에서 최강 베이스라인 대비 최대 3.58%p 정확도 향상을 보고한다. 한계로는 문화 정합성 판단(비평/충분성 점검)의 기준과 신뢰성, 그리고 반복 루프에 따른 비용·지연(추론 단계 증가)이 성능과 운영에 미칠 영향이 추가 검증 대상이다. 정책/규제·국가 전략 측면에서는, 다국어 AI 서비스에서 문화·지역 맥락 정합성을 안전/품질 요건으로 포함하고(예: 문화적 오정보·부적절한 근거 사용 방지), 고정 검색 대신 적응형 검색·검증 루프를 요구하는 가이드라인 수립에 시사점이 있다.
+
+https://arxiv.org/abs/2604.25676v1" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 다국어 RAG(mRAG)가 고정된 검색 공간(번역/다국어 임베딩 등)에 의존할 때, 문화적으로 맥락화된 질의에서 검색 조건 불일치로 인해 근거의 언어·지역 맥락이 어긋나 문화 정합성이 떨어질 수 있다는 문제의식에서 출발한다. CORAL은 증거의 품질을 기준으로 검색 코퍼라(검색 공간)와 검색 프롬프트(질의)를 반복적으로 조정하는 에이전틱 루프를 제안하며, 코퍼라 선택→문서 검색→문화 정합성/관련성 관점의 증거 비평→충분성 점검→부족 시 코퍼라 재선택 및 질의 재작성의 절차를 포함한다. 평가로는 문화 QA 벤치마크 2종을 사용했으며, 저자들은 저자원 언어에서 최강 베이스라인 대비 최대 3.58%p 정확도 향상을 보고한다. 한계로는 문화 정합성 판단(비평/충분성 점검)의 기준과 신뢰성, 그리고 반복 루프에 따른 비용·지연(추론 단계 증가)이 성능과 운영에 미칠 영향이 추가 검증 대상이다. 정책/규제·국가 전략 측면에서는, 다국어 AI 서비스에서 문화·지역 맥락 정합성을 안전/품질 요건으로 포함하고(예: 문화적 오정보·부적절한 근거 사용 방지), 고정 검색 대신 적응형 검색·검증 루프를 요구하는 가이드라인 수립에 시사점이 있다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25676v1">https://arxiv.org/abs/2604.25676v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(저자 외 14명, arXiv cs.AI, 2026.4.28) Think Before You Act -- A Neurocognitive Governance Model for Autonomous AI Agents</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="(저자 외 14명, arXiv cs.AI, 2026.4.28) Think Before You Act -- A Neurocognitive Governance Model for Autonomous AI Agents
+
+자율 AI 에이전트가 기업·헬스케어·안전중요 환경에 빠르게 도입되면서, 기존의 런타임 가드레일·학습 시 정렬·사후 감사가 거버넌스를 “외부 제약”으로 취급해 되돌리기 어려운 비안전 행동에 취약하다는 문제의식에서 출발한다. 논문은 인간의 자기-거버넌스(행동 전 집행기능·억제통제·내재화된 조직 규칙에 기반한 숙고)를 LLM 기반 에이전트 추론에 구조적으로 대응시키고, 행동 전 거버넌스 추론 루프(PAGRL)를 제안한다. PAGRL은 매 “중대한 행동”마다 글로벌/워크플로우-특정/에이전트-특정/상황-특정의 4계층 규칙 세트를 참조하도록 형식화하며, 이를 통해 설명가능하고 감사 가능한 컴플라이언스를 내재화하는 접근을 취한다. 평가로는 프로덕션 수준의 리테일 공급망 워크플로우를 구현해 컴플라이언스 정확도 95%와 인간 감독으로의 잘못된 에스컬레이션 0건을 보고한다. 한계로는 특정 도메인 워크플로우에서의 성능을 중심으로 제시되어 일반화 범위와 다양한 안전위협 유형에 대한 검증이 추가로 필요하며, 향후에는 규칙 계층의 설계·업데이트와 다양한 환경에서의 견고성 평가가 과제로 남는다. 정책/규제·국가 전략 측면에서는 “사후 감사 중심”에서 “행동 전 의사결정 단계에 거버넌스를 내재화”하는 설계 원칙을 권고할 근거를 제공하며, 안전중요 시스템에서 에이전트의 컴플라이언스 추론을 감사 가능하게 만드는 요구사항 정립에 시사점을 준다.
+
+https://arxiv.org/abs/2604.25684v1" onclick="copyEntry(this)">복사</button></div>
   <p>자율 AI 에이전트가 기업·헬스케어·안전중요 환경에 빠르게 도입되면서, 기존의 런타임 가드레일·학습 시 정렬·사후 감사가 거버넌스를 “외부 제약”으로 취급해 되돌리기 어려운 비안전 행동에 취약하다는 문제의식에서 출발한다. 논문은 인간의 자기-거버넌스(행동 전 집행기능·억제통제·내재화된 조직 규칙에 기반한 숙고)를 LLM 기반 에이전트 추론에 구조적으로 대응시키고, 행동 전 거버넌스 추론 루프(PAGRL)를 제안한다. PAGRL은 매 “중대한 행동”마다 글로벌/워크플로우-특정/에이전트-특정/상황-특정의 4계층 규칙 세트를 참조하도록 형식화하며, 이를 통해 설명가능하고 감사 가능한 컴플라이언스를 내재화하는 접근을 취한다. 평가로는 프로덕션 수준의 리테일 공급망 워크플로우를 구현해 컴플라이언스 정확도 95%와 인간 감독으로의 잘못된 에스컬레이션 0건을 보고한다. 한계로는 특정 도메인 워크플로우에서의 성능을 중심으로 제시되어 일반화 범위와 다양한 안전위협 유형에 대한 검증이 추가로 필요하며, 향후에는 규칙 계층의 설계·업데이트와 다양한 환경에서의 견고성 평가가 과제로 남는다. 정책/규제·국가 전략 측면에서는 “사후 감사 중심”에서 “행동 전 의사결정 단계에 거버넌스를 내재화”하는 설계 원칙을 권고할 근거를 제공하며, 안전중요 시스템에서 에이전트의 컴플라이언스 추론을 감사 가능하게 만드는 요구사항 정립에 시사점을 준다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25684v1">https://arxiv.org/abs/2604.25684v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>저자 외 3명, arXiv cs.CL, 2026.4.28 (Unrequited Emotions: Investigating the Gaps in Motivation and Practice in Speech Emotion Recognition Research)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 3명, arXiv cs.CL, 2026.4.28 (Unrequited Emotions: Investigating the Gaps in Motivation and Practice in Speech Emotion Recognition Research)
+
+본 연구는 음성 감정 인식(SER) 기술에서 제기된 윤리적 우려(과제 타당성, 다운스트림 영향)가 SER 연구 자체의 “동기-실행 정합성” 관점으로 충분히 반영되지 않았다는 문제의식에서 출발한다. 저자들은 SER 연구를 체계적으로 조사해 연구자들이 밝히는 동기(예: 음성 기반 시스템, 헬스케어 적용 등)가 실제로 사용되는 데이터셋과 감정 범주/라벨링 구성과 얼마나 일치하는지 분석한다. 평가·사례로는 SER 논문 전반에 걸친 설문(시스템atic survey) 방식으로, 배치(배포) 맥락을 주장하는 연구 동기와 실제로 널리 쓰이는 데이터셋의 현실 반영 정도를 비교한다. 그 결과, 많은 연구가 매력적인 목표를 제시하지만 통상적 데이터셋은 제안된 배치 맥락을 충분히 반영하지 못해 동기와 연구 관행 사이의 간극이 존재함을 확인한다. 한계로는 주로 문헌 기반 정합성 점검에 초점이 있어, 실제 배치 환경에서의 성능·위험을 직접 측정하는 후속 검증이 추가로 필요하다는 점이 남는다. 정책/규제·국가 전략 측면에서는 SER을 포함한 감정 인식 기술에 대해 “사용 맥락에 맞는 데이터/평가”를 요구하고, 동기-실행 불일치가 오해·오남용·다운스트림 위해로 이어질 수 있음을 연구 설계 단계에서 점검하도록 유도하는 시사점이 있다.
+
+https://arxiv.org/abs/2604.25776v1" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 음성 감정 인식(SER) 기술에서 제기된 윤리적 우려(과제 타당성, 다운스트림 영향)가 SER 연구 자체의 “동기-실행 정합성” 관점으로 충분히 반영되지 않았다는 문제의식에서 출발한다. 저자들은 SER 연구를 체계적으로 조사해 연구자들이 밝히는 동기(예: 음성 기반 시스템, 헬스케어 적용 등)가 실제로 사용되는 데이터셋과 감정 범주/라벨링 구성과 얼마나 일치하는지 분석한다. 평가·사례로는 SER 논문 전반에 걸친 설문(시스템atic survey) 방식으로, 배치(배포) 맥락을 주장하는 연구 동기와 실제로 널리 쓰이는 데이터셋의 현실 반영 정도를 비교한다. 그 결과, 많은 연구가 매력적인 목표를 제시하지만 통상적 데이터셋은 제안된 배치 맥락을 충분히 반영하지 못해 동기와 연구 관행 사이의 간극이 존재함을 확인한다. 한계로는 주로 문헌 기반 정합성 점검에 초점이 있어, 실제 배치 환경에서의 성능·위험을 직접 측정하는 후속 검증이 추가로 필요하다는 점이 남는다. 정책/규제·국가 전략 측면에서는 SER을 포함한 감정 인식 기술에 대해 “사용 맥락에 맞는 데이터/평가”를 요구하고, 동기-실행 불일치가 오해·오남용·다운스트림 위해로 이어질 수 있음을 연구 설계 단계에서 점검하도록 유도하는 시사점이 있다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25776v1">https://arxiv.org/abs/2604.25776v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Sustained Gradient Alignment Mediates Subliminal Learning in a Multi-Step Setting (저자 외 0명, arXiv cs.LG, 2026.4.28)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Sustained Gradient Alignment Mediates Subliminal Learning in a Multi-Step Setting (저자 외 0명, arXiv cs.LG, 2026.4.28)
+
+본 연구는 MNIST 보조 로짓 증류(Auxiliary Logit Distillation)에서 “무의식적(subliminal) 학습” 현상으로 인해, 학생이 no-class 로짓만 증류받아도 의도치 않은 교사 특성을 획득할 수 있는 이유를 다단계 학습(여러 step의 경사하강) 관점에서 규명하려는 동기에서 출발한다. 핵심 기여는 단일 step 가정 하에 제안되던 “특성-증류 그래디언트 정렬(alignment)”이 다단계 학습에서도 약하지만 일관되게 양(+)으로 유지되며, 그 정렬이 특성 획득에 인과적으로 기여함을 실험적으로 보인 점이다. 평가/검증은 MNIST 보조 로짓 증류 실험을 통해 학습 전 과정에서의 그래디언트 정렬의 지속성과, 정렬을 약화시키는 완화 방법인 liminal training이 실제로 특성 획득을 억제하지 못함을 함께 제시하는 방식으로 이루어진다. 한계로는 주로 MNIST 및 특정 증류 설정에 기반한 결과이며, 다른 데이터/아키텍처/학습 규칙에서의 일반화는 추가 확인이 필요하다. 정책·규제·국가 전략 시사점으로는, “특정 로짓/신호만 학습시키면 안전한가” 같은 완화 가정이 다단계 최적화 과정에서 깨질 수 있으므로, 증류·미세조정 파이프라인에서 의도치 않은 능력/특성 전이(teacher trait transfer)를 체계적으로 점검하는 안전 평가 체계가 필요하다는 점을 뒷받침한다.
+
+https://arxiv.org/abs/2604.25779v1" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 MNIST 보조 로짓 증류(Auxiliary Logit Distillation)에서 “무의식적(subliminal) 학습” 현상으로 인해, 학생이 no-class 로짓만 증류받아도 의도치 않은 교사 특성을 획득할 수 있는 이유를 다단계 학습(여러 step의 경사하강) 관점에서 규명하려는 동기에서 출발한다. 핵심 기여는 단일 step 가정 하에 제안되던 “특성-증류 그래디언트 정렬(alignment)”이 다단계 학습에서도 약하지만 일관되게 양(+)으로 유지되며, 그 정렬이 특성 획득에 인과적으로 기여함을 실험적으로 보인 점이다. 평가/검증은 MNIST 보조 로짓 증류 실험을 통해 학습 전 과정에서의 그래디언트 정렬의 지속성과, 정렬을 약화시키는 완화 방법인 liminal training이 실제로 특성 획득을 억제하지 못함을 함께 제시하는 방식으로 이루어진다. 한계로는 주로 MNIST 및 특정 증류 설정에 기반한 결과이며, 다른 데이터/아키텍처/학습 규칙에서의 일반화는 추가 확인이 필요하다. 정책·규제·국가 전략 시사점으로는, “특정 로짓/신호만 학습시키면 안전한가” 같은 완화 가정이 다단계 최적화 과정에서 깨질 수 있으므로, 증류·미세조정 파이프라인에서 의도치 않은 능력/특성 전이(teacher trait transfer)를 체계적으로 점검하는 안전 평가 체계가 필요하다는 점을 뒷받침한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25779v1">https://arxiv.org/abs/2604.25779v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>저자 외 9명, HuggingFace Daily Papers, 2026.4.28</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 9명, HuggingFace Daily Papers, 2026.4.28
+
+MAIC-UI는 STEM 교육용 인터랙티브 코스웨어 제작이 HTML/CSS/JavaScript 전문성에 의존해 교사에게 진입장벽이 크다는 문제에서 출발한다. 본 연구는 교사가 무코드로 교재/PPT/PDF로부터 인터랙티브 코스웨어를 만들고 빠르게 수정할 수 있도록, (1) 멀티모달 기반 구조화 지식 분석으로 교육적 정확성(교수학적 엄밀성)을 확보하고, (2) 생성-검증-최적화의 2단계 파이프라인으로 내용 정합과 시각적 정제를 분리하며, (3) Click-to-Locate 편집과 Unified Diff 기반 증분 생성으로 수정 주기를 10초 미만으로 줄이는 방식을 제안한다. 평가로는 40명 통제 실험에서 편집 반복 횟수(4.9 vs 7.0) 감소와 학습가능성/조작성 향상을 보고하고, 3개월 교실 배치(고교생 53명)에서는 STEM 성취 격차가 완화되며 파일럿 반의 점수 변화(+9.21)가 대조군(-2.32)보다 유리했다고 제시한다. 한계로는 장문 문서 처리, 생성된 인터랙티브 요소의 교육적 정확성 검증의 범위가 도구 설계에 의존할 수 있으며, 실제 확장 적용에서의 일반화 성능은 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는 교육 콘텐츠 제작에 대한 생성형 UI 도입이 교사 역량 격차를 줄이고 학습 성과 불평등을 완화할 수 있음을 시사하나, 교육적 정확성 보장과 안전한 편집/검증 체계(감사 가능성 포함) 마련이 병행되어야 한다.
+
+https://arxiv.org/abs/2604.25806" onclick="copyEntry(this)">복사</button></div>
   <p>MAIC-UI는 STEM 교육용 인터랙티브 코스웨어 제작이 HTML/CSS/JavaScript 전문성에 의존해 교사에게 진입장벽이 크다는 문제에서 출발한다. 본 연구는 교사가 무코드로 교재/PPT/PDF로부터 인터랙티브 코스웨어를 만들고 빠르게 수정할 수 있도록, (1) 멀티모달 기반 구조화 지식 분석으로 교육적 정확성(교수학적 엄밀성)을 확보하고, (2) 생성-검증-최적화의 2단계 파이프라인으로 내용 정합과 시각적 정제를 분리하며, (3) Click-to-Locate 편집과 Unified Diff 기반 증분 생성으로 수정 주기를 10초 미만으로 줄이는 방식을 제안한다. 평가로는 40명 통제 실험에서 편집 반복 횟수(4.9 vs 7.0) 감소와 학습가능성/조작성 향상을 보고하고, 3개월 교실 배치(고교생 53명)에서는 STEM 성취 격차가 완화되며 파일럿 반의 점수 변화(+9.21)가 대조군(-2.32)보다 유리했다고 제시한다. 한계로는 장문 문서 처리, 생성된 인터랙티브 요소의 교육적 정확성 검증의 범위가 도구 설계에 의존할 수 있으며, 실제 확장 적용에서의 일반화 성능은 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는 교육 콘텐츠 제작에 대한 생성형 UI 도입이 교사 역량 격차를 줄이고 학습 성과 불평등을 완화할 수 있음을 시사하나, 교육적 정확성 보장과 안전한 편집/검증 체계(감사 가능성 포함) 마련이 병행되어야 한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25806">https://arxiv.org/abs/2604.25806</a></p>
 </article>
 <article class="entry cat-research">
   <h2>세 줄 요약: (저자 외 0명, cs.CY, 2026.4.28) RLHF 주석의 규범적 역할을 Extension/Evidence/Authority 3모델로 구분하고 파이프라인 설계를 제안</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="세 줄 요약: (저자 외 0명, cs.CY, 2026.4.28) RLHF 주석의 규범적 역할을 Extension/Evidence/Authority 3모델로 구분하고 파이프라인 설계를 제안
+
+본 연구는 RLHF에서 인간 주석가의 판단이 모델 행동을 어떻게 “규범적으로” 정당화하는지(역할이 명시적으로 다뤄지지 않는 문제)를 정리하고, 그에 따라 주석 수집·검증·집계 방식이 달라져야 함을 제기한다. 핵심 기여는 주석가 판단의 역할을 (1) Extension(설계자의 판단을 확장), (2) Evidence(사실/규범에 대한 독립적 근거 제공), (3) Authority(대표성에 기반한 독립적 권위 행사)로 개념화하고, 기존 RLHF 관련 대표 논문들이 이 모델들을 암묵적으로 섞어 쓰는 양상과 그로 인한 실패 모드를 분석하는 것이다. 평가/사례 측면에서는 RLHF 및 유사 정렬 방법의 “랜드마크 논문”을 문헌 조사해 어떤 파이프라인이 어떤 역할 모델을 암묵적으로 채택하는지, 그리고 역할 혼동 시 어떤 문제가 생길 수 있는지를 유형화한다. 한계로는 주로 개념적·규범적 분해와 문헌 기반 분석에 초점이 있어, 특정 벤치마크에서의 정량적 성능 비교보다는 설계 기준 제시에 무게가 있다. 정책/규제·국가 전략 시사점으로는, 안전 정렬에서 인간 평가를 단일한 “정답 신호”로 취급하기보다 역할(근거 제공 vs 대표성 기반 권위 vs 설계자 판단 확장)을 분리해 검증·감사 체계를 설계해야 한다는 점이 강조된다.
+
+https://arxiv.org/abs/2604.25895v1" onclick="copyEntry(this)">복사</button></div>
   <p>본 연구는 RLHF에서 인간 주석가의 판단이 모델 행동을 어떻게 “규범적으로” 정당화하는지(역할이 명시적으로 다뤄지지 않는 문제)를 정리하고, 그에 따라 주석 수집·검증·집계 방식이 달라져야 함을 제기한다. 핵심 기여는 주석가 판단의 역할을 (1) Extension(설계자의 판단을 확장), (2) Evidence(사실/규범에 대한 독립적 근거 제공), (3) Authority(대표성에 기반한 독립적 권위 행사)로 개념화하고, 기존 RLHF 관련 대표 논문들이 이 모델들을 암묵적으로 섞어 쓰는 양상과 그로 인한 실패 모드를 분석하는 것이다. 평가/사례 측면에서는 RLHF 및 유사 정렬 방법의 “랜드마크 논문”을 문헌 조사해 어떤 파이프라인이 어떤 역할 모델을 암묵적으로 채택하는지, 그리고 역할 혼동 시 어떤 문제가 생길 수 있는지를 유형화한다. 한계로는 주로 개념적·규범적 분해와 문헌 기반 분석에 초점이 있어, 특정 벤치마크에서의 정량적 성능 비교보다는 설계 기준 제시에 무게가 있다. 정책/규제·국가 전략 시사점으로는, 안전 정렬에서 인간 평가를 단일한 “정답 신호”로 취급하기보다 역할(근거 제공 vs 대표성 기반 권위 vs 설계자 판단 확장)을 분리해 검증·감사 체계를 설계해야 한다는 점이 강조된다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.25895v1">https://arxiv.org/abs/2604.25895v1</a></p>
 </article>
 <footer>AI Safety pipeline · daily_digest_html</footer>
 </div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
 </body>
 </html>

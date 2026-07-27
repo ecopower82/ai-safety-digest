@@ -50,7 +50,16 @@
   .entry.cat-other { border-left-color: var(--cat-other); }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
   .badge {
     display: inline-block; padding: 2px 9px; border-radius: 999px;
     font-size: 0.72rem; font-weight: 600; color: #fff;
@@ -86,75 +95,129 @@
 </header>
 <article class="entry cat-other">
   <h2>Global South AI Safety Hackathon 개최(2026.6.19~2026.6.21)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">Apart Research</span> · <span class="deadline">마감일/시행일: 2026.6.19~2026.6.21(온라인·오프라인)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Apart Research</span> · <span class="deadline">마감일/시행일: 2026.6.19~2026.6.21(온라인·오프라인)</span></span><button type="button" class="copy-btn" data-copy="Global South AI Safety Hackathon 개최(2026.6.19~2026.6.21)
+
+Apart Research가 라틴아메리카·아프리카·아시아 참가자를 대상으로 ‘Global South AI Safety Hackathon’을 개최한다. 참가자들은 지역별 트랙(기술 AI 안전 또는 거버넌스/정책)에서 AI 안전 도구·평가·정책 연구를 3일간 개발하고, PDF 연구보고서를 제출해 지역 내 심사를 받는다. 우수 팀은 현금 상금(지역별 총액 기준)과 함께 Apart Fellowship 초청 대상이 될 수 있으며, 제출 프로젝트는 심사 후 Apart Research 웹사이트에 소개될 예정이다.
+
+https://apartresearch.com/sprints/global-south-ais-hackathon-2026-06-19-to-2026-06-21" onclick="copyEntry(this)">복사</button></div>
   <p>Apart Research가 라틴아메리카·아프리카·아시아 참가자를 대상으로 ‘Global South AI Safety Hackathon’을 개최한다. 참가자들은 지역별 트랙(기술 AI 안전 또는 거버넌스/정책)에서 AI 안전 도구·평가·정책 연구를 3일간 개발하고, PDF 연구보고서를 제출해 지역 내 심사를 받는다. 우수 팀은 현금 상금(지역별 총액 기준)과 함께 Apart Fellowship 초청 대상이 될 수 있으며, 제출 프로젝트는 심사 후 Apart Research 웹사이트에 소개될 예정이다.</p>
   <p class="url"><a href="https://apartresearch.com/sprints/global-south-ais-hackathon-2026-06-19-to-2026-06-21">https://apartresearch.com/sprints/global-south-ais-hackathon-2026-06-19-to-2026-06-21</a></p>
 </article>
 <article class="entry cat-other">
   <h2>MARS V(2026.4.17) AI 안전 연구 멘토링 프로그램, 2026년 7~10월 운영(파트타임·하이브리드)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">Cambridge AI Safety Hub(CAISH)</span> · <span class="deadline">2026.7.13~7.26 오프라인 스프린트 후 8~10주 원격 파트타임 연구로 10월 종료</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Cambridge AI Safety Hub(CAISH)</span> · <span class="deadline">2026.7.13~7.26 오프라인 스프린트 후 8~10주 원격 파트타임 연구로 10월 종료</span></span><button type="button" class="copy-btn" data-copy="MARS V(2026.4.17) AI 안전 연구 멘토링 프로그램, 2026년 7~10월 운영(파트타임·하이브리드)
+
+CAISH의 MARS V는 멘토와 멘티가 동시 학업·취업을 병행할 수 있도록 파트타임·하이브리드 형태로 운영되는 AI 안전 연구 멘토링 프로그램이다. 기술 AI 안전(제어, 해석가능성, 평가, 견고성, 확장 가능한 감독)과 AI 거버넌스·정책(국제 합의, AI 법, 정치철학, 컴퓨트 거버넌스) 분야를 다룬다. 2단계 지원은 1단계에서 일반 지원 후 선발된 지원자가 2단계에서 특정 멘토 프로젝트에 직접 지원하며, 멘토가 인터뷰·코딩 테스트 등을 통해 팀을 구성한다. 참가비는 없고, 이동·숙박·식사 및 스프린트 주간 사무공간과 연구 지원(컴퓨트 예산, Claude Max 등)도 제공된다.
+
+https://caish.org/mars" onclick="copyEntry(this)">복사</button></div>
   <p>CAISH의 MARS V는 멘토와 멘티가 동시 학업·취업을 병행할 수 있도록 파트타임·하이브리드 형태로 운영되는 AI 안전 연구 멘토링 프로그램이다. 기술 AI 안전(제어, 해석가능성, 평가, 견고성, 확장 가능한 감독)과 AI 거버넌스·정책(국제 합의, AI 법, 정치철학, 컴퓨트 거버넌스) 분야를 다룬다. 2단계 지원은 1단계에서 일반 지원 후 선발된 지원자가 2단계에서 특정 멘토 프로젝트에 직접 지원하며, 멘토가 인터뷰·코딩 테스트 등을 통해 팀을 구성한다. 참가비는 없고, 이동·숙박·식사 및 스프린트 주간 사무공간과 연구 지원(컴퓨트 예산, Claude Max 등)도 제공된다.</p>
   <p class="url"><a href="https://caish.org/mars">https://caish.org/mars</a></p>
 </article>
 <article class="entry cat-company">
   <h2>(기사/공고 기준일: 2026.4.17) Child Protection Blueprint 문서 요약</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">cdn.openai.com</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">cdn.openai.com</span></span><button type="button" class="copy-btn" data-copy="(기사/공고 기준일: 2026.4.17) Child Protection Blueprint 문서 요약
+
+제공된 페이지 추출 본문은 PDF의 구조/바이너리 데이터로 보이며, 실제 정책 내용(문장/항목)이 해독되지 않아 핵심 내용을 사실 기반으로 요약할 수 없습니다. URL의 PDF 원문에서 텍스트가 추출되도록 다시 제공(예: 텍스트 레이어 포함 PDF 또는 주요 페이지의 문장 발췌)해 주시면 2~4문장으로 요약해 드리겠습니다.
+
+https://cdn.openai.com/pdf/9886ee82-5a5e-4f0a-acaa-a47b01b0a68e/Child-Protection-Blueprint.pdf" onclick="copyEntry(this)">복사</button></div>
   <p>제공된 페이지 추출 본문은 PDF의 구조/바이너리 데이터로 보이며, 실제 정책 내용(문장/항목)이 해독되지 않아 핵심 내용을 사실 기반으로 요약할 수 없습니다. URL의 PDF 원문에서 텍스트가 추출되도록 다시 제공(예: 텍스트 레이어 포함 PDF 또는 주요 페이지의 문장 발췌)해 주시면 2~4문장으로 요약해 드리겠습니다.</p>
   <p class="url"><a href="https://cdn.openai.com/pdf/9886ee82-5a5e-4f0a-acaa-a47b01b0a68e/Child-Protection-Blueprint.pdf">https://cdn.openai.com/pdf/9886ee82-5a5e-4f0a-acaa-a47b01b0a68e/Child-Protection-Blueprint.pdf</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>유럽 집행위, EU 사안 독립적 범유럽 보도를 지원하는 공모(2026.4.16)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(유럽 집행위원회)</span> · <span class="deadline">공모 마감: 2026.6.2</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(유럽 집행위원회)</span> · <span class="deadline">공모 마감: 2026.6.2</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, EU 사안 독립적 범유럽 보도를 지원하는 공모(2026.4.16)
+
+유럽 집행위원회는 유럽 언론이 EU 사안에 대해 독립적으로 범유럽 수준의 오디오비주얼·디지털 보도를 할 수 있도록 지원하는 제안 공모를 시작했다. 이번 공모 예산은 총 1,660만 유로이며, 오디오비주얼 뉴스 보도 확대(8.5백만 유로), 특정 회원국에서 국제 오디오비주얼 뉴스 미디어 제공 개발(3.1백만 유로), 신뢰할 수 있고 전문적으로 제작된 온라인 정보 접근성 제고(5백만 유로)로 나뉜다. 단일 신청 또는 컨소시엄 형태가 가능하며, 활동은 EU 회원국에 설립된 조직이 수행해야 하고 언론 수혜자는 완전한 편집 독립성을 유지해야 한다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-invests-eu16-million-pan-european-reporting" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위원회는 유럽 언론이 EU 사안에 대해 독립적으로 범유럽 수준의 오디오비주얼·디지털 보도를 할 수 있도록 지원하는 제안 공모를 시작했다. 이번 공모 예산은 총 1,660만 유로이며, 오디오비주얼 뉴스 보도 확대(8.5백만 유로), 특정 회원국에서 국제 오디오비주얼 뉴스 미디어 제공 개발(3.1백만 유로), 신뢰할 수 있고 전문적으로 제작된 온라인 정보 접근성 제고(5백만 유로)로 나뉜다. 단일 신청 또는 컨소시엄 형태가 가능하며, 활동은 EU 회원국에 설립된 조직이 수행해야 하고 언론 수혜자는 완전한 편집 독립성을 유지해야 한다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-invests-eu16-million-pan-european-reporting">https://digital-strategy.ec.europa.eu/en/news/commission-invests-eu16-million-pan-european-reporting</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>(2026.4.16) EU 집행위, 디지털시장법에 따른 구글의 검색엔진 데이터 제3자 공유 조치 제안</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="(2026.4.16) EU 집행위, 디지털시장법에 따른 구글의 검색엔진 데이터 제3자 공유 조치 제안
+
+공개협의(의견수렴) 2026.4.17(금) 시작
+
+유럽연합 집행위원회가 구글에 디지털시장법(DMA) 준수를 위한 예비 조사 결과와 제안 조치를 전달했다. 제안에 따르면 구글은 제3자 검색엔진이 순위·검색질의·클릭·열람 데이터 등 검색 데이터를 공정·합리·차별금지 조건으로 접근할 수 있도록 해야 한다. 조치는 데이터 수혜자 자격(검색 기능을 가진 AI 챗봇 포함), 공유 범위·방식·주기, 개인정보 익명화, 가격 산정 기준, 접근 절차 등을 포함하며, 집행위는 2026.4.17부터 공개협의를 통해 의견을 받는다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-proposes-measures-google-sharing-search-engine-data-third-parties-under-digital-markets" onclick="copyEntry(this)">복사</button></div>
   <p>공개협의(의견수렴) 2026.4.17(금) 시작</p>
 <p>유럽연합 집행위원회가 구글에 디지털시장법(DMA) 준수를 위한 예비 조사 결과와 제안 조치를 전달했다. 제안에 따르면 구글은 제3자 검색엔진이 순위·검색질의·클릭·열람 데이터 등 검색 데이터를 공정·합리·차별금지 조건으로 접근할 수 있도록 해야 한다. 조치는 데이터 수혜자 자격(검색 기능을 가진 AI 챗봇 포함), 공유 범위·방식·주기, 개인정보 익명화, 가격 산정 기준, 접근 절차 등을 포함하며, 집행위는 2026.4.17부터 공개협의를 통해 의견을 받는다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-proposes-measures-google-sharing-search-engine-data-third-parties-under-digital-markets">https://digital-strategy.ec.europa.eu/en/news/commission-proposes-measures-google-sharing-search-engine-data-third-parties-under-digital-markets</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>(2026.4.16) 아동 온라인 안전 자문 특별패널 2차 회의 개최</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="(2026.4.16) 아동 온라인 안전 자문 특별패널 2차 회의 개최
+
+EU 집행위원장 폰데어라이엔의 아동 온라인 안전 자문을 맡은 특별패널이 2차 회의를 열었다. 이번 회의에서는 전문가들이 회원국에 공유한 현행 EU 규정과 아동 보호 관련 이니셔티브, 그리고 호주의 소셜미디어 최소 연령 등 국제 접근이 논의됐다. 전날 집행위가 발표한 EU 연령확인 앱(프라이버시 보호 중심의 도구)과 관련해, 회원국이 앱을 맞춤화해 조속히 시민들이 사용할 수 있도록 독려하는 내용도 포함됐다.
+
+https://digital-strategy.ec.europa.eu/en/news/second-meeting-special-panel-advise-president-von-der-leyen-child-online-safety" onclick="copyEntry(this)">복사</button></div>
   <p>EU 집행위원장 폰데어라이엔의 아동 온라인 안전 자문을 맡은 특별패널이 2차 회의를 열었다. 이번 회의에서는 전문가들이 회원국에 공유한 현행 EU 규정과 아동 보호 관련 이니셔티브, 그리고 호주의 소셜미디어 최소 연령 등 국제 접근이 논의됐다. 전날 집행위가 발표한 EU 연령확인 앱(프라이버시 보호 중심의 도구)과 관련해, 회원국이 앱을 맞춤화해 조속히 시민들이 사용할 수 있도록 독려하는 내용도 포함됐다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/second-meeting-special-panel-advise-president-von-der-leyen-child-online-safety">https://digital-strategy.ec.europa.eu/en/news/second-meeting-special-panel-advise-president-von-der-leyen-child-online-safety</a></p>
 </article>
 <article class="entry cat-other">
   <h2>IAS X BlueDot Impact(현장 첫 행사) 마드리드 개최(2026.4.17)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">Luma</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Luma</span></span><button type="button" class="copy-btn" data-copy="IAS X BlueDot Impact(현장 첫 행사) 마드리드 개최(2026.4.17)
+
+등록은 호스트 승인 필요하며, 참여 전 지갑으로 토큰 소유 여부를 확인해야 합니다.
+
+IAS X BlueDot Impact의 첫 현장(오프라인) 이벤트로, 스페인어권에서의 AI Safety 관련 커뮤니티를 소개하고 참여를 유도합니다. Osmani Redondo의 IAS 소개 발표와 David Bravo Comas, Guillem Bas의 AI Safety 및 AI 거버넌스/정책 관련 강연이 예정되어 있으며, 이후 오픈 토론과 스낵·네트워킹이 진행됩니다. 행사는 스페인 마드리드의 Celonis SL에서 열립니다.
+
+https://luma.com/h54rmkib" onclick="copyEntry(this)">복사</button></div>
   <p>등록은 호스트 승인 필요하며, 참여 전 지갑으로 토큰 소유 여부를 확인해야 합니다.</p>
 <p>IAS X BlueDot Impact의 첫 현장(오프라인) 이벤트로, 스페인어권에서의 AI Safety 관련 커뮤니티를 소개하고 참여를 유도합니다. Osmani Redondo의 IAS 소개 발표와 David Bravo Comas, Guillem Bas의 AI Safety 및 AI 거버넌스/정책 관련 강연이 예정되어 있으며, 이후 오픈 토론과 스낵·네트워킹이 진행됩니다. 행사는 스페인 마드리드의 Celonis SL에서 열립니다.</p>
   <p class="url"><a href="https://luma.com/h54rmkib">https://luma.com/h54rmkib</a></p>
 </article>
 <article class="entry cat-other">
   <h2>Inside Apollo: AGI 안전과 ‘스키밍(은밀한 목표 추구)’ 연구·제품화 소개 (2026.4.17)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">luma.com</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">luma.com</span></span><button type="button" class="copy-btn" data-copy="Inside Apollo: AGI 안전과 ‘스키밍(은밀한 목표 추구)’ 연구·제품화 소개 (2026.4.17)
+
+Apollo Research와 BlueDot Impact가 Zoom으로 진행하는 행사로, AI 모델이 더 유능해질수록 개발자가 의도하지 않은 목표를 은밀히 추구하는 능력도 커질 수 있다는 문제를 다룹니다. 훈련이 이를 줄일 수는 있지만 완전히 없애지는 못한다고 설명하며, Apollo의 ‘Science of Scheming’ 연구 의제와 이를 바탕으로 한 AGI Safety 제품화 방안을 소개합니다. 또한 샌프란시스코에서 연구·엔지니어링·운영 분야의 채용(오픈 롤)도 안내합니다.
+
+https://luma.com/snuf986v" onclick="copyEntry(this)">복사</button></div>
   <p>Apollo Research와 BlueDot Impact가 Zoom으로 진행하는 행사로, AI 모델이 더 유능해질수록 개발자가 의도하지 않은 목표를 은밀히 추구하는 능력도 커질 수 있다는 문제를 다룹니다. 훈련이 이를 줄일 수는 있지만 완전히 없애지는 못한다고 설명하며, Apollo의 ‘Science of Scheming’ 연구 의제와 이를 바탕으로 한 AGI Safety 제품화 방안을 소개합니다. 또한 샌프란시스코에서 연구·엔지니어링·운영 분야의 채용(오픈 롤)도 안내합니다.</p>
   <p class="url"><a href="https://luma.com/snuf986v">https://luma.com/snuf986v</a></p>
 </article>
 <article class="entry cat-other">
   <h2>AFFINE 초지능 정렬 세미나 온라인(원격) 참가자 모집(2026.4.17)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">open.substack.com</span> · <span class="deadline">마감일: 2026.4.24(금)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">open.substack.com</span> · <span class="deadline">마감일: 2026.4.24(금)</span></span><button type="button" class="copy-btn" data-copy="AFFINE 초지능 정렬 세미나 온라인(원격) 참가자 모집(2026.4.17)
+
+AFFINE 초지능 정렬(AI alignment) 세미나의 온라인(원격) 참가 신청을 받는다고 밝혔다. 세미나는 4월 28일부터 5월 28일까지 진행되며, 비용은 무료(후원은 환영)다. 온라인 참가자는 실시간 강의 청취(또는 녹화 시청), EA Gather Town에서의 동료 교류, 초지능 정렬 관련 온라인 논의를 통해 주당 5~10시간 수준의 참여를 기본으로 하되 더 참여도 가능하다. 일부 오프라인 세션은 실시간 중계되지 않으며, 핵심 강의는 스트리밍하고 온라인 학습 인프라를 병행할 계획이라고 설명했다.
+
+https://open.substack.com/pub/affine/p/applications-open-for-the-online" onclick="copyEntry(this)">복사</button></div>
   <p>AFFINE 초지능 정렬(AI alignment) 세미나의 온라인(원격) 참가 신청을 받는다고 밝혔다. 세미나는 4월 28일부터 5월 28일까지 진행되며, 비용은 무료(후원은 환영)다. 온라인 참가자는 실시간 강의 청취(또는 녹화 시청), EA Gather Town에서의 동료 교류, 초지능 정렬 관련 온라인 논의를 통해 주당 5~10시간 수준의 참여를 기본으로 하되 더 참여도 가능하다. 일부 오프라인 세션은 실시간 중계되지 않으며, 핵심 강의는 스트리밍하고 온라인 학습 인프라를 병행할 계획이라고 설명했다.</p>
   <p class="url"><a href="https://open.substack.com/pub/affine/p/applications-open-for-the-online">https://open.substack.com/pub/affine/p/applications-open-for-the-online</a></p>
 </article>
 <article class="entry cat-company">
   <h2>Claude Opus 4.7 일반 제공(2026.4.16)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span> · <span class="deadline">Claude Opus 4.7은 2026.4.16부터 Claude 전 제품 및 API, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry에서 제공됩니다.</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span> · <span class="deadline">Claude Opus 4.7은 2026.4.16부터 Claude 전 제품 및 API, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry에서 제공됩니다.</span></span><button type="button" class="copy-btn" data-copy="Claude Opus 4.7 일반 제공(2026.4.16)
+
+앤트로픽은 최신 모델 ‘Claude Opus 4.7’을 일반 제공한다고 밝혔습니다. Opus 4.6 대비 고난도 소프트웨어 엔지니어링에서 계획 단계의 논리 오류를 잡고 복잡한 장시간 작업을 더 일관되게 수행하며, 지시를 더 정확히 따르고 스스로 결과를 검증하는 방식이 개선됐다고 설명합니다. 또한 비전 성능이 향상되어 더 높은 해상도의 이미지를 볼 수 있고, 사이버보안 관련 고위험 요청은 자동 감지·차단하는 안전장치를 포함한다고 했습니다. 가격은 Opus 4.6과 동일하며(입력 100만 토큰당 5달러, 출력 100만 토큰당 25달러), API 및 여러 클라우드 플랫폼을 통해 이용 가능하다고 안내했습니다.
+
+https://www.anthropic.com/news/claude-opus-4-7" onclick="copyEntry(this)">복사</button></div>
   <p>앤트로픽은 최신 모델 ‘Claude Opus 4.7’을 일반 제공한다고 밝혔습니다. Opus 4.6 대비 고난도 소프트웨어 엔지니어링에서 계획 단계의 논리 오류를 잡고 복잡한 장시간 작업을 더 일관되게 수행하며, 지시를 더 정확히 따르고 스스로 결과를 검증하는 방식이 개선됐다고 설명합니다. 또한 비전 성능이 향상되어 더 높은 해상도의 이미지를 볼 수 있고, 사이버보안 관련 고위험 요청은 자동 감지·차단하는 안전장치를 포함한다고 했습니다. 가격은 Opus 4.6과 동일하며(입력 100만 토큰당 5달러, 출력 100만 토큰당 25달러), API 및 여러 클라우드 플랫폼을 통해 이용 가능하다고 안내했습니다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/claude-opus-4-7">https://www.anthropic.com/news/claude-opus-4-7</a></p>
 </article>
 <article class="entry cat-other">
   <h2>CCCR 2026(2026.4.17) 초록 공모 및 개최 안내</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">케임브리지대학교 CSER(Centre for the Study of Existential Risk)</span> · <span class="deadline">초록 마감: 2026.5.17(영국 자정 BST) / 본회의: 2026.9.17~9.18(영국 케임브리지 현장)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">케임브리지대학교 CSER(Centre for the Study of Existential Risk)</span> · <span class="deadline">초록 마감: 2026.5.17(영국 자정 BST) / 본회의: 2026.9.17~9.18(영국 케임브리지 현장)</span></span><button type="button" class="copy-btn" data-copy="CCCR 2026(2026.4.17) 초록 공모 및 개최 안내
+
+케임브리지대학교 CSER의 ‘Cambridge Conference on Catastrophic Risk 2026(CCCR 2026)’은 실존적·재난적 위험 분야의 거버넌스 이슈를 주제로 2026년 9월 17~18일 영국 케임브리지에서 현장 개최된다. 기후 붕괴, 기술·AI 발전, 보건·안보 위험 등 주제의 심층 세션과 포스터 세션이 마련되며, 초록은 포스터 및 5분 라이트닝 토크에 적합한 최대 500단어 형식으로 제출한다. 초록 공모는 2026년 5월 17일(영국 자정 BST)까지이며, 주저자 1인당 초록 1편만 제출 가능하다. 성공한 제출자는 포스터 발표 초청과 함께 5분 라이트닝 토크 기회가 제공된다.
+
+https://www.cser.ac.uk/cccr-2026/" onclick="copyEntry(this)">복사</button></div>
   <p>케임브리지대학교 CSER의 ‘Cambridge Conference on Catastrophic Risk 2026(CCCR 2026)’은 실존적·재난적 위험 분야의 거버넌스 이슈를 주제로 2026년 9월 17~18일 영국 케임브리지에서 현장 개최된다. 기후 붕괴, 기술·AI 발전, 보건·안보 위험 등 주제의 심층 세션과 포스터 세션이 마련되며, 초록은 포스터 및 5분 라이트닝 토크에 적합한 최대 500단어 형식으로 제출한다. 초록 공모는 2026년 5월 17일(영국 자정 BST)까지이며, 주저자 1인당 초록 1편만 제출 가능하다. 성공한 제출자는 포스터 발표 초청과 함께 5분 라이트닝 토크 기회가 제공된다.</p>
   <p class="url"><a href="https://www.cser.ac.uk/cccr-2026/">https://www.cser.ac.uk/cccr-2026/</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(2026.4.1) 뉴올리언스 시 소속 변호사 2명, 연방 법원 서류 작성에 AI 사용 후 사임</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">fox8live.com</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">fox8live.com</span></span><button type="button" class="copy-btn" data-copy="(2026.4.1) 뉴올리언스 시 소속 변호사 2명, 연방 법원 서류 작성에 AI 사용 후 사임
+
+연방지방법원 판사 Carl Barbier가 3월 20일 명령으로 변호사 Jalen Harris(250달러), James Roquemore(1,000달러) 벌금을 부과했으며, 시는 지난주부터 AI 사용 허용 기준을 새로 시행
+ 
+뉴올리언스 시 법무부 Charline Gipson은 4월 1일, 연방 법원 서류 작성 과정에서 AI를 사용한 것과 관련해 법원으로부터 제재를 받자 두 명의 직원 변호사가 사임했다고 밝혔다. 판사 Carl Barbier는 시가 제출한 서류에 존재하지 않는 판례 인용 9건이 ‘환각(hallucinated)’된 것으로 확인됐고, Harris가 ChatGPT를 사용했으며 인용을 확인하지 않았다고 지적했다. 이후 두 변호사는 사건에서 제외됐고, 시는 AI 사용 시 사전 공개 및 연 1회 준수 인증을 의무화하는 정책을 도입했다.
+
+https://www.fox8live.com/2026/04/01/two-new-orleans-assistant-city-attorneys-resign-after-using-ai-federal-court-filing/" onclick="copyEntry(this)">복사</button></div>
   <p>연방지방법원 판사 Carl Barbier가 3월 20일 명령으로 변호사 Jalen Harris(250달러), James Roquemore(1,000달러) 벌금을 부과했으며, 시는 지난주부터 AI 사용 허용 기준을 새로 시행
  
 뉴올리언스 시 법무부 Charline Gipson은 4월 1일, 연방 법원 서류 작성 과정에서 AI를 사용한 것과 관련해 법원으로부터 제재를 받자 두 명의 직원 변호사가 사임했다고 밝혔다. 판사 Carl Barbier는 시가 제출한 서류에 존재하지 않는 판례 인용 9건이 ‘환각(hallucinated)’된 것으로 확인됐고, Harris가 ChatGPT를 사용했으며 인용을 확인하지 않았다고 지적했다. 이후 두 변호사는 사건에서 제외됐고, 시는 AI 사용 시 사전 공개 및 연 1회 준수 인증을 의무화하는 정책을 도입했다.</p>
@@ -162,87 +225,181 @@
 </article>
 <article class="entry cat-intl">
   <h2>(2026.4.17) 캘리포니아 ‘신뢰할 수 있는 AI’ 조달 관련 행정명령(EO N-5-26) 문서</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">gov.ca.gov</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">gov.ca.gov</span></span><button type="button" class="copy-btn" data-copy="(2026.4.17) 캘리포니아 ‘신뢰할 수 있는 AI’ 조달 관련 행정명령(EO N-5-26) 문서
+
+본문은 PDF 원문(바이너리/압축 데이터) 형태로 제공되어 기사·조항의 핵심 내용(문장 단위 텍스트)을 확인할 수 없습니다. 따라서 조달 원칙, 적용 범위, 시행 절차 등 구체 내용을 사실 기반으로 요약하기 어렵습니다.
+
+https://www.gov.ca.gov/wp-content/uploads/2026/03/3.30-FINAL-Trusted-AI-Procurement-EO-N-5-26.pdf" onclick="copyEntry(this)">복사</button></div>
   <p>본문은 PDF 원문(바이너리/압축 데이터) 형태로 제공되어 기사·조항의 핵심 내용(문장 단위 텍스트)을 확인할 수 없습니다. 따라서 조달 원칙, 적용 범위, 시행 절차 등 구체 내용을 사실 기반으로 요약하기 어렵습니다.</p>
   <p class="url"><a href="https://www.gov.ca.gov/wp-content/uploads/2026/03/3.30-FINAL-Trusted-AI-Procurement-EO-N-5-26.pdf">https://www.gov.ca.gov/wp-content/uploads/2026/03/3.30-FINAL-Trusted-AI-Procurement-EO-N-5-26.pdf</a></p>
 </article>
 <article class="entry cat-other">
   <h2>ILIAD 2026(2026.6.1) 이론적 AI 정렬 연구자 대상 5일 컨퍼런스 개최</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">iliadconference.com</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">iliadconference.com</span></span><button type="button" class="copy-btn" data-copy="ILIAD 2026(2026.6.1) 이론적 AI 정렬 연구자 대상 5일 컨퍼런스 개최
+
+마감일: 2026.6.1까지 참가 신청(무료), 2026.8.3~8.7 버클리 개최
+
+ILIAD 2026은 이론적 AI 정렬(alignment)을 주제로 한 5일(8월 3~7일) 다중 트랙 컨퍼런스로, 캘리포니아 버클리에서 열립니다. 100명 이상 규모이며 수학적 관점의 정렬 연구를 다루고, 참가자가 세션을 제안·진행하는 언컨퍼런스 형식도 포함됩니다. 참가 비용은 무료이며, 숙박·이동 지원은 필요 기반으로 제한적으로 제공될 수 있습니다. 신청은 2026년 6월 1일까지이며, 관련 연구 주제로는 Singular Learning Theory, Agent Foundations, Causal Incentives, Computational Mechanics, Safety-by-Debate, Scalable Oversight 등이 안내됩니다.
+
+https://www.iliadconference.com/" onclick="copyEntry(this)">복사</button></div>
   <p>마감일: 2026.6.1까지 참가 신청(무료), 2026.8.3~8.7 버클리 개최</p>
 <p>ILIAD 2026은 이론적 AI 정렬(alignment)을 주제로 한 5일(8월 3~7일) 다중 트랙 컨퍼런스로, 캘리포니아 버클리에서 열립니다. 100명 이상 규모이며 수학적 관점의 정렬 연구를 다루고, 참가자가 세션을 제안·진행하는 언컨퍼런스 형식도 포함됩니다. 참가 비용은 무료이며, 숙박·이동 지원은 필요 기반으로 제한적으로 제공될 수 있습니다. 신청은 2026년 6월 1일까지이며, 관련 연구 주제로는 Singular Learning Theory, Agent Foundations, Causal Incentives, Computational Mechanics, Safety-by-Debate, Scalable Oversight 등이 안내됩니다.</p>
   <p class="url"><a href="https://www.iliadconference.com/">https://www.iliadconference.com/</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>한 줄 제목 요약 (2026.4.17)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 상원 경제공동위원회(JEC) 민주당 보도자료(jec.senate.gov)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 상원 경제공동위원회(JEC) 민주당 보도자료(jec.senate.gov)</span></span><button type="button" class="copy-btn" data-copy="한 줄 제목 요약 (2026.4.17)
+
+본문 내용을 확인할 수 없어, 해당 보도자료의 핵심 내용은 확인 필요입니다. URL의 ID(564F54F1-CE55-498E-96C9-236D8DEBD529)로 원문 확인이 필요합니다.
+
+https://www.jec.senate.gov/public/index.cfm/democrats/press-releases?ID=564F54F1-CE55-498E-96C9-236D8DEBD529" onclick="copyEntry(this)">복사</button></div>
   <p>본문 내용을 확인할 수 없어, 해당 보도자료의 핵심 내용은 확인 필요입니다. URL의 ID(564F54F1-CE55-498E-96C9-236D8DEBD529)로 원문 확인이 필요합니다.</p>
   <p class="url"><a href="https://www.jec.senate.gov/public/index.cfm/democrats/press-releases?ID=564F54F1-CE55-498E-96C9-236D8DEBD529">https://www.jec.senate.gov/public/index.cfm/democrats/press-releases?ID=564F54F1-CE55-498E-96C9-236D8DEBD529</a></p>
 </article>
 <article class="entry cat-other">
   <h2>연방 항소법원이 펜타곤의 ‘블랙리스트’ 조치에 대한 앤트로픽의 집행정지 요청을 기각(2026.4.9)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">PBS(Associated Press)</span> · <span class="deadline">5월 19일: 항소심 추가 증거 제출 청문 예정</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">PBS(Associated Press)</span> · <span class="deadline">5월 19일: 항소심 추가 증거 제출 청문 예정</span></span><button type="button" class="copy-btn" data-copy="연방 항소법원이 펜타곤의 ‘블랙리스트’ 조치에 대한 앤트로픽의 집행정지 요청을 기각(2026.4.9)
+
+미 연방 항소법원(워싱턴 D.C.)은 앤트로픽을 펜타곤이 블랙리스트에 올리는 조치와 관련해, 회사가 요청한 집행정지(보호명령)를 받아들이지 않았다. 다만 항소법원은 앤트로픽이 ‘공급망 위험’으로 판단될 경우 일부 회복하기 어려운 피해가 있을 수 있다고 보면서도, 재정적 피해 규모가 명확하지 않다는 이유로 별도의 명령을 내리지 않았다. 앞서 샌프란시스코 연방법원에서는 트럼프 행정부가 앤트로픽에 국가안보 위험 라벨을 붙인 것이 부당하다고 보고 라벨을 제거하도록 했으며, 행정부는 그에 따라 사용 가능 조치 등을 진행한 것으로 전해졌다.
+
+https://www.pbs.org/newshour/politics/appeals-court-decides-against-anthropic-in-latest-round-of-its-ai-battle-with-the-trump-administration" onclick="copyEntry(this)">복사</button></div>
   <p>미 연방 항소법원(워싱턴 D.C.)은 앤트로픽을 펜타곤이 블랙리스트에 올리는 조치와 관련해, 회사가 요청한 집행정지(보호명령)를 받아들이지 않았다. 다만 항소법원은 앤트로픽이 ‘공급망 위험’으로 판단될 경우 일부 회복하기 어려운 피해가 있을 수 있다고 보면서도, 재정적 피해 규모가 명확하지 않다는 이유로 별도의 명령을 내리지 않았다. 앞서 샌프란시스코 연방법원에서는 트럼프 행정부가 앤트로픽에 국가안보 위험 라벨을 붙인 것이 부당하다고 보고 라벨을 제거하도록 했으며, 행정부는 그에 따라 사용 가능 조치 등을 진행한 것으로 전해졌다.</p>
   <p class="url"><a href="https://www.pbs.org/newshour/politics/appeals-court-decides-against-anthropic-in-latest-round-of-its-ai-battle-with-the-trump-administration">https://www.pbs.org/newshour/politics/appeals-court-decides-against-anthropic-in-latest-round-of-its-ai-battle-with-the-trump-administration</a></p>
 </article>
 <article class="entry cat-other">
   <h2>남아공, 초안 AI 정책 공개 및 2026.4.10 기준 신규 기관·인센티브 제안(확인 필요)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">로이터 통신(reuters.com)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">로이터 통신(reuters.com)</span></span><button type="button" class="copy-btn" data-copy="남아공, 초안 AI 정책 공개 및 2026.4.10 기준 신규 기관·인센티브 제안(확인 필요)
+
+
+
+https://www.reuters.com/legal/litigation/south-africa-unveils-draft-ai-policy-proposes-new-institutions-incentives-2026-04-10/" onclick="copyEntry(this)">복사</button></div>
   
   <p class="url"><a href="https://www.reuters.com/legal/litigation/south-africa-unveils-draft-ai-policy-proposes-new-institutions-incentives-2026-04-10/">https://www.reuters.com/legal/litigation/south-africa-unveils-draft-ai-policy-proposes-new-institutions-incentives-2026-04-10/</a></p>
 </article>
 <article class="entry cat-other">
   <h2>Anthropic, 2026년 미 중간선거 앞두고 AI 정책 영향력 행사 목적 PAC ‘AnthroPAC’ 출범(2026.4.17)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">테크버즈(techbuzz.ai)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">테크버즈(techbuzz.ai)</span></span><button type="button" class="copy-btn" data-copy="Anthropic, 2026년 미 중간선거 앞두고 AI 정책 영향력 행사 목적 PAC ‘AnthroPAC’ 출범(2026.4.17)
+
+AnthroPAC은 2026년 미 중간선거를 앞두고, 회사의 AI 규제·정책 우선순위에 부합하는 후보에게 선거자금을 지원하는 방식으로 운영될 예정입니다.
+
+Anthropic이 Claude를 만든 AI 스타트업으로서, 자사 AI 정책 우선순위에 맞는 후보를 지원하기 위한 정치행동위원회(PAC) ‘AnthroPAC’을 출범했습니다. 이는 안전 중심으로 포지셔닝해온 Anthropic이 워싱턴 정치에 직접 개입하는 수준으로 참여를 확대했다는 점에서 의미가 크다고 전해집니다. 또한 AI 기업들이 규제 압력이 커지면서 전통적 로비를 넘어 PAC를 통해 영향력을 행사하는 흐름이 강화되고 있으며, AnthroPAC의 성과와 향후 다른 AI 기업의 동참 여부가 주목된다고 보도합니다.
+
+https://www.techbuzz.ai/articles/anthropic-launches-pac-to-shape-ai-policy-ahead-of-midterms" onclick="copyEntry(this)">복사</button></div>
   <p>AnthroPAC은 2026년 미 중간선거를 앞두고, 회사의 AI 규제·정책 우선순위에 부합하는 후보에게 선거자금을 지원하는 방식으로 운영될 예정입니다.</p>
 <p>Anthropic이 Claude를 만든 AI 스타트업으로서, 자사 AI 정책 우선순위에 맞는 후보를 지원하기 위한 정치행동위원회(PAC) ‘AnthroPAC’을 출범했습니다. 이는 안전 중심으로 포지셔닝해온 Anthropic이 워싱턴 정치에 직접 개입하는 수준으로 참여를 확대했다는 점에서 의미가 크다고 전해집니다. 또한 AI 기업들이 규제 압력이 커지면서 전통적 로비를 넘어 PAC를 통해 영향력을 행사하는 흐름이 강화되고 있으며, AnthroPAC의 성과와 향후 다른 AI 기업의 동참 여부가 주목된다고 보도합니다.</p>
   <p class="url"><a href="https://www.techbuzz.ai/articles/anthropic-launches-pac-to-shape-ai-policy-ahead-of-midterms">https://www.techbuzz.ai/articles/anthropic-launches-pac-to-shape-ai-policy-ahead-of-midterms</a></p>
 </article>
 <article class="entry cat-other">
   <h2>xAI, 콜로라도의 AI 차별 방지 규정 시행(2026.6) 앞두고 소송 제기 (2026.4.17)</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">가디언(theguardian.com)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">가디언(theguardian.com)</span></span><button type="button" class="copy-btn" data-copy="xAI, 콜로라도의 AI 차별 방지 규정 시행(2026.6) 앞두고 소송 제기 (2026.4.17)
+
+콜로라도 AI 법은 6월 시행 예정이며, xAI는 집행 정지(가처분)와 위헌 확인을 구하고 있음
+
+엘론 머스크의 AI 기업 xAI가 콜로라도 주를 상대로 새로운 AI 규정 관련 소송을 제기했다. 이 법은 교육·고용·의료·주거·금융 등 분야에서 “알고리즘에 의한 차별”을 막기 위한 추가 요건을 부과하며, xAI는 표현의 자유(미 수정헌법 1조) 침해와 주의 이념을 강제하도록 만든다고 주장한다. 소송은 콜로라도 연방법원에 접수됐고, xAI는 법 집행을 막는 가처분과 위헌 판정을 요청하고 있다.
+
+https://www.theguardian.com/technology/2026/apr/09/elon-musk-xai-colorado-lawsuit" onclick="copyEntry(this)">복사</button></div>
   <p>콜로라도 AI 법은 6월 시행 예정이며, xAI는 집행 정지(가처분)와 위헌 확인을 구하고 있음</p>
 <p>엘론 머스크의 AI 기업 xAI가 콜로라도 주를 상대로 새로운 AI 규정 관련 소송을 제기했다. 이 법은 교육·고용·의료·주거·금융 등 분야에서 “알고리즘에 의한 차별”을 막기 위한 추가 요건을 부과하며, xAI는 표현의 자유(미 수정헌법 1조) 침해와 주의 이념을 강제하도록 만든다고 주장한다. 소송은 콜로라도 연방법원에 접수됐고, xAI는 법 집행을 막는 가처분과 위헌 판정을 요청하고 있다.</p>
   <p class="url"><a href="https://www.theguardian.com/technology/2026/apr/09/elon-musk-xai-colorado-lawsuit">https://www.theguardian.com/technology/2026/apr/09/elon-musk-xai-colorado-lawsuit</a></p>
 </article>
 <article class="entry cat-research">
   <h2>OpenAI, 내부 코딩 에이전트의 ‘미정렬(misalignment)’을 감지하기 위한 모니터링 체계 공개(2026.3.19)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 내부 코딩 에이전트의 ‘미정렬(misalignment)’을 감지하기 위한 모니터링 체계 공개(2026.3.19)
+
+본문 내용 확인 필요: 페이지에서 구체적으로 어떤 모니터링 방법(예: 평가 지표, 경보/차단 로직, 데이터 수집 범위 등)과 운영 절차를 설명하는지 확인 필요합니다. 다만 제목 기준으로 내부 코딩 에이전트가 의도와 다르게 동작하는 징후를 탐지·완화하기 위한 시스템을 소개하는 것으로 보입니다.
+
+https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/" onclick="copyEntry(this)">복사</button></div>
   <p>본문 내용 확인 필요: 페이지에서 구체적으로 어떤 모니터링 방법(예: 평가 지표, 경보/차단 로직, 데이터 수집 범위 등)과 운영 절차를 설명하는지 확인 필요합니다. 다만 제목 기준으로 내부 코딩 에이전트가 의도와 다르게 동작하는 징후를 탐지·완화하기 위한 시스템을 소개하는 것으로 보입니다.</p>
   <p class="url"><a href="https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/">https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>EVMbench로 스마트컨트랙트 취약점 관리 평가(2026.2.18)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="EVMbench로 스마트컨트랙트 취약점 관리 평가(2026.2.18)
+
+본문 내용 확인 필요: OpenAI가 EVMbench를 통해 어떤 지표·절차로 스마트컨트랙트 취약점 관리(탐지/대응/완화 등)를 평가하는지, 적용 범위와 사용 방법은 본문 확인이 필요합니다. 또한 기존 도구 대비 차별점과 실험 결과(있다면)도 페이지 본문을 확인해야 정확히 요약할 수 있습니다.
+
+https://openai.com/index/introducing-evmbench/" onclick="copyEntry(this)">복사</button></div>
   <p>본문 내용 확인 필요: OpenAI가 EVMbench를 통해 어떤 지표·절차로 스마트컨트랙트 취약점 관리(탐지/대응/완화 등)를 평가하는지, 적용 범위와 사용 방법은 본문 확인이 필요합니다. 또한 기존 도구 대비 차별점과 실험 결과(있다면)도 페이지 본문을 확인해야 정확히 요약할 수 있습니다.</p>
   <p class="url"><a href="https://openai.com/index/introducing-evmbench/">https://openai.com/index/introducing-evmbench/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>OpenAI, 모델 스펙(Model Spec) 접근 방식 공개(2026.3.25)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 모델 스펙(Model Spec) 접근 방식 공개(2026.3.25)
+
+본문 내용 확인 필요. 현재 제공된 정보(URL·제목·출처)만으로는 모델 스펙의 구체적 내용(목표, 적용 범위, 변경 사항 등)을 특정하기 어렵습니다. 페이지에서 어떤 원칙·가이드라인을 제시하는지 확인 필요합니다.
+
+https://openai.com/index/our-approach-to-the-model-spec/" onclick="copyEntry(this)">복사</button></div>
   <p>본문 내용 확인 필요. 현재 제공된 정보(URL·제목·출처)만으로는 모델 스펙의 구체적 내용(목표, 적용 범위, 변경 사항 등)을 특정하기 어렵습니다. 페이지에서 어떤 원칙·가이드라인을 제시하는지 확인 필요합니다.</p>
   <p class="url"><a href="https://openai.com/index/our-approach-to-the-model-spec/">https://openai.com/index/our-approach-to-the-model-spec/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Researchers Find Reasoning Models Have Limited Control Over Their Thinking Process (2026.3.5)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="Researchers Find Reasoning Models Have Limited Control Over Their Thinking Process (2026.3.5)
+
+OpenAI의 해당 페이지 내용은 제공되지 않아 핵심 주장과 근거를 확인할 수 없습니다. 다만 CSV 제목 기준으로는 추론(Reasoning) 모델이 사고 과정(체인 오브 쏘트)을 통제하는 데 한계가 있다는 취지로 정리된 것으로 보입니다. 구체적인 실험 결과, 통제 방법, 결론의 범위는 본문 확인이 필요합니다.
+
+https://openai.com/index/reasoning-models-chain-of-thought-controllability/" onclick="copyEntry(this)">복사</button></div>
   <p>OpenAI의 해당 페이지 내용은 제공되지 않아 핵심 주장과 근거를 확인할 수 없습니다. 다만 CSV 제목 기준으로는 추론(Reasoning) 모델이 사고 과정(체인 오브 쏘트)을 통제하는 데 한계가 있다는 취지로 정리된 것으로 보입니다. 구체적인 실험 결과, 통제 방법, 결론의 범위는 본문 확인이 필요합니다.</p>
   <p class="url"><a href="https://openai.com/index/reasoning-models-chain-of-thought-controllability/">https://openai.com/index/reasoning-models-chain-of-thought-controllability/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>OpenAI, AI 에이전트의 안전 위험을 대상으로 ‘Safety Bug Bounty’ 운영(2026.3.25)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, AI 에이전트의 안전 위험을 대상으로 ‘Safety Bug Bounty’ 운영(2026.3.25)
+
+본문 확인 필요: 페이지 본문을 확인할 수 없어 구체적인 보상 방식, 참여 자격, 제출 방법, 운영 기간 등 세부 내용은 확인 필요입니다. 다만 해당 페이지는 AI 에이전트와 관련된 안전 취약점(위험)을 신고·검증하는 취지의 프로그램을 소개하는 것으로 보입니다.
+
+https://openai.com/index/safety-bug-bounty/" onclick="copyEntry(this)">복사</button></div>
   <p>본문 확인 필요: 페이지 본문을 확인할 수 없어 구체적인 보상 방식, 참여 자격, 제출 방법, 운영 기간 등 세부 내용은 확인 필요입니다. 다만 해당 페이지는 AI 에이전트와 관련된 안전 취약점(위험)을 신고·검증하는 취지의 프로그램을 소개하는 것으로 보입니다.</p>
   <p class="url"><a href="https://openai.com/index/safety-bug-bounty/">https://openai.com/index/safety-bug-bounty/</a></p>
 </article>
 <article class="entry cat-company">
   <h2>(Why SWE-bench Verified no longer measures frontier coding capabilities) (2026.2.23)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">OpenAI</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">OpenAI</span></span><button type="button" class="copy-btn" data-copy="(Why SWE-bench Verified no longer measures frontier coding capabilities) (2026.2.23)
+
+확인 필요: 본문을 제공받지 못해, SWE-bench Verified 평가 중단의 구체적 근거(무엇이 ‘프런티어 코딩 역량’을 측정하지 못한다고 판단했는지)와 시행 시점/대체 지표 여부는 확인이 필요합니다.
+
+확인 필요: OpenAI는 SWE-bench Verified가 프런티어 코딩 능력을 적절히 반영하지 못한다는 이유로 더 이상 해당 벤치마크를 평가에 사용하지 않기로 했다는 취지의 글로 보입니다. 다만 본문 내용이 없어, 평가 중단의 세부 논리와 향후 사용할 대안(다른 벤치마크 또는 평가 방식)까지는 확인이 필요합니다.
+
+https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/" onclick="copyEntry(this)">복사</button></div>
   <p>확인 필요: 본문을 제공받지 못해, SWE-bench Verified 평가 중단의 구체적 근거(무엇이 ‘프런티어 코딩 역량’을 측정하지 못한다고 판단했는지)와 시행 시점/대체 지표 여부는 확인이 필요합니다.</p>
 <p>확인 필요: OpenAI는 SWE-bench Verified가 프런티어 코딩 능력을 적절히 반영하지 못한다는 이유로 더 이상 해당 벤치마크를 평가에 사용하지 않기로 했다는 취지의 글로 보입니다. 다만 본문 내용이 없어, 평가 중단의 세부 논리와 향후 사용할 대안(다른 벤치마크 또는 평가 방식)까지는 확인이 필요합니다.</p>
   <p class="url"><a href="https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/">https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/</a></p>
 </article>
 <footer>AI Safety pipeline · daily_digest_html</footer>
 </div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
 </body>
 </html>

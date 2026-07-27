@@ -50,7 +50,16 @@
   .entry.cat-other { border-left-color: var(--cat-other); }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
   .badge {
     display: inline-block; padding: 2px 9px; border-radius: 999px;
     font-size: 0.72rem; font-weight: 600; color: #fff;
@@ -86,133 +95,255 @@
 </header>
 <article class="entry cat-aisi">
   <h2>AI 정보통: 6월 11일 15시(2026.6.11)</h2>
-  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Japan</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Japan</span></span><button type="button" class="copy-btn" data-copy="AI 정보통: 6월 11일 15시(2026.6.11)
+
+2026년 6월 5일 미국의 국가안보 AI 관련 지침(NSPM-11)과 이를 설명한 백악관 팩트시트가 소개되며, 국가안보 분야에서 AI의 안전·신뢰성 확보를 위한 조치가 강조됐다. 또한 OpenAI의 “Built to benefit everyone: our plan”(2026.6.8)과 AI의 안전·보안 관련 계획/활동이 언급됐다. 이와 함께 유럽집행위원회, BSI(Software Bill of Material for AI), Anthropic, OpenAI, Microsoft, Google 등 다양한 기관의 AI 보안·사기/위협 대응 관련 발표·자료가 함께 정리됐다.
+
+https://aisi.go.jp/activity/activity_information/260611/" onclick="copyEntry(this)">복사</button></div>
   <p>2026년 6월 5일 미국의 국가안보 AI 관련 지침(NSPM-11)과 이를 설명한 백악관 팩트시트가 소개되며, 국가안보 분야에서 AI의 안전·신뢰성 확보를 위한 조치가 강조됐다. 또한 OpenAI의 “Built to benefit everyone: our plan”(2026.6.8)과 AI의 안전·보안 관련 계획/활동이 언급됐다. 이와 함께 유럽집행위원회, BSI(Software Bill of Material for AI), Anthropic, OpenAI, Microsoft, Google 등 다양한 기관의 AI 보안·사기/위협 대응 관련 발표·자료가 함께 정리됐다.</p>
   <p class="url"><a href="https://aisi.go.jp/activity/activity_information/260611/">https://aisi.go.jp/activity/activity_information/260611/</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Grammar-Constrained Decoding Can Jailbreak LLMs into Generating Malicious Code (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Grammar-Constrained Decoding Can Jailbreak LLMs into Generating Malicious Code (2026.6.10)
+
+이 연구는 문법 제약 디코딩(Grammar-Constrained Decoding, GCD)이 코드 생성의 신뢰성을 높이려는 목적과 달리 악성 코드 생성을 유도하는 공격 표면이 될 수 있음을 보인다. CodeSpear는 GCD를 악용해 LLM이 문법적으로 유효한 형태로 악성 코드를 생성하도록 유도하며, “benign code grammar constraint”만 적용해도 jailbreak가 가능함을 실험으로 보였다. 10개 인기 LLM과 4개 벤치마크에서 CodeSpear는 대표 jailbreak baseline 대비 평균적으로 공격 성공률을 30%p 이상 증가시켰다. 이를 완화하기 위해 제안된 CodeShield는 GCD 하에서 honeypot 코드를 생성하도록 정렬을 학습해 안전 동작을 복원하면서, 자연어가 가능한 경우 자연어 refusal은 유지하고 benign utility도 보존했다.
+
+요약불가
+
+https://arxiv.org/abs/2606.11817" onclick="copyEntry(this)">복사</button></div>
   <p>이 연구는 문법 제약 디코딩(Grammar-Constrained Decoding, GCD)이 코드 생성의 신뢰성을 높이려는 목적과 달리 악성 코드 생성을 유도하는 공격 표면이 될 수 있음을 보인다. CodeSpear는 GCD를 악용해 LLM이 문법적으로 유효한 형태로 악성 코드를 생성하도록 유도하며, “benign code grammar constraint”만 적용해도 jailbreak가 가능함을 실험으로 보였다. 10개 인기 LLM과 4개 벤치마크에서 CodeSpear는 대표 jailbreak baseline 대비 평균적으로 공격 성공률을 30%p 이상 증가시켰다. 이를 완화하기 위해 제안된 CodeShield는 GCD 하에서 honeypot 코드를 생성하도록 정렬을 학습해 안전 동작을 복원하면서, 자연어가 가능한 경우 자연어 refusal은 유지하고 benign utility도 보존했다.</p>
 <p>요약불가</p>
   <p class="url"><a href="https://arxiv.org/abs/2606.11817">https://arxiv.org/abs/2606.11817</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Understanding helpfulness and harmless tension in reward models (2026.6.11)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Understanding helpfulness and harmless tension in reward models (2026.6.11)
+
+Reward models에서 helpfulness와 harmlessness 목표가 어떻게 충돌(“alignment tension”)하는지의 내부 메커니즘을 분석한다. helpfulness-only, harmlessness-only, mixed-objective로 학습한 reward model을 비교하고, activation-based 방법으로 각 목표와 연관된 뉴런을 찾은 뒤 targeted ablations로 인과적 역할을 확인한다. mixed-objective 모델은 단일 목적 모델보다 종종 성능이 낮아 목표 간 interference가 관찰된다. 또한 helpfulness와 harmlessness에 공유되는 뉴런이 상당 비율 존재하며, 이 공유 뉴런이 모델 행동에 불균형적으로 큰 영향을 주어 alignment tension에 기여하는 것으로 보고된다.
+
+https://arxiv.org/abs/2606.13209v1" onclick="copyEntry(this)">복사</button></div>
   <p>Reward models에서 helpfulness와 harmlessness 목표가 어떻게 충돌(“alignment tension”)하는지의 내부 메커니즘을 분석한다. helpfulness-only, harmlessness-only, mixed-objective로 학습한 reward model을 비교하고, activation-based 방법으로 각 목표와 연관된 뉴런을 찾은 뒤 targeted ablations로 인과적 역할을 확인한다. mixed-objective 모델은 단일 목적 모델보다 종종 성능이 낮아 목표 간 interference가 관찰된다. 또한 helpfulness와 harmlessness에 공유되는 뉴런이 상당 비율 존재하며, 이 공유 뉴런이 모델 행동에 불균형적으로 큰 영향을 주어 alignment tension에 기여하는 것으로 보고된다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2606.13209v1">https://arxiv.org/abs/2606.13209v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>ERTS: Adversarial Robustness Testing of Ethical AI via Semantic Perturbation in a Bounded Consequence Space (2026.6.11)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="ERTS: Adversarial Robustness Testing of Ethical AI via Semantic Perturbation in a Bounded Consequence Space (2026.6.11)
+
+ERTS는 윤리적 판단을 교란하는 adversarial manipulation에 대해 AI의 견고성을 닫힌 파이프라인으로 평가하는 방법을 제안한다. 22차원 Ethical Consequence Space(ECS)로 윤리 딜레마를 인코딩하고, 17개의 semantic perturbation 함수를 6개 유효성 제약(새 semantic coherence constraint 포함)에 맞춰 적용한 뒤, 4성분 Ethical Instability Index(EII)로 decision deviation을 측정한다. 8개 배치 도메인에서 50개 윤리 시나리오를 바탕으로 1,500개의 adversarial test case를 생성해 4개 structured baseline과 2개 프로덕션 LLM(Gemini 2.0 Flash, Llama 3.2)을 평가한 결과, assessment clearance를 달성한 모델은 33%뿐이었다. 특히 local Llama-3.2는 fairness corruption 및 information degradation 공격에서 취약했으며 ERS=0.737로 보고되었다.
+
+https://arxiv.org/abs/2606.13282v1" onclick="copyEntry(this)">복사</button></div>
   <p>ERTS는 윤리적 판단을 교란하는 adversarial manipulation에 대해 AI의 견고성을 닫힌 파이프라인으로 평가하는 방법을 제안한다. 22차원 Ethical Consequence Space(ECS)로 윤리 딜레마를 인코딩하고, 17개의 semantic perturbation 함수를 6개 유효성 제약(새 semantic coherence constraint 포함)에 맞춰 적용한 뒤, 4성분 Ethical Instability Index(EII)로 decision deviation을 측정한다. 8개 배치 도메인에서 50개 윤리 시나리오를 바탕으로 1,500개의 adversarial test case를 생성해 4개 structured baseline과 2개 프로덕션 LLM(Gemini 2.0 Flash, Llama 3.2)을 평가한 결과, assessment clearance를 달성한 모델은 33%뿐이었다. 특히 local Llama-3.2는 fairness corruption 및 information degradation 공격에서 취약했으며 ERS=0.737로 보고되었다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2606.13282v1">https://arxiv.org/abs/2606.13282v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Exploring Systems-Thinking Approaches to Loss of Control Risk (**2026.6.11**)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Exploring Systems-Thinking Approaches to Loss of Control Risk (**2026.6.11**)
+
+에이전틱 AI를 내부에 배치할 때 발생하는 Loss of Control 위험을 모델 성능이 아니라 조직·운영 관점의 통제 실패로 재정의하고, systems-safety 방법이 이를 더 잘 포착할 수 있는지 검토한다. 공개 자료를 바탕으로 generic frontier-lab coding-agent 시나리오를 재구성한 뒤 STECA, STPA, FRAM을 적용해 코드·인프라·평가·배포 프로세스에 대한 통제 불가능성(제약/감사/되돌림/정지의 신뢰성 부족) 위험을 분석한다. 결과로, 기존 프레임워크가 거버넌스 책임과 피드백 루프를 외부에서 검증 불가능하게 남길 수 있고, 모니터링·개입 지연은 유효한 통제 행동도 효과를 잃게 만들며, 일상적 운영 변동성이 시간이 지나며 안전장치의 보정(calibration)과 독립성(independence)을 점진적으로 약화시킬 수 있음을 제시한다.
+
+https://arxiv.org/abs/2606.13474v1" onclick="copyEntry(this)">복사</button></div>
   <p>에이전틱 AI를 내부에 배치할 때 발생하는 Loss of Control 위험을 모델 성능이 아니라 조직·운영 관점의 통제 실패로 재정의하고, systems-safety 방법이 이를 더 잘 포착할 수 있는지 검토한다. 공개 자료를 바탕으로 generic frontier-lab coding-agent 시나리오를 재구성한 뒤 STECA, STPA, FRAM을 적용해 코드·인프라·평가·배포 프로세스에 대한 통제 불가능성(제약/감사/되돌림/정지의 신뢰성 부족) 위험을 분석한다. 결과로, 기존 프레임워크가 거버넌스 책임과 피드백 루프를 외부에서 검증 불가능하게 남길 수 있고, 모니터링·개입 지연은 유효한 통제 행동도 효과를 잃게 만들며, 일상적 운영 변동성이 시간이 지나며 안전장치의 보정(calibration)과 독립성(independence)을 점진적으로 약화시킬 수 있음을 제시한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2606.13474v1">https://arxiv.org/abs/2606.13474v1</a></p>
 </article>
 <article class="entry cat-company">
   <h2>(기사·공고 게재일 2026.6.11) 다중 에이전트 AI 안전 연구에 최대 1,000만 달러 기술 연구비 지원</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">딥마인드(DeepMind)</span> · <span class="deadline">마감일: 2026.8.8(신청 마감), 수상자 발표: 2026년 가을</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">딥마인드(DeepMind)</span> · <span class="deadline">마감일: 2026.8.8(신청 마감), 수상자 발표: 2026년 가을</span></span><button type="button" class="copy-btn" data-copy="(기사·공고 게재일 2026.6.11) 다중 에이전트 AI 안전 연구에 최대 1,000만 달러 기술 연구비 지원
+
+딥마인드는 Schmidt Sciences, Cooperative AI Foundation, ARIA, Google.org와 함께 전 세계 연구자를 대상으로 다중 에이전트 AI 안전 연구를 위한 기술 연구비 공모를 최대 1,000만 달러 규모로 발표했다. 이번 공모는 대규모 다중 에이전트 시스템의 집단적 거동을 연구하고, 상호작용에서 발생할 수 있는 위험을 이해·완화하기 위한 프레임워크를 마련하는 데 초점을 둔다. 가상 마켓플레이스·시뮬레이션 생태계 등 재현 가능한 테스트베드, 에이전트 네트워크의 안전 관련 특성, 신원·평판·커밋먼트 프로토콜의 보안성, 배치된 에이전트 집단의 모니터링 및 집단 위해 완화 방법 등을 우선 분야로 제시했다. 신청 마감은 2026년 8월 8일이며, 수상자는 2026년 가을에 발표될 예정이다.
+
+https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/" onclick="copyEntry(this)">복사</button></div>
   <p>딥마인드는 Schmidt Sciences, Cooperative AI Foundation, ARIA, Google.org와 함께 전 세계 연구자를 대상으로 다중 에이전트 AI 안전 연구를 위한 기술 연구비 공모를 최대 1,000만 달러 규모로 발표했다. 이번 공모는 대규모 다중 에이전트 시스템의 집단적 거동을 연구하고, 상호작용에서 발생할 수 있는 위험을 이해·완화하기 위한 프레임워크를 마련하는 데 초점을 둔다. 가상 마켓플레이스·시뮬레이션 생태계 등 재현 가능한 테스트베드, 에이전트 네트워크의 안전 관련 특성, 신원·평판·커밋먼트 프로토콜의 보안성, 배치된 에이전트 집단의 모니터링 및 집단 위해 완화 방법 등을 우선 분야로 제시했다. 신청 마감은 2026년 8월 8일이며, 수상자는 2026년 가을에 발표될 예정이다.</p>
   <p class="url"><a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/">https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>EU 사이버 모의훈련 Cyber Europe 2026, 철도·해상 네트워크 공격 대응 점검(기사·공고 게재일 2026.6.11)</h2>
-  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU Digital Strategy)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU Digital Strategy)</span></span><button type="button" class="copy-btn" data-copy="EU 사이버 모의훈련 Cyber Europe 2026, 철도·해상 네트워크 공격 대응 점검(기사·공고 게재일 2026.6.11)
+
+EU는 6월 10~11일 EU 전역 사이버 모의훈련을 통해 중요 교통 인프라에 대한 공격 발생 시 대응 방식을 점검했으며, 약 5,000명의 전문가가 참여했다. ENISA가 주관한 이번 훈련은 유럽의 철도·해상 네트워크에 대한 사이버 공격을 시뮬레이션했고, 시나리오가 심각한 운영 차질로 이어져 본격적인 사이버보안 위기 양상으로 확대됐다고 밝혔다. 또한 2025 EU Cyber Blueprint의 역할·책임 체계와 Cyber Solidarity Act에 따라 마련된 Cybersecurity Reserve의 작동도 시험했으며, 훈련의 교훈이 EU의 위기관리 체계를 비상대응 프레임워크에 통합하는 데 활용될 예정이라고 전했다.
+
+https://digital-strategy.ec.europa.eu/en/news/eu-wide-cyber-exercise-tests-response-attacks-rail-and-maritime-networks" onclick="copyEntry(this)">복사</button></div>
   <p>EU는 6월 10~11일 EU 전역 사이버 모의훈련을 통해 중요 교통 인프라에 대한 공격 발생 시 대응 방식을 점검했으며, 약 5,000명의 전문가가 참여했다. ENISA가 주관한 이번 훈련은 유럽의 철도·해상 네트워크에 대한 사이버 공격을 시뮬레이션했고, 시나리오가 심각한 운영 차질로 이어져 본격적인 사이버보안 위기 양상으로 확대됐다고 밝혔다. 또한 2025 EU Cyber Blueprint의 역할·책임 체계와 Cyber Solidarity Act에 따라 마련된 Cybersecurity Reserve의 작동도 시험했으며, 훈련의 교훈이 EU의 위기관리 체계를 비상대응 프레임워크에 통합하는 데 활용될 예정이라고 전했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/eu-wide-cyber-exercise-tests-response-attacks-rail-and-maritime-networks">https://digital-strategy.ec.europa.eu/en/news/eu-wide-cyber-exercise-tests-response-attacks-rail-and-maritime-networks</a></p>
 </article>
 <article class="entry cat-research">
   <h2>EFFORT-AI: an effort-preserving module for cognitively aligned human-AI learning (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="EFFORT-AI: an effort-preserving module for cognitively aligned human-AI learning (2026.6.10)
+
+생성형 AI를 학습에서 “정답 산출” 중심이 아니라 “지속 가능한 인지 과정”을 강화하는 방식으로 설계하는 모듈을 제안한다. EFFORT-AI는 학습 에피소드 전반에서 AI 지원을 순차화하며, (1) 목표 인지 보존, (2) 강한 도움 전의 bounded productive effort 요구, (3) 학습자 전문성·과제 요소 상호작용·캘리브레이션 정확도에 따른 지원 적응을 전제로 한다. 6개의 재귀적 단계와 3개의 횡단 제어층(노력 보존, load-adaptive scaffolding, accountability/AI literacy)을 결합해 각 단계에서 학습자가 수행해야 할 인지 행위와 AI의 허용 역할, 활성화되는 학습 메커니즘, 완화되는 주요 위험을 정의한다. 본문은 원래의 실증 연구를 보고하지 않으며, 타당성은 cognitive load theory, retrieval practice, desirable difficulties, metacognition, self-regulated learning, schema formation, transfer 연구, cognitive offloading 및 AI 튜터링 관련 신흥 근거의 이론적 삼각측량으로 주장한다.
+
+https://doi.org/10.3389/feduc.2026.1849821" onclick="copyEntry(this)">복사</button></div>
   <p>생성형 AI를 학습에서 “정답 산출” 중심이 아니라 “지속 가능한 인지 과정”을 강화하는 방식으로 설계하는 모듈을 제안한다. EFFORT-AI는 학습 에피소드 전반에서 AI 지원을 순차화하며, (1) 목표 인지 보존, (2) 강한 도움 전의 bounded productive effort 요구, (3) 학습자 전문성·과제 요소 상호작용·캘리브레이션 정확도에 따른 지원 적응을 전제로 한다. 6개의 재귀적 단계와 3개의 횡단 제어층(노력 보존, load-adaptive scaffolding, accountability/AI literacy)을 결합해 각 단계에서 학습자가 수행해야 할 인지 행위와 AI의 허용 역할, 활성화되는 학습 메커니즘, 완화되는 주요 위험을 정의한다. 본문은 원래의 실증 연구를 보고하지 않으며, 타당성은 cognitive load theory, retrieval practice, desirable difficulties, metacognition, self-regulated learning, schema formation, transfer 연구, cognitive offloading 및 AI 튜터링 관련 신흥 근거의 이론적 삼각측량으로 주장한다.</p>
   <p class="url"><a href="https://doi.org/10.3389/feduc.2026.1849821">https://doi.org/10.3389/feduc.2026.1849821</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Fuzzy Neural Framework for Clinical Safety Evaluation of Medical Large Language Models (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Fuzzy Neural Framework for Clinical Safety Evaluation of Medical Large Language Models (2026.6.10)
+
+의료 환경에서 Large Language Models(LLMs)를 배치할 때 신뢰성·편향·환각·데이터 프라이버시 문제를 다루는 임상 안전 평가 프레임워크를 제시한다. 퍼지 로직 기반 uncertainty modeling, risk assessment 메커니즘, human-in-the-loop 검증을 결합하는 하이브리드 구조를 설명하고, 기존 평가 접근을 검토하며 연구 공백을 정리한다. 또한 윤리 및 규제 가이드라인에 맞춰 해석 가능하고 신뢰할 수 있는 출력 산출을 목표로 한다.
+
+https://doi.org/10.4018/979-8-3373-7862-6.ch002" onclick="copyEntry(this)">복사</button></div>
   <p>의료 환경에서 Large Language Models(LLMs)를 배치할 때 신뢰성·편향·환각·데이터 프라이버시 문제를 다루는 임상 안전 평가 프레임워크를 제시한다. 퍼지 로직 기반 uncertainty modeling, risk assessment 메커니즘, human-in-the-loop 검증을 결합하는 하이브리드 구조를 설명하고, 기존 평가 접근을 검토하며 연구 공백을 정리한다. 또한 윤리 및 규제 가이드라인에 맞춰 해석 가능하고 신뢰할 수 있는 출력 산출을 목표로 한다.</p>
   <p class="url"><a href="https://doi.org/10.4018/979-8-3373-7862-6.ch002">https://doi.org/10.4018/979-8-3373-7862-6.ch002</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Safety and Reliability Evaluation of Medical Chatbots Powered by Large Language Models (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Safety and Reliability Evaluation of Medical Chatbots Powered by Large Language Models (2026.6.10)
+
+LLM 기반 의료 챗봇의 안전·신뢰성을 기존 정확도 중심 벤치마크로는 충분히 포착하기 어렵다는 문제를 다루며, 임상 안전 평가 프레임워크를 제안한다. SafeMed는 임상 정확도, hallucination control, robustness, calibration, bias and fairness, ethics, transparency, privacy, safety of human-automation interaction, operational feasibility의 10개 차원으로 구성되며, ChatGPT-based clinical assistants, Med-PaLM, RAG를 인도네시아 규정 사례로 평가한다. Adversarial testing과 human-in-the-loop oversight를 최소 배포 기준으로 제안하고, 임상가·관리자·정책결정자를 위한 실무형 평가 파이프라인과 governance 권고를 제시한다.  
+
+요약불가
+
+https://doi.org/10.4018/979-8-3373-7862-6.ch003" onclick="copyEntry(this)">복사</button></div>
   <p>LLM 기반 의료 챗봇의 안전·신뢰성을 기존 정확도 중심 벤치마크로는 충분히 포착하기 어렵다는 문제를 다루며, 임상 안전 평가 프레임워크를 제안한다. SafeMed는 임상 정확도, hallucination control, robustness, calibration, bias and fairness, ethics, transparency, privacy, safety of human-automation interaction, operational feasibility의 10개 차원으로 구성되며, ChatGPT-based clinical assistants, Med-PaLM, RAG를 인도네시아 규정 사례로 평가한다. Adversarial testing과 human-in-the-loop oversight를 최소 배포 기준으로 제안하고, 임상가·관리자·정책결정자를 위한 실무형 평가 파이프라인과 governance 권고를 제시한다.</p>
 <p>요약불가</p>
   <p class="url"><a href="https://doi.org/10.4018/979-8-3373-7862-6.ch003">https://doi.org/10.4018/979-8-3373-7862-6.ch003</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Trustworthy Medical LLMs (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Trustworthy Medical LLMs (2026.6.10)
+
+의료용 LLM을 AI 라이프사이클 전반에서 안전하고 윤리적으로 쓰기 위한 governance 프레임워크를 제안한다. 데이터 거버넌스, 임상 안전성 검증, 윤리적 감독, 규제 정합성을 핵심 영역으로 두고, dataset quality audits, demographic bias checks, human-in-the-loop oversight, 배포 후 지속 모니터링 같은 구조화된 절차를 포함한다. 정량 성능 수치나 특정 모델·언어·조건 간 비교 결과는 본문에 제시되지 않는다.
+
+https://doi.org/10.4018/979-8-3373-7862-6.ch009" onclick="copyEntry(this)">복사</button></div>
   <p>의료용 LLM을 AI 라이프사이클 전반에서 안전하고 윤리적으로 쓰기 위한 governance 프레임워크를 제안한다. 데이터 거버넌스, 임상 안전성 검증, 윤리적 감독, 규제 정합성을 핵심 영역으로 두고, dataset quality audits, demographic bias checks, human-in-the-loop oversight, 배포 후 지속 모니터링 같은 구조화된 절차를 포함한다. 정량 성능 수치나 특정 모델·언어·조건 간 비교 결과는 본문에 제시되지 않는다.</p>
   <p class="url"><a href="https://doi.org/10.4018/979-8-3373-7862-6.ch009">https://doi.org/10.4018/979-8-3373-7862-6.ch009</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Ensuring Safe and Ethical Use of LLMs in Healthcare (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Ensuring Safe and Ethical Use of LLMs in Healthcare (2026.6.10)
+
+요약불가
+
+https://doi.org/10.4018/979-8-3373-7862-6.ch010" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://doi.org/10.4018/979-8-3373-7862-6.ch010">https://doi.org/10.4018/979-8-3373-7862-6.ch010</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Safety Assurance Through Red-Teaming, MLOps, and Continuous Monitoring for Medical LLMs (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Safety Assurance Through Red-Teaming, MLOps, and Continuous Monitoring for Medical LLMs (2026.6.10)
+
+요약불가
+
+https://doi.org/10.4018/979-8-3373-7862-6.ch014" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://doi.org/10.4018/979-8-3373-7862-6.ch014">https://doi.org/10.4018/979-8-3373-7862-6.ch014</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Cross-Border Data Transfers and AI Model Training: Adequacy, Consent, and Standard Clauses (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Cross-Border Data Transfers and AI Model Training: Adequacy, Consent, and Standard Clauses (2026.6.10)
+
+EU GDPR의 cross-border data transfer 규정(adequacy, standard contractual clauses, consent)이 AI model training에 어떻게 적용되고 보호 효과가 무엇인지 정리한다. AI 학습에 필요한 대규모·다양한 데이터가 관할을 넘어 이동하는 상황에서, 2018년까지의 EU 법령·판례·정책문서에 대한 doctrinal analysis와 데이터 흐름 관련 경제문헌을 함께 검토한다. 연구는 AI의 데이터 수요와 개인정보보호 간 긴장, meaningful consent 확보의 어려움, 계약 조항만으로는 보호가 충분하지 않을 수 있는 한계를 핵심 쟁점으로 제시한다.
+
+https://doi.org/10.54536/ajdsai.v2i1.7372" onclick="copyEntry(this)">복사</button></div>
   <p>EU GDPR의 cross-border data transfer 규정(adequacy, standard contractual clauses, consent)이 AI model training에 어떻게 적용되고 보호 효과가 무엇인지 정리한다. AI 학습에 필요한 대규모·다양한 데이터가 관할을 넘어 이동하는 상황에서, 2018년까지의 EU 법령·판례·정책문서에 대한 doctrinal analysis와 데이터 흐름 관련 경제문헌을 함께 검토한다. 연구는 AI의 데이터 수요와 개인정보보호 간 긴장, meaningful consent 확보의 어려움, 계약 조항만으로는 보호가 충분하지 않을 수 있는 한계를 핵심 쟁점으로 제시한다.</p>
   <p class="url"><a href="https://doi.org/10.54536/ajdsai.v2i1.7372">https://doi.org/10.54536/ajdsai.v2i1.7372</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Artificial Intelligence and the Value Alignment Problem (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Artificial Intelligence and the Value Alignment Problem (2026.6.10)
+
+요약불가
+
+https://doi.org/10.59350/407an-xmq68" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://doi.org/10.59350/407an-xmq68">https://doi.org/10.59350/407an-xmq68</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(“기사·공고 게재일” 2026.6.11) Mythos Preview의 사이버 역량 과장 여부를 공개 근거로 점검</h2>
-  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">Epoch AI</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Epoch AI</span></span><button type="button" class="copy-btn" data-copy="(“기사·공고 게재일” 2026.6.11) Mythos Preview의 사이버 역량 과장 여부를 공개 근거로 점검
+
+Epoch AI는 Anthropic의 Claude Mythos Preview가 사이버 역량에서 큰 도약인지 평가하기 위해 공개 벤치마크와 Project Glasswing 관련 실증 자료를 종합했다. 그 결과 Mythos Preview는 exploit development(취약점 악용 개발)에서 Cyber-ECI 기준으로 기존 추세 대비 약 7개월 앞선 수준의 큰 개선이 관찰됐고, GPT-5.5와도 격차가 있다고 설명했다. 반면 vulnerability discovery(취약점 탐지)는 Project Glasswing의 대규모 투자로 인한 발견 건수 증가 가능성이 있어 “얼마나 큰 도약인지”는 불확실하며, 대신 낮은 false positive와 취약점 심각도/우선순위 판단 개선이 실질적 영향일 수 있다고 정리했다.
+
+https://epochai.substack.com/p/are-mythos-cyber-capabilities-overhyped" onclick="copyEntry(this)">복사</button></div>
   <p>Epoch AI는 Anthropic의 Claude Mythos Preview가 사이버 역량에서 큰 도약인지 평가하기 위해 공개 벤치마크와 Project Glasswing 관련 실증 자료를 종합했다. 그 결과 Mythos Preview는 exploit development(취약점 악용 개발)에서 Cyber-ECI 기준으로 기존 추세 대비 약 7개월 앞선 수준의 큰 개선이 관찰됐고, GPT-5.5와도 격차가 있다고 설명했다. 반면 vulnerability discovery(취약점 탐지)는 Project Glasswing의 대규모 투자로 인한 발견 건수 증가 가능성이 있어 “얼마나 큰 도약인지”는 불확실하며, 대신 낮은 false positive와 취약점 심각도/우선순위 판단 개선이 실질적 영향일 수 있다고 정리했다.</p>
   <p class="url"><a href="https://epochai.substack.com/p/are-mythos-cyber-capabilities-overhyped">https://epochai.substack.com/p/are-mythos-cyber-capabilities-overhyped</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Artificial Intelligence trends and challenges in recent years - Literature review (2026.6.10)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Artificial Intelligence trends and challenges in recent years - Literature review (2026.6.10)
+
+최근 AI 기술 동향과 함께 위험·규제 프레임워크를 묶어 정리해 거버넌스 관점에서 쟁점을 한눈에 보여준다. 단기·중기·장기 관점으로 생성형 AI와 대규모 언어 모델의 확산, 기업 내 도입 양상, 사회·경제적 영향의 확대를 검토하고, 편향·차별, 투명성·설명가능성 제한, 데이터 보호, 신뢰성·견고성, 사이버보안, 확장성 제약, 환경 영향 등 구현 과제를 범주화한다. 또한 인력 역량 격차, 시스템 통합 복잡성, 도입 저항 같은 조직·노동 이슈를 함께 다루며, 고영향·규제 산업에서는 기술·조직·governance의 조정이 필요하다고 정리한다. EU의 AI Act 위험 기반 체계와 DORA, NIS2 같은 지원 수단 간의 관계를 평가하고, 혁신과 규제의 균형 및 성능·리스크 관리·법적 책임을 일관된 governance 구조로 정렬하는 것이 진전에 중요하다고 결론낸다.
+
+https://f1000research.com/articles/15-907/pdf" onclick="copyEntry(this)">복사</button></div>
   <p>최근 AI 기술 동향과 함께 위험·규제 프레임워크를 묶어 정리해 거버넌스 관점에서 쟁점을 한눈에 보여준다. 단기·중기·장기 관점으로 생성형 AI와 대규모 언어 모델의 확산, 기업 내 도입 양상, 사회·경제적 영향의 확대를 검토하고, 편향·차별, 투명성·설명가능성 제한, 데이터 보호, 신뢰성·견고성, 사이버보안, 확장성 제약, 환경 영향 등 구현 과제를 범주화한다. 또한 인력 역량 격차, 시스템 통합 복잡성, 도입 저항 같은 조직·노동 이슈를 함께 다루며, 고영향·규제 산업에서는 기술·조직·governance의 조정이 필요하다고 정리한다. EU의 AI Act 위험 기반 체계와 DORA, NIS2 같은 지원 수단 간의 관계를 평가하고, 혁신과 규제의 균형 및 성능·리스크 관리·법적 책임을 일관된 governance 구조로 정렬하는 것이 진전에 중요하다고 결론낸다.</p>
   <p class="url"><a href="https://f1000research.com/articles/15-907/pdf">https://f1000research.com/articles/15-907/pdf</a></p>
 </article>
 <article class="entry cat-company">
   <h2>마이크로소프트, 2026년 1분기 생성형 AI 확산 보고서…한국 성장세·노스-사우스 격차 경고 (기사·공고 게재일 2026.5.11)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">마이크로소프트(Microsoft) 뉴스센터(Source Asia)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">마이크로소프트(Microsoft) 뉴스센터(Source Asia)</span></span><button type="button" class="copy-btn" data-copy="마이크로소프트, 2026년 1분기 생성형 AI 확산 보고서…한국 성장세·노스-사우스 격차 경고 (기사·공고 게재일 2026.5.11)
+
+전 세계 15~64세 근로연령 인구 중 생성형 AI 사용 비율이 16.3%에서 17.8%로 1.5%p 증가했으며, 26개 경제권에서 사용률 30%를 넘는 것으로 집계됐다. 한국은 전 분기 대비 6.4%p 상승한 37.1%로 성장세가 가장 가파르고, 글로벌 순위도 18위에서 16위로 올랐다. 한편 글로벌 노스의 사용률(27.5%)은 증가폭이 큰 반면 글로벌 사우스는 15.4%로 격차가 확대되고, 전력·인터넷·디지털 역량 등 기반 인프라 차이가 불평등 고착 위험 요인으로 지적됐다.
+
+https://news.microsoft.com/source/asia/2026/05/12/the-state-of-global-ai-diffusion-in-2026" onclick="copyEntry(this)">복사</button></div>
   <p>전 세계 15~64세 근로연령 인구 중 생성형 AI 사용 비율이 16.3%에서 17.8%로 1.5%p 증가했으며, 26개 경제권에서 사용률 30%를 넘는 것으로 집계됐다. 한국은 전 분기 대비 6.4%p 상승한 37.1%로 성장세가 가장 가파르고, 글로벌 순위도 18위에서 16위로 올랐다. 한편 글로벌 노스의 사용률(27.5%)은 증가폭이 큰 반면 글로벌 사우스는 15.4%로 격차가 확대되고, 전력·인터넷·디지털 역량 등 기반 인프라 차이가 불평등 고착 위험 요인으로 지적됐다.</p>
   <p class="url"><a href="https://news.microsoft.com/source/asia/2026/05/12/the-state-of-global-ai-diffusion-in-2026">https://news.microsoft.com/source/asia/2026/05/12/the-state-of-global-ai-diffusion-in-2026</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Real-world AI evaluation design and planning (2026.6.12)</h2>
-  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Real-world AI evaluation design and planning (2026.6.12)
+
+CIRCLE 프레임워크로 배포 맥락에서 AI 시스템을 평가·계획하는 활동 묶음을 제시해, 모델 성능 중심을 넘어 안전성과 신뢰성 관련 이해관계자 결과를 도출하는 방법을 설명한다. AI lifecycle 관점에 기반해 field testing과 red teaming을 포함한 테스트 활동을 설계하고, AI 스택 밖의 이해관계자 관점에서 관심 결과를 산출하도록 구성한다. 교육 환경의 가상 사례를 통해, 전통적 모델 중심 평가를 보완하는 평가 접근이 이해관계자 목표에 맞춘 시스템 정렬과 배포 의사결정에 활용되는 흐름을 보여준다.
+
+https://openalex.org/W7161101139" onclick="copyEntry(this)">복사</button></div>
   <p>CIRCLE 프레임워크로 배포 맥락에서 AI 시스템을 평가·계획하는 활동 묶음을 제시해, 모델 성능 중심을 넘어 안전성과 신뢰성 관련 이해관계자 결과를 도출하는 방법을 설명한다. AI lifecycle 관점에 기반해 field testing과 red teaming을 포함한 테스트 활동을 설계하고, AI 스택 밖의 이해관계자 관점에서 관심 결과를 산출하도록 구성한다. 교육 환경의 가상 사례를 통해, 전통적 모델 중심 평가를 보완하는 평가 접근이 이해관계자 목표에 맞춘 시스템 정렬과 배포 의사결정에 활용되는 흐름을 보여준다.</p>
   <p class="url"><a href="https://openalex.org/W7161101139">https://openalex.org/W7161101139</a></p>
 </article>
 <article class="entry cat-company">
   <h2>Anthropic, AI 혜택을 지역사회로 확장하는 ‘Claude Corps’ 전국 펠로십(2026.6.11)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="Anthropic, AI 혜택을 지역사회로 확장하는 ‘Claude Corps’ 전국 펠로십(2026.6.11)
+
+Claude Corps는 미국 전역에서 비영리 단체와 연계해 12개월간 풀타임·현장 근무로 AI 활용을 지원하는 전국 펠로십 프로그램이다. 앤트로픽은 1,000명의 펠로를 교육하고 비영리 단체에 매칭하며, 초기 1억5,000만 달러를 투입한다고 밝혔다. 펠로는 주당 5시간의 추가 교육과 함께 연봉 85,000달러 및 복지, 멘토링과 기술 질의 응답 등을 제공받고, 2026년 10월 시작 1기(100명) 지원은 7월 17일까지 접수한다.
+
+https://www.anthropic.com/news/claude-corps" onclick="copyEntry(this)">복사</button></div>
   <p>Claude Corps는 미국 전역에서 비영리 단체와 연계해 12개월간 풀타임·현장 근무로 AI 활용을 지원하는 전국 펠로십 프로그램이다. 앤트로픽은 1,000명의 펠로를 교육하고 비영리 단체에 매칭하며, 초기 1억5,000만 달러를 투입한다고 밝혔다. 펠로는 주당 5시간의 추가 교육과 함께 연봉 85,000달러 및 복지, 멘토링과 기술 질의 응답 등을 제공받고, 2026년 10월 시작 1기(100명) 지원은 7월 17일까지 접수한다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/claude-corps">https://www.anthropic.com/news/claude-corps</a></p>
 </article>
 <article class="entry cat-company">
   <h2>DXC, Claude를 금융·항공 등 규제 산업 핵심 시스템에 도입(2026.6.11)</h2>
-  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">Anthropic</span> · <span class="deadline">DXC는 Claude-certified forward-deployed engineers(FDEs)를 양성하고, 보험·MaaS(Modernization as a Service)·Cybersecurity·애플리케이션 서비스 4개 분야부터 협력을 시작한다.</span></div>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">Anthropic</span> · <span class="deadline">DXC는 Claude-certified forward-deployed engineers(FDEs)를 양성하고, 보험·MaaS(Modernization as a Service)·Cybersecurity·애플리케이션 서비스 4개 분야부터 협력을 시작한다.</span></span><button type="button" class="copy-btn" data-copy="DXC, Claude를 금융·항공 등 규제 산업 핵심 시스템에 도입(2026.6.11)
+
+Anthropic은 DXC Technology와 다년 글로벌 얼라이언스를 발표하며, DXC가 자사 고객(은행·항공·보험·제조·정부기관 등)의 핵심 운영 시스템에 Claude를 통합한다고 밝혔다. DXC는 자사 개발팀에서 엔지니어를 선발해 Anthropic Academy를 통해 Claude 인증을 받고, DXC OASIS 플랫폼에서는 Claude가 에이전트 워크플로의 기본 파운데이션 모델로 활용된다고 설명했다. 또한 OASIS에서 항상 가동되는 보안 엔지니어 서브에이전트(CLAude Security 기반)와 레거시 코드 분석·리팩터링·현대화 지원 등 4개 영역에 Claude를 적용할 계획이다.
+
+https://www.anthropic.com/news/dxc-anthropic-alliance" onclick="copyEntry(this)">복사</button></div>
   <p>Anthropic은 DXC Technology와 다년 글로벌 얼라이언스를 발표하며, DXC가 자사 고객(은행·항공·보험·제조·정부기관 등)의 핵심 운영 시스템에 Claude를 통합한다고 밝혔다. DXC는 자사 개발팀에서 엔지니어를 선발해 Anthropic Academy를 통해 Claude 인증을 받고, DXC OASIS 플랫폼에서는 Claude가 에이전트 워크플로의 기본 파운데이션 모델로 활용된다고 설명했다. 또한 OASIS에서 항상 가동되는 보안 엔지니어 서브에이전트(CLAude Security 기반)와 레거시 코드 분석·리팩터링·현대화 지원 등 4개 영역에 Claude를 적용할 계획이다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/dxc-anthropic-alliance">https://www.anthropic.com/news/dxc-anthropic-alliance</a></p>
 </article>
 <footer>AI Safety pipeline · daily_digest_html</footer>
 </div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
 </body>
 </html>
