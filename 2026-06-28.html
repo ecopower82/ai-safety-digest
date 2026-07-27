@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-06-28</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .entry p { margin: 0 0 10px; font-size: 0.94rem; }
+  .entry p:last-child { margin-bottom: 0; }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.8rem; text-align: center; margin-top: 32px; }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-06-28 · 18/28건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-other">
+  <h2>AI 역량 격차가 핵 억지(상호확증파괴·MAD) 약화를 초래할 수 있음 (2026.6.25)</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">AI Frontiers</span></div>
+  <p>AI가 2030년대 중반부터 군사 연구·개발 및 생산 비용을 크게 낮추면, 핵 반격을 무력화하는 선제적 counterforce 공격이 “현실적”이 될 수 있다는 주장이다. 특히 AI 우위를 가진 국가가 감시·미사일방어·군 인프라를 빠르고 저렴하게 확충하면, AI가 약한 국가는 핵 억지력을 유지할 대응 체계를 신속히 갖추기 어렵다고 본다. 글은 MAD가 지금까지 유지된 이유를 “선제 counterforce를 모두 충족할 때의 과도한 비용”으로 설명하며, 비용-교환비(cost-exchange ratio) 구조가 AI로 뒤집힐 수 있다고 지적한다.</p>
+  <p class="url"><a href="https://aifrontiersmedia.substack.com/p/an-ai-capabilities-gap-can-endanger">https://aifrontiersmedia.substack.com/p/an-ai-capabilities-gap-can-endanger</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>AI 정보통: 6월 25일 15시 기준(2026.6.26)</h2>
+  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Japan</span></div>
+  <p>OpenAI는 Daybreak를 통해 약점(코드 보안/보안 패치 등)의 신속한 수정과 사이버 방어를 지원하고, 특정 AI(예: Codex Security, GPT-5.5-Cyber 등) 기능을 활용해 조직 단위의 방어를 강화한다고 밝혔다. 영국 NCSC는 Five Eyes 국가의 공동 성명 형태로 AI 전환이 사이버 위험(공격의 속도·편의성 상승 등)을 높이고 있어 리더의 즉각적 대응이 필요하다고 강조했다. 또한 Microsoft는 infostealer 계열과 AI 메모리 보호 등과 관련된 보안 위협·대응 방안을 소개했다.</p>
+  <p class="url"><a href="https://aisi.go.jp/activity/activity_information/260626/">https://aisi.go.jp/activity/activity_information/260626/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>서울대, 인간 가치관 기반 LLM 정렬 통합 프레임워크 ‘밸류플로우(VALUEFLOW)’ ICML 2026 구두 발표 채택 (2026.6.16)</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">AI타임스</span></div>
+  <p>서울대학교 도재영 교수 연구팀은 인간 가치관을 바탕으로 대형언어모델(LLM)을 정렬하는 연구 논문 ‘밸류플로우(VALUEFLOW)’가 ICML 2026 구두 발표 논문으로 채택됐다고 16일 밝혔다. 연구팀은 인간 가치관을 ‘표현-측정-조정’ 3단계 통합 프레임워크로 정리했으며, HiVES(가치 임베딩), VIDB(가치 강도 데이터베이스), 비교 기반 평가 등을 통해 가치가 포함 여부를 넘어 강도까지 안정적으로 평가하고 응답을 특정 가치 방향과 강도로 조정할 수 있다고 설명했다. GPT-4.1, 제미나이, 클로드 등 10종 LLM에서 모델별 가치 조정 능력 차이가 확인됐고, 특히 사회적으로 바람직하다고 여겨지는 가치(예: 배려, 보편주의)를 부정적으로 조정할 때는 강한 저항이 나타났다고 밝혔다.</p>
+  <p class="url"><a href="https://aitimes.com/news/articleView.html?idxno=211748">https://aitimes.com/news/articleView.html?idxno=211748</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>What Intermediate Layers Know: Detecting Jailbreaks from Entropy Dynamics (**2026.6.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>이 연구는 LLM 내부에서 jailbreak가 어떻게 표현되는지, 특히 층별 불확실성(entropy)이 토큰 위치에 따라 어떻게 변하는지로 탐지 가능함을 보인다. 고정된(frozen) LLM에 대해 logit lens로 토큰 예측 predictive entropy의 층/토큰 위치별 trajectory를 분석하고, prompt-level entropy의 단순 통계(평균·분산)와 entropy의 시간적/위치적 진화 특징(예: monotonic rank-based trend score)을 비교한다. 결과로 단순 평균·분산 같은 aggregate 통계는 식별 신호가 거의 없었지만, entropy가 토큰 위치에 따라 “어떻게 변하는지”를 담는 trend 계열 특징이 jailbreak/비-jailbreak 구분에 더 유의미했다. 또한 신호는 모델 깊이 전 구간에 균일하지 않고 중간(intermediate) 층에 집중되며 final layer에서 약화되었고, 추가 학습 없이 Llama·Qwen·Gemma 및 adversarial benchmarks 전반에서 아키텍처 일관적인 분리가 관찰되었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.25182">https://arxiv.org/abs/2606.25182</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>일본, Claude Mythos급 고성능 AI 위협 대응 위해 AI 관련 법을 “지속적으로” 재검토 추진(2026.6.19)</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">닛케이 아시아(Nikkei Asia)</span></div>
+  <p>일본 정부는 고성능 모델로 인한 사이버보안 위협에 대응하기 위해 AI 관련 법을 “활동적이고 지속적으로” 검토·개선하는 방안을 담은 정부 초안 정책을 공개했다. Claude Mythos처럼 Anthropic의 대규모 모델 수준의 공개가 가져올 광범위한 보안·안전 파급을 고려해, 대응 속도를 크게 높이겠다는 방향이다.</p>
+  <p class="url"><a href="https://asia.nikkei.com/business/technology/artificial-intelligence/japan-eyes-continuous-ai-legal-reforms-to-counter-mythos-level-threats">https://asia.nikkei.com/business/technology/artificial-intelligence/japan-eyes-continuous-ai-legal-reforms-to-counter-mythos-level-threats</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>(Google DeepMind) Introducing computer use in Gemini 3.5 Flash (2026.6.24)</h2>
+  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">DeepMind(구글 딥마인드)</span></div>
+  <p>Gemini 3.5 Flash에 computer use를 기본 내장 도구로 통합해, 브라우저·모바일·데스크톱 환경 전반에서 에이전트가 보고 추론하며 실행할 수 있다고 밝혔다. 기존에는 Gemini 2.5의 standalone computer use 모델로만 제공되던 기능이 메인 Gemini Flash 모델에 natively 통합되었으며, 연속 소프트웨어 테스트·업무 자동화 등 장기 과업 성능 향상을 기대한다고 설명했다. 또한 prompt injection 위험을 줄이기 위해 targeted adversarial training을 적용하고, 기업용으로 민감/되돌릴 수 없는 행동에 대한 사용자 확인과 간접 prompt injection 감지 시 작업 자동 중단 같은 안전장치를 옵션으로 제공한다.</p>
+  <p class="url"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/?utm_source=deepmind.google&amp;utm_medium=referral&amp;utm_campaign=gdm&amp;utm_content=">https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/?utm_source=deepmind.google&amp;utm_medium=referral&amp;utm_campaign=gdm&amp;utm_content=</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>Five eyes cyber security agencies statement</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">cyber.gov.au</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://cyber.gov.au/about-us/view-all-content/news/five-eyes-cyber-security-agencies-statement">https://cyber.gov.au/about-us/view-all-content/news/five-eyes-cyber-security-agencies-statement</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>(2026.6.23) NVIDIA BioNeMo Agent Toolkit으로 생명과학 ‘AI 과학자’ 에이전트 워크플로 구축</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">NVIDIA 개발자 블로그</span> · <span class="deadline">핵심 일정: 없음</span></div>
+  <p>NVIDIA는 BioNeMo Agent Toolkit이 에이전트가 구조 예측, 분자 생성, 도킹, 서열 분석·설계, 정렬/탐색, 유전체 분석 등 생체분자 작업을 “호출 가능한 서비스”로 쓰게 한다고 설명했다. BioNeMo Skills와 MCP server wrapper가 각 모델의 목적, 입력 요구사항, 기대 산출물(CIF/SDF/FASTA/SMILES 등), 실패 모드 등을 문서화해 에이전트가 모델을 선택·호출·해석할 수 있게 한다. Codex CLI와 GPT-5.5 fast로 벤치마크한 결과, Skills 적용 시 토큰 효율이 개선되며 작업 완료율이 57.1%에서 100%로 상승하고, 동일 토큰당 통과 단계를 약 2배 늘리는 것으로 보고했다. 또한 hosted NIM과 local NIM 배포를 상황에 맞게 선택해 반복 호출 지연, 보안·데이터 위치 요구 등을 최적화할 수 있다고 안내했다.</p>
+  <p class="url"><a href="https://developer.nvidia.com/blog/build-an-ai-scientist-for-life-science-discovery-with-nvidia-bionemo-agent-toolkit/?">https://developer.nvidia.com/blog/build-an-ai-scientist-for-life-science-discovery-with-nvidia-bionemo-agent-toolkit/?</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>European Digital Connectivity Awards 2026 공모(2026.6.26)</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">응모 마감: 2026.9.9(현지 시각 기준 EOD), 시상식: 2026.12.2 브뤼셀(예정)</span></div>
+  <p>유럽의 Digital Decade(디지털 십년) 연결성 목표 달성에 기여하는 우수 프로젝트를 대상으로 European Digital Connectivity Awards 2026 공모를 진행한다. 신청은 이미 이행 단계가 상당하고 구체적 성과가 있는 프로젝트를 대상으로 하며, 섬유(fibre), 5G, 고정무선접속, 위성, 백본, 국제 연결 등 관련 기술 전반을 포함한다. 수상 프로젝트는 유럽 집행위원회가 관련 매체·행사·웹사이트를 통해 소개하며, 3개 분야(기가비트 준비 인프라 배치, 농촌·원격 디지털 격차 해소, 국경 간·국제 연결)로 평가한다. 제출은 영어로 작성해 .xlsx 파일을 이메일로 2026.9.9까지 제출해야 한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/apply-european-digital-connectivity-awards-2026">https://digital-strategy.ec.europa.eu/en/news/apply-european-digital-connectivity-awards-2026</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>EU 집행위, DMA에 따라 AWS·Azure를 게이트키퍼로 지정 검토(2026.6.25)</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">26 June 2026(최신 업데이트)</span></div>
+  <p>유럽연합 집행위원회는 디지털시장법(DMA) 기준에 따라 아마존(AWS)과 마이크로소프트(Azure) 각각을 게이트키퍼로 지정해야 한다는 예비 입장을 아마존과 마이크로소프트에 통보했다. 집행위는 AWS와 Azure가 EU 내에서 기업과 고객을 연결하는 중요한 관문 역할을 한다고 보았으며, 다만 DMA 지정의 정량 기준에는 해당하지 않는다고 밝혔다. 양사는 최종 결정 전 자신들의 방어권과 법치 절차를 존중받아 의견을 제출할 기회를 갖게 된다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-reaches-preliminary-position-amazons-and-microsofts-market-leading-cloud-services-should">https://digital-strategy.ec.europa.eu/en/news/commission-reaches-preliminary-position-amazons-and-microsofts-market-leading-cloud-services-should</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>유럽 집행위원회, AI·공급망 보안 강화를 위한 Pax Silica Declaration 서명(2026.6.25)</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EC) 디지털 전략</span> · <span class="deadline">26 June 2026: Last update</span></div>
+  <p>유럽 집행위원회는 EU를 대표해 글로벌 파트너와 협력해 AI 및 공급망 보안을 강화하겠다는 Pax Silica Declaration에 서명했다. 이 이니셔티브는 신뢰할 수 있는 동맹·파트너 간 조정을 강화하고, EU 기업에 새로운 기회를 제공하는 것을 목표로 한다. 또한 집행위 서명은 직전 Technological Sovereignty Package 채택 직후 이뤄졌으며, 해당 패키지에는 반도체 공급망 회복력을 위한 Chips Act 2.0이 포함된 것으로 전해졌다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-signs-pax-silica-declaration">https://digital-strategy.ec.europa.eu/en/news/commission-signs-pax-silica-declaration</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>산업용 반도체 얼라이언스가 브뤼셀에서 Chips Act 2.0 제안 등 반도체 생태계 정책·전략을 논의(기사·공고 게재일 2026.6.26)</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회 EU 디지털 전략(디지털-전략) 웹사이트</span></div>
+  <p>산업용 반도체 얼라이언스(Industrial Alliance for Semiconductors)가 브뤼셀에서 Chips Act 2.0 제안 채택 이후 처음으로 회원을 모아 반도체 생태계의 향후를 논의했다. DG CNECT 및 마이크로일렉트로닉스·포토닉스 담당자, Global Semiconductor Alliance 의장 등 기조연설 후 패널·발표·작업그룹 세션을 통해 정책 환경 변화와 유럽의 기술 주권을 위한 다음 단계에 대한 의견을 공유했다. 또한 유럽의 반도체 가치사슬 내 주요 주체를 결집한 ‘Processors and Semiconductor Technologies Alliance’의 생산 공백과 필요 기술 개발을 검토하는 취지도 함께 언급됐다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/semiconductor-alliance-meets-discuss-chips-act-20">https://digital-strategy.ec.europa.eu/en/news/semiconductor-alliance-meets-discuss-chips-act-20</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>LLM 안전성과 편향을 점검하는 10가지 벤치마크(2025.2.28)</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">Evidently AI 블로그</span></div>
+  <p>LLM이 실제 서비스에 적용될수록 안전성 확보가 중요해졌으며, 이를 위해 진실성·독성·편향·강건성 등 다양한 위험을 평가하는 전용 safety benchmarks가 활용된다고 소개한다. 글에서는 TruthfulQA(거짓/오해 유도), ToxiGen(독성·혐오 검출), HHH(도움/정직/무해성), ForbiddenQuestions(안전하지 않은 요청 거부) 등 10개 대표 벤치마크의 데이터 규모와 평가 목적을 요약한다. 또한 DecodingTrust(다각도 신뢰성 프레임워크), AdvBench·AnthropicRedTeam(공격/우회에 대한 취약성), HELM Safety(표준화된 안전평가 구성), RealToxicityPrompt·DoNotAnswer(자연발생 독성 및 가드레일 거부 성능)도 함께 설명한다.</p>
+  <p class="url"><a href="https://evidentlyai.com/blog/llm-safety-bias-benchmarks">https://evidentlyai.com/blog/llm-safety-bias-benchmarks</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>Event Replay: OpenAI I2, PRC(중국) 연계 AI 오남용·은밀한 영향작전 탐지/대응 (2026.06.25)</h2>
+  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">OpenAI Forum</span></div>
+  <p>OpenAI Forum의 ‘Event Replay’에서 OpenAI Intelligence &amp; Investigations(I2)팀은 PRC(중국) 연계가 의심되는 미국의 AI 논쟁 대상 covert influence operations를 탐지·교란·보고하는 과정을 설명했다. 발표자들은 AI를 활용해 정치 콘텐츠를 생성하고, 미국인을 가장한 가짜 계정으로 온라인 여론을 조작하려는 시도 등이 나타난다고 밝혔다. 또한 단순히 정치 표현을 차단하는 방식이 아니라, 숨은 조정(deceptive behavior and hidden coordination) 징후를 찾아 위험을 식별하고 오픈소스 연구 등 공개도 돕는다고 말했다.</p>
+  <p class="url"><a href="https://forum.openai.com/public/videos/event-replay-inside-openais-investigation-into-foreign-influence-on-us-ai-debates-2026-06-25">https://forum.openai.com/public/videos/event-replay-inside-openais-investigation-into-foreign-influence-on-us-ai-debates-2026-06-25</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>US House reaches bipartisan kids&#x27; safety deal absent duty of care | MLex | Specialist news and analysis on legal risk and regulation</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">mlex.com</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://mlex.com/mlex/artificial-intelligence/articles/2492357">https://mlex.com/mlex/artificial-intelligence/articles/2492357</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>2492437</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">mlex.com</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://mlex.com/mlex/artificial-intelligence/articles/2492437">https://mlex.com/mlex/artificial-intelligence/articles/2492437</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>OpenAI Expands Daybreak Program for AI-Assisted Cyber Defense (2026.6.22)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://openai.com/index/daybreak-securing-the-world/">https://openai.com/index/daybreak-securing-the-world/</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>Defining and evaluating political bias in llms</h2>
+  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">openai.com</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://openai.com/index/defining-and-evaluating-political-bias-in-llms">https://openai.com/index/defining-and-evaluating-political-bias-in-llms</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>GPT-5 Pro Helps Resolve Long-Standing Immunology Research Question (2026.6.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://openai.com/index/gpt-5-immunology-mystery/">https://openai.com/index/gpt-5-immunology-mystery/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Sakana AI, 단일 API로 다중 에이전트 오케스트레이션 제공 ‘Fugu’와 ‘Fugu Ultra’ 출시(2026.6.22)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">Sakana AI</span></div>
+  <p>Sakana Fugu 및 Fugu Ultra는 오늘부터 제공되며, 단일 OpenAI 호환 API로 접근 가능(구독 및 pay-as-you-go 플랜 제공)</p>
+<p>Sakana AI는 ‘Fugu’를 단일 모델처럼 동작하는 다중 에이전트 오케스트레이션 시스템으로 소개하며, 단일 API 호출로 모델 선택·위임·검증·통합을 내부에서 수행한다고 밝혔다. ‘Fugu Ultra’는 어려운 다단계 문제에서 최대 품질을 목표로 더 깊은 전문가 에이전트 풀을 조정하도록 튜닝됐다고 설명했다. 또한 특정 벤더 의존 및 수출통제 리스크에 대비해, 오케스트레이션용으로 학습된 Fugu가 에이전트 풀의 모델을 유연하게 교체·우회할 수 있다는 점을 강조했다.</p>
+  <p class="url"><a href="https://sakana.ai/fugu-release/?">https://sakana.ai/fugu-release/?</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI Values Dashboard(2026.01.01)</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">Center for AI Safety</span> · <span class="deadline">AI Values Dashboard는 AI 시스템이 사람들이나 기업, 국가에서 어떤 가치와 선호를 보이는지 측정해 대조해 보여주는 대시보드다. 이용자는 People·Companies·Countries 영역에서 “누구를 더 가치 있게 여기고(선호), 무엇을 신뢰하며, 무엇이 성공하길 원하는지” 같은 차이를 확인할 수 있다. 또한 측정 대상 가치 집단을 제안하고 대시보드에 추가 요청을 할 수 있으며, 인용 시 제공된 서식으로 사용하도록 안내한다.</span></div>
+  
+  <p class="url"><a href="https://values.safe.ai">https://values.safe.ai</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>제3차 AI 안전 정책 연구 세미나 안내 (7.6.)</h2>
+  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Korea</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.aisi.re.kr/kor/article/view.do?articleId=109">https://www.aisi.re.kr/kor/article/view.do?articleId=109</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Five Eyes Warn AI Is Accelerating Cyber Threats Faster Than Expected (2026.6.22)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.ncsc.gov.uk/sites/default/files/2026-06/Five-Eyes-cyber-security-agencies-statement-ai-shift.pdf">https://www.ncsc.gov.uk/sites/default/files/2026-06/Five-Eyes-cyber-security-agencies-statement-ai-shift.pdf</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>(IT&amp;Future Strategy 2026-1) 에이전틱 AI 자율성 확대를 위한 신뢰 확보 정책 과제(2026.6.24)</h2>
+  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></div>
+  <p>에이전틱 AI가 스스로 판단·계획·실행하는 단계로 전환되며, 기존의 결과 확인 중심 승인 방식만으로는 외부 시스템 접근·실행에 따른 되돌리기 어려운 피해 위험에 대한 우려가 커진다고 설명한다. EU AI Act, 한국 AI 기본법, 싱가포르 MGF, 미국 AI RMF 등 주요 제도를 비교하고, 위험 관리를 위해 인간 감독·투명성·지속 모니터링 같은 공통 요건을 다룬다고 밝혔다. 또한 Harness Engineering을 통해 안전장치 설정, 최소 권한, 인간 개입 지점, 관측 가능성 등을 설계·구현하는 방안을 제시하며, 사후 승인에서 ‘작동 환경과 범위의 사전 구조 설계·관리’로 정책 패러다임 전환, 검증 체계 구축, 에이전틱 AI 얼라이언스 등 생태계 논의 확산의 필요성을 제시했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=25932&amp;bcIdx=29577">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=25932&amp;bcIdx=29577</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>U.S. Pressures Meta to Submit Frontier AI Models for Government Review (2026.6.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.nytimes.com/2026/06/23/business/meta-ai-government-reviews-security.html?">https://www.nytimes.com/2026/06/23/business/meta-ai-government-reviews-security.html?</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Recursive 자동화 AI 연구 시스템, 고정 예산 학습·속도·GPU 커널 최적화에서 SOTA급 결과(2026.06.11)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">Recursive</span></div>
+  
+  <p class="url"><a href="https://www.recursive.com/articles/first-steps-toward-automated-ai-research">https://www.recursive.com/articles/first-steps-toward-automated-ai-research</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>OpenAI Delays Broad GPT-5.6 Release Under U.S. Government Oversight (2026.6.25)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.theinformation.com/articles/trump-administration-asks-openai-stagger-release-new-model-security-concerns">https://www.theinformation.com/articles/trump-administration-asks-openai-stagger-release-new-model-security-concerns</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Nabla Bio, JAM-2로 서열만 입력해 원자 수준 정밀도의 약물급(Drug-grade) 항체 설계 성과 공개 (2026.6.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">Nabla Bio(@nablabio)</span></div>
+  <p>Nabla Bio는 2026.6.23에 JAM-2 기반 0-shot 약물 설계 성과를 새 보고서로 소개했다. JAM-2는 5개 peptide-MHC에 대해 약물급 완전 컴퓨테이셔널 다중특이 항체를 설계했으며, picomolar 수준 T-cell 활성화/세포 살상 EC50과 100배 이상 선택성을 언급했다. 또한 KRAS G12(dual-variant) 다중특이 항체를 서열만으로 원자 수준(Å) 합치도로 Cryo-EM과 비교해 설계했다고 주장하고, 내부 wet lab에서 5개 프로그램을 병렬로 약 6주 내 설계·제작·시험했다고 밝혔다.</p>
+  <p class="url"><a href="https://x.com/nablabio/status/2069405121084281260?s=46&amp;t=KmLfQiK_ormWvs9sxnR6Ag">https://x.com/nablabio/status/2069405121084281260?s=46&amp;t=KmLfQiK_ormWvs9sxnR6Ag</a></p>
+</article>
+<footer>AI Safety pipeline · daily_digest_html</footer>
+</div>
+</body>
+</html>

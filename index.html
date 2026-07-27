@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 아카이브</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .entry p { margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line; }
+  .entry p:last-child { margin-bottom: 0; }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.8rem; text-align: center; margin-top: 32px; }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">총 62일치 아카이브</div>
+  <div class="nav"><a href="latest.html">→ 최신 digest</a></div>
+</header>
+<div class="archive-list"><a href="2026-07-27.html">2026-07-27</a>
+<a href="2026-07-24.html">2026-07-24</a>
+<a href="2026-07-22.html">2026-07-22</a>
+<a href="2026-07-20.html">2026-07-20</a>
+<a href="2026-07-17.html">2026-07-17</a>
+<a href="2026-07-16.html">2026-07-16</a>
+<a href="2026-07-15.html">2026-07-15</a>
+<a href="2026-07-14.html">2026-07-14</a>
+<a href="2026-07-13.html">2026-07-13</a>
+<a href="2026-07-09.html">2026-07-09</a>
+<a href="2026-07-07.html">2026-07-07</a>
+<a href="2026-07-06.html">2026-07-06</a>
+<a href="2026-07-01.html">2026-07-01</a>
+<a href="2026-06-29.html">2026-06-29</a>
+<a href="2026-06-28.html">2026-06-28</a>
+<a href="2026-06-24.html">2026-06-24</a>
+<a href="2026-06-22.html">2026-06-22</a>
+<a href="2026-06-20.html">2026-06-20</a>
+<a href="2026-06-19.html">2026-06-19</a>
+<a href="2026-06-18.html">2026-06-18</a>
+<a href="2026-06-17.html">2026-06-17</a>
+<a href="2026-06-16.html">2026-06-16</a>
+<a href="2026-06-12.html">2026-06-12</a>
+<a href="2026-06-11.html">2026-06-11</a>
+<a href="2026-06-10.html">2026-06-10</a>
+<a href="2026-06-08.html">2026-06-08</a>
+<a href="2026-06-05.html">2026-06-05</a>
+<a href="2026-06-04.html">2026-06-04</a>
+<a href="2026-06-02.html">2026-06-02</a>
+<a href="2026-06-01.html">2026-06-01</a>
+<a href="2026-05-31.html">2026-05-31</a>
+<a href="2026-05-30.html">2026-05-30</a>
+<a href="2026-05-20.html">2026-05-20</a>
+<a href="2026-05-19.html">2026-05-19</a>
+<a href="2026-05-18.html">2026-05-18</a>
+<a href="2026-05-15.html">2026-05-15</a>
+<a href="2026-05-14.html">2026-05-14</a>
+<a href="2026-05-11.html">2026-05-11</a>
+<a href="2026-05-06.html">2026-05-06</a>
+<a href="2026-05-04.html">2026-05-04</a>
+<a href="2026-04-30.html">2026-04-30</a>
+<a href="2026-04-29.html">2026-04-29</a>
+<a href="2026-04-27.html">2026-04-27</a>
+<a href="2026-04-22.html">2026-04-22</a>
+<a href="2026-04-20.html">2026-04-20</a>
+<a href="2026-04-17.html">2026-04-17</a>
+<a href="2026-04-16.html">2026-04-16</a>
+<a href="2026-04-15.html">2026-04-15</a>
+<a href="2026-04-14.html">2026-04-14</a>
+<a href="2026-04-13.html">2026-04-13</a>
+<a href="2026-04-10.html">2026-04-10</a>
+<a href="2026-04-09.html">2026-04-09</a>
+<a href="2026-04-08.html">2026-04-08</a>
+<a href="2026-04-07.html">2026-04-07</a>
+<a href="2026-04-03.html">2026-04-03</a>
+<a href="2026-04-02.html">2026-04-02</a>
+<a href="2026-03-31.html">2026-03-31</a>
+<a href="2026-03-30.html">2026-03-30</a>
+<a href="2026-03-26.html">2026-03-26</a>
+<a href="2026-03-25.html">2026-03-25</a>
+<a href="2026-03-24.html">2026-03-24</a>
+<a href="2026-03-23.html">2026-03-23</a></div>
+<footer>AI Safety pipeline · daily_digest_html</footer>
+</div>
+</body>
+</html>

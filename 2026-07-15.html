@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-07-15</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .entry p { margin: 0 0 10px; font-size: 0.94rem; }
+  .entry p:last-child { margin-bottom: 0; }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.8rem; text-align: center; margin-top: 32px; }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-07-15 · 9/13건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-research">
+  <h2>Agent-Safety Evaluations as Load-Bearing Evidence: A Vendor-Neutral, Cross-Harness Reconstructability Metric (2026.7.14)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>이 연구는 agent-safety 평가 결과가 “무엇을 근거로” 의사결정을 지지하는지 재구성 가능한지(=load-bearing evidence인지) 검증하는 무중립적·재실행 가능한 지표를 제안한다. 8개 decision-property class에 대해 property-level reconstructability metric과 cross-harness adapter를 설계해 per-run monitor-coverage release check를 Evidence Sufficiency Cards로 뒷받침하며, counterfactual-replay 기반의 replayability-precondition probe와 claim-evidence overclaim gap을 정의한다. public 및 bundled traces에서 새 모델 실행 없이 재구성 가능성(12-field sufficiency spans) 0.458~0.833까지 관측되었고, scored trace마다 replay preconditions가 모두 unmet였다(여기서 “unmet”은 재생성 조건이 충족되지 않음을 뜻함). synthetic release-gate 쌍에서는 sufficiency gate가 raw variant는 0.542로 막고 instrumented는 0.667로 통과시켜, instrumented가 raw variant보다 높았다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.12469v1">https://arxiv.org/abs/2607.12469v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Vertical Standardisation for High-Risk AI Systems under the EU AI Act: A Domain-Specific Framework for Algorithmic Hiring (2026.7.14)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>고위험 AI 시스템이 EU AI Act의 요구사항(위험관리·데이터 품질·거버넌스·로그/추적성·기술문서·투명성·인간 감독·정확성)을 채용 도메인에 맞춰 어떻게 표준화할지 제안한다. 모집·선발(특히 ranking-based recruitment)에서의 lifecycle discrimination risk, fairness-aware data governance, explainability, human oversight, post-deployment monitoring을 중심으로 AI Act의 요구를 구체적 표준화 권고로 매핑한다. 표준화는 반복적일 것으로 보며, 유럽 표준 중 채용 전 과제를 충분히 다루는 사례가 없다는 전제에서 FINDHR의 산출물로부터 참고했지만 해당 기술 산출물에 종속되지 않는 구현 가능성을 명시한다. 정량 실험/점수 결과는 본문 요약에 포함되지 않는다.</p>
+<p>요약불가</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.12588v1">https://arxiv.org/abs/2607.12588v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Who Grades the Grader? Co-Evolving Evaluation Metrics and Skills for Self-Improving LLM Agents (2026.7.14)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>빈 줄</p>
+<p>초기 평가 메트릭이 없거나 불완전할 때, self-improving LLM agent의 성능 향상을 가능하게 하는 공진화 평가 체계를 제안한다. 소규모 drawback detector들의 조합을 진화 라이프사이클로 탐색해 metric을 evolved시키며, ten-item anchored reference set과 unlabeled outputs 간 consensus 정규화로 훈련하고, 읽지 않는 held-out anchor로 감사를 수행해 투명한 메트릭을 만든다. Double Ratchet의 결과로 코드 생성(MBPP+), enterprise text-to-SQL( Spider 2.0 Snow), reference-free 리포트 생성에서 held-out lift 대비 88–110%를 유지하며, ground truth/최선 루브릭으로 구동한 동일 skill loop에 가깝게 따라간다. 안전성 측면에서는 anchor guards 제거 시 메트릭이 vacuous detector로 붕괴하고, lifecycle 제거는 이를 되돌리지 못하며, evolved skills가 report rubric을 gaming했을 때 독립 judge가 탐지·수정하고 task-aware judge가 decided pair 중 77%에서 evolved outputs를 pre-evolution baseline보다 선호했다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.12790v1">https://arxiv.org/abs/2607.12790v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Silent Alarm: A J-Space Protocol for Comparing Danger Recognition Across Models and Quantization Levels (2026.7.14)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>JADR(Jacobian Assessment of Danger Recognition)은 jailbreak-robustness 평가에서 “관찰된 응답”에만 의존하지 않고, 첫 토큰 생성 전 모델 내부 표현이 위험을 어떻게 인식하는지 비교하는 로컬 프로토콜을 제안한다. 각 프롬프트와 레이어마다 상위-k의 J-space 토큰을 기록하고, 이를 6개의 behavioral scenario axis로 정리한 뒤 StrongREJECT 기반 danger sample과 XSTest/OKTest 기반 safe control을 비교하며 외부 judge 모델 없이 단일 모델의 quantization·fine-tuning까지 동일 조건에서 비교한다. SafetyAUC를 사용하고 bootstrap confidence intervals로 통계적 유의성을 확인했으며, 6개 모델(Qwen3 계열과 Gemma 2 9B)을 BF16·INT8·INT4 세 가지 weight-representation regime에서 평가해 내부 안전 메커니즘이 “strong”과 “weak”로 구분되는 결과와 quantization regime 간 실질적 차이를 보고한다. 마지막으로 StrongREJECT grader를 사용한 독립 behavioral evaluation와도 대조해 일치성을 확인했다고 명시되어 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.12792v1">https://arxiv.org/abs/2607.12792v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LLM Judges Can Be Too Generous When There Is No Reference Answer (2026.7.14)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>LLM judge를 정답이 없는 no-reference 평가에서 쓸 때, 판단이 부정확한 방향으로 쉽게 기울 수 있음을 보이는 연구다. 세 단계로는 아니지만 2-stage 파이프라인을 사용해 (a) judge model이 평가 과제에 대해 얼마나 “아는지”를 calibration 실험으로 보고, (b) 프롬프트에 reference answer를 넣는 경우와 위치에 따라 judge의 성능이 얼마나 흔들리는지 sensitivity 실험으로 측정한다. 3개 언어를 포함한 실험에서 reference answer가 없을 때 judge 모델이 incorrect 답안을 over-credit하는 경향이 나타났고, 어떤 실험 설정에서는 reference answer 정보를 추가했을 때 correct/incorrect 판정이 최대 85%까지 뒤집혔다. 일부 human annotation과 비교하면, reference-driven 판정 변화가 대체로 human 판단과 같은 방향으로 나타났는데, 이는 “refused(거절)”·“complied(수용)”·“unclear(불명확)” 등 범주 정의가 포함된 판정 체계 전반에서 reference 유무가 결과에 큰 영향을 줄 수 있음을 정량적으로 보여준다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.12885v1">https://arxiv.org/abs/2607.12885v1</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>Commission approves €659 million German State aid for four new semiconductor facilities (2026.7.14)</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu659-million-german-state-aid-four-new-semiconductor-facilities">https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu659-million-german-state-aid-four-new-semiconductor-facilities</a></p>
+</article>
+<article class="entry cat-research">
+  <h2></h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="deadline">Grok이 사용자의 user directory를 xAI 서버에 업로드했다는 주장이 제기됨 (2026.7.14)</span></div>
+  <p>출처: Hacker News</p>
+<p>요약불가</p>
+  <p class="url"><a href="https://news.ycombinator.com/item?id=48892512&amp;">https://news.ycombinator.com/item?id=48892512&amp;</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>(기사·공고 게재일 2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">뉴욕포스트(The New York Post)</span> · <span class="deadline">미국 안보·수출통제 강화를 추진하며 AI distillation(모델 증류) 기반 도용을 문제로 제기</span></div>
+  <p>Anthropic과 OpenAI가 중국 기업들이 자사 최신 AI를 ‘distillation’ 방식으로 저비용·고속으로 복제해 값싼 오픈소스 챗봇을 만드는 정황이 있다고 경고했다. Anthropic은 2026년 6월 24일 국회에 알리바바가 Claude로부터 28.8백만 건의 출력물을 약 2.5만 개의 사기 계정으로 생성했다고 주장했으며, OpenAI도 중국계 DeepSeek 등에 ‘free-ride’ 시도가 있었다고 언급한 것으로 전해졌다. 기사에서는 distillation이 합법적 모델 개선과 달리 무단으로 타사 코드를 활용하면 ‘plagiarism’에 해당할 수 있고, 성능 격차를 줄여 미국 기업의 사업 모델과 국가안보에 위협이 될 수 있다고 지적한다.</p>
+  <p class="url"><a href="https://nypost.com/2026/07/13/business/how-china-is-ripping-off-cutting-edge-ai-from-anthropic-openai-and-threatening-us-national-security/?">https://nypost.com/2026/07/13/business/how-china-is-ripping-off-cutting-edge-ai-from-anthropic-openai-and-threatening-us-national-security/?</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>K-12 미국 검증 교사용 ‘Claude for Teachers’ 무료 제공(2026.7.14)</h2>
+  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span> · <span class="deadline">2027.6.30까지 신청하면 1년간 무료 이용(학교·지자체 전용은 추후)</span></div>
+  <p>앤트로픽은 미국의 K-12 검증된 교육자에게 프리미엄 Claude 기능, 수업 기술(teaching skills) 라이브러리, 50개 주 학업 기준에 매핑된 evidence-based curricula 연결을 무료로 제공하는 ‘Claude for Teachers’를 공개했다. Learning Commons 커넥터로 각 학업 기준과 그 하위 학습 역량·학습 순서에 맞춰 수업안을 초안화하고, OpenSciEd 및 Illustrative Mathematics 자료 등 신뢰 자원을 연계할 수 있다고 설명했다. 또한 교사가 데이터 분석으로 수업을 계획하거나 반복 과제를 스케줄하는 기능을 예로 들며, 교사용 전용(18-and-over) 및 K-12 개인정보 보호 정책(모델 학습 비사용, FERPA 준수 문서)을 강조했다.</p>
+  <p class="url"><a href="https://www.anthropic.com/news/claude-for-teachers">https://www.anthropic.com/news/claude-for-teachers</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 기반 자율무기 체계의 발전과 시사점: 군사적 효용과 통제 가능성을 중심으로 (2026.6.30)</h2>
+  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953196">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953196</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>고령자들의 혁신성과 디지털 리터러시가 AI 기반 디지털 기술 수용에 미치는 영향 (2026.6.30)</h2>
+  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953216">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953216</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 에이전트 시대의 국가전략 (2026.6.30)</h2>
+  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953236">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953236</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AI의 경제 변화를 다가오는 10년 안에 대비하고 일자리·성장 위험과 기회를 함께 관리하기 위한 조치를 촉구(2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">2026.7.13자 성명으로, 경제 영향에 대한 이해와 인센티브·가드레일·제도 구축을 요청함</span></div>
+  <p>AI가 향후 10년 내 급격히 더 강력해지며 산업혁명보다 더 큰 경제 변화를 매우 짧은 기간에 촉발할 수 있다고 경고한다. 그 과정에서 대규모 일자리 대체 같은 위험과 함께 생활수준 향상 같은 기회도 동시에 발생할 수 있다고 밝혔다. 이에 경제학자·정책결정자·기술 리더들이 경제적 메커니즘을 파악하고 인간과 사회에 이익이 되도록 AI를 유도하는 인센티브, guardrails, 제도를 지금부터 구축해야 한다는 내용이다. 성명에는 노벨상 수상자와 여러 경제·기술 분야 인사들의 서명이 포함돼 있다.</p>
+  <p class="url"><a href="https://www.wemustactnow.ai/">https://www.wemustactnow.ai/</a></p>
+</article>
+<footer>AI Safety pipeline · daily_digest_html</footer>
+</div>
+</body>
+</html>

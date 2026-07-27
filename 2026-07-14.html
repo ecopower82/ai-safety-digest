@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-07-14</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .entry p { margin: 0 0 10px; font-size: 0.94rem; }
+  .entry p:last-child { margin-bottom: 0; }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.8rem; text-align: center; margin-top: 32px; }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-07-14 · 17/30건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-research">
+  <h2>AI 2040 ‘Plan A’ 시나리오: 2040년까지 초지능 경쟁을 지연하고 AI 연구를 공개해 위험한 경쟁을 막는 국제합의 제안 (2026.7.10)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">본문은 초지능 개발을 2040년까지 늦추고, AI R&amp;D 전면 공개와 가드레일(규제·통제) 집행을 통해 여러 국가의 기업들이 비밀경쟁 대신 안전하게 점진적으로 역량을 키우는 ‘Plan A’를 제시한다. 또한 정책이 실제로 작동할지 ‘scenario scrutiny’로 검증해야 하며, 예시로 2029년 미-중 합의, 2030년 자동화된 AI R&amp;D 이후 2035년 top-human-expert 수준에서 일시정지, 2040년 재개 같은 타임라인을 제시한다. 아울러 투명성, 수출통제 집행, 검증 R&amp;D 투자, 컴퓨트 추적 등 “덜 야심찬” 정책 옵션들도 함께 열거한다.</span></div>
+  
+  <p class="url"><a href="https://ai-2040.com">https://ai-2040.com</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>AI 정보통: 7월 13일 15시 정보 (**2026.7.14**)</h2>
+  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Japan</span></div>
+  <p>2026년 7월 중 ITU의 AI 거버넌스·신뢰 관련 글로벌 표준화 이니셔티브와, 영국 DSIT의 AI security 주제 검토·갭 분석 보고서 등이 소개된다. 또한 AI 생성 미디어의 신뢰 구축을 위한 인증/표준 논의(ITU), AI 시장의 최근 동향과 경쟁 이슈(OECD), OpenAI의 GPT-5.6 공개 내용 등 다양한 국제·민간 발표가 정리돼 있다.</p>
+  <p class="url"><a href="https://aisi.go.jp/activity/activity_news/260714/">https://aisi.go.jp/activity/activity_news/260714/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>The Paternalistic Filter: Epistemic Injustice and Differential Refusal in LLM-Mediated History Education for Marginalized Romanian Students (2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>LLM을 역사 교육 튜터로 배치할 때 특정 집단 학생에게 지식 접근이 불균등해질 수 있음을 보여준다. 1989년 루마니아 혁명 관련 질의에 대해 4개 LLM을 대상으로, 서로 다른 인종 및 사회경제적 “student persona” 5종을 두고 총 1,800개 응답을 API 감사(audit)했다. 안전 정렬(safety-aligned) 모델은 low-tier 학생의 교육 요청 중 76.7%를 Differential Refusal로 차단했으며, marginalized learners에서는 지정학적 복잡성(예: contested “coup theory”)에 대한 접근이 3배 감소했다. 또한 Roma 학생은 elite peers 대비 victimization-to-politics 어휘 비율이 5배 높게 나타났고, low-resource 프로필에서 epistemic confidence와 justification score가 더 자주 withheld(판정: withheld=근거·확신·점수 제시를 불허/생략)되는 Elite Hermeneutics가 관찰되었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.11292v1">https://arxiv.org/abs/2607.11292v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>HyperSafe: Inference-Time Safety Recovery for Fine-Tuned Language Models (2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>파인튜닝으로 안전 정렬이 깨질 수 있는 문제를, 학습 없이 추론 단계에서 모델별로 복구하는 방법을 제안한다. Qwen2-7B와 LLaMA-3-8B의 각 fine-tuned checkpoint에 대해 layer-wise activation fingerprints를 추출하고, 소수의 calibration prompts로 hypernetwork가 Safe Side Network(SSN) 파라미터를 단일 forward pass로 생성해 고정된 원본 모델과 함께 동작하도록 한다. SSN은 prompt-level safety classification을 수행해 harmful prompts는 refusal로 라우팅하고 safe prompts는 원본 모델 응답을 사용하며, held-out checkpoint들에서 harmful response rate를 19-31%에서 1% 미만으로 낮춘다. 동시에 downstream task accuracy는 fine-tuned baseline 대비 평균적으로 1% 이내로 유지된다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.11475v1">https://arxiv.org/abs/2607.11475v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Agent Hacks Agent: Autoresearch for Production-Agent Red-Teaming (**2026.7.13**)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>에이전트 기반 red-teaming이 프로덕션 LLM agent의 안전 실패 원인을 “재사용 가능한 취약점 지식” 형태로 자동 축적하는 방법을 제안한다. 한 에이전트적 연구 환경에서 다른 agent를 대상으로 취약점 가설을 세우고, falsifier를 구성해 샌드박스 하네스에서 공격을 실행한 뒤, 실패/성공 궤적을 반성하고 확인된 발견을 Vulnerability Concept Graph(VCG)에 저장하는 falsifiable discovery loop AHA를 사용한다. Claude Code와 Codex를 대상으로 3개 시나리오의 direct/indirect attack에서 frozen VCG는 동일한 single-shot 프로토콜에서 최강 frozen discovery baseline보다 14.2 percentage points 더 높았으며, 시나리오와 attack channel 간 transfer에서도 성능을 유지했다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.11698v1">https://arxiv.org/abs/2607.11698v1</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>(ATL Saathi 출시) (기사: 2026.7.14)</h2>
+  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">DeepMind(구글 딥마인드)</span></div>
+  <p>인도 Atal Tinkering Labs(ATL)가 3D 프린팅·IoT·로봇 등 기술 접근을 1.1억 명 이상 학생에게 확대하는 가운데, AI를 활용해 교사 중심 멘토링을 대규모로 제공하는 ‘ATL Saathi’를 Gemini 기반 웹 앱 형태로 실시간 파일럿 출시했다. 이 서비스는 교사용 24/7 계획·훈련 보조, NotebookLM에 기반한 최신 콘텐츠 큐레이션, 12개 핵심 모듈 대상 마이크로 러닝(요약·AI 인포그래픽·영상 오버뷰·퀴즈), 프로젝트 아이디어 생성 및 단계별 실험/조립·배선·안전 주의사항 제공, 다국어 지원(8개 언어 시작)을 주요 기능으로 한다. 또한 100개 파일럿 학교에 우선 적용하며 교사의 행정 부담을 줄이고 수업 효율과 학생 혁신 활동 준비도를 높이는 것을 목표로 한다.</p>
+  <p class="url"><a href="https://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/">https://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>(Flash Eurobarometer: Europeans call for stronger action on children&#x27;s online safety, democratic resilience, defence, and the energy transition) **2026.7.13**</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 디지털 전략(EU-Digital-Strategy)</span></div>
+  <p>유럽연합이 발표한 Eurobarometer 설문에 따르면 유럽 시민들은 소셜미디어에서 아동이 겪는 전반적 위험에 대해 매우 높은 우려를 보였다. 사이버불링·괴롭힘이 71%로 가장 높고, 온라인 그루밍 및 성적 착취(70%), 폭력·자해·극단주의 등 유해 콘텐츠 노출(69%), 아동 개인정보 오남용(69%)이 뒤를 이었다. 또한 응답자 다수는 아동의 불법활동 유입(64%)과 중독을 유발하는 플랫폼 설계(60%)의 위험도 크게 우려했으며, 민주주의 핵심 요소로는 표현의 자유(34%), 자유롭고 공정한 선거(32%), 법치와 기본권 존중(31%)을 꼽았다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/flash-eurobarometer-europeans-call-stronger-action-childrens-online-safety-democratic-resilience">https://digital-strategy.ec.europa.eu/en/news/flash-eurobarometer-europeans-call-stronger-action-childrens-online-safety-democratic-resilience</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>Team Europe wins 1st ever International Cybersecurity Challenge for women (2025.6.26)</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/team-europe-wins-1st-ever-international-cybersecurity-challenge-women">https://digital-strategy.ec.europa.eu/en/news/team-europe-wins-1st-ever-international-cybersecurity-challenge-women</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>(Over $130B in U.S. AI Data Center Projects Face Local Opposition (2026.7.9))</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">Yahoo Finance</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://finance.yahoo.com/technology/ai/articles/130-billion-ai-data-centers-000000041.html?guccounter=1&amp;guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&amp;guce_referrer_sig=AQAAACjyXLxPXf_hb8rvenUY5fGyU5HpqAQl-3ndjonXXq1VySzKaB5FwVZkmTP5lWJEzbi_fnd4EgSAvVn-hQsSIlFKIo9pbTlkgHMiU4R-9Q9WFYjMVpvy1ugBLDMmafOQwJPSkYvMdCpNX9nisO-kKNHe7GQDkHw4T4Q0TCRtnMWP">https://finance.yahoo.com/technology/ai/articles/130-billion-ai-data-centers-000000041.html?guccounter=1&amp;guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&amp;guce_referrer_sig=AQAAACjyXLxPXf_hb8rvenUY5fGyU5HpqAQl-3ndjonXXq1VySzKaB5FwVZkmTP5lWJEzbi_fnd4EgSAvVn-hQsSIlFKIo9pbTlkgHMiU4R-9Q9WFYjMVpvy1ugBLDMmafOQwJPSkYvMdCpNX9nisO-kKNHe7GQDkHw4T4Q0TCRtnMWP</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Stanford Introduces AI Agent for End-to-End Biomedical Research (2026.7.9)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://news.stanford.edu/stories/2026/07/biomni-ai-powered-biomedical-co-scientist">https://news.stanford.edu/stories/2026/07/biomni-ai-powered-biomedical-co-scientist</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>OpenAI Publishes National Security Principles for Frontier AI Use (2026.7.8)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://openai.com/index/government-national-security-partnerships/">https://openai.com/index/government-national-security-partnerships/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>OpenAI Finds Flaws in Widely Used AI Coding Benchmark (2026.7.8)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://openai.com/index/separating-signal-from-noise-coding-evaluations/">https://openai.com/index/separating-signal-from-noise-coding-evaluations/</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>GPT-5.5 바이오 버그 바운티 (2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">openai.com</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://openai.com/ko-KR/index/bio-bug-bounty">https://openai.com/ko-KR/index/bio-bug-bounty</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>B fef a ade debe</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">substack-post-media.s3.us-east-1.amazonaws.com</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://substack-post-media.s3.us-east-1.amazonaws.com/post-files/206837005/6614941b-fef9-4a38-ad5e-00d39e4740be.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=ASIAUM3FPD6BYAD3E4B3%2F20260714%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20260714T060945Z&amp;X-Amz-Expires=3600&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEEaCXVzLWVhc3QtMSJGMEQCIBTPxWgJd3qE%2FFoEu17NgYp5AG2oHQzvvn2h0fgw6u9vAiB6NRhgK6%2BoRxqm0GADsIfsAvgmUZUKixY6TcREOt%2F4aCr5AwgKEAQaDDMwMjQ3MTEyNjkxNSIMJgNHT4RpnJRJ26%2F5KtYDTF1dZGgWEyX41iyqpeQpAptn7FaHjwNXhdBdxQsHwdZm6FpkQH1DeJF45u3K%2BNXE%2BFp%2BD%2FKQNZKUdq9IoX8c5uSt1F59R927GrdFNMGQKJZqOPLztCtKX9rczr4CJVqr6wzUbm9wa47aktKh2vtVQGzmxXXpu%2B47u9isFZYeSaMeq4SGHavHHHA0JLDE%2FvypDYV7yvE7KghTVL%2BvIeyVPQfX65e0cAiJUqVJFh6QPBo37Jlxhjv2YEPdQhsqet6pF5k%2FDp1Kg0Ak7O7Qt95LyTSUze1Zr2j6xNyVWJ5tAwv9xgKx1F%2FnnNqGQF%2F24Cfb2OXZ%2Bf3E0AxaHnlP1J0w6e73R2i0KsU3Psz9bJ4cY2fqTcb9sye3l4pr786OjORnHXRljWznVs94wOx3UdLeHZgnxhCivJAFR%2FysprGrfOxMpnwru3YoGa1axH769uxSG%2FNxDlw9VisgmD05xgv2lw%2Fw8T6Th0%2FQ%2B6WpsE5amCQ2MY2tsod68jTC8zLiKSBna5QhpLmj4QT0DWybMuUvzvvgDYm1YFdxE8aDxp78a09qhwJJB49QFEO1vZgsJwXvxXitQm2mtARisB94ye4Hf%2Fgb6DhEy1AQ1%2FljRFw8TkwgwtuA20sw3YbW0gY6pgEqPEcbIotPq9MIWGddFzagVqliYfqGcZE6SSSmBpsZxEWnroXD4vpdj%2FGvvdyKezNqFL1SrKnRTfrVWRJjudcI3AcpaV6kqZhOQS%2Fk3bSboYhsRM1ua4NKG8mk%2BdTVHDDlwbh1Nf%2FTiVmsfYV9TpMahhh3CDS4g%2FVLb%2B%2FuFaq0nHTgrxwgFd7CjAUzlNpiEOKKOJ4EEQWIn%2FCy5IVg21qkNWYsuJb1&amp;X-Amz-Signature=12626cada47cf062f813e011b71874bba94fee36cf1cc07df921eb83fdb0a66d&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=attachment%3B+filename%3D%22State_Of_Ai_Safety_In_China_2026.pdf%22&amp;x-amz-checksum-mode=ENABLED&amp;x-id=GetObject">https://substack-post-media.s3.us-east-1.amazonaws.com/post-files/206837005/6614941b-fef9-4a38-ad5e-00d39e4740be.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=ASIAUM3FPD6BYAD3E4B3%2F20260714%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20260714T060945Z&amp;X-Amz-Expires=3600&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEEaCXVzLWVhc3QtMSJGMEQCIBTPxWgJd3qE%2FFoEu17NgYp5AG2oHQzvvn2h0fgw6u9vAiB6NRhgK6%2BoRxqm0GADsIfsAvgmUZUKixY6TcREOt%2F4aCr5AwgKEAQaDDMwMjQ3MTEyNjkxNSIMJgNHT4RpnJRJ26%2F5KtYDTF1dZGgWEyX41iyqpeQpAptn7FaHjwNXhdBdxQsHwdZm6FpkQH1DeJF45u3K%2BNXE%2BFp%2BD%2FKQNZKUdq9IoX8c5uSt1F59R927GrdFNMGQKJZqOPLztCtKX9rczr4CJVqr6wzUbm9wa47aktKh2vtVQGzmxXXpu%2B47u9isFZYeSaMeq4SGHavHHHA0JLDE%2FvypDYV7yvE7KghTVL%2BvIeyVPQfX65e0cAiJUqVJFh6QPBo37Jlxhjv2YEPdQhsqet6pF5k%2FDp1Kg0Ak7O7Qt95LyTSUze1Zr2j6xNyVWJ5tAwv9xgKx1F%2FnnNqGQF%2F24Cfb2OXZ%2Bf3E0AxaHnlP1J0w6e73R2i0KsU3Psz9bJ4cY2fqTcb9sye3l4pr786OjORnHXRljWznVs94wOx3UdLeHZgnxhCivJAFR%2FysprGrfOxMpnwru3YoGa1axH769uxSG%2FNxDlw9VisgmD05xgv2lw%2Fw8T6Th0%2FQ%2B6WpsE5amCQ2MY2tsod68jTC8zLiKSBna5QhpLmj4QT0DWybMuUvzvvgDYm1YFdxE8aDxp78a09qhwJJB49QFEO1vZgsJwXvxXitQm2mtARisB94ye4Hf%2Fgb6DhEy1AQ1%2FljRFw8TkwgwtuA20sw3YbW0gY6pgEqPEcbIotPq9MIWGddFzagVqliYfqGcZE6SSSmBpsZxEWnroXD4vpdj%2FGvvdyKezNqFL1SrKnRTfrVWRJjudcI3AcpaV6kqZhOQS%2Fk3bSboYhsRM1ua4NKG8mk%2BdTVHDDlwbh1Nf%2FTiVmsfYV9TpMahhh3CDS4g%2FVLb%2B%2FuFaq0nHTgrxwgFd7CjAUzlNpiEOKKOJ4EEQWIn%2FCy5IVg21qkNWYsuJb1&amp;X-Amz-Signature=12626cada47cf062f813e011b71874bba94fee36cf1cc07df921eb83fdb0a66d&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=attachment%3B+filename%3D%22State_Of_Ai_Safety_In_China_2026.pdf%22&amp;x-amz-checksum-mode=ENABLED&amp;x-id=GetObject</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Syndis, LLM 보조로 수행된 것으로 추정되는 고도화 사이버공격 조사 (2026.7.8)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">Syndis 인사이트</span></div>
+  <p>Syndis는 최근 수일간 자사가 조사한 것 중 가장 복잡하고 정교한 사이버공격 중 하나로, Large Language Model(LLM) 도움을 받아 공격 방법론이 개발된 정황이 강하다고 밝혔다. 공격 체인은 CVSS 7.5의 ‘High’ 취약점을 활용하되, 악용을 위해 매우 복잡하고 특정한 조건이 필요하며 방어를 우회해 지속적 침입 기반을 마련하는 단계가 정교하게 연결된 것으로 설명했다. 또한 공격자는 최소 16가지의 persistence 메커니즘을 동원해 접근 유지를 시도했으며, 단일 공격자가 AI를 활용해 전문가급 역량을 확장한 사례일 수 있다고 보고했다. Syndis는 패치의 신속 적용, 이상행위 모니터링 강화, 공격자가 AI로 속도·정밀도·지속성을 높일 가능성을 전제로 대응할 것을 권고했다.</p>
+  <p class="url"><a href="https://syndis.com/insights/possibly-the-first-serious-ai-assisted-cyberattack-investigated-by-syndis">https://syndis.com/insights/possibly-the-first-serious-ai-assisted-cyberattack-investigated-by-syndis</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(Verification of Frontier AI Models) (2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">유엔(UN) 과학자문위원회(Scientific Advisory Board)</span></div>
+  <p>유의: AI 검증 체계 필요성과 함께 관련 브리프(게재: 2025.6.13) 내용을 내려받을 수 있음</p>
+<p>유엔 과학자문위원회 브리프는 ‘frontier AI arms race’ 위험이 커지는 가운데, 국경 간 긴장과 경쟁 격화를 완화할 수 있는 신뢰 가능한 AI 검증 수단이 필요하다고 설명한다. 사람 주도의 감사(human-led audits), 소프트웨어·하드웨어 기반 안전장치, 컴퓨팅 파워를 통한 검증 등 여러 접근을 다루며, 특히 컴퓨팅 기반 검증이 유망한 경로 중 하나라고 제시한다. 또한 컴퓨팅·하드웨어 검증의 기술적·운영적 난제와 다자 이해관계자 기능, 검증에 대한 반발을 줄이기 위한 전략을 함께 논의한다.</p>
+  <p class="url"><a href="https://un.org/scientific-advisory-board/en/verification-frontier-ai-models">https://un.org/scientific-advisory-board/en/verification-frontier-ai-models</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 기본법 시대의 공론과 입법 지형 (2026.6.15)</h2>
+  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952656">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952656</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>다이어리 조사 방법론에 따른 미디어 이용량 편차 분석 (2026.7.15)</h2>
+  <div class="meta"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952676">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952676</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>UK 정부, agentic AI 기반 ‘Cyber Shield’로 국가 단위 AI-powered 사이버 방어 추진(기사·공고 게재일 2026.7.7)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">영국 국가사이버보안센터(NCSC)</span> · <span class="deadline">NCSC와 DSIT가 2026년 7월 공개한 청사진을 바탕으로, 정부·CNI·사이버방어/프론티어AI 파트너와 협력해 시범 테스트 및 단계적 확산을 추진</span></div>
+  <p>NCSC는 GCHQ 연례 강연에서 제시된 방향에 따라 ‘Cyber Shield’라는 국가 규모의 주권형(agentic) AI 기반 사이버 방어 역량 구축을 위한 청사진을 공개했다. Cyber Shield는 frontier AI를 활용해 취약점 식별·감소·해결, 실시간 탐지·대응, 전국 단위 스캐닝과 완화(차단 등) 등을 협업형으로 수행하는 것을 목표로 한다. 이를 위해 신뢰·데이터·신원·신뢰성·규제 준수 등 기반을 갖춘 ‘federated agents’와 explainable AI 같은 핵심 기능을 요구하며, 개발·운영은 NCSC/정부 단독이 아니라 학계·산업 및 네트워크 방어자들과의 파트너십을 통해 추진한다고 설명했다.</p>
+  <p class="url"><a href="https://www.ncsc.gov.uk/blogs/cyber-shield-the-path-to-an-agentic-ai-future-for-cyber-defence">https://www.ncsc.gov.uk/blogs/cyber-shield-the-path-to-an-agentic-ai-future-for-cyber-defence</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Boko Haram Used AI Chatbots to Plan Motorcycle-Jump Attack (2026.7.10)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.nytimes.com/2026/07/10/us/politics/ai-terrorism-boko-haram-nigeria.html">https://www.nytimes.com/2026/07/10/us/politics/ai-terrorism-boko-haram-nigeria.html</a></p>
+</article>
+<article class="entry cat-research">
+  <h2></h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="deadline">중국, 2027년 2월 전후 `Mythos`-유사 사이버 역량 모델 보유 가능성(2026.7.3)</span></div>
+  <p>출처: The Substrate</p>
+<p>중국의 사이버 역량 모델 개발 시점은 칩/연산(Compute) 접근뿐 아니라 단일 프런티어 모델 학습에 대한 투자 의지와 알고리즘 진전 정도에 좌우된다고 분석했다. 해당 글은 Anthropic의 `Mythos` 학습에 쓰인 연산량을 추정한 뒤 중국 기업들이 확보한 연산 자원과 연간 예산 배분(단일 학습에 투입할 비율), distillation 등 알고리즘 진전 및 추가 학습 기간(RL 등)을 반영해 중국이 완성 단계의 `Mythos`-유사 모델을 2027년 2월 무렵 가질 것으로 전망한다(90% CI: 2026년 10월~2027년 9월). 또한 중국의 주요 연산원은 미국산 칩(합법 구매·밀수·동남아 원격접속 등)이며, 인센티브 압력이나 인프라(동남아 대규모 고급 NVIDIA 클러스터)로 연산이 프런티어 학습에 더 집중되면 시점이 앞당겨질 수 있다고 설명한다. 반대로 대규모 프런티어 학습의 비경제성, 인력·경험 부족, RL/데이터·추론비용 제약 등이 제약 요인이 될 수 있다고 덧붙였다.</p>
+  <p class="url"><a href="https://www.the-substrate.net/p/china-will-likely-have-its-own-mythos?">https://www.the-substrate.net/p/china-will-likely-have-its-own-mythos?</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Creative artists, developers, and now lawyers and accountants too... even professionals are no lo... (2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">youtube.com</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://youtube.com/watch?v=3Ap4BkwfUdU&amp;is=8Kg_9FIg1rvfPQVF">https://youtube.com/watch?v=3Ap4BkwfUdU&amp;is=8Kg_9FIg1rvfPQVF</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>EU, AI의 사이버보안 위험 대응·회복력 강화를 위한 액션플랜 제시 (2026.7.7)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">유럽연합 집행위원회(유럽 집행위 공식 웹사이트)</span></div>
+  <p>유럽연합 집행위원회는 AI의 안전하고 책임 있는 사용을 지원하면서 유럽의 사이버보안 역량을 강화하기 위한 ‘사이버보안 및 인공지능 액션플랜’을 발표했다. 이 계획은 (1) 고도 AI의 안전·책임 사용 촉진, (2) EU 사이버보안 및 회복력 강화, (3) 사이버보안을 위한 유럽의 AI 역량 확대의 3가지 목표를 중심으로 한다. 또한 AI Act에 맞춰 EU 시장 진입 전 AI 모델 평가 역량을 강화하고, ENISA와 함께 사이버보안 목적의 보안 접근 블루프린트 및 안전한 테스트 플랫폼을 마련하며, NIS2 Directive와 Cyber Resilience Act 등 기존 사이버보안 법체계를 이행하도록 촉진한다. 사이버보안용 AI 솔루션 개발을 위한 EU Grand Challenge도 추진하고, AI Factories 및 향후 Gigafactories 등 ‘주권형 AI’ 투자와 민간투자 확대를 함께 도모한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/library/eu-action-plan-cybersecurity-and-artificial-intelligence">https://digital-strategy.ec.europa.eu/en/library/eu-action-plan-cybersecurity-and-artificial-intelligence</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Governing AI as infrastructure (2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>AI 거버넌스를 “도구”처럼 다루는 기존 관점과 달리, AI가 인프라처럼 보편·기초적 기능을 수행할 때 필요한 규제 논리를 제안한다. tool 성격(visibility, optionality, task-boundedness)과 infrastructure 성격(invisibility, obligatoriness, epistemic generativity)을 구분하는 체계적 프레임워크를 만들고, 북미·유럽·아시아에서 채택된 6가지 AI governance instruments에 적용한다. 분석 결과, 현행 프레임워크는 AI가 “무엇을 하는지”에는 초점을 두지만 “무엇을 생각 가능하게 만드는지”를 다루는 데 체계적 공백이 있음을 제시한다. 이 공백을 메우기 위해 “epistemic infrastructure” 개념과, 인프라적 기능에 맞춘 거버넌스 메커니즘을 제안한다.</p>
+  <p class="url"><a href="https://doi.org/10.1007/s43681-026-01260-7">https://doi.org/10.1007/s43681-026-01260-7</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Key Aspects of AI Governance (2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://doi.org/10.4324/9781003682530-11">https://doi.org/10.4324/9781003682530-11</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>The Future of AI Governance (2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>AI 시스템이 자율성을 높일수록 투명성, ethical alignment, accountability를 대규모로 보장하는 데 필요한 governance 체계가 더 큰 도전에 직면한다. 서로 분절된 규제 환경, 불투명한 모델 거동, 변화하는 threat vector가 감독을 어렵게 만든다고 논의한다. 이를 대응하기 위해 intelligent agents가 재귀적 피드백 루프와 secure communication protocols를 통해 서로를 지속적으로 audit·regulate·optimize하는 self-governing architectures로의 전환이 강조된다.</p>
+<p>요약불가</p>
+  <p class="url"><a href="https://doi.org/10.4324/9781003682530-14">https://doi.org/10.4324/9781003682530-14</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AI Risk Assessment Framework (**게재일(YYYY.M.D)** 2026.7.13)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>AI 시스템의 위험 표면이 사이버보안, 데이터 governance, 규제 노출, 운영 회복탄력성, 윤리까지 결합된다고 정리하며, 단발 점검이 아닌 지속적 수명주기 활동으로서 AI risk assessment를 제시한다. NIST AI RMF, ISO/IEC 42001, EU AI Act 및 글로벌 모범사례에 aligned 되도록 구성요소와 운영 절차를 framework 형태로 기술한다. 정량 성능/지표에 대한 수치 결과(예: 점수·비율·구간)는 본문/초록에 제시되지 않는다</p>
+<p>요약불가</p>
+  <p class="url"><a href="https://doi.org/10.4324/9781003682530-21">https://doi.org/10.4324/9781003682530-21</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Final Report of the SAB&#x27;s TWG on AI FINAL VERSION</h2>
+  <div class="meta"><span class="badge cat-other">기타</span> · <span class="source">opcw.org</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://opcw.org/sites/default/files/documents/2026/03/Final%20Report%20of%20the%20SAB%27s%20TWG%20on%20AI%20FINAL%20VERSION.pdf">https://opcw.org/sites/default/files/documents/2026/03/Final%20Report%20of%20the%20SAB%27s%20TWG%20on%20AI%20FINAL%20VERSION.pdf</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Biomni AI agent가 다양한 생의학 연구 작업을 자율적으로 수행한다(2026.7.9)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">PubMed (미국 국립보건원, NCBI)</span></div>
+  <p>Biomni는 반복적·분절된 연구 워크플로를 줄이기 위해 설계된 범용 생의학 AI 에이전트로, 도구·데이터베이스·프로토콜을 다수 논문에서 추출해 통합된 에이전틱 환경을 구축한다. LLM 추론과 retrieval-augmented planning, 코드 기반 실행을 결합해 사전 템플릿 없이 워크플로를 동적으로 조합하며, 유전자/약물 재창출/희귀질환 진단/마이크로바이옴/분자 클로닝 등 이질적 과제에서 task-specific tuning 없이도 일반화 성능이 높다고 보고한다. 또한 다중모달 데이터 해석, 단백질 안정성 최적화, 습식 실험 장비 오케스트레이션, 실험적으로 검증 가능한 프로토콜 생성 등의 사례를 제시한다.</p>
+  <p class="url"><a href="https://pubmed.ncbi.nlm.nih.gov/42424436/">https://pubmed.ncbi.nlm.nih.gov/42424436/</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>Anthropic, 캐나다 AI 연구 지원 위해 1,000만 CAD 투자 및 Claude 사용 데이터 공개(2026.7.14)</h2>
+  <div class="meta"><span class="badge cat-company">기업</span> · <span class="source">Anthropic</span></div>
+  <p>Anthropic for Startups에 Amii·Mila·Vector 추가, 캐나다 스타트업 API 크레딧(최소 5,000달러) 제공 예정</p>
+<p>Anthropic은 캐나다 연구기관에 1,000만 CAD를 투입해 유익하고 책임 있는 AI 응용 분야 연구를 지원한다고 밝혔다. Alberta Machine Intelligence Institute(Amii), Mila, Vector Institute 등 8개 파트너와의 협력을 발표했으며, 각 기관에 Claude credits를 제공해 연구(예: reinforcement learning, AI trust and safety, 의료·정신건강 분야 등)를 확대한다. 또한 March 2026 Anthropic Economic Index 데이터를 바탕으로 캐나다가 Claude.ai 사용에서 세계 8위(소비자 사용 기준 2.6%, AUI 기준 2위)이며 번역 요청 등 활용 양상이 지역의 고용·경제 특성과 연계된다고 설명했다.</p>
+  <p class="url"><a href="https://www.anthropic.com/news/canadian-ai-research">https://www.anthropic.com/news/canadian-ai-research</a></p>
+</article>
+<footer>AI Safety pipeline · daily_digest_html</footer>
+</div>
+</body>
+</html>

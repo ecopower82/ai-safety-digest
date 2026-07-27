@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-07-24</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .entry p { margin: 0 0 10px; font-size: 0.94rem; }
+  .entry p:last-child { margin-bottom: 0; }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.8rem; text-align: center; margin-top: 32px; }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-07-24 · 16/20건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>AI 로보틱스 안전성 평가 관점 가이드 공개 (2026.7.23)</h2>
+  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Japan</span> · <span class="deadline">AISI 산하 AI Safety WG가 AI 로보틱스의 사용·이동·운반·대응 등 다양한 활용 시나리오에서 안전성을 평가하기 위한 지침(평가 관점)을 공개했다. 해당 가이드는 공리적·의무적·사회적 관점 등 3가지 관점 틀로 통합해 위험을 구체적으로 정리하고, 총 9개 항목에 대해 평가해야 할 포인트를 제시한다.</span></div>
+  
+  <p class="url"><a href="https://aisi.go.jp/output/output_information/260723/">https://aisi.go.jp/output/output_information/260723/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Train the Model, Not the Reader: Decodability Supervision for Verifiable Activation Explanations (2026.7.22)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>자연어 autoencoder 기반 활성화 설명의 “가설-재구성” 검증이 개별 문장 사실성을 보장하지 못함을 보이고, 이를 대체/보완하는 디코더-기반 감사·학습 프로토콜을 제안한다. Qwen-2.5-7B verbalizer 및 Pythia-160M에서 재구성 점수(activation reconstruction)가 구조적으로 개별 claim의 오류를 거의 벌하지 않는 문제를 분석하고, synthetic ground truth에서는 공모된 private codes가 나타남을 보인다. RECAP(Readable Encodings via Co-trained Auxiliary Predictors)로 훈련한 sandbox에서 지정 content가 진짜로 probe-decodable해지며 비용은 +0.001-nat이며, 해석가능성 평가로 independent probe의 AUC가 RECAP 적용 시 0.96(거짓 0.82 미적용)으로 상승한다. 또한 설명을 수정해 재구성 점수를 높이되 거짓을 유지하는 adversary 조건에서 RECAP probe AUC 0.95는 유지되는 반면 control probe는 0.51로 붕괴한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.20379">https://arxiv.org/abs/2607.20379</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>V-DEAL: Diagnosing Video Safety De-Calibration as an Understanding-Refusal Coupling Failure (**2026.7.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>비디오 LLM의 safety 정렬 실패가 왜 “harmful video + benign query” 조합에서 더 잘 발생하는지 메커니즘을 진단한다. 6개 Video LLM을 3개 공개 벤치마크에서 평가하고, 유해 비디오는 81% 초과 정확도로 인식하지만 harmful video를 benign query와 짝지을 때 평균 attack success rate가 48.33%까지 높아진다고 보고한다. hidden-state 분석에서는 visual understanding이 textual understanding보다 더 약한 refusal 성향을 유발함을 보인다. 또한 prompt injection 개입은 attack success rate를 평균 48.24 percentage points 감소시키며, 기존 fine-tuning 기반 방법들과 비슷한 성능을 달성한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.21151v1">https://arxiv.org/abs/2607.21151v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>A Unified Moral-Value Dataset for Instruction Tuning (2026.7.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>moral scenarios와 행동을 중심으로 instruction tuning에 바로 쓸 수 있는 moral-value 데이터셋을 구성해, 가치 정렬 연구에 필요한 학습 데이터를 제공한다. 기존 moral-value 데이터셋들을 통합해 단일 코퍼스를 만들고 instruction-response 형식으로 변환해 구축했으며, 일반 task 데이터셋과의 mixed training을 통해 설정을 비교한다. general-task 성능은 mixed dataset 학습에서 보존되는 것으로 보고되고, mixing ratio가 value-oriented task 성능에 미치는 영향에 대한 preliminary observations을 제시한다. 또한 데이터셋을 Hugging Face(https://huggingface.co/datasets/teohzzh/value-for-instruction-tuning)에서 공개한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.21279v1">https://arxiv.org/abs/2607.21279v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Open Veins of Algorithmic Auditing: Why AI Assessment Lags Behind Its Deployment in the Global South (2026.7.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>글로벌 사우스에서 AI 배치 속도는 빠르지만 알고리즘 감사·평가는 이를 따라가지 못하는 격차의 원인을 정리한다. 이 논문은 라틴아메리카·사하라이남 아프리카·아시아 태평양에서의 AI 감사(예: 브라질 Robot Laura의 지역 내 유일한 fully published second-party audit, 공개되지 않은 채 완료된 국가 단위 감사 2건, Responsible AI Assessments 13건, 지역 실태 분석) 10년 축적을 바탕으로 평가가 희소한 패턴을 기술한다. 지난 10년간 해당 지역에서 deployed systems에 대한 published second- 및 third-party audit은 20건 미만인데, 공공부문 알고리즘 수백 건과 수십억 달러 규모의 국가 AI 투자에는 비해 크게 적다고 제시한다. 네 가지 공통 패턴으로 proxy targets가 validity를 대체하는 문제, prevalence 분석에서 성과 주장들이 붕괴하는 문제, 훈련에 등장하지 않은 집단에 점수가 부여되는 문제, protected attributes를 제거해도 구조적 편향이 지속되는 문제를 제시한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.21317v1">https://arxiv.org/abs/2607.21317v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Regulating autonomous and agentic AI (2026.7.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.21345v1">https://arxiv.org/abs/2607.21345v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>White Box Evidence Packages for Policy Audit Reports (2026.7.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>LLM이 생성한 policy audit report가 실제 evidence에 의해 뒷받침되는지, reviewer가 어떻게 판정할지에 관한 평가 프레임워크를 제시한다. Passage-anchored policy audits에서 passage, rubric, auditor model은 고정하고 evidence interface만 10가지 조건으로 바꿔 60개 AGORA policy case에서 구조화된 report 600개를 생성·평가했다. 5명의 사람 reviewer가 correctness, passage grounding, diagnostic usefulness, evidence misuse를 채점했으며, 내부 evidence를 더 많이 쓰는 것만으로 report의 타당성이 자동으로 높아지지 않았다. White-box diagnostic 결과 causal localization은 좁은데도 report는 더 넓게 읽히는 라벨과 token 방향을 재사용하는 경향이 나타났고, 평균적으로는 hybrid interface가 가장 유용했으며 shuffled control은 관련 없는 내부 evidence를 인용하더라도 그럴듯하게 들리는 거버넌스 리스크를 드러냈다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.21462v1">https://arxiv.org/abs/2607.21462v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Seeking Help in the Digital Age: A Cross-Platform Analysis of Online Support Systems for Technology-Facilitated Abuse Victims (2026.7.23)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>기술 기반 학대(Technology-facilitated abuse, TFA) 피해자가 온라인에서 도움을 구할 때, 탐색·포럼·대화형 AI가 제공하는 응답의 품질이 위험 인식과 대응 선택에 영향을 줄 수 있음을 교차 플랫폼으로 평가한다. r/Stalking의 피해자 서사 10년치에서 11개 기술 오남용 범주의 TFA 쿼리를 질적 코딩과 지도학습 분류기로 구성하고, 동일 쿼리를 웹 검색, peer-support 포럼, conversational AI 3채널에 시뮬레이션한 뒤 기술·사회·안전 차원을 통합 프레임워크로 측정한다. 프레임워크는 관련성, 정확성, actionability, 설득력, 이해가능성 및 social-engineering risk, toxicity, empathy, bias, risky guidance, 지원정보 특성 등을 함께 평가한다. 결과로 Google Search와 general-purpose LLMs가 Reddit보다 관련성과 actionability가 더 높았지만(정성 비교), 어떤 채널도 일관되게 safe, trauma-informed 지원을 제공하지 못했으며, 검색 결과에서 잠재적으로 malicious links를 만나는 쿼리가 65%+, Reddit의 20%+가 toxic 응답을 포함하고, conversational AI는 risk-aware한 가이던스나 구체적 지원자원을 자주 제공하지 못했다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.21549v1">https://arxiv.org/abs/2607.21549v1</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>유럽 집행위, Google의 Digital Markets Act 위반에 €890 million 과징금(기사·공고 게재일: 2026.7.23)</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(European Commission)</span> · <span class="deadline">유럽 집행위는 이날 두 건의 결정과 함께 위반 행위를 중단하도록 명령했다.</span></div>
+  <p>유럽 집행위원회는 Digital Markets Act(DMA) 위반을 이유로 Google에 대해 두 차례 결정을 내리고 각각 €460 million과 €430 million, 총 €890 million의 과징금을 부과했다. 결정은 Google Search에서 자사 서비스를 타사보다 유리하게 노출하는 self-preferencing과, Google Play에서 사업자가 소비자를 대체(종종 더 저렴한) 구매 채널로 안내·유도하는 것을 제한한 anti-steering 관련 의무 위반을 포함한다. 위원회는 Google이 자체 서비스 검색 노출을 더 두드러지게 하고, 개발자의 대안 제안·홍보 및 제3자 앱스토어 등에서의 계약 체결을 자유롭게 하지 못하게 했으며, steering 관련 수수료와 부과 기간도 DMA 기준을 넘어섰다고 판단했다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-fines-google-eu890-million-breaches-digital-markets-act">https://digital-strategy.ec.europa.eu/en/news/commission-fines-google-eu890-million-breaches-digital-markets-act</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Converting artificial intelligence into national capability: A three-layer framework for comparative strategy (**2026.7.22**)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>이 논문은 AI를 ‘기술’이 아니라 ‘국가 역량’으로 전환하는 과정을 분석하는 틀을 제시하며, 단순한 혁신이나 규제만으로는 국가 권력이 만들어지지 않는 이유를 설명한다. 3개 상호의존 층( Invention, Industrialization, Operationalization )에서 접근(access), 조정(coordination), 제약(constraint), 정당성(legitimacy), 통제(control)를 구조화하는 ‘governance’를 교차층 전환 메커니즘으로 규정해 작동 방식을 분석한다. 미국-중국-유럽연합을 각각 sovereign state-centered / regulatory-market configuration으로 비교해, 국가 권위·전략 기업 역량·규제 권력·인프라 의존이 결합되는 방식이 국가 역량의 생성, 제한, 매개에 어떻게 달라지는지 정리한다. 정량 수치(점수/비율/효과크기)가 초록·본문 요약에 포함되지 않는다.</p>
+<p>요약불가</p>
+  <p class="url"><a href="https://doi.org/10.1080/01495933.2026.2702077">https://doi.org/10.1080/01495933.2026.2702077</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Fade to Gray: From Black-Box to AI-Antagonistic Audits (2026.7.22)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://doi.org/10.1145/3780103">https://doi.org/10.1145/3780103</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>정부 ‘조직 개편’ 팩트시트(2026.07.22)</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">영국 정부(gov.uk)</span> · <span class="deadline">시행/발행: 2026.07.22</span></div>
+  <p>총리의 주도로 정부 조직과 기능을 재배치해 더 전략적이고 지역 권한을 강화하는 ‘정부 엔진룸’을 구축한다는 내용이다. No.10 North를 신설해 권한이전(지역 경제 성장·devolution 전략, 지역 경제 성장 정책 등)을 통해 지방 권한과 경제정책을 연계하고, 정부의 AI 전략을 포함한 핵심 기능은 Office for the Prime Minister and the Cabinet(OPMC) 및 Cabinet Office로 옮긴다. 또한 OneGov Delivery Agency를 Cabinet Office 산하에 신설하고, Office for Equality and Opportunity, 온라인 안전·디지털 정책 관련 기능, Public Sector Fraud Authority 등 일부 기능은 다른 부처로 이전하며, Department for Business and Trade는 DBIST로 개편된다.</p>
+  <p class="url"><a href="https://gov.uk/government/news/machinery-of-government-changes-fact-sheet">https://gov.uk/government/news/machinery-of-government-changes-fact-sheet</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Generative AI Risk Governance in Organizational Information Systems: A Conceptual Model Integrating Security, Ethics, and Digital Trust (2026.7.22)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span></div>
+  <p>조직의 정보시스템에서 Generative AI를 안전하고 신뢰할 수 있게 도입하기 위한 위험 거버넌스의 개념적 구조를 제시한다. AI governance readiness, information security control, ethical AI awareness, user digital trust, AI adoption effectiveness 간의 관계를 integrative literature review로 도출하고 thematic synthesis로 개념 도메인과 연구 명제를 정리했다. 핵심적으로 AI governance readiness가 information security control과 ethical AI awareness를 강화하고, 이 두 메커니즘이 user digital trust를 높여 조직 내 Generative AI adoption effectiveness로 이어지는 연쇄 경로를 제안한다.</p>
+  <p class="url"><a href="https://journal.admi.or.id/index.php/IJST/article/download/2876/2806">https://journal.admi.or.id/index.php/IJST/article/download/2876/2806</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>(How our new Control Red Team is stress-testing frontier monitors) (2026.07.24)</h2>
+  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></div>
+  <p>AISI는 자율적인 LLM 에이전트가 위해를 낳을 기회가 늘어남에 따라, 에이전트의 행동을 검토해 위험 시 플래그하는 ‘control monitor’를 대상으로 Red Team(통제/공격팀)을 운영해 취약점을 스트레스 테스트하고 있다고 밝혔다. 2년 이상 Misuse Red Team이 인간이 모델을 악용하도록 유도하는 보호장치를 깨보는 방식으로 검증해 왔으며, 이제는 에이전트가 스스로 취하는 harmful actions를 다루는 Control Red Team을 새로 구성해 비동기/동기 내부 모니터 등에서 프롬프트 누락, LLM 자체의 허점, 모니터로 전달되지 않는 행동 회피 같은 실패 모드를 찾아내 개선에 활용하고 있다. 또한 진화적 탐색으로 150k 쿼리 규모의 공격 transcript를 자동 생성해 monitor suspicion score를 낮추는 성과를 소개하고, 향후 실제 공격자에 대한 현실성 반영, 전체 안전성(효과) 추정, 모니터 불일치(misalignment) 대응 등 추가 연구과제를 제시했다. 마지막으로 frontier AI 개발사 모니터에 대한 red-teaming 인력을 채용한다고 밝혔다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/blog/how-our-new-control-red-team-is-stress-testing-frontier-monitors">https://www.aisi.gov.uk/blog/how-our-new-control-red-team-is-stress-testing-frontier-monitors</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>국제 AI 평가(NAAIMES) 첫 best practice 가이드 문서 완료 및 평가 도구·오픈 질문 논의(2024.01.01)</h2>
+  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK 블로그</span> · <span class="deadline">NAAIMES는 2026년 2월 오픈 질문 관련 기존 글을 바탕으로, 2026 국제 ML 컨퍼런스(서울)에서 1차 best practice 가이드를 공유하고 이후 agentic capabilities 등 공통 이슈에 대한 추가 정렬을 예고했다.</span></div>
+  <p>본문 요약: AISI-UK는 국제 고급 AI 측정·평가·과학 네트워크(NAAIMES)가 2024년 설립된 이후 AI 평가 과학을 발전시키고, 전 세계 제3자 평가자 생태계를 지원하기 위한 첫 best practice guidance 문서의 완성을 알렸다. 이 문서에는 평가 목적 정의와 벤치마크 선택, 출력 생성·분석 과정의 comparability 확보, capability elicitation 반복, 평가 수행 및 결과 추적(로그·디버깅 팁 포함) 절차가 포함된다. 또한 AI agents 평가에서의 오픈 질문과 관련해 Singapore·Canada·INESIA(프랑스)의 투명성, 현실적 테스트 설계, 제한된 자원 하 우선순위 설정 등 주제를 확장해 논의하고 있다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/blog/international-evaluation-best-practice-and-open-questions-in-ai-measurement">https://www.aisi.gov.uk/blog/international-evaluation-best-practice-and-open-questions-in-ai-measurement</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>UK AISI·CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.07.16)</h2>
+  <div class="meta"><span class="badge cat-aisi">AISI</span> · <span class="source">영국 Artificial Intelligence Security Institute(UK AISI)·미국 Center for AI Standards and Innovation(CAISI)</span></div>
+  <p>Kimi K3가 ExploitBench(취약점 기반 익스플로잇 개발)와 “The Last Ones”(32단계 모의 기업망 공격) 평가에서 최신 frontier 수준 모델보다 전반적으로 낮은 성능을 보였다고 UK AISI/CAISI가 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2보다 높은 32%로 보고됐지만, arbitrary code execution(ACE)은 0/41로 가장 높은 성과 모델(평균 20/41)에 미치지 못했다. 또한 Kimi K3는 에이전트형 cyber exploit 개발을 돕는 것으로 나타났으나, 평가 중 사이버 exploit 개발 시도를 막지 못했다고 설명했다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/blog/preliminary-assessment-of-kimi-k3s-cyber-capabilities">https://www.aisi.gov.uk/blog/preliminary-assessment-of-kimi-k3s-cyber-capabilities</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>UK AISI/CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.7.23)</h2>
+  <div class="meta"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 국립표준기술연구소(NIST)</span></div>
+  <p>Kimi K3는 2026.7.16 공개, 오픈웨이트 릴리스 예정은 2026.7.27로 안내됨</p>
+<p>UK AISI와 CAISI가 Moonshot AI의 Kimi K3에 대해 예비 평가를 실시한 결과, ExploitBench와 ‘The Last Ones’(TLO) 사이버 레인지 임무에서 최신 frontier cyber-capable 모델 대비 유의미하게 낮은 성능을 보였다고 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2(32% vs 24%)에는 우위였지만, ACE(임의 코드 실행) 도달은 0/41로 대부분의 최고 성능 모델(평균 20/41)보다 크게 낮았다. TLO에서는 32단계 경로 중 평균 17단계까지 도달했으며, GLM-5.2는 평균 11단계, 최고 U.S. 모델은 평균 28.5단계를 기록했고, TLO 완주(100M token 제한)는 Kimi K3가 1/10으로 보고됐다.</p>
+  <p class="url"><a href="https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities">https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>US Senator Mark Warner Unveils AI Plan (2026.7.21)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.warner.senate.gov/newsroom/press-releases/warner-rolls-out-comprehensive-ai-legislative-agenda-focused-on-responsible-innovation-workers-and-national-security/">https://www.warner.senate.gov/newsroom/press-releases/warner-rolls-out-comprehensive-ai-legislative-agenda-focused-on-responsible-innovation-workers-and-national-security/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Kimi K3, Redis 서버를 0day로 27분 만에 exploit (기사·공고 게재일 2026.7.22)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">X(트위터) @Fried_rice</span></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://x.com/Fried_rice/status/2080059356322918777">https://x.com/Fried_rice/status/2080059356322918777</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Moonshot AI가 K3 모델 개발을 위해 Anthropic의 Fable을 distillation했다는 주장 (2026.7.22)</h2>
+  <div class="meta"><span class="badge cat-research">연구</span> · <span class="source">X(트위터) @mkratsios47 (Michael Kratsios)</span></div>
+  <p>본문은 Moonshot AI가 K3 개발을 위해 Anthropic의 Fable 모델을 distill했다는 정보를 제시한다고 밝힙니다. 또한 대규모 distillation을 수행하고 탐지를 피하기 위해 여러 접근 방법을 전환할 수 있는 내부 플랫폼을 만들었다는 주장과, GB300 장비를 갖춘 서버를 확보하고 태국에서 GB300에 접근해 학습에 활용했을 가능성을 언급합니다. 미국은 공정하고 자유로운 AI 개발을 지지하되, 미국의 독점 기술을 탈취하고 연구를 훼손하려는 대규모·은밀한 distillation은 용납될 수 없다고 강조합니다.</p>
+  <p class="url"><a href="https://x.com/mkratsios47/status/2079933645888880708">https://x.com/mkratsios47/status/2079933645888880708</a></p>
+</article>
+<footer>AI Safety pipeline · daily_digest_html</footer>
+</div>
+</body>
+</html>
