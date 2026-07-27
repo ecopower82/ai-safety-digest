@@ -24,7 +24,7 @@
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0; padding: 0;
+    margin: 0; padding: 0; overflow-x: hidden;
     background: var(--bg); color: var(--fg);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
     line-height: 1.65;
@@ -62,7 +62,10 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
-  .entry p { margin: 0 0 10px; font-size: 0.94rem; }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
   .entry p:last-child { margin-bottom: 0; }
   .unavailable { color: var(--muted); font-style: italic; }
   .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
