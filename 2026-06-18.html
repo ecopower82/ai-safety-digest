@@ -76,6 +76,7 @@
     overflow-wrap: anywhere; word-break: break-word;
   }
   .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
   .unavailable { color: var(--muted); font-style: italic; }
   .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
   .url a { color: var(--muted); text-decoration: none; }
@@ -95,38 +96,15 @@
   <div class="sub">2026-06-18 · 10/11건 요약</div>
   <div class="nav"><a href="index.html">← 전체 목록</a></div>
 </header>
-<article class="entry cat-research">
-  <h2>Quantifying and Auditing LLM Evaluation via Positive--Unlabeled Learning (2026.6.17)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Quantifying and Auditing LLM Evaluation via Positive--Unlabeled Learning (2026.6.17)
+<article class="entry cat-company">
+  <h2>Anthropic, 서울 사무소 개소와 한국 AI 생태계 전반 파트너십 발표 (2026.6.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="Anthropic, 서울 사무소 개소와 한국 AI 생태계 전반 파트너십 발표 (2026.6.17)
 
-LLM-as-a-judge 평가에서 나타나는 verbosity bias 같은 체계적 편향을, 재학습 없이 감사(auditing)·정량화하는 방법을 제안한다. 선택적 인간 supervision 하에서 “인간이 verified한 positive”와 “대부분 라벨이 없는 unlabelled 출력”을 임베딩 공간에서 고정해 Partial Optimal Transport 기반의 기하학적 프레임워크로 정렬한다. 실험에서는 human preferences와의 alignment이 개선되고 presentation bias에 대한 robustness가 증가하며, interpretable한 confidence estimates를 제공한다고 보고한다. 
+Anthropic은 서울 사무소를 개소하고 한국의 기업·스타트업·연구자들과 신규 파트너십을 발표했다. NAVER의 Claude Code 전사 도입, Nexon·LG CNS·Hanwha Solutions·Samsung SDS의 현장 적용 사례, Channel Corp의 고객 AI 플랫폼에 Claude 활용 등이 소개됐다. 또한 NAIRL(학계 컨소시엄)과 최대 60명의 NAIRL-affiliated 연구자에게 Claude 접근을 제공하고, Good Neighbors Korea에는 조직 운영 효율화를 위해 Claude를 배치한다고 밝혔다. 서울 사무소는 관련 인력을 채용 중이며, 2025년 9월 이후 진행된 Claude Meetups와 100명 이상이 참여한 Claude Build Day, Replit 등과의 Push to Prod 해커톤도 함께 언급됐다.
 
-요약불가
-
-https://arxiv.org/abs/2606.19057v1" onclick="copyEntry(this)">복사</button></div>
-  <p>LLM-as-a-judge 평가에서 나타나는 verbosity bias 같은 체계적 편향을, 재학습 없이 감사(auditing)·정량화하는 방법을 제안한다. 선택적 인간 supervision 하에서 “인간이 verified한 positive”와 “대부분 라벨이 없는 unlabelled 출력”을 임베딩 공간에서 고정해 Partial Optimal Transport 기반의 기하학적 프레임워크로 정렬한다. 실험에서는 human preferences와의 alignment이 개선되고 presentation bias에 대한 robustness가 증가하며, interpretable한 confidence estimates를 제공한다고 보고한다.</p>
-<p>요약불가</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.19057v1">https://arxiv.org/abs/2606.19057v1</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Beyond Safe Data: Pretraining-Stage Alignment with Regular Safety Reflection (2026.6.17)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Beyond Safe Data: Pretraining-Stage Alignment with Regular Safety Reflection (2026.6.17)
-
-프리트레이닝 단계에서 안전 정렬을 더 깊게 만들기 위해, 단순히 학습 데이터를 “안전하게” 만드는 것을 넘어 모델이 안전 관련 자기점검을 내재화하도록 돕는 방법을 제안한다. FineWeb-Edu로 1.7B 모델을 사전학습하면서, 프리트레이닝 코퍼스에 정기적으로 짧은 safety reflections를 삽입하는 Safety Reflection Pretraining을 적용해 안전 분류 정확도와 공격 성공률을 평가한다. 실험 결과 Safety Reflection Pretraining은 safety classification accuracy를 개선하고, inference-stage attacks와 finetuning attacks의 success rates를 크게 낮춘다. 통제된 합성 환경 MedSafetyWorld의 ablation에서는 data filtering과 rewriting 대비 safety Reflection Pretraining이 safe data에서 일반화된 unsafe behaviors에 대해 모델이 행동하는 것을 더 잘 막는 이점이 확인된다.
-
-https://arxiv.org/abs/2606.19168v1" onclick="copyEntry(this)">복사</button></div>
-  <p>프리트레이닝 단계에서 안전 정렬을 더 깊게 만들기 위해, 단순히 학습 데이터를 “안전하게” 만드는 것을 넘어 모델이 안전 관련 자기점검을 내재화하도록 돕는 방법을 제안한다. FineWeb-Edu로 1.7B 모델을 사전학습하면서, 프리트레이닝 코퍼스에 정기적으로 짧은 safety reflections를 삽입하는 Safety Reflection Pretraining을 적용해 안전 분류 정확도와 공격 성공률을 평가한다. 실험 결과 Safety Reflection Pretraining은 safety classification accuracy를 개선하고, inference-stage attacks와 finetuning attacks의 success rates를 크게 낮춘다. 통제된 합성 환경 MedSafetyWorld의 ablation에서는 data filtering과 rewriting 대비 safety Reflection Pretraining이 safe data에서 일반화된 unsafe behaviors에 대해 모델이 행동하는 것을 더 잘 막는 이점이 확인된다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.19168v1">https://arxiv.org/abs/2606.19168v1</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Detecting Hidden ML Training With Zero-Overhead Telemetry (2026.6.17)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Detecting Hidden ML Training With Zero-Overhead Telemetry (2026.6.17)
-
-이 연구는 GPU에서 실행 중인 학습(workload)을 model weights·데이터·하이퍼파라미터에 접근하지 않고도 NVML 기반 zero-overhead telemetry로 탐지 가능한지와, 개발자가 모니터링을 회피할 경우 성능이 얼마나 유지되는지 평가한다. 4세대 GPU 아키텍처에 걸친 9개 GPU 모델에서 5회 반복의 monitor-evader iteration 동안 20종 evasion strategy family를 테스트하고, content-agnostic 물리 신호만으로 학습 워크로드 분류기를 구성한다. 전체 코퍼스에서 학습 워크로드 식별 binary accuracy 98.2%를 달성했으며, 가장 어려운 unexpected workloads에 대해서는 adversarially disguised 조건에서도 정확도 43–87% 범위를 보였다.
-
-https://arxiv.org/abs/2606.19262v1" onclick="copyEntry(this)">복사</button></div>
-  <p>이 연구는 GPU에서 실행 중인 학습(workload)을 model weights·데이터·하이퍼파라미터에 접근하지 않고도 NVML 기반 zero-overhead telemetry로 탐지 가능한지와, 개발자가 모니터링을 회피할 경우 성능이 얼마나 유지되는지 평가한다. 4세대 GPU 아키텍처에 걸친 9개 GPU 모델에서 5회 반복의 monitor-evader iteration 동안 20종 evasion strategy family를 테스트하고, content-agnostic 물리 신호만으로 학습 워크로드 분류기를 구성한다. 전체 코퍼스에서 학습 워크로드 식별 binary accuracy 98.2%를 달성했으며, 가장 어려운 unexpected workloads에 대해서는 adversarially disguised 조건에서도 정확도 43–87% 범위를 보였다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.19262v1">https://arxiv.org/abs/2606.19262v1</a></p>
+https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem" onclick="copyEntry(this)">복사</button></div>
+  <p>Anthropic은 서울 사무소를 개소하고 한국의 기업·스타트업·연구자들과 신규 파트너십을 발표했다. NAVER의 Claude Code 전사 도입, Nexon·LG CNS·Hanwha Solutions·Samsung SDS의 현장 적용 사례, Channel Corp의 고객 AI 플랫폼에 Claude 활용 등이 소개됐다. 또한 NAIRL(학계 컨소시엄)과 최대 60명의 NAIRL-affiliated 연구자에게 Claude 접근을 제공하고, Good Neighbors Korea에는 조직 운영 효율화를 위해 Claude를 배치한다고 밝혔다. 서울 사무소는 관련 인력을 채용 중이며, 2025년 9월 이후 진행된 Claude Meetups와 100명 이상이 참여한 Claude Build Day, Replit 등과의 Push to Prod 해커톤도 함께 언급됐다.</p>
+  <p class="url"><a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem</a></p>
 </article>
 <article class="entry cat-intl">
   <h2>2026 State of the Digital Decade 보고서, 성과는 진전되었으나 2030 목표 달성을 위한 구조적 격차의 보완 촉구(기사 게재일 2026.6.17)</h2>
@@ -161,15 +139,48 @@ https://digital-strategy.ec.europa.eu/en/news/virtual-worlds-partnership-holds-i
   <p>2026년 6월 16일 가상세계·Web 4.0 의제 추진을 위한 Virtual Worlds Partnership의 첫 공식 회의가 열렸으며, 유럽 집행위원회와 Virtual Worlds Association 및 유럽 전역 이해관계자들이 참여했다. 회의에서는 Web 4.0 및 Virtual Worlds 관련 EU 전략 이행에서 파트너십의 역할, 향후 단계, 현재까지의 성과(작업그룹 구성과 포지션 페이퍼 준비), Horizon Europe 연계 콜 등 주요 의제를 논의했다. 또한 6개월 전 MOU 서명 이후 창립 18개 회원에서 80개 이상으로 확대되는 등 파트너십의 추진 상황과 향후 협력 방안도 공유했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/virtual-worlds-partnership-holds-its-first-official-meeting">https://digital-strategy.ec.europa.eu/en/news/virtual-worlds-partnership-holds-its-first-official-meeting</a></p>
 </article>
-<article class="entry cat-company">
-  <h2>Anthropic, 서울 사무소 개소와 한국 AI 생태계 전반 파트너십 발표 (2026.6.17)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="Anthropic, 서울 사무소 개소와 한국 AI 생태계 전반 파트너십 발표 (2026.6.17)
+<article class="entry cat-kr-gov">
+  <h2>디지털 대전환 메가트렌드 연구 총괄보고서 V: 2035 AI·디지털 대전환 메가트렌드 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 대전환 메가트렌드 연구 총괄보고서 V: 2035 AI·디지털 대전환 메가트렌드 (2025.12.31)
 
-Anthropic은 서울 사무소를 개소하고 한국의 기업·스타트업·연구자들과 신규 파트너십을 발표했다. NAVER의 Claude Code 전사 도입, Nexon·LG CNS·Hanwha Solutions·Samsung SDS의 현장 적용 사례, Channel Corp의 고객 AI 플랫폼에 Claude 활용 등이 소개됐다. 또한 NAIRL(학계 컨소시엄)과 최대 60명의 NAIRL-affiliated 연구자에게 Claude 접근을 제공하고, Good Neighbors Korea에는 조직 운영 효율화를 위해 Claude를 배치한다고 밝혔다. 서울 사무소는 관련 인력을 채용 중이며, 2025년 9월 이후 진행된 Claude Meetups와 100명 이상이 참여한 Claude Build Day, Replit 등과의 Push to Prod 해커톤도 함께 언급됐다.
+요약불가
 
-https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem" onclick="copyEntry(this)">복사</button></div>
-  <p>Anthropic은 서울 사무소를 개소하고 한국의 기업·스타트업·연구자들과 신규 파트너십을 발표했다. NAVER의 Claude Code 전사 도입, Nexon·LG CNS·Hanwha Solutions·Samsung SDS의 현장 적용 사례, Channel Corp의 고객 AI 플랫폼에 Claude 활용 등이 소개됐다. 또한 NAIRL(학계 컨소시엄)과 최대 60명의 NAIRL-affiliated 연구자에게 Claude 접근을 제공하고, Good Neighbors Korea에는 조직 운영 효율화를 위해 Claude를 배치한다고 밝혔다. 서울 사무소는 관련 인력을 채용 중이며, 2025년 9월 이후 진행된 Claude Meetups와 100명 이상이 참여한 Claude Build Day, Replit 등과의 Push to Prod 해커톤도 함께 언급됐다.</p>
-  <p class="url"><a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem</a></p>
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Quantifying and Auditing LLM Evaluation via Positive--Unlabeled Learning (2026.6.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Quantifying and Auditing LLM Evaluation via Positive--Unlabeled Learning (2026.6.17)
+
+LLM-as-a-judge 평가에서 나타나는 verbosity bias 같은 체계적 편향을, 재학습 없이 감사(auditing)·정량화하는 방법을 제안한다. 선택적 인간 supervision 하에서 “인간이 verified한 positive”와 “대부분 라벨이 없는 unlabelled 출력”을 임베딩 공간에서 고정해 Partial Optimal Transport 기반의 기하학적 프레임워크로 정렬한다. 실험에서는 human preferences와의 alignment이 개선되고 presentation bias에 대한 robustness가 증가하며, interpretable한 confidence estimates를 제공한다고 보고한다. 
+
+요약불가
+
+https://arxiv.org/abs/2606.19057v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM-as-a-judge 평가에서 나타나는 verbosity bias 같은 체계적 편향을, 재학습 없이 감사(auditing)·정량화하는 방법을 제안한다. 선택적 인간 supervision 하에서 “인간이 verified한 positive”와 “대부분 라벨이 없는 unlabelled 출력”을 임베딩 공간에서 고정해 Partial Optimal Transport 기반의 기하학적 프레임워크로 정렬한다. 실험에서는 human preferences와의 alignment이 개선되고 presentation bias에 대한 robustness가 증가하며, interpretable한 confidence estimates를 제공한다고 보고한다.</p>
+<p>요약불가</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.19057v1">https://arxiv.org/abs/2606.19057v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Beyond Safe Data: Pretraining-Stage Alignment with Regular Safety Reflection (2026.6.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Beyond Safe Data: Pretraining-Stage Alignment with Regular Safety Reflection (2026.6.17)
+
+프리트레이닝 단계에서 안전 정렬을 더 깊게 만들기 위해, 단순히 학습 데이터를 “안전하게” 만드는 것을 넘어 모델이 안전 관련 자기점검을 내재화하도록 돕는 방법을 제안한다. FineWeb-Edu로 1.7B 모델을 사전학습하면서, 프리트레이닝 코퍼스에 정기적으로 짧은 safety reflections를 삽입하는 Safety Reflection Pretraining을 적용해 안전 분류 정확도와 공격 성공률을 평가한다. 실험 결과 Safety Reflection Pretraining은 safety classification accuracy를 개선하고, inference-stage attacks와 finetuning attacks의 success rates를 크게 낮춘다. 통제된 합성 환경 MedSafetyWorld의 ablation에서는 data filtering과 rewriting 대비 safety Reflection Pretraining이 safe data에서 일반화된 unsafe behaviors에 대해 모델이 행동하는 것을 더 잘 막는 이점이 확인된다.
+
+https://arxiv.org/abs/2606.19168v1" onclick="copyEntry(this)">복사</button></div>
+  <p>프리트레이닝 단계에서 안전 정렬을 더 깊게 만들기 위해, 단순히 학습 데이터를 “안전하게” 만드는 것을 넘어 모델이 안전 관련 자기점검을 내재화하도록 돕는 방법을 제안한다. FineWeb-Edu로 1.7B 모델을 사전학습하면서, 프리트레이닝 코퍼스에 정기적으로 짧은 safety reflections를 삽입하는 Safety Reflection Pretraining을 적용해 안전 분류 정확도와 공격 성공률을 평가한다. 실험 결과 Safety Reflection Pretraining은 safety classification accuracy를 개선하고, inference-stage attacks와 finetuning attacks의 success rates를 크게 낮춘다. 통제된 합성 환경 MedSafetyWorld의 ablation에서는 data filtering과 rewriting 대비 safety Reflection Pretraining이 safe data에서 일반화된 unsafe behaviors에 대해 모델이 행동하는 것을 더 잘 막는 이점이 확인된다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.19168v1">https://arxiv.org/abs/2606.19168v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Detecting Hidden ML Training With Zero-Overhead Telemetry (2026.6.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Detecting Hidden ML Training With Zero-Overhead Telemetry (2026.6.17)
+
+이 연구는 GPU에서 실행 중인 학습(workload)을 model weights·데이터·하이퍼파라미터에 접근하지 않고도 NVML 기반 zero-overhead telemetry로 탐지 가능한지와, 개발자가 모니터링을 회피할 경우 성능이 얼마나 유지되는지 평가한다. 4세대 GPU 아키텍처에 걸친 9개 GPU 모델에서 5회 반복의 monitor-evader iteration 동안 20종 evasion strategy family를 테스트하고, content-agnostic 물리 신호만으로 학습 워크로드 분류기를 구성한다. 전체 코퍼스에서 학습 워크로드 식별 binary accuracy 98.2%를 달성했으며, 가장 어려운 unexpected workloads에 대해서는 adversarially disguised 조건에서도 정확도 43–87% 범위를 보였다.
+
+https://arxiv.org/abs/2606.19262v1" onclick="copyEntry(this)">복사</button></div>
+  <p>이 연구는 GPU에서 실행 중인 학습(workload)을 model weights·데이터·하이퍼파라미터에 접근하지 않고도 NVML 기반 zero-overhead telemetry로 탐지 가능한지와, 개발자가 모니터링을 회피할 경우 성능이 얼마나 유지되는지 평가한다. 4세대 GPU 아키텍처에 걸친 9개 GPU 모델에서 5회 반복의 monitor-evader iteration 동안 20종 evasion strategy family를 테스트하고, content-agnostic 물리 신호만으로 학습 워크로드 분류기를 구성한다. 전체 코퍼스에서 학습 워크로드 식별 binary accuracy 98.2%를 달성했으며, 가장 어려운 unexpected workloads에 대해서는 adversarially disguised 조건에서도 정확도 43–87% 범위를 보였다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.19262v1">https://arxiv.org/abs/2606.19262v1</a></p>
 </article>
 <article class="entry cat-research">
   <h2>미국, Anthropic Fable 모델 사용 제한 철회 촉구(2026.6.16)</h2>
@@ -180,16 +191,6 @@ https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem" on
 https://www.forbes.com/sites/the-wiretap/2026/06/16/anthropic-ban-misguided-cyber-experts-tell-white-house/" onclick="copyEntry(this)">복사</button></div>
   
   <p class="url"><a href="https://www.forbes.com/sites/the-wiretap/2026/06/16/anthropic-ban-misguided-cyber-experts-tell-white-house/">https://www.forbes.com/sites/the-wiretap/2026/06/16/anthropic-ban-misguided-cyber-experts-tell-white-house/</a></p>
-</article>
-<article class="entry cat-kr-gov">
-  <h2>디지털 대전환 메가트렌드 연구 총괄보고서 V: 2035 AI·디지털 대전환 메가트렌드 (2025.12.31)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 대전환 메가트렌드 연구 총괄보고서 V: 2035 AI·디지털 대전환 메가트렌드 (2025.12.31)
-
-요약불가
-
-https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776</a></p>
 </article>
 <article class="entry cat-research">
   <h2></h2>

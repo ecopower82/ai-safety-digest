@@ -76,6 +76,7 @@
     overflow-wrap: anywhere; word-break: break-word;
   }
   .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
   .unavailable { color: var(--muted); font-style: italic; }
   .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
   .url a { color: var(--muted); text-decoration: none; }
@@ -104,219 +105,6 @@ G7은 2026년 6월 17일 채택한 문서들을 바탕으로 AI의 신뢰성·�
 https://aisi.go.jp/activity/activity_information/260623/" onclick="copyEntry(this)">복사</button></div>
   <p>G7은 2026년 6월 17일 채택한 문서들을 바탕으로 AI의 신뢰성·안전성과 지속가능한 성장 등을 강조하며 관련 ‘주요 내용’을 발표했다. 또한 G7은 미성년자를 위한 더 안전한 디지털 환경을 위해 AI의 위험을 관리하고 대책의 필요성을 제시했다. 이와 함께 유럽집행위원회, OECD, 영국 AISI 등도 AI 관련 공모·AI 리터러시 프레임워크 공개·엔지니어링 가이드 공유 등 후속 활동을 알렸다.</p>
   <p class="url"><a href="https://aisi.go.jp/activity/activity_information/260623/">https://aisi.go.jp/activity/activity_information/260623/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>GLM-5.2, Artificial Analysis Intelligence Index v4.1에서 최고 오픈웨이트 성능(2026.6.16)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Artificial Analysis</span></span><button type="button" class="copy-btn" data-copy="GLM-5.2, Artificial Analysis Intelligence Index v4.1에서 최고 오픈웨이트 성능(2026.6.16)
-
-GLM-5.2는 지능(51점)과 비용 대비 지능에서 Pareto frontier에 위치하며, GLM-5.1(44점) 대비 과학적 추론 등 다수 평가에서 개선을 보였다고 밝혔다. GDPval-AA v2(1524점)에서 MiniMax-M3(1418), DeepSeek V4 Pro(max, 1328)를 앞서며 GPT-5.5(xhigh reasoning, 1514)와 유사한 수준이라고 설명했다. 다만 Intelligence Index 태스크당 출력 토큰이 43k로 늘어 토큰 효율은 다른 선도 오픈웨이트 대비 낮을 수 있다고 덧붙였다.
-
-https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index" onclick="copyEntry(this)">복사</button></div>
-  <p>GLM-5.2는 지능(51점)과 비용 대비 지능에서 Pareto frontier에 위치하며, GLM-5.1(44점) 대비 과학적 추론 등 다수 평가에서 개선을 보였다고 밝혔다. GDPval-AA v2(1524점)에서 MiniMax-M3(1418), DeepSeek V4 Pro(max, 1328)를 앞서며 GPT-5.5(xhigh reasoning, 1514)와 유사한 수준이라고 설명했다. 다만 Intelligence Index 태스크당 출력 토큰이 43k로 늘어 토큰 효율은 다른 선도 오픈웨이트 대비 낮을 수 있다고 덧붙였다.</p>
-  <p class="url"><a href="https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index">https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Counsel: A Meta-Evaluation Dataset for Agentic Tasks (2026.6.19)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Counsel: A Meta-Evaluation Dataset for Agentic Tasks (2026.6.19)
-
-에이전틱 에이전트의 multi-step 작업에서 LLMJ(LLM-as-a-judge) 평가가 얼마나 신뢰할 만한지 측정·교정하기 위한 메타-평가 데이터셋을 제안한다. Counsel은 tau-bench(고객 지원 에이전트)와 DA-Code(코딩 에이전트)에서 발생한 오류를 대상으로 open-weight LLMJ의 process-level critique를 수집하고, 이를 인간이 오류별로 “spot on”, “correct location but poor reasoning”, “should not have flagged”로 라벨링한 데이터다. 인간 메타-평가의 일치도는 Krippendorff&#x27;s alpha 0.78이고, 인간 정렬이 반영된 분류로 LLMJ를 보정·개선·학습하는 데 활용 가능하다. open-weight judge 비교에서는 더 유능한 judge 모델과 더 큰 reasoning effort가 인간 합의를 높여, 최강 judge는 오류 위치 location에서 약 88% agreement, reasoning에서 약 65% agreement를 보였다(spot on/ correct location but poor reasoning/ should not have flagged는 각각 인간이 오류 지점을 정확히 짚었음, 지점은 맞지만 추론이 부실함, 오류를 표시하면 안 됨을 의미).
-
-https://arxiv.org/abs/2606.21627" onclick="copyEntry(this)">복사</button></div>
-  <p>에이전틱 에이전트의 multi-step 작업에서 LLMJ(LLM-as-a-judge) 평가가 얼마나 신뢰할 만한지 측정·교정하기 위한 메타-평가 데이터셋을 제안한다. Counsel은 tau-bench(고객 지원 에이전트)와 DA-Code(코딩 에이전트)에서 발생한 오류를 대상으로 open-weight LLMJ의 process-level critique를 수집하고, 이를 인간이 오류별로 “spot on”, “correct location but poor reasoning”, “should not have flagged”로 라벨링한 데이터다. 인간 메타-평가의 일치도는 Krippendorff&#x27;s alpha 0.78이고, 인간 정렬이 반영된 분류로 LLMJ를 보정·개선·학습하는 데 활용 가능하다. open-weight judge 비교에서는 더 유능한 judge 모델과 더 큰 reasoning effort가 인간 합의를 높여, 최강 judge는 오류 위치 location에서 약 88% agreement, reasoning에서 약 65% agreement를 보였다(spot on/ correct location but poor reasoning/ should not have flagged는 각각 인간이 오류 지점을 정확히 짚었음, 지점은 맞지만 추론이 부실함, 오류를 표시하면 안 됨을 의미).</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.21627">https://arxiv.org/abs/2606.21627</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Toward Open Weight Models Without Risks: Separating Public and Private Capabilities in LLMs (**2026.6.19**)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Toward Open Weight Models Without Risks: Separating Public and Private Capabilities in LLMs (**2026.6.19**)
-
-오픈 웨이트 LLM을 공개하면서도 민감한 능력은 선택적으로만 활성화하는 방식을 제안한다. Tiered Language Models(TLMs)로, 동일한 공개 가중치 위에서 기본 공개 구성과 키(keyed) 기반 사적 구성의 계산 그래프가 달라지도록 하고, 비공개 능력은 비밀 키로 유도되는 파라미터 부분집합의 퍼뮤테이션으로 구현한다. 180M·650M TLM에서 keyed 구성은 새로운 언어 획득, instruction-following 능력, private factual knowledge 기억을 보이며 public 구성에서는 이러한 능력이 나타나지 않는다. 또한 계층적(multiple hierarchical tiers)으로 확장 가능하며, 권한 부여가 입력 공간이 아니라 가중치 구조에 작동해 fine-tuning-based extraction 및 부분 키(compromise)에 대한 저항성을 보인다고 보고한다.
-
-https://arxiv.org/abs/2606.21638" onclick="copyEntry(this)">복사</button></div>
-  <p>오픈 웨이트 LLM을 공개하면서도 민감한 능력은 선택적으로만 활성화하는 방식을 제안한다. Tiered Language Models(TLMs)로, 동일한 공개 가중치 위에서 기본 공개 구성과 키(keyed) 기반 사적 구성의 계산 그래프가 달라지도록 하고, 비공개 능력은 비밀 키로 유도되는 파라미터 부분집합의 퍼뮤테이션으로 구현한다. 180M·650M TLM에서 keyed 구성은 새로운 언어 획득, instruction-following 능력, private factual knowledge 기억을 보이며 public 구성에서는 이러한 능력이 나타나지 않는다. 또한 계층적(multiple hierarchical tiers)으로 확장 가능하며, 권한 부여가 입력 공간이 아니라 가중치 구조에 작동해 fine-tuning-based extraction 및 부분 키(compromise)에 대한 저항성을 보인다고 보고한다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.21638">https://arxiv.org/abs/2606.21638</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Capable but Careless: Do Computer-Use Agents Follow Contextual Integrity? (2026.6.22)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Capable but Careless: Do Computer-Use Agents Follow Contextual Integrity? (2026.6.22)
-
-개인 메일·일정·할 일 앱 등에서 컴퓨터를 사용하는 에이전트가 한 앱(맥락)에서 일을 하면서 다른 맥락의 개인 정보를 부적절하게 끌어오는 문제를 평가한다는 연구다. AgentCIBench라는 평가 하네스를 만들어 visual co-location(화면 인접 금지 항목 포함), task-ambiguity overshare(모호한 지시로 과도한 개인 상태 노출), recipient misalignment(부적절한 수신자에게 전달) 3가지 실패 모드를 결정적으로 채점되는 시나리오로 구성해 15개 frontier agent를 시험한다. 15개 중 11개가 시나리오의 50% 이상에서 정보가 새며(&gt;50% leak), 평균 leakage 67.9%로 보고되고, 환경에서 end-to-end로 실제 작업을 수행하는 조건에서도 동일한 실패가 지속됐다.
-
-https://arxiv.org/abs/2606.23189" onclick="copyEntry(this)">복사</button></div>
-  <p>개인 메일·일정·할 일 앱 등에서 컴퓨터를 사용하는 에이전트가 한 앱(맥락)에서 일을 하면서 다른 맥락의 개인 정보를 부적절하게 끌어오는 문제를 평가한다는 연구다. AgentCIBench라는 평가 하네스를 만들어 visual co-location(화면 인접 금지 항목 포함), task-ambiguity overshare(모호한 지시로 과도한 개인 상태 노출), recipient misalignment(부적절한 수신자에게 전달) 3가지 실패 모드를 결정적으로 채점되는 시나리오로 구성해 15개 frontier agent를 시험한다. 15개 중 11개가 시나리오의 50% 이상에서 정보가 새며(&gt;50% leak), 평균 leakage 67.9%로 보고되고, 환경에서 end-to-end로 실제 작업을 수행하는 조건에서도 동일한 실패가 지속됐다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.23189">https://arxiv.org/abs/2606.23189</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>TROPT: An Open Framework for Unifying and Advancing Discrete Text Optimization (2026.6.22)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="TROPT: An Open Framework for Unifying and Advancing Discrete Text Optimization (2026.6.22)
-
-이 연구는 이산 텍스트 최적화(모델에 입력되는 텍스트를 찾아 특정 목적을 유도)를 더 쉽게 재현·비교·확장하려는 오픈 프레임워크 TROPT를 제안한다. TROPT는 단일 인터페이스 아래에서 모델, objective, optimizer를 모듈처럼 교체 가능한 구조로, 기존에 흩어진 코드베이스와 변형들로 인한 채택·비교의 어려움을 겨냥한다. 프레임워크는 15+ optimizers(white-box~black-box 접근 포함)와 15+ losses를 기반으로 30+ optimization recipes(예: jailbreaking, 모델 내부 probing)를 제공하며, 이를 활용해 (i) LLM jailbreaks에 대한 대규모 제어 실험으로 최적화 전략을 비교·개선하고 (ii) 한 도메인의 optimizer를 corpus-poisoning embedding model로 포팅하는 사례를 보인다.
-
-https://arxiv.org/abs/2606.23496" onclick="copyEntry(this)">복사</button></div>
-  <p>이 연구는 이산 텍스트 최적화(모델에 입력되는 텍스트를 찾아 특정 목적을 유도)를 더 쉽게 재현·비교·확장하려는 오픈 프레임워크 TROPT를 제안한다. TROPT는 단일 인터페이스 아래에서 모델, objective, optimizer를 모듈처럼 교체 가능한 구조로, 기존에 흩어진 코드베이스와 변형들로 인한 채택·비교의 어려움을 겨냥한다. 프레임워크는 15+ optimizers(white-box~black-box 접근 포함)와 15+ losses를 기반으로 30+ optimization recipes(예: jailbreaking, 모델 내부 probing)를 제공하며, 이를 활용해 (i) LLM jailbreaks에 대한 대규모 제어 실험으로 최적화 전략을 비교·개선하고 (ii) 한 도메인의 optimizer를 corpus-poisoning embedding model로 포팅하는 사례를 보인다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.23496">https://arxiv.org/abs/2606.23496</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Co-occurring associated retained concepts in Diffusion Unlearning (**2026.6.23**)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Co-occurring associated retained concepts in Diffusion Unlearning (**2026.6.23**)
-
-확산(difussion) 모델의 harmful 개념을 unlearning할 때, 함께 나타나는 benign 개념까지 같이 약화되는 문제를 정의하고 측정하는 연구다. 표적 개념을 지우는 과정에서 person 같은 co-occurring 개념이 의도치 않게 억제되는 현상을 CARE(Co-occurring Associated REtained concepts)로 규정하고, 이를 정량화하는 CARE score를 제시한다. 또한 CARE를 명시적으로 보존하면서 표적 개념만 erasure하는 ReCARE(Robust erasure for CARE) 프레임워크를 제안하며, target concepts(Nudity, Van Gogh style, Tench object) 전반에서 robust concept erasure·overall utility·CARE preservation 간 균형을 종합적으로 state-of-the-art 수준으로 달성했다고 보고한다.
-
-https://arxiv.org/abs/2606.24192v1" onclick="copyEntry(this)">복사</button></div>
-  <p>확산(difussion) 모델의 harmful 개념을 unlearning할 때, 함께 나타나는 benign 개념까지 같이 약화되는 문제를 정의하고 측정하는 연구다. 표적 개념을 지우는 과정에서 person 같은 co-occurring 개념이 의도치 않게 억제되는 현상을 CARE(Co-occurring Associated REtained concepts)로 규정하고, 이를 정량화하는 CARE score를 제시한다. 또한 CARE를 명시적으로 보존하면서 표적 개념만 erasure하는 ReCARE(Robust erasure for CARE) 프레임워크를 제안하며, target concepts(Nudity, Van Gogh style, Tench object) 전반에서 robust concept erasure·overall utility·CARE preservation 간 균형을 종합적으로 state-of-the-art 수준으로 달성했다고 보고한다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.24192v1">https://arxiv.org/abs/2606.24192v1</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>On the Stability of Prompt Ranking in Large Language Model Evaluation (2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="On the Stability of Prompt Ranking in Large Language Model Evaluation (2026.6.23)
-
-LLM 평가에서 여러 후보 prompt를 순위 매겨 상위 prompt를 선택하는 방식이, 평가 조건이 조금만 달라져도 같은 결정을 내린다는 가정을 얼마나 만족하는지 분석한다. 무작위 seed 변화와 제한된 평가 subset 같은 변동 요인 하에서 3개 open-weight LLM과 2개 벤치마크 과제를 대상으로 prompt 랭킹의 안정성을 측정하고, 상위 prompt 교체가 잦은지를 확인한다. 전체 rank correlation은 중간~높은 수준인 경우가 많지만 top-performing prompt의 신원은 자주 바뀌어 선택 결정이 불안정해지는 경향이 관찰되며, lower confidence bound 기반 stability-aware selection 전략은 unstable settings에서 더 견고해지면서 stable regime에서도 경쟁력 있는 성능을 보인다.
-
-https://arxiv.org/abs/2606.24381v1" onclick="copyEntry(this)">복사</button></div>
-  <p>LLM 평가에서 여러 후보 prompt를 순위 매겨 상위 prompt를 선택하는 방식이, 평가 조건이 조금만 달라져도 같은 결정을 내린다는 가정을 얼마나 만족하는지 분석한다. 무작위 seed 변화와 제한된 평가 subset 같은 변동 요인 하에서 3개 open-weight LLM과 2개 벤치마크 과제를 대상으로 prompt 랭킹의 안정성을 측정하고, 상위 prompt 교체가 잦은지를 확인한다. 전체 rank correlation은 중간~높은 수준인 경우가 많지만 top-performing prompt의 신원은 자주 바뀌어 선택 결정이 불안정해지는 경향이 관찰되며, lower confidence bound 기반 stability-aware selection 전략은 unstable settings에서 더 견고해지면서 stable regime에서도 경쟁력 있는 성능을 보인다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.24381v1">https://arxiv.org/abs/2606.24381v1</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>PHANTOM: A Large-Scale Dataset of Multimodal Adversarial Attacks for Vision-Language Models (2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="PHANTOM: A Large-Scale Dataset of Multimodal Adversarial Attacks for Vision-Language Models (2026.6.23)
-
-비전-언어 모델(VLM)의 견고성·안전성 평가를 위해 대규모 사전 생성 multimodal adversarial attack 데이터셋을 제안한다. 데이터셋은 최근 문헌의 state-of-the-art attack 전략으로 생성된 47,524개 샘플로 구성되며, 10개 고수준 범주와 55개 하위 범주의 harmful intent를 포함하도록 설계됐다. 또한 기존 벤치마크들을 통합·확장해 총 7,826 intents 커버리지를 제공하고, 범위 확장을 위한 추가 범주도 도입해 평가 자원을 넓힌다.
-
-https://arxiv.org/abs/2606.24388v1" onclick="copyEntry(this)">복사</button></div>
-  <p>비전-언어 모델(VLM)의 견고성·안전성 평가를 위해 대규모 사전 생성 multimodal adversarial attack 데이터셋을 제안한다. 데이터셋은 최근 문헌의 state-of-the-art attack 전략으로 생성된 47,524개 샘플로 구성되며, 10개 고수준 범주와 55개 하위 범주의 harmful intent를 포함하도록 설계됐다. 또한 기존 벤치마크들을 통합·확장해 총 7,826 intents 커버리지를 제공하고, 범위 확장을 위한 추가 범주도 도입해 평가 자원을 넓힌다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.24388v1">https://arxiv.org/abs/2606.24388v1</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Poisoned Playbooks: Demystifying Knowledge Poisoning Effects on AI Security Agents (2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Poisoned Playbooks: Demystifying Knowledge Poisoning Effects on AI Security Agents (2026.6.23)
-
-Retrieval-Augmented Generation(RAG)을 쓰는 AI security agents가 외부 보안 지식을 행동으로 옮기는 과정에서 knowledge poisoning이 어떻게 오작동으로 연결되는지 설명한다. 공개형 보안 지식 소스에 Poisoned Playbooks 형태의 단일 crafted poisoned write-up을 주입하고, 11개 CTF, 3개 frontier LLM 계열, 2개 세대, 11개 real-world CVE에서 RAG 기반 행동 변화를 측정한다. poison adoption은 무작위가 아니라 체계적으로 나타났으며, 이를 위해 에이전트가 검색된 주장에 반박할 수 있는 증거의 종류를 기준으로 하는 Verification Boundary(VB) 3단 분류를 제안한다. verification prompting과 multi-source retrieval은 더 강한 evidence가 있을 때는 도움이 되지만, sparse-evidence 및 zero-day 조건에서는 효과가 약해졌다.
-
-https://arxiv.org/abs/2606.24402v1" onclick="copyEntry(this)">복사</button></div>
-  <p>Retrieval-Augmented Generation(RAG)을 쓰는 AI security agents가 외부 보안 지식을 행동으로 옮기는 과정에서 knowledge poisoning이 어떻게 오작동으로 연결되는지 설명한다. 공개형 보안 지식 소스에 Poisoned Playbooks 형태의 단일 crafted poisoned write-up을 주입하고, 11개 CTF, 3개 frontier LLM 계열, 2개 세대, 11개 real-world CVE에서 RAG 기반 행동 변화를 측정한다. poison adoption은 무작위가 아니라 체계적으로 나타났으며, 이를 위해 에이전트가 검색된 주장에 반박할 수 있는 증거의 종류를 기준으로 하는 Verification Boundary(VB) 3단 분류를 제안한다. verification prompting과 multi-source retrieval은 더 강한 evidence가 있을 때는 도움이 되지만, sparse-evidence 및 zero-day 조건에서는 효과가 약해졌다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.24402v1">https://arxiv.org/abs/2606.24402v1</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Red-Teaming the Agentic Red-Team (2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Red-Teaming the Agentic Red-Team (2026.6.23)
-
-이 연구는 agentic offensive-security 도구들의 보안이 실제 공격자 관점에서 어떻게 취약한지 분석해, 시스템 설계 단계의 위험 경로를 드러낸다. 문제 정의와 함께 LLM 조작에서 시작해 lateral movement, persistence, guardrail bypass, sandbox escape로 이어지는 전체 cyber kill chain을 제안하고, 가장 널리 쓰이는 agentic 시스템들에 대해 그 경로를 따라 취약 지점을 점검하는 방식으로 분석한다. 결과로는 이들 도구 다수가 공통된 설계 결함을 공유해 sandboxed container 안에서도 API key exfiltration, 지속적 foothold 확보, operator machine의 완전한 compromise가 가능함을 보인다고 한다. 또한 해당 분석을 바탕으로 공격 경로를 건축(architectural) 수준에서 완화하기 위한 견고한 아키텍처와 설계 원칙을 제시한다.
-
-https://arxiv.org/abs/2606.24496v1" onclick="copyEntry(this)">복사</button></div>
-  <p>이 연구는 agentic offensive-security 도구들의 보안이 실제 공격자 관점에서 어떻게 취약한지 분석해, 시스템 설계 단계의 위험 경로를 드러낸다. 문제 정의와 함께 LLM 조작에서 시작해 lateral movement, persistence, guardrail bypass, sandbox escape로 이어지는 전체 cyber kill chain을 제안하고, 가장 널리 쓰이는 agentic 시스템들에 대해 그 경로를 따라 취약 지점을 점검하는 방식으로 분석한다. 결과로는 이들 도구 다수가 공통된 설계 결함을 공유해 sandboxed container 안에서도 API key exfiltration, 지속적 foothold 확보, operator machine의 완전한 compromise가 가능함을 보인다고 한다. 또한 해당 분석을 바탕으로 공격 경로를 건축(architectural) 수준에서 완화하기 위한 견고한 아키텍처와 설계 원칙을 제시한다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.24496v1">https://arxiv.org/abs/2606.24496v1</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>LLMs Prompted for Legal Context Object More: Overrefusal from Small On-Premises LLMs in Criminal Legal Context (2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="LLMs Prompted for Legal Context Object More: Overrefusal from Small On-Premises LLMs in Criminal Legal Context (2026.6.23)
-
-로컬로 쓰이는 작은 LLM이 법률 관련 프롬프트에서 과도한 refusal을 보이는지와, 문맥을 어떻게 제시하느냐가 그 편향을 어떻게 키우는지를 분석한다. 여러 온디바이스용 소형 LLM에 대해 법률/형사 법맥락 프롬프트에 authority-style prefix(예: “you are acting as an assistant of the national supreme court”, “[...] defense lawyer”)를 넣고 refusal 변화를 no-prefix 기준과 비교하는 방식으로 평가했다. authority-style prefix는 no-prefix baseline 대비 refusal rate를 2–20x 증가시켰고, 역할-놀이 jailbreak로 알려진 prefix는 모델마다 효과가 달라 어떤 모델에서는 refusal을 크게 올리지만 다른 모델에서는 거의 변화가 없었다; 여기서 refusal은 요청을 거절하는 출력, unclear는 판정이 어려운 비결정 응답을 뜻한다. 마지막으로 refusal 안정성이 낮아, authority-style 프리픽스 조건에서 전반적으로 더 높은 refusal이 관측되었다.
-
-https://arxiv.org/abs/2606.24585v1" onclick="copyEntry(this)">복사</button></div>
-  <p>로컬로 쓰이는 작은 LLM이 법률 관련 프롬프트에서 과도한 refusal을 보이는지와, 문맥을 어떻게 제시하느냐가 그 편향을 어떻게 키우는지를 분석한다. 여러 온디바이스용 소형 LLM에 대해 법률/형사 법맥락 프롬프트에 authority-style prefix(예: “you are acting as an assistant of the national supreme court”, “[...] defense lawyer”)를 넣고 refusal 변화를 no-prefix 기준과 비교하는 방식으로 평가했다. authority-style prefix는 no-prefix baseline 대비 refusal rate를 2–20x 증가시켰고, 역할-놀이 jailbreak로 알려진 prefix는 모델마다 효과가 달라 어떤 모델에서는 refusal을 크게 올리지만 다른 모델에서는 거의 변화가 없었다; 여기서 refusal은 요청을 거절하는 출력, unclear는 판정이 어려운 비결정 응답을 뜻한다. 마지막으로 refusal 안정성이 낮아, authority-style 프리픽스 조건에서 전반적으로 더 높은 refusal이 관측되었다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.24585v1">https://arxiv.org/abs/2606.24585v1</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>AdversaBench: Automated LLM Red-Teaming with Multi-Judge Confirmation and Cross-Model Transferability (2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="AdversaBench: Automated LLM Red-Teaming with Multi-Judge Confirmation and Cross-Model Transferability (2026.6.23)
-
-AdversaBench는 LLM의 실패를 자동으로 만들어 검증까지 수행하는 red-teaming 평가 파이프라인을 제시해, adversarial evaluation의 재현성과 신뢰성을 높이려는 연구다. 5개의 structured prompt mutation operator로 45개 seed를 reasoning, instruction-following, tool use 3개 범주로 변형하고, 대상 모델을 질의한 뒤 3명의 judge 패널과 meta-judge tiebreaker로 confirmed failure를 판정했다. 모든 seed에서 confirmed failure가 생성됐고, inject_distractor는 instruction-following에서 mean reward 0.00인 반면 reasoning과 tool-use에서는 0.80-0.83으로 높았다. 또한 instruction-following seeds는 평균 2.4번 attacker iteration이 필요해 다른 범주(1.1)보다 높았고, Llama 3.1 8B에 대해 만든 adversarial prompt가 Llama 3.3 70B로 zero-shot transfer 시에도 실패를 유발했다(confirmed failure 발생).
-
-https://arxiv.org/abs/2606.24589v1" onclick="copyEntry(this)">복사</button></div>
-  <p>AdversaBench는 LLM의 실패를 자동으로 만들어 검증까지 수행하는 red-teaming 평가 파이프라인을 제시해, adversarial evaluation의 재현성과 신뢰성을 높이려는 연구다. 5개의 structured prompt mutation operator로 45개 seed를 reasoning, instruction-following, tool use 3개 범주로 변형하고, 대상 모델을 질의한 뒤 3명의 judge 패널과 meta-judge tiebreaker로 confirmed failure를 판정했다. 모든 seed에서 confirmed failure가 생성됐고, inject_distractor는 instruction-following에서 mean reward 0.00인 반면 reasoning과 tool-use에서는 0.80-0.83으로 높았다. 또한 instruction-following seeds는 평균 2.4번 attacker iteration이 필요해 다른 범주(1.1)보다 높았고, Llama 3.1 8B에 대해 만든 adversarial prompt가 Llama 3.3 70B로 zero-shot transfer 시에도 실패를 유발했다(confirmed failure 발생).</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.24589v1">https://arxiv.org/abs/2606.24589v1</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>To Compare, or Not to Compare: On Methodological Practices in Evaluating Social Bias (2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="To Compare, or Not to Compare: On Methodological Practices in Evaluating Social Bias (2026.6.23)
-
-모델의 사회적 편향 평가에서 측정 결과가 서로 충돌하는 이유를 벤치마크 구조(단독 평가 vs 비교 강제 선택) 차이로 정리한다는 연구다. 다양한 벤치마크를 단일하고 통제 가능한 프레임워크로 표준화해, 단독 인구집단 평가와 forced-choice 비교 설정을 체계적으로 대비하고 Chain-of-Thought(CoT), neutral fallback 옵션, 무작위 응답 주장 같은 구조적 요인의 교란을 분리한다. 여러 모델 패밀리에 대한 평가에서 “단독 평가는 prejudice activation을 제한”하는 반면 “비교 설정은 잠재적 discrimination을 공격적으로 촉진”하며, 이 패러다임 격차는 underspecified contexts에서 주로 나타난다. 또한 CoT는 비교 설정에서 사회적 편향을 악화시키고, neutral fallback 옵션 제공 및 무작위로 답한다고 주장하는 경우에도 결정론적 prejudice가 지속되며, 이 비교 편향 현상은 모델 크기가 커질수록 양(+)의 상관으로 스케일링한다.
-
-https://arxiv.org/abs/2606.24596v1" onclick="copyEntry(this)">복사</button></div>
-  <p>모델의 사회적 편향 평가에서 측정 결과가 서로 충돌하는 이유를 벤치마크 구조(단독 평가 vs 비교 강제 선택) 차이로 정리한다는 연구다. 다양한 벤치마크를 단일하고 통제 가능한 프레임워크로 표준화해, 단독 인구집단 평가와 forced-choice 비교 설정을 체계적으로 대비하고 Chain-of-Thought(CoT), neutral fallback 옵션, 무작위 응답 주장 같은 구조적 요인의 교란을 분리한다. 여러 모델 패밀리에 대한 평가에서 “단독 평가는 prejudice activation을 제한”하는 반면 “비교 설정은 잠재적 discrimination을 공격적으로 촉진”하며, 이 패러다임 격차는 underspecified contexts에서 주로 나타난다. 또한 CoT는 비교 설정에서 사회적 편향을 악화시키고, neutral fallback 옵션 제공 및 무작위로 답한다고 주장하는 경우에도 결정론적 prejudice가 지속되며, 이 비교 편향 현상은 모델 크기가 커질수록 양(+)의 상관으로 스케일링한다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2606.24596v1">https://arxiv.org/abs/2606.24596v1</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>Apply AI Startup Award 공모…선정 스타트업은 2026.11.17 Apply AI Summit에서 발표·시상 (2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EC) 디지털 전략</span> · <span class="deadline">마감일·시행일: 공모(지명 기업) 신청 2026.7.1~2026.7.22, 시상식 2026.11.17</span></span><button type="button" class="copy-btn" data-copy="Apply AI Startup Award 공모…선정 스타트업은 2026.11.17 Apply AI Summit에서 발표·시상 (2026.6.23)
-
-유럽연합 집행위원회 AI Office는 AI-BOOST 프로젝트와 함께 Apply AI 전략의 12개 분야(헬스케어·모빌리티·로보틱스·제조·기후·에너지·농식품·국방·전자통신·공공부문 등)에서 혁신적인 AI 솔루션을 개발하는 유럽의 스타트업·스케일업을 대상으로 ‘Apply AI Startup Award’를 신설했다. 선정된 3개 기업은 2026년 11월 17일 Apply AI Summit 주요 무대에서 피칭과 함께 트로피 및 인증서를 받으며, EC의 웹사이트·소셜미디어 등을 통해 홍보되고 최대 2명의 브뤼셀 출장 비용(주최 측 환급 규정에 따름) 지원도 받을 예정이다. 지명은 회원국별 최대 3개 기업을 국가 스타트업 협회가 추천하고, 7월 신청 접수 후 8~9월 사전심사·평가로 Top 10을 추린 뒤 10월 온라인 피칭을 거쳐 Top 3 우승자를 선정한다.
-
-https://digital-strategy.ec.europa.eu/en/news/apply-ai-startup-award" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽연합 집행위원회 AI Office는 AI-BOOST 프로젝트와 함께 Apply AI 전략의 12개 분야(헬스케어·모빌리티·로보틱스·제조·기후·에너지·농식품·국방·전자통신·공공부문 등)에서 혁신적인 AI 솔루션을 개발하는 유럽의 스타트업·스케일업을 대상으로 ‘Apply AI Startup Award’를 신설했다. 선정된 3개 기업은 2026년 11월 17일 Apply AI Summit 주요 무대에서 피칭과 함께 트로피 및 인증서를 받으며, EC의 웹사이트·소셜미디어 등을 통해 홍보되고 최대 2명의 브뤼셀 출장 비용(주최 측 환급 규정에 따름) 지원도 받을 예정이다. 지명은 회원국별 최대 3개 기업을 국가 스타트업 협회가 추천하고, 7월 신청 접수 후 8~9월 사전심사·평가로 Top 10을 추린 뒤 10월 온라인 피칭을 거쳐 Top 3 우승자를 선정한다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/apply-ai-startup-award">https://digital-strategy.ec.europa.eu/en/news/apply-ai-startup-award</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>유럽 집행위, EU 도시 대상 자율주행 도입 이니셔티브 ‘ADACities’ 출범(기사·공고 게재일: 2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy(European Commission Digital Strategy)</span> · <span class="deadline">2026년 6월 25일(10:00–13:00 CET) 온라인 정보세션 진행</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, EU 도시 대상 자율주행 도입 이니셔티브 ‘ADACities’ 출범(기사·공고 게재일: 2026.6.23)
-
-유럽 집행위원회는 EU 전역 도시에서 자율주행을 도입·확산하기 위한 ‘Autonomous Drive Ambition Cities(ADACities)’ 이니셔티브를 출범했다. 브뤼셀에서 열린 ECAVA 첫 국제포럼에서 집행부위원장 Virkkunen이 출범을 발표했으며, 참여 도시는 robo-taxi·카셰어링·자율 셔틀 등 자율 모빌리티 혁신을 실증할 수 있다. 2030년까지 참여 도시는 자율주행 차량 100대 이상 규모의 차량대를 목표로 하며, 자율주행 기술의 도시는 도로 안전·대기질·교통 효율 및 AI 기반 네트워크 최적화에 기여할 것으로 제시됐다. 이 사업은 EU Technological Sovereignty Package 및 국경 간 자동화 차량 실증 테스트베드 조성 관련 공동 의지 선언과 연계되며, 6월 25일 온라인 정보세션과 참여(의향서) 관련 자료를 안내한다.
-
-https://digital-strategy.ec.europa.eu/en/news/autonomous-drive-ambition-cities-adacities-initiative-bring-autonomous-driving-technology-cities" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위원회는 EU 전역 도시에서 자율주행을 도입·확산하기 위한 ‘Autonomous Drive Ambition Cities(ADACities)’ 이니셔티브를 출범했다. 브뤼셀에서 열린 ECAVA 첫 국제포럼에서 집행부위원장 Virkkunen이 출범을 발표했으며, 참여 도시는 robo-taxi·카셰어링·자율 셔틀 등 자율 모빌리티 혁신을 실증할 수 있다. 2030년까지 참여 도시는 자율주행 차량 100대 이상 규모의 차량대를 목표로 하며, 자율주행 기술의 도시는 도로 안전·대기질·교통 효율 및 AI 기반 네트워크 최적화에 기여할 것으로 제시됐다. 이 사업은 EU Technological Sovereignty Package 및 국경 간 자동화 차량 실증 테스트베드 조성 관련 공동 의지 선언과 연계되며, 6월 25일 온라인 정보세션과 참여(의향서) 관련 자료를 안내한다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/autonomous-drive-ambition-cities-adacities-initiative-bring-autonomous-driving-technology-cities">https://digital-strategy.ec.europa.eu/en/news/autonomous-drive-ambition-cities-adacities-initiative-bring-autonomous-driving-technology-cities</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>Commission approves €76 million German State aid for first-of-a-kind semiconductor testing equipment facility (2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="Commission approves €76 million German State aid for first-of-a-kind semiconductor testing equipment facility (2026.6.23)
-
-요약불가
-
-https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu76-million-german-state-aid-first-kind-semiconductor-testing-equipment" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu76-million-german-state-aid-first-kind-semiconductor-testing-equipment">https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu76-million-german-state-aid-first-kind-semiconductor-testing-equipment</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>유럽집행위, 발트·지중해에 첫 Regional Cable Hubs 구축(2026.6.23) 및 해저케이블 수리 역량 확대를 위한 4,000만 유로 공모(2026.6.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽집행위, 발트·지중해에 첫 Regional Cable Hubs 구축(2026.6.23) 및 해저케이블 수리 역량 확대를 위한 4,000만 유로 공모(2026.6.23)
-
-유럽 집행위는 발트해·지중해에 첫 Regional Cable Hubs 2곳을 만들기 위해 580만 유로를 지원하고, 해저 통신 케이블 수리 역량을 늘리기 위한 4,000만 유로 규모의 공모를 23일 발표했다. 이번 조치는 EU Action Plan on Cable Security 이행의 일환으로, 유럽의 중요 해저 데이터·에너지 케이블의 보안과 회복력을 강화하고 위협을 감시·탐지·대응하는 공동 역량을 높이기 위한 것이다. 유럽집행위는 회원국 간 협력 강화를 통해 새로운 보안 환경에 대응하겠다는 취지라고 밝혔다.
-
-https://digital-strategy.ec.europa.eu/en/news/commission-funds-first-regional-cable-hubs-and-launches-eu40-million-call-cable-repair-capacity" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위는 발트해·지중해에 첫 Regional Cable Hubs 2곳을 만들기 위해 580만 유로를 지원하고, 해저 통신 케이블 수리 역량을 늘리기 위한 4,000만 유로 규모의 공모를 23일 발표했다. 이번 조치는 EU Action Plan on Cable Security 이행의 일환으로, 유럽의 중요 해저 데이터·에너지 케이블의 보안과 회복력을 강화하고 위협을 감시·탐지·대응하는 공동 역량을 높이기 위한 것이다. 유럽집행위는 회원국 간 협력 강화를 통해 새로운 보안 환경에 대응하겠다는 취지라고 밝혔다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-funds-first-regional-cable-hubs-and-launches-eu40-million-call-cable-repair-capacity">https://digital-strategy.ec.europa.eu/en/news/commission-funds-first-regional-cable-hubs-and-launches-eu40-million-call-cable-repair-capacity</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Artificial Intelligence and Human Security (**게재일(2026.6.22)**)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Artificial Intelligence and Human Security (**게재일(2026.6.22)**)
-
-AI를 human security 관점에서 보며, 이득과 위험을 함께 분석한다. neural networks와 machine learning이 bias, surveillance, labor displacement를 통해 취약성을 확대할 수 있는 경로를 비판적으로 다룬다. 또한 health·environment·economy·political stability에 대한 영향과 함께, AI 거버넌스에서 governments의 대응이 뒤처져 robust regulation, transparency, ethical standards가 필요하다는 주장으로 정리한다.
-
-https://doi.org/10.1093/9780197823965.003.0038" onclick="copyEntry(this)">복사</button></div>
-  <p>AI를 human security 관점에서 보며, 이득과 위험을 함께 분석한다. neural networks와 machine learning이 bias, surveillance, labor displacement를 통해 취약성을 확대할 수 있는 경로를 비판적으로 다룬다. 또한 health·environment·economy·political stability에 대한 영향과 함께, AI 거버넌스에서 governments의 대응이 뒤처져 robust regulation, transparency, ethical standards가 필요하다는 주장으로 정리한다.</p>
-  <p class="url"><a href="https://doi.org/10.1093/9780197823965.003.0038">https://doi.org/10.1093/9780197823965.003.0038</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>How AI integrators translate AI regulation into innovation: a qualitative study (2026.6.22)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="How AI integrators translate AI regulation into innovation: a qualitative study (2026.6.22)
-
-EU AI Act의 초기 집행 국면에서 AI integrator 기업들이 규제를 혁신과 거버넌스로 어떻게 연결해 해석·대응하는지에 관한 질적 연구다. EU 시장에서 활동하는 AI integrator 7개 기업을 대상으로 제도이론과 동적역량이론을 결합한 탐색적 설계를 사용했으며, Gioia-inspired 접근으로 분석했다. 규제는 constraint이자 enabler로 동시에 인식되고, coercive·normative institutional pressures가 compliance를 넘어 sensing·seizing·transforming 역량을 작동시키며, regulatory uncertainty는 innovation을 방해하기보다 anticipatory compliance와 flexible AI governance 쪽으로 재형성되는 양상이 나타났다. 또한 firms 간 효과 차이는 governance maturity와 capability development 수준에 따라 달라 동적역량이 도전을 완화하고 compliance를 경쟁우위로 전환하는 조절 요인으로 나타났다.
-
-https://doi.org/10.1108/ejim-11-2025-1499" onclick="copyEntry(this)">복사</button></div>
-  <p>EU AI Act의 초기 집행 국면에서 AI integrator 기업들이 규제를 혁신과 거버넌스로 어떻게 연결해 해석·대응하는지에 관한 질적 연구다. EU 시장에서 활동하는 AI integrator 7개 기업을 대상으로 제도이론과 동적역량이론을 결합한 탐색적 설계를 사용했으며, Gioia-inspired 접근으로 분석했다. 규제는 constraint이자 enabler로 동시에 인식되고, coercive·normative institutional pressures가 compliance를 넘어 sensing·seizing·transforming 역량을 작동시키며, regulatory uncertainty는 innovation을 방해하기보다 anticipatory compliance와 flexible AI governance 쪽으로 재형성되는 양상이 나타났다. 또한 firms 간 효과 차이는 governance maturity와 capability development 수준에 따라 달라 동적역량이 도전을 완화하고 compliance를 경쟁우위로 전환하는 조절 요인으로 나타났다.</p>
-  <p class="url"><a href="https://doi.org/10.1108/ejim-11-2025-1499">https://doi.org/10.1108/ejim-11-2025-1499</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>AI as a Civilisation-Scale Audit (2026.6.22)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="AI as a Civilisation-Scale Audit (2026.6.22)
-
-AI를 일회성 기술 충격이 아니라 ‘civilisation-scale audit’로 이해해야 한다는 관점을 제시해 거버넌스 논의를 구조적 관점에서 재구성한다. “the glide” 개념을 통해 감시, 불안정한 일, 독점적 시장지배, 환경 피해, 제도 불신 같은 현실의 위해가 AI를 경유해 확대되지만, 이후에는 그것이 “AI 자체”의 문제로 잘못 진단되어 기존의 인프라·권력 구조는 유지된다고 주장한다. Part I에서 AI가 surveillance capitalism, 취약한 복지국가, 플랫폼 독점 안으로 들어온 경로를 정리하고, Part II에서는 risk/safety report를 진단 도구로 보며 개인정보·노동·경제집중·교육·창의성·안전·환경·governance·Global South를 가로지르는 매트릭스로 구조적 공백을 드러낸다. Part III에서는 machine cognition이 기존 전문성과 제도적 정당성을 흔든다는 “Crisis of Authority”를, Part IV에서는 Sanders, Musk, Altman, Anthropic, Huang, Midjourney Medical, 대학/연구, 은행, 엘리트 네트워크 사례로 지배적 정치·거버넌스 내러티브의 stress test를 수행해 제도·법·경제 아키텍처 요구를 강조한다.
-
-https://doi.org/10.26180/32725533" onclick="copyEntry(this)">복사</button></div>
-  <p>AI를 일회성 기술 충격이 아니라 ‘civilisation-scale audit’로 이해해야 한다는 관점을 제시해 거버넌스 논의를 구조적 관점에서 재구성한다. “the glide” 개념을 통해 감시, 불안정한 일, 독점적 시장지배, 환경 피해, 제도 불신 같은 현실의 위해가 AI를 경유해 확대되지만, 이후에는 그것이 “AI 자체”의 문제로 잘못 진단되어 기존의 인프라·권력 구조는 유지된다고 주장한다. Part I에서 AI가 surveillance capitalism, 취약한 복지국가, 플랫폼 독점 안으로 들어온 경로를 정리하고, Part II에서는 risk/safety report를 진단 도구로 보며 개인정보·노동·경제집중·교육·창의성·안전·환경·governance·Global South를 가로지르는 매트릭스로 구조적 공백을 드러낸다. Part III에서는 machine cognition이 기존 전문성과 제도적 정당성을 흔든다는 “Crisis of Authority”를, Part IV에서는 Sanders, Musk, Altman, Anthropic, Huang, Midjourney Medical, 대학/연구, 은행, 엘리트 네트워크 사례로 지배적 정치·거버넌스 내러티브의 stress test를 수행해 제도·법·경제 아키텍처 요구를 강조한다.</p>
-  <p class="url"><a href="https://doi.org/10.26180/32725533">https://doi.org/10.26180/32725533</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>The current state of legal regulation of artificial intelligence in the Republic of Kazakhstan (2026.6.22)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="The current state of legal regulation of artificial intelligence in the Republic of Kazakhstan (2026.6.22)
-
-카자흐스탄의 AI 법제 현황과 민사상 책임 체계를 어떻게 다듬어야 하는지를 검토한다. 문헌·법령 분석과 비교법적 접근을 통해 현행 규정의 적용 범위와 공백을 정리하고, AI로 인한 피해에 대한 civil liability 개선 방안을 제시한다. 결론으로 카자흐스탄이 소프트웨어 중심의 디지털화에서 AI를 포괄하는 포괄적 법제 정립 단계로 전환 중임을 밝히며, AI 시스템으로 인한 harm에 대한 민사책임 강화를 위해 카자흐스탄 민법(Civil Code)에 추가 조항 도입이 필요하다고 제안한다.
-
-요약불가
-
-https://doi.org/10.31489/2026l2/89-96" onclick="copyEntry(this)">복사</button></div>
-  <p>카자흐스탄의 AI 법제 현황과 민사상 책임 체계를 어떻게 다듬어야 하는지를 검토한다. 문헌·법령 분석과 비교법적 접근을 통해 현행 규정의 적용 범위와 공백을 정리하고, AI로 인한 피해에 대한 civil liability 개선 방안을 제시한다. 결론으로 카자흐스탄이 소프트웨어 중심의 디지털화에서 AI를 포괄하는 포괄적 법제 정립 단계로 전환 중임을 밝히며, AI 시스템으로 인한 harm에 대한 민사책임 강화를 위해 카자흐스탄 민법(Civil Code)에 추가 조항 도입이 필요하다고 제안한다.</p>
-<p>요약불가</p>
-  <p class="url"><a href="https://doi.org/10.31489/2026l2/89-96">https://doi.org/10.31489/2026l2/89-96</a></p>
 </article>
 <article class="entry cat-aisi">
   <h2>(2025.5.1)</h2>
@@ -850,6 +638,219 @@ https://www.aisi.gov.uk/research/why-human-ai-relationships-need-socioaffective-
 https://www.anthropic.com/news/introducing-claude-tag" onclick="copyEntry(this)">복사</button></div>
   <p>앤트로픽은 팀이 Slack에서 @Claude를 태그해 작업을 위임할 수 있는 기능 ‘Claude Tag’를 소개했다. 관리자가 채널별로 도구·데이터 접근 권한을 설정하면, 해당 채널에서 사용자가 태그한 작업을 Claude가 단계적으로 처리하고 결과를 Slack 스레드로 공유한다. Claude Tag는 한 채널에서 여러 사람이 동일 Claude와 협업하듯 이어갈 수 있고, 대화 내용을 바탕으로 시간에 따라 컨텍스트를 축적하며, 필요한 경우 ambient 동작을 통해 업데이트·진행 상황을 제안할 수 있다. 또한 Claude Tag는 토큰 사용 한도와 @Claude 활동 로그를 관리자가 확인할 수 있도록 했으며, Claude Enterprise·Team 고객을 대상으로 오늘부터 베타로 제공된다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/introducing-claude-tag">https://www.anthropic.com/news/introducing-claude-tag</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>Apply AI Startup Award 공모…선정 스타트업은 2026.11.17 Apply AI Summit에서 발표·시상 (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EC) 디지털 전략</span> · <span class="deadline">마감일·시행일: 공모(지명 기업) 신청 2026.7.1~2026.7.22, 시상식 2026.11.17</span></span><button type="button" class="copy-btn" data-copy="Apply AI Startup Award 공모…선정 스타트업은 2026.11.17 Apply AI Summit에서 발표·시상 (2026.6.23)
+
+유럽연합 집행위원회 AI Office는 AI-BOOST 프로젝트와 함께 Apply AI 전략의 12개 분야(헬스케어·모빌리티·로보틱스·제조·기후·에너지·농식품·국방·전자통신·공공부문 등)에서 혁신적인 AI 솔루션을 개발하는 유럽의 스타트업·스케일업을 대상으로 ‘Apply AI Startup Award’를 신설했다. 선정된 3개 기업은 2026년 11월 17일 Apply AI Summit 주요 무대에서 피칭과 함께 트로피 및 인증서를 받으며, EC의 웹사이트·소셜미디어 등을 통해 홍보되고 최대 2명의 브뤼셀 출장 비용(주최 측 환급 규정에 따름) 지원도 받을 예정이다. 지명은 회원국별 최대 3개 기업을 국가 스타트업 협회가 추천하고, 7월 신청 접수 후 8~9월 사전심사·평가로 Top 10을 추린 뒤 10월 온라인 피칭을 거쳐 Top 3 우승자를 선정한다.
+
+https://digital-strategy.ec.europa.eu/en/news/apply-ai-startup-award" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽연합 집행위원회 AI Office는 AI-BOOST 프로젝트와 함께 Apply AI 전략의 12개 분야(헬스케어·모빌리티·로보틱스·제조·기후·에너지·농식품·국방·전자통신·공공부문 등)에서 혁신적인 AI 솔루션을 개발하는 유럽의 스타트업·스케일업을 대상으로 ‘Apply AI Startup Award’를 신설했다. 선정된 3개 기업은 2026년 11월 17일 Apply AI Summit 주요 무대에서 피칭과 함께 트로피 및 인증서를 받으며, EC의 웹사이트·소셜미디어 등을 통해 홍보되고 최대 2명의 브뤼셀 출장 비용(주최 측 환급 규정에 따름) 지원도 받을 예정이다. 지명은 회원국별 최대 3개 기업을 국가 스타트업 협회가 추천하고, 7월 신청 접수 후 8~9월 사전심사·평가로 Top 10을 추린 뒤 10월 온라인 피칭을 거쳐 Top 3 우승자를 선정한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/apply-ai-startup-award">https://digital-strategy.ec.europa.eu/en/news/apply-ai-startup-award</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>유럽 집행위, EU 도시 대상 자율주행 도입 이니셔티브 ‘ADACities’ 출범(기사·공고 게재일: 2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy(European Commission Digital Strategy)</span> · <span class="deadline">2026년 6월 25일(10:00–13:00 CET) 온라인 정보세션 진행</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, EU 도시 대상 자율주행 도입 이니셔티브 ‘ADACities’ 출범(기사·공고 게재일: 2026.6.23)
+
+유럽 집행위원회는 EU 전역 도시에서 자율주행을 도입·확산하기 위한 ‘Autonomous Drive Ambition Cities(ADACities)’ 이니셔티브를 출범했다. 브뤼셀에서 열린 ECAVA 첫 국제포럼에서 집행부위원장 Virkkunen이 출범을 발표했으며, 참여 도시는 robo-taxi·카셰어링·자율 셔틀 등 자율 모빌리티 혁신을 실증할 수 있다. 2030년까지 참여 도시는 자율주행 차량 100대 이상 규모의 차량대를 목표로 하며, 자율주행 기술의 도시는 도로 안전·대기질·교통 효율 및 AI 기반 네트워크 최적화에 기여할 것으로 제시됐다. 이 사업은 EU Technological Sovereignty Package 및 국경 간 자동화 차량 실증 테스트베드 조성 관련 공동 의지 선언과 연계되며, 6월 25일 온라인 정보세션과 참여(의향서) 관련 자료를 안내한다.
+
+https://digital-strategy.ec.europa.eu/en/news/autonomous-drive-ambition-cities-adacities-initiative-bring-autonomous-driving-technology-cities" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회는 EU 전역 도시에서 자율주행을 도입·확산하기 위한 ‘Autonomous Drive Ambition Cities(ADACities)’ 이니셔티브를 출범했다. 브뤼셀에서 열린 ECAVA 첫 국제포럼에서 집행부위원장 Virkkunen이 출범을 발표했으며, 참여 도시는 robo-taxi·카셰어링·자율 셔틀 등 자율 모빌리티 혁신을 실증할 수 있다. 2030년까지 참여 도시는 자율주행 차량 100대 이상 규모의 차량대를 목표로 하며, 자율주행 기술의 도시는 도로 안전·대기질·교통 효율 및 AI 기반 네트워크 최적화에 기여할 것으로 제시됐다. 이 사업은 EU Technological Sovereignty Package 및 국경 간 자동화 차량 실증 테스트베드 조성 관련 공동 의지 선언과 연계되며, 6월 25일 온라인 정보세션과 참여(의향서) 관련 자료를 안내한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/autonomous-drive-ambition-cities-adacities-initiative-bring-autonomous-driving-technology-cities">https://digital-strategy.ec.europa.eu/en/news/autonomous-drive-ambition-cities-adacities-initiative-bring-autonomous-driving-technology-cities</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>Commission approves €76 million German State aid for first-of-a-kind semiconductor testing equipment facility (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="Commission approves €76 million German State aid for first-of-a-kind semiconductor testing equipment facility (2026.6.23)
+
+요약불가
+
+https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu76-million-german-state-aid-first-kind-semiconductor-testing-equipment" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu76-million-german-state-aid-first-kind-semiconductor-testing-equipment">https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu76-million-german-state-aid-first-kind-semiconductor-testing-equipment</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>유럽집행위, 발트·지중해에 첫 Regional Cable Hubs 구축(2026.6.23) 및 해저케이블 수리 역량 확대를 위한 4,000만 유로 공모(2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽집행위, 발트·지중해에 첫 Regional Cable Hubs 구축(2026.6.23) 및 해저케이블 수리 역량 확대를 위한 4,000만 유로 공모(2026.6.23)
+
+유럽 집행위는 발트해·지중해에 첫 Regional Cable Hubs 2곳을 만들기 위해 580만 유로를 지원하고, 해저 통신 케이블 수리 역량을 늘리기 위한 4,000만 유로 규모의 공모를 23일 발표했다. 이번 조치는 EU Action Plan on Cable Security 이행의 일환으로, 유럽의 중요 해저 데이터·에너지 케이블의 보안과 회복력을 강화하고 위협을 감시·탐지·대응하는 공동 역량을 높이기 위한 것이다. 유럽집행위는 회원국 간 협력 강화를 통해 새로운 보안 환경에 대응하겠다는 취지라고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-funds-first-regional-cable-hubs-and-launches-eu40-million-call-cable-repair-capacity" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위는 발트해·지중해에 첫 Regional Cable Hubs 2곳을 만들기 위해 580만 유로를 지원하고, 해저 통신 케이블 수리 역량을 늘리기 위한 4,000만 유로 규모의 공모를 23일 발표했다. 이번 조치는 EU Action Plan on Cable Security 이행의 일환으로, 유럽의 중요 해저 데이터·에너지 케이블의 보안과 회복력을 강화하고 위협을 감시·탐지·대응하는 공동 역량을 높이기 위한 것이다. 유럽집행위는 회원국 간 협력 강화를 통해 새로운 보안 환경에 대응하겠다는 취지라고 밝혔다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-funds-first-regional-cable-hubs-and-launches-eu40-million-call-cable-repair-capacity">https://digital-strategy.ec.europa.eu/en/news/commission-funds-first-regional-cable-hubs-and-launches-eu40-million-call-cable-repair-capacity</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>GLM-5.2, Artificial Analysis Intelligence Index v4.1에서 최고 오픈웨이트 성능(2026.6.16)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Artificial Analysis</span></span><button type="button" class="copy-btn" data-copy="GLM-5.2, Artificial Analysis Intelligence Index v4.1에서 최고 오픈웨이트 성능(2026.6.16)
+
+GLM-5.2는 지능(51점)과 비용 대비 지능에서 Pareto frontier에 위치하며, GLM-5.1(44점) 대비 과학적 추론 등 다수 평가에서 개선을 보였다고 밝혔다. GDPval-AA v2(1524점)에서 MiniMax-M3(1418), DeepSeek V4 Pro(max, 1328)를 앞서며 GPT-5.5(xhigh reasoning, 1514)와 유사한 수준이라고 설명했다. 다만 Intelligence Index 태스크당 출력 토큰이 43k로 늘어 토큰 효율은 다른 선도 오픈웨이트 대비 낮을 수 있다고 덧붙였다.
+
+https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index" onclick="copyEntry(this)">복사</button></div>
+  <p>GLM-5.2는 지능(51점)과 비용 대비 지능에서 Pareto frontier에 위치하며, GLM-5.1(44점) 대비 과학적 추론 등 다수 평가에서 개선을 보였다고 밝혔다. GDPval-AA v2(1524점)에서 MiniMax-M3(1418), DeepSeek V4 Pro(max, 1328)를 앞서며 GPT-5.5(xhigh reasoning, 1514)와 유사한 수준이라고 설명했다. 다만 Intelligence Index 태스크당 출력 토큰이 43k로 늘어 토큰 효율은 다른 선도 오픈웨이트 대비 낮을 수 있다고 덧붙였다.</p>
+  <p class="url"><a href="https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index">https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Counsel: A Meta-Evaluation Dataset for Agentic Tasks (2026.6.19)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Counsel: A Meta-Evaluation Dataset for Agentic Tasks (2026.6.19)
+
+에이전틱 에이전트의 multi-step 작업에서 LLMJ(LLM-as-a-judge) 평가가 얼마나 신뢰할 만한지 측정·교정하기 위한 메타-평가 데이터셋을 제안한다. Counsel은 tau-bench(고객 지원 에이전트)와 DA-Code(코딩 에이전트)에서 발생한 오류를 대상으로 open-weight LLMJ의 process-level critique를 수집하고, 이를 인간이 오류별로 “spot on”, “correct location but poor reasoning”, “should not have flagged”로 라벨링한 데이터다. 인간 메타-평가의 일치도는 Krippendorff&#x27;s alpha 0.78이고, 인간 정렬이 반영된 분류로 LLMJ를 보정·개선·학습하는 데 활용 가능하다. open-weight judge 비교에서는 더 유능한 judge 모델과 더 큰 reasoning effort가 인간 합의를 높여, 최강 judge는 오류 위치 location에서 약 88% agreement, reasoning에서 약 65% agreement를 보였다(spot on/ correct location but poor reasoning/ should not have flagged는 각각 인간이 오류 지점을 정확히 짚었음, 지점은 맞지만 추론이 부실함, 오류를 표시하면 안 됨을 의미).
+
+https://arxiv.org/abs/2606.21627" onclick="copyEntry(this)">복사</button></div>
+  <p>에이전틱 에이전트의 multi-step 작업에서 LLMJ(LLM-as-a-judge) 평가가 얼마나 신뢰할 만한지 측정·교정하기 위한 메타-평가 데이터셋을 제안한다. Counsel은 tau-bench(고객 지원 에이전트)와 DA-Code(코딩 에이전트)에서 발생한 오류를 대상으로 open-weight LLMJ의 process-level critique를 수집하고, 이를 인간이 오류별로 “spot on”, “correct location but poor reasoning”, “should not have flagged”로 라벨링한 데이터다. 인간 메타-평가의 일치도는 Krippendorff&#x27;s alpha 0.78이고, 인간 정렬이 반영된 분류로 LLMJ를 보정·개선·학습하는 데 활용 가능하다. open-weight judge 비교에서는 더 유능한 judge 모델과 더 큰 reasoning effort가 인간 합의를 높여, 최강 judge는 오류 위치 location에서 약 88% agreement, reasoning에서 약 65% agreement를 보였다(spot on/ correct location but poor reasoning/ should not have flagged는 각각 인간이 오류 지점을 정확히 짚었음, 지점은 맞지만 추론이 부실함, 오류를 표시하면 안 됨을 의미).</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.21627">https://arxiv.org/abs/2606.21627</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Toward Open Weight Models Without Risks: Separating Public and Private Capabilities in LLMs (**2026.6.19**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Toward Open Weight Models Without Risks: Separating Public and Private Capabilities in LLMs (**2026.6.19**)
+
+오픈 웨이트 LLM을 공개하면서도 민감한 능력은 선택적으로만 활성화하는 방식을 제안한다. Tiered Language Models(TLMs)로, 동일한 공개 가중치 위에서 기본 공개 구성과 키(keyed) 기반 사적 구성의 계산 그래프가 달라지도록 하고, 비공개 능력은 비밀 키로 유도되는 파라미터 부분집합의 퍼뮤테이션으로 구현한다. 180M·650M TLM에서 keyed 구성은 새로운 언어 획득, instruction-following 능력, private factual knowledge 기억을 보이며 public 구성에서는 이러한 능력이 나타나지 않는다. 또한 계층적(multiple hierarchical tiers)으로 확장 가능하며, 권한 부여가 입력 공간이 아니라 가중치 구조에 작동해 fine-tuning-based extraction 및 부분 키(compromise)에 대한 저항성을 보인다고 보고한다.
+
+https://arxiv.org/abs/2606.21638" onclick="copyEntry(this)">복사</button></div>
+  <p>오픈 웨이트 LLM을 공개하면서도 민감한 능력은 선택적으로만 활성화하는 방식을 제안한다. Tiered Language Models(TLMs)로, 동일한 공개 가중치 위에서 기본 공개 구성과 키(keyed) 기반 사적 구성의 계산 그래프가 달라지도록 하고, 비공개 능력은 비밀 키로 유도되는 파라미터 부분집합의 퍼뮤테이션으로 구현한다. 180M·650M TLM에서 keyed 구성은 새로운 언어 획득, instruction-following 능력, private factual knowledge 기억을 보이며 public 구성에서는 이러한 능력이 나타나지 않는다. 또한 계층적(multiple hierarchical tiers)으로 확장 가능하며, 권한 부여가 입력 공간이 아니라 가중치 구조에 작동해 fine-tuning-based extraction 및 부분 키(compromise)에 대한 저항성을 보인다고 보고한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.21638">https://arxiv.org/abs/2606.21638</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Capable but Careless: Do Computer-Use Agents Follow Contextual Integrity? (2026.6.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Capable but Careless: Do Computer-Use Agents Follow Contextual Integrity? (2026.6.22)
+
+개인 메일·일정·할 일 앱 등에서 컴퓨터를 사용하는 에이전트가 한 앱(맥락)에서 일을 하면서 다른 맥락의 개인 정보를 부적절하게 끌어오는 문제를 평가한다는 연구다. AgentCIBench라는 평가 하네스를 만들어 visual co-location(화면 인접 금지 항목 포함), task-ambiguity overshare(모호한 지시로 과도한 개인 상태 노출), recipient misalignment(부적절한 수신자에게 전달) 3가지 실패 모드를 결정적으로 채점되는 시나리오로 구성해 15개 frontier agent를 시험한다. 15개 중 11개가 시나리오의 50% 이상에서 정보가 새며(&gt;50% leak), 평균 leakage 67.9%로 보고되고, 환경에서 end-to-end로 실제 작업을 수행하는 조건에서도 동일한 실패가 지속됐다.
+
+https://arxiv.org/abs/2606.23189" onclick="copyEntry(this)">복사</button></div>
+  <p>개인 메일·일정·할 일 앱 등에서 컴퓨터를 사용하는 에이전트가 한 앱(맥락)에서 일을 하면서 다른 맥락의 개인 정보를 부적절하게 끌어오는 문제를 평가한다는 연구다. AgentCIBench라는 평가 하네스를 만들어 visual co-location(화면 인접 금지 항목 포함), task-ambiguity overshare(모호한 지시로 과도한 개인 상태 노출), recipient misalignment(부적절한 수신자에게 전달) 3가지 실패 모드를 결정적으로 채점되는 시나리오로 구성해 15개 frontier agent를 시험한다. 15개 중 11개가 시나리오의 50% 이상에서 정보가 새며(&gt;50% leak), 평균 leakage 67.9%로 보고되고, 환경에서 end-to-end로 실제 작업을 수행하는 조건에서도 동일한 실패가 지속됐다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.23189">https://arxiv.org/abs/2606.23189</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>TROPT: An Open Framework for Unifying and Advancing Discrete Text Optimization (2026.6.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="TROPT: An Open Framework for Unifying and Advancing Discrete Text Optimization (2026.6.22)
+
+이 연구는 이산 텍스트 최적화(모델에 입력되는 텍스트를 찾아 특정 목적을 유도)를 더 쉽게 재현·비교·확장하려는 오픈 프레임워크 TROPT를 제안한다. TROPT는 단일 인터페이스 아래에서 모델, objective, optimizer를 모듈처럼 교체 가능한 구조로, 기존에 흩어진 코드베이스와 변형들로 인한 채택·비교의 어려움을 겨냥한다. 프레임워크는 15+ optimizers(white-box~black-box 접근 포함)와 15+ losses를 기반으로 30+ optimization recipes(예: jailbreaking, 모델 내부 probing)를 제공하며, 이를 활용해 (i) LLM jailbreaks에 대한 대규모 제어 실험으로 최적화 전략을 비교·개선하고 (ii) 한 도메인의 optimizer를 corpus-poisoning embedding model로 포팅하는 사례를 보인다.
+
+https://arxiv.org/abs/2606.23496" onclick="copyEntry(this)">복사</button></div>
+  <p>이 연구는 이산 텍스트 최적화(모델에 입력되는 텍스트를 찾아 특정 목적을 유도)를 더 쉽게 재현·비교·확장하려는 오픈 프레임워크 TROPT를 제안한다. TROPT는 단일 인터페이스 아래에서 모델, objective, optimizer를 모듈처럼 교체 가능한 구조로, 기존에 흩어진 코드베이스와 변형들로 인한 채택·비교의 어려움을 겨냥한다. 프레임워크는 15+ optimizers(white-box~black-box 접근 포함)와 15+ losses를 기반으로 30+ optimization recipes(예: jailbreaking, 모델 내부 probing)를 제공하며, 이를 활용해 (i) LLM jailbreaks에 대한 대규모 제어 실험으로 최적화 전략을 비교·개선하고 (ii) 한 도메인의 optimizer를 corpus-poisoning embedding model로 포팅하는 사례를 보인다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.23496">https://arxiv.org/abs/2606.23496</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Co-occurring associated retained concepts in Diffusion Unlearning (**2026.6.23**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Co-occurring associated retained concepts in Diffusion Unlearning (**2026.6.23**)
+
+확산(difussion) 모델의 harmful 개념을 unlearning할 때, 함께 나타나는 benign 개념까지 같이 약화되는 문제를 정의하고 측정하는 연구다. 표적 개념을 지우는 과정에서 person 같은 co-occurring 개념이 의도치 않게 억제되는 현상을 CARE(Co-occurring Associated REtained concepts)로 규정하고, 이를 정량화하는 CARE score를 제시한다. 또한 CARE를 명시적으로 보존하면서 표적 개념만 erasure하는 ReCARE(Robust erasure for CARE) 프레임워크를 제안하며, target concepts(Nudity, Van Gogh style, Tench object) 전반에서 robust concept erasure·overall utility·CARE preservation 간 균형을 종합적으로 state-of-the-art 수준으로 달성했다고 보고한다.
+
+https://arxiv.org/abs/2606.24192v1" onclick="copyEntry(this)">복사</button></div>
+  <p>확산(difussion) 모델의 harmful 개념을 unlearning할 때, 함께 나타나는 benign 개념까지 같이 약화되는 문제를 정의하고 측정하는 연구다. 표적 개념을 지우는 과정에서 person 같은 co-occurring 개념이 의도치 않게 억제되는 현상을 CARE(Co-occurring Associated REtained concepts)로 규정하고, 이를 정량화하는 CARE score를 제시한다. 또한 CARE를 명시적으로 보존하면서 표적 개념만 erasure하는 ReCARE(Robust erasure for CARE) 프레임워크를 제안하며, target concepts(Nudity, Van Gogh style, Tench object) 전반에서 robust concept erasure·overall utility·CARE preservation 간 균형을 종합적으로 state-of-the-art 수준으로 달성했다고 보고한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24192v1">https://arxiv.org/abs/2606.24192v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>On the Stability of Prompt Ranking in Large Language Model Evaluation (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="On the Stability of Prompt Ranking in Large Language Model Evaluation (2026.6.23)
+
+LLM 평가에서 여러 후보 prompt를 순위 매겨 상위 prompt를 선택하는 방식이, 평가 조건이 조금만 달라져도 같은 결정을 내린다는 가정을 얼마나 만족하는지 분석한다. 무작위 seed 변화와 제한된 평가 subset 같은 변동 요인 하에서 3개 open-weight LLM과 2개 벤치마크 과제를 대상으로 prompt 랭킹의 안정성을 측정하고, 상위 prompt 교체가 잦은지를 확인한다. 전체 rank correlation은 중간~높은 수준인 경우가 많지만 top-performing prompt의 신원은 자주 바뀌어 선택 결정이 불안정해지는 경향이 관찰되며, lower confidence bound 기반 stability-aware selection 전략은 unstable settings에서 더 견고해지면서 stable regime에서도 경쟁력 있는 성능을 보인다.
+
+https://arxiv.org/abs/2606.24381v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM 평가에서 여러 후보 prompt를 순위 매겨 상위 prompt를 선택하는 방식이, 평가 조건이 조금만 달라져도 같은 결정을 내린다는 가정을 얼마나 만족하는지 분석한다. 무작위 seed 변화와 제한된 평가 subset 같은 변동 요인 하에서 3개 open-weight LLM과 2개 벤치마크 과제를 대상으로 prompt 랭킹의 안정성을 측정하고, 상위 prompt 교체가 잦은지를 확인한다. 전체 rank correlation은 중간~높은 수준인 경우가 많지만 top-performing prompt의 신원은 자주 바뀌어 선택 결정이 불안정해지는 경향이 관찰되며, lower confidence bound 기반 stability-aware selection 전략은 unstable settings에서 더 견고해지면서 stable regime에서도 경쟁력 있는 성능을 보인다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24381v1">https://arxiv.org/abs/2606.24381v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>PHANTOM: A Large-Scale Dataset of Multimodal Adversarial Attacks for Vision-Language Models (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="PHANTOM: A Large-Scale Dataset of Multimodal Adversarial Attacks for Vision-Language Models (2026.6.23)
+
+비전-언어 모델(VLM)의 견고성·안전성 평가를 위해 대규모 사전 생성 multimodal adversarial attack 데이터셋을 제안한다. 데이터셋은 최근 문헌의 state-of-the-art attack 전략으로 생성된 47,524개 샘플로 구성되며, 10개 고수준 범주와 55개 하위 범주의 harmful intent를 포함하도록 설계됐다. 또한 기존 벤치마크들을 통합·확장해 총 7,826 intents 커버리지를 제공하고, 범위 확장을 위한 추가 범주도 도입해 평가 자원을 넓힌다.
+
+https://arxiv.org/abs/2606.24388v1" onclick="copyEntry(this)">복사</button></div>
+  <p>비전-언어 모델(VLM)의 견고성·안전성 평가를 위해 대규모 사전 생성 multimodal adversarial attack 데이터셋을 제안한다. 데이터셋은 최근 문헌의 state-of-the-art attack 전략으로 생성된 47,524개 샘플로 구성되며, 10개 고수준 범주와 55개 하위 범주의 harmful intent를 포함하도록 설계됐다. 또한 기존 벤치마크들을 통합·확장해 총 7,826 intents 커버리지를 제공하고, 범위 확장을 위한 추가 범주도 도입해 평가 자원을 넓힌다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24388v1">https://arxiv.org/abs/2606.24388v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Poisoned Playbooks: Demystifying Knowledge Poisoning Effects on AI Security Agents (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Poisoned Playbooks: Demystifying Knowledge Poisoning Effects on AI Security Agents (2026.6.23)
+
+Retrieval-Augmented Generation(RAG)을 쓰는 AI security agents가 외부 보안 지식을 행동으로 옮기는 과정에서 knowledge poisoning이 어떻게 오작동으로 연결되는지 설명한다. 공개형 보안 지식 소스에 Poisoned Playbooks 형태의 단일 crafted poisoned write-up을 주입하고, 11개 CTF, 3개 frontier LLM 계열, 2개 세대, 11개 real-world CVE에서 RAG 기반 행동 변화를 측정한다. poison adoption은 무작위가 아니라 체계적으로 나타났으며, 이를 위해 에이전트가 검색된 주장에 반박할 수 있는 증거의 종류를 기준으로 하는 Verification Boundary(VB) 3단 분류를 제안한다. verification prompting과 multi-source retrieval은 더 강한 evidence가 있을 때는 도움이 되지만, sparse-evidence 및 zero-day 조건에서는 효과가 약해졌다.
+
+https://arxiv.org/abs/2606.24402v1" onclick="copyEntry(this)">복사</button></div>
+  <p>Retrieval-Augmented Generation(RAG)을 쓰는 AI security agents가 외부 보안 지식을 행동으로 옮기는 과정에서 knowledge poisoning이 어떻게 오작동으로 연결되는지 설명한다. 공개형 보안 지식 소스에 Poisoned Playbooks 형태의 단일 crafted poisoned write-up을 주입하고, 11개 CTF, 3개 frontier LLM 계열, 2개 세대, 11개 real-world CVE에서 RAG 기반 행동 변화를 측정한다. poison adoption은 무작위가 아니라 체계적으로 나타났으며, 이를 위해 에이전트가 검색된 주장에 반박할 수 있는 증거의 종류를 기준으로 하는 Verification Boundary(VB) 3단 분류를 제안한다. verification prompting과 multi-source retrieval은 더 강한 evidence가 있을 때는 도움이 되지만, sparse-evidence 및 zero-day 조건에서는 효과가 약해졌다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24402v1">https://arxiv.org/abs/2606.24402v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Red-Teaming the Agentic Red-Team (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Red-Teaming the Agentic Red-Team (2026.6.23)
+
+이 연구는 agentic offensive-security 도구들의 보안이 실제 공격자 관점에서 어떻게 취약한지 분석해, 시스템 설계 단계의 위험 경로를 드러낸다. 문제 정의와 함께 LLM 조작에서 시작해 lateral movement, persistence, guardrail bypass, sandbox escape로 이어지는 전체 cyber kill chain을 제안하고, 가장 널리 쓰이는 agentic 시스템들에 대해 그 경로를 따라 취약 지점을 점검하는 방식으로 분석한다. 결과로는 이들 도구 다수가 공통된 설계 결함을 공유해 sandboxed container 안에서도 API key exfiltration, 지속적 foothold 확보, operator machine의 완전한 compromise가 가능함을 보인다고 한다. 또한 해당 분석을 바탕으로 공격 경로를 건축(architectural) 수준에서 완화하기 위한 견고한 아키텍처와 설계 원칙을 제시한다.
+
+https://arxiv.org/abs/2606.24496v1" onclick="copyEntry(this)">복사</button></div>
+  <p>이 연구는 agentic offensive-security 도구들의 보안이 실제 공격자 관점에서 어떻게 취약한지 분석해, 시스템 설계 단계의 위험 경로를 드러낸다. 문제 정의와 함께 LLM 조작에서 시작해 lateral movement, persistence, guardrail bypass, sandbox escape로 이어지는 전체 cyber kill chain을 제안하고, 가장 널리 쓰이는 agentic 시스템들에 대해 그 경로를 따라 취약 지점을 점검하는 방식으로 분석한다. 결과로는 이들 도구 다수가 공통된 설계 결함을 공유해 sandboxed container 안에서도 API key exfiltration, 지속적 foothold 확보, operator machine의 완전한 compromise가 가능함을 보인다고 한다. 또한 해당 분석을 바탕으로 공격 경로를 건축(architectural) 수준에서 완화하기 위한 견고한 아키텍처와 설계 원칙을 제시한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24496v1">https://arxiv.org/abs/2606.24496v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LLMs Prompted for Legal Context Object More: Overrefusal from Small On-Premises LLMs in Criminal Legal Context (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="LLMs Prompted for Legal Context Object More: Overrefusal from Small On-Premises LLMs in Criminal Legal Context (2026.6.23)
+
+로컬로 쓰이는 작은 LLM이 법률 관련 프롬프트에서 과도한 refusal을 보이는지와, 문맥을 어떻게 제시하느냐가 그 편향을 어떻게 키우는지를 분석한다. 여러 온디바이스용 소형 LLM에 대해 법률/형사 법맥락 프롬프트에 authority-style prefix(예: “you are acting as an assistant of the national supreme court”, “[...] defense lawyer”)를 넣고 refusal 변화를 no-prefix 기준과 비교하는 방식으로 평가했다. authority-style prefix는 no-prefix baseline 대비 refusal rate를 2–20x 증가시켰고, 역할-놀이 jailbreak로 알려진 prefix는 모델마다 효과가 달라 어떤 모델에서는 refusal을 크게 올리지만 다른 모델에서는 거의 변화가 없었다; 여기서 refusal은 요청을 거절하는 출력, unclear는 판정이 어려운 비결정 응답을 뜻한다. 마지막으로 refusal 안정성이 낮아, authority-style 프리픽스 조건에서 전반적으로 더 높은 refusal이 관측되었다.
+
+https://arxiv.org/abs/2606.24585v1" onclick="copyEntry(this)">복사</button></div>
+  <p>로컬로 쓰이는 작은 LLM이 법률 관련 프롬프트에서 과도한 refusal을 보이는지와, 문맥을 어떻게 제시하느냐가 그 편향을 어떻게 키우는지를 분석한다. 여러 온디바이스용 소형 LLM에 대해 법률/형사 법맥락 프롬프트에 authority-style prefix(예: “you are acting as an assistant of the national supreme court”, “[...] defense lawyer”)를 넣고 refusal 변화를 no-prefix 기준과 비교하는 방식으로 평가했다. authority-style prefix는 no-prefix baseline 대비 refusal rate를 2–20x 증가시켰고, 역할-놀이 jailbreak로 알려진 prefix는 모델마다 효과가 달라 어떤 모델에서는 refusal을 크게 올리지만 다른 모델에서는 거의 변화가 없었다; 여기서 refusal은 요청을 거절하는 출력, unclear는 판정이 어려운 비결정 응답을 뜻한다. 마지막으로 refusal 안정성이 낮아, authority-style 프리픽스 조건에서 전반적으로 더 높은 refusal이 관측되었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24585v1">https://arxiv.org/abs/2606.24585v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AdversaBench: Automated LLM Red-Teaming with Multi-Judge Confirmation and Cross-Model Transferability (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="AdversaBench: Automated LLM Red-Teaming with Multi-Judge Confirmation and Cross-Model Transferability (2026.6.23)
+
+AdversaBench는 LLM의 실패를 자동으로 만들어 검증까지 수행하는 red-teaming 평가 파이프라인을 제시해, adversarial evaluation의 재현성과 신뢰성을 높이려는 연구다. 5개의 structured prompt mutation operator로 45개 seed를 reasoning, instruction-following, tool use 3개 범주로 변형하고, 대상 모델을 질의한 뒤 3명의 judge 패널과 meta-judge tiebreaker로 confirmed failure를 판정했다. 모든 seed에서 confirmed failure가 생성됐고, inject_distractor는 instruction-following에서 mean reward 0.00인 반면 reasoning과 tool-use에서는 0.80-0.83으로 높았다. 또한 instruction-following seeds는 평균 2.4번 attacker iteration이 필요해 다른 범주(1.1)보다 높았고, Llama 3.1 8B에 대해 만든 adversarial prompt가 Llama 3.3 70B로 zero-shot transfer 시에도 실패를 유발했다(confirmed failure 발생).
+
+https://arxiv.org/abs/2606.24589v1" onclick="copyEntry(this)">복사</button></div>
+  <p>AdversaBench는 LLM의 실패를 자동으로 만들어 검증까지 수행하는 red-teaming 평가 파이프라인을 제시해, adversarial evaluation의 재현성과 신뢰성을 높이려는 연구다. 5개의 structured prompt mutation operator로 45개 seed를 reasoning, instruction-following, tool use 3개 범주로 변형하고, 대상 모델을 질의한 뒤 3명의 judge 패널과 meta-judge tiebreaker로 confirmed failure를 판정했다. 모든 seed에서 confirmed failure가 생성됐고, inject_distractor는 instruction-following에서 mean reward 0.00인 반면 reasoning과 tool-use에서는 0.80-0.83으로 높았다. 또한 instruction-following seeds는 평균 2.4번 attacker iteration이 필요해 다른 범주(1.1)보다 높았고, Llama 3.1 8B에 대해 만든 adversarial prompt가 Llama 3.3 70B로 zero-shot transfer 시에도 실패를 유발했다(confirmed failure 발생).</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24589v1">https://arxiv.org/abs/2606.24589v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>To Compare, or Not to Compare: On Methodological Practices in Evaluating Social Bias (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="To Compare, or Not to Compare: On Methodological Practices in Evaluating Social Bias (2026.6.23)
+
+모델의 사회적 편향 평가에서 측정 결과가 서로 충돌하는 이유를 벤치마크 구조(단독 평가 vs 비교 강제 선택) 차이로 정리한다는 연구다. 다양한 벤치마크를 단일하고 통제 가능한 프레임워크로 표준화해, 단독 인구집단 평가와 forced-choice 비교 설정을 체계적으로 대비하고 Chain-of-Thought(CoT), neutral fallback 옵션, 무작위 응답 주장 같은 구조적 요인의 교란을 분리한다. 여러 모델 패밀리에 대한 평가에서 “단독 평가는 prejudice activation을 제한”하는 반면 “비교 설정은 잠재적 discrimination을 공격적으로 촉진”하며, 이 패러다임 격차는 underspecified contexts에서 주로 나타난다. 또한 CoT는 비교 설정에서 사회적 편향을 악화시키고, neutral fallback 옵션 제공 및 무작위로 답한다고 주장하는 경우에도 결정론적 prejudice가 지속되며, 이 비교 편향 현상은 모델 크기가 커질수록 양(+)의 상관으로 스케일링한다.
+
+https://arxiv.org/abs/2606.24596v1" onclick="copyEntry(this)">복사</button></div>
+  <p>모델의 사회적 편향 평가에서 측정 결과가 서로 충돌하는 이유를 벤치마크 구조(단독 평가 vs 비교 강제 선택) 차이로 정리한다는 연구다. 다양한 벤치마크를 단일하고 통제 가능한 프레임워크로 표준화해, 단독 인구집단 평가와 forced-choice 비교 설정을 체계적으로 대비하고 Chain-of-Thought(CoT), neutral fallback 옵션, 무작위 응답 주장 같은 구조적 요인의 교란을 분리한다. 여러 모델 패밀리에 대한 평가에서 “단독 평가는 prejudice activation을 제한”하는 반면 “비교 설정은 잠재적 discrimination을 공격적으로 촉진”하며, 이 패러다임 격차는 underspecified contexts에서 주로 나타난다. 또한 CoT는 비교 설정에서 사회적 편향을 악화시키고, neutral fallback 옵션 제공 및 무작위로 답한다고 주장하는 경우에도 결정론적 prejudice가 지속되며, 이 비교 편향 현상은 모델 크기가 커질수록 양(+)의 상관으로 스케일링한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24596v1">https://arxiv.org/abs/2606.24596v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Artificial Intelligence and Human Security (**게재일(2026.6.22)**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Artificial Intelligence and Human Security (**게재일(2026.6.22)**)
+
+AI를 human security 관점에서 보며, 이득과 위험을 함께 분석한다. neural networks와 machine learning이 bias, surveillance, labor displacement를 통해 취약성을 확대할 수 있는 경로를 비판적으로 다룬다. 또한 health·environment·economy·political stability에 대한 영향과 함께, AI 거버넌스에서 governments의 대응이 뒤처져 robust regulation, transparency, ethical standards가 필요하다는 주장으로 정리한다.
+
+https://doi.org/10.1093/9780197823965.003.0038" onclick="copyEntry(this)">복사</button></div>
+  <p>AI를 human security 관점에서 보며, 이득과 위험을 함께 분석한다. neural networks와 machine learning이 bias, surveillance, labor displacement를 통해 취약성을 확대할 수 있는 경로를 비판적으로 다룬다. 또한 health·environment·economy·political stability에 대한 영향과 함께, AI 거버넌스에서 governments의 대응이 뒤처져 robust regulation, transparency, ethical standards가 필요하다는 주장으로 정리한다.</p>
+  <p class="url"><a href="https://doi.org/10.1093/9780197823965.003.0038">https://doi.org/10.1093/9780197823965.003.0038</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>How AI integrators translate AI regulation into innovation: a qualitative study (2026.6.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="How AI integrators translate AI regulation into innovation: a qualitative study (2026.6.22)
+
+EU AI Act의 초기 집행 국면에서 AI integrator 기업들이 규제를 혁신과 거버넌스로 어떻게 연결해 해석·대응하는지에 관한 질적 연구다. EU 시장에서 활동하는 AI integrator 7개 기업을 대상으로 제도이론과 동적역량이론을 결합한 탐색적 설계를 사용했으며, Gioia-inspired 접근으로 분석했다. 규제는 constraint이자 enabler로 동시에 인식되고, coercive·normative institutional pressures가 compliance를 넘어 sensing·seizing·transforming 역량을 작동시키며, regulatory uncertainty는 innovation을 방해하기보다 anticipatory compliance와 flexible AI governance 쪽으로 재형성되는 양상이 나타났다. 또한 firms 간 효과 차이는 governance maturity와 capability development 수준에 따라 달라 동적역량이 도전을 완화하고 compliance를 경쟁우위로 전환하는 조절 요인으로 나타났다.
+
+https://doi.org/10.1108/ejim-11-2025-1499" onclick="copyEntry(this)">복사</button></div>
+  <p>EU AI Act의 초기 집행 국면에서 AI integrator 기업들이 규제를 혁신과 거버넌스로 어떻게 연결해 해석·대응하는지에 관한 질적 연구다. EU 시장에서 활동하는 AI integrator 7개 기업을 대상으로 제도이론과 동적역량이론을 결합한 탐색적 설계를 사용했으며, Gioia-inspired 접근으로 분석했다. 규제는 constraint이자 enabler로 동시에 인식되고, coercive·normative institutional pressures가 compliance를 넘어 sensing·seizing·transforming 역량을 작동시키며, regulatory uncertainty는 innovation을 방해하기보다 anticipatory compliance와 flexible AI governance 쪽으로 재형성되는 양상이 나타났다. 또한 firms 간 효과 차이는 governance maturity와 capability development 수준에 따라 달라 동적역량이 도전을 완화하고 compliance를 경쟁우위로 전환하는 조절 요인으로 나타났다.</p>
+  <p class="url"><a href="https://doi.org/10.1108/ejim-11-2025-1499">https://doi.org/10.1108/ejim-11-2025-1499</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AI as a Civilisation-Scale Audit (2026.6.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="AI as a Civilisation-Scale Audit (2026.6.22)
+
+AI를 일회성 기술 충격이 아니라 ‘civilisation-scale audit’로 이해해야 한다는 관점을 제시해 거버넌스 논의를 구조적 관점에서 재구성한다. “the glide” 개념을 통해 감시, 불안정한 일, 독점적 시장지배, 환경 피해, 제도 불신 같은 현실의 위해가 AI를 경유해 확대되지만, 이후에는 그것이 “AI 자체”의 문제로 잘못 진단되어 기존의 인프라·권력 구조는 유지된다고 주장한다. Part I에서 AI가 surveillance capitalism, 취약한 복지국가, 플랫폼 독점 안으로 들어온 경로를 정리하고, Part II에서는 risk/safety report를 진단 도구로 보며 개인정보·노동·경제집중·교육·창의성·안전·환경·governance·Global South를 가로지르는 매트릭스로 구조적 공백을 드러낸다. Part III에서는 machine cognition이 기존 전문성과 제도적 정당성을 흔든다는 “Crisis of Authority”를, Part IV에서는 Sanders, Musk, Altman, Anthropic, Huang, Midjourney Medical, 대학/연구, 은행, 엘리트 네트워크 사례로 지배적 정치·거버넌스 내러티브의 stress test를 수행해 제도·법·경제 아키텍처 요구를 강조한다.
+
+https://doi.org/10.26180/32725533" onclick="copyEntry(this)">복사</button></div>
+  <p>AI를 일회성 기술 충격이 아니라 ‘civilisation-scale audit’로 이해해야 한다는 관점을 제시해 거버넌스 논의를 구조적 관점에서 재구성한다. “the glide” 개념을 통해 감시, 불안정한 일, 독점적 시장지배, 환경 피해, 제도 불신 같은 현실의 위해가 AI를 경유해 확대되지만, 이후에는 그것이 “AI 자체”의 문제로 잘못 진단되어 기존의 인프라·권력 구조는 유지된다고 주장한다. Part I에서 AI가 surveillance capitalism, 취약한 복지국가, 플랫폼 독점 안으로 들어온 경로를 정리하고, Part II에서는 risk/safety report를 진단 도구로 보며 개인정보·노동·경제집중·교육·창의성·안전·환경·governance·Global South를 가로지르는 매트릭스로 구조적 공백을 드러낸다. Part III에서는 machine cognition이 기존 전문성과 제도적 정당성을 흔든다는 “Crisis of Authority”를, Part IV에서는 Sanders, Musk, Altman, Anthropic, Huang, Midjourney Medical, 대학/연구, 은행, 엘리트 네트워크 사례로 지배적 정치·거버넌스 내러티브의 stress test를 수행해 제도·법·경제 아키텍처 요구를 강조한다.</p>
+  <p class="url"><a href="https://doi.org/10.26180/32725533">https://doi.org/10.26180/32725533</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>The current state of legal regulation of artificial intelligence in the Republic of Kazakhstan (2026.6.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="The current state of legal regulation of artificial intelligence in the Republic of Kazakhstan (2026.6.22)
+
+카자흐스탄의 AI 법제 현황과 민사상 책임 체계를 어떻게 다듬어야 하는지를 검토한다. 문헌·법령 분석과 비교법적 접근을 통해 현행 규정의 적용 범위와 공백을 정리하고, AI로 인한 피해에 대한 civil liability 개선 방안을 제시한다. 결론으로 카자흐스탄이 소프트웨어 중심의 디지털화에서 AI를 포괄하는 포괄적 법제 정립 단계로 전환 중임을 밝히며, AI 시스템으로 인한 harm에 대한 민사책임 강화를 위해 카자흐스탄 민법(Civil Code)에 추가 조항 도입이 필요하다고 제안한다.
+
+요약불가
+
+https://doi.org/10.31489/2026l2/89-96" onclick="copyEntry(this)">복사</button></div>
+  <p>카자흐스탄의 AI 법제 현황과 민사상 책임 체계를 어떻게 다듬어야 하는지를 검토한다. 문헌·법령 분석과 비교법적 접근을 통해 현행 규정의 적용 범위와 공백을 정리하고, AI로 인한 피해에 대한 civil liability 개선 방안을 제시한다. 결론으로 카자흐스탄이 소프트웨어 중심의 디지털화에서 AI를 포괄하는 포괄적 법제 정립 단계로 전환 중임을 밝히며, AI 시스템으로 인한 harm에 대한 민사책임 강화를 위해 카자흐스탄 민법(Civil Code)에 추가 조항 도입이 필요하다고 제안한다.</p>
+<p>요약불가</p>
+  <p class="url"><a href="https://doi.org/10.31489/2026l2/89-96">https://doi.org/10.31489/2026l2/89-96</a></p>
 </article>
 <article class="entry cat-research">
   <h2>(2026.6.17)</h2>

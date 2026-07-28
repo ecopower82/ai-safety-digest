@@ -76,6 +76,7 @@
     overflow-wrap: anywhere; word-break: break-word;
   }
   .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
   .unavailable { color: var(--muted); font-style: italic; }
   .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
   .url a { color: var(--muted); text-decoration: none; }
@@ -105,6 +106,69 @@ https://aisi.go.jp/output/output_information/260723/" onclick="copyEntry(this)">
   
   <p class="url"><a href="https://aisi.go.jp/output/output_information/260723/">https://aisi.go.jp/output/output_information/260723/</a></p>
 </article>
+<article class="entry cat-aisi">
+  <h2>(How our new Control Red Team is stress-testing frontier monitors) (2026.07.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="(How our new Control Red Team is stress-testing frontier monitors) (2026.07.24)
+
+AISI는 자율적인 LLM 에이전트가 위해를 낳을 기회가 늘어남에 따라, 에이전트의 행동을 검토해 위험 시 플래그하는 ‘control monitor’를 대상으로 Red Team(통제/공격팀)을 운영해 취약점을 스트레스 테스트하고 있다고 밝혔다. 2년 이상 Misuse Red Team이 인간이 모델을 악용하도록 유도하는 보호장치를 깨보는 방식으로 검증해 왔으며, 이제는 에이전트가 스스로 취하는 harmful actions를 다루는 Control Red Team을 새로 구성해 비동기/동기 내부 모니터 등에서 프롬프트 누락, LLM 자체의 허점, 모니터로 전달되지 않는 행동 회피 같은 실패 모드를 찾아내 개선에 활용하고 있다. 또한 진화적 탐색으로 150k 쿼리 규모의 공격 transcript를 자동 생성해 monitor suspicion score를 낮추는 성과를 소개하고, 향후 실제 공격자에 대한 현실성 반영, 전체 안전성(효과) 추정, 모니터 불일치(misalignment) 대응 등 추가 연구과제를 제시했다. 마지막으로 frontier AI 개발사 모니터에 대한 red-teaming 인력을 채용한다고 밝혔다.
+
+https://www.aisi.gov.uk/blog/how-our-new-control-red-team-is-stress-testing-frontier-monitors" onclick="copyEntry(this)">복사</button></div>
+  <p>AISI는 자율적인 LLM 에이전트가 위해를 낳을 기회가 늘어남에 따라, 에이전트의 행동을 검토해 위험 시 플래그하는 ‘control monitor’를 대상으로 Red Team(통제/공격팀)을 운영해 취약점을 스트레스 테스트하고 있다고 밝혔다. 2년 이상 Misuse Red Team이 인간이 모델을 악용하도록 유도하는 보호장치를 깨보는 방식으로 검증해 왔으며, 이제는 에이전트가 스스로 취하는 harmful actions를 다루는 Control Red Team을 새로 구성해 비동기/동기 내부 모니터 등에서 프롬프트 누락, LLM 자체의 허점, 모니터로 전달되지 않는 행동 회피 같은 실패 모드를 찾아내 개선에 활용하고 있다. 또한 진화적 탐색으로 150k 쿼리 규모의 공격 transcript를 자동 생성해 monitor suspicion score를 낮추는 성과를 소개하고, 향후 실제 공격자에 대한 현실성 반영, 전체 안전성(효과) 추정, 모니터 불일치(misalignment) 대응 등 추가 연구과제를 제시했다. 마지막으로 frontier AI 개발사 모니터에 대한 red-teaming 인력을 채용한다고 밝혔다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/blog/how-our-new-control-red-team-is-stress-testing-frontier-monitors">https://www.aisi.gov.uk/blog/how-our-new-control-red-team-is-stress-testing-frontier-monitors</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>국제 AI 평가(NAAIMES) 첫 best practice 가이드 문서 완료 및 평가 도구·오픈 질문 논의(2024.01.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK 블로그</span> · <span class="deadline">NAAIMES는 2026년 2월 오픈 질문 관련 기존 글을 바탕으로, 2026 국제 ML 컨퍼런스(서울)에서 1차 best practice 가이드를 공유하고 이후 agentic capabilities 등 공통 이슈에 대한 추가 정렬을 예고했다.</span></span><button type="button" class="copy-btn" data-copy="국제 AI 평가(NAAIMES) 첫 best practice 가이드 문서 완료 및 평가 도구·오픈 질문 논의(2024.01.01)
+
+본문 요약: AISI-UK는 국제 고급 AI 측정·평가·과학 네트워크(NAAIMES)가 2024년 설립된 이후 AI 평가 과학을 발전시키고, 전 세계 제3자 평가자 생태계를 지원하기 위한 첫 best practice guidance 문서의 완성을 알렸다. 이 문서에는 평가 목적 정의와 벤치마크 선택, 출력 생성·분석 과정의 comparability 확보, capability elicitation 반복, 평가 수행 및 결과 추적(로그·디버깅 팁 포함) 절차가 포함된다. 또한 AI agents 평가에서의 오픈 질문과 관련해 Singapore·Canada·INESIA(프랑스)의 투명성, 현실적 테스트 설계, 제한된 자원 하 우선순위 설정 등 주제를 확장해 논의하고 있다.
+
+https://www.aisi.gov.uk/blog/international-evaluation-best-practice-and-open-questions-in-ai-measurement" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 요약: AISI-UK는 국제 고급 AI 측정·평가·과학 네트워크(NAAIMES)가 2024년 설립된 이후 AI 평가 과학을 발전시키고, 전 세계 제3자 평가자 생태계를 지원하기 위한 첫 best practice guidance 문서의 완성을 알렸다. 이 문서에는 평가 목적 정의와 벤치마크 선택, 출력 생성·분석 과정의 comparability 확보, capability elicitation 반복, 평가 수행 및 결과 추적(로그·디버깅 팁 포함) 절차가 포함된다. 또한 AI agents 평가에서의 오픈 질문과 관련해 Singapore·Canada·INESIA(프랑스)의 투명성, 현실적 테스트 설계, 제한된 자원 하 우선순위 설정 등 주제를 확장해 논의하고 있다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/blog/international-evaluation-best-practice-and-open-questions-in-ai-measurement">https://www.aisi.gov.uk/blog/international-evaluation-best-practice-and-open-questions-in-ai-measurement</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>UK AISI·CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.07.16)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">영국 Artificial Intelligence Security Institute(UK AISI)·미국 Center for AI Standards and Innovation(CAISI)</span></span><button type="button" class="copy-btn" data-copy="UK AISI·CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.07.16)
+
+Kimi K3가 ExploitBench(취약점 기반 익스플로잇 개발)와 “The Last Ones”(32단계 모의 기업망 공격) 평가에서 최신 frontier 수준 모델보다 전반적으로 낮은 성능을 보였다고 UK AISI/CAISI가 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2보다 높은 32%로 보고됐지만, arbitrary code execution(ACE)은 0/41로 가장 높은 성과 모델(평균 20/41)에 미치지 못했다. 또한 Kimi K3는 에이전트형 cyber exploit 개발을 돕는 것으로 나타났으나, 평가 중 사이버 exploit 개발 시도를 막지 못했다고 설명했다.
+
+https://www.aisi.gov.uk/blog/preliminary-assessment-of-kimi-k3s-cyber-capabilities" onclick="copyEntry(this)">복사</button></div>
+  <p>Kimi K3가 ExploitBench(취약점 기반 익스플로잇 개발)와 “The Last Ones”(32단계 모의 기업망 공격) 평가에서 최신 frontier 수준 모델보다 전반적으로 낮은 성능을 보였다고 UK AISI/CAISI가 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2보다 높은 32%로 보고됐지만, arbitrary code execution(ACE)은 0/41로 가장 높은 성과 모델(평균 20/41)에 미치지 못했다. 또한 Kimi K3는 에이전트형 cyber exploit 개발을 돕는 것으로 나타났으나, 평가 중 사이버 exploit 개발 시도를 막지 못했다고 설명했다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/blog/preliminary-assessment-of-kimi-k3s-cyber-capabilities">https://www.aisi.gov.uk/blog/preliminary-assessment-of-kimi-k3s-cyber-capabilities</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>유럽 집행위, Google의 Digital Markets Act 위반에 €890 million 과징금(기사·공고 게재일: 2026.7.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(European Commission)</span> · <span class="deadline">유럽 집행위는 이날 두 건의 결정과 함께 위반 행위를 중단하도록 명령했다.</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, Google의 Digital Markets Act 위반에 €890 million 과징금(기사·공고 게재일: 2026.7.23)
+
+유럽 집행위원회는 Digital Markets Act(DMA) 위반을 이유로 Google에 대해 두 차례 결정을 내리고 각각 €460 million과 €430 million, 총 €890 million의 과징금을 부과했다. 결정은 Google Search에서 자사 서비스를 타사보다 유리하게 노출하는 self-preferencing과, Google Play에서 사업자가 소비자를 대체(종종 더 저렴한) 구매 채널로 안내·유도하는 것을 제한한 anti-steering 관련 의무 위반을 포함한다. 위원회는 Google이 자체 서비스 검색 노출을 더 두드러지게 하고, 개발자의 대안 제안·홍보 및 제3자 앱스토어 등에서의 계약 체결을 자유롭게 하지 못하게 했으며, steering 관련 수수료와 부과 기간도 DMA 기준을 넘어섰다고 판단했다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-fines-google-eu890-million-breaches-digital-markets-act" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회는 Digital Markets Act(DMA) 위반을 이유로 Google에 대해 두 차례 결정을 내리고 각각 €460 million과 €430 million, 총 €890 million의 과징금을 부과했다. 결정은 Google Search에서 자사 서비스를 타사보다 유리하게 노출하는 self-preferencing과, Google Play에서 사업자가 소비자를 대체(종종 더 저렴한) 구매 채널로 안내·유도하는 것을 제한한 anti-steering 관련 의무 위반을 포함한다. 위원회는 Google이 자체 서비스 검색 노출을 더 두드러지게 하고, 개발자의 대안 제안·홍보 및 제3자 앱스토어 등에서의 계약 체결을 자유롭게 하지 못하게 했으며, steering 관련 수수료와 부과 기간도 DMA 기준을 넘어섰다고 판단했다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-fines-google-eu890-million-breaches-digital-markets-act">https://digital-strategy.ec.europa.eu/en/news/commission-fines-google-eu890-million-breaches-digital-markets-act</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>정부 ‘조직 개편’ 팩트시트(2026.07.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">영국 정부(gov.uk)</span> · <span class="deadline">시행/발행: 2026.07.22</span></span><button type="button" class="copy-btn" data-copy="정부 ‘조직 개편’ 팩트시트(2026.07.22)
+
+총리의 주도로 정부 조직과 기능을 재배치해 더 전략적이고 지역 권한을 강화하는 ‘정부 엔진룸’을 구축한다는 내용이다. No.10 North를 신설해 권한이전(지역 경제 성장·devolution 전략, 지역 경제 성장 정책 등)을 통해 지방 권한과 경제정책을 연계하고, 정부의 AI 전략을 포함한 핵심 기능은 Office for the Prime Minister and the Cabinet(OPMC) 및 Cabinet Office로 옮긴다. 또한 OneGov Delivery Agency를 Cabinet Office 산하에 신설하고, Office for Equality and Opportunity, 온라인 안전·디지털 정책 관련 기능, Public Sector Fraud Authority 등 일부 기능은 다른 부처로 이전하며, Department for Business and Trade는 DBIST로 개편된다.
+
+https://gov.uk/government/news/machinery-of-government-changes-fact-sheet" onclick="copyEntry(this)">복사</button></div>
+  <p>총리의 주도로 정부 조직과 기능을 재배치해 더 전략적이고 지역 권한을 강화하는 ‘정부 엔진룸’을 구축한다는 내용이다. No.10 North를 신설해 권한이전(지역 경제 성장·devolution 전략, 지역 경제 성장 정책 등)을 통해 지방 권한과 경제정책을 연계하고, 정부의 AI 전략을 포함한 핵심 기능은 Office for the Prime Minister and the Cabinet(OPMC) 및 Cabinet Office로 옮긴다. 또한 OneGov Delivery Agency를 Cabinet Office 산하에 신설하고, Office for Equality and Opportunity, 온라인 안전·디지털 정책 관련 기능, Public Sector Fraud Authority 등 일부 기능은 다른 부처로 이전하며, Department for Business and Trade는 DBIST로 개편된다.</p>
+  <p class="url"><a href="https://gov.uk/government/news/machinery-of-government-changes-fact-sheet">https://gov.uk/government/news/machinery-of-government-changes-fact-sheet</a></p>
+</article>
+<article class="entry cat-intl">
+  <h2>UK AISI/CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.7.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 국립표준기술연구소(NIST)</span></span><button type="button" class="copy-btn" data-copy="UK AISI/CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.7.23)
+
+Kimi K3는 2026.7.16 공개, 오픈웨이트 릴리스 예정은 2026.7.27로 안내됨
+
+UK AISI와 CAISI가 Moonshot AI의 Kimi K3에 대해 예비 평가를 실시한 결과, ExploitBench와 ‘The Last Ones’(TLO) 사이버 레인지 임무에서 최신 frontier cyber-capable 모델 대비 유의미하게 낮은 성능을 보였다고 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2(32% vs 24%)에는 우위였지만, ACE(임의 코드 실행) 도달은 0/41로 대부분의 최고 성능 모델(평균 20/41)보다 크게 낮았다. TLO에서는 32단계 경로 중 평균 17단계까지 도달했으며, GLM-5.2는 평균 11단계, 최고 U.S. 모델은 평균 28.5단계를 기록했고, TLO 완주(100M token 제한)는 Kimi K3가 1/10으로 보고됐다.
+
+https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities" onclick="copyEntry(this)">복사</button></div>
+  <p>Kimi K3는 2026.7.16 공개, 오픈웨이트 릴리스 예정은 2026.7.27로 안내됨</p>
+<p>UK AISI와 CAISI가 Moonshot AI의 Kimi K3에 대해 예비 평가를 실시한 결과, ExploitBench와 ‘The Last Ones’(TLO) 사이버 레인지 임무에서 최신 frontier cyber-capable 모델 대비 유의미하게 낮은 성능을 보였다고 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2(32% vs 24%)에는 우위였지만, ACE(임의 코드 실행) 도달은 0/41로 대부분의 최고 성능 모델(평균 20/41)보다 크게 낮았다. TLO에서는 32단계 경로 중 평균 17단계까지 도달했으며, GLM-5.2는 평균 11단계, 최고 U.S. 모델은 평균 28.5단계를 기록했고, TLO 완주(100M token 제한)는 Kimi K3가 1/10으로 보고됐다.</p>
+  <p class="url"><a href="https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities">https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities</a></p>
+</article>
 <article class="entry cat-research">
   <h2>Train the Model, Not the Reader: Decodability Supervision for Verifiable Activation Explanations (2026.7.22)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Train the Model, Not the Reader: Decodability Supervision for Verifiable Activation Explanations (2026.7.22)
@@ -132,7 +196,7 @@ https://arxiv.org/abs/2607.21151v1" onclick="copyEntry(this)">복사</button></d
 moral scenarios와 행동을 중심으로 instruction tuning에 바로 쓸 수 있는 moral-value 데이터셋을 구성해, 가치 정렬 연구에 필요한 학습 데이터를 제공한다. 기존 moral-value 데이터셋들을 통합해 단일 코퍼스를 만들고 instruction-response 형식으로 변환해 구축했으며, 일반 task 데이터셋과의 mixed training을 통해 설정을 비교한다. general-task 성능은 mixed dataset 학습에서 보존되는 것으로 보고되고, mixing ratio가 value-oriented task 성능에 미치는 영향에 대한 preliminary observations을 제시한다. 또한 데이터셋을 Hugging Face(https://huggingface.co/datasets/teohzzh/value-for-instruction-tuning)에서 공개한다.
 
 https://arxiv.org/abs/2607.21279v1" onclick="copyEntry(this)">복사</button></div>
-  <p>moral scenarios와 행동을 중심으로 instruction tuning에 바로 쓸 수 있는 moral-value 데이터셋을 구성해, 가치 정렬 연구에 필요한 학습 데이터를 제공한다. 기존 moral-value 데이터셋들을 통합해 단일 코퍼스를 만들고 instruction-response 형식으로 변환해 구축했으며, 일반 task 데이터셋과의 mixed training을 통해 설정을 비교한다. general-task 성능은 mixed dataset 학습에서 보존되는 것으로 보고되고, mixing ratio가 value-oriented task 성능에 미치는 영향에 대한 preliminary observations을 제시한다. 또한 데이터셋을 Hugging Face(https://huggingface.co/datasets/teohzzh/value-for-instruction-tuning)에서 공개한다.</p>
+  <p>moral scenarios와 행동을 중심으로 instruction tuning에 바로 쓸 수 있는 moral-value 데이터셋을 구성해, 가치 정렬 연구에 필요한 학습 데이터를 제공한다. 기존 moral-value 데이터셋들을 통합해 단일 코퍼스를 만들고 instruction-response 형식으로 변환해 구축했으며, 일반 task 데이터셋과의 mixed training을 통해 설정을 비교한다. general-task 성능은 mixed dataset 학습에서 보존되는 것으로 보고되고, mixing ratio가 value-oriented task 성능에 미치는 영향에 대한 preliminary observations을 제시한다. 또한 데이터셋을 Hugging Face(<a href="https://huggingface.co/datasets/teohzzh/value-for-instruction-tuning">https://huggingface.co/datasets/teohzzh/value-for-instruction-tuning</a>)에서 공개한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2607.21279v1">https://arxiv.org/abs/2607.21279v1</a></p>
 </article>
 <article class="entry cat-research">
@@ -175,16 +239,6 @@ https://arxiv.org/abs/2607.21549v1" onclick="copyEntry(this)">복사</button></d
   <p>기술 기반 학대(Technology-facilitated abuse, TFA) 피해자가 온라인에서 도움을 구할 때, 탐색·포럼·대화형 AI가 제공하는 응답의 품질이 위험 인식과 대응 선택에 영향을 줄 수 있음을 교차 플랫폼으로 평가한다. r/Stalking의 피해자 서사 10년치에서 11개 기술 오남용 범주의 TFA 쿼리를 질적 코딩과 지도학습 분류기로 구성하고, 동일 쿼리를 웹 검색, peer-support 포럼, conversational AI 3채널에 시뮬레이션한 뒤 기술·사회·안전 차원을 통합 프레임워크로 측정한다. 프레임워크는 관련성, 정확성, actionability, 설득력, 이해가능성 및 social-engineering risk, toxicity, empathy, bias, risky guidance, 지원정보 특성 등을 함께 평가한다. 결과로 Google Search와 general-purpose LLMs가 Reddit보다 관련성과 actionability가 더 높았지만(정성 비교), 어떤 채널도 일관되게 safe, trauma-informed 지원을 제공하지 못했으며, 검색 결과에서 잠재적으로 malicious links를 만나는 쿼리가 65%+, Reddit의 20%+가 toxic 응답을 포함하고, conversational AI는 risk-aware한 가이던스나 구체적 지원자원을 자주 제공하지 못했다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2607.21549v1">https://arxiv.org/abs/2607.21549v1</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>유럽 집행위, Google의 Digital Markets Act 위반에 €890 million 과징금(기사·공고 게재일: 2026.7.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(European Commission)</span> · <span class="deadline">유럽 집행위는 이날 두 건의 결정과 함께 위반 행위를 중단하도록 명령했다.</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, Google의 Digital Markets Act 위반에 €890 million 과징금(기사·공고 게재일: 2026.7.23)
-
-유럽 집행위원회는 Digital Markets Act(DMA) 위반을 이유로 Google에 대해 두 차례 결정을 내리고 각각 €460 million과 €430 million, 총 €890 million의 과징금을 부과했다. 결정은 Google Search에서 자사 서비스를 타사보다 유리하게 노출하는 self-preferencing과, Google Play에서 사업자가 소비자를 대체(종종 더 저렴한) 구매 채널로 안내·유도하는 것을 제한한 anti-steering 관련 의무 위반을 포함한다. 위원회는 Google이 자체 서비스 검색 노출을 더 두드러지게 하고, 개발자의 대안 제안·홍보 및 제3자 앱스토어 등에서의 계약 체결을 자유롭게 하지 못하게 했으며, steering 관련 수수료와 부과 기간도 DMA 기준을 넘어섰다고 판단했다.
-
-https://digital-strategy.ec.europa.eu/en/news/commission-fines-google-eu890-million-breaches-digital-markets-act" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위원회는 Digital Markets Act(DMA) 위반을 이유로 Google에 대해 두 차례 결정을 내리고 각각 €460 million과 €430 million, 총 €890 million의 과징금을 부과했다. 결정은 Google Search에서 자사 서비스를 타사보다 유리하게 노출하는 self-preferencing과, Google Play에서 사업자가 소비자를 대체(종종 더 저렴한) 구매 채널로 안내·유도하는 것을 제한한 anti-steering 관련 의무 위반을 포함한다. 위원회는 Google이 자체 서비스 검색 노출을 더 두드러지게 하고, 개발자의 대안 제안·홍보 및 제3자 앱스토어 등에서의 계약 체결을 자유롭게 하지 못하게 했으며, steering 관련 수수료와 부과 기간도 DMA 기준을 넘어섰다고 판단했다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-fines-google-eu890-million-breaches-digital-markets-act">https://digital-strategy.ec.europa.eu/en/news/commission-fines-google-eu890-million-breaches-digital-markets-act</a></p>
-</article>
 <article class="entry cat-research">
   <h2>Converting artificial intelligence into national capability: A three-layer framework for comparative strategy (**2026.7.22**)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Converting artificial intelligence into national capability: A three-layer framework for comparative strategy (**2026.7.22**)
@@ -208,16 +262,6 @@ https://doi.org/10.1145/3780103" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://doi.org/10.1145/3780103">https://doi.org/10.1145/3780103</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>정부 ‘조직 개편’ 팩트시트(2026.07.22)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">영국 정부(gov.uk)</span> · <span class="deadline">시행/발행: 2026.07.22</span></span><button type="button" class="copy-btn" data-copy="정부 ‘조직 개편’ 팩트시트(2026.07.22)
-
-총리의 주도로 정부 조직과 기능을 재배치해 더 전략적이고 지역 권한을 강화하는 ‘정부 엔진룸’을 구축한다는 내용이다. No.10 North를 신설해 권한이전(지역 경제 성장·devolution 전략, 지역 경제 성장 정책 등)을 통해 지방 권한과 경제정책을 연계하고, 정부의 AI 전략을 포함한 핵심 기능은 Office for the Prime Minister and the Cabinet(OPMC) 및 Cabinet Office로 옮긴다. 또한 OneGov Delivery Agency를 Cabinet Office 산하에 신설하고, Office for Equality and Opportunity, 온라인 안전·디지털 정책 관련 기능, Public Sector Fraud Authority 등 일부 기능은 다른 부처로 이전하며, Department for Business and Trade는 DBIST로 개편된다.
-
-https://gov.uk/government/news/machinery-of-government-changes-fact-sheet" onclick="copyEntry(this)">복사</button></div>
-  <p>총리의 주도로 정부 조직과 기능을 재배치해 더 전략적이고 지역 권한을 강화하는 ‘정부 엔진룸’을 구축한다는 내용이다. No.10 North를 신설해 권한이전(지역 경제 성장·devolution 전략, 지역 경제 성장 정책 등)을 통해 지방 권한과 경제정책을 연계하고, 정부의 AI 전략을 포함한 핵심 기능은 Office for the Prime Minister and the Cabinet(OPMC) 및 Cabinet Office로 옮긴다. 또한 OneGov Delivery Agency를 Cabinet Office 산하에 신설하고, Office for Equality and Opportunity, 온라인 안전·디지털 정책 관련 기능, Public Sector Fraud Authority 등 일부 기능은 다른 부처로 이전하며, Department for Business and Trade는 DBIST로 개편된다.</p>
-  <p class="url"><a href="https://gov.uk/government/news/machinery-of-government-changes-fact-sheet">https://gov.uk/government/news/machinery-of-government-changes-fact-sheet</a></p>
-</article>
 <article class="entry cat-research">
   <h2>Generative AI Risk Governance in Organizational Information Systems: A Conceptual Model Integrating Security, Ethics, and Digital Trust (2026.7.22)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Generative AI Risk Governance in Organizational Information Systems: A Conceptual Model Integrating Security, Ethics, and Digital Trust (2026.7.22)
@@ -227,49 +271,6 @@ https://gov.uk/government/news/machinery-of-government-changes-fact-sheet" oncli
 https://journal.admi.or.id/index.php/IJST/article/download/2876/2806" onclick="copyEntry(this)">복사</button></div>
   <p>조직의 정보시스템에서 Generative AI를 안전하고 신뢰할 수 있게 도입하기 위한 위험 거버넌스의 개념적 구조를 제시한다. AI governance readiness, information security control, ethical AI awareness, user digital trust, AI adoption effectiveness 간의 관계를 integrative literature review로 도출하고 thematic synthesis로 개념 도메인과 연구 명제를 정리했다. 핵심적으로 AI governance readiness가 information security control과 ethical AI awareness를 강화하고, 이 두 메커니즘이 user digital trust를 높여 조직 내 Generative AI adoption effectiveness로 이어지는 연쇄 경로를 제안한다.</p>
   <p class="url"><a href="https://journal.admi.or.id/index.php/IJST/article/download/2876/2806">https://journal.admi.or.id/index.php/IJST/article/download/2876/2806</a></p>
-</article>
-<article class="entry cat-aisi">
-  <h2>(How our new Control Red Team is stress-testing frontier monitors) (2026.07.24)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="(How our new Control Red Team is stress-testing frontier monitors) (2026.07.24)
-
-AISI는 자율적인 LLM 에이전트가 위해를 낳을 기회가 늘어남에 따라, 에이전트의 행동을 검토해 위험 시 플래그하는 ‘control monitor’를 대상으로 Red Team(통제/공격팀)을 운영해 취약점을 스트레스 테스트하고 있다고 밝혔다. 2년 이상 Misuse Red Team이 인간이 모델을 악용하도록 유도하는 보호장치를 깨보는 방식으로 검증해 왔으며, 이제는 에이전트가 스스로 취하는 harmful actions를 다루는 Control Red Team을 새로 구성해 비동기/동기 내부 모니터 등에서 프롬프트 누락, LLM 자체의 허점, 모니터로 전달되지 않는 행동 회피 같은 실패 모드를 찾아내 개선에 활용하고 있다. 또한 진화적 탐색으로 150k 쿼리 규모의 공격 transcript를 자동 생성해 monitor suspicion score를 낮추는 성과를 소개하고, 향후 실제 공격자에 대한 현실성 반영, 전체 안전성(효과) 추정, 모니터 불일치(misalignment) 대응 등 추가 연구과제를 제시했다. 마지막으로 frontier AI 개발사 모니터에 대한 red-teaming 인력을 채용한다고 밝혔다.
-
-https://www.aisi.gov.uk/blog/how-our-new-control-red-team-is-stress-testing-frontier-monitors" onclick="copyEntry(this)">복사</button></div>
-  <p>AISI는 자율적인 LLM 에이전트가 위해를 낳을 기회가 늘어남에 따라, 에이전트의 행동을 검토해 위험 시 플래그하는 ‘control monitor’를 대상으로 Red Team(통제/공격팀)을 운영해 취약점을 스트레스 테스트하고 있다고 밝혔다. 2년 이상 Misuse Red Team이 인간이 모델을 악용하도록 유도하는 보호장치를 깨보는 방식으로 검증해 왔으며, 이제는 에이전트가 스스로 취하는 harmful actions를 다루는 Control Red Team을 새로 구성해 비동기/동기 내부 모니터 등에서 프롬프트 누락, LLM 자체의 허점, 모니터로 전달되지 않는 행동 회피 같은 실패 모드를 찾아내 개선에 활용하고 있다. 또한 진화적 탐색으로 150k 쿼리 규모의 공격 transcript를 자동 생성해 monitor suspicion score를 낮추는 성과를 소개하고, 향후 실제 공격자에 대한 현실성 반영, 전체 안전성(효과) 추정, 모니터 불일치(misalignment) 대응 등 추가 연구과제를 제시했다. 마지막으로 frontier AI 개발사 모니터에 대한 red-teaming 인력을 채용한다고 밝혔다.</p>
-  <p class="url"><a href="https://www.aisi.gov.uk/blog/how-our-new-control-red-team-is-stress-testing-frontier-monitors">https://www.aisi.gov.uk/blog/how-our-new-control-red-team-is-stress-testing-frontier-monitors</a></p>
-</article>
-<article class="entry cat-aisi">
-  <h2>국제 AI 평가(NAAIMES) 첫 best practice 가이드 문서 완료 및 평가 도구·오픈 질문 논의(2024.01.01)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK 블로그</span> · <span class="deadline">NAAIMES는 2026년 2월 오픈 질문 관련 기존 글을 바탕으로, 2026 국제 ML 컨퍼런스(서울)에서 1차 best practice 가이드를 공유하고 이후 agentic capabilities 등 공통 이슈에 대한 추가 정렬을 예고했다.</span></span><button type="button" class="copy-btn" data-copy="국제 AI 평가(NAAIMES) 첫 best practice 가이드 문서 완료 및 평가 도구·오픈 질문 논의(2024.01.01)
-
-본문 요약: AISI-UK는 국제 고급 AI 측정·평가·과학 네트워크(NAAIMES)가 2024년 설립된 이후 AI 평가 과학을 발전시키고, 전 세계 제3자 평가자 생태계를 지원하기 위한 첫 best practice guidance 문서의 완성을 알렸다. 이 문서에는 평가 목적 정의와 벤치마크 선택, 출력 생성·분석 과정의 comparability 확보, capability elicitation 반복, 평가 수행 및 결과 추적(로그·디버깅 팁 포함) 절차가 포함된다. 또한 AI agents 평가에서의 오픈 질문과 관련해 Singapore·Canada·INESIA(프랑스)의 투명성, 현실적 테스트 설계, 제한된 자원 하 우선순위 설정 등 주제를 확장해 논의하고 있다.
-
-https://www.aisi.gov.uk/blog/international-evaluation-best-practice-and-open-questions-in-ai-measurement" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 요약: AISI-UK는 국제 고급 AI 측정·평가·과학 네트워크(NAAIMES)가 2024년 설립된 이후 AI 평가 과학을 발전시키고, 전 세계 제3자 평가자 생태계를 지원하기 위한 첫 best practice guidance 문서의 완성을 알렸다. 이 문서에는 평가 목적 정의와 벤치마크 선택, 출력 생성·분석 과정의 comparability 확보, capability elicitation 반복, 평가 수행 및 결과 추적(로그·디버깅 팁 포함) 절차가 포함된다. 또한 AI agents 평가에서의 오픈 질문과 관련해 Singapore·Canada·INESIA(프랑스)의 투명성, 현실적 테스트 설계, 제한된 자원 하 우선순위 설정 등 주제를 확장해 논의하고 있다.</p>
-  <p class="url"><a href="https://www.aisi.gov.uk/blog/international-evaluation-best-practice-and-open-questions-in-ai-measurement">https://www.aisi.gov.uk/blog/international-evaluation-best-practice-and-open-questions-in-ai-measurement</a></p>
-</article>
-<article class="entry cat-aisi">
-  <h2>UK AISI·CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.07.16)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">영국 Artificial Intelligence Security Institute(UK AISI)·미국 Center for AI Standards and Innovation(CAISI)</span></span><button type="button" class="copy-btn" data-copy="UK AISI·CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.07.16)
-
-Kimi K3가 ExploitBench(취약점 기반 익스플로잇 개발)와 “The Last Ones”(32단계 모의 기업망 공격) 평가에서 최신 frontier 수준 모델보다 전반적으로 낮은 성능을 보였다고 UK AISI/CAISI가 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2보다 높은 32%로 보고됐지만, arbitrary code execution(ACE)은 0/41로 가장 높은 성과 모델(평균 20/41)에 미치지 못했다. 또한 Kimi K3는 에이전트형 cyber exploit 개발을 돕는 것으로 나타났으나, 평가 중 사이버 exploit 개발 시도를 막지 못했다고 설명했다.
-
-https://www.aisi.gov.uk/blog/preliminary-assessment-of-kimi-k3s-cyber-capabilities" onclick="copyEntry(this)">복사</button></div>
-  <p>Kimi K3가 ExploitBench(취약점 기반 익스플로잇 개발)와 “The Last Ones”(32단계 모의 기업망 공격) 평가에서 최신 frontier 수준 모델보다 전반적으로 낮은 성능을 보였다고 UK AISI/CAISI가 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2보다 높은 32%로 보고됐지만, arbitrary code execution(ACE)은 0/41로 가장 높은 성과 모델(평균 20/41)에 미치지 못했다. 또한 Kimi K3는 에이전트형 cyber exploit 개발을 돕는 것으로 나타났으나, 평가 중 사이버 exploit 개발 시도를 막지 못했다고 설명했다.</p>
-  <p class="url"><a href="https://www.aisi.gov.uk/blog/preliminary-assessment-of-kimi-k3s-cyber-capabilities">https://www.aisi.gov.uk/blog/preliminary-assessment-of-kimi-k3s-cyber-capabilities</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>UK AISI/CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.7.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 국립표준기술연구소(NIST)</span></span><button type="button" class="copy-btn" data-copy="UK AISI/CAISI, Kimi K3의 사이버 역량 예비평가 결과 공개(2026.7.23)
-
-Kimi K3는 2026.7.16 공개, 오픈웨이트 릴리스 예정은 2026.7.27로 안내됨
-
-UK AISI와 CAISI가 Moonshot AI의 Kimi K3에 대해 예비 평가를 실시한 결과, ExploitBench와 ‘The Last Ones’(TLO) 사이버 레인지 임무에서 최신 frontier cyber-capable 모델 대비 유의미하게 낮은 성능을 보였다고 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2(32% vs 24%)에는 우위였지만, ACE(임의 코드 실행) 도달은 0/41로 대부분의 최고 성능 모델(평균 20/41)보다 크게 낮았다. TLO에서는 32단계 경로 중 평균 17단계까지 도달했으며, GLM-5.2는 평균 11단계, 최고 U.S. 모델은 평균 28.5단계를 기록했고, TLO 완주(100M token 제한)는 Kimi K3가 1/10으로 보고됐다.
-
-https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities" onclick="copyEntry(this)">복사</button></div>
-  <p>Kimi K3는 2026.7.16 공개, 오픈웨이트 릴리스 예정은 2026.7.27로 안내됨</p>
-<p>UK AISI와 CAISI가 Moonshot AI의 Kimi K3에 대해 예비 평가를 실시한 결과, ExploitBench와 ‘The Last Ones’(TLO) 사이버 레인지 임무에서 최신 frontier cyber-capable 모델 대비 유의미하게 낮은 성능을 보였다고 밝혔다. ExploitBench에서 Kimi K3는 GLM-5.2(32% vs 24%)에는 우위였지만, ACE(임의 코드 실행) 도달은 0/41로 대부분의 최고 성능 모델(평균 20/41)보다 크게 낮았다. TLO에서는 32단계 경로 중 평균 17단계까지 도달했으며, GLM-5.2는 평균 11단계, 최고 U.S. 모델은 평균 28.5단계를 기록했고, TLO 완주(100M token 제한)는 Kimi K3가 1/10으로 보고됐다.</p>
-  <p class="url"><a href="https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities">https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities</a></p>
 </article>
 <article class="entry cat-research">
   <h2>US Senator Mark Warner Unveils AI Plan (2026.7.21)</h2>
