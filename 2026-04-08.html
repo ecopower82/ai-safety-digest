@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -96,9 +119,9 @@
   <div class="sub">2026-04-08 · 20/20건 요약</div>
   <div class="nav"><a href="index.html">← 전체 목록</a></div>
 </header>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>EU-모로코, 디지털 분야 전략협력 강화를 위한 ‘디지털 대화(Digital Dialogue)’ 출범 (2026.4.8)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="EU-모로코, 디지털 분야 전략협력 강화를 위한 ‘디지털 대화(Digital Dialogue)’ 출범 (2026.4.8)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="EU-모로코, 디지털 분야 전략협력 강화를 위한 ‘디지털 대화(Digital Dialogue)’ 출범 (2026.4.8)
 
 EU 집행위원회와 모로코는 디지털 분야에서 전략적 파트너십을 강화하기 위해 ‘EU-모로코 디지털 대화’를 출범했다. 이번 대화는 디지털·데이터·인공지능(AI) 솔루션의 잠재력을 활용해 사람을 위한 디지털 경제·사회를 지원하는 공통 비전을 바탕으로 한다. AI 협력, 디지털 스타트업 지원, 안전하고 신뢰할 수 있는 디지털 인프라, 디지털 지갑 등 공공 디지털 인프라 솔루션의 상호운용성 분야에서 협력이 이뤄질 예정이다.
 
@@ -106,9 +129,9 @@ https://digital-strategy.ec.europa.eu/en/news/joint-press-release-commission-and
   <p>EU 집행위원회와 모로코는 디지털 분야에서 전략적 파트너십을 강화하기 위해 ‘EU-모로코 디지털 대화’를 출범했다. 이번 대화는 디지털·데이터·인공지능(AI) 솔루션의 잠재력을 활용해 사람을 위한 디지털 경제·사회를 지원하는 공통 비전을 바탕으로 한다. AI 협력, 디지털 스타트업 지원, 안전하고 신뢰할 수 있는 디지털 인프라, 디지털 지갑 등 공공 디지털 인프라 솔루션의 상호운용성 분야에서 협력이 이뤄질 예정이다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/joint-press-release-commission-and-kingdom-morocco-launch-digital-dialogue-strengthen-strategic">https://digital-strategy.ec.europa.eu/en/news/joint-press-release-commission-and-kingdom-morocco-launch-digital-dialogue-strengthen-strategic</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>GPAI 코드 이행을 위한 ‘저작권 챕터’ 제2차 서명자 태스크포스 회의(2026.3.13)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(유럽 AI 사무국) 디지털 전략</span> · <span class="deadline">유럽 AI 사무국이 2026년 3월 13일 제2차 회의를 주재</span></span><button type="button" class="copy-btn" data-copy="GPAI 코드 이행을 위한 ‘저작권 챕터’ 제2차 서명자 태스크포스 회의(2026.3.13)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(유럽 AI 사무국) 디지털 전략</span> · <span class="deadline">유럽 AI 사무국이 2026년 3월 13일 제2차 회의를 주재</span></span><button type="button" class="copy-btn" data-copy="GPAI 코드 이행을 위한 ‘저작권 챕터’ 제2차 서명자 태스크포스 회의(2026.3.13)
 
 유럽연합의 범용 AI(GPAI) 실천강령(코드 오브 프랙티스) 서명자 태스크포스 제2차 회의가 2026년 3월 13일 열렸고, 대부분의 서명자 대표가 참석했다. 회의는 저작권 챕터의 조치 1.4(저작권 침해 출력 완화)와 조치 1.5(불만 접수용 연락처 지정·운영)를 중심으로, 모델 생애주기 전반에서의 기술·조직적 완화 방안과 불만 처리 절차 구축 경험을 공유했다. 특히 조치 1.4에서는 라이선스 콘텐츠로 학습하고 출력-학습데이터 유사도를 측정하는 속성(어트리뷰션) 메커니즘을 활용하는 접근이 소개되었으며, 조치 1.5에서는 권리자 불만 접수 및 신속한 응답을 위한 조직적 준비가 논의됐다.
 
@@ -116,9 +139,9 @@ https://digital-strategy.ec.europa.eu/en/news/second-gpai-signatory-taskforce-me
   <p>유럽연합의 범용 AI(GPAI) 실천강령(코드 오브 프랙티스) 서명자 태스크포스 제2차 회의가 2026년 3월 13일 열렸고, 대부분의 서명자 대표가 참석했다. 회의는 저작권 챕터의 조치 1.4(저작권 침해 출력 완화)와 조치 1.5(불만 접수용 연락처 지정·운영)를 중심으로, 모델 생애주기 전반에서의 기술·조직적 완화 방안과 불만 처리 절차 구축 경험을 공유했다. 특히 조치 1.4에서는 라이선스 콘텐츠로 학습하고 출력-학습데이터 유사도를 측정하는 속성(어트리뷰션) 메커니즘을 활용하는 접근이 소개되었으며, 조치 1.5에서는 권리자 불만 접수 및 신속한 응답을 위한 조직적 준비가 논의됐다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/second-gpai-signatory-taskforce-meeting-copyright-chapter">https://digital-strategy.ec.europa.eu/en/news/second-gpai-signatory-taskforce-meeting-copyright-chapter</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>.유럽 통합·정체성을 담은 EU 최상위 도메인 .eu 20주년 기념 (2026.4.8)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">2026.5.26~5.27 ‘European Voices for the Future of the Internet – Celebrating 20 Years of .eu…’ 컨퍼런스에서 20주년 기념 및 헨나 비르쿠넨(EVP) 기조연설 예정</span></span><button type="button" class="copy-btn" data-copy=".유럽 통합·정체성을 담은 EU 최상위 도메인 .eu 20주년 기념 (2026.4.8)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">2026.5.26~5.27 ‘European Voices for the Future of the Internet – Celebrating 20 Years of .eu…’ 컨퍼런스에서 20주년 기념 및 헨나 비르쿠넨(EVP) 기조연설 예정</span></span><button type="button" class="copy-btn" data-copy=".유럽 통합·정체성을 담은 EU 최상위 도메인 .eu 20주년 기념 (2026.4.8)
 
 EU의 최상위 도메인 .eu는 유럽 기업·기관·시민이 웹사이트와 이메일 주소에 유럽 정체성을 부여할 수 있도록 20년간 제공해 왔다. 현재 .eu는 380만 건이 넘는 활성 등록을 보유하며, EU 단일시장과 유럽 통합을 상징한다. 또한 EU 전역에서 단일 웹 주소를 활용해 전자상거래를 간소화하고, 기계학습 기반 도구로 악용 방지·데이터 품질 점검·신뢰성과 보안을 강화하고 있다. 2026년 5월 26~27일 20주년을 기념하는 컨퍼런스가 열리며, 헨나 비르쿠넨이 기조연설을 할 예정이다.
 
@@ -126,9 +149,9 @@ https://digital-strategy.ec.europa.eu/en/news/two-decades-eu-domain-reflecting-e
   <p>EU의 최상위 도메인 .eu는 유럽 기업·기관·시민이 웹사이트와 이메일 주소에 유럽 정체성을 부여할 수 있도록 20년간 제공해 왔다. 현재 .eu는 380만 건이 넘는 활성 등록을 보유하며, EU 단일시장과 유럽 통합을 상징한다. 또한 EU 전역에서 단일 웹 주소를 활용해 전자상거래를 간소화하고, 기계학습 기반 도구로 악용 방지·데이터 품질 점검·신뢰성과 보안을 강화하고 있다. 2026년 5월 26~27일 20주년을 기념하는 컨퍼런스가 열리며, 헨나 비르쿠넨이 기조연설을 할 예정이다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/two-decades-eu-domain-reflecting-european-integration-and-identity-online">https://digital-strategy.ec.europa.eu/en/news/two-decades-eu-domain-reflecting-european-integration-and-identity-online</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>.eu 도메인 20주년(2026.4.7) 기념 및 인터넷 거버넌스 논의 행사 예고</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy=".eu 도메인 20주년(2026.4.7) 기념 및 인터넷 거버넌스 논의 행사 예고
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy=".eu 도메인 20주년(2026.4.7) 기념 및 인터넷 거버넌스 논의 행사 예고
 
 2026년 5월 26–27일 브뤼셀에서 EuroDIG 2026(“유럽의 목소리: .eu 20주년과 새로운 인터넷 거버넌스 10년의 시작”) 개최, 등록 진행 중
 
@@ -138,6 +161,26 @@ https://digital-strategy.ec.europa.eu/en/news/two-letters-one-identity-celebrati
   <p>2026년 5월 26–27일 브뤼셀에서 EuroDIG 2026(“유럽의 목소리: .eu 20주년과 새로운 인터넷 거버넌스 10년의 시작”) 개최, 등록 진행 중</p>
 <p>EU는 2006년 4월 7일 .eu 최상위 도메인을 출범시켜 EU 전역에서 기업·시민·조직이 단일 온라인 정체성을 갖도록 했다고 밝혔다. 현재 .eu는 380만 건이 넘는 등록을 바탕으로 유럽 내 국가코드 TLD 중 상위권이며, 20년 동안 단 한 번의 장애 없이 안정적으로 운영됐다고 설명했다. 또한 사이버 위협이 커지는 가운데 AI 기반 사기 탐지와 데이터 품질 점검 등 보안·남용 방지에 우선순위를 두고 있다고 전했다. .eu 20주년을 계기로 2026년 5월 26–27일 브뤼셀에서 EuroDIG 2026을 열어 유럽의 가치가 인터넷 거버넌스의 미래에 미칠 영향 등을 논의할 계획이다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/two-letters-one-identity-celebrating-20-years-eu">https://digital-strategy.ec.europa.eu/en/news/two-letters-one-identity-celebrating-20-years-eu</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(기사/공고 기준일: 2026.4.7) Anthropic, Claude ‘Mythos’ 프리뷰 공개 예고</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="(기사/공고 기준일: 2026.4.7) Anthropic, Claude ‘Mythos’ 프리뷰 공개 예고
+
+본문 PDF 원문이 인코딩/추출 오류로 대부분 식별 불가한 문자로 나타나 핵심 내용(프리뷰 내용, 일정, 참여 방법 등)을 확인할 수 없습니다. 다만 제공된 메타데이터(CSV 제목/날짜) 기준으로 Anthropic이 Claude ‘Mythos’ 프리뷰를 공개한다는 공지 성격의 문서로 보입니다.
+
+https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 PDF 원문이 인코딩/추출 오류로 대부분 식별 불가한 문자로 나타나 핵심 내용(프리뷰 내용, 일정, 참여 방법 등)을 확인할 수 없습니다. 다만 제공된 메타데이터(CSV 제목/날짜) 기준으로 Anthropic이 Claude ‘Mythos’ 프리뷰를 공개한다는 공지 성격의 문서로 보입니다.</p>
+  <p class="url"><a href="https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf">https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Anthropic, ‘Project Glasswing’으로 주요 소프트웨어 보안 강화를 위한 AI 방어 협력 착수 (2026.4.7)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">앤트로픽(Anthropic) 공식 발표</span> · <span class="deadline">Anthropic은 Claude Mythos Preview 사용 크레딧 최대 1억 달러와 오픈소스 보안 단체에 400만 달러를 기부한다고 밝힘</span></span><button type="button" class="copy-btn" data-copy="Anthropic, ‘Project Glasswing’으로 주요 소프트웨어 보안 강화를 위한 AI 방어 협력 착수 (2026.4.7)
+
+Anthropic은 Amazon Web Services, Apple, Microsoft, NVIDIA 등 다수 파트너와 함께 ‘Project Glasswing’을 출범해 중요 소프트웨어의 취약점과 보안 결함을 방어 목적으로 신속 탐지·대응하는 데 협력한다고 밝혔다. Claude Mythos Preview(공개 전 프론티어 모델)가 수천 건의 고위험 취약점과 제로데이 결함을 찾아냈으며, 일부는 사람의 검토와 자동 보안 테스트를 수년간 통과한 사례도 있다고 설명했다. 파트너들은 방어 보안 업무에 모델을 활용하고, Anthropic은 학습·발견 내용을 공유하며 40개+ 추가 조직에 모델 접근을 확장해 1차 및 오픈소스 시스템 전반을 스캔·보안하도록 지원할 계획이다.
+
+https://www.anthropic.com/glasswing" onclick="copyEntry(this)">복사</button></div>
+  <p>Anthropic은 Amazon Web Services, Apple, Microsoft, NVIDIA 등 다수 파트너와 함께 ‘Project Glasswing’을 출범해 중요 소프트웨어의 취약점과 보안 결함을 방어 목적으로 신속 탐지·대응하는 데 협력한다고 밝혔다. Claude Mythos Preview(공개 전 프론티어 모델)가 수천 건의 고위험 취약점과 제로데이 결함을 찾아냈으며, 일부는 사람의 검토와 자동 보안 테스트를 수년간 통과한 사례도 있다고 설명했다. 파트너들은 방어 보안 업무에 모델을 활용하고, Anthropic은 학습·발견 내용을 공유하며 40개+ 추가 조직에 모델 접근을 확장해 1차 및 오픈소스 시스템 전반을 스캔·보안하도록 지원할 계획이다.</p>
+  <p class="url"><a href="https://www.anthropic.com/glasswing">https://www.anthropic.com/glasswing</a></p>
 </article>
 <article class="entry cat-other">
   <h2>원래 모든 AI 기술은 ‘피지컬’(physical)하며, ‘피지컬 AI’는 노동·현실 비용을 가리는 하이프라는 주장 (2026.4.8)</h2>
@@ -279,27 +322,7 @@ https://www.latimes.com/california/story/2026-04-01/csu-ai-survey-students-facul
   <p>캘리포니아 주립대(CSU) 시스템이 22개 캠퍼스 구성원 9만4천여 명을 대상으로 실시한 AI 관련 대규모 설문에서, 응답자의 거의 대부분이 AI를 한 번 이상 사용한 것으로 나타났다. 다만 교육적 활용은 개인적 사용보다 덜했고, AI가 학업 공정성·직업 경쟁·콘텐츠 신뢰성에 부정적 영향을 줄 수 있다는 우려도 컸다. 직원과 학생은 AI에 비교적 더 긍정적이었지만, 교수진은 긍정(수업·연구에 도움)과 부정(부작용) 응답이 모두 과반에 가까워 가장 분열된 것으로 조사됐다. CSU의 OpenAI ChatGPT 계약은 7월 만료되며, CSU는 연장 여부를 밝히지 않았지만 AI 접근과 교육·훈련을 계속 이어가겠다는 입장이다.</p>
   <p class="url"><a href="https://www.latimes.com/california/story/2026-04-01/csu-ai-survey-students-faculty">https://www.latimes.com/california/story/2026-04-01/csu-ai-survey-students-faculty</a></p>
 </article>
-<article class="entry cat-research">
-  <h2>(기사/공고 기준일: 2026.4.7) Anthropic, Claude ‘Mythos’ 프리뷰 공개 예고</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="(기사/공고 기준일: 2026.4.7) Anthropic, Claude ‘Mythos’ 프리뷰 공개 예고
-
-본문 PDF 원문이 인코딩/추출 오류로 대부분 식별 불가한 문자로 나타나 핵심 내용(프리뷰 내용, 일정, 참여 방법 등)을 확인할 수 없습니다. 다만 제공된 메타데이터(CSV 제목/날짜) 기준으로 Anthropic이 Claude ‘Mythos’ 프리뷰를 공개한다는 공지 성격의 문서로 보입니다.
-
-https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 PDF 원문이 인코딩/추출 오류로 대부분 식별 불가한 문자로 나타나 핵심 내용(프리뷰 내용, 일정, 참여 방법 등)을 확인할 수 없습니다. 다만 제공된 메타데이터(CSV 제목/날짜) 기준으로 Anthropic이 Claude ‘Mythos’ 프리뷰를 공개한다는 공지 성격의 문서로 보입니다.</p>
-  <p class="url"><a href="https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf">https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Anthropic, ‘Project Glasswing’으로 주요 소프트웨어 보안 강화를 위한 AI 방어 협력 착수 (2026.4.7)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">앤트로픽(Anthropic) 공식 발표</span> · <span class="deadline">Anthropic은 Claude Mythos Preview 사용 크레딧 최대 1억 달러와 오픈소스 보안 단체에 400만 달러를 기부한다고 밝힘</span></span><button type="button" class="copy-btn" data-copy="Anthropic, ‘Project Glasswing’으로 주요 소프트웨어 보안 강화를 위한 AI 방어 협력 착수 (2026.4.7)
-
-Anthropic은 Amazon Web Services, Apple, Microsoft, NVIDIA 등 다수 파트너와 함께 ‘Project Glasswing’을 출범해 중요 소프트웨어의 취약점과 보안 결함을 방어 목적으로 신속 탐지·대응하는 데 협력한다고 밝혔다. Claude Mythos Preview(공개 전 프론티어 모델)가 수천 건의 고위험 취약점과 제로데이 결함을 찾아냈으며, 일부는 사람의 검토와 자동 보안 테스트를 수년간 통과한 사례도 있다고 설명했다. 파트너들은 방어 보안 업무에 모델을 활용하고, Anthropic은 학습·발견 내용을 공유하며 40개+ 추가 조직에 모델 접근을 확장해 1차 및 오픈소스 시스템 전반을 스캔·보안하도록 지원할 계획이다.
-
-https://www.anthropic.com/glasswing" onclick="copyEntry(this)">복사</button></div>
-  <p>Anthropic은 Amazon Web Services, Apple, Microsoft, NVIDIA 등 다수 파트너와 함께 ‘Project Glasswing’을 출범해 중요 소프트웨어의 취약점과 보안 결함을 방어 목적으로 신속 탐지·대응하는 데 협력한다고 밝혔다. Claude Mythos Preview(공개 전 프론티어 모델)가 수천 건의 고위험 취약점과 제로데이 결함을 찾아냈으며, 일부는 사람의 검토와 자동 보안 테스트를 수년간 통과한 사례도 있다고 설명했다. 파트너들은 방어 보안 업무에 모델을 활용하고, Anthropic은 학습·발견 내용을 공유하며 40개+ 추가 조직에 모델 접근을 확장해 1차 및 오픈소스 시스템 전반을 스캔·보안하도록 지원할 계획이다.</p>
-  <p class="url"><a href="https://www.anthropic.com/glasswing">https://www.anthropic.com/glasswing</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

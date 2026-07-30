@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -239,9 +262,9 @@ https://www.anthropic.com/news/fable-safeguards-jailbreak-framework" onclick="co
   <p>앤트로픽은 Claude Fable 5가 전 세계 사용자에게 재배포·공개된 가운데, 모델과 함께 동작하는 safety classifiers의 설계 의도와 jailbreak severity framework의 초안(Glasswing 파트너와 공동 작업)을 공유했다. 안전 분류기는 사이버 보안 사용을 크게 Prohibited use(차단), High-risk dual use(대체로 차단), Low-risk dual use(모니터링·필요시 차단), Benign use(허용) 4개 범주로 구분해 위험도를 반영한다. 또한 jailbreak의 심각도 수준을 정부·개발자 간 일관된 언어로 설명하기 위한 기준이 없다는 점을 언급하며, 분류 경계(safety margin) 크기를 조정해 오탐과 유해 차단의 균형을 맞춘다고 설명했다. 아울러 연구자들이 HackerOne 프로그램을 통해 발견한 잠재적 cyber jailbreak를 제출해 검토받을 수 있게 했다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework">https://www.anthropic.com/news/fable-safeguards-jailbreak-framework</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>유럽 디지털 서비스 이사회 19차 정례회의 개최, DSA 시스템 위험 2차 연차보고서 채택(기사·공고 게재일 2026.7.2)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 디지털 서비스 이사회 19차 정례회의 개최, DSA 시스템 위험 2차 연차보고서 채택(기사·공고 게재일 2026.7.2)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 디지털 서비스 이사회 19차 정례회의 개최, DSA 시스템 위험 2차 연차보고서 채택(기사·공고 게재일 2026.7.2)
 
 2026년 7월 1일 브뤼셀에서 유럽 디지털 서비스 이사회(이사회) 19차 정례회의가 열렸다. 이사회는 DSA 제35조(2)에 따라 2차 연차보고서를 채택했으며, 매우 큰 온라인 플랫폼·서비스의 설계 및 작동과 서비스 이용에서 비롯될 수 있는 주요 시스템 위험을 근거에 기반해 구조적으로 정리했다고 밝혔다. 또한 디지털 서비스 조정관(DSCs)과 집행위원회의 최신 집행 활동 업데이트를 공유하고, 자격 있는 연구자를 위한 데이터 접근 보장에 대한 약속을 재확인했으며, 이사회와 유럽 미디어 서비스 이사회 간 첫 공동 회의에서 온라인 미성년자 보호 및 미디어 자유·다원성 등의 협력 방안을 논의했다.
 
@@ -249,9 +272,9 @@ https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-dig
   <p>2026년 7월 1일 브뤼셀에서 유럽 디지털 서비스 이사회(이사회) 19차 정례회의가 열렸다. 이사회는 DSA 제35조(2)에 따라 2차 연차보고서를 채택했으며, 매우 큰 온라인 플랫폼·서비스의 설계 및 작동과 서비스 이용에서 비롯될 수 있는 주요 시스템 위험을 근거에 기반해 구조적으로 정리했다고 밝혔다. 또한 디지털 서비스 조정관(DSCs)과 집행위원회의 최신 집행 활동 업데이트를 공유하고, 자격 있는 연구자를 위한 데이터 접근 보장에 대한 약속을 재확인했으며, 이사회와 유럽 미디어 서비스 이사회 간 첫 공동 회의에서 온라인 미성년자 보호 및 미디어 자유·다원성 등의 협력 방안을 논의했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services-following-its-19th-meeting">https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services-following-its-19th-meeting</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>(2026.7.2) 디지털서비스법(DSA) 2차 체계적 위험 보고서가 온라인 아동·청소년 보호의 중요성과 대응방안을 강조</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합(EU) 디지털 전략</span></span><button type="button" class="copy-btn" data-copy="(2026.7.2) 디지털서비스법(DSA) 2차 체계적 위험 보고서가 온라인 아동·청소년 보호의 중요성과 대응방안을 강조
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합(EU) 디지털 전략</span></span><button type="button" class="copy-btn" data-copy="(2026.7.2) 디지털서비스법(DSA) 2차 체계적 위험 보고서가 온라인 아동·청소년 보호의 중요성과 대응방안을 강조
 
 EU 집행위원회와 유럽의 디지털서비스이사회(Boards for Digital Services)가 발표한 DSA 2차 체계적 위험 및 완화조치 보고서는 온라인에서 아동·청소년이 겪는 위험과 장기적 대응 방향을 조명했다. 보고서는 VLOPs·VLOSEs(초대형 온라인 플랫폼·검색엔진)에서 불법 콘텐츠 확산, 디자인 선택으로 인한 아동 안전 악화 가능성, 소셜미디어의 중독 유사 행동 조장(인터페이스 기능·추천 시스템), 위험한 바이럴 챌린지·성인 콘텐츠 노출, 사이버불링과 그루밍 같은 해로운 행태를 위험요인으로 제시했다. 또한 이러한 위험을 줄이기 위한 맞춤형 보호조치와 이용자 권한강화 도구 등 완화조치 사례를 정리하며 DSA가 플랫폼 운영 방식의 투명성을 높이는 역할을 한다고 밝혔다.
 
@@ -259,15 +282,85 @@ https://digital-strategy.ec.europa.eu/en/news/report-highlights-importance-digit
   <p>EU 집행위원회와 유럽의 디지털서비스이사회(Boards for Digital Services)가 발표한 DSA 2차 체계적 위험 및 완화조치 보고서는 온라인에서 아동·청소년이 겪는 위험과 장기적 대응 방향을 조명했다. 보고서는 VLOPs·VLOSEs(초대형 온라인 플랫폼·검색엔진)에서 불법 콘텐츠 확산, 디자인 선택으로 인한 아동 안전 악화 가능성, 소셜미디어의 중독 유사 행동 조장(인터페이스 기능·추천 시스템), 위험한 바이럴 챌린지·성인 콘텐츠 노출, 사이버불링과 그루밍 같은 해로운 행태를 위험요인으로 제시했다. 또한 이러한 위험을 줄이기 위한 맞춤형 보호조치와 이용자 권한강화 도구 등 완화조치 사례를 정리하며 DSA가 플랫폼 운영 방식의 투명성을 높이는 역할을 한다고 밝혔다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/report-highlights-importance-digital-services-act-protection-minors-online">https://digital-strategy.ec.europa.eu/en/news/report-highlights-importance-digital-services-act-protection-minors-online</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>AI-양자기술 상호보완: QML·양자센싱·양자통신을 통해 AI 발전 가능성(2026.7.6)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">OECD-AI</span></span><button type="button" class="copy-btn" data-copy="AI-양자기술 상호보완: QML·양자센싱·양자통신을 통해 AI 발전 가능성(2026.7.6)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">OECD-AI</span></span><button type="button" class="copy-btn" data-copy="AI-양자기술 상호보완: QML·양자센싱·양자통신을 통해 AI 발전 가능성(2026.7.6)
 
 양자컴퓨팅은 기존 AI를 대체하기보다, 특정 최적화·시뮬레이션 등 난이도 높은 문제에서 강점을 가진 양자-강화 AI로 공존하며 발전할 가능성이 크다고 전했다. 다만 QML(quantum machine learning)은 데이터 전송 제약, 양자 대비 성능 우위의 검증 부족, 하드웨어 요구사항 불명확 등 병목 때문에 향후 10년 내 대규모 상용화를 기대하기 어렵다고 했다. 한편 양자 영감(compression 등) 기법과 하이브리드 양자-고전 컴퓨팅은 이미 실용적 이점을 제공하며, 양자센싱은 더 정밀한 데이터로 헬스케어·농업·인프라 예지정비 등에 기여할 수 있고, 양자통신은 연합학습 등에서 보안 네트워킹과 분산학습 구조에 활용될 수 있다고 설명했다. 또한 AI와 양자기술의 ‘상호 촉진(AI for quantum and quantum for AI)’이 과학·산업·지속가능성의 다음 혁신을 좌우할 것이라고 전망했다.
 
 https://oecd.ai/en/wonk/how-quantum-technologies-could-open-new-frontiers-for-ai" onclick="copyEntry(this)">복사</button></div>
   <p>양자컴퓨팅은 기존 AI를 대체하기보다, 특정 최적화·시뮬레이션 등 난이도 높은 문제에서 강점을 가진 양자-강화 AI로 공존하며 발전할 가능성이 크다고 전했다. 다만 QML(quantum machine learning)은 데이터 전송 제약, 양자 대비 성능 우위의 검증 부족, 하드웨어 요구사항 불명확 등 병목 때문에 향후 10년 내 대규모 상용화를 기대하기 어렵다고 했다. 한편 양자 영감(compression 등) 기법과 하이브리드 양자-고전 컴퓨팅은 이미 실용적 이점을 제공하며, 양자센싱은 더 정밀한 데이터로 헬스케어·농업·인프라 예지정비 등에 기여할 수 있고, 양자통신은 연합학습 등에서 보안 네트워킹과 분산학습 구조에 활용될 수 있다고 설명했다. 또한 AI와 양자기술의 ‘상호 촉진(AI for quantum and quantum for AI)’이 과학·산업·지속가능성의 다음 혁신을 좌우할 것이라고 전망했다.</p>
   <p class="url"><a href="https://oecd.ai/en/wonk/how-quantum-technologies-could-open-new-frontiers-for-ai">https://oecd.ai/en/wonk/how-quantum-technologies-could-open-new-frontiers-for-ai</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>Artificial intelligence council gives final green light to simplify and streamline rules</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">consilium.europa.eu</span></span><button type="button" class="copy-btn" data-copy="Artificial intelligence council gives final green light to simplify and streamline rules
+
+요약불가
+
+https://consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules">https://consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>AI 범죄 대응 범부처 협의체 출범(2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">공정거래위원회</span></span><button type="button" class="copy-btn" data-copy="AI 범죄 대응 범부처 협의체 출범(2026.7.2)
+
+온라인 플랫폼·금융·통신·개인정보·수사·국제협력 등과 연계된 AI 악용 범죄에 공동 대응하기 위해 ‘AI 범죄 대응 범부처 협의체’가 공식 출범했다. 방송미디어통신위원회가 26일 킥오프 회의를 열고, ‘AI 범죄 근절 종합 대응 계획’과 ‘AI 범죄 통합 대응체계 구축 방안’을 논의했으며 예방·탐지·차단·수사·피해회복·재발방지 전 과정을 아우르는 범정부 대책을 담았다. 관계부처는 AI 범죄 정보를 신속히 공유하고 징후를 공동 분석·대응하기 위한 상시적 통합 대응체계 운영 필요성도 공감했다.
+
+https://ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&amp;pageIndex=1&amp;searchCnd=all&amp;key=12&amp;bordCd=3&amp;searchCtgry=01%2C02&amp;nttSn=47656" onclick="copyEntry(this)">복사</button></div>
+  <p>온라인 플랫폼·금융·통신·개인정보·수사·국제협력 등과 연계된 AI 악용 범죄에 공동 대응하기 위해 ‘AI 범죄 대응 범부처 협의체’가 공식 출범했다. 방송미디어통신위원회가 26일 킥오프 회의를 열고, ‘AI 범죄 근절 종합 대응 계획’과 ‘AI 범죄 통합 대응체계 구축 방안’을 논의했으며 예방·탐지·차단·수사·피해회복·재발방지 전 과정을 아우르는 범정부 대책을 담았다. 관계부처는 AI 범죄 정보를 신속히 공유하고 징후를 공동 분석·대응하기 위한 상시적 통합 대응체계 운영 필요성도 공감했다.</p>
+  <p class="url"><a href="https://ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&amp;pageIndex=1&amp;searchCnd=all&amp;key=12&amp;bordCd=3&amp;searchCtgry=01%2C02&amp;nttSn=47656">https://ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&amp;pageIndex=1&amp;searchCnd=all&amp;key=12&amp;bordCd=3&amp;searchCtgry=01%2C02&amp;nttSn=47656</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>FTC, AI 정확성·객관성 훼손 우려 정책초안에 대한 대국민 의견수렴(2026.7.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 연방거래위원회(FTC)</span> · <span class="deadline">공개의견 제출 마감: 2026.7.31</span></span><button type="button" class="copy-btn" data-copy="FTC, AI 정확성·객관성 훼손 우려 정책초안에 대한 대국민 의견수렴(2026.7.1)
+
+미 연방거래위원회(FTC)는 AI 기업이 소비자가 기대하는 객관성·정확성과 달리 AI 시스템의 동작을 조작할 수 있다는 우려와 관련해 정책 성명(안)에 대한 공개 의견을 받는다. FTC Act상 ‘부당하거나 기만적인(unfair or deceptive)’ 행위를 금지하며, 회사가 비공개된 이념적 목표를 달성하기 위해 AI의 출력 결과를 왜곡하는 경우 소비자를 기만해 FTC Act 제5조 위반이 될 수 있다고 설명한다. 또한 소비자에게 특정 작업에서 AI가 효과적·적합하다고 한 명시적·암묵적 표현과 어긋날 수 있다고 밝혔다. 해당 정책 성명은 연방관보(Federal Register)에 게재되며, 의견은 Regulations.gov에 게시될 예정이다.
+
+https://ftc.gov/news-events/news/press-releases/2026/07/ftc-seeks-public-comment-policy-statement-addressing-ai-accuracy" onclick="copyEntry(this)">복사</button></div>
+  <p>미 연방거래위원회(FTC)는 AI 기업이 소비자가 기대하는 객관성·정확성과 달리 AI 시스템의 동작을 조작할 수 있다는 우려와 관련해 정책 성명(안)에 대한 공개 의견을 받는다. FTC Act상 ‘부당하거나 기만적인(unfair or deceptive)’ 행위를 금지하며, 회사가 비공개된 이념적 목표를 달성하기 위해 AI의 출력 결과를 왜곡하는 경우 소비자를 기만해 FTC Act 제5조 위반이 될 수 있다고 설명한다. 또한 소비자에게 특정 작업에서 AI가 효과적·적합하다고 한 명시적·암묵적 표현과 어긋날 수 있다고 밝혔다. 해당 정책 성명은 연방관보(Federal Register)에 게재되며, 의견은 Regulations.gov에 게시될 예정이다.</p>
+  <p class="url"><a href="https://ftc.gov/news-events/news/press-releases/2026/07/ftc-seeks-public-comment-policy-statement-addressing-ai-accuracy">https://ftc.gov/news-events/news/press-releases/2026/07/ftc-seeks-public-comment-policy-statement-addressing-ai-accuracy</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>ARToken ‘EvilTokens’ 제휴형 PhaaS 패널로 Microsoft 365 대상 phishing·토큰 지속·SharePoint 유출(2026.7.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">시스코 탈로스(Cisco Talos)</span></span><button type="button" class="copy-btn" data-copy="ARToken ‘EvilTokens’ 제휴형 PhaaS 패널로 Microsoft 365 대상 phishing·토큰 지속·SharePoint 유출(2026.7.1)
+
+시스코 탈로스는 ‘ARToken’이라는 phishing-as-a-service(PhaaS) 제휴자용 패널을 분석해, EvilTokens와 API 계약·운용 방식이 공유된다고 밝혔다. ARToken 패널은 장치 코드 phishing, Primary Refresh Token(PRT) 기반 지속성, BEC(메일함 장악) 및 SharePoint/OneDrive 유출에 이르는 기능을 80개+ API 엔드포인트와 대시보드를 통해 제공하며, Cloudflare Workers에 템플릿을 배포하는 구조라고 설명했다. 또한 클라이언트 측 7단계 anti-analysis(행동·타이밍 기반 봇 차단, XOR 암호화 payload)를 포함하고, 스푸핑 이메일은 SharePoint 링크의 평판을 이용하되 실제 목적지는 look-alike 테넌트로 유도하는 정교한 회피 방식을 사용한 것으로 제시했다.
+
+https://blog.talosintelligence.com/artoken-inside-an-eviltokens-affiliate-panel-targeting-microsoft-365/" onclick="copyEntry(this)">복사</button></div>
+  <p>시스코 탈로스는 ‘ARToken’이라는 phishing-as-a-service(PhaaS) 제휴자용 패널을 분석해, EvilTokens와 API 계약·운용 방식이 공유된다고 밝혔다. ARToken 패널은 장치 코드 phishing, Primary Refresh Token(PRT) 기반 지속성, BEC(메일함 장악) 및 SharePoint/OneDrive 유출에 이르는 기능을 80개+ API 엔드포인트와 대시보드를 통해 제공하며, Cloudflare Workers에 템플릿을 배포하는 구조라고 설명했다. 또한 클라이언트 측 7단계 anti-analysis(행동·타이밍 기반 봇 차단, XOR 암호화 payload)를 포함하고, 스푸핑 이메일은 SharePoint 링크의 평판을 이용하되 실제 목적지는 look-alike 테넌트로 유도하는 정교한 회피 방식을 사용한 것으로 제시했다.</p>
+  <p class="url"><a href="https://blog.talosintelligence.com/artoken-inside-an-eviltokens-affiliate-panel-targeting-microsoft-365/">https://blog.talosintelligence.com/artoken-inside-an-eviltokens-affiliate-panel-targeting-microsoft-365/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>LLM Agent JADEPUFFER Executes Autonomous Ransomware Operation (2026.7.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="LLM Agent JADEPUFFER Executes Autonomous Ransomware Operation (2026.7.1)
+
+요약불가
+
+https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion">https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>유엔 독립 국제 과학 패널, AI 역량 성장 속도에 현재 AI 안전장치가 못 미친다고 경고 (2026.7.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">유엔(UN) 독립 국제 과학 패널 on AI</span> · <span class="deadline">6~7일(2026.7.6~7) 제1차 AI 거버넌스 글로벌 다이얼로그(제네바) 개최 예정, 차기 연례보고서는 2027년 5월 뉴욕에서 열릴 예정</span></span><button type="button" class="copy-btn" data-copy="유엔 독립 국제 과학 패널, AI 역량 성장 속도에 현재 AI 안전장치가 못 미친다고 경고 (2026.7.1)
+
+본 보고서는 유엔 5개 지역의 독립 과학자와 전문가로 구성된 패널이 AI의 기회·위험·영향을 과학적 근거로 평가한 첫 독립 과학 보고서라고 밝힌다. 핵심 경고는 “현재의 safeguards가 AI 역량 성장 속도를 따라가지 못한다”는 점이며, 정책결정자는 필요 시점에 맞는 과학적 증거를 확보해야 하지만 증거가 명확해질 때는 이미 조치가 늦을 수 있다는 증거 격차 문제를 제시한다. 보고서는 7개 핵심 영역(과학·사회 적용·경제·보안/시스템/환경·인권/정보/민주주의·자율성과 아동 안전·관리/거버넌스/신뢰성)으로 결과를 정리하며, 예비보고서 이후에도 협의와 과학계 참여를 통해 근거를 심화하고 2026년 7월 제네바 글로벌 다이얼로그의 공통 과학적 출발점으로 활용될 예정이라고 한다.
+
+https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report" onclick="copyEntry(this)">복사</button></div>
+  <p>본 보고서는 유엔 5개 지역의 독립 과학자와 전문가로 구성된 패널이 AI의 기회·위험·영향을 과학적 근거로 평가한 첫 독립 과학 보고서라고 밝힌다. 핵심 경고는 “현재의 safeguards가 AI 역량 성장 속도를 따라가지 못한다”는 점이며, 정책결정자는 필요 시점에 맞는 과학적 증거를 확보해야 하지만 증거가 명확해질 때는 이미 조치가 늦을 수 있다는 증거 격차 문제를 제시한다. 보고서는 7개 핵심 영역(과학·사회 적용·경제·보안/시스템/환경·인권/정보/민주주의·자율성과 아동 안전·관리/거버넌스/신뢰성)으로 결과를 정리하며, 예비보고서 이후에도 협의와 과학계 참여를 통해 근거를 심화하고 2026년 7월 제네바 글로벌 다이얼로그의 공통 과학적 출발점으로 활용될 예정이라고 한다.</p>
+  <p class="url"><a href="https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report">https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>CIA Announces Overhaul to Accelerate AI Adoption Agency-Wide (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="CIA Announces Overhaul to Accelerate AI Adoption Agency-Wide (2026.6.30)
+
+요약불가
+
+https://www.washingtonpost.com/national-security/2026/06/30/cia-accelerate-its-use-ai-other-advanced-technologies/" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.washingtonpost.com/national-security/2026/06/30/cia-accelerate-its-use-ai-other-advanced-technologies/">https://www.washingtonpost.com/national-security/2026/06/30/cia-accelerate-its-use-ai-other-advanced-technologies/</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>[동향] 저궤도 위성 D2D 시장 및 정책 동향 (2026.6.22)</h2>
@@ -328,36 +421,6 @@ https://www.spri.kr/posts/view/24004?code=issue_reports&amp;study_type=&amp;boar
 https://aifrontiersmedia.substack.com/p/ai-governance-needs-radical-optionality" onclick="copyEntry(this)">복사</button></div>
   <p>불확실한 미래의 초고도/변혁적 AI 등장 가능성을 전제로, 정부가 단기적으로는 과잉규제를 피하되 장기적으로 고급 AI를 감당할 규제 역량과 정보수집 체계를 구축해야 한다고 주장한다. 구체적으로 whistleblower 보호, 보고요구, 투명성 의무 등으로 위험 관련 정보를 확보하고, 정부가 AI 전문인력을 채용·유지할 수 있도록 보수·채용·계약 절차를 개선해야 한다고 제안한다. 또한 tort liability, management-based regulation, 민간 프라이빗 거버넌스 등 기존 거버넌스 방안들과도 양립 가능하며, 보안과 혁신을 상충 관계가 아닌 함께 강화할 수 있는 도구로 본다.</p>
   <p class="url"><a href="https://aifrontiersmedia.substack.com/p/ai-governance-needs-radical-optionality">https://aifrontiersmedia.substack.com/p/ai-governance-needs-radical-optionality</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>Artificial intelligence council gives final green light to simplify and streamline rules</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">consilium.europa.eu</span></span><button type="button" class="copy-btn" data-copy="Artificial intelligence council gives final green light to simplify and streamline rules
-
-요약불가
-
-https://consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules">https://consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>AI 범죄 대응 범부처 협의체 출범(2026.7.2)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">공정거래위원회</span></span><button type="button" class="copy-btn" data-copy="AI 범죄 대응 범부처 협의체 출범(2026.7.2)
-
-온라인 플랫폼·금융·통신·개인정보·수사·국제협력 등과 연계된 AI 악용 범죄에 공동 대응하기 위해 ‘AI 범죄 대응 범부처 협의체’가 공식 출범했다. 방송미디어통신위원회가 26일 킥오프 회의를 열고, ‘AI 범죄 근절 종합 대응 계획’과 ‘AI 범죄 통합 대응체계 구축 방안’을 논의했으며 예방·탐지·차단·수사·피해회복·재발방지 전 과정을 아우르는 범정부 대책을 담았다. 관계부처는 AI 범죄 정보를 신속히 공유하고 징후를 공동 분석·대응하기 위한 상시적 통합 대응체계 운영 필요성도 공감했다.
-
-https://ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&amp;pageIndex=1&amp;searchCnd=all&amp;key=12&amp;bordCd=3&amp;searchCtgry=01%2C02&amp;nttSn=47656" onclick="copyEntry(this)">복사</button></div>
-  <p>온라인 플랫폼·금융·통신·개인정보·수사·국제협력 등과 연계된 AI 악용 범죄에 공동 대응하기 위해 ‘AI 범죄 대응 범부처 협의체’가 공식 출범했다. 방송미디어통신위원회가 26일 킥오프 회의를 열고, ‘AI 범죄 근절 종합 대응 계획’과 ‘AI 범죄 통합 대응체계 구축 방안’을 논의했으며 예방·탐지·차단·수사·피해회복·재발방지 전 과정을 아우르는 범정부 대책을 담았다. 관계부처는 AI 범죄 정보를 신속히 공유하고 징후를 공동 분석·대응하기 위한 상시적 통합 대응체계 운영 필요성도 공감했다.</p>
-  <p class="url"><a href="https://ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&amp;pageIndex=1&amp;searchCnd=all&amp;key=12&amp;bordCd=3&amp;searchCtgry=01%2C02&amp;nttSn=47656">https://ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&amp;pageIndex=1&amp;searchCnd=all&amp;key=12&amp;bordCd=3&amp;searchCtgry=01%2C02&amp;nttSn=47656</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>FTC, AI 정확성·객관성 훼손 우려 정책초안에 대한 대국민 의견수렴(2026.7.1)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 연방거래위원회(FTC)</span> · <span class="deadline">공개의견 제출 마감: 2026.7.31</span></span><button type="button" class="copy-btn" data-copy="FTC, AI 정확성·객관성 훼손 우려 정책초안에 대한 대국민 의견수렴(2026.7.1)
-
-미 연방거래위원회(FTC)는 AI 기업이 소비자가 기대하는 객관성·정확성과 달리 AI 시스템의 동작을 조작할 수 있다는 우려와 관련해 정책 성명(안)에 대한 공개 의견을 받는다. FTC Act상 ‘부당하거나 기만적인(unfair or deceptive)’ 행위를 금지하며, 회사가 비공개된 이념적 목표를 달성하기 위해 AI의 출력 결과를 왜곡하는 경우 소비자를 기만해 FTC Act 제5조 위반이 될 수 있다고 설명한다. 또한 소비자에게 특정 작업에서 AI가 효과적·적합하다고 한 명시적·암묵적 표현과 어긋날 수 있다고 밝혔다. 해당 정책 성명은 연방관보(Federal Register)에 게재되며, 의견은 Regulations.gov에 게시될 예정이다.
-
-https://ftc.gov/news-events/news/press-releases/2026/07/ftc-seeks-public-comment-policy-statement-addressing-ai-accuracy" onclick="copyEntry(this)">복사</button></div>
-  <p>미 연방거래위원회(FTC)는 AI 기업이 소비자가 기대하는 객관성·정확성과 달리 AI 시스템의 동작을 조작할 수 있다는 우려와 관련해 정책 성명(안)에 대한 공개 의견을 받는다. FTC Act상 ‘부당하거나 기만적인(unfair or deceptive)’ 행위를 금지하며, 회사가 비공개된 이념적 목표를 달성하기 위해 AI의 출력 결과를 왜곡하는 경우 소비자를 기만해 FTC Act 제5조 위반이 될 수 있다고 설명한다. 또한 소비자에게 특정 작업에서 AI가 효과적·적합하다고 한 명시적·암묵적 표현과 어긋날 수 있다고 밝혔다. 해당 정책 성명은 연방관보(Federal Register)에 게재되며, 의견은 Regulations.gov에 게시될 예정이다.</p>
-  <p class="url"><a href="https://ftc.gov/news-events/news/press-releases/2026/07/ftc-seeks-public-comment-policy-statement-addressing-ai-accuracy">https://ftc.gov/news-events/news/press-releases/2026/07/ftc-seeks-public-comment-policy-statement-addressing-ai-accuracy</a></p>
 </article>
 <article class="entry cat-other">
   <h2>중국, ‘인터넷 정보 서비스’ 관리조치 초안 대대적 개정…플랫폼·AI 규율 중심(2026.7.4)</h2>
@@ -504,47 +567,7 @@ https://arxiv.org/abs/2607.02510v1" onclick="copyEntry(this)">복사</button></d
 <p>요약불가: 제공된 발췌에 구체 점수/비율/구간(CI) 수치가 없어 정량 비교를 작성할 수 없습니다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2607.02510v1">https://arxiv.org/abs/2607.02510v1</a></p>
 </article>
-<article class="entry cat-research">
-  <h2>ARToken ‘EvilTokens’ 제휴형 PhaaS 패널로 Microsoft 365 대상 phishing·토큰 지속·SharePoint 유출(2026.7.1)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">시스코 탈로스(Cisco Talos)</span></span><button type="button" class="copy-btn" data-copy="ARToken ‘EvilTokens’ 제휴형 PhaaS 패널로 Microsoft 365 대상 phishing·토큰 지속·SharePoint 유출(2026.7.1)
-
-시스코 탈로스는 ‘ARToken’이라는 phishing-as-a-service(PhaaS) 제휴자용 패널을 분석해, EvilTokens와 API 계약·운용 방식이 공유된다고 밝혔다. ARToken 패널은 장치 코드 phishing, Primary Refresh Token(PRT) 기반 지속성, BEC(메일함 장악) 및 SharePoint/OneDrive 유출에 이르는 기능을 80개+ API 엔드포인트와 대시보드를 통해 제공하며, Cloudflare Workers에 템플릿을 배포하는 구조라고 설명했다. 또한 클라이언트 측 7단계 anti-analysis(행동·타이밍 기반 봇 차단, XOR 암호화 payload)를 포함하고, 스푸핑 이메일은 SharePoint 링크의 평판을 이용하되 실제 목적지는 look-alike 테넌트로 유도하는 정교한 회피 방식을 사용한 것으로 제시했다.
-
-https://blog.talosintelligence.com/artoken-inside-an-eviltokens-affiliate-panel-targeting-microsoft-365/" onclick="copyEntry(this)">복사</button></div>
-  <p>시스코 탈로스는 ‘ARToken’이라는 phishing-as-a-service(PhaaS) 제휴자용 패널을 분석해, EvilTokens와 API 계약·운용 방식이 공유된다고 밝혔다. ARToken 패널은 장치 코드 phishing, Primary Refresh Token(PRT) 기반 지속성, BEC(메일함 장악) 및 SharePoint/OneDrive 유출에 이르는 기능을 80개+ API 엔드포인트와 대시보드를 통해 제공하며, Cloudflare Workers에 템플릿을 배포하는 구조라고 설명했다. 또한 클라이언트 측 7단계 anti-analysis(행동·타이밍 기반 봇 차단, XOR 암호화 payload)를 포함하고, 스푸핑 이메일은 SharePoint 링크의 평판을 이용하되 실제 목적지는 look-alike 테넌트로 유도하는 정교한 회피 방식을 사용한 것으로 제시했다.</p>
-  <p class="url"><a href="https://blog.talosintelligence.com/artoken-inside-an-eviltokens-affiliate-panel-targeting-microsoft-365/">https://blog.talosintelligence.com/artoken-inside-an-eviltokens-affiliate-panel-targeting-microsoft-365/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>LLM Agent JADEPUFFER Executes Autonomous Ransomware Operation (2026.7.1)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="LLM Agent JADEPUFFER Executes Autonomous Ransomware Operation (2026.7.1)
-
-요약불가
-
-https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion">https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>유엔 독립 국제 과학 패널, AI 역량 성장 속도에 현재 AI 안전장치가 못 미친다고 경고 (2026.7.1)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">유엔(UN) 독립 국제 과학 패널 on AI</span> · <span class="deadline">6~7일(2026.7.6~7) 제1차 AI 거버넌스 글로벌 다이얼로그(제네바) 개최 예정, 차기 연례보고서는 2027년 5월 뉴욕에서 열릴 예정</span></span><button type="button" class="copy-btn" data-copy="유엔 독립 국제 과학 패널, AI 역량 성장 속도에 현재 AI 안전장치가 못 미친다고 경고 (2026.7.1)
-
-본 보고서는 유엔 5개 지역의 독립 과학자와 전문가로 구성된 패널이 AI의 기회·위험·영향을 과학적 근거로 평가한 첫 독립 과학 보고서라고 밝힌다. 핵심 경고는 “현재의 safeguards가 AI 역량 성장 속도를 따라가지 못한다”는 점이며, 정책결정자는 필요 시점에 맞는 과학적 증거를 확보해야 하지만 증거가 명확해질 때는 이미 조치가 늦을 수 있다는 증거 격차 문제를 제시한다. 보고서는 7개 핵심 영역(과학·사회 적용·경제·보안/시스템/환경·인권/정보/민주주의·자율성과 아동 안전·관리/거버넌스/신뢰성)으로 결과를 정리하며, 예비보고서 이후에도 협의와 과학계 참여를 통해 근거를 심화하고 2026년 7월 제네바 글로벌 다이얼로그의 공통 과학적 출발점으로 활용될 예정이라고 한다.
-
-https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report" onclick="copyEntry(this)">복사</button></div>
-  <p>본 보고서는 유엔 5개 지역의 독립 과학자와 전문가로 구성된 패널이 AI의 기회·위험·영향을 과학적 근거로 평가한 첫 독립 과학 보고서라고 밝힌다. 핵심 경고는 “현재의 safeguards가 AI 역량 성장 속도를 따라가지 못한다”는 점이며, 정책결정자는 필요 시점에 맞는 과학적 증거를 확보해야 하지만 증거가 명확해질 때는 이미 조치가 늦을 수 있다는 증거 격차 문제를 제시한다. 보고서는 7개 핵심 영역(과학·사회 적용·경제·보안/시스템/환경·인권/정보/민주주의·자율성과 아동 안전·관리/거버넌스/신뢰성)으로 결과를 정리하며, 예비보고서 이후에도 협의와 과학계 참여를 통해 근거를 심화하고 2026년 7월 제네바 글로벌 다이얼로그의 공통 과학적 출발점으로 활용될 예정이라고 한다.</p>
-  <p class="url"><a href="https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report">https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>CIA Announces Overhaul to Accelerate AI Adoption Agency-Wide (2026.6.30)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="CIA Announces Overhaul to Accelerate AI Adoption Agency-Wide (2026.6.30)
-
-요약불가
-
-https://www.washingtonpost.com/national-security/2026/06/30/cia-accelerate-its-use-ai-other-advanced-technologies/" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://www.washingtonpost.com/national-security/2026/06/30/cia-accelerate-its-use-ai-other-advanced-technologies/">https://www.washingtonpost.com/national-security/2026/06/30/cia-accelerate-its-use-ai-other-advanced-technologies/</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

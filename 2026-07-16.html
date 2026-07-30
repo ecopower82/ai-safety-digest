@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -116,19 +139,9 @@ https://www.aisi.gov.uk/blog/uk-germany-joint-statement-on-advanced-ai-safety-an
   <p>영국과 독일이 첨단 AI를 안전하게 개발하고 위험을 엄격히 이해·관리하기 위한 협력 방안을 담은 공동성명을 발표했다.</p>
   <p class="url"><a href="https://www.aisi.gov.uk/blog/uk-germany-joint-statement-on-advanced-ai-safety-and-security">https://www.aisi.gov.uk/blog/uk-germany-joint-statement-on-advanced-ai-safety-and-security</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>AI Office, 100명 이상 전문가 보고서로 EU의 프런티어 AI 경쟁력·주권·안보 강화 방안 제시 (2026.7.15)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합(EU) 디지털 전략(Digital Strategy) 웹사이트</span> · <span class="deadline">유럽연합은 2030년까지의 야심찬 목표 설정과, 기관·기관 간 추진 역량·구조를 갖추는 것을 권고받았다.</span></span><button type="button" class="copy-btn" data-copy="AI Office, 100명 이상 전문가 보고서로 EU의 프런티어 AI 경쟁력·주권·안보 강화 방안 제시 (2026.7.15)
-
-AI Office는 100명 이상의 전문가 의견을 바탕으로, EU가 프런티어 AI 역량을 강화해 경쟁력·주권·안보를 높이기 위한 핵심 시사점을 담은 보고서를 발표했다. 전문가들은 프런티어 AI 역량이 최근 약 3년 사이 빠르게 발전했으나, EU의 시장·연산 인프라와 성장 단계 자본 규모는 아직 필요 수준에 못 미친다고 지적했다. 또한 컴퓨팅·에너지, 성장자본 및 학습데이터에 대한 법적 확실성, 인재 유치·유지 같은 구조적 장벽을 우선 해소하고, 신뢰할 수 있는 파트너와의 협력 및 2030년까지의 목표 달성 등 ‘기술 속도·규모에 맞춘’ 전략 실행이 중요하다고 밝혔다.
-
-https://digital-strategy.ec.europa.eu/en/library/ai-office-publishes-frontier-ai-expert-findings-eu-competitiveness-sovereignty-and-security" onclick="copyEntry(this)">복사</button></div>
-  <p>AI Office는 100명 이상의 전문가 의견을 바탕으로, EU가 프런티어 AI 역량을 강화해 경쟁력·주권·안보를 높이기 위한 핵심 시사점을 담은 보고서를 발표했다. 전문가들은 프런티어 AI 역량이 최근 약 3년 사이 빠르게 발전했으나, EU의 시장·연산 인프라와 성장 단계 자본 규모는 아직 필요 수준에 못 미친다고 지적했다. 또한 컴퓨팅·에너지, 성장자본 및 학습데이터에 대한 법적 확실성, 인재 유치·유지 같은 구조적 장벽을 우선 해소하고, 신뢰할 수 있는 파트너와의 협력 및 2030년까지의 목표 달성 등 ‘기술 속도·규모에 맞춘’ 전략 실행이 중요하다고 밝혔다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/library/ai-office-publishes-frontier-ai-expert-findings-eu-competitiveness-sovereignty-and-security">https://digital-strategy.ec.europa.eu/en/library/ai-office-publishes-frontier-ai-expert-findings-eu-competitiveness-sovereignty-and-security</a></p>
-</article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>유럽 집행위, DSA 투명성 및 연구자 데이터 접근 관련 X의 시정조치 이행계획 수용(2026.7.15)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, DSA 투명성 및 연구자 데이터 접근 관련 X의 시정조치 이행계획 수용(2026.7.15)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, DSA 투명성 및 연구자 데이터 접근 관련 X의 시정조치 이행계획 수용(2026.7.15)
 
 X는 광고 저장소 검색 기능 개선, 검색 결과 인터페이스 내 직접 표시, 응답속도(200초→기술적으로 최소) 개선, 광고 전체 내용·전환 URL 등 정보 추가, API로 저장소 접근 허용을 포함한 시정조치를 이행하기로 했다. 또한 연구자 공공데이터 접근 관련 위반에 대해 신청 심사 절차 수정, 자격 있는 연구자에 대한 무료 데이터 제공, 처리시간 단축과 적정 데이터 볼륨의 적시 제공, 공개 데이터 스크래핑을 계약상 금지하지 않도록 이용약관을 명확히 하는 조치를 한다. 이 변경은 외부·독립 감사를 거치며, X는 조치 이행 후 6개월 내 감사보고서를 제출하고 권고사항의 효과적 이행을 위해 집행위와 후속 협의를 진행한다.
 
@@ -136,9 +149,9 @@ https://digital-strategy.ec.europa.eu/en/news/commission-accepts-xs-corrective-m
   <p>X는 광고 저장소 검색 기능 개선, 검색 결과 인터페이스 내 직접 표시, 응답속도(200초→기술적으로 최소) 개선, 광고 전체 내용·전환 URL 등 정보 추가, API로 저장소 접근 허용을 포함한 시정조치를 이행하기로 했다. 또한 연구자 공공데이터 접근 관련 위반에 대해 신청 심사 절차 수정, 자격 있는 연구자에 대한 무료 데이터 제공, 처리시간 단축과 적정 데이터 볼륨의 적시 제공, 공개 데이터 스크래핑을 계약상 금지하지 않도록 이용약관을 명확히 하는 조치를 한다. 이 변경은 외부·독립 감사를 거치며, X는 조치 이행 후 6개월 내 감사보고서를 제출하고 권고사항의 효과적 이행을 위해 집행위와 후속 협의를 진행한다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-accepts-xs-corrective-measures-terminate-breaches-dsa">https://digital-strategy.ec.europa.eu/en/news/commission-accepts-xs-corrective-measures-terminate-breaches-dsa</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>EU-인도, 제3차 Trade and Technology Council로 전략적 파트너십 강화(2026.7.15)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합(EU) 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="EU-인도, 제3차 Trade and Technology Council로 전략적 파트너십 강화(2026.7.15)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합(EU) 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="EU-인도, 제3차 Trade and Technology Council로 전략적 파트너십 강화(2026.7.15)
 
 EU와 인도는 브뤼셀에서 제3차 Trade and Technology Council(TTC)을 개최하고 무역·기술·안보 협력의 핵심 플랫폼으로 재확인했다. 양측은 전략 가치사슬 강화와 민간 참여 확대에 집중하고, 연말까지 TTC 업그레이드를 완료하기로 합의했다. 구체적으로 2026년 말까지 Horizon Europe 관련 인도 준회원 협정 협상을 시작·마무리 추진, 전기차 충전 기술 혁신허브·스타트업 파트너십 신설, 반도체·HPC·양자·AI·6G 협력 확대, 농식품·API·청정에너지 등에서 회복력 있는 가치사슬 협력을 강화하기로 했다.
 
@@ -146,9 +159,19 @@ https://digital-strategy.ec.europa.eu/en/news/eu-and-india-strengthen-strategic-
   <p>EU와 인도는 브뤼셀에서 제3차 Trade and Technology Council(TTC)을 개최하고 무역·기술·안보 협력의 핵심 플랫폼으로 재확인했다. 양측은 전략 가치사슬 강화와 민간 참여 확대에 집중하고, 연말까지 TTC 업그레이드를 완료하기로 합의했다. 구체적으로 2026년 말까지 Horizon Europe 관련 인도 준회원 협정 협상을 시작·마무리 추진, 전기차 충전 기술 혁신허브·스타트업 파트너십 신설, 반도체·HPC·양자·AI·6G 협력 확대, 농식품·API·청정에너지 등에서 회복력 있는 가치사슬 협력을 강화하기로 했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/eu-and-india-strengthen-strategic-partnership-third-trade-and-technology-council">https://digital-strategy.ec.europa.eu/en/news/eu-and-india-strengthen-strategic-partnership-third-trade-and-technology-council</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-gov">
+  <h2>AI Office, 100명 이상 전문가 보고서로 EU의 프런티어 AI 경쟁력·주권·안보 강화 방안 제시 (2026.7.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">유럽연합(EU) 디지털 전략(Digital Strategy) 웹사이트</span> · <span class="deadline">유럽연합은 2030년까지의 야심찬 목표 설정과, 기관·기관 간 추진 역량·구조를 갖추는 것을 권고받았다.</span></span><button type="button" class="copy-btn" data-copy="AI Office, 100명 이상 전문가 보고서로 EU의 프런티어 AI 경쟁력·주권·안보 강화 방안 제시 (2026.7.15)
+
+AI Office는 100명 이상의 전문가 의견을 바탕으로, EU가 프런티어 AI 역량을 강화해 경쟁력·주권·안보를 높이기 위한 핵심 시사점을 담은 보고서를 발표했다. 전문가들은 프런티어 AI 역량이 최근 약 3년 사이 빠르게 발전했으나, EU의 시장·연산 인프라와 성장 단계 자본 규모는 아직 필요 수준에 못 미친다고 지적했다. 또한 컴퓨팅·에너지, 성장자본 및 학습데이터에 대한 법적 확실성, 인재 유치·유지 같은 구조적 장벽을 우선 해소하고, 신뢰할 수 있는 파트너와의 협력 및 2030년까지의 목표 달성 등 ‘기술 속도·규모에 맞춘’ 전략 실행이 중요하다고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/library/ai-office-publishes-frontier-ai-expert-findings-eu-competitiveness-sovereignty-and-security" onclick="copyEntry(this)">복사</button></div>
+  <p>AI Office는 100명 이상의 전문가 의견을 바탕으로, EU가 프런티어 AI 역량을 강화해 경쟁력·주권·안보를 높이기 위한 핵심 시사점을 담은 보고서를 발표했다. 전문가들은 프런티어 AI 역량이 최근 약 3년 사이 빠르게 발전했으나, EU의 시장·연산 인프라와 성장 단계 자본 규모는 아직 필요 수준에 못 미친다고 지적했다. 또한 컴퓨팅·에너지, 성장자본 및 학습데이터에 대한 법적 확실성, 인재 유치·유지 같은 구조적 장벽을 우선 해소하고, 신뢰할 수 있는 파트너와의 협력 및 2030년까지의 목표 달성 등 ‘기술 속도·규모에 맞춘’ 전략 실행이 중요하다고 밝혔다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/library/ai-office-publishes-frontier-ai-expert-findings-eu-competitiveness-sovereignty-and-security">https://digital-strategy.ec.europa.eu/en/library/ai-office-publishes-frontier-ai-expert-findings-eu-competitiveness-sovereignty-and-security</a></p>
+</article>
+<article class="entry cat-gov">
   <h2>AI 보안 분야의 최근 5년(2021.1~2026.1) 연구를 PRISMA 방식으로 검토해 12개 주제와 5개 연구 공백을 제시함 (2026.7.15)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">영국 DSIT(Department for Science, Innovation and Technology)·gov.uk</span> · <span class="deadline">공백/추가연구가 필요한 분야로는 훈련데이터·모델 가중치 무결성에 대한 보증/검증, 제3자 모델의 provenance 추적, 모델 공격면과 전통 IT 공격면의 연계, end user 행위로 인한 보안위협 완화, 모델의 안전한 폐기(특히 frontier AI)가 제시됨</span></span><button type="button" class="copy-btn" data-copy="AI 보안 분야의 최근 5년(2021.1~2026.1) 연구를 PRISMA 방식으로 검토해 12개 주제와 5개 연구 공백을 제시함 (2026.7.15)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">영국 DSIT(Department for Science, Innovation and Technology)·gov.uk</span> · <span class="deadline">공백/추가연구가 필요한 분야로는 훈련데이터·모델 가중치 무결성에 대한 보증/검증, 제3자 모델의 provenance 추적, 모델 공격면과 전통 IT 공격면의 연계, end user 행위로 인한 보안위협 완화, 모델의 안전한 폐기(특히 frontier AI)가 제시됨</span></span><button type="button" class="copy-btn" data-copy="AI 보안 분야의 최근 5년(2021.1~2026.1) 연구를 PRISMA 방식으로 검토해 12개 주제와 5개 연구 공백을 제시함 (2026.7.15)
 
 Lancaster University가 DSIT 의뢰로 2021년 1월~2026년 1월 사이(영어·peer-reviewed) AI 보안 관련 문헌을 Scopus와 Web of Science에서 PRISMA 접근으로 선별해 총 9,109편을 분석했다. 문헌은 데이터 기반 필터링과 semantic matching을 통해 12개 테마로 분류됐으며, 동시에 5개 분야에서 추가 연구 필요 공백이 확인됐다. 특히 Agentic-AI 시스템의 사이버보안(에이전트 자체 보안, 환경과 상호작용하는 도구, 에이전트 간 통신/운영)에서 공백이 크다고 보고, 배치가 늘어날수록 해당 영역의 연구가 더 집중될 것으로 예상했다.
 
@@ -278,7 +301,7 @@ https://doi.org/10.64898/2026.07.10.26357132" onclick="copyEntry(this)">복사</
   <p>대화가 길어지고 맥락이 누적될수록 LLM의 suicidal ideation 탐지 성능이 임상가 대비 어떻게 변하는지 사전등록(preregistered)으로 확인했다. 400개의 clinician-validated 문장을 suicidal ideation 유무와 함께 0~200 speaker turns에 삽입했으며 5개의 psychotherapy 및 3개의 synthetic transcript에서 49개 LLM과 8명의 clinicians이 이진 분류를 수행했다. F1은 대화 depth가 증가할수록 전 모델군에서 유의하게 감소했으며(p&lt;0.001), 임상가의 F1은 0과 200 turns에서 평균 0.86으로 유지된 반면 8/9 proprietary 모델은 200 turns에서 임상가 성능을 초과했다. 내용은 길이 단독보다 F1 변화에 더 큰 설명력을 보였고(최대 감소는 adversarial context에서, p&lt;0.001), instruction restatement는 therapy에서 baseline에 가깝게 회복(중앙값 ΔF1 +0.12, 89% median recovery)시킨 반면 MSJ에서는 회복이 더 작았다(ΔF1 +0.08, 38% recovery).</p>
   <p class="url"><a href="https://doi.org/10.64898/2026.07.10.26357132">https://doi.org/10.64898/2026.07.10.26357132</a></p>
 </article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

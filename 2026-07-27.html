@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -172,6 +195,16 @@ https://www.anthropic.com/news/claude-opus-5" onclick="copyEntry(this)">복사</
   <p>Claude Opus 5는 기존 모델 대비 성능이 크게 향상되었으며, 가격은 절반으로 책정되었습니다. 이 모델은 코딩 및 지식 작업 평가에서 뛰어난 성과를 보여주며, 특히 소프트웨어 엔지니어링 작업에서 뛰어난 효율성을 발휘합니다. Opus 5는 다양한 평가 지표에서 Fable 5와 견줄 만한 성능을 보이면서도 비용 효율성이 높아, 개발자와 연구원들에게 유용한 도구로 자리매김하고 있습니다. 안전 측면에서도 가장 잘 정렬된 모델로 평가되어, 사용 시 더 안전한 선택이 될 것으로 보입니다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/claude-opus-5">https://www.anthropic.com/news/claude-opus-5</a></p>
 </article>
+<article class="entry cat-intl-org">
+  <h2>유럽위원회, 틱톡의 미성년자 계정 안전 기준 미준수로 디지털 서비스법 위반 예비 판단 (2026.7.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-디지털-전략</span></span><button type="button" class="copy-btn" data-copy="유럽위원회, 틱톡의 미성년자 계정 안전 기준 미준수로 디지털 서비스법 위반 예비 판단 (2026.7.24)
+
+유럽위원회는 틱톡이 미성년자 계정의 안전 기준을 충족하지 못하고 있어 디지털 서비스법(DSA)을 위반하고 있다고 예비 판단을 내렸다. 틱톡의 미성년자 계정은 기본 설정으로 &#x27;공개&#x27;로 설정되어 있어, 다른 사용자들이 미성년자의 콘텐츠를 볼 수 있으며, 특히 16-17세의 청소년 콘텐츠는 &#x27;For You&#x27; 피드를 통해 다른 사용자들에게 추천될 수 있다. 위원회는 틱톡이 미성년자 계정의 기본 설정을 변경하여 콘텐츠가 승인된 사용자만 볼 수 있도록 하고, 미성년자 콘텐츠의 글로벌 플랫폼 외부 접근성을 차단하며, &#x27;For You&#x27; 피드를 통한 추천을 중단하도록 요구하고 있다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-preliminary-finds-tiktok-breach-digital-services-act-failing-ensure-safe-accounts-minors" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽위원회는 틱톡이 미성년자 계정의 안전 기준을 충족하지 못하고 있어 디지털 서비스법(DSA)을 위반하고 있다고 예비 판단을 내렸다. 틱톡의 미성년자 계정은 기본 설정으로 &#x27;공개&#x27;로 설정되어 있어, 다른 사용자들이 미성년자의 콘텐츠를 볼 수 있으며, 특히 16-17세의 청소년 콘텐츠는 &#x27;For You&#x27; 피드를 통해 다른 사용자들에게 추천될 수 있다. 위원회는 틱톡이 미성년자 계정의 기본 설정을 변경하여 콘텐츠가 승인된 사용자만 볼 수 있도록 하고, 미성년자 콘텐츠의 글로벌 플랫폼 외부 접근성을 차단하며, &#x27;For You&#x27; 피드를 통한 추천을 중단하도록 요구하고 있다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-preliminary-finds-tiktok-breach-digital-services-act-failing-ensure-safe-accounts-minors">https://digital-strategy.ec.europa.eu/en/news/commission-preliminary-finds-tiktok-breach-digital-services-act-failing-ensure-safe-accounts-minors</a></p>
+</article>
 <article class="entry cat-other">
   <h2>**The River and the Whirlpool: Exploring General Relativity Through Flowing Space Concepts** (2026.7.25)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span></span><button type="button" class="copy-btn" data-copy="**The River and the Whirlpool: Exploring General Relativity Through Flowing Space Concepts** (2026.7.25)
@@ -191,16 +224,6 @@ https://books.apple.com/us/book/the-illusion-of-gravity-as-an-effect-of/id153309
 - **다크 에너지 가설**: 현재 DESI 데이터와의 대조에서 다크 에너지가 감소하지 않으며, 정확히 현재 시점에서 w = −1이라는 예측 (예: 현재 DESI DR2 데이터와의 대조에서 w &lt; −1은 배제됨).</p>
 <p>이 연구는 중력과 어두운 섹터의 이해를 혁신적으로 접근하려는 시도를 보여주며, 특히 정량적 예측과 검증 가능한 조건을 통해 이론의 타당성을 검증하려는 노력이 돋보인다.</p>
   <p class="url"><a href="https://books.apple.com/us/book/the-illusion-of-gravity-as-an-effect-of/id1533098969">https://books.apple.com/us/book/the-illusion-of-gravity-as-an-effect-of/id1533098969</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>유럽위원회, 틱톡의 미성년자 계정 안전 기준 미준수로 디지털 서비스법 위반 예비 판단 (2026.7.24)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-디지털-전략</span></span><button type="button" class="copy-btn" data-copy="유럽위원회, 틱톡의 미성년자 계정 안전 기준 미준수로 디지털 서비스법 위반 예비 판단 (2026.7.24)
-
-유럽위원회는 틱톡이 미성년자 계정의 안전 기준을 충족하지 못하고 있어 디지털 서비스법(DSA)을 위반하고 있다고 예비 판단을 내렸다. 틱톡의 미성년자 계정은 기본 설정으로 &#x27;공개&#x27;로 설정되어 있어, 다른 사용자들이 미성년자의 콘텐츠를 볼 수 있으며, 특히 16-17세의 청소년 콘텐츠는 &#x27;For You&#x27; 피드를 통해 다른 사용자들에게 추천될 수 있다. 위원회는 틱톡이 미성년자 계정의 기본 설정을 변경하여 콘텐츠가 승인된 사용자만 볼 수 있도록 하고, 미성년자 콘텐츠의 글로벌 플랫폼 외부 접근성을 차단하며, &#x27;For You&#x27; 피드를 통한 추천을 중단하도록 요구하고 있다.
-
-https://digital-strategy.ec.europa.eu/en/news/commission-preliminary-finds-tiktok-breach-digital-services-act-failing-ensure-safe-accounts-minors" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽위원회는 틱톡이 미성년자 계정의 안전 기준을 충족하지 못하고 있어 디지털 서비스법(DSA)을 위반하고 있다고 예비 판단을 내렸다. 틱톡의 미성년자 계정은 기본 설정으로 &#x27;공개&#x27;로 설정되어 있어, 다른 사용자들이 미성년자의 콘텐츠를 볼 수 있으며, 특히 16-17세의 청소년 콘텐츠는 &#x27;For You&#x27; 피드를 통해 다른 사용자들에게 추천될 수 있다. 위원회는 틱톡이 미성년자 계정의 기본 설정을 변경하여 콘텐츠가 승인된 사용자만 볼 수 있도록 하고, 미성년자 콘텐츠의 글로벌 플랫폼 외부 접근성을 차단하며, &#x27;For You&#x27; 피드를 통한 추천을 중단하도록 요구하고 있다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-preliminary-finds-tiktok-breach-digital-services-act-failing-ensure-safe-accounts-minors">https://digital-strategy.ec.europa.eu/en/news/commission-preliminary-finds-tiktok-breach-digital-services-act-failing-ensure-safe-accounts-minors</a></p>
 </article>
 <article class="entry cat-other">
   <h2>공존을 위한 AI 리터러시 연수 (2026.6.11)</h2>
@@ -497,7 +520,7 @@ https://doi.org/10.4324/9781003780717-5" onclick="copyEntry(this)">복사</butto
 <p>핵심 결과로, 중간 규모 국가들은 고급 반도체와 클라우드 인프라에 대한 통제력 부재로 인해 기술적 자립이 어려워 인프라 종속 상태에 놓여 있다는 것이 밝혀졌다. 예를 들어, 이러한 국가들은 외국 하드웨어에 의존함으로써 지정학적 압박에 취약하게 된다. 구체적인 수치는 제공되지 않았으나, 연구는 이러한 의존성이 지정학적 리스크를 증가시킨다는 점을 명확히 제시한다.</p>
   <p class="url"><a href="https://doi.org/10.4324/9781003780717-5">https://doi.org/10.4324/9781003780717-5</a></p>
 </article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

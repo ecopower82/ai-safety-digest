@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -93,10 +116,11 @@
 <div class="wrap">
 <header class="page-head">
   <h1>AI Safety Daily Digest</h1>
-  <div class="sub">총 64일치 아카이브</div>
+  <div class="sub">총 65일치 아카이브</div>
   <div class="nav"><a href="latest.html">→ 최신 digest</a></div>
 </header>
-<div class="archive-list"><a href="2026-07-29.html">2026-07-29</a>
+<div class="archive-list"><a href="2026-07-30.html">2026-07-30</a>
+<a href="2026-07-29.html">2026-07-29</a>
 <a href="2026-07-28.html">2026-07-28</a>
 <a href="2026-07-27.html">2026-07-27</a>
 <a href="2026-07-24.html">2026-07-24</a>
@@ -160,7 +184,7 @@
 <a href="2026-03-25.html">2026-03-25</a>
 <a href="2026-03-24.html">2026-03-24</a>
 <a href="2026-03-23.html">2026-03-23</a></div>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

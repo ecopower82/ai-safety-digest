@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -116,29 +139,9 @@ https://deepmind.google/blog/our-approach-to-bioresilience/" onclick="copyEntry(
   <p>DeepMind와 Isomorphic Labs는 생물보안 환경 변화에 대응하기 위해 bioresilience의 공동 접근을 공개했다. 위협 행위자가 모델을 오용하지 못하도록 하는 것과 함께 정부·과학자·바이오보안 전문가가 예방·탐지·대응에 AI를 활용하도록 지원하는 것이 목표다. 예로 Gemini에 대한 4단계 안전 프로세스(위협 모델링, 평가, 완화, 모니터링)와 DNA 합성 단계에서의 SynthID 워터마킹 적용 가능성, AlphaEvolve를 통한 메타게놈 시퀀싱 분석 최적화, AlphaGenome·단백질 기능 주석을 활용한 병원체 패턴 탐지, 백신·의학적 대응책 설계를 위한 신뢰된 연구자 접근 제공 등을 제시했다.</p>
   <p class="url"><a href="https://deepmind.google/blog/our-approach-to-bioresilience/">https://deepmind.google/blog/our-approach-to-bioresilience/</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>https://www.congress.gov/bill/119th-congress/senate-bill/3062/text</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">congress.gov</span></span><button type="button" class="copy-btn" data-copy="https://www.congress.gov/bill/119th-congress/senate-bill/3062/text
-
-요약불가
-
-https://congress.gov/bill/119th-congress/senate-bill/3062/text" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://congress.gov/bill/119th-congress/senate-bill/3062/text">https://congress.gov/bill/119th-congress/senate-bill/3062/text</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>https://www.congress.gov/bill/119th-congress/senate-bill/3062/text?utm_medium=email&amp;_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226&amp;utm_content=33236226&amp;utm_source=hs_email</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">congress.gov</span></span><button type="button" class="copy-btn" data-copy="https://www.congress.gov/bill/119th-congress/senate-bill/3062/text?utm_medium=email&amp;_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226&amp;utm_content=33236226&amp;utm_source=hs_email
-
-요약불가
-
-https://congress.gov/bill/119th-congress/senate-bill/3062/text?_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://congress.gov/bill/119th-congress/senate-bill/3062/text?_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226">https://congress.gov/bill/119th-congress/senate-bill/3062/text?_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226</a></p>
-</article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>유럽 집행위, Digital Services Act 준수를 위한 X의 시정 조치(행동계획) 승인 (**2026.7.16**)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(유럽 디지털 전략)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, Digital Services Act 준수를 위한 X의 시정 조치(행동계획) 승인 (**2026.7.16**)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(유럽 디지털 전략)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, Digital Services Act 준수를 위한 X의 시정 조치(행동계획) 승인 (**2026.7.16**)
 
 유럽 집행위는 X가 행동계획의 조치를 6개월 내 이행하고, 이후 이행 감사 결과를 제출해야 하며, 외부 독립감사 결과에 권고가 있으면 이를 전면 이행해야 한다고 밝혔다. 또한 2025년 12월 DSA 위반 및 과징금 이후 X는 광고 저장소 검색 기능·응답 속도 개선, 광고 정보 추가 공개와 API 기반 접근, 적격 연구자 대상 공적 데이터에 대한 유효한 접근(신청 심사 절차 개선, 무료 제공, 약관 정비)을 약속했다. Digital Services Board는 6월 15일 의견을 통해 일부 변경은 부분적으로 적절하나 전반적 계획과 감사 조치가 침해를 충분히 해소하지 못한다고 보았고, 집행위는 그 의견을 반영해 이행 시 X가 고려해야 할 사항을 명확히 했으며 진행 상황을 면밀히 모니터링하겠다고 했다.
 
@@ -146,15 +149,95 @@ https://digital-strategy.ec.europa.eu/en/news/commission-accepts-xs-action-plan-
   <p>유럽 집행위는 X가 행동계획의 조치를 6개월 내 이행하고, 이후 이행 감사 결과를 제출해야 하며, 외부 독립감사 결과에 권고가 있으면 이를 전면 이행해야 한다고 밝혔다. 또한 2025년 12월 DSA 위반 및 과징금 이후 X는 광고 저장소 검색 기능·응답 속도 개선, 광고 정보 추가 공개와 API 기반 접근, 적격 연구자 대상 공적 데이터에 대한 유효한 접근(신청 심사 절차 개선, 무료 제공, 약관 정비)을 약속했다. Digital Services Board는 6월 15일 의견을 통해 일부 변경은 부분적으로 적절하나 전반적 계획과 감사 조치가 침해를 충분히 해소하지 못한다고 보았고, 집행위는 그 의견을 반영해 이행 시 X가 고려해야 할 사항을 명확히 했으며 진행 상황을 면밀히 모니터링하겠다고 했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-accepts-xs-action-plan-comply-digital-services-act">https://digital-strategy.ec.europa.eu/en/news/commission-accepts-xs-action-plan-comply-digital-services-act</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>유럽 집행위, 디지털시장법(DMA) 따라 구글에 Android AI 상호운용·Google 검색 데이터 공유 지침(2026.7.16)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(European Commission)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 디지털시장법(DMA) 따라 구글에 Android AI 상호운용·Google 검색 데이터 공유 지침(2026.7.16)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽 집행위원회(European Commission)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 디지털시장법(DMA) 따라 구글에 Android AI 상호운용·Google 검색 데이터 공유 지침(2026.7.16)
 
 유럽 집행위는 디지털시장법(DMA)에 따라 구글에 대한 구속력 있는 두 가지 세트의 명세(바인딩 스펙) 조치를 발표했다. 첫 조치는 Android 기기에서 구글의 AI 서비스(예: Gemini)와 동등한 기능 접근을 경쟁사 AI 서비스가 확보하도록 해 AI 서비스 경쟁 여건을 맞추는 데 목적이 있으며, 둘째 조치는 구글만 대규모로 수집 가능한 검색 데이터를 제3자 검색엔진에 제공해 경쟁 구도를 재조정하려는 것이다. 집행위는 이번 조치가 EU 내 혁신과 서비스 선택권을 높이고, 동시에 이용자 프라이버시를 보호하는 방향이라고 설명했다.
 
 https://digital-strategy.ec.europa.eu/en/news/commission-provides-guidance-google-ai-interoperability-android-and-sharing-google-search-data" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위는 디지털시장법(DMA)에 따라 구글에 대한 구속력 있는 두 가지 세트의 명세(바인딩 스펙) 조치를 발표했다. 첫 조치는 Android 기기에서 구글의 AI 서비스(예: Gemini)와 동등한 기능 접근을 경쟁사 AI 서비스가 확보하도록 해 AI 서비스 경쟁 여건을 맞추는 데 목적이 있으며, 둘째 조치는 구글만 대규모로 수집 가능한 검색 데이터를 제3자 검색엔진에 제공해 경쟁 구도를 재조정하려는 것이다. 집행위는 이번 조치가 EU 내 혁신과 서비스 선택권을 높이고, 동시에 이용자 프라이버시를 보호하는 방향이라고 설명했다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-provides-guidance-google-ai-interoperability-android-and-sharing-google-search-data">https://digital-strategy.ec.europa.eu/en/news/commission-provides-guidance-google-ai-interoperability-android-and-sharing-google-search-data</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>HAIP, AI 투명성을 ‘준수 부담’에서 ‘경쟁 우위’로 전환 (2026.7.16)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">OECD-AI</span></span><button type="button" class="copy-btn" data-copy="HAIP, AI 투명성을 ‘준수 부담’에서 ‘경쟁 우위’로 전환 (2026.7.16)
+
+OECD가 추진하는 하로시마 AI 프로세스(HAIP) 보고 프레임워크가 에이전틱 AI 시대에 글로벌 공통 언어와 상호운용성을 제공해 신뢰할 수 있는 AI로의 경로를 돕는다고 설명한다. 국가별 규정이 달라 규제 파편화가 중소기업의 진입장벽이 될 수 있으며, HAIP은 규제 문서 재번역 부담을 줄이고 ‘show me(공개로 증명)’ 방식의 투명성을 경쟁력으로 연결한다고 주장한다. 글은 또한 HAIP이 안전·윤리 약속을 서로 다른 관할에서 인정받게 하는 인프라 역할을 하며, 글로벌 표준이 기업의 규모를 막론하고 달성 가능한 기준을 제공하는 데 필요하다고 강조한다.
+
+https://oecd.ai/en/wonk/haip-transforming-transparency-from-ai-compliance-burden-to-competitive-advantage" onclick="copyEntry(this)">복사</button></div>
+  <p>OECD가 추진하는 하로시마 AI 프로세스(HAIP) 보고 프레임워크가 에이전틱 AI 시대에 글로벌 공통 언어와 상호운용성을 제공해 신뢰할 수 있는 AI로의 경로를 돕는다고 설명한다. 국가별 규정이 달라 규제 파편화가 중소기업의 진입장벽이 될 수 있으며, HAIP은 규제 문서 재번역 부담을 줄이고 ‘show me(공개로 증명)’ 방식의 투명성을 경쟁력으로 연결한다고 주장한다. 글은 또한 HAIP이 안전·윤리 약속을 서로 다른 관할에서 인정받게 하는 인프라 역할을 하며, 글로벌 표준이 기업의 규모를 막론하고 달성 가능한 기준을 제공하는 데 필요하다고 강조한다.</p>
+  <p class="url"><a href="https://oecd.ai/en/wonk/haip-transforming-transparency-from-ai-compliance-burden-to-competitive-advantage">https://oecd.ai/en/wonk/haip-transforming-transparency-from-ai-compliance-burden-to-competitive-advantage</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>https://www.congress.gov/bill/119th-congress/senate-bill/3062/text</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">congress.gov</span></span><button type="button" class="copy-btn" data-copy="https://www.congress.gov/bill/119th-congress/senate-bill/3062/text
+
+요약불가
+
+https://congress.gov/bill/119th-congress/senate-bill/3062/text" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://congress.gov/bill/119th-congress/senate-bill/3062/text">https://congress.gov/bill/119th-congress/senate-bill/3062/text</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>https://www.congress.gov/bill/119th-congress/senate-bill/3062/text?utm_medium=email&amp;_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226&amp;utm_content=33236226&amp;utm_source=hs_email</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">congress.gov</span></span><button type="button" class="copy-btn" data-copy="https://www.congress.gov/bill/119th-congress/senate-bill/3062/text?utm_medium=email&amp;_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226&amp;utm_content=33236226&amp;utm_source=hs_email
+
+요약불가
+
+https://congress.gov/bill/119th-congress/senate-bill/3062/text?_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://congress.gov/bill/119th-congress/senate-bill/3062/text?_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226">https://congress.gov/bill/119th-congress/senate-bill/3062/text?_hsenc=p2ANqtz-8fKZ6rr70xVetiJMXQ3eJh2v9sbxffHmkss-qgv1_ARR4RAlibmAlFj7G1bO963bu2fQSl8TJWSfaRRUYJl-EZOiwj6Q&amp;_hsmi=33236226</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>Connecticut 주지사, 청소년 온라인 안전 보호·AI 규정·인력 역량강화 입법 서명(2026.06.02)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">코네티컷 주지사실(Portal.ct.gov)</span> · <span class="deadline">청소년 소셜미디어 중독 방지 및 미성년자 보호(18세 미만 연령 확인, 보호자 동의 기반 알고리즘 피드 접근, 야간 알림 제한, 기본 설정에서 개인화 알고리즘 이용 시간 1일 1시간 제한)와 더불어, AI 챗봇의 자해·자살 징후 탐지 노력 및 대응 프로토콜, 고용 의사결정 시 AI 사용 고지, AI 규제 샌드박스 및 AI 아카데미 연계 교육·훈련 프로그램 등을 포함하는 ‘Public Act 26-15’에 주지사가 법으로 서명했다. 또한 주는 이 법이 연방 차원의 대응 부재를 보완하고, AI 경제에 대비한 공정한 일자리·혁신 환경을 함께 추진하는 취지라고 설명했다.</span></span><button type="button" class="copy-btn" data-copy="Connecticut 주지사, 청소년 온라인 안전 보호·AI 규정·인력 역량강화 입법 서명(2026.06.02)
+
+
+
+https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections" onclick="copyEntry(this)">복사</button></div>
+  
+  <p class="url"><a href="https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections">https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>(2026.06.02) 청소년 소셜미디어 중독 방지·AI 규제 및 노동력 역량강화 법안 서명</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">Connecticut 주지사실(Governor Ned Lamont) 보도자료</span> · <span class="deadline">6/02/2026 법률: Public Act 26-15</span></span><button type="button" class="copy-btn" data-copy="(2026.06.02) 청소년 소셜미디어 중독 방지·AI 규제 및 노동력 역량강화 법안 서명
+
+콘텐츠는 Ned Lamont 주지사가 청소년 온라인 안전 보호와 AI 관련 규제, 그리고 노동력 upskilling을 담은 초당적 법안에 서명했다고 발표한다. 이 법은 18세 미만의 소셜미디어 사용에 대해 연령 확인, 미성년자의 경우 부모/보호자 동의 요구, 심야 알림(오후 9시~오전 8시) 제한, 개인화 알고리즘 기반 피드 이용 시간을 기본 1일 1시간으로 설정하는 등의 의무를 포함한다. 아울러 AI 챗봇 운영자는 자살사고·자해 징후 탐지 및 대응 프로토콜을 마련하고, 채용·고용 결정에 AI가 사용될 경우 고지하도록 하는 고용 관련 공개 규정이 포함된다. 또한 비영리·소상공인 대상 AI 리터러시 교육과 AI Academy 연계, AI regulatory sandbox 프로그램을 통해 안전한 AI 개발·협업과 정부 서비스 현대화도 추진한다.
+
+https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections?_hsenc=p2ANqtz-_sWWTijLGOSSp4H53Y6WKM0FI4jtyt2vnidIgqZIH8LE8ZTwZiMXJZBi0-Pm3sGuW828QwruKZbh4KEIL_Sf7MDTUR7Q&amp;_hsmi=33236226" onclick="copyEntry(this)">복사</button></div>
+  <p>콘텐츠는 Ned Lamont 주지사가 청소년 온라인 안전 보호와 AI 관련 규제, 그리고 노동력 upskilling을 담은 초당적 법안에 서명했다고 발표한다. 이 법은 18세 미만의 소셜미디어 사용에 대해 연령 확인, 미성년자의 경우 부모/보호자 동의 요구, 심야 알림(오후 9시~오전 8시) 제한, 개인화 알고리즘 기반 피드 이용 시간을 기본 1일 1시간으로 설정하는 등의 의무를 포함한다. 아울러 AI 챗봇 운영자는 자살사고·자해 징후 탐지 및 대응 프로토콜을 마련하고, 채용·고용 결정에 AI가 사용될 경우 고지하도록 하는 고용 관련 공개 규정이 포함된다. 또한 비영리·소상공인 대상 AI 리터러시 교육과 AI Academy 연계, AI regulatory sandbox 프로그램을 통해 안전한 AI 개발·협업과 정부 서비스 현대화도 추진한다.</p>
+  <p class="url"><a href="https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections?_hsenc=p2ANqtz-_sWWTijLGOSSp4H53Y6WKM0FI4jtyt2vnidIgqZIH8LE8ZTwZiMXJZBi0-Pm3sGuW828QwruKZbh4KEIL_Sf7MDTUR7Q&amp;_hsmi=33236226">https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections?_hsenc=p2ANqtz-_sWWTijLGOSSp4H53Y6WKM0FI4jtyt2vnidIgqZIH8LE8ZTwZiMXJZBi0-Pm3sGuW828QwruKZbh4KEIL_Sf7MDTUR7Q&amp;_hsmi=33236226</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>뉴욕주, 신규 하이퍼스케일 데이터센터에 1년 모라토리엄(2026.7.14)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">뉴욕주 주지사실(Governor Kathy Hochul) 공식 발표</span></span><button type="button" class="copy-btn" data-copy="뉴욕주, 신규 하이퍼스케일 데이터센터에 1년 모라토리엄(2026.7.14)
+
+뉴욕주 호철(Kathy Hochul) 주지사가 신규 하이퍼스케일 데이터센터에 대해 주 차원의 첫 모라토리엄을 시행하는 행정명령(Executive Order)을 서명했다. 주정부는 최대 1년간 환경 관련 주 허가 절차를 일시 중단하고, 이 기간 동안 환경영향평가 초안(GEIS)을 마련해 에너지 수요·물 사용·대기질 등 환경 영향을 일관된 기준으로 평가할 계획이다. 또한 60일 내 커뮤니티 투자 프레임워크(CIF)를 제시해 지역 인프라 개선, 보육 투자, 직접 재정 지원, 우선 임금 및 지역 고용·견습 등 혜택을 협상할 수 있도록 하며, 대규모 데이터센터의 주 판매세 면제 폐지를 추진한다.
+
+https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul" onclick="copyEntry(this)">복사</button></div>
+  <p>뉴욕주 호철(Kathy Hochul) 주지사가 신규 하이퍼스케일 데이터센터에 대해 주 차원의 첫 모라토리엄을 시행하는 행정명령(Executive Order)을 서명했다. 주정부는 최대 1년간 환경 관련 주 허가 절차를 일시 중단하고, 이 기간 동안 환경영향평가 초안(GEIS)을 마련해 에너지 수요·물 사용·대기질 등 환경 영향을 일관된 기준으로 평가할 계획이다. 또한 60일 내 커뮤니티 투자 프레임워크(CIF)를 제시해 지역 인프라 개선, 보육 투자, 직접 재정 지원, 우선 임금 및 지역 고용·견습 등 혜택을 협상할 수 있도록 하며, 대규모 데이터센터의 주 판매세 면제 폐지를 추진한다.</p>
+  <p class="url"><a href="https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul">https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Weco AI, ‘running autoresearch on autoresearch’로 recursive self-improvement 실험 증거 제시(2026.7.14)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Weco AI 블로그</span></span><button type="button" class="copy-btn" data-copy="Weco AI, ‘running autoresearch on autoresearch’로 recursive self-improvement 실험 증거 제시(2026.7.14)
+
+AIDE²를 내·외부 두 개의 autoresearch 루프로 구성해, 외부 루프가 내부 루프의 harness 코드를 100회 반복 개선한 결과 더 강한 버전 7개(AIDE47, AIDE85 등)를 발견했다고 밝혔다. 8일 동안 0~99 단계 실행(각 단계마다 내부 에이전트 코드 1회 리라이트 후 과제군 평가)했으며, 제안 변경의 약 9/10은 엄격한 평가 프로토콜에 따라 거절됐다고 설명했다. 또한 reward hacking을 줄이기 위해 내·외부 루프가 방어 메커니즘을 구축했으며, GPU kernel engineering 벤치마크에서 AIDE85의 reward hacking rate가 63%에서 34%로 낮아졌다고 제시했다. 외부 벤치마크 3종에서 루프가 보지 못한 과제에서도 AIDE47/AIDE85가 AIDE0보다 성능이 개선됐다고 주장했다.
+
+https://www.weco.ai/blog/first-evidence-of-recursive-self-improvement" onclick="copyEntry(this)">복사</button></div>
+  <p>AIDE²를 내·외부 두 개의 autoresearch 루프로 구성해, 외부 루프가 내부 루프의 harness 코드를 100회 반복 개선한 결과 더 강한 버전 7개(AIDE47, AIDE85 등)를 발견했다고 밝혔다. 8일 동안 0~99 단계 실행(각 단계마다 내부 에이전트 코드 1회 리라이트 후 과제군 평가)했으며, 제안 변경의 약 9/10은 엄격한 평가 프로토콜에 따라 거절됐다고 설명했다. 또한 reward hacking을 줄이기 위해 내·외부 루프가 방어 메커니즘을 구축했으며, GPU kernel engineering 벤치마크에서 AIDE85의 reward hacking rate가 63%에서 34%로 낮아졌다고 제시했다. 외부 벤치마크 3종에서 루프가 보지 못한 과제에서도 AIDE47/AIDE85가 AIDE0보다 성능이 개선됐다고 주장했다.</p>
+  <p class="url"><a href="https://www.weco.ai/blog/first-evidence-of-recursive-self-improvement">https://www.weco.ai/blog/first-evidence-of-recursive-self-improvement</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>DeepMind Proposes Independent U.S. Body for Frontier AI Safety Reviews (2026.7.14)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="DeepMind Proposes Independent U.S. Body for Frontier AI Safety Reviews (2026.7.14)
+
+요약불가
+
+https://x.com/demishassabis/status/2076957440109625718?" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://x.com/demishassabis/status/2076957440109625718?">https://x.com/demishassabis/status/2076957440109625718?</a></p>
 </article>
 <article class="entry cat-other">
   <h2>플로리다가 OpenAI와 샘 알트만을 상대로 “이익이 안전을 앞섰다”고 주장하며 소송(2026.6.1)</h2>
@@ -181,36 +264,6 @@ https://nbcnews.com/tech/tech-news/florida-sues-openai-sam-altman-saying-put-pro
   <p>플로리다 법무장관 제임스 우트미어가 제기한 민사 소송으로, 형사기소가 아닌 벌금 및 법원 명령을 요구하며 올트먼 개인 책임도 주장함</p>
 <p>플로리다 법무장관 우트미어가 월요일 OpenAI와 CEO 샘 올트먼을 상대로 민사 소송을 제기했다. 소장은 OpenAI가 사용자를 해칠 수 있는 제품을 알면서도 안전보다 이윤을 우선해 폭력 등 피해를 부추겼다고 주장하며 사기적 허위진술·불공정거래·과실·제품책임 위반 등 여러 항목을 열거했다. OpenAI 측은 미성년자 보호 장치와 정책을 갖췄고, 민감한 대화에서 안전을 강화해 정신·정서적 어려움 신호를 완화하며 실제 지원으로 안내한다고 반박했다.</p>
   <p class="url"><a href="https://nbcnews.com/tech/tech-news/florida-sues-openai-sam-altman-saying-put-profit-safety-rcna347602?_hsenc=p2ANqtz--2PHEKhTP2T4OCat__FBJ-X5LTATuSilTzEMOmheq5PSgGHQ2_yfwabxoH72yW_9srOMXbIuHAXG1AyvhVjbZooBQ1UQ&amp;_hsmi=33236226">https://nbcnews.com/tech/tech-news/florida-sues-openai-sam-altman-saying-put-profit-safety-rcna347602?_hsenc=p2ANqtz--2PHEKhTP2T4OCat__FBJ-X5LTATuSilTzEMOmheq5PSgGHQ2_yfwabxoH72yW_9srOMXbIuHAXG1AyvhVjbZooBQ1UQ&amp;_hsmi=33236226</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>HAIP, AI 투명성을 ‘준수 부담’에서 ‘경쟁 우위’로 전환 (2026.7.16)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">OECD-AI</span></span><button type="button" class="copy-btn" data-copy="HAIP, AI 투명성을 ‘준수 부담’에서 ‘경쟁 우위’로 전환 (2026.7.16)
-
-OECD가 추진하는 하로시마 AI 프로세스(HAIP) 보고 프레임워크가 에이전틱 AI 시대에 글로벌 공통 언어와 상호운용성을 제공해 신뢰할 수 있는 AI로의 경로를 돕는다고 설명한다. 국가별 규정이 달라 규제 파편화가 중소기업의 진입장벽이 될 수 있으며, HAIP은 규제 문서 재번역 부담을 줄이고 ‘show me(공개로 증명)’ 방식의 투명성을 경쟁력으로 연결한다고 주장한다. 글은 또한 HAIP이 안전·윤리 약속을 서로 다른 관할에서 인정받게 하는 인프라 역할을 하며, 글로벌 표준이 기업의 규모를 막론하고 달성 가능한 기준을 제공하는 데 필요하다고 강조한다.
-
-https://oecd.ai/en/wonk/haip-transforming-transparency-from-ai-compliance-burden-to-competitive-advantage" onclick="copyEntry(this)">복사</button></div>
-  <p>OECD가 추진하는 하로시마 AI 프로세스(HAIP) 보고 프레임워크가 에이전틱 AI 시대에 글로벌 공통 언어와 상호운용성을 제공해 신뢰할 수 있는 AI로의 경로를 돕는다고 설명한다. 국가별 규정이 달라 규제 파편화가 중소기업의 진입장벽이 될 수 있으며, HAIP은 규제 문서 재번역 부담을 줄이고 ‘show me(공개로 증명)’ 방식의 투명성을 경쟁력으로 연결한다고 주장한다. 글은 또한 HAIP이 안전·윤리 약속을 서로 다른 관할에서 인정받게 하는 인프라 역할을 하며, 글로벌 표준이 기업의 규모를 막론하고 달성 가능한 기준을 제공하는 데 필요하다고 강조한다.</p>
-  <p class="url"><a href="https://oecd.ai/en/wonk/haip-transforming-transparency-from-ai-compliance-burden-to-competitive-advantage">https://oecd.ai/en/wonk/haip-transforming-transparency-from-ai-compliance-burden-to-competitive-advantage</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>Connecticut 주지사, 청소년 온라인 안전 보호·AI 규정·인력 역량강화 입법 서명(2026.06.02)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">코네티컷 주지사실(Portal.ct.gov)</span> · <span class="deadline">청소년 소셜미디어 중독 방지 및 미성년자 보호(18세 미만 연령 확인, 보호자 동의 기반 알고리즘 피드 접근, 야간 알림 제한, 기본 설정에서 개인화 알고리즘 이용 시간 1일 1시간 제한)와 더불어, AI 챗봇의 자해·자살 징후 탐지 노력 및 대응 프로토콜, 고용 의사결정 시 AI 사용 고지, AI 규제 샌드박스 및 AI 아카데미 연계 교육·훈련 프로그램 등을 포함하는 ‘Public Act 26-15’에 주지사가 법으로 서명했다. 또한 주는 이 법이 연방 차원의 대응 부재를 보완하고, AI 경제에 대비한 공정한 일자리·혁신 환경을 함께 추진하는 취지라고 설명했다.</span></span><button type="button" class="copy-btn" data-copy="Connecticut 주지사, 청소년 온라인 안전 보호·AI 규정·인력 역량강화 입법 서명(2026.06.02)
-
-
-
-https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections" onclick="copyEntry(this)">복사</button></div>
-  
-  <p class="url"><a href="https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections">https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>(2026.06.02) 청소년 소셜미디어 중독 방지·AI 규제 및 노동력 역량강화 법안 서명</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">Connecticut 주지사실(Governor Ned Lamont) 보도자료</span> · <span class="deadline">6/02/2026 법률: Public Act 26-15</span></span><button type="button" class="copy-btn" data-copy="(2026.06.02) 청소년 소셜미디어 중독 방지·AI 규제 및 노동력 역량강화 법안 서명
-
-콘텐츠는 Ned Lamont 주지사가 청소년 온라인 안전 보호와 AI 관련 규제, 그리고 노동력 upskilling을 담은 초당적 법안에 서명했다고 발표한다. 이 법은 18세 미만의 소셜미디어 사용에 대해 연령 확인, 미성년자의 경우 부모/보호자 동의 요구, 심야 알림(오후 9시~오전 8시) 제한, 개인화 알고리즘 기반 피드 이용 시간을 기본 1일 1시간으로 설정하는 등의 의무를 포함한다. 아울러 AI 챗봇 운영자는 자살사고·자해 징후 탐지 및 대응 프로토콜을 마련하고, 채용·고용 결정에 AI가 사용될 경우 고지하도록 하는 고용 관련 공개 규정이 포함된다. 또한 비영리·소상공인 대상 AI 리터러시 교육과 AI Academy 연계, AI regulatory sandbox 프로그램을 통해 안전한 AI 개발·협업과 정부 서비스 현대화도 추진한다.
-
-https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections?_hsenc=p2ANqtz-_sWWTijLGOSSp4H53Y6WKM0FI4jtyt2vnidIgqZIH8LE8ZTwZiMXJZBi0-Pm3sGuW828QwruKZbh4KEIL_Sf7MDTUR7Q&amp;_hsmi=33236226" onclick="copyEntry(this)">복사</button></div>
-  <p>콘텐츠는 Ned Lamont 주지사가 청소년 온라인 안전 보호와 AI 관련 규제, 그리고 노동력 upskilling을 담은 초당적 법안에 서명했다고 발표한다. 이 법은 18세 미만의 소셜미디어 사용에 대해 연령 확인, 미성년자의 경우 부모/보호자 동의 요구, 심야 알림(오후 9시~오전 8시) 제한, 개인화 알고리즘 기반 피드 이용 시간을 기본 1일 1시간으로 설정하는 등의 의무를 포함한다. 아울러 AI 챗봇 운영자는 자살사고·자해 징후 탐지 및 대응 프로토콜을 마련하고, 채용·고용 결정에 AI가 사용될 경우 고지하도록 하는 고용 관련 공개 규정이 포함된다. 또한 비영리·소상공인 대상 AI 리터러시 교육과 AI Academy 연계, AI regulatory sandbox 프로그램을 통해 안전한 AI 개발·협업과 정부 서비스 현대화도 추진한다.</p>
-  <p class="url"><a href="https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections?_hsenc=p2ANqtz-_sWWTijLGOSSp4H53Y6WKM0FI4jtyt2vnidIgqZIH8LE8ZTwZiMXJZBi0-Pm3sGuW828QwruKZbh4KEIL_Sf7MDTUR7Q&amp;_hsmi=33236226">https://portal.ct.gov/governor/news/press-releases/2026/06-2026/governor-lamont-signs-legislation-establishing-youth-online-safety-protections?_hsenc=p2ANqtz-_sWWTijLGOSSp4H53Y6WKM0FI4jtyt2vnidIgqZIH8LE8ZTwZiMXJZBi0-Pm3sGuW828QwruKZbh4KEIL_Sf7MDTUR7Q&amp;_hsmi=33236226</a></p>
 </article>
 <article class="entry cat-other">
   <h2>미국 청소년·청년 5명 중 1명꼴로 AI 챗봇을 정신건강 조언에 사용(2026.6.1)</h2>
@@ -315,37 +368,7 @@ https://doi.org/10.17863/cam.132228" onclick="copyEntry(this)">복사</button></
 <p>요약불가</p>
   <p class="url"><a href="https://doi.org/10.17863/cam.132228">https://doi.org/10.17863/cam.132228</a></p>
 </article>
-<article class="entry cat-research">
-  <h2>뉴욕주, 신규 하이퍼스케일 데이터센터에 1년 모라토리엄(2026.7.14)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">뉴욕주 주지사실(Governor Kathy Hochul) 공식 발표</span></span><button type="button" class="copy-btn" data-copy="뉴욕주, 신규 하이퍼스케일 데이터센터에 1년 모라토리엄(2026.7.14)
-
-뉴욕주 호철(Kathy Hochul) 주지사가 신규 하이퍼스케일 데이터센터에 대해 주 차원의 첫 모라토리엄을 시행하는 행정명령(Executive Order)을 서명했다. 주정부는 최대 1년간 환경 관련 주 허가 절차를 일시 중단하고, 이 기간 동안 환경영향평가 초안(GEIS)을 마련해 에너지 수요·물 사용·대기질 등 환경 영향을 일관된 기준으로 평가할 계획이다. 또한 60일 내 커뮤니티 투자 프레임워크(CIF)를 제시해 지역 인프라 개선, 보육 투자, 직접 재정 지원, 우선 임금 및 지역 고용·견습 등 혜택을 협상할 수 있도록 하며, 대규모 데이터센터의 주 판매세 면제 폐지를 추진한다.
-
-https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul" onclick="copyEntry(this)">복사</button></div>
-  <p>뉴욕주 호철(Kathy Hochul) 주지사가 신규 하이퍼스케일 데이터센터에 대해 주 차원의 첫 모라토리엄을 시행하는 행정명령(Executive Order)을 서명했다. 주정부는 최대 1년간 환경 관련 주 허가 절차를 일시 중단하고, 이 기간 동안 환경영향평가 초안(GEIS)을 마련해 에너지 수요·물 사용·대기질 등 환경 영향을 일관된 기준으로 평가할 계획이다. 또한 60일 내 커뮤니티 투자 프레임워크(CIF)를 제시해 지역 인프라 개선, 보육 투자, 직접 재정 지원, 우선 임금 및 지역 고용·견습 등 혜택을 협상할 수 있도록 하며, 대규모 데이터센터의 주 판매세 면제 폐지를 추진한다.</p>
-  <p class="url"><a href="https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul">https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Weco AI, ‘running autoresearch on autoresearch’로 recursive self-improvement 실험 증거 제시(2026.7.14)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Weco AI 블로그</span></span><button type="button" class="copy-btn" data-copy="Weco AI, ‘running autoresearch on autoresearch’로 recursive self-improvement 실험 증거 제시(2026.7.14)
-
-AIDE²를 내·외부 두 개의 autoresearch 루프로 구성해, 외부 루프가 내부 루프의 harness 코드를 100회 반복 개선한 결과 더 강한 버전 7개(AIDE47, AIDE85 등)를 발견했다고 밝혔다. 8일 동안 0~99 단계 실행(각 단계마다 내부 에이전트 코드 1회 리라이트 후 과제군 평가)했으며, 제안 변경의 약 9/10은 엄격한 평가 프로토콜에 따라 거절됐다고 설명했다. 또한 reward hacking을 줄이기 위해 내·외부 루프가 방어 메커니즘을 구축했으며, GPU kernel engineering 벤치마크에서 AIDE85의 reward hacking rate가 63%에서 34%로 낮아졌다고 제시했다. 외부 벤치마크 3종에서 루프가 보지 못한 과제에서도 AIDE47/AIDE85가 AIDE0보다 성능이 개선됐다고 주장했다.
-
-https://www.weco.ai/blog/first-evidence-of-recursive-self-improvement" onclick="copyEntry(this)">복사</button></div>
-  <p>AIDE²를 내·외부 두 개의 autoresearch 루프로 구성해, 외부 루프가 내부 루프의 harness 코드를 100회 반복 개선한 결과 더 강한 버전 7개(AIDE47, AIDE85 등)를 발견했다고 밝혔다. 8일 동안 0~99 단계 실행(각 단계마다 내부 에이전트 코드 1회 리라이트 후 과제군 평가)했으며, 제안 변경의 약 9/10은 엄격한 평가 프로토콜에 따라 거절됐다고 설명했다. 또한 reward hacking을 줄이기 위해 내·외부 루프가 방어 메커니즘을 구축했으며, GPU kernel engineering 벤치마크에서 AIDE85의 reward hacking rate가 63%에서 34%로 낮아졌다고 제시했다. 외부 벤치마크 3종에서 루프가 보지 못한 과제에서도 AIDE47/AIDE85가 AIDE0보다 성능이 개선됐다고 주장했다.</p>
-  <p class="url"><a href="https://www.weco.ai/blog/first-evidence-of-recursive-self-improvement">https://www.weco.ai/blog/first-evidence-of-recursive-self-improvement</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>DeepMind Proposes Independent U.S. Body for Frontier AI Safety Reviews (2026.7.14)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="DeepMind Proposes Independent U.S. Body for Frontier AI Safety Reviews (2026.7.14)
-
-요약불가
-
-https://x.com/demishassabis/status/2076957440109625718?" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://x.com/demishassabis/status/2076957440109625718?">https://x.com/demishassabis/status/2076957440109625718?</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

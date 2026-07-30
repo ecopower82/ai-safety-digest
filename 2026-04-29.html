@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -234,6 +257,159 @@ https://www.anthropic.com/research/next-generation-constitutional-classifiers" o
   <p>앤트로픽은 대규모 언어모델의 안전장치(가드레일)를 우회하는 ‘jailbreak’에 대응하기 위해 입력·출력을 감시·차단하는 ‘Constitutional Classifiers++’를 소개했다. 기존 1세대는 유니버설 탈옥 성공률을 86%에서 4.4%로 크게 낮췄지만, 계산 비용이 23.7% 증가하고 무해한 질의에서도 거부율이 소폭(0.38%) 늘었다. 새 시스템은 2단계(경량 1차→정밀 2차) 앙상블과 내부 활성(프로브) 신호를 결합해 공격 성공률을 더 낮추면서 거부율을 크게 줄였으며, 1개월 운영에서 무해 질의 거부율 0.05%(기존 대비 87% 감소), 추가 계산 오버헤드는 약 1% 수준이라고 밝혔다. 또한 198,000회 시도에 대한 1,700시간 이상 레드팀 결과 고위험 취약점은 1건뿐이고, 아직까지 유니버설 jailbreak는 발견되지 않았다고 설명했다.</p>
   <p class="url"><a href="https://www.anthropic.com/research/next-generation-constitutional-classifiers">https://www.anthropic.com/research/next-generation-constitutional-classifiers</a></p>
 </article>
+<article class="entry cat-intl-org">
+  <h2>(디지털시장법(DMA) 관련 공개협의 2026.4.27 기준) 안드로이드의 상호운용성 확보를 위한 구글 조치 초안에 대한 의견 수렴</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">공개협의 마감: 2026.5.13</span></span><button type="button" class="copy-btn" data-copy="(디지털시장법(DMA) 관련 공개협의 2026.4.27 기준) 안드로이드의 상호운용성 확보를 위한 구글 조치 초안에 대한 의견 수렴
+
+유럽연합 집행위원회는 디지털시장법(DMA) 절차의 일환으로 2026년 1월 27일 시작된 사양(specification) 진행 과정에서 구글에 예비 결론을 전달했다. 예비 결론에는 제3자가 안드로이드의 핵심 기능에 대해 효과적으로 접근하고 상호운용할 수 있도록 구글이 이행해야 할 초안 조치가 포함됐다. 집행위는 해당 조치의 실효성을 위해 공개협의를 통해 이해관계자 의견을 2026년 5월 13일까지 제출하도록 요청했다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-measures-ensure-interoperability-googles-android-under-digital-markets" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽연합 집행위원회는 디지털시장법(DMA) 절차의 일환으로 2026년 1월 27일 시작된 사양(specification) 진행 과정에서 구글에 예비 결론을 전달했다. 예비 결론에는 제3자가 안드로이드의 핵심 기능에 대해 효과적으로 접근하고 상호운용할 수 있도록 구글이 이행해야 할 초안 조치가 포함됐다. 집행위는 해당 조치의 실효성을 위해 공개협의를 통해 이해관계자 의견을 2026년 5월 13일까지 제출하도록 요청했다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-measures-ensure-interoperability-googles-android-under-digital-markets">https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-measures-ensure-interoperability-googles-android-under-digital-markets</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>디지털시장법(DMA) 첫 이행점검 결과, 목적 적합성과 긍정적 효과 확인 (2026.4.28)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="디지털시장법(DMA) 첫 이행점검 결과, 목적 적합성과 긍정적 효과 확인 (2026.4.28)
+
+유럽 집행위는 DMA 첫 검토 결과를 2026.4.28에 공개함
+
+유럽 집행위원회가 디지털시장법(DMA) 첫 검토에서, 적용 첫 2년 동안 법이 목적에 부합하며 기업·개발자에게 새로운 기회를 열고 이용자에게는 경험과 기기 선택권을 더 확대했다고 밝혔다. 이용자는 서비스·기기 간 데이터 이전, 기본 제공자 대신 대체 검색엔진·웹브라우저 선택, 사업자의 개인데이터 결합 허용 여부에 대한 실질적 선택권을 갖게 됐다고 설명했다. 또한 게이트키퍼 생태계를 개방해 연결기기 제조사 간 상호운용성, 대체 브라우저·검색엔진의 기본값 채택, 제3자 앱스토어 도입, 상호운용성 의무에 따른 신규 메신저 앱 출시 등 경쟁 촉진 효과가 나타났다고 전했다.
+
+https://digital-strategy.ec.europa.eu/en/news/review-highlights-digital-markets-act-remains-fit-purpose-and-has-positive-impact" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위는 DMA 첫 검토 결과를 2026.4.28에 공개함</p>
+<p>유럽 집행위원회가 디지털시장법(DMA) 첫 검토에서, 적용 첫 2년 동안 법이 목적에 부합하며 기업·개발자에게 새로운 기회를 열고 이용자에게는 경험과 기기 선택권을 더 확대했다고 밝혔다. 이용자는 서비스·기기 간 데이터 이전, 기본 제공자 대신 대체 검색엔진·웹브라우저 선택, 사업자의 개인데이터 결합 허용 여부에 대한 실질적 선택권을 갖게 됐다고 설명했다. 또한 게이트키퍼 생태계를 개방해 연결기기 제조사 간 상호운용성, 대체 브라우저·검색엔진의 기본값 채택, 제3자 앱스토어 도입, 상호운용성 의무에 따른 신규 메신저 앱 출시 등 경쟁 촉진 효과가 나타났다고 전했다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/review-highlights-digital-markets-act-remains-fit-purpose-and-has-positive-impact">https://digital-strategy.ec.europa.eu/en/news/review-highlights-digital-markets-act-remains-fit-purpose-and-has-positive-impact</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>GPAI 코드 준수 서명자 태스크포스, 안전·보안 장에서 위험 등급 ‘집계 예측’과 유해 조작 시나리오 논의 (2026.4.27)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합(EU) 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="GPAI 코드 준수 서명자 태스크포스, 안전·보안 장에서 위험 등급 ‘집계 예측’과 유해 조작 시나리오 논의 (2026.4.27)
+
+AI Office는 안전·보안 장의 이행을 위해 서명자(시스템적 위험 모델 제공자)가 위험 등급을 초과할 것으로 예상되는 시점을 프레임워크에 포함하는 ‘집계 예측’ 방식을 구체화하고, 연 1~2회 등 예측 주기와 준수 영향에 대한 쟁점을 정리해 제시하기로 했다. 또한 유해 조작과 관련해 각 시스템적 위험에 대한 위험 시나리오를 만들고, 평가 환경(시스템 통합·사용자 가정 등)이 해당 시나리오 조건을 반영해야 한다는 점을 논의했다. 다음 회의 준비를 위해 참가자 의견을 추가로 수렴할 예정이다.
+
+https://digital-strategy.ec.europa.eu/en/news/third-gpai-signatory-taskforce-meeting-safety-and-security-chapter" onclick="copyEntry(this)">복사</button></div>
+  <p>AI Office는 안전·보안 장의 이행을 위해 서명자(시스템적 위험 모델 제공자)가 위험 등급을 초과할 것으로 예상되는 시점을 프레임워크에 포함하는 ‘집계 예측’ 방식을 구체화하고, 연 1~2회 등 예측 주기와 준수 영향에 대한 쟁점을 정리해 제시하기로 했다. 또한 유해 조작과 관련해 각 시스템적 위험에 대한 위험 시나리오를 만들고, 평가 환경(시스템 통합·사용자 가정 등)이 해당 시나리오 조건을 반영해야 한다는 점을 논의했다. 다음 회의 준비를 위해 참가자 의견을 추가로 수렴할 예정이다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/third-gpai-signatory-taskforce-meeting-safety-and-security-chapter">https://digital-strategy.ec.europa.eu/en/news/third-gpai-signatory-taskforce-meeting-safety-and-security-chapter</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>법무부, xAI가 제기한 콜로라도 ‘알고리즘 차별’ 법 소송에 개입 (2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 법무부(Justice Department) 공식 보도자료</span> · <span class="deadline">마감일·시행일: xAI는 2026.4.9 해당 법에 대한 소송을 제기</span></span><button type="button" class="copy-btn" data-copy="법무부, xAI가 제기한 콜로라도 ‘알고리즘 차별’ 법 소송에 개입 (2026.4.24)
+
+미 법무부는 인공지능 기업 xAI가 콜로라도의 ‘알고리즘 차별’ 관련 신설 법을 다투며 제기한 소송에 개입하겠다고 밝혔다. 법무부는 해당 법이 14차 수정헌법의 평등보호조항을 위반한다고 주장하며, AI 제품이 인종·성별 등 보호특성에 기반해 의도치 않은 차별적 영향을 줄 수 있는 경우 이를 막도록 요구하는 점과 ‘다양성’ 목적의 일부 차별에 대해 책임을 면제하는 점을 문제 삼았다. 콜로라도 SB24-205는 AI 개발자·배포자에게 특정 공개·보고·예방 의무를 부과하지만, ‘다양성’ 또는 ‘역사적 차별 시정’ 목적의 차별적 알고리즘에 대한 예외 조항을 두고 있다.
+
+https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination" onclick="copyEntry(this)">복사</button></div>
+  <p>미 법무부는 인공지능 기업 xAI가 콜로라도의 ‘알고리즘 차별’ 관련 신설 법을 다투며 제기한 소송에 개입하겠다고 밝혔다. 법무부는 해당 법이 14차 수정헌법의 평등보호조항을 위반한다고 주장하며, AI 제품이 인종·성별 등 보호특성에 기반해 의도치 않은 차별적 영향을 줄 수 있는 경우 이를 막도록 요구하는 점과 ‘다양성’ 목적의 일부 차별에 대해 책임을 면제하는 점을 문제 삼았다. 콜로라도 SB24-205는 AI 개발자·배포자에게 특정 공개·보고·예방 의무를 부과하지만, ‘다양성’ 또는 ‘역사적 차별 시정’ 목적의 차별적 알고리즘에 대한 예외 조항을 두고 있다.</p>
+  <p class="url"><a href="https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination">https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>Warner, 딥페이크 등 악의적 조작 미디어에 대해 기술기업의 대응 조치를 촉구 (2026.4.28)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 상원 워너(워너) 의원실(warner.senate.gov)</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="Warner, 딥페이크 등 악의적 조작 미디어에 대해 기술기업의 대응 조치를 촉구 (2026.4.28)
+
+워너 의원실은 딥페이크와 악의적으로 조작된 미디어에 대응하기 위해 기술기업들이 조치를 취할 것을 촉구하는 내용의 보도자료를 게시했습니다. 다만 본문 내용(구체적 요구사항, 정책/조치 범위, 일정 등)은 제공되지 않아 확인이 필요합니다.
+
+https://www.warner.senate.gov/newsroom/press-releases/warner-pushes-tech-companies-to-take-action-against-deepfakes-maliciously-manipulated-media/" onclick="copyEntry(this)">복사</button></div>
+  <p>워너 의원실은 딥페이크와 악의적으로 조작된 미디어에 대응하기 위해 기술기업들이 조치를 취할 것을 촉구하는 내용의 보도자료를 게시했습니다. 다만 본문 내용(구체적 요구사항, 정책/조치 범위, 일정 등)은 제공되지 않아 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.warner.senate.gov/newsroom/press-releases/warner-pushes-tech-companies-to-take-action-against-deepfakes-maliciously-manipulated-media/">https://www.warner.senate.gov/newsroom/press-releases/warner-pushes-tech-companies-to-take-action-against-deepfakes-maliciously-manipulated-media/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Boundary Point Jailbreaking of Black-Box LLMs(2026.4.28)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">arxiv.org</span></span><button type="button" class="copy-btn" data-copy="Boundary Point Jailbreaking of Black-Box LLMs(2026.4.28)
+
+arXiv 논문은 블랙박스 LLM에 대한 새로운 자동 지능형 “재일브레이킹(BPJ)” 방법을 제안한다. BPJ는 기존처럼 분류기 점수·그래디언트 등 추가 정보를 쓰지 않고, 질의마다 분류기가 플래그하는지 여부(1비트)만으로 공격을 최적화한다. 또한 공격 문자열을 중간 목표들의 커리큘럼으로 바꾸고, 공격 강도의 작은 변화가 잘 드러나는 “경계 지점(boundary points)”을 선택해 방어를 우회하는 보편적 재일브레이킹을 개발했다고 주장한다. 저자들은 BPJ가 개별 상호작용에서는 방어하기 어렵지만 최적화 과정에서 다수의 플래그가 발생하므로 배치 단위 모니터링이 필요하다고 본다.
+
+https://arxiv.org/abs/2602.15001?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
+  <p>arXiv 논문은 블랙박스 LLM에 대한 새로운 자동 지능형 “재일브레이킹(BPJ)” 방법을 제안한다. BPJ는 기존처럼 분류기 점수·그래디언트 등 추가 정보를 쓰지 않고, 질의마다 분류기가 플래그하는지 여부(1비트)만으로 공격을 최적화한다. 또한 공격 문자열을 중간 목표들의 커리큘럼으로 바꾸고, 공격 강도의 작은 변화가 잘 드러나는 “경계 지점(boundary points)”을 선택해 방어를 우회하는 보편적 재일브레이킹을 개발했다고 주장한다. 저자들은 BPJ가 개별 상호작용에서는 방어하기 어렵지만 최적화 과정에서 다수의 플래그가 발생하므로 배치 단위 모니터링이 필요하다고 본다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2602.15001?utm_source=substack&amp;utm_medium=email">https://arxiv.org/abs/2602.15001?utm_source=substack&amp;utm_medium=email</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>AI 일자리 전환 프레임워크 보고서(본문 추출 불가) (2026.4.28)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">cdn.openai.com</span></span><button type="button" class="copy-btn" data-copy="AI 일자리 전환 프레임워크 보고서(본문 추출 불가) (2026.4.28)
+
+본문에서 PDF 메타데이터 및 이미지/바이너리 스트림 일부만 확인되어 보고서의 핵심 내용(정책·권고사항·구성 등)을 요약할 수 없습니다. 현재 추출된 텍스트는 “Beyond AI Exposure” 등 일부 문자열과 인코딩된 데이터로 구성되어 있습니다.
+
+https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
+  <p>본문에서 PDF 메타데이터 및 이미지/바이너리 스트림 일부만 확인되어 보고서의 핵심 내용(정책·권고사항·구성 등)을 요약할 수 없습니다. 현재 추출된 텍스트는 “Beyond AI Exposure” 등 일부 문자열과 인코딩된 데이터로 구성되어 있습니다.</p>
+  <p class="url"><a href="https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?utm_source=substack&amp;utm_medium=email">https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?utm_source=substack&amp;utm_medium=email</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>OpenAI 원칙(책임·안전 관련) 재검토 필요성 제기 (2026.4.26)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI 원칙(책임·안전 관련) 재검토 필요성 제기 (2026.4.26)
+
+본문 확인 필요: 제공된 정보에는 페이지 본문 내용이 없어, OpenAI가 제시하는 ‘원칙’의 구체 항목(책임성·안전 조치·운영 방식 등)과 관련 쟁점이 무엇인지 확인이 필요합니다. 다만 CSV 제목 기준으로는 책임성과 안전에 대한 질문이 다시 제기되는 맥락으로 요약됩니다.
+
+https://openai.com/index/our-principles/" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 확인 필요: 제공된 정보에는 페이지 본문 내용이 없어, OpenAI가 제시하는 ‘원칙’의 구체 항목(책임성·안전 조치·운영 방식 등)과 관련 쟁점이 무엇인지 확인이 필요합니다. 다만 CSV 제목 기준으로는 책임성과 안전에 대한 질문이 다시 제기되는 맥락으로 요약됩니다.</p>
+  <p class="url"><a href="https://openai.com/index/our-principles/">https://openai.com/index/our-principles/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Anthropic, 배치된 군사 AI에 ‘킬 스위치’가 없다고 밝혔다는 내용(2026.4.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Axios</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="Anthropic, 배치된 군사 AI에 ‘킬 스위치’가 없다고 밝혔다는 내용(2026.4.22)
+
+Anthropic이 배치된 군사용 AI에 대해 ‘킬 스위치(kill switch)’가 없다는 취지로 말한 것으로 전해집니다. 다만 본문 내용이 제공되지 않아 구체적인 발언 범위(어떤 시스템/배치 상황인지)와 근거는 확인이 필요합니다.
+
+https://www.axios.com/2026/04/22/anthropic-no-kill-switch-ai-classified-settings" onclick="copyEntry(this)">복사</button></div>
+  <p>Anthropic이 배치된 군사용 AI에 대해 ‘킬 스위치(kill switch)’가 없다는 취지로 말한 것으로 전해집니다. 다만 본문 내용이 제공되지 않아 구체적인 발언 범위(어떤 시스템/배치 상황인지)와 근거는 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.axios.com/2026/04/22/anthropic-no-kill-switch-ai-classified-settings">https://www.axios.com/2026/04/22/anthropic-no-kill-switch-ai-classified-settings</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>AI 비용이 일부 기업에서 인건비보다 높게 나타났다는 보도(2026.4.26)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Axios</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="AI 비용이 일부 기업에서 인건비보다 높게 나타났다는 보도(2026.4.26)
+
+일부 기업들이 AI 도입·운영 비용이 사람의 노동(인건비)보다 더 높다고 보고했다는 내용으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 수치, 사례, 비교 기준은 확인이 필요합니다.
+
+https://www.axios.com/2026/04/26/ai-cost-human-workers" onclick="copyEntry(this)">복사</button></div>
+  <p>일부 기업들이 AI 도입·운영 비용이 사람의 노동(인건비)보다 더 높다고 보고했다는 내용으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 수치, 사례, 비교 기준은 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.axios.com/2026/04/26/ai-cost-human-workers">https://www.axios.com/2026/04/26/ai-cost-human-workers</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>UAE Plans Agentic AI Across Half of Government Services (2026.4.28)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="UAE Plans Agentic AI Across Half of Government Services (2026.4.28)
+
+
+
+https://x.com/HHShkMohd/status/2047277766769545352?s=20&amp;utm" onclick="copyEntry(this)">복사</button></div>
+  
+  <p class="url"><a href="https://x.com/HHShkMohd/status/2047277766769545352?s=20&amp;utm">https://x.com/HHShkMohd/status/2047277766769545352?s=20&amp;utm</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>FAR AI Finds Three Highly Effective Jailbreaks in DeepSeek-V4-Pro (2026.4.27)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="FAR AI Finds Three Highly Effective Jailbreaks in DeepSeek-V4-Pro (2026.4.27)
+
+본문 요약: 제공된 페이지 본문은 X.com 접속 오류 안내(자바스크립트 비활성, 재시도 요청 등)만 포함되어 있어 기사 내용(“DeepSeek-V4-Pro” 관련 실험 결과)은 확인되지 않습니다. 따라서 해당 게시물의 구체적 주장이나 수치, 결론을 사실 위주로 요약할 수 없습니다.
+
+https://x.com/farairesearch/status/2048868835646738755" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 요약: 제공된 페이지 본문은 X.com 접속 오류 안내(자바스크립트 비활성, 재시도 요청 등)만 포함되어 있어 기사 내용(“DeepSeek-V4-Pro” 관련 실험 결과)은 확인되지 않습니다. 따라서 해당 게시물의 구체적 주장이나 수치, 결론을 사실 위주로 요약할 수 없습니다.</p>
+  <p class="url"><a href="https://x.com/farairesearch/status/2048868835646738755">https://x.com/farairesearch/status/2048868835646738755</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.4.22) 중국 보안업체, AI 기반 취약점 탐지·익스플로잇 자동화 역량이 ‘Claude Mythos’급에 근접할 수 있다는 주장</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Natto Thoughts</span> · <span class="deadline">미국은 AI 기반 사이버 위험을 금융기관에 브리핑한 것으로 전해지며, 독일 당국은 이런 시스템이 취약점 탐지 방식을 바꿔 큰 혼란을 유발할 수 있다고 경고함</span></span><button type="button" class="copy-btn" data-copy="(2026.4.22) 중국 보안업체, AI 기반 취약점 탐지·익스플로잇 자동화 역량이 ‘Claude Mythos’급에 근접할 수 있다는 주장
+
+앤트로픽(Anthropic)이 방어 목적의 ‘Claude Mythos Preview’를 제한된 파트너십에 공개했으며, 다수의 고위험 취약점을 식별하고 일부는 사람 개입 없이 익스플로잇 개발 및 취약점 연쇄를 수행할 수 있다고 설명했다. 다만 시스템은 공개되지 않았고, 위험성과 추가 안전장치 필요성을 이유로 들었다. 한편 글에서는 중국의 360 디지털 시큐리티 그룹이 AI 보조 도구를 넘어 취약점 탐지의 핵심 엔진으로 발전했다고 주장하며, 다중 에이전트 방식으로 취약점 탐지·익스플로잇 개발·연구 워크플로 자동화를 내부적으로 추진 중인 정황을 사례로 제시한다. 이러한 역량이 중국에 비대칭적인 공격 우위를 제공할 수 있는지에 대한 문제의식도 함께 다룬다.
+
+https://www.nattothoughts.com/p/where-is-china-in-ai-driven-vulnerability" onclick="copyEntry(this)">복사</button></div>
+  <p>앤트로픽(Anthropic)이 방어 목적의 ‘Claude Mythos Preview’를 제한된 파트너십에 공개했으며, 다수의 고위험 취약점을 식별하고 일부는 사람 개입 없이 익스플로잇 개발 및 취약점 연쇄를 수행할 수 있다고 설명했다. 다만 시스템은 공개되지 않았고, 위험성과 추가 안전장치 필요성을 이유로 들었다. 한편 글에서는 중국의 360 디지털 시큐리티 그룹이 AI 보조 도구를 넘어 취약점 탐지의 핵심 엔진으로 발전했다고 주장하며, 다중 에이전트 방식으로 취약점 탐지·익스플로잇 개발·연구 워크플로 자동화를 내부적으로 추진 중인 정황을 사례로 제시한다. 이러한 역량이 중국에 비대칭적인 공격 우위를 제공할 수 있는지에 대한 문제의식도 함께 다룬다.</p>
+  <p class="url"><a href="https://www.nattothoughts.com/p/where-is-china-in-ai-driven-vulnerability">https://www.nattothoughts.com/p/where-is-china-in-ai-driven-vulnerability</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.4.21) NGate 악성코드, NFC 결제 앱을 악성코드로 패치해 카드정보·PIN 탈취</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">ESET 리서치(WeLiveSecurity)</span> · <span class="deadline">캠페인은 2025년 11월부터 진행 중이며, 글 작성 시점에도 활성 상태로 언급됨</span></span><button type="button" class="copy-btn" data-copy="(2026.4.21) NGate 악성코드, NFC 결제 앱을 악성코드로 패치해 카드정보·PIN 탈취
+
+ESET 연구진은 NGate 악성코드의 새 변형이 정식 Android 앱 ‘HandyPay’를 악성코드로 패치해 악용한다고 밝혔다. 공격자는 HandyPay의 NFC 데이터 전달 기능을 이용해 피해자의 결제카드 정보를 공격자 기기로 전송하고, 이를 비접촉 결제 및 ATM 현금 인출에 활용하며, 추가로 카드 PIN도 별도 서버로 유출한다. 악성코드 생성 과정에 AI(GenAI)가 관여했을 가능성은 로그에 AI 생성 텍스트에서 흔한 이모지 흔적이 남아 있다는 점에서 제기되며, 공격은 브라질 사용자들을 대상으로 2025년 11월부터 이어지고 있다. 악성 앱은 브라질 복권 사이트를 사칭한 경로와 ‘Proteção Cartão’라는 가짜 Google Play 페이지를 통해 배포되는 것으로 설명된다.
+
+https://www.welivesecurity.com/en/eset-research/new-ngate-variant-hides-in-a-trojanized-nfc-payment-app/" onclick="copyEntry(this)">복사</button></div>
+  <p>ESET 연구진은 NGate 악성코드의 새 변형이 정식 Android 앱 ‘HandyPay’를 악성코드로 패치해 악용한다고 밝혔다. 공격자는 HandyPay의 NFC 데이터 전달 기능을 이용해 피해자의 결제카드 정보를 공격자 기기로 전송하고, 이를 비접촉 결제 및 ATM 현금 인출에 활용하며, 추가로 카드 PIN도 별도 서버로 유출한다. 악성코드 생성 과정에 AI(GenAI)가 관여했을 가능성은 로그에 AI 생성 텍스트에서 흔한 이모지 흔적이 남아 있다는 점에서 제기되며, 공격은 브라질 사용자들을 대상으로 2025년 11월부터 이어지고 있다. 악성 앱은 브라질 복권 사이트를 사칭한 경로와 ‘Proteção Cartão’라는 가짜 Google Play 페이지를 통해 배포되는 것으로 설명된다.</p>
+  <p class="url"><a href="https://www.welivesecurity.com/en/eset-research/new-ngate-variant-hides-in-a-trojanized-nfc-payment-app/">https://www.welivesecurity.com/en/eset-research/new-ngate-variant-hides-in-a-trojanized-nfc-payment-app/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.4.23) White House OSTP, 중국의 AI 모델 복제 시도 의혹 제기</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">백악관(White House) OSTP</span></span><button type="button" class="copy-btn" data-copy="(2026.4.23) White House OSTP, 중국의 AI 모델 복제 시도 의혹 제기
+
+본문에서 핵심 문구를 확인할 수 없고, PDF 원문이 인코딩/추출 오류 형태로 제공되어 내용 요약이 불가능합니다. 다만 파일명과 메타데이터에 “NSTM-4 20260422”, “White House OSTP”가 포함되어 있습니다.
+
+https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p>본문에서 핵심 문구를 확인할 수 없고, PDF 원문이 인코딩/추출 오류 형태로 제공되어 내용 요약이 불가능합니다. 다만 파일명과 메타데이터에 “NSTM-4 20260422”, “White House OSTP”가 포함되어 있습니다.</p>
+  <p class="url"><a href="https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf">https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf</a></p>
+</article>
 <article class="entry cat-other">
   <h2>(2026.4.28) AI 이후 무엇이 ‘희소해질’까: 자동화가 노동을 대체하지만 ‘관계·인간성’이 가치가 되는 영역이 커진다는 주장</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">aleximas.substack.com</span></span><button type="button" class="copy-btn" data-copy="(2026.4.28) AI 이후 무엇이 ‘희소해질’까: 자동화가 노동을 대체하지만 ‘관계·인간성’이 가치가 되는 영역이 커진다는 주장
@@ -263,39 +439,6 @@ CRUX(Collaborative Research for Updating AI eXpectations)는 성공 기준을 �
 https://cruxevals.com/" onclick="copyEntry(this)">복사</button></div>
   <p>CRUX(Collaborative Research for Updating AI eXpectations)는 성공 기준을 명확히 지정하거나 자동 채점하기 어려운 ‘현실의 장기 과제’를 대상으로 오픈월드 평가를 체계적으로 진행하는 프로젝트다. 기존 벤치마크가 빠르게 포화되고 현실의 복잡함을 반영하기 어렵다는 문제의식에서 출발하며, 소수의 장기 과제에 대해 로그 분석과 사람의 개입을 통해 에이전트의 상한 능력을 탐색한다. 또한 최근 증가한 오픈월드 평가 사례들을 수집·정리해 각 평가의 비용과 학습 포인트를 누적하려고 한다.</p>
   <p class="url"><a href="https://cruxevals.com/">https://cruxevals.com/</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>(디지털시장법(DMA) 관련 공개협의 2026.4.27 기준) 안드로이드의 상호운용성 확보를 위한 구글 조치 초안에 대한 의견 수렴</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">공개협의 마감: 2026.5.13</span></span><button type="button" class="copy-btn" data-copy="(디지털시장법(DMA) 관련 공개협의 2026.4.27 기준) 안드로이드의 상호운용성 확보를 위한 구글 조치 초안에 대한 의견 수렴
-
-유럽연합 집행위원회는 디지털시장법(DMA) 절차의 일환으로 2026년 1월 27일 시작된 사양(specification) 진행 과정에서 구글에 예비 결론을 전달했다. 예비 결론에는 제3자가 안드로이드의 핵심 기능에 대해 효과적으로 접근하고 상호운용할 수 있도록 구글이 이행해야 할 초안 조치가 포함됐다. 집행위는 해당 조치의 실효성을 위해 공개협의를 통해 이해관계자 의견을 2026년 5월 13일까지 제출하도록 요청했다.
-
-https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-measures-ensure-interoperability-googles-android-under-digital-markets" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽연합 집행위원회는 디지털시장법(DMA) 절차의 일환으로 2026년 1월 27일 시작된 사양(specification) 진행 과정에서 구글에 예비 결론을 전달했다. 예비 결론에는 제3자가 안드로이드의 핵심 기능에 대해 효과적으로 접근하고 상호운용할 수 있도록 구글이 이행해야 할 초안 조치가 포함됐다. 집행위는 해당 조치의 실효성을 위해 공개협의를 통해 이해관계자 의견을 2026년 5월 13일까지 제출하도록 요청했다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-measures-ensure-interoperability-googles-android-under-digital-markets">https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-measures-ensure-interoperability-googles-android-under-digital-markets</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>디지털시장법(DMA) 첫 이행점검 결과, 목적 적합성과 긍정적 효과 확인 (2026.4.28)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="디지털시장법(DMA) 첫 이행점검 결과, 목적 적합성과 긍정적 효과 확인 (2026.4.28)
-
-유럽 집행위는 DMA 첫 검토 결과를 2026.4.28에 공개함
-
-유럽 집행위원회가 디지털시장법(DMA) 첫 검토에서, 적용 첫 2년 동안 법이 목적에 부합하며 기업·개발자에게 새로운 기회를 열고 이용자에게는 경험과 기기 선택권을 더 확대했다고 밝혔다. 이용자는 서비스·기기 간 데이터 이전, 기본 제공자 대신 대체 검색엔진·웹브라우저 선택, 사업자의 개인데이터 결합 허용 여부에 대한 실질적 선택권을 갖게 됐다고 설명했다. 또한 게이트키퍼 생태계를 개방해 연결기기 제조사 간 상호운용성, 대체 브라우저·검색엔진의 기본값 채택, 제3자 앱스토어 도입, 상호운용성 의무에 따른 신규 메신저 앱 출시 등 경쟁 촉진 효과가 나타났다고 전했다.
-
-https://digital-strategy.ec.europa.eu/en/news/review-highlights-digital-markets-act-remains-fit-purpose-and-has-positive-impact" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위는 DMA 첫 검토 결과를 2026.4.28에 공개함</p>
-<p>유럽 집행위원회가 디지털시장법(DMA) 첫 검토에서, 적용 첫 2년 동안 법이 목적에 부합하며 기업·개발자에게 새로운 기회를 열고 이용자에게는 경험과 기기 선택권을 더 확대했다고 밝혔다. 이용자는 서비스·기기 간 데이터 이전, 기본 제공자 대신 대체 검색엔진·웹브라우저 선택, 사업자의 개인데이터 결합 허용 여부에 대한 실질적 선택권을 갖게 됐다고 설명했다. 또한 게이트키퍼 생태계를 개방해 연결기기 제조사 간 상호운용성, 대체 브라우저·검색엔진의 기본값 채택, 제3자 앱스토어 도입, 상호운용성 의무에 따른 신규 메신저 앱 출시 등 경쟁 촉진 효과가 나타났다고 전했다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/review-highlights-digital-markets-act-remains-fit-purpose-and-has-positive-impact">https://digital-strategy.ec.europa.eu/en/news/review-highlights-digital-markets-act-remains-fit-purpose-and-has-positive-impact</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>GPAI 코드 준수 서명자 태스크포스, 안전·보안 장에서 위험 등급 ‘집계 예측’과 유해 조작 시나리오 논의 (2026.4.27)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합(EU) 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="GPAI 코드 준수 서명자 태스크포스, 안전·보안 장에서 위험 등급 ‘집계 예측’과 유해 조작 시나리오 논의 (2026.4.27)
-
-AI Office는 안전·보안 장의 이행을 위해 서명자(시스템적 위험 모델 제공자)가 위험 등급을 초과할 것으로 예상되는 시점을 프레임워크에 포함하는 ‘집계 예측’ 방식을 구체화하고, 연 1~2회 등 예측 주기와 준수 영향에 대한 쟁점을 정리해 제시하기로 했다. 또한 유해 조작과 관련해 각 시스템적 위험에 대한 위험 시나리오를 만들고, 평가 환경(시스템 통합·사용자 가정 등)이 해당 시나리오 조건을 반영해야 한다는 점을 논의했다. 다음 회의 준비를 위해 참가자 의견을 추가로 수렴할 예정이다.
-
-https://digital-strategy.ec.europa.eu/en/news/third-gpai-signatory-taskforce-meeting-safety-and-security-chapter" onclick="copyEntry(this)">복사</button></div>
-  <p>AI Office는 안전·보안 장의 이행을 위해 서명자(시스템적 위험 모델 제공자)가 위험 등급을 초과할 것으로 예상되는 시점을 프레임워크에 포함하는 ‘집계 예측’ 방식을 구체화하고, 연 1~2회 등 예측 주기와 준수 영향에 대한 쟁점을 정리해 제시하기로 했다. 또한 유해 조작과 관련해 각 시스템적 위험에 대한 위험 시나리오를 만들고, 평가 환경(시스템 통합·사용자 가정 등)이 해당 시나리오 조건을 반영해야 한다는 점을 논의했다. 다음 회의 준비를 위해 참가자 의견을 추가로 수렴할 예정이다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/third-gpai-signatory-taskforce-meeting-safety-and-security-chapter">https://digital-strategy.ec.europa.eu/en/news/third-gpai-signatory-taskforce-meeting-safety-and-security-chapter</a></p>
 </article>
 <article class="entry cat-other">
   <h2>OWASP, 에이전틱(자율) AI 애플리케이션의 핵심 보안위험 ‘Top 10’ 프레임워크(2026.4.28)</h2>
@@ -465,16 +608,6 @@ https://www.ft.com/content/b1d1f9be-7790-4227-acec-80fa34dbdbc8?syn-25a6b1a6=1&a
 https://www.ft.com/content/bc29b61f-4007-4fd4-be53-07eea41f3fa5" onclick="copyEntry(this)">복사</button></div>
   <p>본문을 가져오지 못해 핵심 내용 확인이 필요합니다. 다만 제목 기준으로는 유럽의 AI 전략이 ‘신뢰성(안정성·일관성)’에 베팅해야 한다는 취지의 논지일 가능성이 있습니다. 구체적인 주장, 근거, 정책 제안 여부는 본문 확인 후 정리할 수 있습니다.</p>
   <p class="url"><a href="https://www.ft.com/content/bc29b61f-4007-4fd4-be53-07eea41f3fa5">https://www.ft.com/content/bc29b61f-4007-4fd4-be53-07eea41f3fa5</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>법무부, xAI가 제기한 콜로라도 ‘알고리즘 차별’ 법 소송에 개입 (2026.4.24)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 법무부(Justice Department) 공식 보도자료</span> · <span class="deadline">마감일·시행일: xAI는 2026.4.9 해당 법에 대한 소송을 제기</span></span><button type="button" class="copy-btn" data-copy="법무부, xAI가 제기한 콜로라도 ‘알고리즘 차별’ 법 소송에 개입 (2026.4.24)
-
-미 법무부는 인공지능 기업 xAI가 콜로라도의 ‘알고리즘 차별’ 관련 신설 법을 다투며 제기한 소송에 개입하겠다고 밝혔다. 법무부는 해당 법이 14차 수정헌법의 평등보호조항을 위반한다고 주장하며, AI 제품이 인종·성별 등 보호특성에 기반해 의도치 않은 차별적 영향을 줄 수 있는 경우 이를 막도록 요구하는 점과 ‘다양성’ 목적의 일부 차별에 대해 책임을 면제하는 점을 문제 삼았다. 콜로라도 SB24-205는 AI 개발자·배포자에게 특정 공개·보고·예방 의무를 부과하지만, ‘다양성’ 또는 ‘역사적 차별 시정’ 목적의 차별적 알고리즘에 대한 예외 조항을 두고 있다.
-
-https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination" onclick="copyEntry(this)">복사</button></div>
-  <p>미 법무부는 인공지능 기업 xAI가 콜로라도의 ‘알고리즘 차별’ 관련 신설 법을 다투며 제기한 소송에 개입하겠다고 밝혔다. 법무부는 해당 법이 14차 수정헌법의 평등보호조항을 위반한다고 주장하며, AI 제품이 인종·성별 등 보호특성에 기반해 의도치 않은 차별적 영향을 줄 수 있는 경우 이를 막도록 요구하는 점과 ‘다양성’ 목적의 일부 차별에 대해 책임을 면제하는 점을 문제 삼았다. 콜로라도 SB24-205는 AI 개발자·배포자에게 특정 공개·보고·예방 의무를 부과하지만, ‘다양성’ 또는 ‘역사적 차별 시정’ 목적의 차별적 알고리즘에 대한 예외 조항을 두고 있다.</p>
-  <p class="url"><a href="https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination">https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>(초점) 수요자의 AI 기술 수용도 향상과 기술 프리미엄 소멸: 프리랜서 노동 시장의 과업 재편 실증 분석 (2026.4.20)</h2>
@@ -649,16 +782,6 @@ https://www.usccb.org/news/2025/vatican-city-state-puts-ai-guidelines-place?utm_
   <p>바티칸 시국은 AI를 윤리적·투명·책임 있게 개발·사용하기 위한 가이드라인을 발표했으며, “기술 혁신이 인간을 대체하거나 앞서지 못하게 해야 한다”는 원칙을 강조했다. 가이드라인은 13쪽 정책으로, 차별·심리적/신체적 위해·장애인 배제·인권 침해·범죄 조장 등과 관련된 AI 사용을 금지하고, 일부 업무(예: 사법)는 AI를 연구·업무 정리 목적에 한정하며 판결·양형 판단은 판사가 전담하도록 했다. 또한 5인 규모의 AI 위원회를 구성해 법·규정 마련, AI 시스템 활용에 대한 의견 제시, 개인·고용·환경에 대한 영향 모니터링을 맡기기로 했다.</p>
   <p class="url"><a href="https://www.usccb.org/news/2025/vatican-city-state-puts-ai-guidelines-place?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=newsletter_axioslogin&amp;stream=top">https://www.usccb.org/news/2025/vatican-city-state-puts-ai-guidelines-place?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=newsletter_axioslogin&amp;stream=top</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>Warner, 딥페이크 등 악의적 조작 미디어에 대해 기술기업의 대응 조치를 촉구 (2026.4.28)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 상원 워너(워너) 의원실(warner.senate.gov)</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="Warner, 딥페이크 등 악의적 조작 미디어에 대해 기술기업의 대응 조치를 촉구 (2026.4.28)
-
-워너 의원실은 딥페이크와 악의적으로 조작된 미디어에 대응하기 위해 기술기업들이 조치를 취할 것을 촉구하는 내용의 보도자료를 게시했습니다. 다만 본문 내용(구체적 요구사항, 정책/조치 범위, 일정 등)은 제공되지 않아 확인이 필요합니다.
-
-https://www.warner.senate.gov/newsroom/press-releases/warner-pushes-tech-companies-to-take-action-against-deepfakes-maliciously-manipulated-media/" onclick="copyEntry(this)">복사</button></div>
-  <p>워너 의원실은 딥페이크와 악의적으로 조작된 미디어에 대응하기 위해 기술기업들이 조치를 취할 것을 촉구하는 내용의 보도자료를 게시했습니다. 다만 본문 내용(구체적 요구사항, 정책/조치 범위, 일정 등)은 제공되지 않아 확인이 필요합니다.</p>
-  <p class="url"><a href="https://www.warner.senate.gov/newsroom/press-releases/warner-pushes-tech-companies-to-take-action-against-deepfakes-maliciously-manipulated-media/">https://www.warner.senate.gov/newsroom/press-releases/warner-pushes-tech-companies-to-take-action-against-deepfakes-maliciously-manipulated-media/</a></p>
-</article>
 <article class="entry cat-other">
   <h2>(2026.4.29) 백악관, AI 관련 신임 인사를 4일 만에 교체·해임</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">워싱턴포스트(washingtonpost.com)</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="(2026.4.29) 백악관, AI 관련 신임 인사를 4일 만에 교체·해임
@@ -708,16 +831,6 @@ arXiv 논문은 LLM의 “조작(탬퍼링)”에 대한 저항성을 표준화�
 https://arxiv.org/abs/2602.06911" onclick="copyEntry(this)">복사</button></div>
   <p>arXiv 논문은 LLM의 “조작(탬퍼링)”에 대한 저항성을 표준화된 방식으로 평가하기 위한 통합 프레임워크 TamperBench를 제안한다. 가중치 공간 미세조정 공격과 잠재공간 표현 공격을 모아두고, 공격-모델 조합별 하이퍼파라미터 스윕으로 현실적인 적대적 평가를 수행하며 안전성과 유용성을 함께 측정한다. 이를 통해 21개 오픈웨이트 LLM을 9가지 탬퍼링 위협에 대해 평가했고, 포스트트레이닝이 탬퍼 저항성에 영향을 주며, jailbreak-tuning이 가장 심각한 공격인 경우가 많고, Triplet이 정렬 단계 방어에서 유력하다는 관찰을 제시한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2602.06911">https://arxiv.org/abs/2602.06911</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Boundary Point Jailbreaking of Black-Box LLMs(2026.4.28)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arxiv.org</span></span><button type="button" class="copy-btn" data-copy="Boundary Point Jailbreaking of Black-Box LLMs(2026.4.28)
-
-arXiv 논문은 블랙박스 LLM에 대한 새로운 자동 지능형 “재일브레이킹(BPJ)” 방법을 제안한다. BPJ는 기존처럼 분류기 점수·그래디언트 등 추가 정보를 쓰지 않고, 질의마다 분류기가 플래그하는지 여부(1비트)만으로 공격을 최적화한다. 또한 공격 문자열을 중간 목표들의 커리큘럼으로 바꾸고, 공격 강도의 작은 변화가 잘 드러나는 “경계 지점(boundary points)”을 선택해 방어를 우회하는 보편적 재일브레이킹을 개발했다고 주장한다. 저자들은 BPJ가 개별 상호작용에서는 방어하기 어렵지만 최적화 과정에서 다수의 플래그가 발생하므로 배치 단위 모니터링이 필요하다고 본다.
-
-https://arxiv.org/abs/2602.15001?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
-  <p>arXiv 논문은 블랙박스 LLM에 대한 새로운 자동 지능형 “재일브레이킹(BPJ)” 방법을 제안한다. BPJ는 기존처럼 분류기 점수·그래디언트 등 추가 정보를 쓰지 않고, 질의마다 분류기가 플래그하는지 여부(1비트)만으로 공격을 최적화한다. 또한 공격 문자열을 중간 목표들의 커리큘럼으로 바꾸고, 공격 강도의 작은 변화가 잘 드러나는 “경계 지점(boundary points)”을 선택해 방어를 우회하는 보편적 재일브레이킹을 개발했다고 주장한다. 저자들은 BPJ가 개별 상호작용에서는 방어하기 어렵지만 최적화 과정에서 다수의 플래그가 발생하므로 배치 단위 모니터링이 필요하다고 본다.</p>
-  <p class="url"><a href="https://arxiv.org/abs/2602.15001?utm_source=substack&amp;utm_medium=email">https://arxiv.org/abs/2602.15001?utm_source=substack&amp;utm_medium=email</a></p>
 </article>
 <article class="entry cat-research">
   <h2>Ask don&#x27;t tell: Reducing sycophancy in large language models (2026.4.28)</h2>
@@ -772,97 +885,7 @@ https://arxiv.org/pdf/2412.13678" onclick="copyEntry(this)">복사</button></div
   <p>본문(추출된 PDF 스트림)은 대부분 인코딩/이미지 데이터로 보이며, 논문 제목·초록·핵심 내용이 텍스트 형태로 확인되지 않아 사실 기반 요약을 할 수 없습니다. PDF에서 텍스트(초록/서론/결론)가 추출되도록 다른 형식(예: arXiv HTML/초록 페이지)으로 제공해 주시면 2~4문장으로 정리해 드리겠습니다.</p>
   <p class="url"><a href="https://arxiv.org/pdf/2412.13678">https://arxiv.org/pdf/2412.13678</a></p>
 </article>
-<article class="entry cat-research">
-  <h2>AI 일자리 전환 프레임워크 보고서(본문 추출 불가) (2026.4.28)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">cdn.openai.com</span></span><button type="button" class="copy-btn" data-copy="AI 일자리 전환 프레임워크 보고서(본문 추출 불가) (2026.4.28)
-
-본문에서 PDF 메타데이터 및 이미지/바이너리 스트림 일부만 확인되어 보고서의 핵심 내용(정책·권고사항·구성 등)을 요약할 수 없습니다. 현재 추출된 텍스트는 “Beyond AI Exposure” 등 일부 문자열과 인코딩된 데이터로 구성되어 있습니다.
-
-https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
-  <p>본문에서 PDF 메타데이터 및 이미지/바이너리 스트림 일부만 확인되어 보고서의 핵심 내용(정책·권고사항·구성 등)을 요약할 수 없습니다. 현재 추출된 텍스트는 “Beyond AI Exposure” 등 일부 문자열과 인코딩된 데이터로 구성되어 있습니다.</p>
-  <p class="url"><a href="https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?utm_source=substack&amp;utm_medium=email">https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?utm_source=substack&amp;utm_medium=email</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>OpenAI 원칙(책임·안전 관련) 재검토 필요성 제기 (2026.4.26)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI 원칙(책임·안전 관련) 재검토 필요성 제기 (2026.4.26)
-
-본문 확인 필요: 제공된 정보에는 페이지 본문 내용이 없어, OpenAI가 제시하는 ‘원칙’의 구체 항목(책임성·안전 조치·운영 방식 등)과 관련 쟁점이 무엇인지 확인이 필요합니다. 다만 CSV 제목 기준으로는 책임성과 안전에 대한 질문이 다시 제기되는 맥락으로 요약됩니다.
-
-https://openai.com/index/our-principles/" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 확인 필요: 제공된 정보에는 페이지 본문 내용이 없어, OpenAI가 제시하는 ‘원칙’의 구체 항목(책임성·안전 조치·운영 방식 등)과 관련 쟁점이 무엇인지 확인이 필요합니다. 다만 CSV 제목 기준으로는 책임성과 안전에 대한 질문이 다시 제기되는 맥락으로 요약됩니다.</p>
-  <p class="url"><a href="https://openai.com/index/our-principles/">https://openai.com/index/our-principles/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Anthropic, 배치된 군사 AI에 ‘킬 스위치’가 없다고 밝혔다는 내용(2026.4.22)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Axios</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="Anthropic, 배치된 군사 AI에 ‘킬 스위치’가 없다고 밝혔다는 내용(2026.4.22)
-
-Anthropic이 배치된 군사용 AI에 대해 ‘킬 스위치(kill switch)’가 없다는 취지로 말한 것으로 전해집니다. 다만 본문 내용이 제공되지 않아 구체적인 발언 범위(어떤 시스템/배치 상황인지)와 근거는 확인이 필요합니다.
-
-https://www.axios.com/2026/04/22/anthropic-no-kill-switch-ai-classified-settings" onclick="copyEntry(this)">복사</button></div>
-  <p>Anthropic이 배치된 군사용 AI에 대해 ‘킬 스위치(kill switch)’가 없다는 취지로 말한 것으로 전해집니다. 다만 본문 내용이 제공되지 않아 구체적인 발언 범위(어떤 시스템/배치 상황인지)와 근거는 확인이 필요합니다.</p>
-  <p class="url"><a href="https://www.axios.com/2026/04/22/anthropic-no-kill-switch-ai-classified-settings">https://www.axios.com/2026/04/22/anthropic-no-kill-switch-ai-classified-settings</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>AI 비용이 일부 기업에서 인건비보다 높게 나타났다는 보도(2026.4.26)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Axios</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="AI 비용이 일부 기업에서 인건비보다 높게 나타났다는 보도(2026.4.26)
-
-일부 기업들이 AI 도입·운영 비용이 사람의 노동(인건비)보다 더 높다고 보고했다는 내용으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 수치, 사례, 비교 기준은 확인이 필요합니다.
-
-https://www.axios.com/2026/04/26/ai-cost-human-workers" onclick="copyEntry(this)">복사</button></div>
-  <p>일부 기업들이 AI 도입·운영 비용이 사람의 노동(인건비)보다 더 높다고 보고했다는 내용으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 수치, 사례, 비교 기준은 확인이 필요합니다.</p>
-  <p class="url"><a href="https://www.axios.com/2026/04/26/ai-cost-human-workers">https://www.axios.com/2026/04/26/ai-cost-human-workers</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>UAE Plans Agentic AI Across Half of Government Services (2026.4.28)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="UAE Plans Agentic AI Across Half of Government Services (2026.4.28)
-
-
-
-https://x.com/HHShkMohd/status/2047277766769545352?s=20&amp;utm" onclick="copyEntry(this)">복사</button></div>
-  
-  <p class="url"><a href="https://x.com/HHShkMohd/status/2047277766769545352?s=20&amp;utm">https://x.com/HHShkMohd/status/2047277766769545352?s=20&amp;utm</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>FAR AI Finds Three Highly Effective Jailbreaks in DeepSeek-V4-Pro (2026.4.27)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="FAR AI Finds Three Highly Effective Jailbreaks in DeepSeek-V4-Pro (2026.4.27)
-
-본문 요약: 제공된 페이지 본문은 X.com 접속 오류 안내(자바스크립트 비활성, 재시도 요청 등)만 포함되어 있어 기사 내용(“DeepSeek-V4-Pro” 관련 실험 결과)은 확인되지 않습니다. 따라서 해당 게시물의 구체적 주장이나 수치, 결론을 사실 위주로 요약할 수 없습니다.
-
-https://x.com/farairesearch/status/2048868835646738755" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 요약: 제공된 페이지 본문은 X.com 접속 오류 안내(자바스크립트 비활성, 재시도 요청 등)만 포함되어 있어 기사 내용(“DeepSeek-V4-Pro” 관련 실험 결과)은 확인되지 않습니다. 따라서 해당 게시물의 구체적 주장이나 수치, 결론을 사실 위주로 요약할 수 없습니다.</p>
-  <p class="url"><a href="https://x.com/farairesearch/status/2048868835646738755">https://x.com/farairesearch/status/2048868835646738755</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.4.22) 중국 보안업체, AI 기반 취약점 탐지·익스플로잇 자동화 역량이 ‘Claude Mythos’급에 근접할 수 있다는 주장</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Natto Thoughts</span> · <span class="deadline">미국은 AI 기반 사이버 위험을 금융기관에 브리핑한 것으로 전해지며, 독일 당국은 이런 시스템이 취약점 탐지 방식을 바꿔 큰 혼란을 유발할 수 있다고 경고함</span></span><button type="button" class="copy-btn" data-copy="(2026.4.22) 중국 보안업체, AI 기반 취약점 탐지·익스플로잇 자동화 역량이 ‘Claude Mythos’급에 근접할 수 있다는 주장
-
-앤트로픽(Anthropic)이 방어 목적의 ‘Claude Mythos Preview’를 제한된 파트너십에 공개했으며, 다수의 고위험 취약점을 식별하고 일부는 사람 개입 없이 익스플로잇 개발 및 취약점 연쇄를 수행할 수 있다고 설명했다. 다만 시스템은 공개되지 않았고, 위험성과 추가 안전장치 필요성을 이유로 들었다. 한편 글에서는 중국의 360 디지털 시큐리티 그룹이 AI 보조 도구를 넘어 취약점 탐지의 핵심 엔진으로 발전했다고 주장하며, 다중 에이전트 방식으로 취약점 탐지·익스플로잇 개발·연구 워크플로 자동화를 내부적으로 추진 중인 정황을 사례로 제시한다. 이러한 역량이 중국에 비대칭적인 공격 우위를 제공할 수 있는지에 대한 문제의식도 함께 다룬다.
-
-https://www.nattothoughts.com/p/where-is-china-in-ai-driven-vulnerability" onclick="copyEntry(this)">복사</button></div>
-  <p>앤트로픽(Anthropic)이 방어 목적의 ‘Claude Mythos Preview’를 제한된 파트너십에 공개했으며, 다수의 고위험 취약점을 식별하고 일부는 사람 개입 없이 익스플로잇 개발 및 취약점 연쇄를 수행할 수 있다고 설명했다. 다만 시스템은 공개되지 않았고, 위험성과 추가 안전장치 필요성을 이유로 들었다. 한편 글에서는 중국의 360 디지털 시큐리티 그룹이 AI 보조 도구를 넘어 취약점 탐지의 핵심 엔진으로 발전했다고 주장하며, 다중 에이전트 방식으로 취약점 탐지·익스플로잇 개발·연구 워크플로 자동화를 내부적으로 추진 중인 정황을 사례로 제시한다. 이러한 역량이 중국에 비대칭적인 공격 우위를 제공할 수 있는지에 대한 문제의식도 함께 다룬다.</p>
-  <p class="url"><a href="https://www.nattothoughts.com/p/where-is-china-in-ai-driven-vulnerability">https://www.nattothoughts.com/p/where-is-china-in-ai-driven-vulnerability</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.4.21) NGate 악성코드, NFC 결제 앱을 악성코드로 패치해 카드정보·PIN 탈취</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">ESET 리서치(WeLiveSecurity)</span> · <span class="deadline">캠페인은 2025년 11월부터 진행 중이며, 글 작성 시점에도 활성 상태로 언급됨</span></span><button type="button" class="copy-btn" data-copy="(2026.4.21) NGate 악성코드, NFC 결제 앱을 악성코드로 패치해 카드정보·PIN 탈취
-
-ESET 연구진은 NGate 악성코드의 새 변형이 정식 Android 앱 ‘HandyPay’를 악성코드로 패치해 악용한다고 밝혔다. 공격자는 HandyPay의 NFC 데이터 전달 기능을 이용해 피해자의 결제카드 정보를 공격자 기기로 전송하고, 이를 비접촉 결제 및 ATM 현금 인출에 활용하며, 추가로 카드 PIN도 별도 서버로 유출한다. 악성코드 생성 과정에 AI(GenAI)가 관여했을 가능성은 로그에 AI 생성 텍스트에서 흔한 이모지 흔적이 남아 있다는 점에서 제기되며, 공격은 브라질 사용자들을 대상으로 2025년 11월부터 이어지고 있다. 악성 앱은 브라질 복권 사이트를 사칭한 경로와 ‘Proteção Cartão’라는 가짜 Google Play 페이지를 통해 배포되는 것으로 설명된다.
-
-https://www.welivesecurity.com/en/eset-research/new-ngate-variant-hides-in-a-trojanized-nfc-payment-app/" onclick="copyEntry(this)">복사</button></div>
-  <p>ESET 연구진은 NGate 악성코드의 새 변형이 정식 Android 앱 ‘HandyPay’를 악성코드로 패치해 악용한다고 밝혔다. 공격자는 HandyPay의 NFC 데이터 전달 기능을 이용해 피해자의 결제카드 정보를 공격자 기기로 전송하고, 이를 비접촉 결제 및 ATM 현금 인출에 활용하며, 추가로 카드 PIN도 별도 서버로 유출한다. 악성코드 생성 과정에 AI(GenAI)가 관여했을 가능성은 로그에 AI 생성 텍스트에서 흔한 이모지 흔적이 남아 있다는 점에서 제기되며, 공격은 브라질 사용자들을 대상으로 2025년 11월부터 이어지고 있다. 악성 앱은 브라질 복권 사이트를 사칭한 경로와 ‘Proteção Cartão’라는 가짜 Google Play 페이지를 통해 배포되는 것으로 설명된다.</p>
-  <p class="url"><a href="https://www.welivesecurity.com/en/eset-research/new-ngate-variant-hides-in-a-trojanized-nfc-payment-app/">https://www.welivesecurity.com/en/eset-research/new-ngate-variant-hides-in-a-trojanized-nfc-payment-app/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.4.23) White House OSTP, 중국의 AI 모델 복제 시도 의혹 제기</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">백악관(White House) OSTP</span></span><button type="button" class="copy-btn" data-copy="(2026.4.23) White House OSTP, 중국의 AI 모델 복제 시도 의혹 제기
-
-본문에서 핵심 문구를 확인할 수 없고, PDF 원문이 인코딩/추출 오류 형태로 제공되어 내용 요약이 불가능합니다. 다만 파일명과 메타데이터에 “NSTM-4 20260422”, “White House OSTP”가 포함되어 있습니다.
-
-https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf" onclick="copyEntry(this)">복사</button></div>
-  <p>본문에서 핵심 문구를 확인할 수 없고, PDF 원문이 인코딩/추출 오류 형태로 제공되어 내용 요약이 불가능합니다. 다만 파일명과 메타데이터에 “NSTM-4 20260422”, “White House OSTP”가 포함되어 있습니다.</p>
-  <p class="url"><a href="https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf">https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

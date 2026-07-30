@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -119,6 +142,143 @@ https://red.anthropic.com/2026/critical-infrastructure-defense/" onclick="copyEn
   <p>Anthropic은 태평양북서부국립연구소(PNNL)와 함께 중요 인프라(전력망, 연료 파이프라인, 상수·수처리 등)를 겨냥한 사이버 공격을 방어하기 위한 AI 활용 방안을 탐색했다. Claude를 이용해 수처리 시설의 고정밀 시뮬레이션에서 공격 재현(적대자 에뮬레이션)을 수행했으며, 자연어 프롬프트를 복잡한 공격 체인으로 빠르게 전환하는 ‘스캐폴드’를 통해 과정을 자동화·가속했다. PNNL은 공격 재구성이 사람 기준으로는 수주가 걸릴 작업을 약 3시간 내 완료할 수 있었다고 설명했으며, 테스트 중에는 보안 기능 우회 시도 실패를 감지하고 다른 우회 기법을 선택하는 등 모델의 적응적 행동도 관찰됐다고 밝혔다.</p>
   <p class="url"><a href="https://red.anthropic.com/2026/critical-infrastructure-defense/">https://red.anthropic.com/2026/critical-infrastructure-defense/</a></p>
 </article>
+<article class="entry cat-intl-org">
+  <h2>유럽 집행위, 프랑스·핀란드와 함께 ‘안전하고 신뢰할 수 있는 연결성·디지털 인프라’ 고위급 연구 방문(2026.4.20)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 프랑스·핀란드와 함께 ‘안전하고 신뢰할 수 있는 연결성·디지털 인프라’ 고위급 연구 방문(2026.4.20)
+
+유럽 집행위원회는 프랑스와 핀란드 정부와 협력해 안전하고 회복력 있으며 신뢰할 수 있는 연결성 및 디지털 인프라 관련 고위급 연구 방문을 브뤼셀에서 진행했다. 이 자리에는 이집트·인도네시아·요르단·케냐·필리핀·베트남의 정책결정자와 규제기관 관계자들이 참여해 보안·신뢰 기반 통신 인프라 구축과 해저 케이블 배치에 관한 정책 프레임워크를 논의했다. 참가자들은 유럽 집행위 및 EEAS와 함께 EU의 디지털 정책과 국제 디지털 협력, DG CONNECT에서 디지털 네트워크법 관련 입법 제안, 사이버보안, EU의 해저 케이블 보안 도구상자 등을 소개받았으며, 이후 아헨·앤트워프·파리·헬싱키에서 유럽 주요 기업들과도 만났다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-welcomes-high-level-study-group-connectivity-and-digital-infrastructure" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회는 프랑스와 핀란드 정부와 협력해 안전하고 회복력 있으며 신뢰할 수 있는 연결성 및 디지털 인프라 관련 고위급 연구 방문을 브뤼셀에서 진행했다. 이 자리에는 이집트·인도네시아·요르단·케냐·필리핀·베트남의 정책결정자와 규제기관 관계자들이 참여해 보안·신뢰 기반 통신 인프라 구축과 해저 케이블 배치에 관한 정책 프레임워크를 논의했다. 참가자들은 유럽 집행위 및 EEAS와 함께 EU의 디지털 정책과 국제 디지털 협력, DG CONNECT에서 디지털 네트워크법 관련 입법 제안, 사이버보안, EU의 해저 케이블 보안 도구상자 등을 소개받았으며, 이후 아헨·앤트워프·파리·헬싱키에서 유럽 주요 기업들과도 만났다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-welcomes-high-level-study-group-connectivity-and-digital-infrastructure">https://digital-strategy.ec.europa.eu/en/news/commission-welcomes-high-level-study-group-connectivity-and-digital-infrastructure</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>디지털 유럽 프로그램 ‘정보 무결성 상황인식’ 공모(2026.4.21)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">온라인 정보세션 2026.4.28 / 신청마감 2026.10.1</span></span><button type="button" class="copy-btn" data-copy="디지털 유럽 프로그램 ‘정보 무결성 상황인식’ 공모(2026.4.21)
+
+유럽 집행위원회는 ‘DIGITAL-2026-BESTUSE-AWARENESS - 정보 무결성 상황인식을 위한 공통 연구 프레임워크’ 제안 공모를 개시했다. 이 공모는 2025년 11월 ‘유럽 민주주의 방패’ 커뮤니케이션의 주요 성과물로, 온라인 정보 환경 보호 필요성을 강조하는 맥락에서 추진된다. 공모는 24~30개월 동안 단 1개 제안에 600만 유로를 지원하며, 지원금의 100%를 전액 지원하고(조건부), 최소 60%는 제3자에 대한 재분배 형태로 집행해야 한다. 신청마감은 2026년 10월 1일이며, 관심 있는 이해관계자를 위한 온라인 정보세션은 2026년 4월 28일에 열린다.
+
+https://digital-strategy.ec.europa.eu/en/news/new-open-call-proposals-under-digital-europe-programme" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회는 ‘DIGITAL-2026-BESTUSE-AWARENESS - 정보 무결성 상황인식을 위한 공통 연구 프레임워크’ 제안 공모를 개시했다. 이 공모는 2025년 11월 ‘유럽 민주주의 방패’ 커뮤니케이션의 주요 성과물로, 온라인 정보 환경 보호 필요성을 강조하는 맥락에서 추진된다. 공모는 24~30개월 동안 단 1개 제안에 600만 유로를 지원하며, 지원금의 100%를 전액 지원하고(조건부), 최소 60%는 제3자에 대한 재분배 형태로 집행해야 한다. 신청마감은 2026년 10월 1일이며, 관심 있는 이해관계자를 위한 온라인 정보세션은 2026년 4월 28일에 열린다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/new-open-call-proposals-under-digital-europe-programme">https://digital-strategy.ec.europa.eu/en/news/new-open-call-proposals-under-digital-europe-programme</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>EU 디지털 프로그램, 보건·온라인 안전 분야 AI 혁신 지원을 위해 6,320만 유로 공모(2026.4.21)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="EU 디지털 프로그램, 보건·온라인 안전 분야 AI 혁신 지원을 위해 6,320만 유로 공모(2026.4.21)
+
+공모 마감: 2026.10.1 (1일 정보 제공 행사도 별도 개최)
+  
+유럽연합 집행위원회는 디지털 유럽 프로그램(Digital Europe Programme) 공모 7건에 총 6,320만 유로를 지원한다고 밝혔다. 보건 분야에서는 의료기관의 AI 기반 영상 선별(900만 유로), 유럽 보건데이터공간(European Health Data Space) 하의 디지털 보건 서비스·시스템(2,400만 유로) 등을 지원한다. 또한 아동의 디지털 웰빙과 보호를 위한 안전인터넷센터 네트워크의 지역 커버리지(1,200만 유로), 고급 디지털 기술 훈련(1,250만 유로), 규제 준수 부담 완화를 위한 혁신 디지털 솔루션(850만 유로), 온라인 정보 무결성 연구(600만 유로) 및 EDIC 지원 허브(100만 유로)·확산·활용 활동(180만 유로)도 포함된다. 공모는 EU Funding &amp; Tenders 포털에서 신청하며, 마감은 10월 1일이다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-makes-eu632-million-available-support-ai-innovation-health-and-online-safety" onclick="copyEntry(this)">복사</button></div>
+  <p>공모 마감: 2026.10.1 (1일 정보 제공 행사도 별도 개최)
+  
+유럽연합 집행위원회는 디지털 유럽 프로그램(Digital Europe Programme) 공모 7건에 총 6,320만 유로를 지원한다고 밝혔다. 보건 분야에서는 의료기관의 AI 기반 영상 선별(900만 유로), 유럽 보건데이터공간(European Health Data Space) 하의 디지털 보건 서비스·시스템(2,400만 유로) 등을 지원한다. 또한 아동의 디지털 웰빙과 보호를 위한 안전인터넷센터 네트워크의 지역 커버리지(1,200만 유로), 고급 디지털 기술 훈련(1,250만 유로), 규제 준수 부담 완화를 위한 혁신 디지털 솔루션(850만 유로), 온라인 정보 무결성 연구(600만 유로) 및 EDIC 지원 허브(100만 유로)·확산·활용 활동(180만 유로)도 포함된다. 공모는 EU Funding &amp; Tenders 포털에서 신청하며, 마감은 10월 1일이다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-makes-eu632-million-available-support-ai-innovation-health-and-online-safety">https://digital-strategy.ec.europa.eu/en/news/commission-makes-eu632-million-available-support-ai-innovation-health-and-online-safety</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>(2026.4.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">regulation.gov.ru</span></span><button type="button" class="copy-btn" data-copy="(2026.4.22)
+
+해당 페이지는 러시아 연방 규범 법령(규정) 프로젝트를 공개하는 “연방 법령 프로젝트 포털” 화면으로, 로그인/사용자 지원, 이메일·RSS 구독, 지역 포털 등 안내 항목과 함께 러시아 경제개발부(Ministry of Economic Development of the Russian Federation) 관련 메뉴가 표시됩니다. 제공된 본문에는 특정 법안의 내용, 제안 배경, 공고/마감일 등 구체 정보가 확인되지 않습니다.
+
+https://regulation.gov.ru/projects/166424/" onclick="copyEntry(this)">복사</button></div>
+  <p>해당 페이지는 러시아 연방 규범 법령(규정) 프로젝트를 공개하는 “연방 법령 프로젝트 포털” 화면으로, 로그인/사용자 지원, 이메일·RSS 구독, 지역 포털 등 안내 항목과 함께 러시아 경제개발부(Ministry of Economic Development of the Russian Federation) 관련 메뉴가 표시됩니다. 제공된 본문에는 특정 법안의 내용, 제안 배경, 공고/마감일 등 구체 정보가 확인되지 않습니다.</p>
+  <p class="url"><a href="https://regulation.gov.ru/projects/166424/">https://regulation.gov.ru/projects/166424/</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>싱가포르, 생성형 AI 시험(테스트) 방법 국제표준 ISO/IEC 42119-8 제안(2026.4.20)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">싱가포르 정보통신미디어개발청(IMDA)</span> · <span class="deadline">ISO/IEC JTC 1/SC 42 총회(17차) 2026.4.20~4.24 싱가포르 개최</span></span><button type="button" class="copy-btn" data-copy="싱가포르, 생성형 AI 시험(테스트) 방법 국제표준 ISO/IEC 42119-8 제안(2026.4.20)
+
+싱가포르는 생성형 AI 시스템의 신뢰성 있는 테스트를 위한 국제표준 ISO/IEC 42119-8을 제안했다. 이 표준은 벤치마킹과 레드팀(red teaming) 방법론을 포함해 표준화된 테스트 접근을 제공하며, 결과의 재현성과 비교 가능성을 높여 AI 배포·사용의 신뢰를 강화하는 것을 목표로 한다. 해당 표준은 2026년 4월 20~24일 싱가포르에서 열리는 ISO/IEC JTC 1/SC 42(17차) 총회에서 논의될 예정이며, IMDA와 엔터프라이즈SG가 공동 주최한다. 또한 IMDA와 EnterpriseSG는 총회 연계 역량강화 워크숍과 AI Assurance Exchange 등 관련 행사를 진행한다.
+
+https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/singapore-champions-new-global-ai-testing-standardisation-efforts" onclick="copyEntry(this)">복사</button></div>
+  <p>싱가포르는 생성형 AI 시스템의 신뢰성 있는 테스트를 위한 국제표준 ISO/IEC 42119-8을 제안했다. 이 표준은 벤치마킹과 레드팀(red teaming) 방법론을 포함해 표준화된 테스트 접근을 제공하며, 결과의 재현성과 비교 가능성을 높여 AI 배포·사용의 신뢰를 강화하는 것을 목표로 한다. 해당 표준은 2026년 4월 20~24일 싱가포르에서 열리는 ISO/IEC JTC 1/SC 42(17차) 총회에서 논의될 예정이며, IMDA와 엔터프라이즈SG가 공동 주최한다. 또한 IMDA와 EnterpriseSG는 총회 연계 역량강화 워크숍과 AI Assurance Exchange 등 관련 행사를 진행한다.</p>
+  <p class="url"><a href="https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/singapore-champions-new-global-ai-testing-standardisation-efforts">https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/singapore-champions-new-global-ai-testing-standardisation-efforts</a></p>
+</article>
+<article class="entry cat-db">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">OpenAI Framework Flags Jobs Most Exposed to AI Change (2026.4.17)</span></span><button type="button" class="copy-btn" data-copy="
+
+빈 줄 하나
+
+제공된 PDF 본문 추출에는 문서 메타데이터 및 이미지/바이너리 데이터 조각만 포함되어 있어, “AI가 어떤 직업을 얼마나 노출시키는지” 같은 핵심 내용은 확인되지 않습니다. 따라서 기사/보고서의 사실관계 요약을 현재 텍스트만으로는 작성할 수 없습니다.
+
+https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?" onclick="copyEntry(this)">복사</button></div>
+  <p>빈 줄 하나</p>
+<p>제공된 PDF 본문 추출에는 문서 메타데이터 및 이미지/바이너리 데이터 조각만 포함되어 있어, “AI가 어떤 직업을 얼마나 노출시키는지” 같은 핵심 내용은 확인되지 않습니다. 따라서 기사/보고서의 사실관계 요약을 현재 텍스트만으로는 작성할 수 없습니다.</p>
+  <p class="url"><a href="https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?">https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.4.15) VAKRA 벤치마크, 도구 기반 AI 에이전트의 추론·실행 실패 양상 분석</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Hugging Face(IBM Research 블로그)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.15) VAKRA 벤치마크, 도구 기반 AI 에이전트의 추론·실행 실패 양상 분석
+
+IBM Research는 기업 환경과 유사한 조건에서 AI 에이전트의 추론과 행동을 평가하는 도구-접지(executable) 벤치마크 VAKRA를 소개했다. VAKRA는 8,000+ 로컬 호스팅 API와 62개 도메인의 실제 데이터베이스, 도메인 문서 컬렉션을 활용해 3~7단계 추론 체인을 실행 추적(툴 호출/중간 결과)으로 평가한다. 벤치마크는 API 체이닝, 대시보드 API를 통한 도구 선택, 멀티홉 추론, 멀티소스·멀티턴·정책 준수까지 4개 역량으로 구성되며, 평가는 예측된 툴 궤적을 실제 환경에서 재실행해 정답 툴 응답을 회수하는지와 최종 응답의 근거·정합성을 LLM 판정으로 확인하는 실행 중심 방식이다.
+
+https://huggingface.co/blog/ibm-research/vakra-benchmark-analysis?utm" onclick="copyEntry(this)">복사</button></div>
+  <p>IBM Research는 기업 환경과 유사한 조건에서 AI 에이전트의 추론과 행동을 평가하는 도구-접지(executable) 벤치마크 VAKRA를 소개했다. VAKRA는 8,000+ 로컬 호스팅 API와 62개 도메인의 실제 데이터베이스, 도메인 문서 컬렉션을 활용해 3~7단계 추론 체인을 실행 추적(툴 호출/중간 결과)으로 평가한다. 벤치마크는 API 체이닝, 대시보드 API를 통한 도구 선택, 멀티홉 추론, 멀티소스·멀티턴·정책 준수까지 4개 역량으로 구성되며, 평가는 예측된 툴 궤적을 실제 환경에서 재실행해 정답 툴 응답을 회수하는지와 최종 응답의 근거·정합성을 LLM 판정으로 확인하는 실행 중심 방식이다.</p>
+  <p class="url"><a href="https://huggingface.co/blog/ibm-research/vakra-benchmark-analysis?utm">https://huggingface.co/blog/ibm-research/vakra-benchmark-analysis?utm</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>OpenAI, 생물학 연구용 ‘GPT-Rosalind’ 공개 (2026.4.16)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 생물학 연구용 ‘GPT-Rosalind’ 공개 (2026.4.16)
+
+OpenAI가 생물학 연구를 위한 모델 ‘GPT-Rosalind’를 소개했다는 내용이다. 다만 제공된 정보에는 본문 세부 내용(기능, 사용 범위, 배포 방식 등)이 없어 구체 사항은 확인이 필요하다.
+
+https://openai.com/index/introducing-gpt-rosalind/" onclick="copyEntry(this)">복사</button></div>
+  <p>OpenAI가 생물학 연구를 위한 모델 ‘GPT-Rosalind’를 소개했다는 내용이다. 다만 제공된 정보에는 본문 세부 내용(기능, 사용 범위, 배포 방식 등)이 없어 구체 사항은 확인이 필요하다.</p>
+  <p class="url"><a href="https://openai.com/index/introducing-gpt-rosalind/">https://openai.com/index/introducing-gpt-rosalind/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>FrontierSWE, 장기 코딩 에이전트의 소프트웨어 공학 성능을 벤치마크(2026.4.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="FrontierSWE, 장기 코딩 에이전트의 소프트웨어 공학 성능을 벤치마크(2026.4.17)
+
+FrontierSWE는 소프트웨어 엔지니어링 역량을 사람 능력의 한계에 가깝게 평가하는 벤치마크로, 모델별 평균 순위와 무작위 상대 대비 승률(도미넌스) 등을 공개했다. 구현(Implementation) 과제에서는 어떤 모델도 모든 시험을 성공적으로 완료하지 못해, best@5의 테스트 통과율을 부분 보상으로 사용했다. 성능 최적화(Performance Optimization)에서는 정확성 통과가 전제이며, 정확성과 속도 향상(또는 압축률)을 함께 반영해 순위를 매겼다. 연구(Research) 과제는 에이전트가 개발 단계에서 보지 못한 보유 데이터로 평가되며, 예시로 Qwen3-8B의 FrogsGame 포스트트레이닝 성과 등이 제시됐다.
+
+https://www.frontierswe.com" onclick="copyEntry(this)">복사</button></div>
+  <p>FrontierSWE는 소프트웨어 엔지니어링 역량을 사람 능력의 한계에 가깝게 평가하는 벤치마크로, 모델별 평균 순위와 무작위 상대 대비 승률(도미넌스) 등을 공개했다. 구현(Implementation) 과제에서는 어떤 모델도 모든 시험을 성공적으로 완료하지 못해, best@5의 테스트 통과율을 부분 보상으로 사용했다. 성능 최적화(Performance Optimization)에서는 정확성 통과가 전제이며, 정확성과 속도 향상(또는 압축률)을 함께 반영해 순위를 매겼다. 연구(Research) 과제는 에이전트가 개발 단계에서 보지 못한 보유 데이터로 평가되며, 예시로 Qwen3-8B의 FrogsGame 포스트트레이닝 성과 등이 제시됐다.</p>
+  <p class="url"><a href="https://www.frontierswe.com">https://www.frontierswe.com</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>AI 에이전트가 다른 모델을 학습시키는 능력을 벤치마크로 평가한 내용(2026.3.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="AI 에이전트가 다른 모델을 학습시키는 능력을 벤치마크로 평가한 내용(2026.3.10)
+
+PostTrainBench는 AI 에이전트가 다른 모델을 학습하는 작업을 수행할 수 있는지 테스트하기 위한 벤치마크를 소개하며, 관련 연구에서 얻은 학습 내용과 방법을 정리한 글이다. 본문은 PostTrain AI를 활용해 무엇을 확인했는지와 벤치마크의 도입 취지를 설명하는 데 초점을 둔다.
+
+https://posttrainbench.thoughtfullab.com/?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
+  <p>PostTrainBench는 AI 에이전트가 다른 모델을 학습하는 작업을 수행할 수 있는지 테스트하기 위한 벤치마크를 소개하며, 관련 연구에서 얻은 학습 내용과 방법을 정리한 글이다. 본문은 PostTrain AI를 활용해 무엇을 확인했는지와 벤치마크의 도입 취지를 설명하는 데 초점을 둔다.</p>
+  <p class="url"><a href="https://posttrainbench.thoughtfullab.com/?utm_source=substack&amp;utm_medium=email">https://posttrainbench.thoughtfullab.com/?utm_source=substack&amp;utm_medium=email</a></p>
+</article>
+<article class="entry cat-db">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Anthropic(레드 팀/공식 블로그)</span> · <span class="deadline">(2026.2.5 기준) Claude Opus 4.6, 오픈소스에서 고위험 제로데이 취약점 500건+ 검증·패치 기여</span></span><button type="button" class="copy-btn" data-copy="
+
+Anthropic은 Claude Opus 4.6가 별도 맞춤 도구 없이도 오픈소스 코드에서 고위험 취약점을 대규모로 찾아낼 수 있다고 설명했다. 가상머신 환경에서 최신 오픈소스와 디버거/퍼저 등 일반 도구를 제공하고, 발견한 버그는 충돌·메모리 오류 검증 및 보안 연구자 검토를 거쳐 보고했다고 밝혔다. GhostScript, OpenSC, CGIF 사례로 커밋 히스토리·취약 함수 호출 패턴·알고리즘/포맷 가정의 악용 등 방식으로 취약점을 찾아 증명했다고 전했으며, 현재 500건 이상을 검증·보고하고 패치 반영을 진행 중이라고 했다.
+
+https://red.anthropic.com/2026/zero-days/" onclick="copyEntry(this)">복사</button></div>
+  <p>Anthropic은 Claude Opus 4.6가 별도 맞춤 도구 없이도 오픈소스 코드에서 고위험 취약점을 대규모로 찾아낼 수 있다고 설명했다. 가상머신 환경에서 최신 오픈소스와 디버거/퍼저 등 일반 도구를 제공하고, 발견한 버그는 충돌·메모리 오류 검증 및 보안 연구자 검토를 거쳐 보고했다고 밝혔다. GhostScript, OpenSC, CGIF 사례로 커밋 히스토리·취약 함수 호출 패턴·알고리즘/포맷 가정의 악용 등 방식으로 취약점을 찾아 증명했다고 전했으며, 현재 500건 이상을 검증·보고하고 패치 반영을 진행 중이라고 했다.</p>
+  <p class="url"><a href="https://red.anthropic.com/2026/zero-days/">https://red.anthropic.com/2026/zero-days/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.3.12 기준) 이란 연계 위협조직 ‘Handala Hack’의 AI 보조 파워셸 와이퍼 등 파괴 공격 방식 공개</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">체크포인트 리서치(Check Point Research)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.12 기준) 이란 연계 위협조직 ‘Handala Hack’의 AI 보조 파워셸 와이퍼 등 파괴 공격 방식 공개
+
+체크포인트 리서치는 ‘Handala Hack’이 이란 정보·보안부(MOIS) 계열로 분류되는 Void Manticore가 운영하는 온라인 페르소나라고 밝혔다. 이 그룹은 피해망 내부로의 이동을 위해 RDP를 주로 사용하고, 외부 접근이 어려운 호스트에는 NetBird를 수동 배포해 제로트러스트 메쉬 형태로 연결한 뒤 파괴 단계에서 여러 와이퍼를 동시에 실행한다. 특히 파워셸 기반 와이퍼는 사용자 디렉터리 내 파일을 열거해 삭제하며, 코드 구조와 주석을 근거로 AI 보조로 개발됐을 가능성을 제시했다. 또한 그룹 정책을 이용해 서로 다른 와이퍼를 네트워크 전반에 배포하고, 추가로 디스크 암호화 도구(VeraCrypt) 활용 시도도 관측됐다고 설명했다.
+
+https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/" onclick="copyEntry(this)">복사</button></div>
+  <p>체크포인트 리서치는 ‘Handala Hack’이 이란 정보·보안부(MOIS) 계열로 분류되는 Void Manticore가 운영하는 온라인 페르소나라고 밝혔다. 이 그룹은 피해망 내부로의 이동을 위해 RDP를 주로 사용하고, 외부 접근이 어려운 호스트에는 NetBird를 수동 배포해 제로트러스트 메쉬 형태로 연결한 뒤 파괴 단계에서 여러 와이퍼를 동시에 실행한다. 특히 파워셸 기반 와이퍼는 사용자 디렉터리 내 파일을 열거해 삭제하며, 코드 구조와 주석을 근거로 AI 보조로 개발됐을 가능성을 제시했다. 또한 그룹 정책을 이용해 서로 다른 와이퍼를 네트워크 전반에 배포하고, 추가로 디스크 암호화 도구(VeraCrypt) 활용 시도도 관측됐다고 설명했다.</p>
+  <p class="url"><a href="https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/">https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.1.22) KONNI, AI 생성 PowerShell 백도어로 개발자 대상 피싱 공격</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">체크포인트 리서치(Check Point Research)</span></span><button type="button" class="copy-btn" data-copy="(2026.1.22) KONNI, AI 생성 PowerShell 백도어로 개발자 대상 피싱 공격
+
+체크포인트 리서치는 북한 연계 위협행위자 KONNI가 개발자·엔지니어링 팀을 노리는 피싱 캠페인을 추적했다고 밝혔다. 공격자는 블록체인/크립토 관련 프로젝트 문서처럼 위장한 유인물을 통해 Discord 링크에서 ZIP을 내려받게 하고, LNK와 PowerShell 로더를 거쳐 XOR 인코딩된 추가 페이로드를 실행한다. 특히 PowerShell 백도어는 난독화·샌드박스 회피·단일 실행·UAC 우회(fodhelper)·지속성(스케줄 작업) 등을 포함하며, 코드 내 주석/구조가 LLM 생성 코드의 특징을 보여 AI 보조 개발 가능성을 시사한다.
+
+https://research.checkpoint.com/2026/konni-targets-developers-with-ai-malware/" onclick="copyEntry(this)">복사</button></div>
+  <p>체크포인트 리서치는 북한 연계 위협행위자 KONNI가 개발자·엔지니어링 팀을 노리는 피싱 캠페인을 추적했다고 밝혔다. 공격자는 블록체인/크립토 관련 프로젝트 문서처럼 위장한 유인물을 통해 Discord 링크에서 ZIP을 내려받게 하고, LNK와 PowerShell 로더를 거쳐 XOR 인코딩된 추가 페이로드를 실행한다. 특히 PowerShell 백도어는 난독화·샌드박스 회피·단일 실행·UAC 우회(fodhelper)·지속성(스케줄 작업) 등을 포함하며, 코드 내 주석/구조가 LLM 생성 코드의 특징을 보여 AI 보조 개발 가능성을 시사한다.</p>
+  <p class="url"><a href="https://research.checkpoint.com/2026/konni-targets-developers-with-ai-malware/">https://research.checkpoint.com/2026/konni-targets-developers-with-ai-malware/</a></p>
+</article>
 <article class="entry cat-other">
   <h2>(과학자들도 휘말린 AI 군비 경쟁) (2026.4.22)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">ai-ethics.kr</span></span><button type="button" class="copy-btn" data-copy="(과학자들도 휘말린 AI 군비 경쟁) (2026.4.22)
@@ -138,36 +298,6 @@ https://ai-ethics.kr/scientists-ai-arms-race-2025-12-17/" onclick="copyEntry(thi
 https://aifrontiersmedia.substack.com/p/catalytic-regulation-incentivizing" onclick="copyEntry(this)">복사</button></div>
   <p>글은 미국의 AI 규제 환경이 전반적으로 완화·철회되는 흐름 속에서, 강제·처벌 중심의 전통적 규제 대신 ‘보상형 인센티브’로 안전을 유도하는 촉매적 규제를 제안한다. 촉매적 규제는 안전 R&amp;D에 대한 세액공제, 검증된 안전 시스템 조달 인센티브, 안전을 경쟁의 핵심으로 만드는 ‘명성(프레스티지)’ 메커니즘 등을 통해 시장의 힘이 안전 쪽으로 이동하도록 설계한다. 또한 안전 문화는 규제보다 먼저 조직 내부에서 자리 잡을 수 있으며, 이를 위해 조직의 ‘안전 파벌’ 활동을 처벌이 아닌 보상으로 강화하는 접근이 필요하다고 설명한다. 구체 방안으로는 1983년 희귀질환 의약품법(Orphan Drug Act)처럼 안전 연구에 대한 연구개발 세액공제를 통해 자본이 충분한 기업의 자원 배분을 안전 쪽으로 전환하는 모델을 제시한다.</p>
   <p class="url"><a href="https://aifrontiersmedia.substack.com/p/catalytic-regulation-incentivizing">https://aifrontiersmedia.substack.com/p/catalytic-regulation-incentivizing</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>유럽 집행위, 프랑스·핀란드와 함께 ‘안전하고 신뢰할 수 있는 연결성·디지털 인프라’ 고위급 연구 방문(2026.4.20)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 프랑스·핀란드와 함께 ‘안전하고 신뢰할 수 있는 연결성·디지털 인프라’ 고위급 연구 방문(2026.4.20)
-
-유럽 집행위원회는 프랑스와 핀란드 정부와 협력해 안전하고 회복력 있으며 신뢰할 수 있는 연결성 및 디지털 인프라 관련 고위급 연구 방문을 브뤼셀에서 진행했다. 이 자리에는 이집트·인도네시아·요르단·케냐·필리핀·베트남의 정책결정자와 규제기관 관계자들이 참여해 보안·신뢰 기반 통신 인프라 구축과 해저 케이블 배치에 관한 정책 프레임워크를 논의했다. 참가자들은 유럽 집행위 및 EEAS와 함께 EU의 디지털 정책과 국제 디지털 협력, DG CONNECT에서 디지털 네트워크법 관련 입법 제안, 사이버보안, EU의 해저 케이블 보안 도구상자 등을 소개받았으며, 이후 아헨·앤트워프·파리·헬싱키에서 유럽 주요 기업들과도 만났다.
-
-https://digital-strategy.ec.europa.eu/en/news/commission-welcomes-high-level-study-group-connectivity-and-digital-infrastructure" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위원회는 프랑스와 핀란드 정부와 협력해 안전하고 회복력 있으며 신뢰할 수 있는 연결성 및 디지털 인프라 관련 고위급 연구 방문을 브뤼셀에서 진행했다. 이 자리에는 이집트·인도네시아·요르단·케냐·필리핀·베트남의 정책결정자와 규제기관 관계자들이 참여해 보안·신뢰 기반 통신 인프라 구축과 해저 케이블 배치에 관한 정책 프레임워크를 논의했다. 참가자들은 유럽 집행위 및 EEAS와 함께 EU의 디지털 정책과 국제 디지털 협력, DG CONNECT에서 디지털 네트워크법 관련 입법 제안, 사이버보안, EU의 해저 케이블 보안 도구상자 등을 소개받았으며, 이후 아헨·앤트워프·파리·헬싱키에서 유럽 주요 기업들과도 만났다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-welcomes-high-level-study-group-connectivity-and-digital-infrastructure">https://digital-strategy.ec.europa.eu/en/news/commission-welcomes-high-level-study-group-connectivity-and-digital-infrastructure</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>디지털 유럽 프로그램 ‘정보 무결성 상황인식’ 공모(2026.4.21)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">온라인 정보세션 2026.4.28 / 신청마감 2026.10.1</span></span><button type="button" class="copy-btn" data-copy="디지털 유럽 프로그램 ‘정보 무결성 상황인식’ 공모(2026.4.21)
-
-유럽 집행위원회는 ‘DIGITAL-2026-BESTUSE-AWARENESS - 정보 무결성 상황인식을 위한 공통 연구 프레임워크’ 제안 공모를 개시했다. 이 공모는 2025년 11월 ‘유럽 민주주의 방패’ 커뮤니케이션의 주요 성과물로, 온라인 정보 환경 보호 필요성을 강조하는 맥락에서 추진된다. 공모는 24~30개월 동안 단 1개 제안에 600만 유로를 지원하며, 지원금의 100%를 전액 지원하고(조건부), 최소 60%는 제3자에 대한 재분배 형태로 집행해야 한다. 신청마감은 2026년 10월 1일이며, 관심 있는 이해관계자를 위한 온라인 정보세션은 2026년 4월 28일에 열린다.
-
-https://digital-strategy.ec.europa.eu/en/news/new-open-call-proposals-under-digital-europe-programme" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위원회는 ‘DIGITAL-2026-BESTUSE-AWARENESS - 정보 무결성 상황인식을 위한 공통 연구 프레임워크’ 제안 공모를 개시했다. 이 공모는 2025년 11월 ‘유럽 민주주의 방패’ 커뮤니케이션의 주요 성과물로, 온라인 정보 환경 보호 필요성을 강조하는 맥락에서 추진된다. 공모는 24~30개월 동안 단 1개 제안에 600만 유로를 지원하며, 지원금의 100%를 전액 지원하고(조건부), 최소 60%는 제3자에 대한 재분배 형태로 집행해야 한다. 신청마감은 2026년 10월 1일이며, 관심 있는 이해관계자를 위한 온라인 정보세션은 2026년 4월 28일에 열린다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/new-open-call-proposals-under-digital-europe-programme">https://digital-strategy.ec.europa.eu/en/news/new-open-call-proposals-under-digital-europe-programme</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>(2026.4.22)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">regulation.gov.ru</span></span><button type="button" class="copy-btn" data-copy="(2026.4.22)
-
-해당 페이지는 러시아 연방 규범 법령(규정) 프로젝트를 공개하는 “연방 법령 프로젝트 포털” 화면으로, 로그인/사용자 지원, 이메일·RSS 구독, 지역 포털 등 안내 항목과 함께 러시아 경제개발부(Ministry of Economic Development of the Russian Federation) 관련 메뉴가 표시됩니다. 제공된 본문에는 특정 법안의 내용, 제안 배경, 공고/마감일 등 구체 정보가 확인되지 않습니다.
-
-https://regulation.gov.ru/projects/166424/" onclick="copyEntry(this)">복사</button></div>
-  <p>해당 페이지는 러시아 연방 규범 법령(규정) 프로젝트를 공개하는 “연방 법령 프로젝트 포털” 화면으로, 로그인/사용자 지원, 이메일·RSS 구독, 지역 포털 등 안내 항목과 함께 러시아 경제개발부(Ministry of Economic Development of the Russian Federation) 관련 메뉴가 표시됩니다. 제공된 본문에는 특정 법안의 내용, 제안 배경, 공고/마감일 등 구체 정보가 확인되지 않습니다.</p>
-  <p class="url"><a href="https://regulation.gov.ru/projects/166424/">https://regulation.gov.ru/projects/166424/</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(2026.4.22) OpenAI 샘 올트먼의 AI 도입 조언 관련 내용 확인 필요</h2>
@@ -191,16 +321,6 @@ https://www.axios.com/2026/04/13/claude-project-chatgpt-custom-gpt-tips" onclick
   <p>본문 내용 확인 필요</p>
 <p>해당 페이지는 Claude 프로젝트와 ChatGPT의 맞춤형 GPT(커스텀 GPT) 활용 팁을 다루는 것으로 보입니다. 다만 제공된 정보에는 본문이 없어 구체적인 내용(사례, 기능, 주장, 일정 등)은 확인이 필요합니다.</p>
   <p class="url"><a href="https://www.axios.com/2026/04/13/claude-project-chatgpt-custom-gpt-tips">https://www.axios.com/2026/04/13/claude-project-chatgpt-custom-gpt-tips</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>싱가포르, 생성형 AI 시험(테스트) 방법 국제표준 ISO/IEC 42119-8 제안(2026.4.20)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">싱가포르 정보통신미디어개발청(IMDA)</span> · <span class="deadline">ISO/IEC JTC 1/SC 42 총회(17차) 2026.4.20~4.24 싱가포르 개최</span></span><button type="button" class="copy-btn" data-copy="싱가포르, 생성형 AI 시험(테스트) 방법 국제표준 ISO/IEC 42119-8 제안(2026.4.20)
-
-싱가포르는 생성형 AI 시스템의 신뢰성 있는 테스트를 위한 국제표준 ISO/IEC 42119-8을 제안했다. 이 표준은 벤치마킹과 레드팀(red teaming) 방법론을 포함해 표준화된 테스트 접근을 제공하며, 결과의 재현성과 비교 가능성을 높여 AI 배포·사용의 신뢰를 강화하는 것을 목표로 한다. 해당 표준은 2026년 4월 20~24일 싱가포르에서 열리는 ISO/IEC JTC 1/SC 42(17차) 총회에서 논의될 예정이며, IMDA와 엔터프라이즈SG가 공동 주최한다. 또한 IMDA와 EnterpriseSG는 총회 연계 역량강화 워크숍과 AI Assurance Exchange 등 관련 행사를 진행한다.
-
-https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/singapore-champions-new-global-ai-testing-standardisation-efforts" onclick="copyEntry(this)">복사</button></div>
-  <p>싱가포르는 생성형 AI 시스템의 신뢰성 있는 테스트를 위한 국제표준 ISO/IEC 42119-8을 제안했다. 이 표준은 벤치마킹과 레드팀(red teaming) 방법론을 포함해 표준화된 테스트 접근을 제공하며, 결과의 재현성과 비교 가능성을 높여 AI 배포·사용의 신뢰를 강화하는 것을 목표로 한다. 해당 표준은 2026년 4월 20~24일 싱가포르에서 열리는 ISO/IEC JTC 1/SC 42(17차) 총회에서 논의될 예정이며, IMDA와 엔터프라이즈SG가 공동 주최한다. 또한 IMDA와 EnterpriseSG는 총회 연계 역량강화 워크숍과 AI Assurance Exchange 등 관련 행사를 진행한다.</p>
-  <p class="url"><a href="https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/singapore-champions-new-global-ai-testing-standardisation-efforts">https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/singapore-champions-new-global-ai-testing-standardisation-efforts</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>AI 포용 관점에서 본 생성형 인공지능 이용 격차 분석(2026.4.15)</h2>
@@ -265,20 +385,6 @@ https://www.mlex.com/mlex/artificial-intelligence/articles/2467241?nl_pk=98f1663
 <p>EU 각국 정부가 AI Act 개정안의 타협안에 대해 의견을 제출하도록 요청받았으며, 5가지 미해결 쟁점에서 각 옵션에 대한 유연성을 표시해 달라는 내용이다. 쟁점은 성(性) 딥페이크 금지, 분야별 규율, AI Office의 거버넌스 권한, 준수 유예(컴플라이언스 그레이스) 기간, 각국 샌드박스의 기한 등이다. MLex는 다음 주(4월 28일 전후) 최종 합의가 예상된다고 전했다.</p>
   <p class="url"><a href="https://www.mlex.com/mlex/artificial-intelligence/articles/2467241?nl_pk=98f16633-c192-447e-8e63-104f9698e3f7">https://www.mlex.com/mlex/artificial-intelligence/articles/2467241?nl_pk=98f16633-c192-447e-8e63-104f9698e3f7</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>EU 디지털 프로그램, 보건·온라인 안전 분야 AI 혁신 지원을 위해 6,320만 유로 공모(2026.4.21)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="EU 디지털 프로그램, 보건·온라인 안전 분야 AI 혁신 지원을 위해 6,320만 유로 공모(2026.4.21)
-
-공모 마감: 2026.10.1 (1일 정보 제공 행사도 별도 개최)
-  
-유럽연합 집행위원회는 디지털 유럽 프로그램(Digital Europe Programme) 공모 7건에 총 6,320만 유로를 지원한다고 밝혔다. 보건 분야에서는 의료기관의 AI 기반 영상 선별(900만 유로), 유럽 보건데이터공간(European Health Data Space) 하의 디지털 보건 서비스·시스템(2,400만 유로) 등을 지원한다. 또한 아동의 디지털 웰빙과 보호를 위한 안전인터넷센터 네트워크의 지역 커버리지(1,200만 유로), 고급 디지털 기술 훈련(1,250만 유로), 규제 준수 부담 완화를 위한 혁신 디지털 솔루션(850만 유로), 온라인 정보 무결성 연구(600만 유로) 및 EDIC 지원 허브(100만 유로)·확산·활용 활동(180만 유로)도 포함된다. 공모는 EU Funding &amp; Tenders 포털에서 신청하며, 마감은 10월 1일이다.
-
-https://digital-strategy.ec.europa.eu/en/news/commission-makes-eu632-million-available-support-ai-innovation-health-and-online-safety" onclick="copyEntry(this)">복사</button></div>
-  <p>공모 마감: 2026.10.1 (1일 정보 제공 행사도 별도 개최)
-  
-유럽연합 집행위원회는 디지털 유럽 프로그램(Digital Europe Programme) 공모 7건에 총 6,320만 유로를 지원한다고 밝혔다. 보건 분야에서는 의료기관의 AI 기반 영상 선별(900만 유로), 유럽 보건데이터공간(European Health Data Space) 하의 디지털 보건 서비스·시스템(2,400만 유로) 등을 지원한다. 또한 아동의 디지털 웰빙과 보호를 위한 안전인터넷센터 네트워크의 지역 커버리지(1,200만 유로), 고급 디지털 기술 훈련(1,250만 유로), 규제 준수 부담 완화를 위한 혁신 디지털 솔루션(850만 유로), 온라인 정보 무결성 연구(600만 유로) 및 EDIC 지원 허브(100만 유로)·확산·활용 활동(180만 유로)도 포함된다. 공모는 EU Funding &amp; Tenders 포털에서 신청하며, 마감은 10월 1일이다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-makes-eu632-million-available-support-ai-innovation-health-and-online-safety">https://digital-strategy.ec.europa.eu/en/news/commission-makes-eu632-million-available-support-ai-innovation-health-and-online-safety</a></p>
-</article>
 <article class="entry cat-other">
   <h2>EU, AI법 개정안에서 상대적으로 덜 논쟁적인 쟁점들에 합의 (2026.4.20)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">mlex.com</span> · <span class="deadline">본문에 명시된 일정(마감일/시행일)은 확인되지 않음</span></span><button type="button" class="copy-btn" data-copy="EU, AI법 개정안에서 상대적으로 덜 논쟁적인 쟁점들에 합의 (2026.4.20)
@@ -342,90 +448,7 @@ https://arxiv.org/abs/2511.04820" onclick="copyEntry(this)">복사</button></div
 <p>본문은 글로벌 노스에서 대형 상업 출판사가 과학 출판을 지배하는 현상이 과학에 해롭다고 지적합니다. 연구자 커뮤니티의 핵심 구성원, 연구비 지원기관, 정부, 대학이 시장이 아닌 과학을 위해 출판을 ‘재공동화(re-communalise)’하는 노력을 주도해야 한다는 주장을 담고 있습니다. 논문은 Digital Libraries(cs.DL) 주제로 arXiv에 게시되었습니다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2511.04820">https://arxiv.org/abs/2511.04820</a></p>
 </article>
-<article class="entry cat-research">
-  <h2></h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">OpenAI Framework Flags Jobs Most Exposed to AI Change (2026.4.17)</span></span><button type="button" class="copy-btn" data-copy="
-
-빈 줄 하나
-
-제공된 PDF 본문 추출에는 문서 메타데이터 및 이미지/바이너리 데이터 조각만 포함되어 있어, “AI가 어떤 직업을 얼마나 노출시키는지” 같은 핵심 내용은 확인되지 않습니다. 따라서 기사/보고서의 사실관계 요약을 현재 텍스트만으로는 작성할 수 없습니다.
-
-https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?" onclick="copyEntry(this)">복사</button></div>
-  <p>빈 줄 하나</p>
-<p>제공된 PDF 본문 추출에는 문서 메타데이터 및 이미지/바이너리 데이터 조각만 포함되어 있어, “AI가 어떤 직업을 얼마나 노출시키는지” 같은 핵심 내용은 확인되지 않습니다. 따라서 기사/보고서의 사실관계 요약을 현재 텍스트만으로는 작성할 수 없습니다.</p>
-  <p class="url"><a href="https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?">https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf?</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.4.15) VAKRA 벤치마크, 도구 기반 AI 에이전트의 추론·실행 실패 양상 분석</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Hugging Face(IBM Research 블로그)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.15) VAKRA 벤치마크, 도구 기반 AI 에이전트의 추론·실행 실패 양상 분석
-
-IBM Research는 기업 환경과 유사한 조건에서 AI 에이전트의 추론과 행동을 평가하는 도구-접지(executable) 벤치마크 VAKRA를 소개했다. VAKRA는 8,000+ 로컬 호스팅 API와 62개 도메인의 실제 데이터베이스, 도메인 문서 컬렉션을 활용해 3~7단계 추론 체인을 실행 추적(툴 호출/중간 결과)으로 평가한다. 벤치마크는 API 체이닝, 대시보드 API를 통한 도구 선택, 멀티홉 추론, 멀티소스·멀티턴·정책 준수까지 4개 역량으로 구성되며, 평가는 예측된 툴 궤적을 실제 환경에서 재실행해 정답 툴 응답을 회수하는지와 최종 응답의 근거·정합성을 LLM 판정으로 확인하는 실행 중심 방식이다.
-
-https://huggingface.co/blog/ibm-research/vakra-benchmark-analysis?utm" onclick="copyEntry(this)">복사</button></div>
-  <p>IBM Research는 기업 환경과 유사한 조건에서 AI 에이전트의 추론과 행동을 평가하는 도구-접지(executable) 벤치마크 VAKRA를 소개했다. VAKRA는 8,000+ 로컬 호스팅 API와 62개 도메인의 실제 데이터베이스, 도메인 문서 컬렉션을 활용해 3~7단계 추론 체인을 실행 추적(툴 호출/중간 결과)으로 평가한다. 벤치마크는 API 체이닝, 대시보드 API를 통한 도구 선택, 멀티홉 추론, 멀티소스·멀티턴·정책 준수까지 4개 역량으로 구성되며, 평가는 예측된 툴 궤적을 실제 환경에서 재실행해 정답 툴 응답을 회수하는지와 최종 응답의 근거·정합성을 LLM 판정으로 확인하는 실행 중심 방식이다.</p>
-  <p class="url"><a href="https://huggingface.co/blog/ibm-research/vakra-benchmark-analysis?utm">https://huggingface.co/blog/ibm-research/vakra-benchmark-analysis?utm</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>OpenAI, 생물학 연구용 ‘GPT-Rosalind’ 공개 (2026.4.16)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 생물학 연구용 ‘GPT-Rosalind’ 공개 (2026.4.16)
-
-OpenAI가 생물학 연구를 위한 모델 ‘GPT-Rosalind’를 소개했다는 내용이다. 다만 제공된 정보에는 본문 세부 내용(기능, 사용 범위, 배포 방식 등)이 없어 구체 사항은 확인이 필요하다.
-
-https://openai.com/index/introducing-gpt-rosalind/" onclick="copyEntry(this)">복사</button></div>
-  <p>OpenAI가 생물학 연구를 위한 모델 ‘GPT-Rosalind’를 소개했다는 내용이다. 다만 제공된 정보에는 본문 세부 내용(기능, 사용 범위, 배포 방식 등)이 없어 구체 사항은 확인이 필요하다.</p>
-  <p class="url"><a href="https://openai.com/index/introducing-gpt-rosalind/">https://openai.com/index/introducing-gpt-rosalind/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>FrontierSWE, 장기 코딩 에이전트의 소프트웨어 공학 성능을 벤치마크(2026.4.17)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="FrontierSWE, 장기 코딩 에이전트의 소프트웨어 공학 성능을 벤치마크(2026.4.17)
-
-FrontierSWE는 소프트웨어 엔지니어링 역량을 사람 능력의 한계에 가깝게 평가하는 벤치마크로, 모델별 평균 순위와 무작위 상대 대비 승률(도미넌스) 등을 공개했다. 구현(Implementation) 과제에서는 어떤 모델도 모든 시험을 성공적으로 완료하지 못해, best@5의 테스트 통과율을 부분 보상으로 사용했다. 성능 최적화(Performance Optimization)에서는 정확성 통과가 전제이며, 정확성과 속도 향상(또는 압축률)을 함께 반영해 순위를 매겼다. 연구(Research) 과제는 에이전트가 개발 단계에서 보지 못한 보유 데이터로 평가되며, 예시로 Qwen3-8B의 FrogsGame 포스트트레이닝 성과 등이 제시됐다.
-
-https://www.frontierswe.com" onclick="copyEntry(this)">복사</button></div>
-  <p>FrontierSWE는 소프트웨어 엔지니어링 역량을 사람 능력의 한계에 가깝게 평가하는 벤치마크로, 모델별 평균 순위와 무작위 상대 대비 승률(도미넌스) 등을 공개했다. 구현(Implementation) 과제에서는 어떤 모델도 모든 시험을 성공적으로 완료하지 못해, best@5의 테스트 통과율을 부분 보상으로 사용했다. 성능 최적화(Performance Optimization)에서는 정확성 통과가 전제이며, 정확성과 속도 향상(또는 압축률)을 함께 반영해 순위를 매겼다. 연구(Research) 과제는 에이전트가 개발 단계에서 보지 못한 보유 데이터로 평가되며, 예시로 Qwen3-8B의 FrogsGame 포스트트레이닝 성과 등이 제시됐다.</p>
-  <p class="url"><a href="https://www.frontierswe.com">https://www.frontierswe.com</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>AI 에이전트가 다른 모델을 학습시키는 능력을 벤치마크로 평가한 내용(2026.3.10)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="AI 에이전트가 다른 모델을 학습시키는 능력을 벤치마크로 평가한 내용(2026.3.10)
-
-PostTrainBench는 AI 에이전트가 다른 모델을 학습하는 작업을 수행할 수 있는지 테스트하기 위한 벤치마크를 소개하며, 관련 연구에서 얻은 학습 내용과 방법을 정리한 글이다. 본문은 PostTrain AI를 활용해 무엇을 확인했는지와 벤치마크의 도입 취지를 설명하는 데 초점을 둔다.
-
-https://posttrainbench.thoughtfullab.com/?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
-  <p>PostTrainBench는 AI 에이전트가 다른 모델을 학습하는 작업을 수행할 수 있는지 테스트하기 위한 벤치마크를 소개하며, 관련 연구에서 얻은 학습 내용과 방법을 정리한 글이다. 본문은 PostTrain AI를 활용해 무엇을 확인했는지와 벤치마크의 도입 취지를 설명하는 데 초점을 둔다.</p>
-  <p class="url"><a href="https://posttrainbench.thoughtfullab.com/?utm_source=substack&amp;utm_medium=email">https://posttrainbench.thoughtfullab.com/?utm_source=substack&amp;utm_medium=email</a></p>
-</article>
-<article class="entry cat-research">
-  <h2></h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Anthropic(레드 팀/공식 블로그)</span> · <span class="deadline">(2026.2.5 기준) Claude Opus 4.6, 오픈소스에서 고위험 제로데이 취약점 500건+ 검증·패치 기여</span></span><button type="button" class="copy-btn" data-copy="
-
-Anthropic은 Claude Opus 4.6가 별도 맞춤 도구 없이도 오픈소스 코드에서 고위험 취약점을 대규모로 찾아낼 수 있다고 설명했다. 가상머신 환경에서 최신 오픈소스와 디버거/퍼저 등 일반 도구를 제공하고, 발견한 버그는 충돌·메모리 오류 검증 및 보안 연구자 검토를 거쳐 보고했다고 밝혔다. GhostScript, OpenSC, CGIF 사례로 커밋 히스토리·취약 함수 호출 패턴·알고리즘/포맷 가정의 악용 등 방식으로 취약점을 찾아 증명했다고 전했으며, 현재 500건 이상을 검증·보고하고 패치 반영을 진행 중이라고 했다.
-
-https://red.anthropic.com/2026/zero-days/" onclick="copyEntry(this)">복사</button></div>
-  <p>Anthropic은 Claude Opus 4.6가 별도 맞춤 도구 없이도 오픈소스 코드에서 고위험 취약점을 대규모로 찾아낼 수 있다고 설명했다. 가상머신 환경에서 최신 오픈소스와 디버거/퍼저 등 일반 도구를 제공하고, 발견한 버그는 충돌·메모리 오류 검증 및 보안 연구자 검토를 거쳐 보고했다고 밝혔다. GhostScript, OpenSC, CGIF 사례로 커밋 히스토리·취약 함수 호출 패턴·알고리즘/포맷 가정의 악용 등 방식으로 취약점을 찾아 증명했다고 전했으며, 현재 500건 이상을 검증·보고하고 패치 반영을 진행 중이라고 했다.</p>
-  <p class="url"><a href="https://red.anthropic.com/2026/zero-days/">https://red.anthropic.com/2026/zero-days/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.3.12 기준) 이란 연계 위협조직 ‘Handala Hack’의 AI 보조 파워셸 와이퍼 등 파괴 공격 방식 공개</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">체크포인트 리서치(Check Point Research)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.12 기준) 이란 연계 위협조직 ‘Handala Hack’의 AI 보조 파워셸 와이퍼 등 파괴 공격 방식 공개
-
-체크포인트 리서치는 ‘Handala Hack’이 이란 정보·보안부(MOIS) 계열로 분류되는 Void Manticore가 운영하는 온라인 페르소나라고 밝혔다. 이 그룹은 피해망 내부로의 이동을 위해 RDP를 주로 사용하고, 외부 접근이 어려운 호스트에는 NetBird를 수동 배포해 제로트러스트 메쉬 형태로 연결한 뒤 파괴 단계에서 여러 와이퍼를 동시에 실행한다. 특히 파워셸 기반 와이퍼는 사용자 디렉터리 내 파일을 열거해 삭제하며, 코드 구조와 주석을 근거로 AI 보조로 개발됐을 가능성을 제시했다. 또한 그룹 정책을 이용해 서로 다른 와이퍼를 네트워크 전반에 배포하고, 추가로 디스크 암호화 도구(VeraCrypt) 활용 시도도 관측됐다고 설명했다.
-
-https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/" onclick="copyEntry(this)">복사</button></div>
-  <p>체크포인트 리서치는 ‘Handala Hack’이 이란 정보·보안부(MOIS) 계열로 분류되는 Void Manticore가 운영하는 온라인 페르소나라고 밝혔다. 이 그룹은 피해망 내부로의 이동을 위해 RDP를 주로 사용하고, 외부 접근이 어려운 호스트에는 NetBird를 수동 배포해 제로트러스트 메쉬 형태로 연결한 뒤 파괴 단계에서 여러 와이퍼를 동시에 실행한다. 특히 파워셸 기반 와이퍼는 사용자 디렉터리 내 파일을 열거해 삭제하며, 코드 구조와 주석을 근거로 AI 보조로 개발됐을 가능성을 제시했다. 또한 그룹 정책을 이용해 서로 다른 와이퍼를 네트워크 전반에 배포하고, 추가로 디스크 암호화 도구(VeraCrypt) 활용 시도도 관측됐다고 설명했다.</p>
-  <p class="url"><a href="https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/">https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.1.22) KONNI, AI 생성 PowerShell 백도어로 개발자 대상 피싱 공격</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">체크포인트 리서치(Check Point Research)</span></span><button type="button" class="copy-btn" data-copy="(2026.1.22) KONNI, AI 생성 PowerShell 백도어로 개발자 대상 피싱 공격
-
-체크포인트 리서치는 북한 연계 위협행위자 KONNI가 개발자·엔지니어링 팀을 노리는 피싱 캠페인을 추적했다고 밝혔다. 공격자는 블록체인/크립토 관련 프로젝트 문서처럼 위장한 유인물을 통해 Discord 링크에서 ZIP을 내려받게 하고, LNK와 PowerShell 로더를 거쳐 XOR 인코딩된 추가 페이로드를 실행한다. 특히 PowerShell 백도어는 난독화·샌드박스 회피·단일 실행·UAC 우회(fodhelper)·지속성(스케줄 작업) 등을 포함하며, 코드 내 주석/구조가 LLM 생성 코드의 특징을 보여 AI 보조 개발 가능성을 시사한다.
-
-https://research.checkpoint.com/2026/konni-targets-developers-with-ai-malware/" onclick="copyEntry(this)">복사</button></div>
-  <p>체크포인트 리서치는 북한 연계 위협행위자 KONNI가 개발자·엔지니어링 팀을 노리는 피싱 캠페인을 추적했다고 밝혔다. 공격자는 블록체인/크립토 관련 프로젝트 문서처럼 위장한 유인물을 통해 Discord 링크에서 ZIP을 내려받게 하고, LNK와 PowerShell 로더를 거쳐 XOR 인코딩된 추가 페이로드를 실행한다. 특히 PowerShell 백도어는 난독화·샌드박스 회피·단일 실행·UAC 우회(fodhelper)·지속성(스케줄 작업) 등을 포함하며, 코드 내 주석/구조가 LLM 생성 코드의 특징을 보여 AI 보조 개발 가능성을 시사한다.</p>
-  <p class="url"><a href="https://research.checkpoint.com/2026/konni-targets-developers-with-ai-malware/">https://research.checkpoint.com/2026/konni-targets-developers-with-ai-malware/</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

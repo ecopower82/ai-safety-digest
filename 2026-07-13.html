@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -115,6 +138,39 @@ https://aisi.go.jp/activity/activity_news/260710/" onclick="copyEntry(this)">복
 https://www.anthropic.com/news/ust-claude" onclick="copyEntry(this)">복사</button></div>
   
   <p class="url"><a href="https://www.anthropic.com/news/ust-claude">https://www.anthropic.com/news/ust-claude</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>유럽 집행위, Instagram·Facebook ‘중독적 설계’가 디지털서비스법 위반 혐의(2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽 집행위원회(EU Digital Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, Instagram·Facebook ‘중독적 설계’가 디지털서비스법 위반 혐의(2026.7.10)
+
+유럽 집행위는 메타가 Instagram과 Facebook의 중독적 설계와 관련해 디지털서비스법(DSA)을 위반했을 가능성이 있다고 예비 판단했다. 조사 대상에는 무한 스크롤, 자동재생, 푸시 알림, 고도로 개인화된 추천시스템 등이 포함됐다. 집행위는 메타가 미성년자와 취약한 성인을 포함한 이용자의 신체·정신 건강에 대한 위험을 충분히 평가하지 못했으며, 현재의 완화 조치도 중독적 설계에서 비롯되는 위험을 효과적으로 줄이지 못했다고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-addictive-design-instagram-and-facebook-breach-digital-services-act" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위는 메타가 Instagram과 Facebook의 중독적 설계와 관련해 디지털서비스법(DSA)을 위반했을 가능성이 있다고 예비 판단했다. 조사 대상에는 무한 스크롤, 자동재생, 푸시 알림, 고도로 개인화된 추천시스템 등이 포함됐다. 집행위는 메타가 미성년자와 취약한 성인을 포함한 이용자의 신체·정신 건강에 대한 위험을 충분히 평가하지 못했으며, 현재의 완화 조치도 중독적 설계에서 비롯되는 위험을 효과적으로 줄이지 못했다고 밝혔다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-addictive-design-instagram-and-facebook-breach-digital-services-act">https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-addictive-design-instagram-and-facebook-breach-digital-services-act</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>(공공 온라인 협의) Proposed Artificial Intelligence (AI) Governance Bill 협의 상세(2026.7.11)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">말레이시아 국가 디지털부( Ministry of Digital )/ National AI Office(NAIO) 공개협의 공지(upc.mpc.gov.my)</span></span><button type="button" class="copy-btn" data-copy="(공공 온라인 협의) Proposed Artificial Intelligence (AI) Governance Bill 협의 상세(2026.7.11)
+
+협의기간: 2026.07.10 ~ 2026.07.31
+
+말레이시아 National AI Office(NAIO)는 AI Governance Bill(인공지능 거버넌스 법안) 제안을 두고 이해관계자 의견을 받기 위한 공개협의를 진행한다. 해당 법안은 AI 관련 중앙 차원의 제도적 감독, 원칙 기반 국가 거버넌스 요건, 위험 기반 규제 체계를 마련해 책임 있는 AI의 개발·배치·사용을 지원하고 개인·사회·국가 이익 보호와 혁신의 균형을 목표로 한다. 개발자·배치자 등 AI 행위자의 역할과 책임을 명확히 하고, 산업·개발자·연구자·시민사회·정부 및 일반 대중을 포함한 다양한 이해관계자의 피드백 제출을 요청한다.
+
+https://upc.mpc.gov.my/view-consultation/264" onclick="copyEntry(this)">복사</button></div>
+  <p>협의기간: 2026.07.10 ~ 2026.07.31</p>
+<p>말레이시아 National AI Office(NAIO)는 AI Governance Bill(인공지능 거버넌스 법안) 제안을 두고 이해관계자 의견을 받기 위한 공개협의를 진행한다. 해당 법안은 AI 관련 중앙 차원의 제도적 감독, 원칙 기반 국가 거버넌스 요건, 위험 기반 규제 체계를 마련해 책임 있는 AI의 개발·배치·사용을 지원하고 개인·사회·국가 이익 보호와 혁신의 균형을 목표로 한다. 개발자·배치자 등 AI 행위자의 역할과 책임을 명확히 하고, 산업·개발자·연구자·시민사회·정부 및 일반 대중을 포함한 다양한 이해관계자의 피드백 제출을 요청한다.</p>
+  <p class="url"><a href="https://upc.mpc.gov.my/view-consultation/264">https://upc.mpc.gov.my/view-consultation/264</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>https://www.warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts/ (2026.7.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">warren.senate.gov</span></span><button type="button" class="copy-btn" data-copy="https://www.warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts/ (2026.7.9)
+
+요약불가
+
+https://warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts">https://warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts</a></p>
 </article>
 <article class="entry cat-other">
   <h2>Trustworthy AI Cards™ 50장 덱 출시 안내 및 사용 용도(2026.7.12)</h2>
@@ -168,16 +224,6 @@ https://aiwi.org/primer" onclick="copyEntry(this)">복사</button></div>
 https://bennettschool.cam.ac.uk/publications/reimagining-the-ai-arms-race" onclick="copyEntry(this)">복사</button></div>
   <p>본 간행물은 AI 개발을 두 초강대국 간 제로섬 ‘arms race’로 규정하는 서사가 적절한지 문제 제기한다. 외교·국가안보·경제 등 다양한 관점을 바탕으로 arms race 은유의 한계와 그 기원 및 영향, 그리고 AI의 지정학적 영향력을 해석하는 대안적 틀을 모색한다. AIxGEO 팀과 MacArthur Foundation, Howard University School of Law 등 인사들이 참여하며, 2026년 1월 13일 개최를 위한 축약판 작업본이 먼저 준비됐다고 안내한다.</p>
   <p class="url"><a href="https://bennettschool.cam.ac.uk/publications/reimagining-the-ai-arms-race">https://bennettschool.cam.ac.uk/publications/reimagining-the-ai-arms-race</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>유럽 집행위, Instagram·Facebook ‘중독적 설계’가 디지털서비스법 위반 혐의(2026.7.10)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(EU Digital Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, Instagram·Facebook ‘중독적 설계’가 디지털서비스법 위반 혐의(2026.7.10)
-
-유럽 집행위는 메타가 Instagram과 Facebook의 중독적 설계와 관련해 디지털서비스법(DSA)을 위반했을 가능성이 있다고 예비 판단했다. 조사 대상에는 무한 스크롤, 자동재생, 푸시 알림, 고도로 개인화된 추천시스템 등이 포함됐다. 집행위는 메타가 미성년자와 취약한 성인을 포함한 이용자의 신체·정신 건강에 대한 위험을 충분히 평가하지 못했으며, 현재의 완화 조치도 중독적 설계에서 비롯되는 위험을 효과적으로 줄이지 못했다고 밝혔다.
-
-https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-addictive-design-instagram-and-facebook-breach-digital-services-act" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위는 메타가 Instagram과 Facebook의 중독적 설계와 관련해 디지털서비스법(DSA)을 위반했을 가능성이 있다고 예비 판단했다. 조사 대상에는 무한 스크롤, 자동재생, 푸시 알림, 고도로 개인화된 추천시스템 등이 포함됐다. 집행위는 메타가 미성년자와 취약한 성인을 포함한 이용자의 신체·정신 건강에 대한 위험을 충분히 평가하지 못했으며, 현재의 완화 조치도 중독적 설계에서 비롯되는 위험을 효과적으로 줄이지 못했다고 밝혔다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-addictive-design-instagram-and-facebook-breach-digital-services-act">https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-addictive-design-instagram-and-facebook-breach-digital-services-act</a></p>
 </article>
 <article class="entry cat-other">
   <h2>Why big AI labs are hiring so many philosophers (2026.7.12)</h2>
@@ -289,29 +335,6 @@ https://unesdoc.unesco.org/ark:/48223/pf0000398455.locale=en" onclick="copyEntry
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://unesdoc.unesco.org/ark:/48223/pf0000398455.locale=en">https://unesdoc.unesco.org/ark:/48223/pf0000398455.locale=en</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>(공공 온라인 협의) Proposed Artificial Intelligence (AI) Governance Bill 협의 상세(2026.7.11)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">말레이시아 국가 디지털부( Ministry of Digital )/ National AI Office(NAIO) 공개협의 공지(upc.mpc.gov.my)</span></span><button type="button" class="copy-btn" data-copy="(공공 온라인 협의) Proposed Artificial Intelligence (AI) Governance Bill 협의 상세(2026.7.11)
-
-협의기간: 2026.07.10 ~ 2026.07.31
-
-말레이시아 National AI Office(NAIO)는 AI Governance Bill(인공지능 거버넌스 법안) 제안을 두고 이해관계자 의견을 받기 위한 공개협의를 진행한다. 해당 법안은 AI 관련 중앙 차원의 제도적 감독, 원칙 기반 국가 거버넌스 요건, 위험 기반 규제 체계를 마련해 책임 있는 AI의 개발·배치·사용을 지원하고 개인·사회·국가 이익 보호와 혁신의 균형을 목표로 한다. 개발자·배치자 등 AI 행위자의 역할과 책임을 명확히 하고, 산업·개발자·연구자·시민사회·정부 및 일반 대중을 포함한 다양한 이해관계자의 피드백 제출을 요청한다.
-
-https://upc.mpc.gov.my/view-consultation/264" onclick="copyEntry(this)">복사</button></div>
-  <p>협의기간: 2026.07.10 ~ 2026.07.31</p>
-<p>말레이시아 National AI Office(NAIO)는 AI Governance Bill(인공지능 거버넌스 법안) 제안을 두고 이해관계자 의견을 받기 위한 공개협의를 진행한다. 해당 법안은 AI 관련 중앙 차원의 제도적 감독, 원칙 기반 국가 거버넌스 요건, 위험 기반 규제 체계를 마련해 책임 있는 AI의 개발·배치·사용을 지원하고 개인·사회·국가 이익 보호와 혁신의 균형을 목표로 한다. 개발자·배치자 등 AI 행위자의 역할과 책임을 명확히 하고, 산업·개발자·연구자·시민사회·정부 및 일반 대중을 포함한 다양한 이해관계자의 피드백 제출을 요청한다.</p>
-  <p class="url"><a href="https://upc.mpc.gov.my/view-consultation/264">https://upc.mpc.gov.my/view-consultation/264</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>https://www.warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts/ (2026.7.9)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">warren.senate.gov</span></span><button type="button" class="copy-btn" data-copy="https://www.warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts/ (2026.7.9)
-
-요약불가
-
-https://warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts">https://warren.senate.gov/newsroom/press-releases/warren-presses-dod-for-answers-on-military-ai-contracts-demands-release-of-ai-contracts</a></p>
-</article>
 <article class="entry cat-kr-gov">
   <h2>인공지능 전환(AX) 비전·추진전략 영문본 소개(2026.7.13)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="인공지능 전환(AX) 비전·추진전략 영문본 소개(2026.7.13)
@@ -392,7 +415,7 @@ https://doi.org/10.1007/978-981-92-2859-1_29" onclick="copyEntry(this)">복사</
   <p>대규모 언어모델의 jailbreak 공격이 유발하는 정책 위반을 막기 위해, 프롬프트가 어떤 정책을 위반하는지 먼저 분류하고 그에 맞춰 대응하는 방어 프레임워크를 제안한다. PolicyGuard는 (1) concept analysis로 유해 여부와 위반 정책(예: privacy invasion)을 식별하는 정책 분류 구성요소와, (2) prompt tuning으로 입력 프롬프트를 수정해 비유해 출력을 생성하도록 하는 jailbreak mitigation 구성요소로 이뤄진다. 실험에서 정책 분류 정확도는 85%로 기존 72% 대비 크게 높았고, 이를 바탕으로 다양한 jailbreak 공격에 대한 평균 defense success rate가 97%로 이전 접근 대비 10% 이상 향상되었다.</p>
   <p class="url"><a href="https://doi.org/10.1007/978-981-92-2859-1_29">https://doi.org/10.1007/978-981-92-2859-1_29</a></p>
 </article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -106,15 +129,48 @@ https://www.anthropic.com/news/claude-for-teachers" onclick="copyEntry(this)">�
   <p>앤트로픽은 미국의 K-12 검증된 교육자에게 프리미엄 Claude 기능, 수업 기술(teaching skills) 라이브러리, 50개 주 학업 기준에 매핑된 evidence-based curricula 연결을 무료로 제공하는 ‘Claude for Teachers’를 공개했다. Learning Commons 커넥터로 각 학업 기준과 그 하위 학습 역량·학습 순서에 맞춰 수업안을 초안화하고, OpenSciEd 및 Illustrative Mathematics 자료 등 신뢰 자원을 연계할 수 있다고 설명했다. 또한 교사가 데이터 분석으로 수업을 계획하거나 반복 과제를 스케줄하는 기능을 예로 들며, 교사용 전용(18-and-over) 및 K-12 개인정보 보호 정책(모델 학습 비사용, FERPA 준수 문서)을 강조했다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/claude-for-teachers">https://www.anthropic.com/news/claude-for-teachers</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>Commission approves €659 million German State aid for four new semiconductor facilities (2026.7.14)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="Commission approves €659 million German State aid for four new semiconductor facilities (2026.7.14)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="Commission approves €659 million German State aid for four new semiconductor facilities (2026.7.14)
 
 요약불가
 
 https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu659-million-german-state-aid-four-new-semiconductor-facilities" onclick="copyEntry(this)">복사</button></div>
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu659-million-german-state-aid-four-new-semiconductor-facilities">https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu659-million-german-state-aid-four-new-semiconductor-facilities</a></p>
+</article>
+<article class="entry cat-db">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="deadline">Grok이 사용자의 user directory를 xAI 서버에 업로드했다는 주장이 제기됨 (2026.7.14)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: Hacker News
+
+요약불가
+
+https://news.ycombinator.com/item?id=48892512&amp;" onclick="copyEntry(this)">복사</button></div>
+  <p>출처: Hacker News</p>
+<p>요약불가</p>
+  <p class="url"><a href="https://news.ycombinator.com/item?id=48892512&amp;">https://news.ycombinator.com/item?id=48892512&amp;</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(기사·공고 게재일 2026.7.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">뉴욕포스트(The New York Post)</span> · <span class="deadline">미국 안보·수출통제 강화를 추진하며 AI distillation(모델 증류) 기반 도용을 문제로 제기</span></span><button type="button" class="copy-btn" data-copy="(기사·공고 게재일 2026.7.13)
+
+Anthropic과 OpenAI가 중국 기업들이 자사 최신 AI를 ‘distillation’ 방식으로 저비용·고속으로 복제해 값싼 오픈소스 챗봇을 만드는 정황이 있다고 경고했다. Anthropic은 2026년 6월 24일 국회에 알리바바가 Claude로부터 28.8백만 건의 출력물을 약 2.5만 개의 사기 계정으로 생성했다고 주장했으며, OpenAI도 중국계 DeepSeek 등에 ‘free-ride’ 시도가 있었다고 언급한 것으로 전해졌다. 기사에서는 distillation이 합법적 모델 개선과 달리 무단으로 타사 코드를 활용하면 ‘plagiarism’에 해당할 수 있고, 성능 격차를 줄여 미국 기업의 사업 모델과 국가안보에 위협이 될 수 있다고 지적한다.
+
+https://nypost.com/2026/07/13/business/how-china-is-ripping-off-cutting-edge-ai-from-anthropic-openai-and-threatening-us-national-security/?" onclick="copyEntry(this)">복사</button></div>
+  <p>Anthropic과 OpenAI가 중국 기업들이 자사 최신 AI를 ‘distillation’ 방식으로 저비용·고속으로 복제해 값싼 오픈소스 챗봇을 만드는 정황이 있다고 경고했다. Anthropic은 2026년 6월 24일 국회에 알리바바가 Claude로부터 28.8백만 건의 출력물을 약 2.5만 개의 사기 계정으로 생성했다고 주장했으며, OpenAI도 중국계 DeepSeek 등에 ‘free-ride’ 시도가 있었다고 언급한 것으로 전해졌다. 기사에서는 distillation이 합법적 모델 개선과 달리 무단으로 타사 코드를 활용하면 ‘plagiarism’에 해당할 수 있고, 성능 격차를 줄여 미국 기업의 사업 모델과 국가안보에 위협이 될 수 있다고 지적한다.</p>
+  <p class="url"><a href="https://nypost.com/2026/07/13/business/how-china-is-ripping-off-cutting-edge-ai-from-anthropic-openai-and-threatening-us-national-security/?">https://nypost.com/2026/07/13/business/how-china-is-ripping-off-cutting-edge-ai-from-anthropic-openai-and-threatening-us-national-security/?</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>AI의 경제 변화를 다가오는 10년 안에 대비하고 일자리·성장 위험과 기회를 함께 관리하기 위한 조치를 촉구(2026.7.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">2026.7.13자 성명으로, 경제 영향에 대한 이해와 인센티브·가드레일·제도 구축을 요청함</span></span><button type="button" class="copy-btn" data-copy="AI의 경제 변화를 다가오는 10년 안에 대비하고 일자리·성장 위험과 기회를 함께 관리하기 위한 조치를 촉구(2026.7.13)
+
+AI가 향후 10년 내 급격히 더 강력해지며 산업혁명보다 더 큰 경제 변화를 매우 짧은 기간에 촉발할 수 있다고 경고한다. 그 과정에서 대규모 일자리 대체 같은 위험과 함께 생활수준 향상 같은 기회도 동시에 발생할 수 있다고 밝혔다. 이에 경제학자·정책결정자·기술 리더들이 경제적 메커니즘을 파악하고 인간과 사회에 이익이 되도록 AI를 유도하는 인센티브, guardrails, 제도를 지금부터 구축해야 한다는 내용이다. 성명에는 노벨상 수상자와 여러 경제·기술 분야 인사들의 서명이 포함돼 있다.
+
+https://www.wemustactnow.ai/" onclick="copyEntry(this)">복사</button></div>
+  <p>AI가 향후 10년 내 급격히 더 강력해지며 산업혁명보다 더 큰 경제 변화를 매우 짧은 기간에 촉발할 수 있다고 경고한다. 그 과정에서 대규모 일자리 대체 같은 위험과 함께 생활수준 향상 같은 기회도 동시에 발생할 수 있다고 밝혔다. 이에 경제학자·정책결정자·기술 리더들이 경제적 메커니즘을 파악하고 인간과 사회에 이익이 되도록 AI를 유도하는 인센티브, guardrails, 제도를 지금부터 구축해야 한다는 내용이다. 성명에는 노벨상 수상자와 여러 경제·기술 분야 인사들의 서명이 포함돼 있다.</p>
+  <p class="url"><a href="https://www.wemustactnow.ai/">https://www.wemustactnow.ai/</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>AI 기반 자율무기 체계의 발전과 시사점: 군사적 효용과 통제 가능성을 중심으로 (2026.6.30)</h2>
@@ -202,40 +258,7 @@ https://arxiv.org/abs/2607.12885v1" onclick="copyEntry(this)">복사</button></d
   <p>LLM judge를 정답이 없는 no-reference 평가에서 쓸 때, 판단이 부정확한 방향으로 쉽게 기울 수 있음을 보이는 연구다. 세 단계로는 아니지만 2-stage 파이프라인을 사용해 (a) judge model이 평가 과제에 대해 얼마나 “아는지”를 calibration 실험으로 보고, (b) 프롬프트에 reference answer를 넣는 경우와 위치에 따라 judge의 성능이 얼마나 흔들리는지 sensitivity 실험으로 측정한다. 3개 언어를 포함한 실험에서 reference answer가 없을 때 judge 모델이 incorrect 답안을 over-credit하는 경향이 나타났고, 어떤 실험 설정에서는 reference answer 정보를 추가했을 때 correct/incorrect 판정이 최대 85%까지 뒤집혔다. 일부 human annotation과 비교하면, reference-driven 판정 변화가 대체로 human 판단과 같은 방향으로 나타났는데, 이는 “refused(거절)”·“complied(수용)”·“unclear(불명확)” 등 범주 정의가 포함된 판정 체계 전반에서 reference 유무가 결과에 큰 영향을 줄 수 있음을 정량적으로 보여준다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2607.12885v1">https://arxiv.org/abs/2607.12885v1</a></p>
 </article>
-<article class="entry cat-research">
-  <h2></h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="deadline">Grok이 사용자의 user directory를 xAI 서버에 업로드했다는 주장이 제기됨 (2026.7.14)</span></span><button type="button" class="copy-btn" data-copy="
-
-출처: Hacker News
-
-요약불가
-
-https://news.ycombinator.com/item?id=48892512&amp;" onclick="copyEntry(this)">복사</button></div>
-  <p>출처: Hacker News</p>
-<p>요약불가</p>
-  <p class="url"><a href="https://news.ycombinator.com/item?id=48892512&amp;">https://news.ycombinator.com/item?id=48892512&amp;</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(기사·공고 게재일 2026.7.13)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">뉴욕포스트(The New York Post)</span> · <span class="deadline">미국 안보·수출통제 강화를 추진하며 AI distillation(모델 증류) 기반 도용을 문제로 제기</span></span><button type="button" class="copy-btn" data-copy="(기사·공고 게재일 2026.7.13)
-
-Anthropic과 OpenAI가 중국 기업들이 자사 최신 AI를 ‘distillation’ 방식으로 저비용·고속으로 복제해 값싼 오픈소스 챗봇을 만드는 정황이 있다고 경고했다. Anthropic은 2026년 6월 24일 국회에 알리바바가 Claude로부터 28.8백만 건의 출력물을 약 2.5만 개의 사기 계정으로 생성했다고 주장했으며, OpenAI도 중국계 DeepSeek 등에 ‘free-ride’ 시도가 있었다고 언급한 것으로 전해졌다. 기사에서는 distillation이 합법적 모델 개선과 달리 무단으로 타사 코드를 활용하면 ‘plagiarism’에 해당할 수 있고, 성능 격차를 줄여 미국 기업의 사업 모델과 국가안보에 위협이 될 수 있다고 지적한다.
-
-https://nypost.com/2026/07/13/business/how-china-is-ripping-off-cutting-edge-ai-from-anthropic-openai-and-threatening-us-national-security/?" onclick="copyEntry(this)">복사</button></div>
-  <p>Anthropic과 OpenAI가 중국 기업들이 자사 최신 AI를 ‘distillation’ 방식으로 저비용·고속으로 복제해 값싼 오픈소스 챗봇을 만드는 정황이 있다고 경고했다. Anthropic은 2026년 6월 24일 국회에 알리바바가 Claude로부터 28.8백만 건의 출력물을 약 2.5만 개의 사기 계정으로 생성했다고 주장했으며, OpenAI도 중국계 DeepSeek 등에 ‘free-ride’ 시도가 있었다고 언급한 것으로 전해졌다. 기사에서는 distillation이 합법적 모델 개선과 달리 무단으로 타사 코드를 활용하면 ‘plagiarism’에 해당할 수 있고, 성능 격차를 줄여 미국 기업의 사업 모델과 국가안보에 위협이 될 수 있다고 지적한다.</p>
-  <p class="url"><a href="https://nypost.com/2026/07/13/business/how-china-is-ripping-off-cutting-edge-ai-from-anthropic-openai-and-threatening-us-national-security/?">https://nypost.com/2026/07/13/business/how-china-is-ripping-off-cutting-edge-ai-from-anthropic-openai-and-threatening-us-national-security/?</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>AI의 경제 변화를 다가오는 10년 안에 대비하고 일자리·성장 위험과 기회를 함께 관리하기 위한 조치를 촉구(2026.7.13)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">2026.7.13자 성명으로, 경제 영향에 대한 이해와 인센티브·가드레일·제도 구축을 요청함</span></span><button type="button" class="copy-btn" data-copy="AI의 경제 변화를 다가오는 10년 안에 대비하고 일자리·성장 위험과 기회를 함께 관리하기 위한 조치를 촉구(2026.7.13)
-
-AI가 향후 10년 내 급격히 더 강력해지며 산업혁명보다 더 큰 경제 변화를 매우 짧은 기간에 촉발할 수 있다고 경고한다. 그 과정에서 대규모 일자리 대체 같은 위험과 함께 생활수준 향상 같은 기회도 동시에 발생할 수 있다고 밝혔다. 이에 경제학자·정책결정자·기술 리더들이 경제적 메커니즘을 파악하고 인간과 사회에 이익이 되도록 AI를 유도하는 인센티브, guardrails, 제도를 지금부터 구축해야 한다는 내용이다. 성명에는 노벨상 수상자와 여러 경제·기술 분야 인사들의 서명이 포함돼 있다.
-
-https://www.wemustactnow.ai/" onclick="copyEntry(this)">복사</button></div>
-  <p>AI가 향후 10년 내 급격히 더 강력해지며 산업혁명보다 더 큰 경제 변화를 매우 짧은 기간에 촉발할 수 있다고 경고한다. 그 과정에서 대규모 일자리 대체 같은 위험과 함께 생활수준 향상 같은 기회도 동시에 발생할 수 있다고 밝혔다. 이에 경제학자·정책결정자·기술 리더들이 경제적 메커니즘을 파악하고 인간과 사회에 이익이 되도록 AI를 유도하는 인센티브, guardrails, 제도를 지금부터 구축해야 한다는 내용이다. 성명에는 노벨상 수상자와 여러 경제·기술 분야 인사들의 서명이 포함돼 있다.</p>
-  <p class="url"><a href="https://www.wemustactnow.ai/">https://www.wemustactnow.ai/</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

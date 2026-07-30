@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -156,6 +179,138 @@ https://www.anthropic.com/news/redeploying-fable-5" onclick="copyEntry(this)">�
   <p>Anthropic은 미국 정부가 2026.6.12 수출통제를 부과하면서 Claude Fable 5와 Claude Mythos 5의 외국인 접근을 즉시 중단했다고 밝혔다. 2026.6.30 현재 수출통제가 해제되어 Fable 5는 2026.7.1부터 Claude Platform·Claude.ai·Claude Code·Claude Cowork 등에서 전 세계 사용자에게 제공되며, 일부 요금제는 7.7까지 사용량 제한을 일부 반영해 제공한다. 또한 6.26 정부 승인에 따라 Mythos 5 접근은 특정 미국 기관에 복원했고, Fable 5의 안전 분류기(safety classifier)를 개선해 보고된 우회 기술이 99% 이상 차단되도록 했다고 설명했다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/redeploying-fable-5">https://www.anthropic.com/news/redeploying-fable-5</a></p>
 </article>
+<article class="entry cat-intl-org">
+  <h2>헨나 비르쿤넨 집행부위원장, 유럽 디지털 스킬 어워즈 및 Digital Skills EU Days(2026.6.29)에서 디지털·사이버보안 역량 사업 소개</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="헨나 비르쿤넨 집행부위원장, 유럽 디지털 스킬 어워즈 및 Digital Skills EU Days(2026.6.29)에서 디지털·사이버보안 역량 사업 소개
+
+2026.6.29~2026.7.1 브뤼셀에서 개최, 유럽 디지털 스킬 어워즈 및 가상세계·양자·AI 분야 디지털 스킬 아카데미 출범, Cybersecurity Skills Coalition(사이버보안 스킬 연합) 출범 계획 포함
+유럽 집행부위원장 헨나 비르쿤넨이 Digital Skills EU Days에서 디지털 기술 핵심 역량으로 개인을 지원하는 프로젝트에 유럽 디지털 스킬 어워즈를 수여할 예정이다. 행사에서는 가상세계·양자·인공지능 분야의 신규 디지털 스킬 아카데미 출범과 함께, 기존 Cybersecurity Skills Academy를 지원하는 Cybersecurity Skills Coalition 및 European Digital Infrastructure Consortium의 출범도 발표된다. 유럽 ‘Digital Decade’는 2030년까지 성인 80%의 기본 디지털 스킬과 2,000만 명 이상의 ICT 전문가 확보를 목표로 하며, 6월 16일 발표된 Digital Decade 보고서에서는 기본 디지털 스킬 보유자가 60%를 넘었지만 ICT 전문가(특히 여성) 확충을 위해 추가 노력이 필요하다고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/news/executive-vice-president-virkkunen-presents-awards-projects-boosting-digital-skills" onclick="copyEntry(this)">복사</button></div>
+  <p>2026.6.29~2026.7.1 브뤼셀에서 개최, 유럽 디지털 스킬 어워즈 및 가상세계·양자·AI 분야 디지털 스킬 아카데미 출범, Cybersecurity Skills Coalition(사이버보안 스킬 연합) 출범 계획 포함
+유럽 집행부위원장 헨나 비르쿤넨이 Digital Skills EU Days에서 디지털 기술 핵심 역량으로 개인을 지원하는 프로젝트에 유럽 디지털 스킬 어워즈를 수여할 예정이다. 행사에서는 가상세계·양자·인공지능 분야의 신규 디지털 스킬 아카데미 출범과 함께, 기존 Cybersecurity Skills Academy를 지원하는 Cybersecurity Skills Coalition 및 European Digital Infrastructure Consortium의 출범도 발표된다. 유럽 ‘Digital Decade’는 2030년까지 성인 80%의 기본 디지털 스킬과 2,000만 명 이상의 ICT 전문가 확보를 목표로 하며, 6월 16일 발표된 Digital Decade 보고서에서는 기본 디지털 스킬 보유자가 60%를 넘었지만 ICT 전문가(특히 여성) 확충을 위해 추가 노력이 필요하다고 밝혔다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/executive-vice-president-virkkunen-presents-awards-projects-boosting-digital-skills">https://digital-strategy.ec.europa.eu/en/news/executive-vice-president-virkkunen-presents-awards-projects-boosting-digital-skills</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>청소년 대상 더 안전하고 포용적인 소셜미디어 기능 개발·실증 제안 공모(2026.6.29)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽 집행위원회(EU) 디지털 전략</span> · <span class="deadline">공모 기간: 2026.7.30~2026.10.6, 정보 세션: 2026.7.30</span></span><button type="button" class="copy-btn" data-copy="청소년 대상 더 안전하고 포용적인 소셜미디어 기능 개발·실증 제안 공모(2026.6.29)
+
+유럽 집행위원회가 청소년 이용자를 위한 새 소셜미디어 플랫폼의 안전·포용 기능을 만들고 시험하기 위한 제안 공모를 발표했다. 총 148만 유로 규모의 시범사업으로, 여러 국가·배경의 청소년이 신기술 플랫폼의 개념 설계와 개발에 참여하며 사용자 안전, 정신건강, 개인정보 보호, 사용 편의성을 중점으로 한다. 수상 프로젝트는 다양한 청소년과의 공동 창작, 유럽 소셜미디어 시장 조건 분석, 오픈·차세대 플랫폼 개발 또는 고도화, 확산 전략과 성과 인사이트 제공 등을 수행한다.
+
+https://digital-strategy.ec.europa.eu/en/news/new-call-proposals-shape-safer-and-more-inclusive-social-media-platforms" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회가 청소년 이용자를 위한 새 소셜미디어 플랫폼의 안전·포용 기능을 만들고 시험하기 위한 제안 공모를 발표했다. 총 148만 유로 규모의 시범사업으로, 여러 국가·배경의 청소년이 신기술 플랫폼의 개념 설계와 개발에 참여하며 사용자 안전, 정신건강, 개인정보 보호, 사용 편의성을 중점으로 한다. 수상 프로젝트는 다양한 청소년과의 공동 창작, 유럽 소셜미디어 시장 조건 분석, 오픈·차세대 플랫폼 개발 또는 고도화, 확산 전략과 성과 인사이트 제공 등을 수행한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/new-call-proposals-shape-safer-and-more-inclusive-social-media-platforms">https://digital-strategy.ec.europa.eu/en/news/new-call-proposals-shape-safer-and-more-inclusive-social-media-platforms</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>Public Sector Tech Watch ‘Best Cases Award 2026’ 공모(2026.6.29)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회 디지털 전략( EU-Digital-Strategy )</span> · <span class="deadline">제출 마감: 2026.7.13(월) 23:59 CEST (Interoperable Europe Portal 등록 필요)</span></span><button type="button" class="copy-btn" data-copy="Public Sector Tech Watch ‘Best Cases Award 2026’ 공모(2026.6.29)
+
+Public Sector Tech Watch(PSTW) 관측소가 ‘Best Cases Award 2026’의 공모를 공지했다. 유럽의 공공행정이 (생성형) 인공지능, 블록체인, 디지털 트윈, 양자컴퓨팅 등 신기술을 적용해 시민·기업 대상 공공서비스 개선 또는 내부 프로세스·정책 수립 향상에 기여한 사례를 선정한다. 제출한 기관의 솔루션은 PSTW Cases Viewer에 게재될 수 있으며, 선정 기관은 2026년 11월 더블린에서 열리는 SEMIC Conference 2026 연계 시상식에서 발표하고 성과를 담은 영상도 제공받는다. 평가는 영향·가치 창출, 기술 혁신성, 상호운용성(법적·조직적·의미적·기술적), 투명성·개방성, 확장·재사용성, 시험 및 구현 과정 등을 기준(항목별 가중치 포함)으로 진행된다.
+
+https://digital-strategy.ec.europa.eu/en/news/public-sector-tech-watch-best-cases-award-2026" onclick="copyEntry(this)">복사</button></div>
+  <p>Public Sector Tech Watch(PSTW) 관측소가 ‘Best Cases Award 2026’의 공모를 공지했다. 유럽의 공공행정이 (생성형) 인공지능, 블록체인, 디지털 트윈, 양자컴퓨팅 등 신기술을 적용해 시민·기업 대상 공공서비스 개선 또는 내부 프로세스·정책 수립 향상에 기여한 사례를 선정한다. 제출한 기관의 솔루션은 PSTW Cases Viewer에 게재될 수 있으며, 선정 기관은 2026년 11월 더블린에서 열리는 SEMIC Conference 2026 연계 시상식에서 발표하고 성과를 담은 영상도 제공받는다. 평가는 영향·가치 창출, 기술 혁신성, 상호운용성(법적·조직적·의미적·기술적), 투명성·개방성, 확장·재사용성, 시험 및 구현 과정 등을 기준(항목별 가중치 포함)으로 진행된다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/public-sector-tech-watch-best-cases-award-2026">https://digital-strategy.ec.europa.eu/en/news/public-sector-tech-watch-best-cases-award-2026</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>디지털 스킬 EU Days에서 양자·AI·가상세계 3개 Digital Skills Academy 신규 출범 (기사·공고 게재일 2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="디지털 스킬 EU Days에서 양자·AI·가상세계 3개 Digital Skills Academy 신규 출범 (기사·공고 게재일 2026.6.30)
+
+Digital Skills EU Days는 디지털 스킬 관련 150명 이상 이해관계자가 참여하는 연례 행사로, 유럽의 디지털 인재·역량 강화를 목표로 한다. 이번에 Digital Europe Programme 재정 지원을 받아 양자, 인공지능, 가상세계 분야의 3개 아카데미가 출범하며, 해당 기술 도메인 교육을 통해 디지털 10년 목표 달성에 기여할 계획이다. 행사에서는 디지털 스킬 중요성에 대한 기조연설과 함께 European Digital Skills Awards 2026의 부문별 수상작(예: FAIRmat, Generation AI, Scratch Tactile 등)도 발표됐다.
+
+https://digital-strategy.ec.europa.eu/en/news/three-new-academies-launched-digital-skills-eu-days" onclick="copyEntry(this)">복사</button></div>
+  <p>Digital Skills EU Days는 디지털 스킬 관련 150명 이상 이해관계자가 참여하는 연례 행사로, 유럽의 디지털 인재·역량 강화를 목표로 한다. 이번에 Digital Europe Programme 재정 지원을 받아 양자, 인공지능, 가상세계 분야의 3개 아카데미가 출범하며, 해당 기술 도메인 교육을 통해 디지털 10년 목표 달성에 기여할 계획이다. 행사에서는 디지털 스킬 중요성에 대한 기조연설과 함께 European Digital Skills Awards 2026의 부문별 수상작(예: FAIRmat, Generation AI, Scratch Tactile 등)도 발표됐다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/three-new-academies-launched-digital-skills-eu-days">https://digital-strategy.ec.europa.eu/en/news/three-new-academies-launched-digital-skills-eu-days</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>웹 트래픽 기반으로 ChatGPT·Claude·Gemini 사용률(2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">OECD-AI</span></span><button type="button" class="copy-btn" data-copy="웹 트래픽 기반으로 ChatGPT·Claude·Gemini 사용률(2026.6.30)
+
+OECD.AI는 Similarweb의 웹 트래픽 데이터를 활용해 GPAI 국가에서 2024.2~2026.3 기간 GenAI 챗봇( ChatGPT, Claude, Gemini) 월간 사용률을 추정했다. 그 결과 평균 사용률은 2025.1 약 18%에서 2026.1 약 28%로 상승했으며, 2025년에는 일본과 Türkiye에서 증가 폭이 컸다. 또한 연령별로는 25~34세가 가장 높고(2026년 2월 기준 50%+), 65세 이상은 약 8% 수준이었으며, 전반적 사용 확대에는 35세 이상 비중 증가(38%→48%)가 기여한 것으로 제시됐다. 추정치는 Eurostat 및 Microsoft AI Economy Institute의 다른 조사 결과와 상관관계가 각각 0.63, 0.78로 높게 나타났다고 밝혔다.
+
+https://oecd.ai/en/wonk/how-people-are-using-genai-chatbots-evidence-from-web-traffic-data" onclick="copyEntry(this)">복사</button></div>
+  <p>OECD.AI는 Similarweb의 웹 트래픽 데이터를 활용해 GPAI 국가에서 2024.2~2026.3 기간 GenAI 챗봇( ChatGPT, Claude, Gemini) 월간 사용률을 추정했다. 그 결과 평균 사용률은 2025.1 약 18%에서 2026.1 약 28%로 상승했으며, 2025년에는 일본과 Türkiye에서 증가 폭이 컸다. 또한 연령별로는 25~34세가 가장 높고(2026년 2월 기준 50%+), 65세 이상은 약 8% 수준이었으며, 전반적 사용 확대에는 35세 이상 비중 증가(38%→48%)가 기여한 것으로 제시됐다. 추정치는 Eurostat 및 Microsoft AI Economy Institute의 다른 조사 결과와 상관관계가 각각 0.63, 0.78로 높게 나타났다고 밝혔다.</p>
+  <p class="url"><a href="https://oecd.ai/en/wonk/how-people-are-using-genai-chatbots-evidence-from-web-traffic-data">https://oecd.ai/en/wonk/how-people-are-using-genai-chatbots-evidence-from-web-traffic-data</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>(사이버보안 스킬 연합 CSC-EDIC, EU 사이버보안 스킬 아카데미 지원·추진) (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회 EU 디지털 전략(EU-Digital-Strategy)</span> · <span class="deadline">CSC-EDIC는 2026년 6월 30일 EU 집행위 의사결정 채택과 같은 날 출범했으며, 그리스·키프로스·오스트리아·크로아티아·슬로베니아가 설립 회원으로 참여하고 체코·폴란드는 옵서버로 합류한다.</span></span><button type="button" class="copy-btn" data-copy="(사이버보안 스킬 연합 CSC-EDIC, EU 사이버보안 스킬 아카데미 지원·추진) (2026.6.30)
+
+유럽 집행위원회는 참여 회원국과 함께 유럽 사이버보안 핵심 역량을 유럽 인력시장에 확산·고도화하기 위한 CSC-EDIC를 출범시켰다. CSC-EDIC는 2023년 시작된 ‘EU Cybersecurity Skills Academy’를 구현하는 데 핵심 역할을 하며, 맞춤형 사이버보안 교육 프로그램 개발·전달, 역량 격차 측정, Industry-Academia Network의 사무국 역할을 수행한다. 또한 기업의 훈련 참여를 위한 pledges를 통해 의료 등 핵심 부문에서의 사이버 회복탄력성 강화, EU 차원의 사이버보안 역량 인증 체계 지원, 경력 경로 및 마이크로 크레덴셜 설계를 추진한다. Cybersecurity Skills Academy는 지금까지 26개 글로벌 업계 리더의 pledges로 90만 명 이상 사이버 전문가를 훈련했으며 Industry-Academia Network를 통해 10개 파트너십이 구축된 것으로 전해졌다.
+
+https://digital-strategy.ec.europa.eu/en/news/cybersecurity-skills-coalition-edic-set-champion-and-support-eu-cybersecurity-skills-academy" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회는 참여 회원국과 함께 유럽 사이버보안 핵심 역량을 유럽 인력시장에 확산·고도화하기 위한 CSC-EDIC를 출범시켰다. CSC-EDIC는 2023년 시작된 ‘EU Cybersecurity Skills Academy’를 구현하는 데 핵심 역할을 하며, 맞춤형 사이버보안 교육 프로그램 개발·전달, 역량 격차 측정, Industry-Academia Network의 사무국 역할을 수행한다. 또한 기업의 훈련 참여를 위한 pledges를 통해 의료 등 핵심 부문에서의 사이버 회복탄력성 강화, EU 차원의 사이버보안 역량 인증 체계 지원, 경력 경로 및 마이크로 크레덴셜 설계를 추진한다. Cybersecurity Skills Academy는 지금까지 26개 글로벌 업계 리더의 pledges로 90만 명 이상 사이버 전문가를 훈련했으며 Industry-Academia Network를 통해 10개 파트너십이 구축된 것으로 전해졌다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/cybersecurity-skills-coalition-edic-set-champion-and-support-eu-cybersecurity-skills-academy">https://digital-strategy.ec.europa.eu/en/news/cybersecurity-skills-coalition-edic-set-champion-and-support-eu-cybersecurity-skills-academy</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>OpenAI Unveils GPT-5.6 with Government-Managed Preview (2026.6.26)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI Unveils GPT-5.6 with Government-Managed Preview (2026.6.26)
+
+요약불가
+
+https://openai.com/index/previewing-gpt-5-6-sol/" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://openai.com/index/previewing-gpt-5-6-sol/">https://openai.com/index/previewing-gpt-5-6-sol/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Anthropic Alleges Large-Scale AI Model Distillation Campaign (2026.6.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Anthropic Alleges Large-Scale AI Model Distillation Campaign (2026.6.25)
+
+요약불가
+
+https://www.bloomberg.com/news/articles/2026-06-24/anthropic-accuses-alibaba-of-illicitly-accessing-its-ai-models?" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.bloomberg.com/news/articles/2026-06-24/anthropic-accuses-alibaba-of-illicitly-accessing-its-ai-models?">https://www.bloomberg.com/news/articles/2026-06-24/anthropic-accuses-alibaba-of-illicitly-accessing-its-ai-models?</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Bipartisan Initiative Launches $500M AI Workforce Transition Fund (2026.6.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Bipartisan Initiative Launches $500M AI Workforce Transition Fund (2026.6.25)
+
+요약불가
+
+https://www.politico.com/news/2026/06/25/500-million-ai-jobs-push-launches-with-bipartisan-backing-00975439" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.politico.com/news/2026/06/25/500-million-ai-jobs-push-launches-with-bipartisan-backing-00975439">https://www.politico.com/news/2026/06/25/500-million-ai-jobs-push-launches-with-bipartisan-backing-00975439</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>미 정부, Anthropic ‘Claude Mythos 5’ 일부 기관에 재공개(2026.6.27)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Semafor</span> · <span class="deadline">해당 문서에 따르면 2026.6.26(EDT) 블록 해제 결정으로, Mythos 5는 100개 이상 미국 기관(대기업·정부기관 포함)에 제공될 수 있도록 조치됨</span></span><button type="button" class="copy-btn" data-copy="미 정부, Anthropic ‘Claude Mythos 5’ 일부 기관에 재공개(2026.6.27)
+
+미국 정부가 Anthropic의 ‘Claude Mythos 5’ 모델에 대한 차단을 해제해, 100개 이상 미국 기관이 모델에 접근할 수 있게 했다. 이는 앞서 행정부가 Mythos에 대해 수출통제 조치를 내리며 모델과 관련 모델(Fable 5)을 중단시킨 뒤, 정부와 Anthropic 간 협상에서 “적절한 안전장치”가 마련됐다는 판단에 따른 것으로 전해진다. 다만 Fable 5의 해제 시점은 언급이 없거나 일정이 불명확하다고 보도했다.
+
+https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies" onclick="copyEntry(this)">복사</button></div>
+  <p>미국 정부가 Anthropic의 ‘Claude Mythos 5’ 모델에 대한 차단을 해제해, 100개 이상 미국 기관이 모델에 접근할 수 있게 했다. 이는 앞서 행정부가 Mythos에 대해 수출통제 조치를 내리며 모델과 관련 모델(Fable 5)을 중단시킨 뒤, 정부와 Anthropic 간 협상에서 “적절한 안전장치”가 마련됐다는 판단에 따른 것으로 전해진다. 다만 Fable 5의 해제 시점은 언급이 없거나 일정이 불명확하다고 보도했다.</p>
+  <p class="url"><a href="https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies">https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies</a></p>
+</article>
+<article class="entry cat-db">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">AA-Briefcase, 장기 지식업무 에이전트를 평가하는 벤치마크(2024.6.13)</span></span><button type="button" class="copy-btn" data-copy="
+
+AA-Briefcase는 장기적 지식업무(long-horizon knowledge work)에서 스프레드시트·프레젠테이션·메모 등 산출물을 만들어야 하는 에이전트를 대상으로 한 민간 평가로, 4개 멀티위크 시나리오(총 91개 task)로 구성된다. 각 task는 3개 차원(루브릭 체크 통과 여부, Analytical Quality, Presentation Quality)으로 채점되며, 루브릭은 이진 pass/fail로 운영되고 Analytical Quality·Presentation은 다른 모델 제출물과의 pairwise 비교로 평가된다. 결과 지표인 AA-Briefcase Elo는 루브릭 pass rate와 두 pairwise Elo를 합산한 복합지표이며, Elo와 95% 신뢰구간 경계값은 0으로 클램프된다. 또한 task 수행 비용(토큰/캐시 사용)·시간(벽시계 기준)·턴 수·도구 호출 등 운영 효율 지표도 함께 제시한다.
+
+https://artificialanalysis.ai/evaluations/aa-briefcase?" onclick="copyEntry(this)">복사</button></div>
+  <p>AA-Briefcase는 장기적 지식업무(long-horizon knowledge work)에서 스프레드시트·프레젠테이션·메모 등 산출물을 만들어야 하는 에이전트를 대상으로 한 민간 평가로, 4개 멀티위크 시나리오(총 91개 task)로 구성된다. 각 task는 3개 차원(루브릭 체크 통과 여부, Analytical Quality, Presentation Quality)으로 채점되며, 루브릭은 이진 pass/fail로 운영되고 Analytical Quality·Presentation은 다른 모델 제출물과의 pairwise 비교로 평가된다. 결과 지표인 AA-Briefcase Elo는 루브릭 pass rate와 두 pairwise Elo를 합산한 복합지표이며, Elo와 95% 신뢰구간 경계값은 0으로 클램프된다. 또한 task 수행 비용(토큰/캐시 사용)·시간(벽시계 기준)·턴 수·도구 호출 등 운영 효율 지표도 함께 제시한다.</p>
+  <p class="url"><a href="https://artificialanalysis.ai/evaluations/aa-briefcase?">https://artificialanalysis.ai/evaluations/aa-briefcase?</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>OpenAI Introduces GeneBench-Pro Benchmark for AI in Computational Biology (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI Introduces GeneBench-Pro Benchmark for AI in Computational Biology (2026.6.30)
+
+요약불가
+
+https://openai.com/index/introducing-genebench-pro/" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://openai.com/index/introducing-genebench-pro/">https://openai.com/index/introducing-genebench-pro/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(Anthropic Economic Index report 게재일 2026.6.26)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">안트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="(Anthropic Economic Index report 게재일 2026.6.26)
+
+미국의 세금 신고 마감일(4월 15일) 전후에 세금 관련 대화 비중이 크게 늘고, 주말에는 개인적 용도의 대화 비중이 상승하는 등 사용 패턴이 업무 주간·일상 리듬을 따라 변한다. 챕터에서는 대화 산출물(artifact) 분류 결과 대다수(93%) 대화에서 산출물이 생성되며, 설명(17%), 문서·보고서(15%), 가이드(11%)가 주요 유형으로 나타난다고 밝혔다. 또한 작업 관련 대화만 놓고 보면, 대화가 소모하는 토큰(계산량)이 높은 임금 직군에서 더 큰 경향이 있어 “compute가 일의 가치와 함께 스케일”한다고 설명했다.
+
+https://www.anthropic.com/research/economic-index-june-2026-report?" onclick="copyEntry(this)">복사</button></div>
+  <p>미국의 세금 신고 마감일(4월 15일) 전후에 세금 관련 대화 비중이 크게 늘고, 주말에는 개인적 용도의 대화 비중이 상승하는 등 사용 패턴이 업무 주간·일상 리듬을 따라 변한다. 챕터에서는 대화 산출물(artifact) 분류 결과 대다수(93%) 대화에서 산출물이 생성되며, 설명(17%), 문서·보고서(15%), 가이드(11%)가 주요 유형으로 나타난다고 밝혔다. 또한 작업 관련 대화만 놓고 보면, 대화가 소모하는 토큰(계산량)이 높은 임금 직군에서 더 큰 경향이 있어 “compute가 일의 가치와 함께 스케일”한다고 설명했다.</p>
+  <p class="url"><a href="https://www.anthropic.com/research/economic-index-june-2026-report?">https://www.anthropic.com/research/economic-index-june-2026-report?</a></p>
+</article>
 <article class="entry cat-other">
   <h2>ADRF26 포르투에서 2026.10.13~14 개최 예정(2026.10.13)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">ADRF(adrforum.eu)</span></span><button type="button" class="copy-btn" data-copy="ADRF26 포르투에서 2026.10.13~14 개최 예정(2026.10.13)
@@ -175,48 +330,6 @@ https://adrforum.eu/about-adrf26" onclick="copyEntry(this)">복사</button></div
 https://aifrontiersmedia.substack.com/p/three-models-of-sino-american-competition" onclick="copyEntry(this)">복사</button></div>
   <p>본문 요약불가</p>
   <p class="url"><a href="https://aifrontiersmedia.substack.com/p/three-models-of-sino-american-competition">https://aifrontiersmedia.substack.com/p/three-models-of-sino-american-competition</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>헨나 비르쿤넨 집행부위원장, 유럽 디지털 스킬 어워즈 및 Digital Skills EU Days(2026.6.29)에서 디지털·사이버보안 역량 사업 소개</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="헨나 비르쿤넨 집행부위원장, 유럽 디지털 스킬 어워즈 및 Digital Skills EU Days(2026.6.29)에서 디지털·사이버보안 역량 사업 소개
-
-2026.6.29~2026.7.1 브뤼셀에서 개최, 유럽 디지털 스킬 어워즈 및 가상세계·양자·AI 분야 디지털 스킬 아카데미 출범, Cybersecurity Skills Coalition(사이버보안 스킬 연합) 출범 계획 포함
-유럽 집행부위원장 헨나 비르쿤넨이 Digital Skills EU Days에서 디지털 기술 핵심 역량으로 개인을 지원하는 프로젝트에 유럽 디지털 스킬 어워즈를 수여할 예정이다. 행사에서는 가상세계·양자·인공지능 분야의 신규 디지털 스킬 아카데미 출범과 함께, 기존 Cybersecurity Skills Academy를 지원하는 Cybersecurity Skills Coalition 및 European Digital Infrastructure Consortium의 출범도 발표된다. 유럽 ‘Digital Decade’는 2030년까지 성인 80%의 기본 디지털 스킬과 2,000만 명 이상의 ICT 전문가 확보를 목표로 하며, 6월 16일 발표된 Digital Decade 보고서에서는 기본 디지털 스킬 보유자가 60%를 넘었지만 ICT 전문가(특히 여성) 확충을 위해 추가 노력이 필요하다고 밝혔다.
-
-https://digital-strategy.ec.europa.eu/en/news/executive-vice-president-virkkunen-presents-awards-projects-boosting-digital-skills" onclick="copyEntry(this)">복사</button></div>
-  <p>2026.6.29~2026.7.1 브뤼셀에서 개최, 유럽 디지털 스킬 어워즈 및 가상세계·양자·AI 분야 디지털 스킬 아카데미 출범, Cybersecurity Skills Coalition(사이버보안 스킬 연합) 출범 계획 포함
-유럽 집행부위원장 헨나 비르쿤넨이 Digital Skills EU Days에서 디지털 기술 핵심 역량으로 개인을 지원하는 프로젝트에 유럽 디지털 스킬 어워즈를 수여할 예정이다. 행사에서는 가상세계·양자·인공지능 분야의 신규 디지털 스킬 아카데미 출범과 함께, 기존 Cybersecurity Skills Academy를 지원하는 Cybersecurity Skills Coalition 및 European Digital Infrastructure Consortium의 출범도 발표된다. 유럽 ‘Digital Decade’는 2030년까지 성인 80%의 기본 디지털 스킬과 2,000만 명 이상의 ICT 전문가 확보를 목표로 하며, 6월 16일 발표된 Digital Decade 보고서에서는 기본 디지털 스킬 보유자가 60%를 넘었지만 ICT 전문가(특히 여성) 확충을 위해 추가 노력이 필요하다고 밝혔다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/executive-vice-president-virkkunen-presents-awards-projects-boosting-digital-skills">https://digital-strategy.ec.europa.eu/en/news/executive-vice-president-virkkunen-presents-awards-projects-boosting-digital-skills</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>청소년 대상 더 안전하고 포용적인 소셜미디어 기능 개발·실증 제안 공모(2026.6.29)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(EU) 디지털 전략</span> · <span class="deadline">공모 기간: 2026.7.30~2026.10.6, 정보 세션: 2026.7.30</span></span><button type="button" class="copy-btn" data-copy="청소년 대상 더 안전하고 포용적인 소셜미디어 기능 개발·실증 제안 공모(2026.6.29)
-
-유럽 집행위원회가 청소년 이용자를 위한 새 소셜미디어 플랫폼의 안전·포용 기능을 만들고 시험하기 위한 제안 공모를 발표했다. 총 148만 유로 규모의 시범사업으로, 여러 국가·배경의 청소년이 신기술 플랫폼의 개념 설계와 개발에 참여하며 사용자 안전, 정신건강, 개인정보 보호, 사용 편의성을 중점으로 한다. 수상 프로젝트는 다양한 청소년과의 공동 창작, 유럽 소셜미디어 시장 조건 분석, 오픈·차세대 플랫폼 개발 또는 고도화, 확산 전략과 성과 인사이트 제공 등을 수행한다.
-
-https://digital-strategy.ec.europa.eu/en/news/new-call-proposals-shape-safer-and-more-inclusive-social-media-platforms" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위원회가 청소년 이용자를 위한 새 소셜미디어 플랫폼의 안전·포용 기능을 만들고 시험하기 위한 제안 공모를 발표했다. 총 148만 유로 규모의 시범사업으로, 여러 국가·배경의 청소년이 신기술 플랫폼의 개념 설계와 개발에 참여하며 사용자 안전, 정신건강, 개인정보 보호, 사용 편의성을 중점으로 한다. 수상 프로젝트는 다양한 청소년과의 공동 창작, 유럽 소셜미디어 시장 조건 분석, 오픈·차세대 플랫폼 개발 또는 고도화, 확산 전략과 성과 인사이트 제공 등을 수행한다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/new-call-proposals-shape-safer-and-more-inclusive-social-media-platforms">https://digital-strategy.ec.europa.eu/en/news/new-call-proposals-shape-safer-and-more-inclusive-social-media-platforms</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>Public Sector Tech Watch ‘Best Cases Award 2026’ 공모(2026.6.29)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회 디지털 전략( EU-Digital-Strategy )</span> · <span class="deadline">제출 마감: 2026.7.13(월) 23:59 CEST (Interoperable Europe Portal 등록 필요)</span></span><button type="button" class="copy-btn" data-copy="Public Sector Tech Watch ‘Best Cases Award 2026’ 공모(2026.6.29)
-
-Public Sector Tech Watch(PSTW) 관측소가 ‘Best Cases Award 2026’의 공모를 공지했다. 유럽의 공공행정이 (생성형) 인공지능, 블록체인, 디지털 트윈, 양자컴퓨팅 등 신기술을 적용해 시민·기업 대상 공공서비스 개선 또는 내부 프로세스·정책 수립 향상에 기여한 사례를 선정한다. 제출한 기관의 솔루션은 PSTW Cases Viewer에 게재될 수 있으며, 선정 기관은 2026년 11월 더블린에서 열리는 SEMIC Conference 2026 연계 시상식에서 발표하고 성과를 담은 영상도 제공받는다. 평가는 영향·가치 창출, 기술 혁신성, 상호운용성(법적·조직적·의미적·기술적), 투명성·개방성, 확장·재사용성, 시험 및 구현 과정 등을 기준(항목별 가중치 포함)으로 진행된다.
-
-https://digital-strategy.ec.europa.eu/en/news/public-sector-tech-watch-best-cases-award-2026" onclick="copyEntry(this)">복사</button></div>
-  <p>Public Sector Tech Watch(PSTW) 관측소가 ‘Best Cases Award 2026’의 공모를 공지했다. 유럽의 공공행정이 (생성형) 인공지능, 블록체인, 디지털 트윈, 양자컴퓨팅 등 신기술을 적용해 시민·기업 대상 공공서비스 개선 또는 내부 프로세스·정책 수립 향상에 기여한 사례를 선정한다. 제출한 기관의 솔루션은 PSTW Cases Viewer에 게재될 수 있으며, 선정 기관은 2026년 11월 더블린에서 열리는 SEMIC Conference 2026 연계 시상식에서 발표하고 성과를 담은 영상도 제공받는다. 평가는 영향·가치 창출, 기술 혁신성, 상호운용성(법적·조직적·의미적·기술적), 투명성·개방성, 확장·재사용성, 시험 및 구현 과정 등을 기준(항목별 가중치 포함)으로 진행된다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/public-sector-tech-watch-best-cases-award-2026">https://digital-strategy.ec.europa.eu/en/news/public-sector-tech-watch-best-cases-award-2026</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>디지털 스킬 EU Days에서 양자·AI·가상세계 3개 Digital Skills Academy 신규 출범 (기사·공고 게재일 2026.6.30)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="디지털 스킬 EU Days에서 양자·AI·가상세계 3개 Digital Skills Academy 신규 출범 (기사·공고 게재일 2026.6.30)
-
-Digital Skills EU Days는 디지털 스킬 관련 150명 이상 이해관계자가 참여하는 연례 행사로, 유럽의 디지털 인재·역량 강화를 목표로 한다. 이번에 Digital Europe Programme 재정 지원을 받아 양자, 인공지능, 가상세계 분야의 3개 아카데미가 출범하며, 해당 기술 도메인 교육을 통해 디지털 10년 목표 달성에 기여할 계획이다. 행사에서는 디지털 스킬 중요성에 대한 기조연설과 함께 European Digital Skills Awards 2026의 부문별 수상작(예: FAIRmat, Generation AI, Scratch Tactile 등)도 발표됐다.
-
-https://digital-strategy.ec.europa.eu/en/news/three-new-academies-launched-digital-skills-eu-days" onclick="copyEntry(this)">복사</button></div>
-  <p>Digital Skills EU Days는 디지털 스킬 관련 150명 이상 이해관계자가 참여하는 연례 행사로, 유럽의 디지털 인재·역량 강화를 목표로 한다. 이번에 Digital Europe Programme 재정 지원을 받아 양자, 인공지능, 가상세계 분야의 3개 아카데미가 출범하며, 해당 기술 도메인 교육을 통해 디지털 10년 목표 달성에 기여할 계획이다. 행사에서는 디지털 스킬 중요성에 대한 기조연설과 함께 European Digital Skills Awards 2026의 부문별 수상작(예: FAIRmat, Generation AI, Scratch Tactile 등)도 발표됐다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/three-new-academies-launched-digital-skills-eu-days">https://digital-strategy.ec.europa.eu/en/news/three-new-academies-launched-digital-skills-eu-days</a></p>
 </article>
 <article class="entry cat-other">
   <h2>LongCat-2.0(2026.6.30): 미투안이 공개한 1.6조 파라미터 MoE AI, 중국 내 칩으로 학습·추론 수행 주장(미확인)</h2>
@@ -267,16 +380,6 @@ https://institute.commonsensemedia.org/risk-assessments" onclick="copyEntry(this
 https://m.etnews.com/20260630000428" onclick="copyEntry(this)">복사</button></div>
   <p>과학기술정보통신부와 한국지능정보사회진흥원(NIA)은 6월 30일 NIA 서울사무소에서 AI정책센터 개소식을 열고 국가 AI 정책 수립과 법·제도 정비, AI 확산 영향 분석을 지원한다고 밝혔다. AI정책센터는 AI 기본법에 따라 지난 4월 과기정통부로부터 지정됐으며, NIA 인공지능정책실에서 5개 팀 59명 규모로 운영될 예정이다. 센터는 정책 개발, 영향 조사·분석, 동향 분석, 법제도 연구 등을 주요 업무로 수행하고, AI 기본계획 수립·이행 및 하위법령 정비와 가이드라인 마련에도 참여할 계획이다.</p>
   <p class="url"><a href="https://m.etnews.com/20260630000428">https://m.etnews.com/20260630000428</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>웹 트래픽 기반으로 ChatGPT·Claude·Gemini 사용률(2026.6.30)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">OECD-AI</span></span><button type="button" class="copy-btn" data-copy="웹 트래픽 기반으로 ChatGPT·Claude·Gemini 사용률(2026.6.30)
-
-OECD.AI는 Similarweb의 웹 트래픽 데이터를 활용해 GPAI 국가에서 2024.2~2026.3 기간 GenAI 챗봇( ChatGPT, Claude, Gemini) 월간 사용률을 추정했다. 그 결과 평균 사용률은 2025.1 약 18%에서 2026.1 약 28%로 상승했으며, 2025년에는 일본과 Türkiye에서 증가 폭이 컸다. 또한 연령별로는 25~34세가 가장 높고(2026년 2월 기준 50%+), 65세 이상은 약 8% 수준이었으며, 전반적 사용 확대에는 35세 이상 비중 증가(38%→48%)가 기여한 것으로 제시됐다. 추정치는 Eurostat 및 Microsoft AI Economy Institute의 다른 조사 결과와 상관관계가 각각 0.63, 0.78로 높게 나타났다고 밝혔다.
-
-https://oecd.ai/en/wonk/how-people-are-using-genai-chatbots-evidence-from-web-traffic-data" onclick="copyEntry(this)">복사</button></div>
-  <p>OECD.AI는 Similarweb의 웹 트래픽 데이터를 활용해 GPAI 국가에서 2024.2~2026.3 기간 GenAI 챗봇( ChatGPT, Claude, Gemini) 월간 사용률을 추정했다. 그 결과 평균 사용률은 2025.1 약 18%에서 2026.1 약 28%로 상승했으며, 2025년에는 일본과 Türkiye에서 증가 폭이 컸다. 또한 연령별로는 25~34세가 가장 높고(2026년 2월 기준 50%+), 65세 이상은 약 8% 수준이었으며, 전반적 사용 확대에는 35세 이상 비중 증가(38%→48%)가 기여한 것으로 제시됐다. 추정치는 Eurostat 및 Microsoft AI Economy Institute의 다른 조사 결과와 상관관계가 각각 0.63, 0.78로 높게 나타났다고 밝혔다.</p>
-  <p class="url"><a href="https://oecd.ai/en/wonk/how-people-are-using-genai-chatbots-evidence-from-web-traffic-data">https://oecd.ai/en/wonk/how-people-are-using-genai-chatbots-evidence-from-web-traffic-data</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>[정보화정책 저널 제33권 제2호] 생성형 AI의 일상화가 인간-인공지능 관계를 ‘관계화’로 바꾸며 새 정책 쟁점을 제기한다 (2026.6.30)</h2>
@@ -368,16 +471,6 @@ https://youtube.com/watch?v=p9Olet2OqlA" onclick="copyEntry(this)">복사</butto
   <p class="unavailable">요약불가 (본문 확인 필요)</p>
   <p class="url"><a href="https://youtube.com/watch?v=p9Olet2OqlA">https://youtube.com/watch?v=p9Olet2OqlA</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>(사이버보안 스킬 연합 CSC-EDIC, EU 사이버보안 스킬 아카데미 지원·추진) (2026.6.30)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회 EU 디지털 전략(EU-Digital-Strategy)</span> · <span class="deadline">CSC-EDIC는 2026년 6월 30일 EU 집행위 의사결정 채택과 같은 날 출범했으며, 그리스·키프로스·오스트리아·크로아티아·슬로베니아가 설립 회원으로 참여하고 체코·폴란드는 옵서버로 합류한다.</span></span><button type="button" class="copy-btn" data-copy="(사이버보안 스킬 연합 CSC-EDIC, EU 사이버보안 스킬 아카데미 지원·추진) (2026.6.30)
-
-유럽 집행위원회는 참여 회원국과 함께 유럽 사이버보안 핵심 역량을 유럽 인력시장에 확산·고도화하기 위한 CSC-EDIC를 출범시켰다. CSC-EDIC는 2023년 시작된 ‘EU Cybersecurity Skills Academy’를 구현하는 데 핵심 역할을 하며, 맞춤형 사이버보안 교육 프로그램 개발·전달, 역량 격차 측정, Industry-Academia Network의 사무국 역할을 수행한다. 또한 기업의 훈련 참여를 위한 pledges를 통해 의료 등 핵심 부문에서의 사이버 회복탄력성 강화, EU 차원의 사이버보안 역량 인증 체계 지원, 경력 경로 및 마이크로 크레덴셜 설계를 추진한다. Cybersecurity Skills Academy는 지금까지 26개 글로벌 업계 리더의 pledges로 90만 명 이상 사이버 전문가를 훈련했으며 Industry-Academia Network를 통해 10개 파트너십이 구축된 것으로 전해졌다.
-
-https://digital-strategy.ec.europa.eu/en/news/cybersecurity-skills-coalition-edic-set-champion-and-support-eu-cybersecurity-skills-academy" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위원회는 참여 회원국과 함께 유럽 사이버보안 핵심 역량을 유럽 인력시장에 확산·고도화하기 위한 CSC-EDIC를 출범시켰다. CSC-EDIC는 2023년 시작된 ‘EU Cybersecurity Skills Academy’를 구현하는 데 핵심 역할을 하며, 맞춤형 사이버보안 교육 프로그램 개발·전달, 역량 격차 측정, Industry-Academia Network의 사무국 역할을 수행한다. 또한 기업의 훈련 참여를 위한 pledges를 통해 의료 등 핵심 부문에서의 사이버 회복탄력성 강화, EU 차원의 사이버보안 역량 인증 체계 지원, 경력 경로 및 마이크로 크레덴셜 설계를 추진한다. Cybersecurity Skills Academy는 지금까지 26개 글로벌 업계 리더의 pledges로 90만 명 이상 사이버 전문가를 훈련했으며 Industry-Academia Network를 통해 10개 파트너십이 구축된 것으로 전해졌다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/cybersecurity-skills-coalition-edic-set-champion-and-support-eu-cybersecurity-skills-academy">https://digital-strategy.ec.europa.eu/en/news/cybersecurity-skills-coalition-edic-set-champion-and-support-eu-cybersecurity-skills-academy</a></p>
-</article>
 <article class="entry cat-other">
   <h2>미국 정부의 AI security 정책에서 “누가 무엇을 하는지” 개관(2026.7.1)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Horizon Launchpad(Substack)</span> · <span class="deadline">이 글은 백악관의 EO(Advancing AI innovation and security)와 NSPM-11, 그리고 관련 전문가들이 본 정부 내 AI 보안 역할 분담을 정리한다. 백악관은 조정·컨설팅 중심이며 ONCD가 EO 작성에 크게 관여하고, OSTP는 분류된 분기점 지표(benchmark) 및 compute roadmap 관련 역할을 한다고 전한다. NSA는 ‘covered frontier model’ 지정과 파트너십·AI Security Center 등을 통한 평가/보안 강화에 관여하며, 상무부 CAISI는 평가 역할의 범위가 제한되거나 향후 축이 바뀔 가능성이 언급된다.</span></span><button type="button" class="copy-btn" data-copy="미국 정부의 AI security 정책에서 “누가 무엇을 하는지” 개관(2026.7.1)
@@ -452,56 +545,6 @@ https://arxiv.org/abs/2606.31916v1" onclick="copyEntry(this)">복사</button></d
   <p class="url"><a href="https://arxiv.org/abs/2606.31916v1">https://arxiv.org/abs/2606.31916v1</a></p>
 </article>
 <article class="entry cat-research">
-  <h2>OpenAI Unveils GPT-5.6 with Government-Managed Preview (2026.6.26)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI Unveils GPT-5.6 with Government-Managed Preview (2026.6.26)
-
-요약불가
-
-https://openai.com/index/previewing-gpt-5-6-sol/" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://openai.com/index/previewing-gpt-5-6-sol/">https://openai.com/index/previewing-gpt-5-6-sol/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Anthropic Alleges Large-Scale AI Model Distillation Campaign (2026.6.25)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Anthropic Alleges Large-Scale AI Model Distillation Campaign (2026.6.25)
-
-요약불가
-
-https://www.bloomberg.com/news/articles/2026-06-24/anthropic-accuses-alibaba-of-illicitly-accessing-its-ai-models?" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://www.bloomberg.com/news/articles/2026-06-24/anthropic-accuses-alibaba-of-illicitly-accessing-its-ai-models?">https://www.bloomberg.com/news/articles/2026-06-24/anthropic-accuses-alibaba-of-illicitly-accessing-its-ai-models?</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Bipartisan Initiative Launches $500M AI Workforce Transition Fund (2026.6.25)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Bipartisan Initiative Launches $500M AI Workforce Transition Fund (2026.6.25)
-
-요약불가
-
-https://www.politico.com/news/2026/06/25/500-million-ai-jobs-push-launches-with-bipartisan-backing-00975439" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://www.politico.com/news/2026/06/25/500-million-ai-jobs-push-launches-with-bipartisan-backing-00975439">https://www.politico.com/news/2026/06/25/500-million-ai-jobs-push-launches-with-bipartisan-backing-00975439</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>미 정부, Anthropic ‘Claude Mythos 5’ 일부 기관에 재공개(2026.6.27)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Semafor</span> · <span class="deadline">해당 문서에 따르면 2026.6.26(EDT) 블록 해제 결정으로, Mythos 5는 100개 이상 미국 기관(대기업·정부기관 포함)에 제공될 수 있도록 조치됨</span></span><button type="button" class="copy-btn" data-copy="미 정부, Anthropic ‘Claude Mythos 5’ 일부 기관에 재공개(2026.6.27)
-
-미국 정부가 Anthropic의 ‘Claude Mythos 5’ 모델에 대한 차단을 해제해, 100개 이상 미국 기관이 모델에 접근할 수 있게 했다. 이는 앞서 행정부가 Mythos에 대해 수출통제 조치를 내리며 모델과 관련 모델(Fable 5)을 중단시킨 뒤, 정부와 Anthropic 간 협상에서 “적절한 안전장치”가 마련됐다는 판단에 따른 것으로 전해진다. 다만 Fable 5의 해제 시점은 언급이 없거나 일정이 불명확하다고 보도했다.
-
-https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies" onclick="copyEntry(this)">복사</button></div>
-  <p>미국 정부가 Anthropic의 ‘Claude Mythos 5’ 모델에 대한 차단을 해제해, 100개 이상 미국 기관이 모델에 접근할 수 있게 했다. 이는 앞서 행정부가 Mythos에 대해 수출통제 조치를 내리며 모델과 관련 모델(Fable 5)을 중단시킨 뒤, 정부와 Anthropic 간 협상에서 “적절한 안전장치”가 마련됐다는 판단에 따른 것으로 전해진다. 다만 Fable 5의 해제 시점은 언급이 없거나 일정이 불명확하다고 보도했다.</p>
-  <p class="url"><a href="https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies">https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies</a></p>
-</article>
-<article class="entry cat-research">
-  <h2></h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">AA-Briefcase, 장기 지식업무 에이전트를 평가하는 벤치마크(2024.6.13)</span></span><button type="button" class="copy-btn" data-copy="
-
-AA-Briefcase는 장기적 지식업무(long-horizon knowledge work)에서 스프레드시트·프레젠테이션·메모 등 산출물을 만들어야 하는 에이전트를 대상으로 한 민간 평가로, 4개 멀티위크 시나리오(총 91개 task)로 구성된다. 각 task는 3개 차원(루브릭 체크 통과 여부, Analytical Quality, Presentation Quality)으로 채점되며, 루브릭은 이진 pass/fail로 운영되고 Analytical Quality·Presentation은 다른 모델 제출물과의 pairwise 비교로 평가된다. 결과 지표인 AA-Briefcase Elo는 루브릭 pass rate와 두 pairwise Elo를 합산한 복합지표이며, Elo와 95% 신뢰구간 경계값은 0으로 클램프된다. 또한 task 수행 비용(토큰/캐시 사용)·시간(벽시계 기준)·턴 수·도구 호출 등 운영 효율 지표도 함께 제시한다.
-
-https://artificialanalysis.ai/evaluations/aa-briefcase?" onclick="copyEntry(this)">복사</button></div>
-  <p>AA-Briefcase는 장기적 지식업무(long-horizon knowledge work)에서 스프레드시트·프레젠테이션·메모 등 산출물을 만들어야 하는 에이전트를 대상으로 한 민간 평가로, 4개 멀티위크 시나리오(총 91개 task)로 구성된다. 각 task는 3개 차원(루브릭 체크 통과 여부, Analytical Quality, Presentation Quality)으로 채점되며, 루브릭은 이진 pass/fail로 운영되고 Analytical Quality·Presentation은 다른 모델 제출물과의 pairwise 비교로 평가된다. 결과 지표인 AA-Briefcase Elo는 루브릭 pass rate와 두 pairwise Elo를 합산한 복합지표이며, Elo와 95% 신뢰구간 경계값은 0으로 클램프된다. 또한 task 수행 비용(토큰/캐시 사용)·시간(벽시계 기준)·턴 수·도구 호출 등 운영 효율 지표도 함께 제시한다.</p>
-  <p class="url"><a href="https://artificialanalysis.ai/evaluations/aa-briefcase?">https://artificialanalysis.ai/evaluations/aa-briefcase?</a></p>
-</article>
-<article class="entry cat-research">
   <h2>RedVox: Safety and Fairness Gaps in Speech Models Across Languages (2026.6.25)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="RedVox: Safety and Fairness Gaps in Speech Models Across Languages (2026.6.25)
 
@@ -511,27 +554,7 @@ https://arxiv.org/abs/2606.26968" onclick="copyEntry(this)">복사</button></div
   <p>RedVox는 음성·발화 기반 모델의 안전성과 공정성이 영어 외 언어 및 자연스러운 입력 조건에서 어떻게 달라지는지 측정하는 다국어 벤치마크를 제시한다. 상태-of-the-art speech model 릴리스들의 안전 보고 관행을 조사한 결과, 다국어 분석을 문서화한 비율은 8%에 그쳤고, RedVox는 5개 언어(English, French, Italian, Spanish, German)에서 unsafe 요청과 불공정한 stereotypical 요청을 다룬다. 8개 SOTA 음성 모델 평가에서 취약점은 non-adversarial 조건에서도 지속되며, 비영어 언어에서 악화되고, 요청이 spoken input에서 주어질 때 증폭된다. refused / complied / unclear는 각각 모델이 안전 정책을 거절한 경우 / 요청을 수용한 경우 / 판단 가능하지 않은 출력(비어있거나 오언어 등)인 경우를 뜻한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2606.26968">https://arxiv.org/abs/2606.26968</a></p>
 </article>
-<article class="entry cat-research">
-  <h2>OpenAI Introduces GeneBench-Pro Benchmark for AI in Computational Biology (2026.6.30)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI Introduces GeneBench-Pro Benchmark for AI in Computational Biology (2026.6.30)
-
-요약불가
-
-https://openai.com/index/introducing-genebench-pro/" onclick="copyEntry(this)">복사</button></div>
-  <p class="unavailable">요약불가 (본문 확인 필요)</p>
-  <p class="url"><a href="https://openai.com/index/introducing-genebench-pro/">https://openai.com/index/introducing-genebench-pro/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(Anthropic Economic Index report 게재일 2026.6.26)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">안트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="(Anthropic Economic Index report 게재일 2026.6.26)
-
-미국의 세금 신고 마감일(4월 15일) 전후에 세금 관련 대화 비중이 크게 늘고, 주말에는 개인적 용도의 대화 비중이 상승하는 등 사용 패턴이 업무 주간·일상 리듬을 따라 변한다. 챕터에서는 대화 산출물(artifact) 분류 결과 대다수(93%) 대화에서 산출물이 생성되며, 설명(17%), 문서·보고서(15%), 가이드(11%)가 주요 유형으로 나타난다고 밝혔다. 또한 작업 관련 대화만 놓고 보면, 대화가 소모하는 토큰(계산량)이 높은 임금 직군에서 더 큰 경향이 있어 “compute가 일의 가치와 함께 스케일”한다고 설명했다.
-
-https://www.anthropic.com/research/economic-index-june-2026-report?" onclick="copyEntry(this)">복사</button></div>
-  <p>미국의 세금 신고 마감일(4월 15일) 전후에 세금 관련 대화 비중이 크게 늘고, 주말에는 개인적 용도의 대화 비중이 상승하는 등 사용 패턴이 업무 주간·일상 리듬을 따라 변한다. 챕터에서는 대화 산출물(artifact) 분류 결과 대다수(93%) 대화에서 산출물이 생성되며, 설명(17%), 문서·보고서(15%), 가이드(11%)가 주요 유형으로 나타난다고 밝혔다. 또한 작업 관련 대화만 놓고 보면, 대화가 소모하는 토큰(계산량)이 높은 임금 직군에서 더 큰 경향이 있어 “compute가 일의 가치와 함께 스케일”한다고 설명했다.</p>
-  <p class="url"><a href="https://www.anthropic.com/research/economic-index-june-2026-report?">https://www.anthropic.com/research/economic-index-june-2026-report?</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -129,6 +152,109 @@ https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/" onclick=
 <p>확인 필요: OpenAI는 SWE-bench Verified가 프런티어 코딩 능력을 적절히 반영하지 못한다는 이유로 더 이상 해당 벤치마크를 평가에 사용하지 않기로 했다는 취지의 글로 보입니다. 다만 본문 내용이 없어, 평가 중단의 세부 논리와 향후 사용할 대안(다른 벤치마크 또는 평가 방식)까지는 확인이 필요합니다.</p>
   <p class="url"><a href="https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/">https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/</a></p>
 </article>
+<article class="entry cat-intl-org">
+  <h2>유럽 집행위, EU 사안 독립적 범유럽 보도를 지원하는 공모(2026.4.16)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU 디지털 전략(유럽 집행위원회)</span> · <span class="deadline">공모 마감: 2026.6.2</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, EU 사안 독립적 범유럽 보도를 지원하는 공모(2026.4.16)
+
+유럽 집행위원회는 유럽 언론이 EU 사안에 대해 독립적으로 범유럽 수준의 오디오비주얼·디지털 보도를 할 수 있도록 지원하는 제안 공모를 시작했다. 이번 공모 예산은 총 1,660만 유로이며, 오디오비주얼 뉴스 보도 확대(8.5백만 유로), 특정 회원국에서 국제 오디오비주얼 뉴스 미디어 제공 개발(3.1백만 유로), 신뢰할 수 있고 전문적으로 제작된 온라인 정보 접근성 제고(5백만 유로)로 나뉜다. 단일 신청 또는 컨소시엄 형태가 가능하며, 활동은 EU 회원국에 설립된 조직이 수행해야 하고 언론 수혜자는 완전한 편집 독립성을 유지해야 한다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-invests-eu16-million-pan-european-reporting" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회는 유럽 언론이 EU 사안에 대해 독립적으로 범유럽 수준의 오디오비주얼·디지털 보도를 할 수 있도록 지원하는 제안 공모를 시작했다. 이번 공모 예산은 총 1,660만 유로이며, 오디오비주얼 뉴스 보도 확대(8.5백만 유로), 특정 회원국에서 국제 오디오비주얼 뉴스 미디어 제공 개발(3.1백만 유로), 신뢰할 수 있고 전문적으로 제작된 온라인 정보 접근성 제고(5백만 유로)로 나뉜다. 단일 신청 또는 컨소시엄 형태가 가능하며, 활동은 EU 회원국에 설립된 조직이 수행해야 하고 언론 수혜자는 완전한 편집 독립성을 유지해야 한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-invests-eu16-million-pan-european-reporting">https://digital-strategy.ec.europa.eu/en/news/commission-invests-eu16-million-pan-european-reporting</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>(2026.4.16) EU 집행위, 디지털시장법에 따른 구글의 검색엔진 데이터 제3자 공유 조치 제안</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="(2026.4.16) EU 집행위, 디지털시장법에 따른 구글의 검색엔진 데이터 제3자 공유 조치 제안
+
+공개협의(의견수렴) 2026.4.17(금) 시작
+
+유럽연합 집행위원회가 구글에 디지털시장법(DMA) 준수를 위한 예비 조사 결과와 제안 조치를 전달했다. 제안에 따르면 구글은 제3자 검색엔진이 순위·검색질의·클릭·열람 데이터 등 검색 데이터를 공정·합리·차별금지 조건으로 접근할 수 있도록 해야 한다. 조치는 데이터 수혜자 자격(검색 기능을 가진 AI 챗봇 포함), 공유 범위·방식·주기, 개인정보 익명화, 가격 산정 기준, 접근 절차 등을 포함하며, 집행위는 2026.4.17부터 공개협의를 통해 의견을 받는다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-proposes-measures-google-sharing-search-engine-data-third-parties-under-digital-markets" onclick="copyEntry(this)">복사</button></div>
+  <p>공개협의(의견수렴) 2026.4.17(금) 시작</p>
+<p>유럽연합 집행위원회가 구글에 디지털시장법(DMA) 준수를 위한 예비 조사 결과와 제안 조치를 전달했다. 제안에 따르면 구글은 제3자 검색엔진이 순위·검색질의·클릭·열람 데이터 등 검색 데이터를 공정·합리·차별금지 조건으로 접근할 수 있도록 해야 한다. 조치는 데이터 수혜자 자격(검색 기능을 가진 AI 챗봇 포함), 공유 범위·방식·주기, 개인정보 익명화, 가격 산정 기준, 접근 절차 등을 포함하며, 집행위는 2026.4.17부터 공개협의를 통해 의견을 받는다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-proposes-measures-google-sharing-search-engine-data-third-parties-under-digital-markets">https://digital-strategy.ec.europa.eu/en/news/commission-proposes-measures-google-sharing-search-engine-data-third-parties-under-digital-markets</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>(2026.4.16) 아동 온라인 안전 자문 특별패널 2차 회의 개최</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="(2026.4.16) 아동 온라인 안전 자문 특별패널 2차 회의 개최
+
+EU 집행위원장 폰데어라이엔의 아동 온라인 안전 자문을 맡은 특별패널이 2차 회의를 열었다. 이번 회의에서는 전문가들이 회원국에 공유한 현행 EU 규정과 아동 보호 관련 이니셔티브, 그리고 호주의 소셜미디어 최소 연령 등 국제 접근이 논의됐다. 전날 집행위가 발표한 EU 연령확인 앱(프라이버시 보호 중심의 도구)과 관련해, 회원국이 앱을 맞춤화해 조속히 시민들이 사용할 수 있도록 독려하는 내용도 포함됐다.
+
+https://digital-strategy.ec.europa.eu/en/news/second-meeting-special-panel-advise-president-von-der-leyen-child-online-safety" onclick="copyEntry(this)">복사</button></div>
+  <p>EU 집행위원장 폰데어라이엔의 아동 온라인 안전 자문을 맡은 특별패널이 2차 회의를 열었다. 이번 회의에서는 전문가들이 회원국에 공유한 현행 EU 규정과 아동 보호 관련 이니셔티브, 그리고 호주의 소셜미디어 최소 연령 등 국제 접근이 논의됐다. 전날 집행위가 발표한 EU 연령확인 앱(프라이버시 보호 중심의 도구)과 관련해, 회원국이 앱을 맞춤화해 조속히 시민들이 사용할 수 있도록 독려하는 내용도 포함됐다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/second-meeting-special-panel-advise-president-von-der-leyen-child-online-safety">https://digital-strategy.ec.europa.eu/en/news/second-meeting-special-panel-advise-president-von-der-leyen-child-online-safety</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>(2026.4.17) 캘리포니아 ‘신뢰할 수 있는 AI’ 조달 관련 행정명령(EO N-5-26) 문서</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">gov.ca.gov</span></span><button type="button" class="copy-btn" data-copy="(2026.4.17) 캘리포니아 ‘신뢰할 수 있는 AI’ 조달 관련 행정명령(EO N-5-26) 문서
+
+본문은 PDF 원문(바이너리/압축 데이터) 형태로 제공되어 기사·조항의 핵심 내용(문장 단위 텍스트)을 확인할 수 없습니다. 따라서 조달 원칙, 적용 범위, 시행 절차 등 구체 내용을 사실 기반으로 요약하기 어렵습니다.
+
+https://www.gov.ca.gov/wp-content/uploads/2026/03/3.30-FINAL-Trusted-AI-Procurement-EO-N-5-26.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p>본문은 PDF 원문(바이너리/압축 데이터) 형태로 제공되어 기사·조항의 핵심 내용(문장 단위 텍스트)을 확인할 수 없습니다. 따라서 조달 원칙, 적용 범위, 시행 절차 등 구체 내용을 사실 기반으로 요약하기 어렵습니다.</p>
+  <p class="url"><a href="https://www.gov.ca.gov/wp-content/uploads/2026/03/3.30-FINAL-Trusted-AI-Procurement-EO-N-5-26.pdf">https://www.gov.ca.gov/wp-content/uploads/2026/03/3.30-FINAL-Trusted-AI-Procurement-EO-N-5-26.pdf</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>한 줄 제목 요약 (2026.4.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 상원 경제공동위원회(JEC) 민주당 보도자료(jec.senate.gov)</span></span><button type="button" class="copy-btn" data-copy="한 줄 제목 요약 (2026.4.17)
+
+본문 내용을 확인할 수 없어, 해당 보도자료의 핵심 내용은 확인 필요입니다. URL의 ID(564F54F1-CE55-498E-96C9-236D8DEBD529)로 원문 확인이 필요합니다.
+
+https://www.jec.senate.gov/public/index.cfm/democrats/press-releases?ID=564F54F1-CE55-498E-96C9-236D8DEBD529" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 내용을 확인할 수 없어, 해당 보도자료의 핵심 내용은 확인 필요입니다. URL의 ID(564F54F1-CE55-498E-96C9-236D8DEBD529)로 원문 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.jec.senate.gov/public/index.cfm/democrats/press-releases?ID=564F54F1-CE55-498E-96C9-236D8DEBD529">https://www.jec.senate.gov/public/index.cfm/democrats/press-releases?ID=564F54F1-CE55-498E-96C9-236D8DEBD529</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>OpenAI, 내부 코딩 에이전트의 ‘미정렬(misalignment)’을 감지하기 위한 모니터링 체계 공개(2026.3.19)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 내부 코딩 에이전트의 ‘미정렬(misalignment)’을 감지하기 위한 모니터링 체계 공개(2026.3.19)
+
+본문 내용 확인 필요: 페이지에서 구체적으로 어떤 모니터링 방법(예: 평가 지표, 경보/차단 로직, 데이터 수집 범위 등)과 운영 절차를 설명하는지 확인 필요합니다. 다만 제목 기준으로 내부 코딩 에이전트가 의도와 다르게 동작하는 징후를 탐지·완화하기 위한 시스템을 소개하는 것으로 보입니다.
+
+https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 내용 확인 필요: 페이지에서 구체적으로 어떤 모니터링 방법(예: 평가 지표, 경보/차단 로직, 데이터 수집 범위 등)과 운영 절차를 설명하는지 확인 필요합니다. 다만 제목 기준으로 내부 코딩 에이전트가 의도와 다르게 동작하는 징후를 탐지·완화하기 위한 시스템을 소개하는 것으로 보입니다.</p>
+  <p class="url"><a href="https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/">https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>EVMbench로 스마트컨트랙트 취약점 관리 평가(2026.2.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="EVMbench로 스마트컨트랙트 취약점 관리 평가(2026.2.18)
+
+본문 내용 확인 필요: OpenAI가 EVMbench를 통해 어떤 지표·절차로 스마트컨트랙트 취약점 관리(탐지/대응/완화 등)를 평가하는지, 적용 범위와 사용 방법은 본문 확인이 필요합니다. 또한 기존 도구 대비 차별점과 실험 결과(있다면)도 페이지 본문을 확인해야 정확히 요약할 수 있습니다.
+
+https://openai.com/index/introducing-evmbench/" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 내용 확인 필요: OpenAI가 EVMbench를 통해 어떤 지표·절차로 스마트컨트랙트 취약점 관리(탐지/대응/완화 등)를 평가하는지, 적용 범위와 사용 방법은 본문 확인이 필요합니다. 또한 기존 도구 대비 차별점과 실험 결과(있다면)도 페이지 본문을 확인해야 정확히 요약할 수 있습니다.</p>
+  <p class="url"><a href="https://openai.com/index/introducing-evmbench/">https://openai.com/index/introducing-evmbench/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>OpenAI, 모델 스펙(Model Spec) 접근 방식 공개(2026.3.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 모델 스펙(Model Spec) 접근 방식 공개(2026.3.25)
+
+본문 내용 확인 필요. 현재 제공된 정보(URL·제목·출처)만으로는 모델 스펙의 구체적 내용(목표, 적용 범위, 변경 사항 등)을 특정하기 어렵습니다. 페이지에서 어떤 원칙·가이드라인을 제시하는지 확인 필요합니다.
+
+https://openai.com/index/our-approach-to-the-model-spec/" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 내용 확인 필요. 현재 제공된 정보(URL·제목·출처)만으로는 모델 스펙의 구체적 내용(목표, 적용 범위, 변경 사항 등)을 특정하기 어렵습니다. 페이지에서 어떤 원칙·가이드라인을 제시하는지 확인 필요합니다.</p>
+  <p class="url"><a href="https://openai.com/index/our-approach-to-the-model-spec/">https://openai.com/index/our-approach-to-the-model-spec/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Researchers Find Reasoning Models Have Limited Control Over Their Thinking Process (2026.3.5)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="Researchers Find Reasoning Models Have Limited Control Over Their Thinking Process (2026.3.5)
+
+OpenAI의 해당 페이지 내용은 제공되지 않아 핵심 주장과 근거를 확인할 수 없습니다. 다만 CSV 제목 기준으로는 추론(Reasoning) 모델이 사고 과정(체인 오브 쏘트)을 통제하는 데 한계가 있다는 취지로 정리된 것으로 보입니다. 구체적인 실험 결과, 통제 방법, 결론의 범위는 본문 확인이 필요합니다.
+
+https://openai.com/index/reasoning-models-chain-of-thought-controllability/" onclick="copyEntry(this)">복사</button></div>
+  <p>OpenAI의 해당 페이지 내용은 제공되지 않아 핵심 주장과 근거를 확인할 수 없습니다. 다만 CSV 제목 기준으로는 추론(Reasoning) 모델이 사고 과정(체인 오브 쏘트)을 통제하는 데 한계가 있다는 취지로 정리된 것으로 보입니다. 구체적인 실험 결과, 통제 방법, 결론의 범위는 본문 확인이 필요합니다.</p>
+  <p class="url"><a href="https://openai.com/index/reasoning-models-chain-of-thought-controllability/">https://openai.com/index/reasoning-models-chain-of-thought-controllability/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>OpenAI, AI 에이전트의 안전 위험을 대상으로 ‘Safety Bug Bounty’ 운영(2026.3.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, AI 에이전트의 안전 위험을 대상으로 ‘Safety Bug Bounty’ 운영(2026.3.25)
+
+본문 확인 필요: 페이지 본문을 확인할 수 없어 구체적인 보상 방식, 참여 자격, 제출 방법, 운영 기간 등 세부 내용은 확인 필요입니다. 다만 해당 페이지는 AI 에이전트와 관련된 안전 취약점(위험)을 신고·검증하는 취지의 프로그램을 소개하는 것으로 보입니다.
+
+https://openai.com/index/safety-bug-bounty/" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 확인 필요: 페이지 본문을 확인할 수 없어 구체적인 보상 방식, 참여 자격, 제출 방법, 운영 기간 등 세부 내용은 확인 필요입니다. 다만 해당 페이지는 AI 에이전트와 관련된 안전 취약점(위험)을 신고·검증하는 취지의 프로그램을 소개하는 것으로 보입니다.</p>
+  <p class="url"><a href="https://openai.com/index/safety-bug-bounty/">https://openai.com/index/safety-bug-bounty/</a></p>
+</article>
 <article class="entry cat-other">
   <h2>Global South AI Safety Hackathon 개최(2026.6.19~2026.6.21)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Apart Research</span> · <span class="deadline">마감일/시행일: 2026.6.19~2026.6.21(온라인·오프라인)</span></span><button type="button" class="copy-btn" data-copy="Global South AI Safety Hackathon 개최(2026.6.19~2026.6.21)
@@ -148,39 +274,6 @@ CAISH의 MARS V는 멘토와 멘티가 동시 학업·취업을 병행할 수 �
 https://caish.org/mars" onclick="copyEntry(this)">복사</button></div>
   <p>CAISH의 MARS V는 멘토와 멘티가 동시 학업·취업을 병행할 수 있도록 파트타임·하이브리드 형태로 운영되는 AI 안전 연구 멘토링 프로그램이다. 기술 AI 안전(제어, 해석가능성, 평가, 견고성, 확장 가능한 감독)과 AI 거버넌스·정책(국제 합의, AI 법, 정치철학, 컴퓨트 거버넌스) 분야를 다룬다. 2단계 지원은 1단계에서 일반 지원 후 선발된 지원자가 2단계에서 특정 멘토 프로젝트에 직접 지원하며, 멘토가 인터뷰·코딩 테스트 등을 통해 팀을 구성한다. 참가비는 없고, 이동·숙박·식사 및 스프린트 주간 사무공간과 연구 지원(컴퓨트 예산, Claude Max 등)도 제공된다.</p>
   <p class="url"><a href="https://caish.org/mars">https://caish.org/mars</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>유럽 집행위, EU 사안 독립적 범유럽 보도를 지원하는 공모(2026.4.16)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(유럽 집행위원회)</span> · <span class="deadline">공모 마감: 2026.6.2</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, EU 사안 독립적 범유럽 보도를 지원하는 공모(2026.4.16)
-
-유럽 집행위원회는 유럽 언론이 EU 사안에 대해 독립적으로 범유럽 수준의 오디오비주얼·디지털 보도를 할 수 있도록 지원하는 제안 공모를 시작했다. 이번 공모 예산은 총 1,660만 유로이며, 오디오비주얼 뉴스 보도 확대(8.5백만 유로), 특정 회원국에서 국제 오디오비주얼 뉴스 미디어 제공 개발(3.1백만 유로), 신뢰할 수 있고 전문적으로 제작된 온라인 정보 접근성 제고(5백만 유로)로 나뉜다. 단일 신청 또는 컨소시엄 형태가 가능하며, 활동은 EU 회원국에 설립된 조직이 수행해야 하고 언론 수혜자는 완전한 편집 독립성을 유지해야 한다.
-
-https://digital-strategy.ec.europa.eu/en/news/commission-invests-eu16-million-pan-european-reporting" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 집행위원회는 유럽 언론이 EU 사안에 대해 독립적으로 범유럽 수준의 오디오비주얼·디지털 보도를 할 수 있도록 지원하는 제안 공모를 시작했다. 이번 공모 예산은 총 1,660만 유로이며, 오디오비주얼 뉴스 보도 확대(8.5백만 유로), 특정 회원국에서 국제 오디오비주얼 뉴스 미디어 제공 개발(3.1백만 유로), 신뢰할 수 있고 전문적으로 제작된 온라인 정보 접근성 제고(5백만 유로)로 나뉜다. 단일 신청 또는 컨소시엄 형태가 가능하며, 활동은 EU 회원국에 설립된 조직이 수행해야 하고 언론 수혜자는 완전한 편집 독립성을 유지해야 한다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-invests-eu16-million-pan-european-reporting">https://digital-strategy.ec.europa.eu/en/news/commission-invests-eu16-million-pan-european-reporting</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>(2026.4.16) EU 집행위, 디지털시장법에 따른 구글의 검색엔진 데이터 제3자 공유 조치 제안</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="(2026.4.16) EU 집행위, 디지털시장법에 따른 구글의 검색엔진 데이터 제3자 공유 조치 제안
-
-공개협의(의견수렴) 2026.4.17(금) 시작
-
-유럽연합 집행위원회가 구글에 디지털시장법(DMA) 준수를 위한 예비 조사 결과와 제안 조치를 전달했다. 제안에 따르면 구글은 제3자 검색엔진이 순위·검색질의·클릭·열람 데이터 등 검색 데이터를 공정·합리·차별금지 조건으로 접근할 수 있도록 해야 한다. 조치는 데이터 수혜자 자격(검색 기능을 가진 AI 챗봇 포함), 공유 범위·방식·주기, 개인정보 익명화, 가격 산정 기준, 접근 절차 등을 포함하며, 집행위는 2026.4.17부터 공개협의를 통해 의견을 받는다.
-
-https://digital-strategy.ec.europa.eu/en/news/commission-proposes-measures-google-sharing-search-engine-data-third-parties-under-digital-markets" onclick="copyEntry(this)">복사</button></div>
-  <p>공개협의(의견수렴) 2026.4.17(금) 시작</p>
-<p>유럽연합 집행위원회가 구글에 디지털시장법(DMA) 준수를 위한 예비 조사 결과와 제안 조치를 전달했다. 제안에 따르면 구글은 제3자 검색엔진이 순위·검색질의·클릭·열람 데이터 등 검색 데이터를 공정·합리·차별금지 조건으로 접근할 수 있도록 해야 한다. 조치는 데이터 수혜자 자격(검색 기능을 가진 AI 챗봇 포함), 공유 범위·방식·주기, 개인정보 익명화, 가격 산정 기준, 접근 절차 등을 포함하며, 집행위는 2026.4.17부터 공개협의를 통해 의견을 받는다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-proposes-measures-google-sharing-search-engine-data-third-parties-under-digital-markets">https://digital-strategy.ec.europa.eu/en/news/commission-proposes-measures-google-sharing-search-engine-data-third-parties-under-digital-markets</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>(2026.4.16) 아동 온라인 안전 자문 특별패널 2차 회의 개최</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="(2026.4.16) 아동 온라인 안전 자문 특별패널 2차 회의 개최
-
-EU 집행위원장 폰데어라이엔의 아동 온라인 안전 자문을 맡은 특별패널이 2차 회의를 열었다. 이번 회의에서는 전문가들이 회원국에 공유한 현행 EU 규정과 아동 보호 관련 이니셔티브, 그리고 호주의 소셜미디어 최소 연령 등 국제 접근이 논의됐다. 전날 집행위가 발표한 EU 연령확인 앱(프라이버시 보호 중심의 도구)과 관련해, 회원국이 앱을 맞춤화해 조속히 시민들이 사용할 수 있도록 독려하는 내용도 포함됐다.
-
-https://digital-strategy.ec.europa.eu/en/news/second-meeting-special-panel-advise-president-von-der-leyen-child-online-safety" onclick="copyEntry(this)">복사</button></div>
-  <p>EU 집행위원장 폰데어라이엔의 아동 온라인 안전 자문을 맡은 특별패널이 2차 회의를 열었다. 이번 회의에서는 전문가들이 회원국에 공유한 현행 EU 규정과 아동 보호 관련 이니셔티브, 그리고 호주의 소셜미디어 최소 연령 등 국제 접근이 논의됐다. 전날 집행위가 발표한 EU 연령확인 앱(프라이버시 보호 중심의 도구)과 관련해, 회원국이 앱을 맞춤화해 조속히 시민들이 사용할 수 있도록 독려하는 내용도 포함됐다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/second-meeting-special-panel-advise-president-von-der-leyen-child-online-safety">https://digital-strategy.ec.europa.eu/en/news/second-meeting-special-panel-advise-president-von-der-leyen-child-online-safety</a></p>
 </article>
 <article class="entry cat-other">
   <h2>IAS X BlueDot Impact(현장 첫 행사) 마드리드 개최(2026.4.17)</h2>
@@ -239,16 +332,6 @@ https://www.fox8live.com/2026/04/01/two-new-orleans-assistant-city-attorneys-res
 뉴올리언스 시 법무부 Charline Gipson은 4월 1일, 연방 법원 서류 작성 과정에서 AI를 사용한 것과 관련해 법원으로부터 제재를 받자 두 명의 직원 변호사가 사임했다고 밝혔다. 판사 Carl Barbier는 시가 제출한 서류에 존재하지 않는 판례 인용 9건이 ‘환각(hallucinated)’된 것으로 확인됐고, Harris가 ChatGPT를 사용했으며 인용을 확인하지 않았다고 지적했다. 이후 두 변호사는 사건에서 제외됐고, 시는 AI 사용 시 사전 공개 및 연 1회 준수 인증을 의무화하는 정책을 도입했다.</p>
   <p class="url"><a href="https://www.fox8live.com/2026/04/01/two-new-orleans-assistant-city-attorneys-resign-after-using-ai-federal-court-filing/">https://www.fox8live.com/2026/04/01/two-new-orleans-assistant-city-attorneys-resign-after-using-ai-federal-court-filing/</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>(2026.4.17) 캘리포니아 ‘신뢰할 수 있는 AI’ 조달 관련 행정명령(EO N-5-26) 문서</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">gov.ca.gov</span></span><button type="button" class="copy-btn" data-copy="(2026.4.17) 캘리포니아 ‘신뢰할 수 있는 AI’ 조달 관련 행정명령(EO N-5-26) 문서
-
-본문은 PDF 원문(바이너리/압축 데이터) 형태로 제공되어 기사·조항의 핵심 내용(문장 단위 텍스트)을 확인할 수 없습니다. 따라서 조달 원칙, 적용 범위, 시행 절차 등 구체 내용을 사실 기반으로 요약하기 어렵습니다.
-
-https://www.gov.ca.gov/wp-content/uploads/2026/03/3.30-FINAL-Trusted-AI-Procurement-EO-N-5-26.pdf" onclick="copyEntry(this)">복사</button></div>
-  <p>본문은 PDF 원문(바이너리/압축 데이터) 형태로 제공되어 기사·조항의 핵심 내용(문장 단위 텍스트)을 확인할 수 없습니다. 따라서 조달 원칙, 적용 범위, 시행 절차 등 구체 내용을 사실 기반으로 요약하기 어렵습니다.</p>
-  <p class="url"><a href="https://www.gov.ca.gov/wp-content/uploads/2026/03/3.30-FINAL-Trusted-AI-Procurement-EO-N-5-26.pdf">https://www.gov.ca.gov/wp-content/uploads/2026/03/3.30-FINAL-Trusted-AI-Procurement-EO-N-5-26.pdf</a></p>
-</article>
 <article class="entry cat-other">
   <h2>ILIAD 2026(2026.6.1) 이론적 AI 정렬 연구자 대상 5일 컨퍼런스 개최</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">iliadconference.com</span></span><button type="button" class="copy-btn" data-copy="ILIAD 2026(2026.6.1) 이론적 AI 정렬 연구자 대상 5일 컨퍼런스 개최
@@ -261,16 +344,6 @@ https://www.iliadconference.com/" onclick="copyEntry(this)">복사</button></div
   <p>마감일: 2026.6.1까지 참가 신청(무료), 2026.8.3~8.7 버클리 개최</p>
 <p>ILIAD 2026은 이론적 AI 정렬(alignment)을 주제로 한 5일(8월 3~7일) 다중 트랙 컨퍼런스로, 캘리포니아 버클리에서 열립니다. 100명 이상 규모이며 수학적 관점의 정렬 연구를 다루고, 참가자가 세션을 제안·진행하는 언컨퍼런스 형식도 포함됩니다. 참가 비용은 무료이며, 숙박·이동 지원은 필요 기반으로 제한적으로 제공될 수 있습니다. 신청은 2026년 6월 1일까지이며, 관련 연구 주제로는 Singular Learning Theory, Agent Foundations, Causal Incentives, Computational Mechanics, Safety-by-Debate, Scalable Oversight 등이 안내됩니다.</p>
   <p class="url"><a href="https://www.iliadconference.com/">https://www.iliadconference.com/</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>한 줄 제목 요약 (2026.4.17)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">미국 상원 경제공동위원회(JEC) 민주당 보도자료(jec.senate.gov)</span></span><button type="button" class="copy-btn" data-copy="한 줄 제목 요약 (2026.4.17)
-
-본문 내용을 확인할 수 없어, 해당 보도자료의 핵심 내용은 확인 필요입니다. URL의 ID(564F54F1-CE55-498E-96C9-236D8DEBD529)로 원문 확인이 필요합니다.
-
-https://www.jec.senate.gov/public/index.cfm/democrats/press-releases?ID=564F54F1-CE55-498E-96C9-236D8DEBD529" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 내용을 확인할 수 없어, 해당 보도자료의 핵심 내용은 확인 필요입니다. URL의 ID(564F54F1-CE55-498E-96C9-236D8DEBD529)로 원문 확인이 필요합니다.</p>
-  <p class="url"><a href="https://www.jec.senate.gov/public/index.cfm/democrats/press-releases?ID=564F54F1-CE55-498E-96C9-236D8DEBD529">https://www.jec.senate.gov/public/index.cfm/democrats/press-releases?ID=564F54F1-CE55-498E-96C9-236D8DEBD529</a></p>
 </article>
 <article class="entry cat-other">
   <h2>연방 항소법원이 펜타곤의 ‘블랙리스트’ 조치에 대한 앤트로픽의 집행정지 요청을 기각(2026.4.9)</h2>
@@ -318,57 +391,7 @@ https://www.theguardian.com/technology/2026/apr/09/elon-musk-xai-colorado-lawsui
 <p>엘론 머스크의 AI 기업 xAI가 콜로라도 주를 상대로 새로운 AI 규정 관련 소송을 제기했다. 이 법은 교육·고용·의료·주거·금융 등 분야에서 “알고리즘에 의한 차별”을 막기 위한 추가 요건을 부과하며, xAI는 표현의 자유(미 수정헌법 1조) 침해와 주의 이념을 강제하도록 만든다고 주장한다. 소송은 콜로라도 연방법원에 접수됐고, xAI는 법 집행을 막는 가처분과 위헌 판정을 요청하고 있다.</p>
   <p class="url"><a href="https://www.theguardian.com/technology/2026/apr/09/elon-musk-xai-colorado-lawsuit">https://www.theguardian.com/technology/2026/apr/09/elon-musk-xai-colorado-lawsuit</a></p>
 </article>
-<article class="entry cat-research">
-  <h2>OpenAI, 내부 코딩 에이전트의 ‘미정렬(misalignment)’을 감지하기 위한 모니터링 체계 공개(2026.3.19)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 내부 코딩 에이전트의 ‘미정렬(misalignment)’을 감지하기 위한 모니터링 체계 공개(2026.3.19)
-
-본문 내용 확인 필요: 페이지에서 구체적으로 어떤 모니터링 방법(예: 평가 지표, 경보/차단 로직, 데이터 수집 범위 등)과 운영 절차를 설명하는지 확인 필요합니다. 다만 제목 기준으로 내부 코딩 에이전트가 의도와 다르게 동작하는 징후를 탐지·완화하기 위한 시스템을 소개하는 것으로 보입니다.
-
-https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 내용 확인 필요: 페이지에서 구체적으로 어떤 모니터링 방법(예: 평가 지표, 경보/차단 로직, 데이터 수집 범위 등)과 운영 절차를 설명하는지 확인 필요합니다. 다만 제목 기준으로 내부 코딩 에이전트가 의도와 다르게 동작하는 징후를 탐지·완화하기 위한 시스템을 소개하는 것으로 보입니다.</p>
-  <p class="url"><a href="https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/">https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>EVMbench로 스마트컨트랙트 취약점 관리 평가(2026.2.18)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="EVMbench로 스마트컨트랙트 취약점 관리 평가(2026.2.18)
-
-본문 내용 확인 필요: OpenAI가 EVMbench를 통해 어떤 지표·절차로 스마트컨트랙트 취약점 관리(탐지/대응/완화 등)를 평가하는지, 적용 범위와 사용 방법은 본문 확인이 필요합니다. 또한 기존 도구 대비 차별점과 실험 결과(있다면)도 페이지 본문을 확인해야 정확히 요약할 수 있습니다.
-
-https://openai.com/index/introducing-evmbench/" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 내용 확인 필요: OpenAI가 EVMbench를 통해 어떤 지표·절차로 스마트컨트랙트 취약점 관리(탐지/대응/완화 등)를 평가하는지, 적용 범위와 사용 방법은 본문 확인이 필요합니다. 또한 기존 도구 대비 차별점과 실험 결과(있다면)도 페이지 본문을 확인해야 정확히 요약할 수 있습니다.</p>
-  <p class="url"><a href="https://openai.com/index/introducing-evmbench/">https://openai.com/index/introducing-evmbench/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>OpenAI, 모델 스펙(Model Spec) 접근 방식 공개(2026.3.25)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 모델 스펙(Model Spec) 접근 방식 공개(2026.3.25)
-
-본문 내용 확인 필요. 현재 제공된 정보(URL·제목·출처)만으로는 모델 스펙의 구체적 내용(목표, 적용 범위, 변경 사항 등)을 특정하기 어렵습니다. 페이지에서 어떤 원칙·가이드라인을 제시하는지 확인 필요합니다.
-
-https://openai.com/index/our-approach-to-the-model-spec/" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 내용 확인 필요. 현재 제공된 정보(URL·제목·출처)만으로는 모델 스펙의 구체적 내용(목표, 적용 범위, 변경 사항 등)을 특정하기 어렵습니다. 페이지에서 어떤 원칙·가이드라인을 제시하는지 확인 필요합니다.</p>
-  <p class="url"><a href="https://openai.com/index/our-approach-to-the-model-spec/">https://openai.com/index/our-approach-to-the-model-spec/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Researchers Find Reasoning Models Have Limited Control Over Their Thinking Process (2026.3.5)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="Researchers Find Reasoning Models Have Limited Control Over Their Thinking Process (2026.3.5)
-
-OpenAI의 해당 페이지 내용은 제공되지 않아 핵심 주장과 근거를 확인할 수 없습니다. 다만 CSV 제목 기준으로는 추론(Reasoning) 모델이 사고 과정(체인 오브 쏘트)을 통제하는 데 한계가 있다는 취지로 정리된 것으로 보입니다. 구체적인 실험 결과, 통제 방법, 결론의 범위는 본문 확인이 필요합니다.
-
-https://openai.com/index/reasoning-models-chain-of-thought-controllability/" onclick="copyEntry(this)">복사</button></div>
-  <p>OpenAI의 해당 페이지 내용은 제공되지 않아 핵심 주장과 근거를 확인할 수 없습니다. 다만 CSV 제목 기준으로는 추론(Reasoning) 모델이 사고 과정(체인 오브 쏘트)을 통제하는 데 한계가 있다는 취지로 정리된 것으로 보입니다. 구체적인 실험 결과, 통제 방법, 결론의 범위는 본문 확인이 필요합니다.</p>
-  <p class="url"><a href="https://openai.com/index/reasoning-models-chain-of-thought-controllability/">https://openai.com/index/reasoning-models-chain-of-thought-controllability/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>OpenAI, AI 에이전트의 안전 위험을 대상으로 ‘Safety Bug Bounty’ 운영(2026.3.25)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, AI 에이전트의 안전 위험을 대상으로 ‘Safety Bug Bounty’ 운영(2026.3.25)
-
-본문 확인 필요: 페이지 본문을 확인할 수 없어 구체적인 보상 방식, 참여 자격, 제출 방법, 운영 기간 등 세부 내용은 확인 필요입니다. 다만 해당 페이지는 AI 에이전트와 관련된 안전 취약점(위험)을 신고·검증하는 취지의 프로그램을 소개하는 것으로 보입니다.
-
-https://openai.com/index/safety-bug-bounty/" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 확인 필요: 페이지 본문을 확인할 수 없어 구체적인 보상 방식, 참여 자격, 제출 방법, 운영 기간 등 세부 내용은 확인 필요입니다. 다만 해당 페이지는 AI 에이전트와 관련된 안전 취약점(위험)을 신고·검증하는 취지의 프로그램을 소개하는 것으로 보입니다.</p>
-  <p class="url"><a href="https://openai.com/index/safety-bug-bounty/">https://openai.com/index/safety-bug-bounty/</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

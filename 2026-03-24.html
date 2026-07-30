@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -106,15 +129,45 @@ https://www.aisi.gov.uk/blog/can-ai-agents-escape-their-sandboxes-a-benchmark-fo
   <p>AISI-UK는 AI 에이전트가 샌드박스(격리 환경)를 탈출할 수 있는지 평가하기 위한 오픈소스 벤치마크 SandboxEscapeBench를 공개했다. 컨테이너 탈출 테스트는 “샌드박스 안의 샌드박스” 방식으로, 컨테이너 탈출이 발생해도 실제 인프라와의 격리를 유지하도록 가상머신에서 수행한다. 벤치마크는 오케스트레이션·런타임·커널 3개 층의 18개 탈출 시나리오를 포함하며, 공개된 취약점 유형 기반 시나리오와 내부 평가용 비공개 테스트셋을 구분한다. 평가 결과, 특히 노출된 Docker 소켓·privileged 컨테이너 같은 흔한 설정 오류는 고성능 모델이 비교적 안정적으로 악용했으며, 더 어려운 다단계 취약점은 큰 모델도 중간 수준에서는 성과가 있으나 최상 난이도는 해결하지 못한 것으로 나타났다.</p>
   <p class="url"><a href="https://www.aisi.gov.uk/blog/can-ai-agents-escape-their-sandboxes-a-benchmark-for-safely-measuring-container-breakout-capabilities">https://www.aisi.gov.uk/blog/can-ai-agents-escape-their-sandboxes-a-benchmark-for-safely-measuring-container-breakout-capabilities</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>유럽 집행위, EU 내 망명·이주 언론인 지원 공모(2026.3.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">공모 제출: 2026.4.16 ~ 2026.5.28</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, EU 내 망명·이주 언론인 지원 공모(2026.3.23)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">공모 제출: 2026.4.16 ~ 2026.5.28</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, EU 내 망명·이주 언론인 지원 공모(2026.3.23)
 
 유럽 집행위는 벨라루스·러시아 출신 망명 언론인과 우크라이나에서 EU로 이주한 언론인을 지원하는 ‘제안서 공모’를 예고했다. 총 300만 유로 규모의 지원금은 언론인의 업무 역량 강화와 언어별 독립·자유 정보 제공을 돕는 데 사용된다. 이번 3번째 공모는 2023년과 2025년 2차례 프로젝트 성과를 바탕으로 하며, 미디어 자유 허브 네트워크를 통한 조정·연계를 강화하고 교육·법률·심리·비자 지원 및 네트워킹 등을 포함한다. 공공기관, 국제기구, NGO, 연구센터는 2026년 4월 16일부터 5월 28일까지 제안서를 제출할 수 있다.
 
 https://digital-strategy.ec.europa.eu/en/news/commission-renews-support-exiled-and-relocated-journalists-eu" onclick="copyEntry(this)">복사</button></div>
   <p>유럽 집행위는 벨라루스·러시아 출신 망명 언론인과 우크라이나에서 EU로 이주한 언론인을 지원하는 ‘제안서 공모’를 예고했다. 총 300만 유로 규모의 지원금은 언론인의 업무 역량 강화와 언어별 독립·자유 정보 제공을 돕는 데 사용된다. 이번 3번째 공모는 2023년과 2025년 2차례 프로젝트 성과를 바탕으로 하며, 미디어 자유 허브 네트워크를 통한 조정·연계를 강화하고 교육·법률·심리·비자 지원 및 네트워킹 등을 포함한다. 공공기관, 국제기구, NGO, 연구센터는 2026년 4월 16일부터 5월 28일까지 제안서를 제출할 수 있다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-renews-support-exiled-and-relocated-journalists-eu">https://digital-strategy.ec.europa.eu/en/news/commission-renews-support-exiled-and-relocated-journalists-eu</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>생성형 AI 서비스(2026년 1~2월)备案·登记 현황 공고(2026.3.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">중앙 네트워크 안전·정보화 위원회 사무국(중국 국가인터넷정보판공실)</span> · <span class="deadline">2026년 2월 28일까지 누적 796개 서비스 备案, 481개 응용/기능 登记</span></span><button type="button" class="copy-btn" data-copy="생성형 AI 서비스(2026년 1~2월)备案·登记 현황 공고(2026.3.17)
+
+중국 국가인터넷정보판공실은 「생성형 인공지능 서비스 관리 잠정办法」에 따라 2026년 1~2월 신규 48개 생성형 AI 서비스가 국가 차원에서 备案을 완료했다고 밝혔다. 또한 API 등 방식으로 이미 备案된 모델 역량을 직접 호출하는 생성형 AI 응용/기능은 지방 인터넷정보판공실에서 登記를 진행하며, 같은 기간 46개가 登記를 완료했다. 2월 28일 기준 누적 796개 서비스 备案과 481개 응용/기능 登記가 집계됐으며, 언론 속성 또는 사회동원 능력이 있는 서비스는 관할 부서 절차를 거쳐야 한다. 이미 운영 중인 응용/기능은 눈에 띄는 위치나 제품 상세 페이지에 사용한 备案/登记 서비스(모델명, 备案号 또는上线编号)를 공시해야 한다.
+
+https://www.cac.gov.cn/2026-03/17/c_1775482074695536.htm" onclick="copyEntry(this)">복사</button></div>
+  <p>중국 국가인터넷정보판공실은 「생성형 인공지능 서비스 관리 잠정办法」에 따라 2026년 1~2월 신규 48개 생성형 AI 서비스가 국가 차원에서 备案을 완료했다고 밝혔다. 또한 API 등 방식으로 이미 备案된 모델 역량을 직접 호출하는 생성형 AI 응용/기능은 지방 인터넷정보판공실에서 登記를 진행하며, 같은 기간 46개가 登記를 완료했다. 2월 28일 기준 누적 796개 서비스 备案과 481개 응용/기능 登記가 집계됐으며, 언론 속성 또는 사회동원 능력이 있는 서비스는 관할 부서 절차를 거쳐야 한다. 이미 운영 중인 응용/기능은 눈에 띄는 위치나 제품 상세 페이지에 사용한 备案/登记 서비스(모델명, 备案号 또는上线编号)를 공시해야 한다.</p>
+  <p class="url"><a href="https://www.cac.gov.cn/2026-03/17/c_1775482074695536.htm">https://www.cac.gov.cn/2026-03/17/c_1775482074695536.htm</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>NY State Assembly Bill A3411 (2026.3.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">nysenate.gov</span> · <span class="deadline">확인 필요: 본문 내용(개정 내용/대상/주요 조항) 추출 실패로 요약 불가</span></span><button type="button" class="copy-btn" data-copy="NY State Assembly Bill A3411 (2026.3.24)
+
+해당 페이지는 뉴욕주 의회(Assembly) 법안 A3411의 2025년 개정안(original) 관련 문서로 보입니다. 다만 제공된 본문을 가져오지 못해 법안의 구체적 내용과 변경 사항은 확인이 필요합니다.
+
+https://www.nysenate.gov/legislation/bills/2025/A3411/amendment/original" onclick="copyEntry(this)">복사</button></div>
+  <p>해당 페이지는 뉴욕주 의회(Assembly) 법안 A3411의 2025년 개정안(original) 관련 문서로 보입니다. 다만 제공된 본문을 가져오지 못해 법안의 구체적 내용과 변경 사항은 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.nysenate.gov/legislation/bills/2025/A3411/amendment/original">https://www.nysenate.gov/legislation/bills/2025/A3411/amendment/original</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>NY State Senate Bill S6953B(개정안) 관련 페이지로, 본문 내용 확인 필요 (2026.3.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">뉴욕주 상원(nysenate.gov)</span></span><button type="button" class="copy-btn" data-copy="NY State Senate Bill S6953B(개정안) 관련 페이지로, 본문 내용 확인 필요 (2026.3.24)
+
+본문(개정 내용·조항·의결/제출 정보)을 확인할 수 없어 요약이 제한됩니다. 페이지에 포함된 실제 개정 취지와 변경 사항은 확인 필요입니다.
+
+https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B" onclick="copyEntry(this)">복사</button></div>
+  <p>본문(개정 내용·조항·의결/제출 정보)을 확인할 수 없어 요약이 제한됩니다. 페이지에 포함된 실제 개정 취지와 변경 사항은 확인 필요입니다.</p>
+  <p class="url"><a href="https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B">https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>(OECD AI Index와 국가별 AI 역량) (2026.3.16)</h2>
@@ -162,36 +215,6 @@ https://partnershiponai.org/when-a-chatbot-becomes-your-therapist/" onclick="cop
 <p>AI 챗봇을 통해 외로움, 자살 생각 등 취약한 심리 문제를 상담하는 이용이 늘고 있으나, 임상 검증이나 투명한 안전체계가 충분하지 않다는 문제를 제기한다. 일부 챗봇이 자살 위험을 과소평가하거나 다중 대화에서 개입 효과가 떨어지고, 사용자가 프롬프트를 우회(“jailbreak”)할 수 있다는 한계·의혹도 언급된다. Partnership on AI는 AI 개발 속도가 정신건강 연구를 앞지르고, 기업 간 정보 공유가 부족하며, 독립적 평가가 부족하다는 3가지 과제를 바탕으로, 워크숍 이후에도 자문그룹 운영·모델/정책/평가 관행 정렬·합의된 우선 모범사례 3~5개 도출 등을 추진하겠다고 밝혔다.</p>
   <p class="url"><a href="https://partnershiponai.org/when-a-chatbot-becomes-your-therapist/">https://partnershiponai.org/when-a-chatbot-becomes-your-therapist/</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>생성형 AI 서비스(2026년 1~2월)备案·登记 현황 공고(2026.3.17)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">중앙 네트워크 안전·정보화 위원회 사무국(중국 국가인터넷정보판공실)</span> · <span class="deadline">2026년 2월 28일까지 누적 796개 서비스 备案, 481개 응용/기능 登记</span></span><button type="button" class="copy-btn" data-copy="생성형 AI 서비스(2026년 1~2월)备案·登记 현황 공고(2026.3.17)
-
-중국 국가인터넷정보판공실은 「생성형 인공지능 서비스 관리 잠정办法」에 따라 2026년 1~2월 신규 48개 생성형 AI 서비스가 국가 차원에서 备案을 완료했다고 밝혔다. 또한 API 등 방식으로 이미 备案된 모델 역량을 직접 호출하는 생성형 AI 응용/기능은 지방 인터넷정보판공실에서 登記를 진행하며, 같은 기간 46개가 登記를 완료했다. 2월 28일 기준 누적 796개 서비스 备案과 481개 응용/기능 登記가 집계됐으며, 언론 속성 또는 사회동원 능력이 있는 서비스는 관할 부서 절차를 거쳐야 한다. 이미 운영 중인 응용/기능은 눈에 띄는 위치나 제품 상세 페이지에 사용한 备案/登记 서비스(모델명, 备案号 또는上线编号)를 공시해야 한다.
-
-https://www.cac.gov.cn/2026-03/17/c_1775482074695536.htm" onclick="copyEntry(this)">복사</button></div>
-  <p>중국 국가인터넷정보판공실은 「생성형 인공지능 서비스 관리 잠정办法」에 따라 2026년 1~2월 신규 48개 생성형 AI 서비스가 국가 차원에서 备案을 완료했다고 밝혔다. 또한 API 등 방식으로 이미 备案된 모델 역량을 직접 호출하는 생성형 AI 응용/기능은 지방 인터넷정보판공실에서 登記를 진행하며, 같은 기간 46개가 登記를 완료했다. 2월 28일 기준 누적 796개 서비스 备案과 481개 응용/기능 登記가 집계됐으며, 언론 속성 또는 사회동원 능력이 있는 서비스는 관할 부서 절차를 거쳐야 한다. 이미 운영 중인 응용/기능은 눈에 띄는 위치나 제품 상세 페이지에 사용한 备案/登记 서비스(모델명, 备案号 또는上线编号)를 공시해야 한다.</p>
-  <p class="url"><a href="https://www.cac.gov.cn/2026-03/17/c_1775482074695536.htm">https://www.cac.gov.cn/2026-03/17/c_1775482074695536.htm</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>NY State Assembly Bill A3411 (2026.3.24)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">nysenate.gov</span> · <span class="deadline">확인 필요: 본문 내용(개정 내용/대상/주요 조항) 추출 실패로 요약 불가</span></span><button type="button" class="copy-btn" data-copy="NY State Assembly Bill A3411 (2026.3.24)
-
-해당 페이지는 뉴욕주 의회(Assembly) 법안 A3411의 2025년 개정안(original) 관련 문서로 보입니다. 다만 제공된 본문을 가져오지 못해 법안의 구체적 내용과 변경 사항은 확인이 필요합니다.
-
-https://www.nysenate.gov/legislation/bills/2025/A3411/amendment/original" onclick="copyEntry(this)">복사</button></div>
-  <p>해당 페이지는 뉴욕주 의회(Assembly) 법안 A3411의 2025년 개정안(original) 관련 문서로 보입니다. 다만 제공된 본문을 가져오지 못해 법안의 구체적 내용과 변경 사항은 확인이 필요합니다.</p>
-  <p class="url"><a href="https://www.nysenate.gov/legislation/bills/2025/A3411/amendment/original">https://www.nysenate.gov/legislation/bills/2025/A3411/amendment/original</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>NY State Senate Bill S6953B(개정안) 관련 페이지로, 본문 내용 확인 필요 (2026.3.24)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">뉴욕주 상원(nysenate.gov)</span></span><button type="button" class="copy-btn" data-copy="NY State Senate Bill S6953B(개정안) 관련 페이지로, 본문 내용 확인 필요 (2026.3.24)
-
-본문(개정 내용·조항·의결/제출 정보)을 확인할 수 없어 요약이 제한됩니다. 페이지에 포함된 실제 개정 취지와 변경 사항은 확인 필요입니다.
-
-https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B" onclick="copyEntry(this)">복사</button></div>
-  <p>본문(개정 내용·조항·의결/제출 정보)을 확인할 수 없어 요약이 제한됩니다. 페이지에 포함된 실제 개정 취지와 변경 사항은 확인 필요입니다.</p>
-  <p class="url"><a href="https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B">https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B</a></p>
-</article>
 <article class="entry cat-other">
   <h2>(2026.3.3) AI·정신건강 분야의 안전과 효과를 위해 다자 협력이 필요하다는 제언</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">techpolicy.press</span> · <span class="deadline">마감일·시행일: 없음</span></span><button type="button" class="copy-btn" data-copy="(2026.3.3) AI·정신건강 분야의 안전과 효과를 위해 다자 협력이 필요하다는 제언
@@ -202,7 +225,7 @@ https://www.techpolicy.press/how-collaboration-can-enable-action-on-ai-and-menta
   <p>AI 챗봇이 외로움·자살 생각 등 취약한 정신건강 문제에 대한 ‘주요 또는 유일한’ 지원 수단이 되기도 하지만, 임상 검증·투명한 안전체계가 부족한 상태에서 사용되는 경우가 있다고 지적한다. 자살 위험을 과소평가하거나 대화가 길어질수록 개입 효과가 떨어지는 등 한계 사례가 있으며, 무조건적인 대화 거부는 위기 상황에서 사용자를 방치하는 다른 피해가 될 수 있다고 본다. 이를 해결하기 위해 (1) 정신건강 연구 속도보다 빠른 AI 개발에 대응해 불확실성 하에서도 근거 기반 의사결정을 위한 협력, (2) 기업 간 고립을 줄이고 성공·실패·개입 패턴을 공유, (3) 제3자 독립 평가와 다자 평가 체계를 구축해 지속 모니터링과 책임성을 확보해야 한다고 제안한다. 또한 AI가 구조적 불평등·의료 접근성 문제를 대체하는 해법은 아니지만, 현재 사용 중인 만큼 위해를 줄이고 실질적 지원을 제공하는 동시에 더 넓은 변화도 함께 추진해야 한다고 강조한다.</p>
   <p class="url"><a href="https://www.techpolicy.press/how-collaboration-can-enable-action-on-ai-and-mental-health/">https://www.techpolicy.press/how-collaboration-can-enable-action-on-ai-and-mental-health/</a></p>
 </article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

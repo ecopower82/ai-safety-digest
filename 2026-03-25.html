@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -96,6 +119,56 @@
   <div class="sub">2026-03-25 · 17/17건 요약</div>
   <div class="nav"><a href="index.html">← 전체 목록</a></div>
 </header>
+<article class="entry cat-intl-org">
+  <h2>디지털서비스법(DSA) 하 ‘반(反)허위정보’ 행동강령 인정 이후, 서명기관 최신 이행보고서가 투명성 센터에 공개됨 (2026.3.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">서명기관 플랫폼 보고서는 2025.7.1~2025.12.31 기간 이행 내용을 포함</span></span><button type="button" class="copy-btn" data-copy="디지털서비스법(DSA) 하 ‘반(反)허위정보’ 행동강령 인정 이후, 서명기관 최신 이행보고서가 투명성 센터에 공개됨 (2026.3.24)
+
+EU ‘반(反)허위정보’ 자율 행동강령 서명기관들이 행동강령 투명성 센터에 최신 보고서를 게시했다. 이번 보고서는 DSA 하 행동강령으로 인정된 이후 처음으로, 온라인 플랫폼 제공자(구글, 메타, 마이크로소프트, 틱톡 등)와 팩트체커, 연구·시민사회, 광고업계 대표 등이 포함된다. 보고서는 우크라이나 전쟁 등 진행 중 위기 대응, 선거 무결성 보호 조치, 허위정보 관련 정책·도구·파트너십 변화와 이행 데이터 등을 다루며, 플랫폼 서명기관은 2025년 하반기(7~12월) 기간을 대상으로 보고한다.
+
+https://digital-strategy.ec.europa.eu/en/news/code-conduct-disinformation-signatories-publish-their-latest-reports-codes-transparency-0" onclick="copyEntry(this)">복사</button></div>
+  <p>EU ‘반(反)허위정보’ 자율 행동강령 서명기관들이 행동강령 투명성 센터에 최신 보고서를 게시했다. 이번 보고서는 DSA 하 행동강령으로 인정된 이후 처음으로, 온라인 플랫폼 제공자(구글, 메타, 마이크로소프트, 틱톡 등)와 팩트체커, 연구·시민사회, 광고업계 대표 등이 포함된다. 보고서는 우크라이나 전쟁 등 진행 중 위기 대응, 선거 무결성 보호 조치, 허위정보 관련 정책·도구·파트너십 변화와 이행 데이터 등을 다루며, 플랫폼 서명기관은 2025년 하반기(7~12월) 기간을 대상으로 보고한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/code-conduct-disinformation-signatories-publish-their-latest-reports-codes-transparency-0">https://digital-strategy.ec.europa.eu/en/news/code-conduct-disinformation-signatories-publish-their-latest-reports-codes-transparency-0</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>(2026.3.24) AI 시스템 전 생애주기에서 이해관계자 참여가 실질적 권한으로 이어져야 함</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">OECD-AI</span> · <span class="deadline">참여는 설계·데이터 수집·모델 개발 단계에 집중되는 경향이 크지만, 배치 이후(운영·모니터링·진화)에는 권한이 다시 개발·발주 주체로 이동하는 문제가 지적됨</span></span><button type="button" class="copy-btn" data-copy="(2026.3.24) AI 시스템 전 생애주기에서 이해관계자 참여가 실질적 권한으로 이어져야 함
+
+참여형 AI는 공정하고 신뢰할 수 있는 시스템을 만들기 위해 다양한 이해관계자를 모으려는 취지지만, 다수의 참여가 실제 의사결정 권한 이전 없이 ‘자문/정보 제공’ 수준에 머무는 패턴이 확인됐다고 설명한다. 특히 참여가 설계 단계에서 끝나면, 시스템이 출시된 뒤의 진화·확장에 대한 거버넌스는 다시 구축·위탁한 쪽으로 돌아가 커뮤니티의 지속적 필요 반영이 어려워질 수 있다고 본다. 해결 방향으로는 배치 이후에도 공동체가 데이터·의사결정·이익·책임을 지속적으로 관리하는 ‘공유자원(commons) 거버넌스’ 접근을 제시하며, 이를 위해 권한 분배의 품질을 측정하고 거버넌스 인프라를 예산에 포함해야 한다고 강조한다.
+
+https://oecd.ai/en/wonk/participative-stakeholder-involvement-follow-ai-systems-entire-lifecycle" onclick="copyEntry(this)">복사</button></div>
+  <p>참여형 AI는 공정하고 신뢰할 수 있는 시스템을 만들기 위해 다양한 이해관계자를 모으려는 취지지만, 다수의 참여가 실제 의사결정 권한 이전 없이 ‘자문/정보 제공’ 수준에 머무는 패턴이 확인됐다고 설명한다. 특히 참여가 설계 단계에서 끝나면, 시스템이 출시된 뒤의 진화·확장에 대한 거버넌스는 다시 구축·위탁한 쪽으로 돌아가 커뮤니티의 지속적 필요 반영이 어려워질 수 있다고 본다. 해결 방향으로는 배치 이후에도 공동체가 데이터·의사결정·이익·책임을 지속적으로 관리하는 ‘공유자원(commons) 거버넌스’ 접근을 제시하며, 이를 위해 권한 분배의 품질을 측정하고 거버넌스 인프라를 예산에 포함해야 한다고 강조한다.</p>
+  <p class="url"><a href="https://oecd.ai/en/wonk/participative-stakeholder-involvement-follow-ai-systems-entire-lifecycle">https://oecd.ai/en/wonk/participative-stakeholder-involvement-follow-ai-systems-entire-lifecycle</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>eSafety 보고서, AI ‘동반자’가 아동에게 위험을 초래한다는 내용 (2026.3.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">호주 eSafety(에세이프티) 공식 발표</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="eSafety 보고서, AI ‘동반자’가 아동에게 위험을 초래한다는 내용 (2026.3.25)
+
+eSafety가 AI ‘동반자’(AI companions)가 아동에게 위험을 줄 수 있다는 취지의 보고서를 발표했다는 점이 제목에서 확인된다. 다만 본문 내용은 제공되지 않아 구체적인 위험 유형, 조사 범위, 권고 사항 등은 확인이 필요하다.
+
+https://www.esafety.gov.au/newsroom/media-releases/esafety-report-shows-ai-companions-are-putting-children-at-risk" onclick="copyEntry(this)">복사</button></div>
+  <p>eSafety가 AI ‘동반자’(AI companions)가 아동에게 위험을 줄 수 있다는 취지의 보고서를 발표했다는 점이 제목에서 확인된다. 다만 본문 내용은 제공되지 않아 구체적인 위험 유형, 조사 범위, 권고 사항 등은 확인이 필요하다.</p>
+  <p class="url"><a href="https://www.esafety.gov.au/newsroom/media-releases/esafety-report-shows-ai-companions-are-putting-children-at-risk">https://www.esafety.gov.au/newsroom/media-releases/esafety-report-shows-ai-companions-are-putting-children-at-risk</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>(Enforcement of the AI Act) (2026.3.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">europarl.europa.eu</span></span><button type="button" class="copy-btn" data-copy="(Enforcement of the AI Act) (2026.3.25)
+
+본문 요약: 제공된 PDF 본문이 대부분 인코딩/바이너리 데이터로만 추출되어, 기사 내용(핵심 주장·결정사항·일정 등)을 확인해 요약할 수 없습니다. 현재 추출 텍스트만으로는 “Enforcement of the AI Act”의 구체적인 내용과 근거를 특정할 정보가 없습니다.
+
+https://www.europarl.europa.eu/RegData/etudes/ATAG/2026/785670/EPRS_ATA(2026)785670_EN.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 요약: 제공된 PDF 본문이 대부분 인코딩/바이너리 데이터로만 추출되어, 기사 내용(핵심 주장·결정사항·일정 등)을 확인해 요약할 수 없습니다. 현재 추출 텍스트만으로는 “Enforcement of the AI Act”의 구체적인 내용과 근거를 특정할 정보가 없습니다.</p>
+  <p class="url"><a href="https://www.europarl.europa.eu/RegData/etudes/ATAG/2026/785670/EPRS_ATA(2026)785670_EN.pdf">https://www.europarl.europa.eu/RegData/etudes/ATAG/2026/785670/EPRS_ATA(2026)785670_EN.pdf</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>유럽의회 IMCO·LIBE, AI법 일부 고위험 규정 시행 시점 연기 및 ‘누디파이어’ 앱 금지 추진(2026.3.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">유럽의회(European Parliament)</span> · <span class="deadline">2026.3.26(예정) 본회의에서 의회 위임안 승인 후, EU 이사회와 협상 개시</span></span><button type="button" class="copy-btn" data-copy="유럽의회 IMCO·LIBE, AI법 일부 고위험 규정 시행 시점 연기 및 ‘누디파이어’ 앱 금지 추진(2026.3.18)
+
+유럽의회 IMCO와 LIBE 소속 의원들이 ‘인공지능법(AIA)’을 손질하는 간소화(옴니버스) 제안에 대해 공동 입장을 채택했다. 핵심 내용으로는 2026년 8월 2일로 예정된 고위험 AI 시스템 관련 일부 규정의 활성화 시점을 연기하되, 법적 예측 가능성을 위해 고정된 적용일을 제시한 것이다(고위험 시스템 2027.12.2, 부문별 안전·시장감시 규율 적용 대상 관련 2028.8.2). 또한 AI로 성적·친밀한 이미지를 생성·조작하되 특정 실존 인물을 식별 가능하게 만드는 ‘누디파이어(nudifier)’ 시스템에 대한 금지를 추진하고, AI 생성물 워터마킹 준수 유예는 위원회안보다 짧게(2026.11.2까지) 제안했다.
+
+https://www.europarl.europa.eu/news/en/press-room/20260316IPR38219/meps-support-postponement-of-certain-rules-on-artificial-intelligence" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽의회 IMCO와 LIBE 소속 의원들이 ‘인공지능법(AIA)’을 손질하는 간소화(옴니버스) 제안에 대해 공동 입장을 채택했다. 핵심 내용으로는 2026년 8월 2일로 예정된 고위험 AI 시스템 관련 일부 규정의 활성화 시점을 연기하되, 법적 예측 가능성을 위해 고정된 적용일을 제시한 것이다(고위험 시스템 2027.12.2, 부문별 안전·시장감시 규율 적용 대상 관련 2028.8.2). 또한 AI로 성적·친밀한 이미지를 생성·조작하되 특정 실존 인물을 식별 가능하게 만드는 ‘누디파이어(nudifier)’ 시스템에 대한 금지를 추진하고, AI 생성물 워터마킹 준수 유예는 위원회안보다 짧게(2026.11.2까지) 제안했다.</p>
+  <p class="url"><a href="https://www.europarl.europa.eu/news/en/press-room/20260316IPR38219/meps-support-postponement-of-certain-rules-on-artificial-intelligence">https://www.europarl.europa.eu/news/en/press-room/20260316IPR38219/meps-support-postponement-of-certain-rules-on-artificial-intelligence</a></p>
+</article>
 <article class="entry cat-other">
   <h2>한 줄 제목 요약 (2026.3.25)</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">allai.nl</span></span><button type="button" class="copy-btn" data-copy="한 줄 제목 요약 (2026.3.25)
@@ -116,16 +189,6 @@ https://cset.georgetown.edu/publication/building-the-tech-coalition/" onclick="c
   <p>미 육군 18공수사단이 ‘Scarlet Dragon Exercise’ 시리즈를 통해 Maven Smart System(MSS)을 개발·운용하며, 포병 타격 효율을 최근 역사 최고 수준에 가깝게 끌어올렸다고 설명한다. 이를 위해 기술기업과의 협업을 뒷받침하는 국방부의 정책·리더십, 기술·작전·조달을 아우르는 ‘삼중(Trilingual) 리더’, DevSecOps 기반의 신속한 반복·책임 있는 발전, 임베디드 엔지니어의 현장 밀착 등이 핵심 요인으로 제시된다. 또한 유연한 계약, 신규 벤더 온보딩 장벽 완화, 장기적 프로젝트 약속과 더 빠른 계약 체계 마련 등 국방부가 혁신을 촉진하기 위한 권고사항을 담고 있다.</p>
   <p class="url"><a href="https://cset.georgetown.edu/publication/building-the-tech-coalition/">https://cset.georgetown.edu/publication/building-the-tech-coalition/</a></p>
 </article>
-<article class="entry cat-intl">
-  <h2>디지털서비스법(DSA) 하 ‘반(反)허위정보’ 행동강령 인정 이후, 서명기관 최신 이행보고서가 투명성 센터에 공개됨 (2026.3.24)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">서명기관 플랫폼 보고서는 2025.7.1~2025.12.31 기간 이행 내용을 포함</span></span><button type="button" class="copy-btn" data-copy="디지털서비스법(DSA) 하 ‘반(反)허위정보’ 행동강령 인정 이후, 서명기관 최신 이행보고서가 투명성 센터에 공개됨 (2026.3.24)
-
-EU ‘반(反)허위정보’ 자율 행동강령 서명기관들이 행동강령 투명성 센터에 최신 보고서를 게시했다. 이번 보고서는 DSA 하 행동강령으로 인정된 이후 처음으로, 온라인 플랫폼 제공자(구글, 메타, 마이크로소프트, 틱톡 등)와 팩트체커, 연구·시민사회, 광고업계 대표 등이 포함된다. 보고서는 우크라이나 전쟁 등 진행 중 위기 대응, 선거 무결성 보호 조치, 허위정보 관련 정책·도구·파트너십 변화와 이행 데이터 등을 다루며, 플랫폼 서명기관은 2025년 하반기(7~12월) 기간을 대상으로 보고한다.
-
-https://digital-strategy.ec.europa.eu/en/news/code-conduct-disinformation-signatories-publish-their-latest-reports-codes-transparency-0" onclick="copyEntry(this)">복사</button></div>
-  <p>EU ‘반(反)허위정보’ 자율 행동강령 서명기관들이 행동강령 투명성 센터에 최신 보고서를 게시했다. 이번 보고서는 DSA 하 행동강령으로 인정된 이후 처음으로, 온라인 플랫폼 제공자(구글, 메타, 마이크로소프트, 틱톡 등)와 팩트체커, 연구·시민사회, 광고업계 대표 등이 포함된다. 보고서는 우크라이나 전쟁 등 진행 중 위기 대응, 선거 무결성 보호 조치, 허위정보 관련 정책·도구·파트너십 변화와 이행 데이터 등을 다루며, 플랫폼 서명기관은 2025년 하반기(7~12월) 기간을 대상으로 보고한다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/code-conduct-disinformation-signatories-publish-their-latest-reports-codes-transparency-0">https://digital-strategy.ec.europa.eu/en/news/code-conduct-disinformation-signatories-publish-their-latest-reports-codes-transparency-0</a></p>
-</article>
 <article class="entry cat-other">
   <h2>(2026.3.25) Equinet·ENNHRI, 디지털 옴니버스 규정안(인공지능·데이터) 관련 공동 성명</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">ennhri.org</span></span><button type="button" class="copy-btn" data-copy="(2026.3.25) Equinet·ENNHRI, 디지털 옴니버스 규정안(인공지능·데이터) 관련 공동 성명
@@ -145,16 +208,6 @@ AI 개발·배치가 인간을 대체하는 방향으로 권력이 특정 기관
 https://humanstatement.org/" onclick="copyEntry(this)">복사</button></div>
   <p>AI 개발·배치가 인간을 대체하는 방향으로 권력이 특정 기관과 기계에 집중되는 것을 막고, AI가 인간의 가치와 필요에 봉사해야 한다는 선언문이다. 인간의 통제 유지, 권력 집중 방지, 아동·가족·정신건강 등 ‘인간 경험’ 보호, 개인정보·자유권 보장, 그리고 AI 기업의 책임·책무(면책 금지, 독립 안전기준, 피해 원인·책임 규명 가능 등)를 핵심 원칙으로 제시한다. 또한 슈퍼인텔리전스는 안전성과 통제 가능성이 과학적 합의와 사회적 수용을 얻기 전까지 금지해야 한다고 주장한다.</p>
   <p class="url"><a href="https://humanstatement.org/">https://humanstatement.org/</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>(2026.3.24) AI 시스템 전 생애주기에서 이해관계자 참여가 실질적 권한으로 이어져야 함</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">OECD-AI</span> · <span class="deadline">참여는 설계·데이터 수집·모델 개발 단계에 집중되는 경향이 크지만, 배치 이후(운영·모니터링·진화)에는 권한이 다시 개발·발주 주체로 이동하는 문제가 지적됨</span></span><button type="button" class="copy-btn" data-copy="(2026.3.24) AI 시스템 전 생애주기에서 이해관계자 참여가 실질적 권한으로 이어져야 함
-
-참여형 AI는 공정하고 신뢰할 수 있는 시스템을 만들기 위해 다양한 이해관계자를 모으려는 취지지만, 다수의 참여가 실제 의사결정 권한 이전 없이 ‘자문/정보 제공’ 수준에 머무는 패턴이 확인됐다고 설명한다. 특히 참여가 설계 단계에서 끝나면, 시스템이 출시된 뒤의 진화·확장에 대한 거버넌스는 다시 구축·위탁한 쪽으로 돌아가 커뮤니티의 지속적 필요 반영이 어려워질 수 있다고 본다. 해결 방향으로는 배치 이후에도 공동체가 데이터·의사결정·이익·책임을 지속적으로 관리하는 ‘공유자원(commons) 거버넌스’ 접근을 제시하며, 이를 위해 권한 분배의 품질을 측정하고 거버넌스 인프라를 예산에 포함해야 한다고 강조한다.
-
-https://oecd.ai/en/wonk/participative-stakeholder-involvement-follow-ai-systems-entire-lifecycle" onclick="copyEntry(this)">복사</button></div>
-  <p>참여형 AI는 공정하고 신뢰할 수 있는 시스템을 만들기 위해 다양한 이해관계자를 모으려는 취지지만, 다수의 참여가 실제 의사결정 권한 이전 없이 ‘자문/정보 제공’ 수준에 머무는 패턴이 확인됐다고 설명한다. 특히 참여가 설계 단계에서 끝나면, 시스템이 출시된 뒤의 진화·확장에 대한 거버넌스는 다시 구축·위탁한 쪽으로 돌아가 커뮤니티의 지속적 필요 반영이 어려워질 수 있다고 본다. 해결 방향으로는 배치 이후에도 공동체가 데이터·의사결정·이익·책임을 지속적으로 관리하는 ‘공유자원(commons) 거버넌스’ 접근을 제시하며, 이를 위해 권한 분배의 품질을 측정하고 거버넌스 인프라를 예산에 포함해야 한다고 강조한다.</p>
-  <p class="url"><a href="https://oecd.ai/en/wonk/participative-stakeholder-involvement-follow-ai-systems-entire-lifecycle">https://oecd.ai/en/wonk/participative-stakeholder-involvement-follow-ai-systems-entire-lifecycle</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(미국의 ‘AI 활용 격차’가 계층 갈등으로 이어질 수 있다는 내용, 2026.3.25)</h2>
@@ -185,36 +238,6 @@ https://www.axios.com/pro/health-tech-deals/2026/03/24/ai-health-reliability-ris
 https://www.chinadaily.com.cn/a/202603/22/WS69bff258a310d6866eb3f25b.html" onclick="copyEntry(this)">복사</button></div>
   <p>중국 국가 컴퓨터 네트워크 비상대응 조정센터와 중국 사이버보안협회가 오픈소스 AI 에이전트 ‘OpenClaw’의 안전한 운영을 위한 보안 권고 가이드라인을 공동 발표했다. 가이드라인은 개인 사용자에게 전용 장비·가상머신·컨테이너 등 격리된 환경에서만 설치하고 관리자 권한으로 실행하지 말 것, 민감한 개인 데이터를 OpenClaw 환경에 저장·처리하지 말 것을 권고한다. 또한 클라우드 서비스 제공자에는 보안 평가와 기본 보호 강화, 보안 장치 통합, 공급망 및 데이터 보호를 요구하며, 기본 설정·원격접근 인증 부재·API 키/채팅기록 평문 저장 가능성 등 구조적 위험과 권한 통제 실패로 인한 무단 작업 가능성도 경고했다.</p>
   <p class="url"><a href="https://www.chinadaily.com.cn/a/202603/22/WS69bff258a310d6866eb3f25b.html">https://www.chinadaily.com.cn/a/202603/22/WS69bff258a310d6866eb3f25b.html</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>eSafety 보고서, AI ‘동반자’가 아동에게 위험을 초래한다는 내용 (2026.3.25)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">호주 eSafety(에세이프티) 공식 발표</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="eSafety 보고서, AI ‘동반자’가 아동에게 위험을 초래한다는 내용 (2026.3.25)
-
-eSafety가 AI ‘동반자’(AI companions)가 아동에게 위험을 줄 수 있다는 취지의 보고서를 발표했다는 점이 제목에서 확인된다. 다만 본문 내용은 제공되지 않아 구체적인 위험 유형, 조사 범위, 권고 사항 등은 확인이 필요하다.
-
-https://www.esafety.gov.au/newsroom/media-releases/esafety-report-shows-ai-companions-are-putting-children-at-risk" onclick="copyEntry(this)">복사</button></div>
-  <p>eSafety가 AI ‘동반자’(AI companions)가 아동에게 위험을 줄 수 있다는 취지의 보고서를 발표했다는 점이 제목에서 확인된다. 다만 본문 내용은 제공되지 않아 구체적인 위험 유형, 조사 범위, 권고 사항 등은 확인이 필요하다.</p>
-  <p class="url"><a href="https://www.esafety.gov.au/newsroom/media-releases/esafety-report-shows-ai-companions-are-putting-children-at-risk">https://www.esafety.gov.au/newsroom/media-releases/esafety-report-shows-ai-companions-are-putting-children-at-risk</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>(Enforcement of the AI Act) (2026.3.25)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">europarl.europa.eu</span></span><button type="button" class="copy-btn" data-copy="(Enforcement of the AI Act) (2026.3.25)
-
-본문 요약: 제공된 PDF 본문이 대부분 인코딩/바이너리 데이터로만 추출되어, 기사 내용(핵심 주장·결정사항·일정 등)을 확인해 요약할 수 없습니다. 현재 추출 텍스트만으로는 “Enforcement of the AI Act”의 구체적인 내용과 근거를 특정할 정보가 없습니다.
-
-https://www.europarl.europa.eu/RegData/etudes/ATAG/2026/785670/EPRS_ATA(2026)785670_EN.pdf" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 요약: 제공된 PDF 본문이 대부분 인코딩/바이너리 데이터로만 추출되어, 기사 내용(핵심 주장·결정사항·일정 등)을 확인해 요약할 수 없습니다. 현재 추출 텍스트만으로는 “Enforcement of the AI Act”의 구체적인 내용과 근거를 특정할 정보가 없습니다.</p>
-  <p class="url"><a href="https://www.europarl.europa.eu/RegData/etudes/ATAG/2026/785670/EPRS_ATA(2026)785670_EN.pdf">https://www.europarl.europa.eu/RegData/etudes/ATAG/2026/785670/EPRS_ATA(2026)785670_EN.pdf</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>유럽의회 IMCO·LIBE, AI법 일부 고위험 규정 시행 시점 연기 및 ‘누디파이어’ 앱 금지 추진(2026.3.18)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽의회(European Parliament)</span> · <span class="deadline">2026.3.26(예정) 본회의에서 의회 위임안 승인 후, EU 이사회와 협상 개시</span></span><button type="button" class="copy-btn" data-copy="유럽의회 IMCO·LIBE, AI법 일부 고위험 규정 시행 시점 연기 및 ‘누디파이어’ 앱 금지 추진(2026.3.18)
-
-유럽의회 IMCO와 LIBE 소속 의원들이 ‘인공지능법(AIA)’을 손질하는 간소화(옴니버스) 제안에 대해 공동 입장을 채택했다. 핵심 내용으로는 2026년 8월 2일로 예정된 고위험 AI 시스템 관련 일부 규정의 활성화 시점을 연기하되, 법적 예측 가능성을 위해 고정된 적용일을 제시한 것이다(고위험 시스템 2027.12.2, 부문별 안전·시장감시 규율 적용 대상 관련 2028.8.2). 또한 AI로 성적·친밀한 이미지를 생성·조작하되 특정 실존 인물을 식별 가능하게 만드는 ‘누디파이어(nudifier)’ 시스템에 대한 금지를 추진하고, AI 생성물 워터마킹 준수 유예는 위원회안보다 짧게(2026.11.2까지) 제안했다.
-
-https://www.europarl.europa.eu/news/en/press-room/20260316IPR38219/meps-support-postponement-of-certain-rules-on-artificial-intelligence" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽의회 IMCO와 LIBE 소속 의원들이 ‘인공지능법(AIA)’을 손질하는 간소화(옴니버스) 제안에 대해 공동 입장을 채택했다. 핵심 내용으로는 2026년 8월 2일로 예정된 고위험 AI 시스템 관련 일부 규정의 활성화 시점을 연기하되, 법적 예측 가능성을 위해 고정된 적용일을 제시한 것이다(고위험 시스템 2027.12.2, 부문별 안전·시장감시 규율 적용 대상 관련 2028.8.2). 또한 AI로 성적·친밀한 이미지를 생성·조작하되 특정 실존 인물을 식별 가능하게 만드는 ‘누디파이어(nudifier)’ 시스템에 대한 금지를 추진하고, AI 생성물 워터마킹 준수 유예는 위원회안보다 짧게(2026.11.2까지) 제안했다.</p>
-  <p class="url"><a href="https://www.europarl.europa.eu/news/en/press-room/20260316IPR38219/meps-support-postponement-of-certain-rules-on-artificial-intelligence">https://www.europarl.europa.eu/news/en/press-room/20260316IPR38219/meps-support-postponement-of-certain-rules-on-artificial-intelligence</a></p>
 </article>
 <article class="entry cat-kr-gov">
   <h2>인공지능서비스 이용자보호 관련 이슈·법제 검토 및 향후 과제(2026.3.31)</h2>
@@ -269,7 +292,7 @@ https://arxiv.org/abs/2506.08738" onclick="copyEntry(this)">복사</button></div
 <p>arXiv 2014~2024년 AI 관련 논문 10만 편 이상을 분석해, 사회적·윤리적 가치를 기술 연구에 얼마나 포함하는지 측정했다. 학제 간 팀이 사회 지향 연구를 더 많이 내는 경향은 유지되지만, 컴퓨터과학 단독 팀의 비중이 전체 사회 지향 산출에서 점차 커졌다고 보고했다. 또한 컴퓨터과학 단독 팀도 공정성·안전부터 의료, 허위정보까지 다양한 영역에서 사회적 쟁점을 논문에 통합하는 사례가 늘고 있다고 밝혔다. 이러한 결과는 ‘사회적 AI’ 연구의 주된 동인이 학제적 협업이라는 통념을 재검토하게 하며, AI 안전·거버넌스와 사회과학·인문학의 역할에 대한 질문을 제기한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2506.08738">https://arxiv.org/abs/2506.08738</a></p>
 </article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

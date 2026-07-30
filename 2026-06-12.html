@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -146,9 +169,9 @@ https://www.anthropic.com/news/dxc-anthropic-alliance" onclick="copyEntry(this)"
   <p>Anthropic은 DXC Technology와 다년 글로벌 얼라이언스를 발표하며, DXC가 자사 고객(은행·항공·보험·제조·정부기관 등)의 핵심 운영 시스템에 Claude를 통합한다고 밝혔다. DXC는 자사 개발팀에서 엔지니어를 선발해 Anthropic Academy를 통해 Claude 인증을 받고, DXC OASIS 플랫폼에서는 Claude가 에이전트 워크플로의 기본 파운데이션 모델로 활용된다고 설명했다. 또한 OASIS에서 항상 가동되는 보안 엔지니어 서브에이전트(CLAude Security 기반)와 레거시 코드 분석·리팩터링·현대화 지원 등 4개 영역에 Claude를 적용할 계획이다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/dxc-anthropic-alliance">https://www.anthropic.com/news/dxc-anthropic-alliance</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>EU 사이버 모의훈련 Cyber Europe 2026, 철도·해상 네트워크 공격 대응 점검(기사·공고 게재일 2026.6.11)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽연합 집행위원회(EU Digital Strategy)</span></span><button type="button" class="copy-btn" data-copy="EU 사이버 모의훈련 Cyber Europe 2026, 철도·해상 네트워크 공격 대응 점검(기사·공고 게재일 2026.6.11)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(EU Digital Strategy)</span></span><button type="button" class="copy-btn" data-copy="EU 사이버 모의훈련 Cyber Europe 2026, 철도·해상 네트워크 공격 대응 점검(기사·공고 게재일 2026.6.11)
 
 EU는 6월 10~11일 EU 전역 사이버 모의훈련을 통해 중요 교통 인프라에 대한 공격 발생 시 대응 방식을 점검했으며, 약 5,000명의 전문가가 참여했다. ENISA가 주관한 이번 훈련은 유럽의 철도·해상 네트워크에 대한 사이버 공격을 시뮬레이션했고, 시나리오가 심각한 운영 차질로 이어져 본격적인 사이버보안 위기 양상으로 확대됐다고 밝혔다. 또한 2025 EU Cyber Blueprint의 역할·책임 체계와 Cyber Solidarity Act에 따라 마련된 Cybersecurity Reserve의 작동도 시험했으며, 훈련의 교훈이 EU의 위기관리 체계를 비상대응 프레임워크에 통합하는 데 활용될 예정이라고 전했다.
 
@@ -312,7 +335,7 @@ https://openalex.org/W7161101139" onclick="copyEntry(this)">복사</button></div
   <p>CIRCLE 프레임워크로 배포 맥락에서 AI 시스템을 평가·계획하는 활동 묶음을 제시해, 모델 성능 중심을 넘어 안전성과 신뢰성 관련 이해관계자 결과를 도출하는 방법을 설명한다. AI lifecycle 관점에 기반해 field testing과 red teaming을 포함한 테스트 활동을 설계하고, AI 스택 밖의 이해관계자 관점에서 관심 결과를 산출하도록 구성한다. 교육 환경의 가상 사례를 통해, 전통적 모델 중심 평가를 보완하는 평가 접근이 이해관계자 목표에 맞춘 시스템 정렬과 배포 의사결정에 활용되는 흐름을 보여준다.</p>
   <p class="url"><a href="https://openalex.org/W7161101139">https://openalex.org/W7161101139</a></p>
 </article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

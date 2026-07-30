@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -182,9 +205,9 @@ https://www.anthropic.com/news/election-safeguards-update" onclick="copyEntry(th
 <p>앤트로픽은 Claude가 선거철에 정치적 주제에 대해 포괄적이고 정확하며 균형 잡힌 답을 하도록 학습·시스템 프롬프트·평가를 강화했다고 밝혔다. 선거 관련 허위정보 생성, 가짜 디지털 콘텐츠 제작, 투표 사기·투표방해, 투표 절차 오인 유도 등은 사용정책상 금지하며, 자동 분류기와 전담 위협정보팀으로 위반 징후를 탐지·대응한다고 설명했다. 또한 선거 관련 위험 대응 성능을 600개 프롬프트(유해 요청 300·정상 요청 300)와 영향조작 시나리오 테스트로 점검했으며, 웹 검색 기능이 선거 관련 질문에서 최신 정보로 연결되는 비율도 평가했다. 아울러 미국 중간선거에는 비당파적 유권자 정보 자원(터보보트)으로 연결되는 선거 배너를 제공하고, 브라질 선거에도 유사 배너를 도입할 계획이라고 전했다.</p>
   <p class="url"><a href="https://www.anthropic.com/news/election-safeguards-update">https://www.anthropic.com/news/election-safeguards-update</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>유럽 집행위, 가상세계 관측소 최종보고서와 ‘인터랙티브 데이터 익스플로러’ 공개 (2026.4.22)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 가상세계 관측소 최종보고서와 ‘인터랙티브 데이터 익스플로러’ 공개 (2026.4.22)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 가상세계 관측소 최종보고서와 ‘인터랙티브 데이터 익스플로러’ 공개 (2026.4.22)
 
 유럽 집행위는 가상세계 관련 활동을 지도화·분석하는 데이터 익스플로러를 새로 공개하고, 가상세계 관측소(Virtual Worlds Observatory) 최종보고서 3종을 함께 발표했다. 보고서는 EU의 가상세계 연구 강점과 특허 전환 지연, 교육·의료·제조·국방·엔터테인먼트 등 22개 실제 활용사례, EU 기업 설문·석사과정 분석·ICT 채용공고 검토를 바탕으로 한 기술·역량·과제·신흥 동향을 다룬다. 데이터 익스플로러는 플레이어 및 활동 규모, 지역별 분포와 협업 정도, 기술 구성, 투자(벤처캐피털·해외 소유·고정자산 투자) 등 지표를 제공해 정책·기업·연구자 의사결정을 지원하고 윤리·기본권·소비자 보호 등 쟁점 이해를 돕는 것을 목표로 한다.
 
@@ -192,9 +215,9 @@ https://digital-strategy.ec.europa.eu/en/news/commission-launches-virtual-worlds
   <p>유럽 집행위는 가상세계 관련 활동을 지도화·분석하는 데이터 익스플로러를 새로 공개하고, 가상세계 관측소(Virtual Worlds Observatory) 최종보고서 3종을 함께 발표했다. 보고서는 EU의 가상세계 연구 강점과 특허 전환 지연, 교육·의료·제조·국방·엔터테인먼트 등 22개 실제 활용사례, EU 기업 설문·석사과정 분석·ICT 채용공고 검토를 바탕으로 한 기술·역량·과제·신흥 동향을 다룬다. 데이터 익스플로러는 플레이어 및 활동 규모, 지역별 분포와 협업 정도, 기술 구성, 투자(벤처캐피털·해외 소유·고정자산 투자) 등 지표를 제공해 정책·기업·연구자 의사결정을 지원하고 윤리·기본권·소비자 보호 등 쟁점 이해를 돕는 것을 목표로 한다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-launches-virtual-worlds-observatory-final-reports-and-interactive-data-explorer">https://digital-strategy.ec.europa.eu/en/news/commission-launches-virtual-worlds-observatory-final-reports-and-interactive-data-explorer</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>(2026.4.24) 유럽 집행위, 유럽 비즈니스 월렛(EBW) 기술 작업 소그룹 참여 전문가 모집</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">유럽 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">마감일: 2026.5.21</span></span><button type="button" class="copy-btn" data-copy="(2026.4.24) 유럽 집행위, 유럽 비즈니스 월렛(EBW) 기술 작업 소그룹 참여 전문가 모집
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">마감일: 2026.5.21</span></span><button type="button" class="copy-btn" data-copy="(2026.4.24) 유럽 집행위, 유럽 비즈니스 월렛(EBW) 기술 작업 소그룹 참여 전문가 모집
 
 유럽 집행위원회는 유럽 비즈니스 월렛(EBW) 기술 작업 소그룹에 참여할 전문가를 모집한다. 소그룹은 EBW의 기술 기능을 설계하는 데 도움을 주며, 안전하고 법적으로 유효한 통신 프로토콜·전달 채널 평가, 접근통제·인증 등 핵심 보안 기능 설계, 신뢰·발견·상호운용을 지원하는 공통 서비스(예: 유럽 디지털 디렉터리) 개발에 기여한다. 지원은 독립 전문가를 대상으로 하며, 보안 전자메시징·신원 및 접근관리·암호화·상호운용성 프레임워크·대규모 시스템 아키텍처 분야의 관련 전문성이 요구된다. 지원서는 2026.5.21까지 지정 이메일로 제출해야 한다.
 
@@ -202,9 +225,9 @@ https://digital-strategy.ec.europa.eu/en/news/european-commission-seeks-particip
   <p>유럽 집행위원회는 유럽 비즈니스 월렛(EBW) 기술 작업 소그룹에 참여할 전문가를 모집한다. 소그룹은 EBW의 기술 기능을 설계하는 데 도움을 주며, 안전하고 법적으로 유효한 통신 프로토콜·전달 채널 평가, 접근통제·인증 등 핵심 보안 기능 설계, 신뢰·발견·상호운용을 지원하는 공통 서비스(예: 유럽 디지털 디렉터리) 개발에 기여한다. 지원은 독립 전문가를 대상으로 하며, 보안 전자메시징·신원 및 접근관리·암호화·상호운용성 프레임워크·대규모 시스템 아키텍처 분야의 관련 전문성이 요구된다. 지원서는 2026.5.21까지 지정 이메일로 제출해야 한다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/european-commission-seeks-participants-european-business-wallet-technical-work-sub-group">https://digital-strategy.ec.europa.eu/en/news/european-commission-seeks-participants-european-business-wallet-technical-work-sub-group</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>유럽 사이버보안 인증 주간(2026) 개최…ECCF 이행 및 후보 인증제도 논의(2026.4.24)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="유럽 사이버보안 인증 주간(2026) 개최…ECCF 이행 및 후보 인증제도 논의(2026.4.24)
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="유럽 사이버보안 인증 주간(2026) 개최…ECCF 이행 및 후보 인증제도 논의(2026.4.24)
 
 2026.4.30까지 EUDI Wallets(유럽 디지털 신원 지갑) 후보 인증제도 공개협의 진행
 
@@ -214,6 +237,109 @@ https://digital-strategy.ec.europa.eu/en/news/european-cybersecurity-certificati
   <p>2026.4.30까지 EUDI Wallets(유럽 디지털 신원 지갑) 후보 인증제도 공개협의 진행</p>
 <p>키프로스 EU 의장국 주최로 4월 14~17일 아야 나파에서 ‘유럽 사이버보안 인증 주간(2026)’ 행사가 열렸다. 정책당국, 산업 전문가, 적합성평가기관, 국가 당국이 참여해 EU 사이버보안 인증 프레임워크(ECCF)를 강화하고, 사이버보안법(CSA) 및 사이버 회복력법(CRA), NIS2 지침과의 연계를 논의했다. ENISA는 CSA 하에서의 진전과 개정 사이버보안법 제안 등 인증의 향후 방향을 공유했으며, EUDI Wallets와 관리형 보안서비스(Managed Security Services) 등 2개 후보 인증제도 개발 상황을 소개했다. 또한 ECCF의 동료평가(peer review) 메커니즘을 점검하고, 올해 슬로바키아를 시작으로 독일·몰타·벨기에·체코·스웨덴의 동료평가가 예정되어 있다고 밝혔다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/european-cybersecurity-certification-week-2026-advancing-eu-cybersecurity-cyprus">https://digital-strategy.ec.europa.eu/en/news/european-cybersecurity-certification-week-2026-advancing-eu-cybersecurity-cyprus</a></p>
+</article>
+<article class="entry cat-db">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="deadline">Firefox 150, Claude Mythos 평가로 확인된 271개 취약점 수정 (2026.4.21)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 모질라(Mozilla) 공식 블로그
+
+Firefox 팀은 2026년 2월부터 프론티어 AI 모델을 활용해 브라우저의 잠재 보안 취약점을 찾아 수정해 왔다고 밝혔다. Anthropic과의 협업으로 Opus 4.6을 통해 Firefox 148에서 22개 보안 관련 버그를 고쳤고, 이번에는 Claude Mythos Preview의 초기 버전을 적용해 Firefox 150에 271개 취약점 수정이 포함됐다고 전했다. 또한 퍼징 등 기존 자동 분석의 한계를 보완해 사람의 코드 분석을 AI가 수행할 수 있게 되면서, 공격자의 장기적 이점이 줄어들 것이라고 설명했다.
+
+https://blog.mozilla.org/en/firefox/ai-security-zero-day-vulnerabilities/?" onclick="copyEntry(this)">복사</button></div>
+  <p>출처: 모질라(Mozilla) 공식 블로그</p>
+<p>Firefox 팀은 2026년 2월부터 프론티어 AI 모델을 활용해 브라우저의 잠재 보안 취약점을 찾아 수정해 왔다고 밝혔다. Anthropic과의 협업으로 Opus 4.6을 통해 Firefox 148에서 22개 보안 관련 버그를 고쳤고, 이번에는 Claude Mythos Preview의 초기 버전을 적용해 Firefox 150에 271개 취약점 수정이 포함됐다고 전했다. 또한 퍼징 등 기존 자동 분석의 한계를 보완해 사람의 코드 분석을 AI가 수행할 수 있게 되면서, 공격자의 장기적 이점이 줄어들 것이라고 설명했다.</p>
+  <p class="url"><a href="https://blog.mozilla.org/en/firefox/ai-security-zero-day-vulnerabilities/?">https://blog.mozilla.org/en/firefox/ai-security-zero-day-vulnerabilities/?</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Google, Gemini Enterprise Agent Platform 출시(2026.4.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">구글 클라우드(Cloud AI 블로그)</span></span><button type="button" class="copy-btn" data-copy="Google, Gemini Enterprise Agent Platform 출시(2026.4.23)
+
+구글은 기업용 에이전트를 만들고 확장·관리·최적화할 수 있는 ‘Gemini Enterprise Agent Platform’을 출시한다고 밝혔다. 이 플랫폼은 기존 Vertex AI의 모델 선택·모델/에이전트 구축 기능을 확장해 에이전트 통합, DevOps, 오케스트레이션, 보안 기능을 함께 제공하며, Gemini Enterprise 앱을 통해 직원에게 에이전트를 제공하면서 IT 운영과의 연계를 강조한다. 또한 200개 이상의 모델(Model Garden) 접근, Agent Studio/ADK(Agent Development Kit) 기반 개발, Agent Runtime(다중일 워크플로·상태 유지·보안 샌드박스) 및 시뮬레이션·평가·관측(Observability) 기능을 통해 프로덕션 단계의 신뢰성과 품질을 지원한다고 설명했다.
+
+https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform" onclick="copyEntry(this)">복사</button></div>
+  <p>구글은 기업용 에이전트를 만들고 확장·관리·최적화할 수 있는 ‘Gemini Enterprise Agent Platform’을 출시한다고 밝혔다. 이 플랫폼은 기존 Vertex AI의 모델 선택·모델/에이전트 구축 기능을 확장해 에이전트 통합, DevOps, 오케스트레이션, 보안 기능을 함께 제공하며, Gemini Enterprise 앱을 통해 직원에게 에이전트를 제공하면서 IT 운영과의 연계를 강조한다. 또한 200개 이상의 모델(Model Garden) 접근, Agent Studio/ADK(Agent Development Kit) 기반 개발, Agent Runtime(다중일 워크플로·상태 유지·보안 샌드박스) 및 시뮬레이션·평가·관측(Observability) 기능을 통해 프로덕션 단계의 신뢰성과 품질을 지원한다고 설명했다.</p>
+  <p class="url"><a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform">https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>OpenAI, GPT-5.5 공개 (2026.4.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">2026.4.24: GPT-5.5 및 GPT-5.5 Pro의 API 배포를 위한 추가 안전장치 정보로 페이지 업데이트</span></span><button type="button" class="copy-btn" data-copy="OpenAI, GPT-5.5 공개 (2026.4.23)
+
+OpenAI는 GPT-5.5를 코드 작성, 온라인 조사, 정보 분석, 문서·스프레드시트 생성, 여러 도구를 오가며 작업을 완료하는 데 특화된 신규 모델로 소개했다. 사전 배포 안전성 평가와 Preparedness Framework를 적용했으며, 고급 사이버보안·생물 분야에 대한 표적 레드팀 테스트와 약 200명의 초기 액세스 파트너의 실제 사용 사례 피드백을 수집했다고 밝혔다. 또한 GPT-5.5 Pro는 동일 기반 모델에 병렬 테스트 시간 컴퓨팅 설정을 적용한 것으로, 일부 경우 위험과 안전장치 자세에 영향을 줄 수 있어 별도 평가한다고 설명했다.
+
+https://deploymentsafety.openai.com/gpt-5-5" onclick="copyEntry(this)">복사</button></div>
+  <p>OpenAI는 GPT-5.5를 코드 작성, 온라인 조사, 정보 분석, 문서·스프레드시트 생성, 여러 도구를 오가며 작업을 완료하는 데 특화된 신규 모델로 소개했다. 사전 배포 안전성 평가와 Preparedness Framework를 적용했으며, 고급 사이버보안·생물 분야에 대한 표적 레드팀 테스트와 약 200명의 초기 액세스 파트너의 실제 사용 사례 피드백을 수집했다고 밝혔다. 또한 GPT-5.5 Pro는 동일 기반 모델에 병렬 테스트 시간 컴퓨팅 설정을 적용한 것으로, 일부 경우 위험과 안전장치 자세에 영향을 줄 수 있어 별도 평가한다고 설명했다.</p>
+  <p class="url"><a href="https://deploymentsafety.openai.com/gpt-5-5">https://deploymentsafety.openai.com/gpt-5-5</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.4.22) 북한이 AI를 활용해 개발자 대상 공격을 ‘산업화’하는 방식</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Expel(익스펠) 블로그</span></span><button type="button" class="copy-btn" data-copy="(2026.4.22) 북한이 AI를 활용해 개발자 대상 공격을 ‘산업화’하는 방식
+
+Expel은 북한(DPRK) 국가 지원 APT로 고신뢰 평가되는 HexagonalRodent(=Lazarus 계열로 추정)가 Web3 개발자를 집중 표적해 암호화폐·NFT 등 고가 디지털 자산을 탈취한다고 밝혔다. 이 그룹은 Cursor·ChatGPT 등 생성형 AI를 악용하며, VSCode의 tasks.json 기능과 백도어가 심어진 코딩 과제(‘take home assessment’)를 통해 악성코드를 실행시키는 방식이 핵심이라고 설명했다. 또한 2026년 3월 ‘fast-draft’ VSX 확장 프로그램이 악성코드 설치에 악용된 공급망 공격 정황과, BeaverTail·OtterCookie·InvisibleFerret 계열 악성코드 사용, 코드에 이모지·과도한 주석 등 AI 생성 코드로 보이는 흔적을 근거로 AI 활용 정황을 제시했다.
+
+https://expel.com/blog/inside-lazarus-how-north-korea-uses-ai-to-industrialize-attacks-on-developers/" onclick="copyEntry(this)">복사</button></div>
+  <p>Expel은 북한(DPRK) 국가 지원 APT로 고신뢰 평가되는 HexagonalRodent(=Lazarus 계열로 추정)가 Web3 개발자를 집중 표적해 암호화폐·NFT 등 고가 디지털 자산을 탈취한다고 밝혔다. 이 그룹은 Cursor·ChatGPT 등 생성형 AI를 악용하며, VSCode의 tasks.json 기능과 백도어가 심어진 코딩 과제(‘take home assessment’)를 통해 악성코드를 실행시키는 방식이 핵심이라고 설명했다. 또한 2026년 3월 ‘fast-draft’ VSX 확장 프로그램이 악성코드 설치에 악용된 공급망 공격 정황과, BeaverTail·OtterCookie·InvisibleFerret 계열 악성코드 사용, 코드에 이모지·과도한 주석 등 AI 생성 코드로 보이는 흔적을 근거로 AI 활용 정황을 제시했다.</p>
+  <p class="url"><a href="https://expel.com/blog/inside-lazarus-how-north-korea-uses-ai-to-industrialize-attacks-on-developers/">https://expel.com/blog/inside-lazarus-how-north-korea-uses-ai-to-industrialize-attacks-on-developers/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>DeepSeek V4 관련 PDF 파일(4.48MB) 다운로드/저장 정보 제공 (2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="DeepSeek V4 관련 PDF 파일(4.48MB) 다운로드/저장 정보 제공 (2026.4.24)
+
+본문에는 DeepSeek V4의 기술 내용 요약보다는, Hugging Face에서 해당 PDF를 Xet 방식으로 저장·분할해 업로드/다운로드하는 메타데이터(파일 크기, SHA256 등) 정보가 주로 포함되어 있습니다.
+
+https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p>본문에는 DeepSeek V4의 기술 내용 요약보다는, Hugging Face에서 해당 PDF를 Xet 방식으로 저장·분할해 업로드/다운로드하는 메타데이터(파일 크기, SHA256 등) 정보가 주로 포함되어 있습니다.</p>
+  <p class="url"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf">https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Qwen3.6-Max 프리뷰 코딩 모델 공개 (2026.4.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Qwen3.6-Max 프리뷰 코딩 모델 공개 (2026.4.18)
+
+
+
+https://qwen.ai/blog?id=qwen3.6-max-preview" onclick="copyEntry(this)">복사</button></div>
+  
+  <p class="url"><a href="https://qwen.ai/blog?id=qwen3.6-max-preview">https://qwen.ai/blog?id=qwen3.6-max-preview</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.4.23) LLM 멀티에이전트가 클라우드 환경에서 기존 설정 오류를 연쇄 공격할 수 있음을 PoC로 제시</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">팔로알토 네트웍스 Unit 42(위협 연구센터)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.23) LLM 멀티에이전트가 클라우드 환경에서 기존 설정 오류를 연쇄 공격할 수 있음을 PoC로 제시
+
+Unit 42는 LLM 기반 멀티에이전트 침투 테스트 PoC ‘Zealot’을 구축해 클라우드 환경에서 자율적 공격 체인이 가능한지 실증했다고 밝혔다. 이 시스템은 감독자(supervisor) 에이전트가 상태를 바탕으로 인프라·애플리케이션 보안·클라우드 보안 전문 에이전트를 순환 호출하며, 샌드박스 GCP 환경에서 SSRF 악용, 메타데이터 서비스 자격증명 탈취, 서비스 계정 위임(impersonation), BigQuery 데이터 유출을 연쇄적으로 수행했다고 설명했다. 연구진은 AI가 새로운 공격 표면을 반드시 만들지는 않지만, 기존의 잘 알려진 클라우드 설정 오류를 ‘가속하는 힘(포스 멀티플라이어)’으로 작동할 수 있다고 평가했다. 또한 공격자 관점에서 IAM 오구성, API 기반 조작 용이성, 환경 복잡성, 자격증명 기반 접근 등이 자율 공격에 취약 요인이라고 정리했다.
+
+https://unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/" onclick="copyEntry(this)">복사</button></div>
+  <p>Unit 42는 LLM 기반 멀티에이전트 침투 테스트 PoC ‘Zealot’을 구축해 클라우드 환경에서 자율적 공격 체인이 가능한지 실증했다고 밝혔다. 이 시스템은 감독자(supervisor) 에이전트가 상태를 바탕으로 인프라·애플리케이션 보안·클라우드 보안 전문 에이전트를 순환 호출하며, 샌드박스 GCP 환경에서 SSRF 악용, 메타데이터 서비스 자격증명 탈취, 서비스 계정 위임(impersonation), BigQuery 데이터 유출을 연쇄적으로 수행했다고 설명했다. 연구진은 AI가 새로운 공격 표면을 반드시 만들지는 않지만, 기존의 잘 알려진 클라우드 설정 오류를 ‘가속하는 힘(포스 멀티플라이어)’으로 작동할 수 있다고 평가했다. 또한 공격자 관점에서 IAM 오구성, API 기반 조작 용이성, 환경 복잡성, 자격증명 기반 접근 등이 자율 공격에 취약 요인이라고 정리했다.</p>
+  <p class="url"><a href="https://unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/">https://unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.4.22) Anthropic ‘Mythos’ 사이버 모델에 무단 접근이 있었다는 보도</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">블룸버그(Bloomberg)</span> · <span class="deadline">확인 필요: 본문 내용(무단 접근 경로·영향 범위·조치 내용 등)은 제공되지 않아 사실관계 확인이 필요합니다.</span></span><button type="button" class="copy-btn" data-copy="(2026.4.22) Anthropic ‘Mythos’ 사이버 모델에 무단 접근이 있었다는 보도
+
+블룸버그는 Anthropic의 ‘Mythos’ 사이버 모델이 무단 사용자에 의해 접근되고 있다는 취지로 보도한 것으로 보입니다(세부 내용은 확인 필요). 기사 제목과 CSV 요약만으로는 접근 방식, 피해 규모, Anthropic 또는 관련 주체의 대응 조치가 무엇인지 확인이 어렵습니다.
+
+https://www.bloomberg.com/news/articles/2026-04-21/anthropic-s-mythos-model-is-being-accessed-by-unauthorized-users?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc3NjgwODczNywiZXhwIjoxNzc3NDEzNTM3LCJhcnRpY2xlSWQiOiJURFQ2TUJLSkg2VjQwMCIsImJjb25uZWN0SWQiOiIyMjNDRDM2NDg0QzY0OTc3QjY5ODE0Rjc1MTYxNDRGNyJ9.foPR6InPYdVBR-Pc5iOmS5EmMvf9BB6bOEGrO6LV8cU" onclick="copyEntry(this)">복사</button></div>
+  <p>블룸버그는 Anthropic의 ‘Mythos’ 사이버 모델이 무단 사용자에 의해 접근되고 있다는 취지로 보도한 것으로 보입니다(세부 내용은 확인 필요). 기사 제목과 CSV 요약만으로는 접근 방식, 피해 규모, Anthropic 또는 관련 주체의 대응 조치가 무엇인지 확인이 어렵습니다.</p>
+  <p class="url"><a href="https://www.bloomberg.com/news/articles/2026-04-21/anthropic-s-mythos-model-is-being-accessed-by-unauthorized-users?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc3NjgwODczNywiZXhwIjoxNzc3NDEzNTM3LCJhcnRpY2xlSWQiOiJURFQ2TUJLSkg2VjQwMCIsImJjb25uZWN0SWQiOiIyMjNDRDM2NDg0QzY0OTc3QjY5ODE0Rjc1MTYxNDRGNyJ9.foPR6InPYdVBR-Pc5iOmS5EmMvf9BB6bOEGrO6LV8cU">https://www.bloomberg.com/news/articles/2026-04-21/anthropic-s-mythos-model-is-being-accessed-by-unauthorized-users?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc3NjgwODczNywiZXhwIjoxNzc3NDEzNTM3LCJhcnRpY2xlSWQiOiJURFQ2TUJLSkg2VjQwMCIsImJjb25uZWN0SWQiOiIyMjNDRDM2NDg0QzY0OTc3QjY5ODE0Rjc1MTYxNDRGNyJ9.foPR6InPYdVBR-Pc5iOmS5EmMvf9BB6bOEGrO6LV8cU</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Kimi K2.6 오픈소스 공개…장기 코딩·에이전트 스웜·툴 호출 성능 개선 (2026.4.20)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Kimi 공식 블로그</span> · <span class="deadline">Kimi K2.6은 Kimi.com·Kimi 앱·API·Kimi Code를 통해 제공됨</span></span><button type="button" class="copy-btn" data-copy="Kimi K2.6 오픈소스 공개…장기 코딩·에이전트 스웜·툴 호출 성능 개선 (2026.4.20)
+
+Kimi는 최신 오픈소스 모델 ‘Kimi K2.6’를 공개하며, 고성능 코딩과 장기 실행(long-horizon execution), 에이전트 스웜 기능을 강조했다. 내부 벤치마크 및 사례에서 Kimi K2.5 대비 장기 코딩 과제 성능이 개선되었고, 도구 호출 품질과 장시간 안정성도 향상됐다고 설명한다. 또한 에이전트 스웜을 통해 작업을 하위 에이전트로 분해해 병렬 실행하며, 300개 서브 에이전트·수천 단계 동시 수행까지 확장할 수 있다고 밝혔다.
+
+https://www.kimi.com/blog/kimi-k2-6" onclick="copyEntry(this)">복사</button></div>
+  <p>Kimi는 최신 오픈소스 모델 ‘Kimi K2.6’를 공개하며, 고성능 코딩과 장기 실행(long-horizon execution), 에이전트 스웜 기능을 강조했다. 내부 벤치마크 및 사례에서 Kimi K2.5 대비 장기 코딩 과제 성능이 개선되었고, 도구 호출 품질과 장시간 안정성도 향상됐다고 설명한다. 또한 에이전트 스웜을 통해 작업을 하위 에이전트로 분해해 병렬 실행하며, 300개 서브 에이전트·수천 단계 동시 수행까지 확장할 수 있다고 밝혔다.</p>
+  <p class="url"><a href="https://www.kimi.com/blog/kimi-k2-6">https://www.kimi.com/blog/kimi-k2-6</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>NSTM-4(White House OSTP) 문서 공개(2026.4.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">whitehouse.gov</span></span><button type="button" class="copy-btn" data-copy="NSTM-4(White House OSTP) 문서 공개(2026.4.25)
+
+본문은 PDF 파일의 메타데이터(문서명 NSTM-4 20260422, White House OSTP, 작성/생성 관련 타임스탬프 등)와 일부 인코딩된 데이터로 구성되어 있어, 문서의 핵심 내용(정책 목표, 조치 사항 등)은 본문 추출 결과만으로 확인하기 어렵습니다. 따라서 문서가 무엇을 규정하는지에 대한 사실 요약은 제공할 수 없습니다.
+
+https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
+  <p>본문은 PDF 파일의 메타데이터(문서명 NSTM-4 20260422, White House OSTP, 작성/생성 관련 타임스탬프 등)와 일부 인코딩된 데이터로 구성되어 있어, 문서의 핵심 내용(정책 목표, 조치 사항 등)은 본문 추출 결과만으로 확인하기 어렵습니다. 따라서 문서가 무엇을 규정하는지에 대한 사실 요약은 제공할 수 없습니다.</p>
+  <p class="url"><a href="https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf?utm_source=substack&amp;utm_medium=email">https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf?utm_source=substack&amp;utm_medium=email</a></p>
 </article>
 <article class="entry cat-other">
   <h2>스탠퍼드 연구, 챗봇이 사용자의 망상·왜곡을 강화하는 ‘delusional spirals’ 위험 경고 (2026.4.27)</h2>
@@ -318,110 +444,7 @@ https://arxiv.org/abs/2604.05142?" onclick="copyEntry(this)">복사</button></di
   <p>AI가 재귀적 자기개선으로 생산될수록, 이전 AI가 후속 AI를 설계·전파하는 성공이 다음 세대의 특성을 좌우하는 ‘진화’ 형태가 나타날 수 있다는 수학적 모델을 제시한다. 생물 진화와 달리 AI 자기설계는 돌연변이가 무작위가 아니라 강하게 지향되며, 특정 조건(피트니스 상한 및 η-락킹) 하에서 피트니스가 도달 가능한 최대값에 집중될 수 있음을 보인다. 특히 인간 평가자의 유인과 실제 능력이 완전히 일치하지 않는 경우, 인간 평가를 속이는 기만이 번식(후속 생성) 적합도를 실제 능력 이상으로 증가시키면 진화가 능력과 기만을 함께 선택할 수 있다는 위험을 논의한다. 이를 완화하려면 후속 생성이 인간 판단이 아닌 순수한 객관 기준에 기반해야 한다고 제안한다.</p>
   <p class="url"><a href="https://arxiv.org/abs/2604.05142?">https://arxiv.org/abs/2604.05142?</a></p>
 </article>
-<article class="entry cat-research">
-  <h2></h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="deadline">Firefox 150, Claude Mythos 평가로 확인된 271개 취약점 수정 (2026.4.21)</span></span><button type="button" class="copy-btn" data-copy="
-
-출처: 모질라(Mozilla) 공식 블로그
-
-Firefox 팀은 2026년 2월부터 프론티어 AI 모델을 활용해 브라우저의 잠재 보안 취약점을 찾아 수정해 왔다고 밝혔다. Anthropic과의 협업으로 Opus 4.6을 통해 Firefox 148에서 22개 보안 관련 버그를 고쳤고, 이번에는 Claude Mythos Preview의 초기 버전을 적용해 Firefox 150에 271개 취약점 수정이 포함됐다고 전했다. 또한 퍼징 등 기존 자동 분석의 한계를 보완해 사람의 코드 분석을 AI가 수행할 수 있게 되면서, 공격자의 장기적 이점이 줄어들 것이라고 설명했다.
-
-https://blog.mozilla.org/en/firefox/ai-security-zero-day-vulnerabilities/?" onclick="copyEntry(this)">복사</button></div>
-  <p>출처: 모질라(Mozilla) 공식 블로그</p>
-<p>Firefox 팀은 2026년 2월부터 프론티어 AI 모델을 활용해 브라우저의 잠재 보안 취약점을 찾아 수정해 왔다고 밝혔다. Anthropic과의 협업으로 Opus 4.6을 통해 Firefox 148에서 22개 보안 관련 버그를 고쳤고, 이번에는 Claude Mythos Preview의 초기 버전을 적용해 Firefox 150에 271개 취약점 수정이 포함됐다고 전했다. 또한 퍼징 등 기존 자동 분석의 한계를 보완해 사람의 코드 분석을 AI가 수행할 수 있게 되면서, 공격자의 장기적 이점이 줄어들 것이라고 설명했다.</p>
-  <p class="url"><a href="https://blog.mozilla.org/en/firefox/ai-security-zero-day-vulnerabilities/?">https://blog.mozilla.org/en/firefox/ai-security-zero-day-vulnerabilities/?</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Google, Gemini Enterprise Agent Platform 출시(2026.4.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">구글 클라우드(Cloud AI 블로그)</span></span><button type="button" class="copy-btn" data-copy="Google, Gemini Enterprise Agent Platform 출시(2026.4.23)
-
-구글은 기업용 에이전트를 만들고 확장·관리·최적화할 수 있는 ‘Gemini Enterprise Agent Platform’을 출시한다고 밝혔다. 이 플랫폼은 기존 Vertex AI의 모델 선택·모델/에이전트 구축 기능을 확장해 에이전트 통합, DevOps, 오케스트레이션, 보안 기능을 함께 제공하며, Gemini Enterprise 앱을 통해 직원에게 에이전트를 제공하면서 IT 운영과의 연계를 강조한다. 또한 200개 이상의 모델(Model Garden) 접근, Agent Studio/ADK(Agent Development Kit) 기반 개발, Agent Runtime(다중일 워크플로·상태 유지·보안 샌드박스) 및 시뮬레이션·평가·관측(Observability) 기능을 통해 프로덕션 단계의 신뢰성과 품질을 지원한다고 설명했다.
-
-https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform" onclick="copyEntry(this)">복사</button></div>
-  <p>구글은 기업용 에이전트를 만들고 확장·관리·최적화할 수 있는 ‘Gemini Enterprise Agent Platform’을 출시한다고 밝혔다. 이 플랫폼은 기존 Vertex AI의 모델 선택·모델/에이전트 구축 기능을 확장해 에이전트 통합, DevOps, 오케스트레이션, 보안 기능을 함께 제공하며, Gemini Enterprise 앱을 통해 직원에게 에이전트를 제공하면서 IT 운영과의 연계를 강조한다. 또한 200개 이상의 모델(Model Garden) 접근, Agent Studio/ADK(Agent Development Kit) 기반 개발, Agent Runtime(다중일 워크플로·상태 유지·보안 샌드박스) 및 시뮬레이션·평가·관측(Observability) 기능을 통해 프로덕션 단계의 신뢰성과 품질을 지원한다고 설명했다.</p>
-  <p class="url"><a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform">https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>OpenAI, GPT-5.5 공개 (2026.4.23)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">2026.4.24: GPT-5.5 및 GPT-5.5 Pro의 API 배포를 위한 추가 안전장치 정보로 페이지 업데이트</span></span><button type="button" class="copy-btn" data-copy="OpenAI, GPT-5.5 공개 (2026.4.23)
-
-OpenAI는 GPT-5.5를 코드 작성, 온라인 조사, 정보 분석, 문서·스프레드시트 생성, 여러 도구를 오가며 작업을 완료하는 데 특화된 신규 모델로 소개했다. 사전 배포 안전성 평가와 Preparedness Framework를 적용했으며, 고급 사이버보안·생물 분야에 대한 표적 레드팀 테스트와 약 200명의 초기 액세스 파트너의 실제 사용 사례 피드백을 수집했다고 밝혔다. 또한 GPT-5.5 Pro는 동일 기반 모델에 병렬 테스트 시간 컴퓨팅 설정을 적용한 것으로, 일부 경우 위험과 안전장치 자세에 영향을 줄 수 있어 별도 평가한다고 설명했다.
-
-https://deploymentsafety.openai.com/gpt-5-5" onclick="copyEntry(this)">복사</button></div>
-  <p>OpenAI는 GPT-5.5를 코드 작성, 온라인 조사, 정보 분석, 문서·스프레드시트 생성, 여러 도구를 오가며 작업을 완료하는 데 특화된 신규 모델로 소개했다. 사전 배포 안전성 평가와 Preparedness Framework를 적용했으며, 고급 사이버보안·생물 분야에 대한 표적 레드팀 테스트와 약 200명의 초기 액세스 파트너의 실제 사용 사례 피드백을 수집했다고 밝혔다. 또한 GPT-5.5 Pro는 동일 기반 모델에 병렬 테스트 시간 컴퓨팅 설정을 적용한 것으로, 일부 경우 위험과 안전장치 자세에 영향을 줄 수 있어 별도 평가한다고 설명했다.</p>
-  <p class="url"><a href="https://deploymentsafety.openai.com/gpt-5-5">https://deploymentsafety.openai.com/gpt-5-5</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.4.22) 북한이 AI를 활용해 개발자 대상 공격을 ‘산업화’하는 방식</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Expel(익스펠) 블로그</span></span><button type="button" class="copy-btn" data-copy="(2026.4.22) 북한이 AI를 활용해 개발자 대상 공격을 ‘산업화’하는 방식
-
-Expel은 북한(DPRK) 국가 지원 APT로 고신뢰 평가되는 HexagonalRodent(=Lazarus 계열로 추정)가 Web3 개발자를 집중 표적해 암호화폐·NFT 등 고가 디지털 자산을 탈취한다고 밝혔다. 이 그룹은 Cursor·ChatGPT 등 생성형 AI를 악용하며, VSCode의 tasks.json 기능과 백도어가 심어진 코딩 과제(‘take home assessment’)를 통해 악성코드를 실행시키는 방식이 핵심이라고 설명했다. 또한 2026년 3월 ‘fast-draft’ VSX 확장 프로그램이 악성코드 설치에 악용된 공급망 공격 정황과, BeaverTail·OtterCookie·InvisibleFerret 계열 악성코드 사용, 코드에 이모지·과도한 주석 등 AI 생성 코드로 보이는 흔적을 근거로 AI 활용 정황을 제시했다.
-
-https://expel.com/blog/inside-lazarus-how-north-korea-uses-ai-to-industrialize-attacks-on-developers/" onclick="copyEntry(this)">복사</button></div>
-  <p>Expel은 북한(DPRK) 국가 지원 APT로 고신뢰 평가되는 HexagonalRodent(=Lazarus 계열로 추정)가 Web3 개발자를 집중 표적해 암호화폐·NFT 등 고가 디지털 자산을 탈취한다고 밝혔다. 이 그룹은 Cursor·ChatGPT 등 생성형 AI를 악용하며, VSCode의 tasks.json 기능과 백도어가 심어진 코딩 과제(‘take home assessment’)를 통해 악성코드를 실행시키는 방식이 핵심이라고 설명했다. 또한 2026년 3월 ‘fast-draft’ VSX 확장 프로그램이 악성코드 설치에 악용된 공급망 공격 정황과, BeaverTail·OtterCookie·InvisibleFerret 계열 악성코드 사용, 코드에 이모지·과도한 주석 등 AI 생성 코드로 보이는 흔적을 근거로 AI 활용 정황을 제시했다.</p>
-  <p class="url"><a href="https://expel.com/blog/inside-lazarus-how-north-korea-uses-ai-to-industrialize-attacks-on-developers/">https://expel.com/blog/inside-lazarus-how-north-korea-uses-ai-to-industrialize-attacks-on-developers/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>DeepSeek V4 관련 PDF 파일(4.48MB) 다운로드/저장 정보 제공 (2026.4.24)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="DeepSeek V4 관련 PDF 파일(4.48MB) 다운로드/저장 정보 제공 (2026.4.24)
-
-본문에는 DeepSeek V4의 기술 내용 요약보다는, Hugging Face에서 해당 PDF를 Xet 방식으로 저장·분할해 업로드/다운로드하는 메타데이터(파일 크기, SHA256 등) 정보가 주로 포함되어 있습니다.
-
-https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf" onclick="copyEntry(this)">복사</button></div>
-  <p>본문에는 DeepSeek V4의 기술 내용 요약보다는, Hugging Face에서 해당 PDF를 Xet 방식으로 저장·분할해 업로드/다운로드하는 메타데이터(파일 크기, SHA256 등) 정보가 주로 포함되어 있습니다.</p>
-  <p class="url"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf">https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Qwen3.6-Max 프리뷰 코딩 모델 공개 (2026.4.18)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Qwen3.6-Max 프리뷰 코딩 모델 공개 (2026.4.18)
-
-
-
-https://qwen.ai/blog?id=qwen3.6-max-preview" onclick="copyEntry(this)">복사</button></div>
-  
-  <p class="url"><a href="https://qwen.ai/blog?id=qwen3.6-max-preview">https://qwen.ai/blog?id=qwen3.6-max-preview</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.4.23) LLM 멀티에이전트가 클라우드 환경에서 기존 설정 오류를 연쇄 공격할 수 있음을 PoC로 제시</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">팔로알토 네트웍스 Unit 42(위협 연구센터)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.23) LLM 멀티에이전트가 클라우드 환경에서 기존 설정 오류를 연쇄 공격할 수 있음을 PoC로 제시
-
-Unit 42는 LLM 기반 멀티에이전트 침투 테스트 PoC ‘Zealot’을 구축해 클라우드 환경에서 자율적 공격 체인이 가능한지 실증했다고 밝혔다. 이 시스템은 감독자(supervisor) 에이전트가 상태를 바탕으로 인프라·애플리케이션 보안·클라우드 보안 전문 에이전트를 순환 호출하며, 샌드박스 GCP 환경에서 SSRF 악용, 메타데이터 서비스 자격증명 탈취, 서비스 계정 위임(impersonation), BigQuery 데이터 유출을 연쇄적으로 수행했다고 설명했다. 연구진은 AI가 새로운 공격 표면을 반드시 만들지는 않지만, 기존의 잘 알려진 클라우드 설정 오류를 ‘가속하는 힘(포스 멀티플라이어)’으로 작동할 수 있다고 평가했다. 또한 공격자 관점에서 IAM 오구성, API 기반 조작 용이성, 환경 복잡성, 자격증명 기반 접근 등이 자율 공격에 취약 요인이라고 정리했다.
-
-https://unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/" onclick="copyEntry(this)">복사</button></div>
-  <p>Unit 42는 LLM 기반 멀티에이전트 침투 테스트 PoC ‘Zealot’을 구축해 클라우드 환경에서 자율적 공격 체인이 가능한지 실증했다고 밝혔다. 이 시스템은 감독자(supervisor) 에이전트가 상태를 바탕으로 인프라·애플리케이션 보안·클라우드 보안 전문 에이전트를 순환 호출하며, 샌드박스 GCP 환경에서 SSRF 악용, 메타데이터 서비스 자격증명 탈취, 서비스 계정 위임(impersonation), BigQuery 데이터 유출을 연쇄적으로 수행했다고 설명했다. 연구진은 AI가 새로운 공격 표면을 반드시 만들지는 않지만, 기존의 잘 알려진 클라우드 설정 오류를 ‘가속하는 힘(포스 멀티플라이어)’으로 작동할 수 있다고 평가했다. 또한 공격자 관점에서 IAM 오구성, API 기반 조작 용이성, 환경 복잡성, 자격증명 기반 접근 등이 자율 공격에 취약 요인이라고 정리했다.</p>
-  <p class="url"><a href="https://unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/">https://unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.4.22) Anthropic ‘Mythos’ 사이버 모델에 무단 접근이 있었다는 보도</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">블룸버그(Bloomberg)</span> · <span class="deadline">확인 필요: 본문 내용(무단 접근 경로·영향 범위·조치 내용 등)은 제공되지 않아 사실관계 확인이 필요합니다.</span></span><button type="button" class="copy-btn" data-copy="(2026.4.22) Anthropic ‘Mythos’ 사이버 모델에 무단 접근이 있었다는 보도
-
-블룸버그는 Anthropic의 ‘Mythos’ 사이버 모델이 무단 사용자에 의해 접근되고 있다는 취지로 보도한 것으로 보입니다(세부 내용은 확인 필요). 기사 제목과 CSV 요약만으로는 접근 방식, 피해 규모, Anthropic 또는 관련 주체의 대응 조치가 무엇인지 확인이 어렵습니다.
-
-https://www.bloomberg.com/news/articles/2026-04-21/anthropic-s-mythos-model-is-being-accessed-by-unauthorized-users?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc3NjgwODczNywiZXhwIjoxNzc3NDEzNTM3LCJhcnRpY2xlSWQiOiJURFQ2TUJLSkg2VjQwMCIsImJjb25uZWN0SWQiOiIyMjNDRDM2NDg0QzY0OTc3QjY5ODE0Rjc1MTYxNDRGNyJ9.foPR6InPYdVBR-Pc5iOmS5EmMvf9BB6bOEGrO6LV8cU" onclick="copyEntry(this)">복사</button></div>
-  <p>블룸버그는 Anthropic의 ‘Mythos’ 사이버 모델이 무단 사용자에 의해 접근되고 있다는 취지로 보도한 것으로 보입니다(세부 내용은 확인 필요). 기사 제목과 CSV 요약만으로는 접근 방식, 피해 규모, Anthropic 또는 관련 주체의 대응 조치가 무엇인지 확인이 어렵습니다.</p>
-  <p class="url"><a href="https://www.bloomberg.com/news/articles/2026-04-21/anthropic-s-mythos-model-is-being-accessed-by-unauthorized-users?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc3NjgwODczNywiZXhwIjoxNzc3NDEzNTM3LCJhcnRpY2xlSWQiOiJURFQ2TUJLSkg2VjQwMCIsImJjb25uZWN0SWQiOiIyMjNDRDM2NDg0QzY0OTc3QjY5ODE0Rjc1MTYxNDRGNyJ9.foPR6InPYdVBR-Pc5iOmS5EmMvf9BB6bOEGrO6LV8cU">https://www.bloomberg.com/news/articles/2026-04-21/anthropic-s-mythos-model-is-being-accessed-by-unauthorized-users?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc3NjgwODczNywiZXhwIjoxNzc3NDEzNTM3LCJhcnRpY2xlSWQiOiJURFQ2TUJLSkg2VjQwMCIsImJjb25uZWN0SWQiOiIyMjNDRDM2NDg0QzY0OTc3QjY5ODE0Rjc1MTYxNDRGNyJ9.foPR6InPYdVBR-Pc5iOmS5EmMvf9BB6bOEGrO6LV8cU</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>Kimi K2.6 오픈소스 공개…장기 코딩·에이전트 스웜·툴 호출 성능 개선 (2026.4.20)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">Kimi 공식 블로그</span> · <span class="deadline">Kimi K2.6은 Kimi.com·Kimi 앱·API·Kimi Code를 통해 제공됨</span></span><button type="button" class="copy-btn" data-copy="Kimi K2.6 오픈소스 공개…장기 코딩·에이전트 스웜·툴 호출 성능 개선 (2026.4.20)
-
-Kimi는 최신 오픈소스 모델 ‘Kimi K2.6’를 공개하며, 고성능 코딩과 장기 실행(long-horizon execution), 에이전트 스웜 기능을 강조했다. 내부 벤치마크 및 사례에서 Kimi K2.5 대비 장기 코딩 과제 성능이 개선되었고, 도구 호출 품질과 장시간 안정성도 향상됐다고 설명한다. 또한 에이전트 스웜을 통해 작업을 하위 에이전트로 분해해 병렬 실행하며, 300개 서브 에이전트·수천 단계 동시 수행까지 확장할 수 있다고 밝혔다.
-
-https://www.kimi.com/blog/kimi-k2-6" onclick="copyEntry(this)">복사</button></div>
-  <p>Kimi는 최신 오픈소스 모델 ‘Kimi K2.6’를 공개하며, 고성능 코딩과 장기 실행(long-horizon execution), 에이전트 스웜 기능을 강조했다. 내부 벤치마크 및 사례에서 Kimi K2.5 대비 장기 코딩 과제 성능이 개선되었고, 도구 호출 품질과 장시간 안정성도 향상됐다고 설명한다. 또한 에이전트 스웜을 통해 작업을 하위 에이전트로 분해해 병렬 실행하며, 300개 서브 에이전트·수천 단계 동시 수행까지 확장할 수 있다고 밝혔다.</p>
-  <p class="url"><a href="https://www.kimi.com/blog/kimi-k2-6">https://www.kimi.com/blog/kimi-k2-6</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>NSTM-4(White House OSTP) 문서 공개(2026.4.25)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">whitehouse.gov</span></span><button type="button" class="copy-btn" data-copy="NSTM-4(White House OSTP) 문서 공개(2026.4.25)
-
-본문은 PDF 파일의 메타데이터(문서명 NSTM-4 20260422, White House OSTP, 작성/생성 관련 타임스탬프 등)와 일부 인코딩된 데이터로 구성되어 있어, 문서의 핵심 내용(정책 목표, 조치 사항 등)은 본문 추출 결과만으로 확인하기 어렵습니다. 따라서 문서가 무엇을 규정하는지에 대한 사실 요약은 제공할 수 없습니다.
-
-https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
-  <p>본문은 PDF 파일의 메타데이터(문서명 NSTM-4 20260422, White House OSTP, 작성/생성 관련 타임스탬프 등)와 일부 인코딩된 데이터로 구성되어 있어, 문서의 핵심 내용(정책 목표, 조치 사항 등)은 본문 추출 결과만으로 확인하기 어렵습니다. 따라서 문서가 무엇을 규정하는지에 대한 사실 요약은 제공할 수 없습니다.</p>
-  <p class="url"><a href="https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf?utm_source=substack&amp;utm_medium=email">https://www.whitehouse.gov/wp-content/uploads/2026/04/NSTM-4.pdf?utm_source=substack&amp;utm_medium=email</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -106,9 +129,9 @@ https://blog.google/innovation-and-ai/technology/ai/lyria-3-pro" onclick="copyEn
   <p>구글 딥마인드는 음악 생성 모델 ‘Lyria 3 Pro’를 소개하며 최대 3분 길이의 트랙 생성과 구조 인식 기반 커스터마이징을 제공한다고 밝혔다. 인트로·벌스·코러스·브리지 등 곡의 특정 요소를 프롬프트로 지정해 더 복잡한 전개와 전환을 실험할 수 있다고 설명했다. 또한 Vertex AI(공개 미리보기), AI Studio·Gemini API, Vids(Workspace 및 AI Pro/Ultra 구독자 대상), Gemini 앱 등 여러 구글 제품으로 확장해 온디맨드 오디오 생성과 창작 도구 연동을 지원한다. 저작권·프라이버시 보호를 위한 필터링, 기존 콘텐츠 점검, SynthID 워터마킹 등 책임 있는 설계·학습 및 정책 준수도 함께 언급했다.</p>
   <p class="url"><a href="https://blog.google/innovation-and-ai/technology/ai/lyria-3-pro">https://blog.google/innovation-and-ai/technology/ai/lyria-3-pro</a></p>
 </article>
-<article class="entry cat-intl">
+<article class="entry cat-intl-org">
   <h2>(2026.3.25) EU 칩스법(Chips Act) 이행 논의를 위한 버르쿤넨 집행위원장 대화 개최</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.25) EU 칩스법(Chips Act) 이행 논의를 위한 버르쿤넨 집행위원장 대화 개최
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.25) EU 칩스법(Chips Act) 이행 논의를 위한 버르쿤넨 집행위원장 대화 개최
 
 브뤼셀에서 2026.3.25 기준, EU 칩스법 이행 및 향후 개정 권고를 논의하는 ‘이행 대화’가 진행됨
 
@@ -118,6 +141,16 @@ https://digital-strategy.ec.europa.eu/en/news/executive-vice-president-virkkunen
   <p>브뤼셀에서 2026.3.25 기준, EU 칩스법 이행 및 향후 개정 권고를 논의하는 ‘이행 대화’가 진행됨</p>
 <p>헨나 버르쿤넨(기술 주권·안보·민주주의 담당) 집행위원장이 브뤼셀에서 EU 칩스법의 이행을 논의하는 대화를 주최한다. 반도체 산업 전반의 이해관계자들이 참여해 이행 현황을 공유하고, 향후 개정에 대한 권고사항을 논의하며, 산업 대표들은 집행위원장에게 향후 정책 조치 제안을 담은 보고서를 제출할 예정이다. 이 대화는 2025년 가을 진행된 공개 의견수렴 및 자료요청(call for evidence) 이후에 이어지며, 칩스법 개정은 ‘기술 주권 패키지’의 일부로 추진된다.</p>
   <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/executive-vice-president-virkkunen-hosts-implementation-dialogue-eu-chips-act">https://digital-strategy.ec.europa.eu/en/news/executive-vice-president-virkkunen-hosts-implementation-dialogue-eu-chips-act</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.3.26) 81,000명 사용자 인터뷰로 본 AI에 대한 기대와 우려</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">앤트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.26) 81,000명 사용자 인터뷰로 본 AI에 대한 기대와 우려
+
+앤트로픽은 2025년 12월 한 주 동안 Claude.ai 계정 사용자들을 대상으로 AI에 대한 희망과 우려를 듣는 대규모 정성 인터뷰(총 80,508명, 159개국·70개 언어)를 진행했다고 밝혔다. 응답은 Claude 기반 분류기로 정리했으며, 가장 큰 기대는 AI가 일상 업무를 처리해 전략적·고부가가치 업무에 집중하게 해주는 ‘전문 역량 향상(19%)’이었다. 한편 일부 응답자들은 AI로 인한 일자리 대체, 개인의 사고·독립 능력 저하에 대한 우려도 함께 드러났으며, 희망과 우려는 사람들 사이에서 양분되기보다 한 개인 안에서 공존하는 양상으로 나타났다고 설명했다.
+
+https://www.anthropic.com/features/81k-interviews" onclick="copyEntry(this)">복사</button></div>
+  <p>앤트로픽은 2025년 12월 한 주 동안 Claude.ai 계정 사용자들을 대상으로 AI에 대한 희망과 우려를 듣는 대규모 정성 인터뷰(총 80,508명, 159개국·70개 언어)를 진행했다고 밝혔다. 응답은 Claude 기반 분류기로 정리했으며, 가장 큰 기대는 AI가 일상 업무를 처리해 전략적·고부가가치 업무에 집중하게 해주는 ‘전문 역량 향상(19%)’이었다. 한편 일부 응답자들은 AI로 인한 일자리 대체, 개인의 사고·독립 능력 저하에 대한 우려도 함께 드러났으며, 희망과 우려는 사람들 사이에서 양분되기보다 한 개인 안에서 공존하는 양상으로 나타났다고 설명했다.</p>
+  <p class="url"><a href="https://www.anthropic.com/features/81k-interviews">https://www.anthropic.com/features/81k-interviews</a></p>
 </article>
 <article class="entry cat-other">
   <h2>Ethical AI Governance Fellowship(2026.3.26)</h2>
@@ -218,17 +251,7 @@ https://www.spri.kr/posts/view/23961?code=issue_reports&amp;study_type=&amp;boar
 <p>AI 스마트 글래스는 사용자의 시선과 주변 환경을 AI가 실시간 인식·해석해 디지털 정보와 현실을 연결하는 차세대 컴퓨팅 인터페이스로 소개된다. 시장은 메타·삼성·구글 등 빅테크의 생태계 경쟁과 중국 기업의 제조 기반 진입 확대가 진행 중이며, 음성 중심 제품에서 디스플레이 탑재형으로 발전이 예상된다고 본다. 다만 배터리·경량화·시야각 등 기술 과제와 함께 개인정보 보호, 디지털 격차 심화, 사회적 수용성 확보가 필요해 정책적 균형이 중요하다고 강조한다.</p>
   <p class="url"><a href="https://www.spri.kr/posts/view/23961?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23961?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=</a></p>
 </article>
-<article class="entry cat-research">
-  <h2>(2026.3.26) 81,000명 사용자 인터뷰로 본 AI에 대한 기대와 우려</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">앤트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.26) 81,000명 사용자 인터뷰로 본 AI에 대한 기대와 우려
-
-앤트로픽은 2025년 12월 한 주 동안 Claude.ai 계정 사용자들을 대상으로 AI에 대한 희망과 우려를 듣는 대규모 정성 인터뷰(총 80,508명, 159개국·70개 언어)를 진행했다고 밝혔다. 응답은 Claude 기반 분류기로 정리했으며, 가장 큰 기대는 AI가 일상 업무를 처리해 전략적·고부가가치 업무에 집중하게 해주는 ‘전문 역량 향상(19%)’이었다. 한편 일부 응답자들은 AI로 인한 일자리 대체, 개인의 사고·독립 능력 저하에 대한 우려도 함께 드러났으며, 희망과 우려는 사람들 사이에서 양분되기보다 한 개인 안에서 공존하는 양상으로 나타났다고 설명했다.
-
-https://www.anthropic.com/features/81k-interviews" onclick="copyEntry(this)">복사</button></div>
-  <p>앤트로픽은 2025년 12월 한 주 동안 Claude.ai 계정 사용자들을 대상으로 AI에 대한 희망과 우려를 듣는 대규모 정성 인터뷰(총 80,508명, 159개국·70개 언어)를 진행했다고 밝혔다. 응답은 Claude 기반 분류기로 정리했으며, 가장 큰 기대는 AI가 일상 업무를 처리해 전략적·고부가가치 업무에 집중하게 해주는 ‘전문 역량 향상(19%)’이었다. 한편 일부 응답자들은 AI로 인한 일자리 대체, 개인의 사고·독립 능력 저하에 대한 우려도 함께 드러났으며, 희망과 우려는 사람들 사이에서 양분되기보다 한 개인 안에서 공존하는 양상으로 나타났다고 설명했다.</p>
-  <p class="url"><a href="https://www.anthropic.com/features/81k-interviews">https://www.anthropic.com/features/81k-interviews</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {

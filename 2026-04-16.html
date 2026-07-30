@@ -12,6 +12,8 @@
     --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
     --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
     --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +22,8 @@
       --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
       --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
       --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
     }
   }
   * { box-sizing: border-box; }
@@ -48,6 +52,12 @@
   .entry.cat-intl { border-left-color: var(--cat-intl); }
   .entry.cat-notice { border-left-color: var(--cat-notice); }
   .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
   .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
   .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
     display: flex; align-items: center; gap: 8px; }
@@ -71,6 +81,15 @@
   .badge.cat-intl { background: var(--cat-intl); }
   .badge.cat-notice { background: var(--cat-notice); }
   .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
   .entry p {
     margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
     overflow-wrap: anywhere; word-break: break-word;
@@ -84,6 +103,10 @@
   footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
   footer a { color: var(--muted); }
   footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
   .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
     color: var(--fg); text-decoration: none; }
   .archive-list a:hover { color: var(--link); }
@@ -126,6 +149,56 @@ https://openai.com/index/gpt-5-lowers-protein-synthesis-cost/" onclick="copyEntr
   <p>GPT-5가 단백질 합성 비용을 낮추는 데 활용될 수 있다는 취지의 OpenAI 게시물로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 방법, 성과(비용 절감 규모), 적용 범위는 확인이 필요합니다.</p>
   <p class="url"><a href="https://openai.com/index/gpt-5-lowers-protein-synthesis-cost/">https://openai.com/index/gpt-5-lowers-protein-synthesis-cost/</a></p>
 </article>
+<article class="entry cat-intl-org">
+  <h2>(2026.4.15) 유럽 교육기술(EdTech) 분야의 미래와 AI 기반 경쟁력 강화 논의</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span> · <span class="deadline">브뤼셀에서 고위급 대화(High-level Dialogue) 개최</span></span><button type="button" class="copy-btn" data-copy="(2026.4.15) 유럽 교육기술(EdTech) 분야의 미래와 AI 기반 경쟁력 강화 논의
+
+유럽연합 집행위원회 부집행위원장 헨나 비르쿤넨과 로크사나 민차투가 브뤼셀에서 EdTech 기업 리더들과 고위급 대화를 개최한다. 이번 논의는 교육·훈련에서 기술의 중요성이 커지는 흐름, EU의 디지털 주권과 경쟁력에 대한 기여, 그리고 비(非)EU 기술 생태계 의존을 줄이면서 EU 내 AI 기반 교육 솔루션의 경쟁력을 강화하는 방안을 다룬다. 또한 교육과 기업 간 협력 및 전략적 파트너십을 통해 유럽 EdTech 기업의 유럽·글로벌 성장과 경쟁력 제고를 모색하며, 올해 말 예상되는 ‘디지털 교육 및 기술’ 2030 로드맵 준비에도 기여할 예정이다.
+
+https://digital-strategy.ec.europa.eu/en/news/executive-vice-presidents-virkkunen-and-minzatu-discuss-future-europes-education-technology-sector" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽연합 집행위원회 부집행위원장 헨나 비르쿤넨과 로크사나 민차투가 브뤼셀에서 EdTech 기업 리더들과 고위급 대화를 개최한다. 이번 논의는 교육·훈련에서 기술의 중요성이 커지는 흐름, EU의 디지털 주권과 경쟁력에 대한 기여, 그리고 비(非)EU 기술 생태계 의존을 줄이면서 EU 내 AI 기반 교육 솔루션의 경쟁력을 강화하는 방안을 다룬다. 또한 교육과 기업 간 협력 및 전략적 파트너십을 통해 유럽 EdTech 기업의 유럽·글로벌 성장과 경쟁력 제고를 모색하며, 올해 말 예상되는 ‘디지털 교육 및 기술’ 2030 로드맵 준비에도 기여할 예정이다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/executive-vice-presidents-virkkunen-and-minzatu-discuss-future-europes-education-technology-sector">https://digital-strategy.ec.europa.eu/en/news/executive-vice-presidents-virkkunen-and-minzatu-discuss-future-europes-education-technology-sector</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>(2026.4.15 기준) 유럽 디지털 서비스 이사회, 미성년자 온라인 보호·연령검증 앱 고도화·DSA 집행 효율화 논의</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">15 April 2026 브뤼셀에서 제18차 회의 개최</span></span><button type="button" class="copy-btn" data-copy="(2026.4.15 기준) 유럽 디지털 서비스 이사회, 미성년자 온라인 보호·연령검증 앱 고도화·DSA 집행 효율화 논의
+
+유럽 디지털 서비스 이사회는 2026년 4월 15일 브뤼셀에서 제18차 회의를 열고 미성년자 온라인 보호를 최우선 과제로 재확인했다. DSA(디지털서비스법) 제28조(1) 관련 집행·이행 조치 현황을 공유했으며, 미성년자 보호 지침을 EU 전역에서 플랫폼 준수 여부 평가의 기준으로 활용하기로 했다. 또한 EU의 조화된 연령검증(AV) 앱이 지침의 연령확인 요건(정확성·신뢰성·견고성·비침해성)을 충족하도록 하는 기술 업데이트와, eID 등 연령 증명 온보딩 방식에 대해 논의했다. 이사회는 운영 2년을 점검하며 DSA 집행 강화를 위해 업무 방식과 프로세스를 간소화하고 전략적 역할을 더 강조하기로 했다.
+
+https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 디지털 서비스 이사회는 2026년 4월 15일 브뤼셀에서 제18차 회의를 열고 미성년자 온라인 보호를 최우선 과제로 재확인했다. DSA(디지털서비스법) 제28조(1) 관련 집행·이행 조치 현황을 공유했으며, 미성년자 보호 지침을 EU 전역에서 플랫폼 준수 여부 평가의 기준으로 활용하기로 했다. 또한 EU의 조화된 연령검증(AV) 앱이 지침의 연령확인 요건(정확성·신뢰성·견고성·비침해성)을 충족하도록 하는 기술 업데이트와, eID 등 연령 증명 온보딩 방식에 대해 논의했다. 이사회는 운영 2년을 점검하며 DSA 집행 강화를 위해 업무 방식과 프로세스를 간소화하고 전략적 역할을 더 강조하기로 했다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services">https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>SuperCLUE 2025 연례 중국 대형모델 벤치마크 평가 보고서 공개 (2026.2.3)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="SuperCLUE 2025 연례 중국 대형모델 벤치마크 평가 보고서 공개 (2026.2.3)
+
+SuperCLUE 2025 연례 평가에서 Claude-Opus-4.5-Reasoning(68.25점)이 종합 1위를 차지했으며, Gemini-3-Pro-Preview(65.59점)와 GPT-5.2(high)(64.32점)가 뒤를 이었습니다. 개방형 모델은 Kimi-K2.5-Thinking(61.50점)이 개방형 1위를 기록했고, 코드 생성·웹 코딩에서는 국내 모델의 강세가 두드러졌습니다. 반면 정밀 지시 준수와 환각 제어에서는 해외 모델이 전반적으로 우위를 보였고, 특히 정밀 지시 준수에서 점수 격차가 크게 나타났습니다. 또한 SuperCLUE 점수와 LMArena(인간 투표 기반) 간 상관계수(피어슨 0.8239, 스피어만 0.8321)로 평가 일관성이 높다고 제시했습니다.
+
+https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
+  <p>SuperCLUE 2025 연례 평가에서 Claude-Opus-4.5-Reasoning(68.25점)이 종합 1위를 차지했으며, Gemini-3-Pro-Preview(65.59점)와 GPT-5.2(high)(64.32점)가 뒤를 이었습니다. 개방형 모델은 Kimi-K2.5-Thinking(61.50점)이 개방형 1위를 기록했고, 코드 생성·웹 코딩에서는 국내 모델의 강세가 두드러졌습니다. 반면 정밀 지시 준수와 환각 제어에서는 해외 모델이 전반적으로 우위를 보였고, 특히 정밀 지시 준수에서 점수 격차가 크게 나타났습니다. 또한 SuperCLUE 점수와 LMArena(인간 투표 기반) 간 상관계수(피어슨 0.8239, 스피어만 0.8321)로 평가 일관성이 높다고 제시했습니다.</p>
+  <p class="url"><a href="https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email">https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>OpenAI, Codex Security Agent를 연구 미리보기(Research Preview) 형태로 공개 (2026.3.6)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, Codex Security Agent를 연구 미리보기(Research Preview) 형태로 공개 (2026.3.6)
+
+본문 내용 확인 필요. 다만 제공된 URL과 제목 기준으로, OpenAI가 Codex Security Agent를 자동화된 취약점 탐지 목적의 연구 미리보기로 소개한 것으로 보입니다. 구체적인 기능 범위, 지원 환경, 적용 방식 및 일정 등은 본문 확인이 필요합니다.
+
+https://openai.com/index/codex-security-now-in-research-preview/" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 내용 확인 필요. 다만 제공된 URL과 제목 기준으로, OpenAI가 Codex Security Agent를 자동화된 취약점 탐지 목적의 연구 미리보기로 소개한 것으로 보입니다. 구체적인 기능 범위, 지원 환경, 적용 방식 및 일정 등은 본문 확인이 필요합니다.</p>
+  <p class="url"><a href="https://openai.com/index/codex-security-now-in-research-preview/">https://openai.com/index/codex-security-now-in-research-preview/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.2.25) 악성 AI의 악용을 차단하기 위한 대응과 사례</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="(2026.2.25) 악성 AI의 악용을 차단하기 위한 대응과 사례
+
+OpenAI는 악성 AI가 악용되는 방식과 이를 방지하기 위한 대응(탐지·완화 등)을 다루는 글을 게시한 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 주장, 조치, 사례의 사실관계는 확인이 필요합니다.
+
+https://openai.com/index/disrupting-malicious-ai-uses/" onclick="copyEntry(this)">복사</button></div>
+  <p>OpenAI는 악성 AI가 악용되는 방식과 이를 방지하기 위한 대응(탐지·완화 등)을 다루는 글을 게시한 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 주장, 조치, 사례의 사실관계는 확인이 필요합니다.</p>
+  <p class="url"><a href="https://openai.com/index/disrupting-malicious-ai-uses/">https://openai.com/index/disrupting-malicious-ai-uses/</a></p>
+</article>
 <article class="entry cat-other">
   <h2>(2026.4.16) LLM 그루밍: AI 학습데이터를 오염시키는 새로운 형태의 허위정보 확산</h2>
   <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">blog.ogunlana.net</span></span><button type="button" class="copy-btn" data-copy="(2026.4.16) LLM 그루밍: AI 학습데이터를 오염시키는 새로운 형태의 허위정보 확산
@@ -135,26 +208,6 @@ AI 보안 연구자들이 ‘LLM grooming’이라는 허위정보 전략을 소
 https://blog.ogunlana.net/2025/07/31/understanding-llm-grooming-the-new-frontier-of-ai-powered-disinformation" onclick="copyEntry(this)">복사</button></div>
   <p>AI 보안 연구자들이 ‘LLM grooming’이라는 허위정보 전략을 소개했으며, 인간을 속이기보다 AI가 학습하는 웹 데이터 자체를 오염시키는 방식이라고 설명한다. 러시아 기반 ‘프라우다 네트워크’ 사례로, 수백 개 도메인에 대량의 허위·선전성 콘텐츠를 다국어로 게시하고 인간 방문 없이 주로 AI 크롤러가 수집하도록 설계된 정황이 제시된다. NewsGuard(2025년 3월) 테스트에서는 프라우다 네트워크가 겨냥한 주제에 대해 주요 챗봇 응답의 33%가 러시아 선전 서사를 포함했다고 언급하며, 허위가 사실처럼 섞여 구분이 어려울 수 있다고 경고한다.</p>
   <p class="url"><a href="https://blog.ogunlana.net/2025/07/31/understanding-llm-grooming-the-new-frontier-of-ai-powered-disinformation">https://blog.ogunlana.net/2025/07/31/understanding-llm-grooming-the-new-frontier-of-ai-powered-disinformation</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>(2026.4.15) 유럽 교육기술(EdTech) 분야의 미래와 AI 기반 경쟁력 강화 논의</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span> · <span class="deadline">브뤼셀에서 고위급 대화(High-level Dialogue) 개최</span></span><button type="button" class="copy-btn" data-copy="(2026.4.15) 유럽 교육기술(EdTech) 분야의 미래와 AI 기반 경쟁력 강화 논의
-
-유럽연합 집행위원회 부집행위원장 헨나 비르쿤넨과 로크사나 민차투가 브뤼셀에서 EdTech 기업 리더들과 고위급 대화를 개최한다. 이번 논의는 교육·훈련에서 기술의 중요성이 커지는 흐름, EU의 디지털 주권과 경쟁력에 대한 기여, 그리고 비(非)EU 기술 생태계 의존을 줄이면서 EU 내 AI 기반 교육 솔루션의 경쟁력을 강화하는 방안을 다룬다. 또한 교육과 기업 간 협력 및 전략적 파트너십을 통해 유럽 EdTech 기업의 유럽·글로벌 성장과 경쟁력 제고를 모색하며, 올해 말 예상되는 ‘디지털 교육 및 기술’ 2030 로드맵 준비에도 기여할 예정이다.
-
-https://digital-strategy.ec.europa.eu/en/news/executive-vice-presidents-virkkunen-and-minzatu-discuss-future-europes-education-technology-sector" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽연합 집행위원회 부집행위원장 헨나 비르쿤넨과 로크사나 민차투가 브뤼셀에서 EdTech 기업 리더들과 고위급 대화를 개최한다. 이번 논의는 교육·훈련에서 기술의 중요성이 커지는 흐름, EU의 디지털 주권과 경쟁력에 대한 기여, 그리고 비(非)EU 기술 생태계 의존을 줄이면서 EU 내 AI 기반 교육 솔루션의 경쟁력을 강화하는 방안을 다룬다. 또한 교육과 기업 간 협력 및 전략적 파트너십을 통해 유럽 EdTech 기업의 유럽·글로벌 성장과 경쟁력 제고를 모색하며, 올해 말 예상되는 ‘디지털 교육 및 기술’ 2030 로드맵 준비에도 기여할 예정이다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/executive-vice-presidents-virkkunen-and-minzatu-discuss-future-europes-education-technology-sector">https://digital-strategy.ec.europa.eu/en/news/executive-vice-presidents-virkkunen-and-minzatu-discuss-future-europes-education-technology-sector</a></p>
-</article>
-<article class="entry cat-intl">
-  <h2>(2026.4.15 기준) 유럽 디지털 서비스 이사회, 미성년자 온라인 보호·연령검증 앱 고도화·DSA 집행 효율화 논의</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-intl">국제 기관</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">15 April 2026 브뤼셀에서 제18차 회의 개최</span></span><button type="button" class="copy-btn" data-copy="(2026.4.15 기준) 유럽 디지털 서비스 이사회, 미성년자 온라인 보호·연령검증 앱 고도화·DSA 집행 효율화 논의
-
-유럽 디지털 서비스 이사회는 2026년 4월 15일 브뤼셀에서 제18차 회의를 열고 미성년자 온라인 보호를 최우선 과제로 재확인했다. DSA(디지털서비스법) 제28조(1) 관련 집행·이행 조치 현황을 공유했으며, 미성년자 보호 지침을 EU 전역에서 플랫폼 준수 여부 평가의 기준으로 활용하기로 했다. 또한 EU의 조화된 연령검증(AV) 앱이 지침의 연령확인 요건(정확성·신뢰성·견고성·비침해성)을 충족하도록 하는 기술 업데이트와, eID 등 연령 증명 온보딩 방식에 대해 논의했다. 이사회는 운영 2년을 점검하며 DSA 집행 강화를 위해 업무 방식과 프로세스를 간소화하고 전략적 역할을 더 강조하기로 했다.
-
-https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services" onclick="copyEntry(this)">복사</button></div>
-  <p>유럽 디지털 서비스 이사회는 2026년 4월 15일 브뤼셀에서 제18차 회의를 열고 미성년자 온라인 보호를 최우선 과제로 재확인했다. DSA(디지털서비스법) 제28조(1) 관련 집행·이행 조치 현황을 공유했으며, 미성년자 보호 지침을 EU 전역에서 플랫폼 준수 여부 평가의 기준으로 활용하기로 했다. 또한 EU의 조화된 연령검증(AV) 앱이 지침의 연령확인 요건(정확성·신뢰성·견고성·비침해성)을 충족하도록 하는 기술 업데이트와, eID 등 연령 증명 온보딩 방식에 대해 논의했다. 이사회는 운영 2년을 점검하며 DSA 집행 강화를 위해 업무 방식과 프로세스를 간소화하고 전략적 역할을 더 강조하기로 했다.</p>
-  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services">https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services</a></p>
 </article>
 <article class="entry cat-other">
   <h2>(LLM04:2025 Data and Model Poisoning, 2026.4.16)</h2>
@@ -199,37 +252,7 @@ https://www.fairedih.fi/en/2025/06/01/llm-grooming-and-prompt-manipulation-ai-vu
   <p>본문 요약: 연구에 따르면 LLM을 통한 조작(예: 그루밍·프롬프트 조작)은 실험적으로 가능하며 비교적 쉽게 수행될 수 있다고 설명한다. 특히 소멸된 도메인을 구매하는 데 약 60달러 정도의 예산만으로도 공격이 가능하다는 사례가 제시된다. 그 결과, 사용자가 의심하지 못한 채 중립 전문가의 목소리로 허위정보를 반복 생성하도록 AI가 유도될 가능성도 있다고 본문은 경고한다.</p>
   <p class="url"><a href="https://www.fairedih.fi/en/2025/06/01/llm-grooming-and-prompt-manipulation-ai-vulnerabilities-that-threaten-businesses/">https://www.fairedih.fi/en/2025/06/01/llm-grooming-and-prompt-manipulation-ai-vulnerabilities-that-threaten-businesses/</a></p>
 </article>
-<article class="entry cat-research">
-  <h2>SuperCLUE 2025 연례 중국 대형모델 벤치마크 평가 보고서 공개 (2026.2.3)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="SuperCLUE 2025 연례 중국 대형모델 벤치마크 평가 보고서 공개 (2026.2.3)
-
-SuperCLUE 2025 연례 평가에서 Claude-Opus-4.5-Reasoning(68.25점)이 종합 1위를 차지했으며, Gemini-3-Pro-Preview(65.59점)와 GPT-5.2(high)(64.32점)가 뒤를 이었습니다. 개방형 모델은 Kimi-K2.5-Thinking(61.50점)이 개방형 1위를 기록했고, 코드 생성·웹 코딩에서는 국내 모델의 강세가 두드러졌습니다. 반면 정밀 지시 준수와 환각 제어에서는 해외 모델이 전반적으로 우위를 보였고, 특히 정밀 지시 준수에서 점수 격차가 크게 나타났습니다. 또한 SuperCLUE 점수와 LMArena(인간 투표 기반) 간 상관계수(피어슨 0.8239, 스피어만 0.8321)로 평가 일관성이 높다고 제시했습니다.
-
-https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
-  <p>SuperCLUE 2025 연례 평가에서 Claude-Opus-4.5-Reasoning(68.25점)이 종합 1위를 차지했으며, Gemini-3-Pro-Preview(65.59점)와 GPT-5.2(high)(64.32점)가 뒤를 이었습니다. 개방형 모델은 Kimi-K2.5-Thinking(61.50점)이 개방형 1위를 기록했고, 코드 생성·웹 코딩에서는 국내 모델의 강세가 두드러졌습니다. 반면 정밀 지시 준수와 환각 제어에서는 해외 모델이 전반적으로 우위를 보였고, 특히 정밀 지시 준수에서 점수 격차가 크게 나타났습니다. 또한 SuperCLUE 점수와 LMArena(인간 투표 기반) 간 상관계수(피어슨 0.8239, 스피어만 0.8321)로 평가 일관성이 높다고 제시했습니다.</p>
-  <p class="url"><a href="https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email">https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>OpenAI, Codex Security Agent를 연구 미리보기(Research Preview) 형태로 공개 (2026.3.6)</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="OpenAI, Codex Security Agent를 연구 미리보기(Research Preview) 형태로 공개 (2026.3.6)
-
-본문 내용 확인 필요. 다만 제공된 URL과 제목 기준으로, OpenAI가 Codex Security Agent를 자동화된 취약점 탐지 목적의 연구 미리보기로 소개한 것으로 보입니다. 구체적인 기능 범위, 지원 환경, 적용 방식 및 일정 등은 본문 확인이 필요합니다.
-
-https://openai.com/index/codex-security-now-in-research-preview/" onclick="copyEntry(this)">복사</button></div>
-  <p>본문 내용 확인 필요. 다만 제공된 URL과 제목 기준으로, OpenAI가 Codex Security Agent를 자동화된 취약점 탐지 목적의 연구 미리보기로 소개한 것으로 보입니다. 구체적인 기능 범위, 지원 환경, 적용 방식 및 일정 등은 본문 확인이 필요합니다.</p>
-  <p class="url"><a href="https://openai.com/index/codex-security-now-in-research-preview/">https://openai.com/index/codex-security-now-in-research-preview/</a></p>
-</article>
-<article class="entry cat-research">
-  <h2>(2026.2.25) 악성 AI의 악용을 차단하기 위한 대응과 사례</h2>
-  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="(2026.2.25) 악성 AI의 악용을 차단하기 위한 대응과 사례
-
-OpenAI는 악성 AI가 악용되는 방식과 이를 방지하기 위한 대응(탐지·완화 등)을 다루는 글을 게시한 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 주장, 조치, 사례의 사실관계는 확인이 필요합니다.
-
-https://openai.com/index/disrupting-malicious-ai-uses/" onclick="copyEntry(this)">복사</button></div>
-  <p>OpenAI는 악성 AI가 악용되는 방식과 이를 방지하기 위한 대응(탐지·완화 등)을 다루는 글을 게시한 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 주장, 조치, 사례의 사실관계는 확인이 필요합니다.</p>
-  <p class="url"><a href="https://openai.com/index/disrupting-malicious-ai-uses/">https://openai.com/index/disrupting-malicious-ai-uses/</a></p>
-</article>
-<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline</footer>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
 </div>
 <script>
 function _copyFallback(text) {
