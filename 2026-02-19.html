@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-02-19</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-02-19 · 3/4건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-db">
+  <h2>Gemini 3.1 Pro 공개(2026.2.19)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">딥마인드(DeepMind) 공식 모델 카드</span> · <span class="deadline">Gemini 3.1 Pro는 2026년 2월 19일 게시되었으며, Gemini 3 시리즈의 차세대 네이티브 멀티모달 추론 모델로 소개됨</span></span><button type="button" class="copy-btn" data-copy="Gemini 3.1 Pro 공개(2026.2.19)
+
+딥마인드의 모델 카드에 따르면 Gemini 3.1 Pro는 텍스트·이미지·오디오·비디오 및 코드 저장소 등 방대한 멀티모달 입력을 이해할 수 있으며, 최대 1M 토큰 컨텍스트와 64K 토큰 출력이 가능하다고 명시돼 있습니다. 평가 결과는 벤치마크 전반에서 Gemini 3 Pro 대비 추론 및 멀티모달 성능이 유의미하게 향상되었다고 제시되며, 안전·톤 관련 내부 자동 평가에서는 전반적으로 개선과 낮은 무근거 거절(unjustified refusals)을 유지했다고 설명합니다. 또한 Frontier Safety 프레임워크에 따라 CBRN·사이버·유해 조작·정렬 등 위험 도메인에서 임계 수준(CCL) 도달 여부를 평가했으며, CCL 미도달로 결론 내린 항목들이 포함돼 있습니다.
+
+https://deepmind.google/models/model-cards/gemini-3-1-pro/" onclick="copyEntry(this)">복사</button></div>
+  <p>딥마인드의 모델 카드에 따르면 Gemini 3.1 Pro는 텍스트·이미지·오디오·비디오 및 코드 저장소 등 방대한 멀티모달 입력을 이해할 수 있으며, 최대 1M 토큰 컨텍스트와 64K 토큰 출력이 가능하다고 명시돼 있습니다. 평가 결과는 벤치마크 전반에서 Gemini 3 Pro 대비 추론 및 멀티모달 성능이 유의미하게 향상되었다고 제시되며, 안전·톤 관련 내부 자동 평가에서는 전반적으로 개선과 낮은 무근거 거절(unjustified refusals)을 유지했다고 설명합니다. 또한 Frontier Safety 프레임워크에 따라 CBRN·사이버·유해 조작·정렬 등 위험 도메인에서 임계 수준(CCL) 도달 여부를 평가했으며, CCL 미도달로 결론 내린 항목들이 포함돼 있습니다.</p>
+  <p class="url"><a href="https://deepmind.google/models/model-cards/gemini-3-1-pro/">https://deepmind.google/models/model-cards/gemini-3-1-pro/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Researchers Allege OpenAI Involvement In User Screening Against Government Watchlists (2026.2.19)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Researchers Allege OpenAI Involvement In User Screening Against Government Watchlists (2026.2.19)
+
+요약불가
+
+https://vmfunc.re/blog/persona" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://vmfunc.re/blog/persona">https://vmfunc.re/blog/persona</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>CIFAR, 글로벌 AI safety initiative에 100만 달러 투입(2026.2.19)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">CIFAR(캐나다 고등연구원)</span> · <span class="deadline">CAISI Research Program 소속 4개 신규 캐나다 연구 프로젝트가 UK AI Security Institute가 주도하는 AI Alignment Project에 편입되며, 1년간 프로젝트당 최대 165,000달러와 컴퓨트 자원·전문가 지원이 제공됨</span></span><button type="button" class="copy-btn" data-copy="CIFAR, 글로벌 AI safety initiative에 100만 달러 투입(2026.2.19)
+
+CIFAR는 캐나다 AI Safety Institute(CAISI) Research Program을 통해 AI alignment 분야 연구 프로젝트 4개를 신규 선정했다고 밝혔다. 이 프로젝트들은 게임이론, 통계, 물리 기반 데이터 생성, 희귀 사건 위험 정량화 등 방법론을 활용해 다중 에이전트 환경에서의 안전 보장, 배포 후 misalignment 대응, scaling laws 검증, jailbreak 등 long-tail failure의 평가·기준 설정을 다룬다. 선정 결과로 CAISI Research Program의 연구 프로젝트 수는 총 16개로 늘었으며, 프로그램의 성과는 2025 Year in Review 보고서에서 조명됐다고 전했다.
+
+https://cifar.ca/cifarnews/2026/02/19/cifar-commits-1m-to-global-ai-safety-initiative/" onclick="copyEntry(this)">복사</button></div>
+  <p>CIFAR는 캐나다 AI Safety Institute(CAISI) Research Program을 통해 AI alignment 분야 연구 프로젝트 4개를 신규 선정했다고 밝혔다. 이 프로젝트들은 게임이론, 통계, 물리 기반 데이터 생성, 희귀 사건 위험 정량화 등 방법론을 활용해 다중 에이전트 환경에서의 안전 보장, 배포 후 misalignment 대응, scaling laws 검증, jailbreak 등 long-tail failure의 평가·기준 설정을 다룬다. 선정 결과로 CAISI Research Program의 연구 프로젝트 수는 총 16개로 늘었으며, 프로그램의 성과는 2025 Year in Review 보고서에서 조명됐다고 전했다.</p>
+  <p class="url"><a href="https://cifar.ca/cifarnews/2026/02/19/cifar-commits-1m-to-global-ai-safety-initiative/">https://cifar.ca/cifarnews/2026/02/19/cifar-commits-1m-to-global-ai-safety-initiative/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LLM이 생물학 초보자의 실험 단계 수행에는 일부 도움을 주지만, 전체 절차 성공률은 유의미하게 개선하지 못함 (2026.2.19)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">중요 일정: 2025년 6~8월 무작위 대조시험(RCT, n=153) 수행</span></span><button type="button" class="copy-btn" data-copy="LLM이 생물학 초보자의 실험 단계 수행에는 일부 도움을 주지만, 전체 절차 성공률은 유의미하게 개선하지 못함 (2026.2.19)
+
+arXiv에 게재된 연구는 2025년 6~8월(사전등록·연구자 눈가림) 동안 생물학 초보자 153명을 대상으로 LLM 보조가 바이러스 역유전학 워크플로우를 모델링한 실험 과제 수행에 미치는 영향을 평가했다. 주요 결과로 전체 워크플로우 완료율은 LLM군 5.2%, 인터넷군 6.6%로 유의미한 차이가 없었고( P=0.759 ), 개별 과제의 성공률도 전반적으로 큰 차이를 보이지 않았다. 다만 5개 과제 중 4개에서 LLM군의 성공률이 수치상 높았으며, 특히 세포배양 과제는 LLM군 68.8% vs 인터넷군 55.3%로 유의수준에 근접했다(P=0.059). 연구진은 중간 단계로의 진행은 LLM군에서 더 높게 나타났지만, 복잡한 실험 절차의 실질적 완수는 크게 개선되지 않았다고 결론냈다.
+
+https://arxiv.org/abs/2602.16703" onclick="copyEntry(this)">복사</button></div>
+  <p>arXiv에 게재된 연구는 2025년 6~8월(사전등록·연구자 눈가림) 동안 생물학 초보자 153명을 대상으로 LLM 보조가 바이러스 역유전학 워크플로우를 모델링한 실험 과제 수행에 미치는 영향을 평가했다. 주요 결과로 전체 워크플로우 완료율은 LLM군 5.2%, 인터넷군 6.6%로 유의미한 차이가 없었고( P=0.759 ), 개별 과제의 성공률도 전반적으로 큰 차이를 보이지 않았다. 다만 5개 과제 중 4개에서 LLM군의 성공률이 수치상 높았으며, 특히 세포배양 과제는 LLM군 68.8% vs 인터넷군 55.3%로 유의수준에 근접했다(P=0.059). 연구진은 중간 단계로의 진행은 LLM군에서 더 높게 나타났지만, 복잡한 실험 절차의 실질적 완수는 크게 개선되지 않았다고 결론냈다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2602.16703">https://arxiv.org/abs/2602.16703</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-06-25</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-06-25 · 4/4건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-gov">
+  <h2>(2025.6.25) 미 하원 중국특위, ‘No Adversarial AI Act’로 CCP 연계 AI의 미 정부 사용 차단 추진</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 하원 중국특별위원회(Select Committee on the CCP)</span></span><button type="button" class="copy-btn" data-copy="(2025.6.25) 미 하원 중국특위, ‘No Adversarial AI Act’로 CCP 연계 AI의 미 정부 사용 차단 추진
+
+미 하원 중국특별위원회가 2025.6.25 ‘No Adversarial AI Act’라는 초당적 법안을 공개했다. 이 법안은 중국 공산당 등 외국 적대세력과 연계된 기업이 개발한 AI를 미 정부가 취득하거나 사용하는 것을 금지하고, 연방조달안보위원회가 적대세력 개발 AI 목록을 공개·관리하도록 한다. 또한 적대세력의 통제나 영향에서 벗어났음을 입증하는 기업에 대한 ‘delisting’ 절차도 마련한다. 위원회는 이번 법안이 AI 공급망을 확보하고 미국 혁신이 권위주의 감시·군사체계에 활용되는 것을 막기 위한 AI 캠페인의 핵심 조치라고 설명했다.
+
+https://selectcommitteeontheccp.house.gov/media/press-releases/china-select-committee-launches-ai-campaign-with-legislation-to-block-ccp-linked-ai-from-us-government-use" onclick="copyEntry(this)">복사</button></div>
+  <p>미 하원 중국특별위원회가 2025.6.25 ‘No Adversarial AI Act’라는 초당적 법안을 공개했다. 이 법안은 중국 공산당 등 외국 적대세력과 연계된 기업이 개발한 AI를 미 정부가 취득하거나 사용하는 것을 금지하고, 연방조달안보위원회가 적대세력 개발 AI 목록을 공개·관리하도록 한다. 또한 적대세력의 통제나 영향에서 벗어났음을 입증하는 기업에 대한 ‘delisting’ 절차도 마련한다. 위원회는 이번 법안이 AI 공급망을 확보하고 미국 혁신이 권위주의 감시·군사체계에 활용되는 것을 막기 위한 AI 캠페인의 핵심 조치라고 설명했다.</p>
+  <p class="url"><a href="https://selectcommitteeontheccp.house.gov/media/press-releases/china-select-committee-launches-ai-campaign-with-legislation-to-block-ccp-linked-ai-from-us-government-use">https://selectcommitteeontheccp.house.gov/media/press-releases/china-select-committee-launches-ai-campaign-with-legislation-to-block-ccp-linked-ai-from-us-government-use</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>미국 법원, Anthropic의 책 기반 AI 학습은 fair use로 판단(2025.6.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">가디언(theguardian.com)</span></span><button type="button" class="copy-btn" data-copy="미국 법원, Anthropic의 책 기반 AI 학습은 fair use로 판단(2025.6.25)
+
+미국 샌프란시스코 연방법원 윌리엄 알수프 판사는 저자 동의 없이 책을 활용해 Claude LLM을 학습한 것은 저작권 침해가 아니라 “fair use”라고 판시했다. 다만 Anthropic이 700만 권이 넘는 불법 복제본을 중앙 도서관 형태로 저장한 행위는 저자들의 저작권을 침해하며 fair use에 해당하지 않는다고 덧붙였고, 침해에 따른 배상 규모를 정하기 위한 12월 재판을 명령했다.
+
+https://www.theguardian.com/technology/2025/jun/25/anthropic-did-not-breach-copyright-when-training-ai-on-books-without-permission-court-rules" onclick="copyEntry(this)">복사</button></div>
+  <p>미국 샌프란시스코 연방법원 윌리엄 알수프 판사는 저자 동의 없이 책을 활용해 Claude LLM을 학습한 것은 저작권 침해가 아니라 “fair use”라고 판시했다. 다만 Anthropic이 700만 권이 넘는 불법 복제본을 중앙 도서관 형태로 저장한 행위는 저자들의 저작권을 침해하며 fair use에 해당하지 않는다고 덧붙였고, 침해에 따른 배상 규모를 정하기 위한 12월 재판을 명령했다.</p>
+  <p class="url"><a href="https://www.theguardian.com/technology/2025/jun/25/anthropic-did-not-breach-copyright-when-training-ai-on-books-without-permission-court-rules">https://www.theguardian.com/technology/2025/jun/25/anthropic-did-not-breach-copyright-when-training-ai-on-books-without-permission-court-rules</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Tech lobby group urges EU leaders to pause AI Act (2025.06.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">로이터 통신(Reuters)</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="Tech lobby group urges EU leaders to pause AI Act (2025.06.25)
+
+로이터 보도에 따르면 한 기술 로비 단체가 EU 지도자들에게 AI Act(인공지능 규제)의 일시 중단을 촉구했다는 내용이다. 다만 제공된 정보에 본문 내용이 없어, 촉구 배경(규제 내용·시행 일정·우려 지점)과 구체적 주장, 관련 인물/단체는 확인이 필요하다.
+
+https://www.reuters.com/technology/tech-lobby-group-urges-eu-leaders-pause-ai-act-2025-06-25" onclick="copyEntry(this)">복사</button></div>
+  <p>로이터 보도에 따르면 한 기술 로비 단체가 EU 지도자들에게 AI Act(인공지능 규제)의 일시 중단을 촉구했다는 내용이다. 다만 제공된 정보에 본문 내용이 없어, 촉구 배경(규제 내용·시행 일정·우려 지점)과 구체적 주장, 관련 인물/단체는 확인이 필요하다.</p>
+  <p class="url"><a href="https://www.reuters.com/technology/tech-lobby-group-urges-eu-leaders-pause-ai-act-2025-06-25">https://www.reuters.com/technology/tech-lobby-group-urges-eu-leaders-pause-ai-act-2025-06-25</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>미시간 주의회, AI 기술의 위해를 막기 위한 safeguard 법안 검토(2025.6.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">michiganadvance.com</span></span><button type="button" class="copy-btn" data-copy="미시간 주의회, AI 기술의 위해를 막기 위한 safeguard 법안 검토(2025.6.25)
+
+본문 내용 확인 필요. 현재 제공된 정보(URL·제목)만으로는 어떤 법안이 논의되는지, 구체 조항과 일정, 이해관계자 의견을 특정하기 어렵습니다.
+
+https://michiganadvance.com/2025/06/25/michigan-lawmakers-consider-ai-safeguard-bills-to-prevent-technology-from-committing-harm" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 내용 확인 필요. 현재 제공된 정보(URL·제목)만으로는 어떤 법안이 논의되는지, 구체 조항과 일정, 이해관계자 의견을 특정하기 어렵습니다.</p>
+  <p class="url"><a href="https://michiganadvance.com/2025/06/25/michigan-lawmakers-consider-ai-safeguard-bills-to-prevent-technology-from-committing-harm">https://michiganadvance.com/2025/06/25/michigan-lawmakers-consider-ai-safeguard-bills-to-prevent-technology-from-committing-harm</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

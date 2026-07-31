@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-07-02</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-07-02 · 12/13건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-company">
+  <h2>Claude Fable 5의 cyber safeguards(안전 분류기)와 초기 AI jailbreak severity framework 공개(2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="Claude Fable 5의 cyber safeguards(안전 분류기)와 초기 AI jailbreak severity framework 공개(2026.7.2)
+
+앤트로픽은 Claude Fable 5가 전 세계 사용자에게 재배포·공개된 가운데, 모델과 함께 동작하는 safety classifiers의 설계 의도와 jailbreak severity framework의 초안(Glasswing 파트너와 공동 작업)을 공유했다. 안전 분류기는 사이버 보안 사용을 크게 Prohibited use(차단), High-risk dual use(대체로 차단), Low-risk dual use(모니터링·필요시 차단), Benign use(허용) 4개 범주로 구분해 위험도를 반영한다. 또한 jailbreak의 심각도 수준을 정부·개발자 간 일관된 언어로 설명하기 위한 기준이 없다는 점을 언급하며, 분류 경계(safety margin) 크기를 조정해 오탐과 유해 차단의 균형을 맞춘다고 설명했다. 아울러 연구자들이 HackerOne 프로그램을 통해 발견한 잠재적 cyber jailbreak를 제출해 검토받을 수 있게 했다.
+
+https://www.anthropic.com/news/fable-safeguards-jailbreak-framework" onclick="copyEntry(this)">복사</button></div>
+  <p>앤트로픽은 Claude Fable 5가 전 세계 사용자에게 재배포·공개된 가운데, 모델과 함께 동작하는 safety classifiers의 설계 의도와 jailbreak severity framework의 초안(Glasswing 파트너와 공동 작업)을 공유했다. 안전 분류기는 사이버 보안 사용을 크게 Prohibited use(차단), High-risk dual use(대체로 차단), Low-risk dual use(모니터링·필요시 차단), Benign use(허용) 4개 범주로 구분해 위험도를 반영한다. 또한 jailbreak의 심각도 수준을 정부·개발자 간 일관된 언어로 설명하기 위한 기준이 없다는 점을 언급하며, 분류 경계(safety margin) 크기를 조정해 오탐과 유해 차단의 균형을 맞춘다고 설명했다. 아울러 연구자들이 HackerOne 프로그램을 통해 발견한 잠재적 cyber jailbreak를 제출해 검토받을 수 있게 했다.</p>
+  <p class="url"><a href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework">https://www.anthropic.com/news/fable-safeguards-jailbreak-framework</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>유럽 디지털 서비스 이사회 19차 정례회의 개최, DSA 시스템 위험 2차 연차보고서 채택(기사·공고 게재일 2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 디지털 서비스 이사회 19차 정례회의 개최, DSA 시스템 위험 2차 연차보고서 채택(기사·공고 게재일 2026.7.2)
+
+2026년 7월 1일 브뤼셀에서 유럽 디지털 서비스 이사회(이사회) 19차 정례회의가 열렸다. 이사회는 DSA 제35조(2)에 따라 2차 연차보고서를 채택했으며, 매우 큰 온라인 플랫폼·서비스의 설계 및 작동과 서비스 이용에서 비롯될 수 있는 주요 시스템 위험을 근거에 기반해 구조적으로 정리했다고 밝혔다. 또한 디지털 서비스 조정관(DSCs)과 집행위원회의 최신 집행 활동 업데이트를 공유하고, 자격 있는 연구자를 위한 데이터 접근 보장에 대한 약속을 재확인했으며, 이사회와 유럽 미디어 서비스 이사회 간 첫 공동 회의에서 온라인 미성년자 보호 및 미디어 자유·다원성 등의 협력 방안을 논의했다.
+
+https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services-following-its-19th-meeting" onclick="copyEntry(this)">복사</button></div>
+  <p>2026년 7월 1일 브뤼셀에서 유럽 디지털 서비스 이사회(이사회) 19차 정례회의가 열렸다. 이사회는 DSA 제35조(2)에 따라 2차 연차보고서를 채택했으며, 매우 큰 온라인 플랫폼·서비스의 설계 및 작동과 서비스 이용에서 비롯될 수 있는 주요 시스템 위험을 근거에 기반해 구조적으로 정리했다고 밝혔다. 또한 디지털 서비스 조정관(DSCs)과 집행위원회의 최신 집행 활동 업데이트를 공유하고, 자격 있는 연구자를 위한 데이터 접근 보장에 대한 약속을 재확인했으며, 이사회와 유럽 미디어 서비스 이사회 간 첫 공동 회의에서 온라인 미성년자 보호 및 미디어 자유·다원성 등의 협력 방안을 논의했다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services-following-its-19th-meeting">https://digital-strategy.ec.europa.eu/en/news/press-statement-european-board-digital-services-following-its-19th-meeting</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>(2026.7.2) 디지털서비스법(DSA) 2차 체계적 위험 보고서가 온라인 아동·청소년 보호의 중요성과 대응방안을 강조</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합(EU) 디지털 전략</span></span><button type="button" class="copy-btn" data-copy="(2026.7.2) 디지털서비스법(DSA) 2차 체계적 위험 보고서가 온라인 아동·청소년 보호의 중요성과 대응방안을 강조
+
+EU 집행위원회와 유럽의 디지털서비스이사회(Boards for Digital Services)가 발표한 DSA 2차 체계적 위험 및 완화조치 보고서는 온라인에서 아동·청소년이 겪는 위험과 장기적 대응 방향을 조명했다. 보고서는 VLOPs·VLOSEs(초대형 온라인 플랫폼·검색엔진)에서 불법 콘텐츠 확산, 디자인 선택으로 인한 아동 안전 악화 가능성, 소셜미디어의 중독 유사 행동 조장(인터페이스 기능·추천 시스템), 위험한 바이럴 챌린지·성인 콘텐츠 노출, 사이버불링과 그루밍 같은 해로운 행태를 위험요인으로 제시했다. 또한 이러한 위험을 줄이기 위한 맞춤형 보호조치와 이용자 권한강화 도구 등 완화조치 사례를 정리하며 DSA가 플랫폼 운영 방식의 투명성을 높이는 역할을 한다고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/news/report-highlights-importance-digital-services-act-protection-minors-online" onclick="copyEntry(this)">복사</button></div>
+  <p>EU 집행위원회와 유럽의 디지털서비스이사회(Boards for Digital Services)가 발표한 DSA 2차 체계적 위험 및 완화조치 보고서는 온라인에서 아동·청소년이 겪는 위험과 장기적 대응 방향을 조명했다. 보고서는 VLOPs·VLOSEs(초대형 온라인 플랫폼·검색엔진)에서 불법 콘텐츠 확산, 디자인 선택으로 인한 아동 안전 악화 가능성, 소셜미디어의 중독 유사 행동 조장(인터페이스 기능·추천 시스템), 위험한 바이럴 챌린지·성인 콘텐츠 노출, 사이버불링과 그루밍 같은 해로운 행태를 위험요인으로 제시했다. 또한 이러한 위험을 줄이기 위한 맞춤형 보호조치와 이용자 권한강화 도구 등 완화조치 사례를 정리하며 DSA가 플랫폼 운영 방식의 투명성을 높이는 역할을 한다고 밝혔다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/report-highlights-importance-digital-services-act-protection-minors-online">https://digital-strategy.ec.europa.eu/en/news/report-highlights-importance-digital-services-act-protection-minors-online</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>AI 범죄 대응 범부처 협의체 출범(2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">공정거래위원회</span></span><button type="button" class="copy-btn" data-copy="AI 범죄 대응 범부처 협의체 출범(2026.7.2)
+
+온라인 플랫폼·금융·통신·개인정보·수사·국제협력 등과 연계된 AI 악용 범죄에 공동 대응하기 위해 ‘AI 범죄 대응 범부처 협의체’가 공식 출범했다. 방송미디어통신위원회가 26일 킥오프 회의를 열고, ‘AI 범죄 근절 종합 대응 계획’과 ‘AI 범죄 통합 대응체계 구축 방안’을 논의했으며 예방·탐지·차단·수사·피해회복·재발방지 전 과정을 아우르는 범정부 대책을 담았다. 관계부처는 AI 범죄 정보를 신속히 공유하고 징후를 공동 분석·대응하기 위한 상시적 통합 대응체계 운영 필요성도 공감했다.
+
+https://ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&amp;pageIndex=1&amp;searchCnd=all&amp;key=12&amp;bordCd=3&amp;searchCtgry=01%2C02&amp;nttSn=47656" onclick="copyEntry(this)">복사</button></div>
+  <p>온라인 플랫폼·금융·통신·개인정보·수사·국제협력 등과 연계된 AI 악용 범죄에 공동 대응하기 위해 ‘AI 범죄 대응 범부처 협의체’가 공식 출범했다. 방송미디어통신위원회가 26일 킥오프 회의를 열고, ‘AI 범죄 근절 종합 대응 계획’과 ‘AI 범죄 통합 대응체계 구축 방안’을 논의했으며 예방·탐지·차단·수사·피해회복·재발방지 전 과정을 아우르는 범정부 대책을 담았다. 관계부처는 AI 범죄 정보를 신속히 공유하고 징후를 공동 분석·대응하기 위한 상시적 통합 대응체계 운영 필요성도 공감했다.</p>
+  <p class="url"><a href="https://ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&amp;pageIndex=1&amp;searchCnd=all&amp;key=12&amp;bordCd=3&amp;searchCtgry=01%2C02&amp;nttSn=47656">https://ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&amp;pageIndex=1&amp;searchCnd=all&amp;key=12&amp;bordCd=3&amp;searchCtgry=01%2C02&amp;nttSn=47656</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>EdgeBench: New Benchmark Measures AI Environment Learning Speed (2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="EdgeBench: New Benchmark Measures AI Environment Learning Speed (2026.7.2)
+
+요약불가
+
+https://edge-bench.org/?" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://edge-bench.org/?">https://edge-bench.org/?</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>OpenSafeIntent: Evaluating Intent-Calibrated Safe Completion Across Dual-Use Prompt Sets (**게재일(2026.7.2)**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="OpenSafeIntent: Evaluating Intent-Calibrated Safe Completion Across Dual-Use Prompt Sets (**게재일(2026.7.2)**)
+
+OpenSafeIntent은 동일 과제를 두고 의도만 benign→dual-use→malicious로 바꾼 프롬프트 세트를 사용해, 모델이 의도 변화에 맞춰 안전한 완성을 일관되게 유지하는지 평가하는 벤치마크다. 데이터포인트는 동일 작업의 세 가지 변형(benign, dual-use, malicious)을 제공해 평균적으로 안전해 보이는지보다 “matched intent variants” 전반의 보정(calibration) 실패가 있는지 확인한다. 여러 모델군에서 prompt-level safety가 중요한 실패를 가릴 수 있으며, dual-use 동작은 paraphrase에 취약하고, 위험 주제의 high-level 답변은 안정적으로 safe하지 않으며, ambiguous 요청을 더 안전한 작업으로 재구성(reframe)하는 응답은 safety boundary를 넘길 가능성이 더 낮았다.
+
+https://arxiv.org/abs/2607.02047v1" onclick="copyEntry(this)">복사</button></div>
+  <p>OpenSafeIntent은 동일 과제를 두고 의도만 benign→dual-use→malicious로 바꾼 프롬프트 세트를 사용해, 모델이 의도 변화에 맞춰 안전한 완성을 일관되게 유지하는지 평가하는 벤치마크다. 데이터포인트는 동일 작업의 세 가지 변형(benign, dual-use, malicious)을 제공해 평균적으로 안전해 보이는지보다 “matched intent variants” 전반의 보정(calibration) 실패가 있는지 확인한다. 여러 모델군에서 prompt-level safety가 중요한 실패를 가릴 수 있으며, dual-use 동작은 paraphrase에 취약하고, 위험 주제의 high-level 답변은 안정적으로 safe하지 않으며, ambiguous 요청을 더 안전한 작업으로 재구성(reframe)하는 응답은 safety boundary를 넘길 가능성이 더 낮았다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.02047v1">https://arxiv.org/abs/2607.02047v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>HaloGuard 1.0: An Open Weights Constitutional Classifier for Multilingual AI Safety (2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="HaloGuard 1.0: An Open Weights Constitutional Classifier for Multilingual AI Safety (2026.7.2)
+
+HaloGuard 1.0은 헌법(constitution) 기반 분류기를 통해 입력 안전(prompt-safety)을 다국어로 판정하는 오픈 웨이트 모델을 제안한다. 안전 헌법은 46개 정책과 2,940개 하위 범주로 구성된 자연어 규정이며, 주제와 어휘를 고정하고 의도만 반전하는 exhaustive one-to-one paired counterfactual로 합성 데이터를 생성한다. 7개 prompt-safety 벤치마크에서 HaloGuard 1.0-0.8B는 평균 F1 90.9, FPR 4.3, FNR 9.5를 보이며 평가한 open guard 중 최고 평균 F1이며 최대 27B 기준선 대비 성능이 더 높았다. HaloGuard 1.0-4B는 평균 F1 92.1, FPR 3.5를 달성했고 추가 용량은 recall보다 precision에 더 사용되었으며, 남은 실패의 대부분은 실제 모델 미스라기보다 벤치마크 mislabels로 구조적 adjudication에서 확인되었다.
+
+https://arxiv.org/abs/2607.02079v1" onclick="copyEntry(this)">복사</button></div>
+  <p>HaloGuard 1.0은 헌법(constitution) 기반 분류기를 통해 입력 안전(prompt-safety)을 다국어로 판정하는 오픈 웨이트 모델을 제안한다. 안전 헌법은 46개 정책과 2,940개 하위 범주로 구성된 자연어 규정이며, 주제와 어휘를 고정하고 의도만 반전하는 exhaustive one-to-one paired counterfactual로 합성 데이터를 생성한다. 7개 prompt-safety 벤치마크에서 HaloGuard 1.0-0.8B는 평균 F1 90.9, FPR 4.3, FNR 9.5를 보이며 평가한 open guard 중 최고 평균 F1이며 최대 27B 기준선 대비 성능이 더 높았다. HaloGuard 1.0-4B는 평균 F1 92.1, FPR 3.5를 달성했고 추가 용량은 recall보다 precision에 더 사용되었으며, 남은 실패의 대부분은 실제 모델 미스라기보다 벤치마크 mislabels로 구조적 adjudication에서 확인되었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.02079v1">https://arxiv.org/abs/2607.02079v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Behind the Refusal: Determining Guardrail Activation via Behavioral Monitoring (**게재일(YYYY.M.D)** 2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Behind the Refusal: Determining Guardrail Activation via Behavioral Monitoring (**게재일(YYYY.M.D)** 2026.7.2)
+
+LLM에 대한 malicious 요청/응답을 차단하는 guardrail이 실제로 작동했는지, LLM의 기본 refusal로 거절된 것인지 black-box 환경에서 구분하는 방법을 제안한다. 이를 위해 HTTP/lexical/timing 시그널의 behavioral monitoring으로 guardrail 존재를 탐지하고, 차단되는 금지 범주를 추정하며, 보이지 않은 prompts에서 guardrail block과 LLM rejection을 분류한다. 실험에서 guardrail presence 탐지는 100% 정확도이며 benign vs malicious 상호작용의 behavioral separation이 통계적으로 유의했다(q &lt; 0.001); 또한 unseen prompts에서 guardrail blocks vs LLM rejection 분류의 평균 F1 score가 98%였다(여기서 refused는 LLM 안전 정책에 따른 거절, complied는 안전 조건을 충족해 응답이 생성된 경우, unclear는 분류에 필요한 행동 신호가 불충분한 경우를 의미한다).
+
+https://arxiv.org/abs/2607.02121v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM에 대한 malicious 요청/응답을 차단하는 guardrail이 실제로 작동했는지, LLM의 기본 refusal로 거절된 것인지 black-box 환경에서 구분하는 방법을 제안한다. 이를 위해 HTTP/lexical/timing 시그널의 behavioral monitoring으로 guardrail 존재를 탐지하고, 차단되는 금지 범주를 추정하며, 보이지 않은 prompts에서 guardrail block과 LLM rejection을 분류한다. 실험에서 guardrail presence 탐지는 100% 정확도이며 benign vs malicious 상호작용의 behavioral separation이 통계적으로 유의했다(q &lt; 0.001); 또한 unseen prompts에서 guardrail blocks vs LLM rejection 분류의 평균 F1 score가 98%였다(여기서 refused는 LLM 안전 정책에 따른 거절, complied는 안전 조건을 충족해 응답이 생성된 경우, unclear는 분류에 필요한 행동 신호가 불충분한 경우를 의미한다).</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.02121v1">https://arxiv.org/abs/2607.02121v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Overview of Risk Assessment and Management for Intelligent Systems under the AI Act and Beyond (2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Overview of Risk Assessment and Management for Intelligent Systems under the AI Act and Beyond (2026.7.2)
+
+빈 줄 다음 요약불가
+요약불가
+
+https://arxiv.org/abs/2607.02197v1" onclick="copyEntry(this)">복사</button></div>
+  <p>빈 줄 다음 요약불가
+요약불가</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.02197v1">https://arxiv.org/abs/2607.02197v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Criticality-Based Guard Rail Validation for AI Agent Decisions in Autonomous Telecom Networks (**2026.7.2**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Criticality-Based Guard Rail Validation for AI Agent Decisions in Autonomous Telecom Networks (**2026.7.2**)
+
+자율 통신망(Autonomous Network Levels 4-5)에서 AI 에이전트의 실시간 의사결정이 라이브 네트워크 상태 변경으로 바로 이어질 때의 오류·오작동 위험을 runtime 단계에서 차단/검증하기 위한 프레임워크를 제안한다. Guard Rail Validation (GRV)는 action scope, action type, service criticality, agent autonomy level, reversibility, temporal behavioural patterns 등을 가중치로 평가해 criticality level을 산정하고, 그 수준에 따라 execute-with-logging, bounds checking, independent agent validation, multi-agent consensus 같은 단계적 검증을 적용한다. 또한 cross-agent conflict detection과 criticality-weighted priority resolution을 포함하며, EU AI Act Article 14 같은 규제 대응을 위한 runtime conformance logging을 제공한다. 공격 위협 범위는 통신 분야의 알려진 AI/ML attacks에 대해 threat coverage로 평가하지만, 본문에 정량 수치(예: 정확도/커버리지 비율·점수·오차구간)는 제시되지 않았다.
+
+https://arxiv.org/abs/2607.02210v1" onclick="copyEntry(this)">복사</button></div>
+  <p>자율 통신망(Autonomous Network Levels 4-5)에서 AI 에이전트의 실시간 의사결정이 라이브 네트워크 상태 변경으로 바로 이어질 때의 오류·오작동 위험을 runtime 단계에서 차단/검증하기 위한 프레임워크를 제안한다. Guard Rail Validation (GRV)는 action scope, action type, service criticality, agent autonomy level, reversibility, temporal behavioural patterns 등을 가중치로 평가해 criticality level을 산정하고, 그 수준에 따라 execute-with-logging, bounds checking, independent agent validation, multi-agent consensus 같은 단계적 검증을 적용한다. 또한 cross-agent conflict detection과 criticality-weighted priority resolution을 포함하며, EU AI Act Article 14 같은 규제 대응을 위한 runtime conformance logging을 제공한다. 공격 위협 범위는 통신 분야의 알려진 AI/ML attacks에 대해 threat coverage로 평가하지만, 본문에 정량 수치(예: 정확도/커버리지 비율·점수·오차구간)는 제시되지 않았다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.02210v1">https://arxiv.org/abs/2607.02210v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Challenges and Recommendations for LLMs-as-a-Judge in Multilingual Settings and Low-Resource Languages (2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Challenges and Recommendations for LLMs-as-a-Judge in Multilingual Settings and Low-Resource Languages (2026.7.2)
+
+LLM-as-a-Judge 평가가 영어 중심 편향을 넘어 멀티링구얼·저자원 언어로 확장될 때 어떤 문제를 겪는지와 현재 관행의 한계를 정리한다. ACL Anthology에서 LLMs-as-a-judge를 언급한 논문들 중 멀티링구얼/저자원에 초점을 둔 사례를 650편에서 찾아 분석하고, 저자원 언어 평가에서 인간 검증이 충분하지 않다는 점을 함께 점검한다. 분석 결과 저자원/멀티링구얼에 초점을 둔 논문은 33/650(약 5.1%)에 그쳤고, 멀티링구얼 설정에서 LLM 판단을 과도하게 신뢰하는 경향과 연구마다 단일 judge model에 의존하는 관행이 널리 나타났으며, 평가 결과의 일관성도 낮았다.
+
+https://arxiv.org/abs/2607.02235v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM-as-a-Judge 평가가 영어 중심 편향을 넘어 멀티링구얼·저자원 언어로 확장될 때 어떤 문제를 겪는지와 현재 관행의 한계를 정리한다. ACL Anthology에서 LLMs-as-a-judge를 언급한 논문들 중 멀티링구얼/저자원에 초점을 둔 사례를 650편에서 찾아 분석하고, 저자원 언어 평가에서 인간 검증이 충분하지 않다는 점을 함께 점검한다. 분석 결과 저자원/멀티링구얼에 초점을 둔 논문은 33/650(약 5.1%)에 그쳤고, 멀티링구얼 설정에서 LLM 판단을 과도하게 신뢰하는 경향과 연구마다 단일 judge model에 의존하는 관행이 널리 나타났으며, 평가 결과의 일관성도 낮았다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.02235v1">https://arxiv.org/abs/2607.02235v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Cloak and Detonate: Scanner Evasion and Dynamic Detection of Agent Skill Malware (**2026.7.2**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Cloak and Detonate: Scanner Evasion and Dynamic Detection of Agent Skill Malware (**2026.7.2**)
+
+LLM coding agents가 외부 “agent skills”를 쓰는 과정에서 발생하는 소프트웨어 공급망 공격 위험을, 기존 정적 스캐너의 회피 가능성 관점에서 분석하고 동적 탐지 방법을 제안한다. SkillCloak는 악성 의미(공격 목적)를 유지한 채 겉모양을 바꿔 스캐닝을 무력화하는 Payload-preserving evasion으로, Structural Obfuscation과 Self-Extracting Skill (SFS) Packing을 사용해 8개 스캐너와 1,613개의 in-the-wild 악성 skills를 평가한다. SFS Packing은 모든 스캐너를 90% 이상으로 bypass, Structural Obfuscation은 대부분의 정적 스캐너에서 80% 초과 bypass 및 하이브리드 스캐너에서 96%까지 bypass했으며, 또한 실행 중 샌드박스 기반 행위 중심 런타임 감사자인 SkillDetonate는 2% false-positive rate에서 97% 공격을 탐지하고 실제 악성 skills에서도 87% 탐지를 유지한다.
+
+https://arxiv.org/abs/2607.02357v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM coding agents가 외부 “agent skills”를 쓰는 과정에서 발생하는 소프트웨어 공급망 공격 위험을, 기존 정적 스캐너의 회피 가능성 관점에서 분석하고 동적 탐지 방법을 제안한다. SkillCloak는 악성 의미(공격 목적)를 유지한 채 겉모양을 바꿔 스캐닝을 무력화하는 Payload-preserving evasion으로, Structural Obfuscation과 Self-Extracting Skill (SFS) Packing을 사용해 8개 스캐너와 1,613개의 in-the-wild 악성 skills를 평가한다. SFS Packing은 모든 스캐너를 90% 이상으로 bypass, Structural Obfuscation은 대부분의 정적 스캐너에서 80% 초과 bypass 및 하이브리드 스캐너에서 96%까지 bypass했으며, 또한 실행 중 샌드박스 기반 행위 중심 런타임 감사자인 SkillDetonate는 2% false-positive rate에서 97% 공격을 탐지하고 실제 악성 skills에서도 87% 탐지를 유지한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.02357v1">https://arxiv.org/abs/2607.02357v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Online Safety Monitoring for LLMs (2026.7.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Online Safety Monitoring for LLMs (2026.7.2)
+
+이 연구는 배포 중 LLM 출력이 안전하지 않을 때 실시간으로 경보(alarm)를 내리는 온라인 안전 모니터링 방법을 제안한다. 외부 모델이 주는 verifier signal을 임계값(threshold)으로 이진화해 alarm을 결정하며, 이 임계값은 risk control을 통해 보정한다. 수학적 추론 및 red teaming 데이터셋에서 이 단순 모니터는 순차 가설검정(sequential hypothesis testing) 기반의 더 복잡한 모니터들과 경쟁적 성능을 보인다.
+
+요약불가: 제공된 발췌에 구체 점수/비율/구간(CI) 수치가 없어 정량 비교를 작성할 수 없습니다.
+
+https://arxiv.org/abs/2607.02510v1" onclick="copyEntry(this)">복사</button></div>
+  <p>이 연구는 배포 중 LLM 출력이 안전하지 않을 때 실시간으로 경보(alarm)를 내리는 온라인 안전 모니터링 방법을 제안한다. 외부 모델이 주는 verifier signal을 임계값(threshold)으로 이진화해 alarm을 결정하며, 이 임계값은 risk control을 통해 보정한다. 수학적 추론 및 red teaming 데이터셋에서 이 단순 모니터는 순차 가설검정(sequential hypothesis testing) 기반의 더 복잡한 모니터들과 경쟁적 성능을 보인다.</p>
+<p>요약불가: 제공된 발췌에 구체 점수/비율/구간(CI) 수치가 없어 정량 비교를 작성할 수 없습니다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.02510v1">https://arxiv.org/abs/2607.02510v1</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

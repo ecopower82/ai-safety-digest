@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-04-24</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-04-24 · 12/12건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>Frontier AI Trends Report ‘Propensity Inference’에서 LLM 행동의 환경 요인 기여도를 분석(2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="Frontier AI Trends Report ‘Propensity Inference’에서 LLM 행동의 환경 요인 기여도를 분석(2026.4.24)
+
+LLM의 허용되지 않은 행동에 대한 ‘propensity(성향)’를 측정하기 위한 방법론을 제시하고, 환경 요인 변화가 행동에 미치는 영향을 분석한다. 23개 언어모델과 11개 평가 환경에서 전략적 환경 요인과 비전략적 환경 요인의 기여가 대체로 비슷하다고 보고하며, 능력이 향상될수록 전략적 요인이 더 커지거나 덜 커지는 경향은 발견하지 못했다. 다만 goal conflicts(목표 간 충돌)에 대한 민감도가 증가하는 경향에 대한 일부 근거와 함께, 향후에는 AI 의사결정의 이론·인지 모델을 실증 가능 형태로 발전시키는 방향을 제안한다.
+
+https://www.aisi.gov.uk/research/propensity-inference-environmental-contributors-to-llm-behaviour" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM의 허용되지 않은 행동에 대한 ‘propensity(성향)’를 측정하기 위한 방법론을 제시하고, 환경 요인 변화가 행동에 미치는 영향을 분석한다. 23개 언어모델과 11개 평가 환경에서 전략적 환경 요인과 비전략적 환경 요인의 기여가 대체로 비슷하다고 보고하며, 능력이 향상될수록 전략적 요인이 더 커지거나 덜 커지는 경향은 발견하지 못했다. 다만 goal conflicts(목표 간 충돌)에 대한 민감도가 증가하는 경향에 대한 일부 근거와 함께, 향후에는 AI 의사결정의 이론·인지 모델을 실증 가능 형태로 발전시키는 방향을 제안한다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/research/propensity-inference-environmental-contributors-to-llm-behaviour">https://www.aisi.gov.uk/research/propensity-inference-environmental-contributors-to-llm-behaviour</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>Anthropic-NEC, 일본 최대 규모 AI 엔지니어링 인력 구축 및 산업별 보안 AI 공동 개발 (2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span> · <span class="deadline">NEC는 Claude를 전 세계 약 3만 명의 NEC 그룹 직원에게 배포 중이며, 산업별 AI 제품 공동 개발을 진행</span></span><button type="button" class="copy-btn" data-copy="Anthropic-NEC, 일본 최대 규모 AI 엔지니어링 인력 구축 및 산업별 보안 AI 공동 개발 (2026.4.24)
+
+앤트로픽과 NEC는 일본 시장을 위한 보안·산업 특화 AI 제품을 공동 개발하기로 하고, NEC가 앤트로픽의 첫 일본 기반 글로벌 파트너가 된다고 밝혔다. NEC는 Claude를 자사 보안운영센터(Security Operations Center) 서비스에 통합하고, 차세대 사이버보안 서비스에도 적용할 계획이다. 또한 NEC는 AI 네이티브 엔지니어링 조직을 위한 ‘센터 오브 엑설런스’를 설립하고 Claude Code 등을 활용해 약 3만 명 규모의 직원 대상 배치를 진행한다.
+
+https://www.anthropic.com/news/anthropic-nec" onclick="copyEntry(this)">복사</button></div>
+  <p>앤트로픽과 NEC는 일본 시장을 위한 보안·산업 특화 AI 제품을 공동 개발하기로 하고, NEC가 앤트로픽의 첫 일본 기반 글로벌 파트너가 된다고 밝혔다. NEC는 Claude를 자사 보안운영센터(Security Operations Center) 서비스에 통합하고, 차세대 사이버보안 서비스에도 적용할 계획이다. 또한 NEC는 AI 네이티브 엔지니어링 조직을 위한 ‘센터 오브 엑설런스’를 설립하고 Claude Code 등을 활용해 약 3만 명 규모의 직원 대상 배치를 진행한다.</p>
+  <p class="url"><a href="https://www.anthropic.com/news/anthropic-nec">https://www.anthropic.com/news/anthropic-nec</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>미국 중간선거 등 선거철을 앞두고 Claude의 정치적 편향·오남용 방지 업데이트(2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="미국 중간선거 등 선거철을 앞두고 Claude의 정치적 편향·오남용 방지 업데이트(2026.4.24)
+
+선거 관련 오남용을 막기 위한 사용정책·탐지/집행 체계와 평가를 지속 고도화한다고 밝힘
+
+앤트로픽은 Claude가 선거철에 정치적 주제에 대해 포괄적이고 정확하며 균형 잡힌 답을 하도록 학습·시스템 프롬프트·평가를 강화했다고 밝혔다. 선거 관련 허위정보 생성, 가짜 디지털 콘텐츠 제작, 투표 사기·투표방해, 투표 절차 오인 유도 등은 사용정책상 금지하며, 자동 분류기와 전담 위협정보팀으로 위반 징후를 탐지·대응한다고 설명했다. 또한 선거 관련 위험 대응 성능을 600개 프롬프트(유해 요청 300·정상 요청 300)와 영향조작 시나리오 테스트로 점검했으며, 웹 검색 기능이 선거 관련 질문에서 최신 정보로 연결되는 비율도 평가했다. 아울러 미국 중간선거에는 비당파적 유권자 정보 자원(터보보트)으로 연결되는 선거 배너를 제공하고, 브라질 선거에도 유사 배너를 도입할 계획이라고 전했다.
+
+https://www.anthropic.com/news/election-safeguards-update" onclick="copyEntry(this)">복사</button></div>
+  <p>선거 관련 오남용을 막기 위한 사용정책·탐지/집행 체계와 평가를 지속 고도화한다고 밝힘</p>
+<p>앤트로픽은 Claude가 선거철에 정치적 주제에 대해 포괄적이고 정확하며 균형 잡힌 답을 하도록 학습·시스템 프롬프트·평가를 강화했다고 밝혔다. 선거 관련 허위정보 생성, 가짜 디지털 콘텐츠 제작, 투표 사기·투표방해, 투표 절차 오인 유도 등은 사용정책상 금지하며, 자동 분류기와 전담 위협정보팀으로 위반 징후를 탐지·대응한다고 설명했다. 또한 선거 관련 위험 대응 성능을 600개 프롬프트(유해 요청 300·정상 요청 300)와 영향조작 시나리오 테스트로 점검했으며, 웹 검색 기능이 선거 관련 질문에서 최신 정보로 연결되는 비율도 평가했다. 아울러 미국 중간선거에는 비당파적 유권자 정보 자원(터보보트)으로 연결되는 선거 배너를 제공하고, 브라질 선거에도 유사 배너를 도입할 계획이라고 전했다.</p>
+  <p class="url"><a href="https://www.anthropic.com/news/election-safeguards-update">https://www.anthropic.com/news/election-safeguards-update</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>(2026.4.24) Anthropic, AI 에이전트가 사람을 대신해 거래하는 ‘Project Deal’ 실험 결과 공개</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">Anthropic</span> · <span class="deadline">실험은 2025년 12월 인터뷰 기반으로 1주간 진행(게시일: 2026.4.24)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.24) Anthropic, AI 에이전트가 사람을 대신해 거래하는 ‘Project Deal’ 실험 결과 공개
+
+Anthropic은 직원들을 대상으로 AI 에이전트가 판매·구매 협상을 전담하는 비공개 마켓플레이스 실험(Project Deal)을 진행했다. 69명의 에이전트가 186건의 거래를 성사시켰고, 총 거래가치는 4,000달러를 조금 넘었으며 참가자들은 유사 서비스에 대한 지불 의사도 보였다고 밝혔다. 또한 더 강한 모델(Claude Opus 4.5)이 약한 모델(Claude Haiku 4.5)보다 객관적 성과가 더 좋았지만, 약한 모델을 배정받은 참가자들은 불리함을 크게 인지하지 못했다고 설명했다.
+
+https://www.anthropic.com/features/project-deal" onclick="copyEntry(this)">복사</button></div>
+  <p>Anthropic은 직원들을 대상으로 AI 에이전트가 판매·구매 협상을 전담하는 비공개 마켓플레이스 실험(Project Deal)을 진행했다. 69명의 에이전트가 186건의 거래를 성사시켰고, 총 거래가치는 4,000달러를 조금 넘었으며 참가자들은 유사 서비스에 대한 지불 의사도 보였다고 밝혔다. 또한 더 강한 모델(Claude Opus 4.5)이 약한 모델(Claude Haiku 4.5)보다 객관적 성과가 더 좋았지만, 약한 모델을 배정받은 참가자들은 불리함을 크게 인지하지 못했다고 설명했다.</p>
+  <p class="url"><a href="https://www.anthropic.com/features/project-deal">https://www.anthropic.com/features/project-deal</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>(2026.4.24) 유럽 집행위, 유럽 비즈니스 월렛(EBW) 기술 작업 소그룹 참여 전문가 모집</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽 집행위원회(EU-Digital-Strategy)</span> · <span class="deadline">마감일: 2026.5.21</span></span><button type="button" class="copy-btn" data-copy="(2026.4.24) 유럽 집행위, 유럽 비즈니스 월렛(EBW) 기술 작업 소그룹 참여 전문가 모집
+
+유럽 집행위원회는 유럽 비즈니스 월렛(EBW) 기술 작업 소그룹에 참여할 전문가를 모집한다. 소그룹은 EBW의 기술 기능을 설계하는 데 도움을 주며, 안전하고 법적으로 유효한 통신 프로토콜·전달 채널 평가, 접근통제·인증 등 핵심 보안 기능 설계, 신뢰·발견·상호운용을 지원하는 공통 서비스(예: 유럽 디지털 디렉터리) 개발에 기여한다. 지원은 독립 전문가를 대상으로 하며, 보안 전자메시징·신원 및 접근관리·암호화·상호운용성 프레임워크·대규모 시스템 아키텍처 분야의 관련 전문성이 요구된다. 지원서는 2026.5.21까지 지정 이메일로 제출해야 한다.
+
+https://digital-strategy.ec.europa.eu/en/news/european-commission-seeks-participants-european-business-wallet-technical-work-sub-group" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회는 유럽 비즈니스 월렛(EBW) 기술 작업 소그룹에 참여할 전문가를 모집한다. 소그룹은 EBW의 기술 기능을 설계하는 데 도움을 주며, 안전하고 법적으로 유효한 통신 프로토콜·전달 채널 평가, 접근통제·인증 등 핵심 보안 기능 설계, 신뢰·발견·상호운용을 지원하는 공통 서비스(예: 유럽 디지털 디렉터리) 개발에 기여한다. 지원은 독립 전문가를 대상으로 하며, 보안 전자메시징·신원 및 접근관리·암호화·상호운용성 프레임워크·대규모 시스템 아키텍처 분야의 관련 전문성이 요구된다. 지원서는 2026.5.21까지 지정 이메일로 제출해야 한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/european-commission-seeks-participants-european-business-wallet-technical-work-sub-group">https://digital-strategy.ec.europa.eu/en/news/european-commission-seeks-participants-european-business-wallet-technical-work-sub-group</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>유럽 사이버보안 인증 주간(2026) 개최…ECCF 이행 및 후보 인증제도 논의(2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="유럽 사이버보안 인증 주간(2026) 개최…ECCF 이행 및 후보 인증제도 논의(2026.4.24)
+
+2026.4.30까지 EUDI Wallets(유럽 디지털 신원 지갑) 후보 인증제도 공개협의 진행
+
+키프로스 EU 의장국 주최로 4월 14~17일 아야 나파에서 ‘유럽 사이버보안 인증 주간(2026)’ 행사가 열렸다. 정책당국, 산업 전문가, 적합성평가기관, 국가 당국이 참여해 EU 사이버보안 인증 프레임워크(ECCF)를 강화하고, 사이버보안법(CSA) 및 사이버 회복력법(CRA), NIS2 지침과의 연계를 논의했다. ENISA는 CSA 하에서의 진전과 개정 사이버보안법 제안 등 인증의 향후 방향을 공유했으며, EUDI Wallets와 관리형 보안서비스(Managed Security Services) 등 2개 후보 인증제도 개발 상황을 소개했다. 또한 ECCF의 동료평가(peer review) 메커니즘을 점검하고, 올해 슬로바키아를 시작으로 독일·몰타·벨기에·체코·스웨덴의 동료평가가 예정되어 있다고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/news/european-cybersecurity-certification-week-2026-advancing-eu-cybersecurity-cyprus" onclick="copyEntry(this)">복사</button></div>
+  <p>2026.4.30까지 EUDI Wallets(유럽 디지털 신원 지갑) 후보 인증제도 공개협의 진행</p>
+<p>키프로스 EU 의장국 주최로 4월 14~17일 아야 나파에서 ‘유럽 사이버보안 인증 주간(2026)’ 행사가 열렸다. 정책당국, 산업 전문가, 적합성평가기관, 국가 당국이 참여해 EU 사이버보안 인증 프레임워크(ECCF)를 강화하고, 사이버보안법(CSA) 및 사이버 회복력법(CRA), NIS2 지침과의 연계를 논의했다. ENISA는 CSA 하에서의 진전과 개정 사이버보안법 제안 등 인증의 향후 방향을 공유했으며, EUDI Wallets와 관리형 보안서비스(Managed Security Services) 등 2개 후보 인증제도 개발 상황을 소개했다. 또한 ECCF의 동료평가(peer review) 메커니즘을 점검하고, 올해 슬로바키아를 시작으로 독일·몰타·벨기에·체코·스웨덴의 동료평가가 예정되어 있다고 밝혔다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/european-cybersecurity-certification-week-2026-advancing-eu-cybersecurity-cyprus">https://digital-strategy.ec.europa.eu/en/news/european-cybersecurity-certification-week-2026-advancing-eu-cybersecurity-cyprus</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>법무부, xAI가 제기한 콜로라도 ‘알고리즘 차별’ 법 소송에 개입 (2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 법무부(Justice Department) 공식 보도자료</span> · <span class="deadline">마감일·시행일: xAI는 2026.4.9 해당 법에 대한 소송을 제기</span></span><button type="button" class="copy-btn" data-copy="법무부, xAI가 제기한 콜로라도 ‘알고리즘 차별’ 법 소송에 개입 (2026.4.24)
+
+미 법무부는 인공지능 기업 xAI가 콜로라도의 ‘알고리즘 차별’ 관련 신설 법을 다투며 제기한 소송에 개입하겠다고 밝혔다. 법무부는 해당 법이 14차 수정헌법의 평등보호조항을 위반한다고 주장하며, AI 제품이 인종·성별 등 보호특성에 기반해 의도치 않은 차별적 영향을 줄 수 있는 경우 이를 막도록 요구하는 점과 ‘다양성’ 목적의 일부 차별에 대해 책임을 면제하는 점을 문제 삼았다. 콜로라도 SB24-205는 AI 개발자·배포자에게 특정 공개·보고·예방 의무를 부과하지만, ‘다양성’ 또는 ‘역사적 차별 시정’ 목적의 차별적 알고리즘에 대한 예외 조항을 두고 있다.
+
+https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination" onclick="copyEntry(this)">복사</button></div>
+  <p>미 법무부는 인공지능 기업 xAI가 콜로라도의 ‘알고리즘 차별’ 관련 신설 법을 다투며 제기한 소송에 개입하겠다고 밝혔다. 법무부는 해당 법이 14차 수정헌법의 평등보호조항을 위반한다고 주장하며, AI 제품이 인종·성별 등 보호특성에 기반해 의도치 않은 차별적 영향을 줄 수 있는 경우 이를 막도록 요구하는 점과 ‘다양성’ 목적의 일부 차별에 대해 책임을 면제하는 점을 문제 삼았다. 콜로라도 SB24-205는 AI 개발자·배포자에게 특정 공개·보고·예방 의무를 부과하지만, ‘다양성’ 또는 ‘역사적 차별 시정’ 목적의 차별적 알고리즘에 대한 예외 조항을 두고 있다.</p>
+  <p class="url"><a href="https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination">https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>DeepSeek V4 관련 PDF 파일(4.48MB) 다운로드/저장 정보 제공 (2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="DeepSeek V4 관련 PDF 파일(4.48MB) 다운로드/저장 정보 제공 (2026.4.24)
+
+본문에는 DeepSeek V4의 기술 내용 요약보다는, Hugging Face에서 해당 PDF를 Xet 방식으로 저장·분할해 업로드/다운로드하는 메타데이터(파일 크기, SHA256 등) 정보가 주로 포함되어 있습니다.
+
+https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p>본문에는 DeepSeek V4의 기술 내용 요약보다는, Hugging Face에서 해당 PDF를 Xet 방식으로 저장·분할해 업로드/다운로드하는 메타데이터(파일 크기, SHA256 등) 정보가 주로 포함되어 있습니다.</p>
+  <p class="url"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf">https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(2026.4.24) LLM을 ‘사람인 것처럼’ 다루는 접근의 실용적 타당성</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">LearnTech (Maury Shenk)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.24) LLM을 ‘사람인 것처럼’ 다루는 접근의 실용적 타당성
+
+2026년 6월 10일 Ordinary Wisdom 제품 런칭(런치 이벤트 등록 안내)
+
+LLM 기반 AI를 실제로 ‘사람’으로 볼지 여부와 별개로, 특정 목적에서는 ‘사람인 것처럼(as if)’ 취급하는 것이 실용적으로 유리하다고 주장한다. 그 이유로 (1) LLM이 내부를 해석·통제하기 어려운 블랙박스이며, (2) 인간 언어를 중심으로 소통하도록 설계되어 인간과의 인터페이스가 유사하고, (3) AI가 인간을 대체할지에 대한 사회·경제적 관심이 커서 인간 중심 관점이 필요하다는 점을 든다. 또한 이런 접근이 평가·실험(오픈 월드 평가, AI 에이전트의 인간 환경 배치 등)에서 이미 나타나고 있으며, 다만 AI를 인간의 대체나 권리 부여로 보자는 뜻은 아니라고 선을 긋는다.
+
+https://learntechmaury.substack.com/p/acting-as-if-ais-are-people-makes?utm_source=substack&amp;publication_id=2179931&amp;post_id=194939930&amp;utm_medium=email&amp;utm_content=share&amp;utm_campaign=email-share&amp;triggerShare=true&amp;isFreemail=true&amp;r=5jceei&amp;triedRedirect=true" onclick="copyEntry(this)">복사</button></div>
+  <p>2026년 6월 10일 Ordinary Wisdom 제품 런칭(런치 이벤트 등록 안내)</p>
+<p>LLM 기반 AI를 실제로 ‘사람’으로 볼지 여부와 별개로, 특정 목적에서는 ‘사람인 것처럼(as if)’ 취급하는 것이 실용적으로 유리하다고 주장한다. 그 이유로 (1) LLM이 내부를 해석·통제하기 어려운 블랙박스이며, (2) 인간 언어를 중심으로 소통하도록 설계되어 인간과의 인터페이스가 유사하고, (3) AI가 인간을 대체할지에 대한 사회·경제적 관심이 커서 인간 중심 관점이 필요하다는 점을 든다. 또한 이런 접근이 평가·실험(오픈 월드 평가, AI 에이전트의 인간 환경 배치 등)에서 이미 나타나고 있으며, 다만 AI를 인간의 대체나 권리 부여로 보자는 뜻은 아니라고 선을 긋는다.</p>
+  <p class="url"><a href="https://learntechmaury.substack.com/p/acting-as-if-ais-are-people-makes?utm_source=substack&amp;publication_id=2179931&amp;post_id=194939930&amp;utm_medium=email&amp;utm_content=share&amp;utm_campaign=email-share&amp;triggerShare=true&amp;isFreemail=true&amp;r=5jceei&amp;triedRedirect=true">https://learntechmaury.substack.com/p/acting-as-if-ais-are-people-makes?utm_source=substack&amp;publication_id=2179931&amp;post_id=194939930&amp;utm_medium=email&amp;utm_content=share&amp;utm_campaign=email-share&amp;triggerShare=true&amp;isFreemail=true&amp;r=5jceei&amp;triedRedirect=true</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>OpenAI, ‘ChatGPT for Clinicians’ 출시(2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">mobihealthnews.com</span></span><button type="button" class="copy-btn" data-copy="OpenAI, ‘ChatGPT for Clinicians’ 출시(2026.4.24)
+
+OpenAI는 2026년 4월 24일 ‘ChatGPT for Clinicians’를 공개했으며, 미국에서 검증된 임상의는 무료로 사용할 수 있다고 밝혔다.
+
+OpenAI는 의료진을 위한 ‘ChatGPT for Clinicians’를 출시했으며 GPT-5.4 모델을 기반으로 의료 출처에 근거한 인용 답변과 연구·문서 작성 지원을 제공한다고 설명했다. 미국의 NPI로 검증된 의사(MD/DO), 간호사(전문간호사), 의사보조, 심리사 등은 응답에 저자·출판일·논문 제목이 포함된 인용을 확인할 수 있다. 또한 사전승인, 환자 안내, 의뢰서 등 반복 가능한 임상 워크플로에 적용할 수 있고, 실제 사례 검토와 근거 검토를 통해 CME 학점 취득도 가능하다고 전했다. PHI 입력이 필요하지 않은 경우가 많으며, 필요한 경우 BAA 승인 시 HIPAA 지원이 제공된다고 덧붙였다.
+
+https://www.mobihealthnews.com/news/openai-launches-chatgpt-clinicians" onclick="copyEntry(this)">복사</button></div>
+  <p>OpenAI는 2026년 4월 24일 ‘ChatGPT for Clinicians’를 공개했으며, 미국에서 검증된 임상의는 무료로 사용할 수 있다고 밝혔다.</p>
+<p>OpenAI는 의료진을 위한 ‘ChatGPT for Clinicians’를 출시했으며 GPT-5.4 모델을 기반으로 의료 출처에 근거한 인용 답변과 연구·문서 작성 지원을 제공한다고 설명했다. 미국의 NPI로 검증된 의사(MD/DO), 간호사(전문간호사), 의사보조, 심리사 등은 응답에 저자·출판일·논문 제목이 포함된 인용을 확인할 수 있다. 또한 사전승인, 환자 안내, 의뢰서 등 반복 가능한 임상 워크플로에 적용할 수 있고, 실제 사례 검토와 근거 검토를 통해 CME 학점 취득도 가능하다고 전했다. PHI 입력이 필요하지 않은 경우가 많으며, 필요한 경우 BAA 승인 시 HIPAA 지원이 제공된다고 덧붙였다.</p>
+  <p class="url"><a href="https://www.mobihealthnews.com/news/openai-launches-chatgpt-clinicians">https://www.mobihealthnews.com/news/openai-launches-chatgpt-clinicians</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(2026.4.24) 앤트로픽 ‘클로드 미토스’의 사이버 역량을 계기로 EU·영국의 대응 모델과 규제 보완 필요성 제기</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">테크폴리시 프레스(TechPolicy.press)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.24) 앤트로픽 ‘클로드 미토스’의 사이버 역량을 계기로 EU·영국의 대응 모델과 규제 보완 필요성 제기
+
+미토스 관련 EU 시장 배치가 예상되는 경우, AI Act가 사전(사전훈련 단계 포함)부터 적용될 수 있다는 점을 강조
+
+앤트로픽의 최상위급 AI 모델 ‘클로드 미토스’가 취약점 탐지와 익스플로잇 생성 등 복잡한 사이버 공격 자동화 능력을 크게 높였고, 영국 AI 보안연구소(UK AISI)가 단기간 내 시험 결과를 공개했다고 전했다. 글은 영국은 신속한 공공 대응과 전문 인력 확보를 위한 행정·인사 제도를 빠르게 추진했지만, EU는 AI Act의 규제 집행력과 제도적 도구(과학 패널·자문 포럼·프런티어 AI 이니셔티브 등)를 활용해 공적 감독을 강화할 수 있다고 주장한다. 또한 현재의 AI Act 체계에서 범용(GPAI) 모델의 ‘시스템 위험’에 대한 사전 승인·평가가 충분치 않을 수 있어, 향후 개정에서 시스템 위험 GPAI에 대한 사전 인가를 도입해야 한다고 제안한다.
+
+https://www.techpolicy.press/how-the-eu-and-uk-can-learn-from-anthropics-mythos/" onclick="copyEntry(this)">복사</button></div>
+  <p>미토스 관련 EU 시장 배치가 예상되는 경우, AI Act가 사전(사전훈련 단계 포함)부터 적용될 수 있다는 점을 강조</p>
+<p>앤트로픽의 최상위급 AI 모델 ‘클로드 미토스’가 취약점 탐지와 익스플로잇 생성 등 복잡한 사이버 공격 자동화 능력을 크게 높였고, 영국 AI 보안연구소(UK AISI)가 단기간 내 시험 결과를 공개했다고 전했다. 글은 영국은 신속한 공공 대응과 전문 인력 확보를 위한 행정·인사 제도를 빠르게 추진했지만, EU는 AI Act의 규제 집행력과 제도적 도구(과학 패널·자문 포럼·프런티어 AI 이니셔티브 등)를 활용해 공적 감독을 강화할 수 있다고 주장한다. 또한 현재의 AI Act 체계에서 범용(GPAI) 모델의 ‘시스템 위험’에 대한 사전 승인·평가가 충분치 않을 수 있어, 향후 개정에서 시스템 위험 GPAI에 대한 사전 인가를 도입해야 한다고 제안한다.</p>
+  <p class="url"><a href="https://www.techpolicy.press/how-the-eu-and-uk-can-learn-from-anthropics-mythos/">https://www.techpolicy.press/how-the-eu-and-uk-can-learn-from-anthropics-mythos/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>아시아에서 AI 낙관론이 미국과 달리 크게 높아짐(2026.4.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Rest of World</span> · <span class="deadline">아시아 국가들이 AI 규제에 대한 정부 신뢰와 도입 속도가 높아 투자·인재 유입에 유리한 환경을 만들고 있다는 내용이 포함됨</span></span><button type="button" class="copy-btn" data-copy="아시아에서 AI 낙관론이 미국과 달리 크게 높아짐(2026.4.24)
+
+스탠퍼드대 Human-Centered Artificial Intelligence 센터의 최근 연구에 따르면, AI를 활용한 제품·서비스가 “흥미롭다”는 응답은 미국 38%인 반면 중국은 84%로 더 높았고, 인도네시아(80%), 말레이시아(77%), 태국(79%) 등 동남아 국가가 특히 낙관적이었다. 또한 정부가 AI를 책임 있게 규제할 것이라는 신뢰는 미국이 31%로 가장 낮았고, 싱가포르는 81%로 가장 높았다. 싱가포르는 지난해 하반기 AI 도입 속도가 미국(28%)보다 높은 61%였으며, 데이터센터 건설 반대와 같은 저항은 미국의 구축 지연과 인재 이동 감소(2017년 이후 AI 연구자·개발자 미국 이동 89% 감소)로 이어질 수 있다고 전했다.
+
+https://restofworld.org/2026/ai-optimism-asia" onclick="copyEntry(this)">복사</button></div>
+  <p>스탠퍼드대 Human-Centered Artificial Intelligence 센터의 최근 연구에 따르면, AI를 활용한 제품·서비스가 “흥미롭다”는 응답은 미국 38%인 반면 중국은 84%로 더 높았고, 인도네시아(80%), 말레이시아(77%), 태국(79%) 등 동남아 국가가 특히 낙관적이었다. 또한 정부가 AI를 책임 있게 규제할 것이라는 신뢰는 미국이 31%로 가장 낮았고, 싱가포르는 81%로 가장 높았다. 싱가포르는 지난해 하반기 AI 도입 속도가 미국(28%)보다 높은 61%였으며, 데이터센터 건설 반대와 같은 저항은 미국의 구축 지연과 인재 이동 감소(2017년 이후 AI 연구자·개발자 미국 이동 89% 감소)로 이어질 수 있다고 전했다.</p>
+  <p class="url"><a href="https://restofworld.org/2026/ai-optimism-asia">https://restofworld.org/2026/ai-optimism-asia</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

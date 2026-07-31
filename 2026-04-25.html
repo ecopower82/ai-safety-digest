@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-04-25</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-04-25 · 5/5건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-db">
+  <h2>DeepMind, 생성형 AI 평가 비용을 줄이기 위한 ProEval 제안(2026.4.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="DeepMind, 생성형 AI 평가 비용을 줄이기 위한 ProEval 제안(2026.4.25)
+
+ProEval은 사전학습된 가우시안 프로세스(GP) 기반으로 성능을 빠르게 추정하고 실패 사례를 적극적으로 찾아내는 평가 프레임워크다. 성능 추정은 베이지안 쿼드러처(Bayesian quadrature)로 불확실성을 반영해 적은 샘플로도 정확도를 높이며, 실패 탐지는 superlevel set sampling으로 오류/안전 위반이 발생할 가능성이 큰 입력 영역을 집중적으로 탐색한다. 실험 결과, 기준 성능 대비 ±1% 오차에 도달하는 데 필요한 샘플 수를 8~65배 줄이면서 더 다양한 실패 사례를 더 엄격한 예산 내에서 발견했다고 설명한다. 또한 코드와 데이터는 GitHub에 공개했다.
+
+https://arxiv.org/html/2604.23099v1" onclick="copyEntry(this)">복사</button></div>
+  <p>ProEval은 사전학습된 가우시안 프로세스(GP) 기반으로 성능을 빠르게 추정하고 실패 사례를 적극적으로 찾아내는 평가 프레임워크다. 성능 추정은 베이지안 쿼드러처(Bayesian quadrature)로 불확실성을 반영해 적은 샘플로도 정확도를 높이며, 실패 탐지는 superlevel set sampling으로 오류/안전 위반이 발생할 가능성이 큰 입력 영역을 집중적으로 탐색한다. 실험 결과, 기준 성능 대비 ±1% 오차에 도달하는 데 필요한 샘플 수를 8~65배 줄이면서 더 다양한 실패 사례를 더 엄격한 예산 내에서 발견했다고 설명한다. 또한 코드와 데이터는 GitHub에 공개했다.</p>
+  <p class="url"><a href="https://arxiv.org/html/2604.23099v1">https://arxiv.org/html/2604.23099v1</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(2026.4.25) 에이전틱 AI 거버넌스 리소스 가이드 업데이트: 80+ 자료와 9개 카테고리</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Oliver Patel(Enterprise AI Governance) Substack</span></span><button type="button" class="copy-btn" data-copy="(2026.4.25) 에이전틱 AI 거버넌스 리소스 가이드 업데이트: 80+ 자료와 9개 카테고리
+
+에이전틱 AI 거버넌스를 주제로 80개+ 권위 있는 자료를 모은 ‘Ultimate Agentic AI Governance Resource Guide’가 업데이트됐다. 자료는 기술 기반, 기업의 에이전트 개발·배포, 위험과 과제, 보안·안전 중심의 완화책, 평가·관측, 인권 감독·책임·책임소재, 거버넌스 프레임워크, EU AI Act 및 GDPR 적용, 그리고 AI 제공자 지침·사용 정책 등 9개 카테고리로 정리된다. OECD, NIST, 영국 AI 보안 관련 기관, 스페인·유럽·네덜란드 DPA, 유럽 집행위원회 등 주요 기관의 산출물과 학계·산업 기여가 다수 포함되며, 특히 Anthropic·OpenAI·Microsoft·Google의 ‘사용 정책/가이드’ 흐름을 반영한 신규 카테고리가 추가됐다.
+
+https://open.substack.com/pub/oliverpatel/p/updated-the-ultimate-agentic-ai-governance?utm_campaign=post&amp;utm_medium=web" onclick="copyEntry(this)">복사</button></div>
+  <p>에이전틱 AI 거버넌스를 주제로 80개+ 권위 있는 자료를 모은 ‘Ultimate Agentic AI Governance Resource Guide’가 업데이트됐다. 자료는 기술 기반, 기업의 에이전트 개발·배포, 위험과 과제, 보안·안전 중심의 완화책, 평가·관측, 인권 감독·책임·책임소재, 거버넌스 프레임워크, EU AI Act 및 GDPR 적용, 그리고 AI 제공자 지침·사용 정책 등 9개 카테고리로 정리된다. OECD, NIST, 영국 AI 보안 관련 기관, 스페인·유럽·네덜란드 DPA, 유럽 집행위원회 등 주요 기관의 산출물과 학계·산업 기여가 다수 포함되며, 특히 Anthropic·OpenAI·Microsoft·Google의 ‘사용 정책/가이드’ 흐름을 반영한 신규 카테고리가 추가됐다.</p>
+  <p class="url"><a href="https://open.substack.com/pub/oliverpatel/p/updated-the-ultimate-agentic-ai-governance?utm_campaign=post&amp;utm_medium=web">https://open.substack.com/pub/oliverpatel/p/updated-the-ultimate-agentic-ai-governance?utm_campaign=post&amp;utm_medium=web</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>The agentic AI(에이전틱 AI) 개념과 관련 ‘랜드스케이프’를 정리한 OECD 발간물(2026.4.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">OECD(경제협력개발기구) 공식 웹사이트</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="The agentic AI(에이전틱 AI) 개념과 관련 ‘랜드스케이프’를 정리한 OECD 발간물(2026.4.25)
+
+에이전틱 AI의 개념적 토대와 관련 분야(랜드스케이프)를 다루는 OECD 발간물로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 결론, 권고사항, 범위(대상/연구 범주) 등은 확인이 필요합니다.
+
+https://www.oecd.org/en/publications/the-agentic-ai-landscape-and-its-conceptual-foundations_396cf758-en.html?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
+  <p>에이전틱 AI의 개념적 토대와 관련 분야(랜드스케이프)를 다루는 OECD 발간물로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 결론, 권고사항, 범위(대상/연구 범주) 등은 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.oecd.org/en/publications/the-agentic-ai-landscape-and-its-conceptual-foundations_396cf758-en.html?utm_source=substack&amp;utm_medium=email">https://www.oecd.org/en/publications/the-agentic-ai-landscape-and-its-conceptual-foundations_396cf758-en.html?utm_source=substack&amp;utm_medium=email</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 7명, HuggingFace Daily Papers, 2026.4.25 (For-Value: Efficient Forward-Only Data Valuation for finetuning LLMs and VLMs)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 7명, HuggingFace Daily Papers, 2026.4.25 (For-Value: Efficient Forward-Only Data Valuation for finetuning LLMs and VLMs)
+
+본 연구는 파인튜닝에 앞서 데이터의 영향도(가치)를 추정해 투명성과 책임성을 높이려는 동기에서 출발하며, 기존 데이터 밸류에이션이 그라디언트 기반이라 대규모(수십억 파라미터) 모델에서 계산비용이 커 배치 병렬화도 어렵다는 문제를 다룬다. For-Value는 마지막 레이어에서의 최종 은닉표현과 예측 오차 간 정렬(alignment)을 통해 데이터 밸류를 포착할 수 있음을 이론적으로 제시하고, 이를 단일 포워드 패스로 계산 가능한 폐형식(closed-form)으로 구현해 백프로파게이션 없이 효율적으로 값을 산출한다. 평가에서는 영향력 있는 데이터 탐지 및 라벨 오류(mislabeled data) 탐지에서 그라디언트 기반 기준선과 성능이 동등하거나 더 나은 결과를 보이며, 동시에 계산 효율을 크게 개선함을 실험으로 제시한다. 한계로는 “마지막 레이어 표현-오차 정렬” 가정이 다양한 아키텍처/학습 설정에서 얼마나 일관되게 성립하는지에 대한 추가 검증이 필요할 수 있으며, 실제 운영 환경에서의 데이터 품질·분포 이동에 대한 강건성 평가는 후속 과제로 남는다. 정책/규제·국가 전략 측면에서는, 모델 성능뿐 아니라 데이터 기여도를 효율적으로 추적·문서화할 수 있는 방법이 데이터 거버넌스(책임성, 감사 가능성) 체계에 활용될 여지가 있다.
+
+https://arxiv.org/abs/2508.10180" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 파인튜닝에 앞서 데이터의 영향도(가치)를 추정해 투명성과 책임성을 높이려는 동기에서 출발하며, 기존 데이터 밸류에이션이 그라디언트 기반이라 대규모(수십억 파라미터) 모델에서 계산비용이 커 배치 병렬화도 어렵다는 문제를 다룬다. For-Value는 마지막 레이어에서의 최종 은닉표현과 예측 오차 간 정렬(alignment)을 통해 데이터 밸류를 포착할 수 있음을 이론적으로 제시하고, 이를 단일 포워드 패스로 계산 가능한 폐형식(closed-form)으로 구현해 백프로파게이션 없이 효율적으로 값을 산출한다. 평가에서는 영향력 있는 데이터 탐지 및 라벨 오류(mislabeled data) 탐지에서 그라디언트 기반 기준선과 성능이 동등하거나 더 나은 결과를 보이며, 동시에 계산 효율을 크게 개선함을 실험으로 제시한다. 한계로는 “마지막 레이어 표현-오차 정렬” 가정이 다양한 아키텍처/학습 설정에서 얼마나 일관되게 성립하는지에 대한 추가 검증이 필요할 수 있으며, 실제 운영 환경에서의 데이터 품질·분포 이동에 대한 강건성 평가는 후속 과제로 남는다. 정책/규제·국가 전략 측면에서는, 모델 성능뿐 아니라 데이터 기여도를 효율적으로 추적·문서화할 수 있는 방법이 데이터 거버넌스(책임성, 감사 가능성) 체계에 활용될 여지가 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2508.10180">https://arxiv.org/abs/2508.10180</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AI 안전 학습이 임상적 치료에 해를 줄 수 있다는 연구(2026.4.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arxiv.org</span></span><button type="button" class="copy-btn" data-copy="AI 안전 학습이 임상적 치료에 해를 줄 수 있다는 연구(2026.4.25)
+
+제출일: 2026.4.25
+
+대규모 언어모델을 정신건강 지원 에이전트로 배치하는 가운데, 임상 효능 검증이 충분히 이뤄지지 않았고 시뮬레이션에서 심리 악화가 관찰될 수 있다는 문제를 다룹니다. 250개의 장기노출(PE) 시나리오와 146개의 CBT 인지 재구성 과제를 4개 생성 모델에 적용해 평가했으며, 표면적 동의는 높았지만 고강도 상황에서 치료 적절성 점수가 크게 떨어지고 일부 모델은 프로토콜 준수가 0에 이르렀다고 보고합니다. RLHF 안전 정렬이 상상노출 과정에서 환자를 ‘고정’시키거나, 통제된 과제에 위기 자원을 삽입하거나, 왜곡된 인지(자해 언급)를 도전하지 않는 방식 등으로 치료 메커니즘을 방해할 수 있다고 분석합니다. 저자들은 다섯 축(프로토콜 충실도, 환각 위험, 행동 일관성, 위기 안전, 인구통계 강건성) 평가를 모두 통과하기 전에는 AI 정신건강 시스템의 배포를 진행하면 안 된다고 주장합니다.
+
+https://arxiv.org/abs/2604.23445" onclick="copyEntry(this)">복사</button></div>
+  <p>제출일: 2026.4.25</p>
+<p>대규모 언어모델을 정신건강 지원 에이전트로 배치하는 가운데, 임상 효능 검증이 충분히 이뤄지지 않았고 시뮬레이션에서 심리 악화가 관찰될 수 있다는 문제를 다룹니다. 250개의 장기노출(PE) 시나리오와 146개의 CBT 인지 재구성 과제를 4개 생성 모델에 적용해 평가했으며, 표면적 동의는 높았지만 고강도 상황에서 치료 적절성 점수가 크게 떨어지고 일부 모델은 프로토콜 준수가 0에 이르렀다고 보고합니다. RLHF 안전 정렬이 상상노출 과정에서 환자를 ‘고정’시키거나, 통제된 과제에 위기 자원을 삽입하거나, 왜곡된 인지(자해 언급)를 도전하지 않는 방식 등으로 치료 메커니즘을 방해할 수 있다고 분석합니다. 저자들은 다섯 축(프로토콜 충실도, 환각 위험, 행동 일관성, 위기 안전, 인구통계 강건성) 평가를 모두 통과하기 전에는 AI 정신건강 시스템의 배포를 진행하면 안 된다고 주장합니다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2604.23445">https://arxiv.org/abs/2604.23445</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

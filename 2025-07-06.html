@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-07-06</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-07-06 · 3/3건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-other">
+  <h2>BRICS, 리우에서 ‘포용적·지속가능한 거버넌스’ 공동선언 채택(2025.07.06)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">BRICS Brasil( brics.br )</span> · <span class="deadline">17차 정상회의에서 BRICS 11개국이 공동선언을 서명했으며, 글로벌 거버넌스·금융·보건·인공지능·기후 등 126개 이행 약속을 채택했다. 개발도상국(특히 아프리카·라틴아메리카·카리브)의 국제 의사결정 참여 확대와 국제법·UN 헌장 목적·원칙 수호를 강조했으며, IMF 쿼터 및 세계은행 지분 조정, 글로벌 보건 거버넌스 강화, AI 거버넌스의 위험 완화와 포용적 협력, COP30 준비 차원의 열대림 보전 TFFF 등도 포함됐다. 또한 분쟁·군비 지출 증가에 대한 우려와 안보 의제와 기후 의제의 연계 시도에 대한 우려를 언급했다.</span></span><button type="button" class="copy-btn" data-copy="BRICS, 리우에서 ‘포용적·지속가능한 거버넌스’ 공동선언 채택(2025.07.06)
+
+
+
+https://brics.br/en/news/brics-summit-signs-historic-commitment-in-rio-for-more-inclusive-and-sustainable-governance" onclick="copyEntry(this)">복사</button></div>
+  
+  <p class="url"><a href="https://brics.br/en/news/brics-summit-signs-historic-commitment-in-rio-for-more-inclusive-and-sustainable-governance">https://brics.br/en/news/brics-summit-signs-historic-commitment-in-rio-for-more-inclusive-and-sustainable-governance</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(2025.7.6) 70개국 이상, UNHRC에서 ‘AI를 통한 접근성 증진’ 공동성명</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">차이나데일리(China Daily)</span></span><button type="button" class="copy-btn" data-copy="(2025.7.6) 70개국 이상, UNHRC에서 ‘AI를 통한 접근성 증진’ 공동성명
+
+제네바에서 열린 UN 인권이사회(UNHRC) 59차 회기 기술협력·역량강화 관련 연례 주제 패널에서 중국 대표가 70개국 이상을 대표해 ‘Artificial Intelligence(AI) for Promoting Accessibility’ 공동성명을 전달했다. 성명은 AI가 물리·정보·문화 장벽을 줄이고 모두가 인권을 누리도록 접근성 환경을 조성할 잠재력이 크다고 강조했으며, 인권 존중을 바탕으로 한 사람중심 접근, AI 혜택의 공평한 공유, 개발도상국 지원과 국제협력을 통한 상생 협력을 제안했다. 또한 중국이 주도한 ‘모두를 위한 동등한 접근성’ 관련 결의 이행의 한 단계라고 밝혔다.
+
+https://www.chinadaily.com.cn/a/202507/06/WS6869b209a31000e9a573a5a5.html" onclick="copyEntry(this)">복사</button></div>
+  <p>제네바에서 열린 UN 인권이사회(UNHRC) 59차 회기 기술협력·역량강화 관련 연례 주제 패널에서 중국 대표가 70개국 이상을 대표해 ‘Artificial Intelligence(AI) for Promoting Accessibility’ 공동성명을 전달했다. 성명은 AI가 물리·정보·문화 장벽을 줄이고 모두가 인권을 누리도록 접근성 환경을 조성할 잠재력이 크다고 강조했으며, 인권 존중을 바탕으로 한 사람중심 접근, AI 혜택의 공평한 공유, 개발도상국 지원과 국제협력을 통한 상생 협력을 제안했다. 또한 중국이 주도한 ‘모두를 위한 동등한 접근성’ 관련 결의 이행의 한 단계라고 밝혔다.</p>
+  <p class="url"><a href="https://www.chinadaily.com.cn/a/202507/06/WS6869b209a31000e9a573a5a5.html">https://www.chinadaily.com.cn/a/202507/06/WS6869b209a31000e9a573a5a5.html</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>캐나다인의 AI 음악 ‘호ax’이 언론을 속이고 ‘밴드’의 스트리밍 성공으로 이어진 과정 (2025.7.6)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">CBC 뉴스 (CBC News)</span></span><button type="button" class="copy-btn" data-copy="캐나다인의 AI 음악 ‘호ax’이 언론을 속이고 ‘밴드’의 스트리밍 성공으로 이어진 과정 (2025.7.6)
+
+CBC는 캐나다인 Andrew Frelon(가명)이 Spotify의 AI 음악 프로젝트를 둘러싼 정교한 사기극으로 언론을 속여 ‘The Velvet Sundown’이 월간 100만 청취자를 기록했다고 보도했다. 그는 Suno로 노래를 만들고, X 계정과 프로필·이미지 등을 활용해 “social engineering” 실험처럼 정체성 혼란을 의도했으며, 피해가 있었다면 사과한다고 밝혔다. 이후 밴드의 X 계정도 AI를 활용한 ‘synthetic music project’라고 인정했지만, 여전히 실제 배후는 완전히 확인되지 않았다고 전했다.
+
+https://www.cbc.ca/news/entertainment/ai-band-hoax-velvet-sundown-1.7575874" onclick="copyEntry(this)">복사</button></div>
+  <p>CBC는 캐나다인 Andrew Frelon(가명)이 Spotify의 AI 음악 프로젝트를 둘러싼 정교한 사기극으로 언론을 속여 ‘The Velvet Sundown’이 월간 100만 청취자를 기록했다고 보도했다. 그는 Suno로 노래를 만들고, X 계정과 프로필·이미지 등을 활용해 “social engineering” 실험처럼 정체성 혼란을 의도했으며, 피해가 있었다면 사과한다고 밝혔다. 이후 밴드의 X 계정도 AI를 활용한 ‘synthetic music project’라고 인정했지만, 여전히 실제 배후는 완전히 확인되지 않았다고 전했다.</p>
+  <p class="url"><a href="https://www.cbc.ca/news/entertainment/ai-band-hoax-velvet-sundown-1.7575874">https://www.cbc.ca/news/entertainment/ai-band-hoax-velvet-sundown-1.7575874</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

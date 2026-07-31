@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-02-03</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-02-03 · 4/4건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-db">
+  <h2>The International AI Safety Report 2026 Is Published (2026.2.3)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="The International AI Safety Report 2026 Is Published (2026.2.3)
+
+국제 AI 안전 보고서 2026은 2023년 블레츨리 파크 AI 안전 정상회의의 후속으로, 범용(일반목적) AI의 능력과 위험에 대한 근거 기반 분석을 제공하기 위해 발간되었다. 올해 보고서는 정책결정자가 불확실성 속에서도 가능한 결과 범위를 이해할 수 있도록 OECD 및 Forecasting Research Institute의 연구를 반영해 더 구체적인 시나리오·전망을 제시하고, 범위를 ‘출현(신규) 위험’—AI 능력의 최전선에서 발생하는 위험—에 집중하도록 조정했다. 보고서 개발에는 30개 이상 국가 및 국제기구가 추천한 전문가를 포함해 100명 이상이 참여했으며, 의장과 정부, 집필·자문그룹의 개별 견해를 반드시 대표하지 않는다는 면책 조항도 포함되어 있다.
+
+https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" onclick="copyEntry(this)">복사</button></div>
+  <p>국제 AI 안전 보고서 2026은 2023년 블레츨리 파크 AI 안전 정상회의의 후속으로, 범용(일반목적) AI의 능력과 위험에 대한 근거 기반 분석을 제공하기 위해 발간되었다. 올해 보고서는 정책결정자가 불확실성 속에서도 가능한 결과 범위를 이해할 수 있도록 OECD 및 Forecasting Research Institute의 연구를 반영해 더 구체적인 시나리오·전망을 제시하고, 범위를 ‘출현(신규) 위험’—AI 능력의 최전선에서 발생하는 위험—에 집중하도록 조정했다. 보고서 개발에는 30개 이상 국가 및 국제기구가 추천한 전문가를 포함해 100명 이상이 참여했으며, 의장과 정부, 집필·자문그룹의 개별 견해를 반드시 대표하지 않는다는 면책 조항도 포함되어 있다.</p>
+  <p class="url"><a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026">https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>SuperCLUE 2025 연례 중국 대형모델 벤치마크 평가 보고서 공개 (2026.2.3)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="SuperCLUE 2025 연례 중국 대형모델 벤치마크 평가 보고서 공개 (2026.2.3)
+
+SuperCLUE 2025 연례 평가에서 Claude-Opus-4.5-Reasoning(68.25점)이 종합 1위를 차지했으며, Gemini-3-Pro-Preview(65.59점)와 GPT-5.2(high)(64.32점)가 뒤를 이었습니다. 개방형 모델은 Kimi-K2.5-Thinking(61.50점)이 개방형 1위를 기록했고, 코드 생성·웹 코딩에서는 국내 모델의 강세가 두드러졌습니다. 반면 정밀 지시 준수와 환각 제어에서는 해외 모델이 전반적으로 우위를 보였고, 특히 정밀 지시 준수에서 점수 격차가 크게 나타났습니다. 또한 SuperCLUE 점수와 LMArena(인간 투표 기반) 간 상관계수(피어슨 0.8239, 스피어만 0.8321)로 평가 일관성이 높다고 제시했습니다.
+
+https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
+  <p>SuperCLUE 2025 연례 평가에서 Claude-Opus-4.5-Reasoning(68.25점)이 종합 1위를 차지했으며, Gemini-3-Pro-Preview(65.59점)와 GPT-5.2(high)(64.32점)가 뒤를 이었습니다. 개방형 모델은 Kimi-K2.5-Thinking(61.50점)이 개방형 1위를 기록했고, 코드 생성·웹 코딩에서는 국내 모델의 강세가 두드러졌습니다. 반면 정밀 지시 준수와 환각 제어에서는 해외 모델이 전반적으로 우위를 보였고, 특히 정밀 지시 준수에서 점수 격차가 크게 나타났습니다. 또한 SuperCLUE 점수와 LMArena(인간 투표 기반) 간 상관계수(피어슨 0.8239, 스피어만 0.8321)로 평가 일관성이 높다고 제시했습니다.</p>
+  <p class="url"><a href="https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email">https://mp.weixin.qq.com/s/w9Jyt5e3BR-lvaIMEjTAew?utm_source=substack&amp;utm_medium=email</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>백악관 국가사이버국이 AI 보안 정책 프레임워크를 개발(2026.2.3)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Nextgov/FCW</span></span><button type="button" class="copy-btn" data-copy="백악관 국가사이버국이 AI 보안 정책 프레임워크를 개발(2026.2.3)
+
+국가사이버전략은 당초 예상보다 지연됐으나 “조만간” 공개될 예정이라고 언급됨(구체 일정 미제시)
+
+백악관 국가사이버국(ONCD) 최고 책임자 Sean Cairncross는 미국이 주도하는 AI 기술 스택에 보안 조치를 내재화하기 위한 AI 보안 정책 프레임워크를 개발 중이라고 밝혔다. 그는 AI 보안을 혁신의 ‘마찰 요소’로 보지 않고 AI 시스템의 기반 단계에서부터 포함시키려는 취지라고 설명했다. 또한 데이터 포이즈닝 같은 AI 관련 위험과, 에이전틱 보안 도구/자동화가 공격에 악용될 수 있다는 점이 사이버 커뮤니티에서 주요 이슈로 거론된다고 전했다.
+
+https://www.nextgov.com/cybersecurity/2026/02/white-house-cyber-shop-crafting-ai-security-policy-framework-top-official-says/411154/" onclick="copyEntry(this)">복사</button></div>
+  <p>국가사이버전략은 당초 예상보다 지연됐으나 “조만간” 공개될 예정이라고 언급됨(구체 일정 미제시)</p>
+<p>백악관 국가사이버국(ONCD) 최고 책임자 Sean Cairncross는 미국이 주도하는 AI 기술 스택에 보안 조치를 내재화하기 위한 AI 보안 정책 프레임워크를 개발 중이라고 밝혔다. 그는 AI 보안을 혁신의 ‘마찰 요소’로 보지 않고 AI 시스템의 기반 단계에서부터 포함시키려는 취지라고 설명했다. 또한 데이터 포이즈닝 같은 AI 관련 위험과, 에이전틱 보안 도구/자동화가 공격에 악용될 수 있다는 점이 사이버 커뮤니티에서 주요 이슈로 거론된다고 전했다.</p>
+  <p class="url"><a href="https://www.nextgov.com/cybersecurity/2026/02/white-house-cyber-shop-crafting-ai-security-policy-framework-top-official-says/411154/">https://www.nextgov.com/cybersecurity/2026/02/white-house-cyber-shop-crafting-ai-security-policy-framework-top-official-says/411154/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LLM 백도어 트리거를 메모리 추출과 출력/어텐션 패턴으로 스캐닝·복원(2026.02.03)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv.org</span></span><button type="button" class="copy-btn" data-copy="LLM 백도어 트리거를 메모리 추출과 출력/어텐션 패턴으로 스캐닝·복원(2026.02.03)
+
+3 Feb 2026에 제출(Submitted on 3 Feb 2026)
+
+LLM에 독침(poisoning)된 sleeper agent-style 백도어가 있는지 식별하기 위한 실용적 스캐너를 제안한다. 제안 방법은 (1) sleeper agent가 poisoning 데이터를 메모리로 저장해 메모리 추출로 백도어 예시를 누출할 수 있고, (2) 입력에 트리거가 있을 때 출력 분포와 attention head에 구별되는 패턴이 나타난다는 두 관찰에 기반한다. 트리거나 목표 행동에 대한 사전 지식 없이도 inference 연산만으로 스케닝하며, 모델 성능을 바꾸지 않는다고 설명한다. 여러 백도어 시나리오와 다양한 모델·fine-tuning 방법에서 작동하는 트리거를 복원했다고 보고한다.
+
+https://www.arxiv.org/abs/2602.03085?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
+  <p>3 Feb 2026에 제출(Submitted on 3 Feb 2026)</p>
+<p>LLM에 독침(poisoning)된 sleeper agent-style 백도어가 있는지 식별하기 위한 실용적 스캐너를 제안한다. 제안 방법은 (1) sleeper agent가 poisoning 데이터를 메모리로 저장해 메모리 추출로 백도어 예시를 누출할 수 있고, (2) 입력에 트리거가 있을 때 출력 분포와 attention head에 구별되는 패턴이 나타난다는 두 관찰에 기반한다. 트리거나 목표 행동에 대한 사전 지식 없이도 inference 연산만으로 스케닝하며, 모델 성능을 바꾸지 않는다고 설명한다. 여러 백도어 시나리오와 다양한 모델·fine-tuning 방법에서 작동하는 트리거를 복원했다고 보고한다.</p>
+  <p class="url"><a href="https://www.arxiv.org/abs/2602.03085?utm_source=substack&amp;utm_medium=email">https://www.arxiv.org/abs/2602.03085?utm_source=substack&amp;utm_medium=email</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

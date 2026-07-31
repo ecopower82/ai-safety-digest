@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-06-17</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-06-17 · 3/3건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-gov">
+  <h2>EU, 병원·의료기관 포함 유럽 사이버보안 강화를 위해 1억4550만 유로 지원(2025.6.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">유럽연합 집행위원회(European Commission) 디지털 전략(Digital Strategy) 웹사이트</span></span><button type="button" class="copy-btn" data-copy="EU, 병원·의료기관 포함 유럽 사이버보안 강화를 위해 1억4550만 유로 지원(2025.6.17)
+
+첫 번째 공모(디지털 유럽 프로그램) 2025.10.7 마감, 두 번째 공모(호라이즌 유럽 프로그램) 2025.11.12 마감
+
+유럽 집행위원회는 중소기업과 공공행정이 사이버보안 솔루션을 도입하고 사이버보안 연구 성과를 활용하도록 총 1억4550만 유로를 제공한다. 유럽 사이버보안 역량(European Cybersecurity Competence)은 디지털 유럽 프로그램(5500만 유로)과 호라이즌 유럽 프로그램(약 9050만 유로) 등 2개 공모를 통해 병원·의료기관의 랜섬웨어를 포함한 위협 탐지·모니터링·대응 역량과 생성형 AI 기반 보안, 운영 사이버보안 고도화 도구·프로세스, 개인정보 보호 강화 기술, 양자내성 암호(post-quantum cryptography) 등을 지원한다. 두 공모의 신청 마감일은 각각 10월 7일과 11월 12일이며, 공모 문서와 자격요건은 Funding and Tenders 포털에서 확인할 수 있다.
+
+https://digital-strategy.ec.europa.eu/en/news/eu-allocates-eu1455-million-boost-european-cybersecurity-including-hospitals-and-healthcare" onclick="copyEntry(this)">복사</button></div>
+  <p>첫 번째 공모(디지털 유럽 프로그램) 2025.10.7 마감, 두 번째 공모(호라이즌 유럽 프로그램) 2025.11.12 마감</p>
+<p>유럽 집행위원회는 중소기업과 공공행정이 사이버보안 솔루션을 도입하고 사이버보안 연구 성과를 활용하도록 총 1억4550만 유로를 제공한다. 유럽 사이버보안 역량(European Cybersecurity Competence)은 디지털 유럽 프로그램(5500만 유로)과 호라이즌 유럽 프로그램(약 9050만 유로) 등 2개 공모를 통해 병원·의료기관의 랜섬웨어를 포함한 위협 탐지·모니터링·대응 역량과 생성형 AI 기반 보안, 운영 사이버보안 고도화 도구·프로세스, 개인정보 보호 강화 기술, 양자내성 암호(post-quantum cryptography) 등을 지원한다. 두 공모의 신청 마감일은 각각 10월 7일과 11월 12일이며, 공모 문서와 자격요건은 Funding and Tenders 포털에서 확인할 수 있다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/eu-allocates-eu1455-million-boost-european-cybersecurity-including-hospitals-and-healthcare">https://digital-strategy.ec.europa.eu/en/news/eu-allocates-eu1455-million-boost-european-cybersecurity-including-hospitals-and-healthcare</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI Safety Newsletter #57: 뉴욕 ‘RAISE Act’ 통과…전방 AI에 안전계획·위험모델 보류·사고보고 의무(2025.6.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Center for AI Safety(세이프AI 뉴스레터)</span> · <span class="deadline">2025년 중 주지사 서명(또는 거부/문구 수정) 절차가 진행될 수 있으며, 법안이 주지사에게 전달되면 Hochul은 최대 30일 내 결정할 수 있음</span></span><button type="button" class="copy-btn" data-copy="AI Safety Newsletter #57: 뉴욕 ‘RAISE Act’ 통과…전방 AI에 안전계획·위험모델 보류·사고보고 의무(2025.6.17)
+
+뉴욕 주 의회가 전방 AI(frontier AI) 시스템을 규제하는 Responsible AI Safety and Education(RAISE) Act를 6월 12일 통과시켰다. 법안은 개발사에 안전·보안 프로토콜(요약본) 공개, 위험이 과도한 모델의 출시 보류, 중대 사고 72시간 내 보고, 가중치 절도·위험 자율행동 등 위험을 실질적으로 높이는 사건의 3일 내 신고 등을 요구하며, 위반 시 최대 1,000만 달러(첫 위반)·3,000만 달러(추가 위반) 벌금을 제시한다. 또한 컴퓨트 비용 1억 달러 이상 모델 등 ‘가장 큰 개발사’에 적용되며, 미국 연방 차원에서는 주(州) 규제를 제한하는 10년 유예(moratorium) 논의가 함께 전개되고 있으나 아직 법으로 확정되지는 않았다.
+
+https://newsletter.safe.ai/p/ai-safety-newsletter-57-the-raise" onclick="copyEntry(this)">복사</button></div>
+  <p>뉴욕 주 의회가 전방 AI(frontier AI) 시스템을 규제하는 Responsible AI Safety and Education(RAISE) Act를 6월 12일 통과시켰다. 법안은 개발사에 안전·보안 프로토콜(요약본) 공개, 위험이 과도한 모델의 출시 보류, 중대 사고 72시간 내 보고, 가중치 절도·위험 자율행동 등 위험을 실질적으로 높이는 사건의 3일 내 신고 등을 요구하며, 위반 시 최대 1,000만 달러(첫 위반)·3,000만 달러(추가 위반) 벌금을 제시한다. 또한 컴퓨트 비용 1억 달러 이상 모델 등 ‘가장 큰 개발사’에 적용되며, 미국 연방 차원에서는 주(州) 규제를 제한하는 10년 유예(moratorium) 논의가 함께 전개되고 있으나 아직 법으로 확정되지는 않았다.</p>
+  <p class="url"><a href="https://newsletter.safe.ai/p/ai-safety-newsletter-57-the-raise">https://newsletter.safe.ai/p/ai-safety-newsletter-57-the-raise</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>OpenAI, 미 국방부와 2억 달러 규모 AI 계약(2025.6.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Business Insider</span></span><button type="button" class="copy-btn" data-copy="OpenAI, 미 국방부와 2억 달러 규모 AI 계약(2025.6.17)
+
+미 국방부는 OpenAI가 군사 및 국가안보 분야 AI 도구 개발을 위해 2억 달러 규모 계약을 받았다고 밝혔다. 계약은 워싱턴DC를 포함한 National Capital Region에서 주로 진행되며, 1년짜리로 전장(warfighting)과 기업(enterprise) 영역의 국가안보 과제 대응을 위한 프로토타입 ‘frontier AI’ 역량 개발을 목표로 한다. OpenAI는 정부 협업을 묶는 ‘OpenAI for Government’ 이니셔티브도 공개했으며, 경쟁사로는 Anthropic이 Amazon Web Services·Palantir와 함께 미 정보·국방기관에 Claude AI를 제공한다고 밝힌 바 있다.
+
+https://www.businessinsider.com/open-ai-going-big-defense-tech-new-pentagon-deal-2025" onclick="copyEntry(this)">복사</button></div>
+  <p>미 국방부는 OpenAI가 군사 및 국가안보 분야 AI 도구 개발을 위해 2억 달러 규모 계약을 받았다고 밝혔다. 계약은 워싱턴DC를 포함한 National Capital Region에서 주로 진행되며, 1년짜리로 전장(warfighting)과 기업(enterprise) 영역의 국가안보 과제 대응을 위한 프로토타입 ‘frontier AI’ 역량 개발을 목표로 한다. OpenAI는 정부 협업을 묶는 ‘OpenAI for Government’ 이니셔티브도 공개했으며, 경쟁사로는 Anthropic이 Amazon Web Services·Palantir와 함께 미 정보·국방기관에 Claude AI를 제공한다고 밝힌 바 있다.</p>
+  <p class="url"><a href="https://www.businessinsider.com/open-ai-going-big-defense-tech-new-pentagon-deal-2025">https://www.businessinsider.com/open-ai-going-big-defense-tech-new-pentagon-deal-2025</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

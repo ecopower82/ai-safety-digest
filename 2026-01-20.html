@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-01-20</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-01-20 · 5/5건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-intl-org">
+  <h2>OECD, ‘Governing with Artificial Intelligence’ 글로벌 공모 마감 2026.3.20로 연장(2026.1.20)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">OECD-AI</span> · <span class="deadline">마감일: 2026.3.20</span></span><button type="button" class="copy-btn" data-copy="OECD, ‘Governing with Artificial Intelligence’ 글로벌 공모 마감 2026.3.20로 연장(2026.1.20)
+
+OECD는 정부의 AI 활용과 신뢰할 수 있는 도입을 주제로 한 글로벌 공모의 제출 마감일을 2026년 3월 20일로 연장했다고 밝혔다. 이번 공모는 각국 정부가 AI 실제 사용사례, 정책·거버넌스 이니셔티브, 구현 도구를 공유하면 OECD가 이를 검토해 OECD.AI Policy Observatory의 정부 AI 전용 저장소와 향후 보고서에 반영할 계획이다. OECD는 특히 국가·지역·지방 수준의 구체적 사용사례(확장·복제 가능성 및 측정 가능한 영향), 공공부문 위험을 보호하면서 AI 채택을 돕는 정책/거버넌스, 그리고 위험 평가·편향 완화, 보안 데이터 처리, 공개 알고리즘 레지스트리 등 구현 도구를 요청했다.
+
+https://oecd.ai/en/wonk/call-ai-in-gov" onclick="copyEntry(this)">복사</button></div>
+  <p>OECD는 정부의 AI 활용과 신뢰할 수 있는 도입을 주제로 한 글로벌 공모의 제출 마감일을 2026년 3월 20일로 연장했다고 밝혔다. 이번 공모는 각국 정부가 AI 실제 사용사례, 정책·거버넌스 이니셔티브, 구현 도구를 공유하면 OECD가 이를 검토해 OECD.AI Policy Observatory의 정부 AI 전용 저장소와 향후 보고서에 반영할 계획이다. OECD는 특히 국가·지역·지방 수준의 구체적 사용사례(확장·복제 가능성 및 측정 가능한 영향), 공공부문 위험을 보호하면서 AI 채택을 돕는 정책/거버넌스, 그리고 위험 평가·편향 완화, 보안 데이터 처리, 공개 알고리즘 레지스트리 등 구현 도구를 요청했다.</p>
+  <p class="url"><a href="https://oecd.ai/en/wonk/call-ai-in-gov">https://oecd.ai/en/wonk/call-ai-in-gov</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.1.20) AI가 리눅스 악성코드 프레임워크를 빠르게 생성했다는 정황(VOIDLINK)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">체크포인트 리서치(Check Point Research)</span> · <span class="deadline">OPSEC 실패로 내부 문서·소스 일부가 노출되었으며, 개발 착수 후 1주 내 첫 기능형 임플란트가 나왔고 문서상으로는 30주/20주 계획이었으나 실제 진전은 더 빠르게 관측됨</span></span><button type="button" class="copy-btn" data-copy="(2026.1.20) AI가 리눅스 악성코드 프레임워크를 빠르게 생성했다는 정황(VOIDLINK)
+
+체크포인트 리서치는 VOIDLINK이 AI가 주도해 작성된 고도화된 악성코드 프레임워크의 첫 “증거 기반” 사례라고 설명합니다. 개발자는 TRAE SOLO 같은 AI 도구를 활용해 사양(Spec Driven Development) 중심으로 3개 팀의 스프린트 계획·코딩 규칙·모듈 설계 등을 문서화했고, 이후 그 문서를 실행 청사진으로 삼아 구현·테스트를 진행한 정황이 OPSEC 노출 자료에서 확인됐다고 밝혔습니다. 또한 타임스탬프가 있는 계획 문서와 코드 표준이 실제 소스 구조와 높은 수준으로 일치하며, 프로젝트 시작 후 약 1주 내 기능이 동작하고 코드 규모가 크게 늘어난 정황도 포함됩니다.
+
+https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/" onclick="copyEntry(this)">복사</button></div>
+  <p>체크포인트 리서치는 VOIDLINK이 AI가 주도해 작성된 고도화된 악성코드 프레임워크의 첫 “증거 기반” 사례라고 설명합니다. 개발자는 TRAE SOLO 같은 AI 도구를 활용해 사양(Spec Driven Development) 중심으로 3개 팀의 스프린트 계획·코딩 규칙·모듈 설계 등을 문서화했고, 이후 그 문서를 실행 청사진으로 삼아 구현·테스트를 진행한 정황이 OPSEC 노출 자료에서 확인됐다고 밝혔습니다. 또한 타임스탬프가 있는 계획 문서와 코드 표준이 실제 소스 구조와 높은 수준으로 일치하며, 프로젝트 시작 후 약 1주 내 기능이 동작하고 코드 규모가 크게 늘어난 정황도 포함됩니다.</p>
+  <p class="url"><a href="https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/">https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Apollo Research, AI 에이전트 모니터링 중심 안전 제품 비전 제시(2026.1.20)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Apollo Research</span> · <span class="deadline">마감일·시행일 등: 해당 없음</span></span><button type="button" class="copy-btn" data-copy="Apollo Research, AI 에이전트 모니터링 중심 안전 제품 비전 제시(2026.1.20)
+
+Apollo Research는 점점 더 강력하고 자율적인 frontier AI agents의 안전을 높이기 위한 도구를 개발하겠다는 비전을 밝혔다. 초기에는 coding agents를 대상으로 한 AI agent monitoring에 집중하며, 수백만 개 로그를 입력받아 특정 실패 모드에 가장 관련 있는 로그를 중요도 순으로 찾아내는 엔진을 목표로 한다. 오프라인 및 실시간 모니터를 모두 구축하고, 실패를 즉시 제어하기 위한 real-time interventions도 염두에 둔다. 또한 로그를 대량 보유한 기관과의 파트너십을 요청했다.
+
+https://www.apolloresearch.ai/product/apollos-product-vision/" onclick="copyEntry(this)">복사</button></div>
+  <p>Apollo Research는 점점 더 강력하고 자율적인 frontier AI agents의 안전을 높이기 위한 도구를 개발하겠다는 비전을 밝혔다. 초기에는 coding agents를 대상으로 한 AI agent monitoring에 집중하며, 수백만 개 로그를 입력받아 특정 실패 모드에 가장 관련 있는 로그를 중요도 순으로 찾아내는 엔진을 목표로 한다. 오프라인 및 실시간 모니터를 모두 구축하고, 실패를 즉시 제어하기 위한 real-time interventions도 염두에 둔다. 또한 로그를 대량 보유한 기관과의 파트너십을 요청했다.</p>
+  <p class="url"><a href="https://www.apolloresearch.ai/product/apollos-product-vision/">https://www.apolloresearch.ai/product/apollos-product-vision/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>인공지능·국가안보 용어집(미·중 Track-II) 공개 및 주요 개념 정의(2026.1.20)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">브루킹스 연구소(Brookings Institution)</span></span><button type="button" class="copy-btn" data-copy="인공지능·국가안보 용어집(미·중 Track-II) 공개 및 주요 개념 정의(2026.1.20)
+
+미국 브루킹스와 칭화대 Tsinghua CISS가 진행하는 AI·국가안보 비공식 Track-II 대화의 “living document”로, AI를 국제안보·군사 분야에 적용할 때 쓰이는 용어를 정리한 용어집이다. 무기(치명/비치명), 지능형·자율 플랫폼(로봇, 자율무기, 무인시스템, 드론 등), AI 기술(인공지능, 머신러닝, 딥러닝, 신경망, 자율성/자동화, AI lifecycle)과 지휘통제(C2) 관련 개념을 포함해 각 항목의 정의를 제시한다. 정의는 연구진이 정부 문헌을 참고해 정리·검토했으며, 공식·권위 있는 해석으로 보지 말 것을 명시한다.
+
+https://www.brookings.edu/articles/glossary-of-artificial-intelligence-terms/" onclick="copyEntry(this)">복사</button></div>
+  <p>미국 브루킹스와 칭화대 Tsinghua CISS가 진행하는 AI·국가안보 비공식 Track-II 대화의 “living document”로, AI를 국제안보·군사 분야에 적용할 때 쓰이는 용어를 정리한 용어집이다. 무기(치명/비치명), 지능형·자율 플랫폼(로봇, 자율무기, 무인시스템, 드론 등), AI 기술(인공지능, 머신러닝, 딥러닝, 신경망, 자율성/자동화, AI lifecycle)과 지휘통제(C2) 관련 개념을 포함해 각 항목의 정의를 제시한다. 정의는 연구진이 정부 문헌을 참고해 정리·검토했으며, 공식·권위 있는 해석으로 보지 말 것을 명시한다.</p>
+  <p class="url"><a href="https://www.brookings.edu/articles/glossary-of-artificial-intelligence-terms/">https://www.brookings.edu/articles/glossary-of-artificial-intelligence-terms/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>(2026.1.20) 파인튜닝으로 safeguarded 출력에서 유해 능력을 유도할 수 있다는 연구</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span></span><button type="button" class="copy-btn" data-copy="(2026.1.20) 파인튜닝으로 safeguarded 출력에서 유해 능력을 유도할 수 있다는 연구
+
+연구는 2026.1.20 제출(arXiv:2601.13528)
+
+arXiv 논문은 출력 수준 safeguards(예: 위험 출력 필터링)를 적용한 모델도 elicitation attacks로 우회해 유해 능력을 끌어낼 수 있음을 보인다. 공격은 (1) 목표 유해 작업과 인접한 도메인의 프롬프트를 만들어 위험 정보를 직접 요구하지 않게 한 뒤, (2) safeguarded frontier model로 응답을 얻고, (3) 그 프롬프트-응답 쌍으로 open-source 모델을 fine-tuning하는 3단계로 구성된다. 화학 물질 합성·처리 분야 평가에서 공격은 기본 open-source 모델과 무제한 frontier 모델 사이 capability gap의 약 40%를 회복했으며, frontier 모델의 capability와 fine-tuning 데이터 양이 늘수록 효과도 커진다고 보고한다.
+
+https://www.arxiv.org/abs/2601.13528" onclick="copyEntry(this)">복사</button></div>
+  <p>연구는 2026.1.20 제출(arXiv:2601.13528)</p>
+<p>arXiv 논문은 출력 수준 safeguards(예: 위험 출력 필터링)를 적용한 모델도 elicitation attacks로 우회해 유해 능력을 끌어낼 수 있음을 보인다. 공격은 (1) 목표 유해 작업과 인접한 도메인의 프롬프트를 만들어 위험 정보를 직접 요구하지 않게 한 뒤, (2) safeguarded frontier model로 응답을 얻고, (3) 그 프롬프트-응답 쌍으로 open-source 모델을 fine-tuning하는 3단계로 구성된다. 화학 물질 합성·처리 분야 평가에서 공격은 기본 open-source 모델과 무제한 frontier 모델 사이 capability gap의 약 40%를 회복했으며, frontier 모델의 capability와 fine-tuning 데이터 양이 늘수록 효과도 커진다고 보고한다.</p>
+  <p class="url"><a href="https://www.arxiv.org/abs/2601.13528">https://www.arxiv.org/abs/2601.13528</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

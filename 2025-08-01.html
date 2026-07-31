@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-08-01</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-08-01 · 7/7건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-notice">
+  <h2>의료 AI 패러다임 변화 등(IITP 디지털 아웃룩 2025-7월호) 관련 페이지 접근 차단 (2025.8.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">IITP</span> · <span class="source">IITP</span></span><button type="button" class="copy-btn" data-copy="의료 AI 패러다임 변화 등(IITP 디지털 아웃룩 2025-7월호) 관련 페이지 접근 차단 (2025.8.1)
+
+웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었다고 안내합니다. 차단 사유로 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL) 정보가 함께 표시됩니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250801-000001" onclick="copyEntry(this)">복사</button></div>
+  <p>웹 방화벽 보안 정책에 위배되는 요청/응답이 차단되었다고 안내합니다. 차단 사유로 탐지 시간(Detect time), 클라이언트 IP(Detect client IP), URL(Detect URL) 정보가 함께 표시됩니다.</p>
+  <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250801-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-250801-000001</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>Persona vectors로 LLM의 성격 특성(악함·아첨·환각)을 모니터링·완화·사전 예측 (2025.08.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span></span><button type="button" class="copy-btn" data-copy="Persona vectors로 LLM의 성격 특성(악함·아첨·환각)을 모니터링·완화·사전 예측 (2025.08.01)
+
+앤트로픽은 LLM 내부 신경망 활성 패턴 중 특정 성격 특성을 좌우하는 “persona vectors”를 추출해, 대화 중·학습 중 성격 변화 여부를 모니터링하고 원치 않는 변화가 생기지 않도록 제어할 수 있다고 설명했다. 또한 persona vectors의 활성 정도를 분석해 어떤 학습 데이터가 악함/아첨/환각 같은 부정적 특성을 유발할지 학습 전에 플래그(예측)하는 방법도 제시했다. Qwen 2.5-7B-Instruct와 Llama-3.1-8B-Instruct에 적용해, steering(벡터 주입/차감)과 학습 중 예방적 steering이 성격 특성 발현을 줄이면서도 전반 성능(MMLU) 저하를 최소화할 수 있음을 보였다.
+
+https://www.anthropic.com/research/persona-vectors" onclick="copyEntry(this)">복사</button></div>
+  <p>앤트로픽은 LLM 내부 신경망 활성 패턴 중 특정 성격 특성을 좌우하는 “persona vectors”를 추출해, 대화 중·학습 중 성격 변화 여부를 모니터링하고 원치 않는 변화가 생기지 않도록 제어할 수 있다고 설명했다. 또한 persona vectors의 활성 정도를 분석해 어떤 학습 데이터가 악함/아첨/환각 같은 부정적 특성을 유발할지 학습 전에 플래그(예측)하는 방법도 제시했다. Qwen 2.5-7B-Instruct와 Llama-3.1-8B-Instruct에 적용해, steering(벡터 주입/차감)과 학습 중 예방적 steering이 성격 특성 발현을 줄이면서도 전반 성능(MMLU) 저하를 최소화할 수 있음을 보였다.</p>
+  <p class="url"><a href="https://www.anthropic.com/research/persona-vectors">https://www.anthropic.com/research/persona-vectors</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>유럽 집행위, General-Purpose AI(GPAI) Code of Practice의 AI Act 준수 입증에 대한 적정성 확인 (2025.8.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">유럽연합 집행위원회 디지털 전략(디지털스트래티지) 공식 웹사이트</span> · <span class="deadline">마지막 업데이트: 2025.8.1</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, General-Purpose AI(GPAI) Code of Practice의 AI Act 준수 입증에 대한 적정성 확인 (2025.8.1)
+
+유럽 집행위와 AI Board는 독립 전문가가 마련한 GPAI Code of Practice가 AI Act 준수를 입증하려는 GPAI 모델 제공자에게 적절한 자발적 도구라고 확인했다. 해당 문서는 Code of Practice가 ‘adequate voluntary tool’로 평가됐다는 점을 중심으로 안내한다.
+
+https://digital-strategy.ec.europa.eu/en/library/commission-opinion-assessment-general-purpose-ai-code-practice" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위와 AI Board는 독립 전문가가 마련한 GPAI Code of Practice가 AI Act 준수를 입증하려는 GPAI 모델 제공자에게 적절한 자발적 도구라고 확인했다. 해당 문서는 Code of Practice가 ‘adequate voluntary tool’로 평가됐다는 점을 중심으로 안내한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/library/commission-opinion-assessment-general-purpose-ai-code-practice">https://digital-strategy.ec.europa.eu/en/library/commission-opinion-assessment-general-purpose-ai-code-practice</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>EU AI Act 거버넌스 체계가 2025.8.2부터 적용(2025.8.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">유럽연합 집행위원회(European Commission) 디지털 전략(Digital Strategy)</span> · <span class="deadline">2025.8.2까지 회원국은 관할당국을 지정·권한 부여해야 하며, 집행위는 통지 사항을 검토해 전용 웹페이지에 목록을 게시할 예정입니다.</span></span><button type="button" class="copy-btn" data-copy="EU AI Act 거버넌스 체계가 2025.8.2부터 적용(2025.8.1)
+
+유럽연합 집행위원회는 AI Act의 거버넌스가 2025년 8월 2일부터 작동해야 한다고 밝혔습니다. EU 차원에서는 유럽 AI 보드가 완전 가동 중이며, 독립 전문가로 구성되는 Scientific Panel을 위한 이해관계자 모집(interest expression of interest)과 AI Act Advisory Forum 참여 신청도 진행 중입니다. 회원국의 관할당국은 AI 시스템 관련 규정의 이행·감독·집행을 담당하며, 사전시장 승인 수행을 위한 notified body 지정과 AI regulatory sandboxes 구축도 맡습니다.
+
+https://digital-strategy.ec.europa.eu/en/news/eu-rules-governance-start-apply" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽연합 집행위원회는 AI Act의 거버넌스가 2025년 8월 2일부터 작동해야 한다고 밝혔습니다. EU 차원에서는 유럽 AI 보드가 완전 가동 중이며, 독립 전문가로 구성되는 Scientific Panel을 위한 이해관계자 모집(interest expression of interest)과 AI Act Advisory Forum 참여 신청도 진행 중입니다. 회원국의 관할당국은 AI 시스템 관련 규정의 이행·감독·집행을 담당하며, 사전시장 승인 수행을 위한 notified body 지정과 AI regulatory sandboxes 구축도 맡습니다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/eu-rules-governance-start-apply">https://digital-strategy.ec.europa.eu/en/news/eu-rules-governance-start-apply</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Nvidia, 중국이 보안 문제를 제기하자 “칩에 backdoors 없다”(기사·공고 게재일 2025.8.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">스트레이츠 타임스</span> · <span class="deadline">중국 사이버 당국이 H20 칩의 취약점·backdoors 관련 자료 제출을 요구했고, 미국은 H20 수출 라이선스 규제 완화 약속을 거론했으나 미국 내 법안은 AI 칩의 내장 위치추적 기능 의무화를 추진 중</span></span><button type="button" class="copy-btn" data-copy="Nvidia, 중국이 보안 문제를 제기하자 “칩에 backdoors 없다”(기사·공고 게재일 2025.8.1)
+
+엔비디아는 중국이 “serious security issues”를 이유로 자사 관계자를 소환한 뒤, 자사 칩에 원격 접근·제어를 가능하게 하는 “backdoors”는 없다고 밝혔다. 특히 중국이 접근하는 H20(중국 수출용으로 개발된 더 낮은 성능 버전)과 관련해 중국 사이버 당국이 보안 위험과 관련 자료 제출을 요구했다고 전했다. 한편 엔비디아는 미국의 라이선스 규제 완화 약속 이후 H20 판매를 재개하겠다고 했지만, 미국 의원들이 고성능 AI 칩에 위치추적 기능을 포함하도록 요구하는 방안도 제안해 추가 장애가 남아 있다.
+
+https://www.straitstimes.com/asia/east-asia/nvidia-says-no-backdoors-in-chips-as-china-questions-security" onclick="copyEntry(this)">복사</button></div>
+  <p>엔비디아는 중국이 “serious security issues”를 이유로 자사 관계자를 소환한 뒤, 자사 칩에 원격 접근·제어를 가능하게 하는 “backdoors”는 없다고 밝혔다. 특히 중국이 접근하는 H20(중국 수출용으로 개발된 더 낮은 성능 버전)과 관련해 중국 사이버 당국이 보안 위험과 관련 자료 제출을 요구했다고 전했다. 한편 엔비디아는 미국의 라이선스 규제 완화 약속 이후 H20 판매를 재개하겠다고 했지만, 미국 의원들이 고성능 AI 칩에 위치추적 기능을 포함하도록 요구하는 방안도 제안해 추가 장애가 남아 있다.</p>
+  <p class="url"><a href="https://www.straitstimes.com/asia/east-asia/nvidia-says-no-backdoors-in-chips-as-china-questions-security">https://www.straitstimes.com/asia/east-asia/nvidia-says-no-backdoors-in-chips-as-china-questions-security</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>중국, Nvidia H20 칩 ‘백도어’ 보안 위험 조사 소환…“검증되면 글로벌 사업 타격”(기사·공고 게재일 2025.8.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">차이나데일리(China Daily)</span></span><button type="button" class="copy-btn" data-copy="중국, Nvidia H20 칩 ‘백도어’ 보안 위험 조사 소환…“검증되면 글로벌 사업 타격”(기사·공고 게재일 2025.8.1)
+
+중국 사이버공간관리국이 중국에 판매된 Nvidia H20 AI 칩의 보안 위험 의혹과 관련해 Nvidia를 소환한 뒤, 전문가들은 중국의 ‘백도어’ 위험에 대한 무관용 입장을 강조했다. 전문가들은 백도어 위험이 사실로 확인될 경우 원격 차단이나 데이터 탈취 우려로 사용자들이 칩을 외면할 수 있고, Nvidia의 CUDA 생태계 우위가 약화되며 글로벌 사업에 큰 타격이 올 수 있다고 말했다. Nvidia는 성명에서 자사 칩에 원격 접근·제어가 가능한 ‘backdoors’는 없다고 반박했다.
+
+https://global.chinadaily.com.cn/a/202508/01/WS688c4feaa310c26fd717cfde.html" onclick="copyEntry(this)">복사</button></div>
+  <p>중국 사이버공간관리국이 중국에 판매된 Nvidia H20 AI 칩의 보안 위험 의혹과 관련해 Nvidia를 소환한 뒤, 전문가들은 중국의 ‘백도어’ 위험에 대한 무관용 입장을 강조했다. 전문가들은 백도어 위험이 사실로 확인될 경우 원격 차단이나 데이터 탈취 우려로 사용자들이 칩을 외면할 수 있고, Nvidia의 CUDA 생태계 우위가 약화되며 글로벌 사업에 큰 타격이 올 수 있다고 말했다. Nvidia는 성명에서 자사 칩에 원격 접근·제어가 가능한 ‘backdoors’는 없다고 반박했다.</p>
+  <p class="url"><a href="https://global.chinadaily.com.cn/a/202508/01/WS688c4feaa310c26fd717cfde.html">https://global.chinadaily.com.cn/a/202508/01/WS688c4feaa310c26fd717cfde.html</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>연준(2025.8.1) “AI가 생산성을 높일 것” 단정 어려워… 확산 속도·기업 도입이 관건(2025.8.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">파이낸스 뉴스(야후 파이낸스) / Fortune</span> · <span class="deadline">연준 연구진은 생성형 AI가 전반적 생산성에 기여할 가능성은 인정하되, 실제 효과는 기업의 도입 속도와 범위에 따라 크게 달라질 수 있다고 봤다. 특히 초기에는 대기업·디지털 업종에 집중되고 중소기업 등 확산은 더딘 편이며, 현재로선 대규모 도입의 수익성 사례가 많지 않다고 지적했다. 생산성 효과가 ‘전구(light bulb)’처럼 채택이 퍼질 때는 일시적으로 성장률을 끌어올리지만 이후 둔화될 수 있다는 점도 함께 언급했다.</span></span><button type="button" class="copy-btn" data-copy="연준(2025.8.1) “AI가 생산성을 높일 것” 단정 어려워… 확산 속도·기업 도입이 관건(2025.8.1)
+
+
+
+https://finance.yahoo.com/news/federal-economists-aren-t-sold-162530102.html" onclick="copyEntry(this)">복사</button></div>
+  
+  <p class="url"><a href="https://finance.yahoo.com/news/federal-economists-aren-t-sold-162530102.html">https://finance.yahoo.com/news/federal-economists-aren-t-sold-162530102.html</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

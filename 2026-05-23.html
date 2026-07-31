@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-05-23</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-05-23 · 7/7건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-other">
+  <h2>인도, AI 정책 3대 축(2026.5.23)으로 디지털 전환·경제효과 추진</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">안타라뉴스(ANTARA News)</span> · <span class="deadline">인도 정부는 국가 AI 로드맵과 AI 윤리 관련 대통령령을 마무리 중이며, 데이터센터 전력용량을 2029년 2,000MW 이상으로 확대하는 목표를 제시했다.</span></span><button type="button" class="copy-btn" data-copy="인도, AI 정책 3대 축(2026.5.23)으로 디지털 전환·경제효과 추진
+
+인도 통신·디지털부는 AI 정책의 3대 축을 통해 국가 디지털 전환을 지원하고 디지털 경제 파급을 확대하겠다고 밝혔다. 첫째는 혁신과 보호의 균형을 위한 규제로, AI 플랫폼의 투명성·책임성·보안과 함께 인도네시아 문화 가치 정합성을 요구한다. 둘째는 세계 수준의 디지털 인프라로, 마이크로소프트(1.7B달러) 등 글로벌 기업의 클라우드 투자와 데이터센터 확충(2026년 185개·총 274MW, 2029년 2,000MW+ 목표)을 추진한다. 셋째는 포용적 디지털 인재 양성으로, 디지털 인재 부족(약 300만 명)을 시급한 과제로 제시했다.
+
+https://en.antaranews.com/news/416755/indonesia-pushes-three-pillars-in-ai-policies-ministry" onclick="copyEntry(this)">복사</button></div>
+  <p>인도 통신·디지털부는 AI 정책의 3대 축을 통해 국가 디지털 전환을 지원하고 디지털 경제 파급을 확대하겠다고 밝혔다. 첫째는 혁신과 보호의 균형을 위한 규제로, AI 플랫폼의 투명성·책임성·보안과 함께 인도네시아 문화 가치 정합성을 요구한다. 둘째는 세계 수준의 디지털 인프라로, 마이크로소프트(1.7B달러) 등 글로벌 기업의 클라우드 투자와 데이터센터 확충(2026년 185개·총 274MW, 2029년 2,000MW+ 목표)을 추진한다. 셋째는 포용적 디지털 인재 양성으로, 디지털 인재 부족(약 300만 명)을 시급한 과제로 제시했다.</p>
+  <p class="url"><a href="https://en.antaranews.com/news/416755/indonesia-pushes-three-pillars-in-ai-policies-ministry">https://en.antaranews.com/news/416755/indonesia-pushes-three-pillars-in-ai-policies-ministry</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 5명, arXiv, 2026.5.23</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 거버넌스</span></span><button type="button" class="copy-btn" data-copy="저자 외 5명, arXiv, 2026.5.23
+
+공개 가중치(open-weight) 모델에서 윤리적 사용 제약을 “자발적 메타데이터 공시”로 구현할 때, 파생·재사용이 반복되는 딥 모델 라인리지에서 추적가능성이 유지되는지 점검한다. Hugging Face Hub의 2,142,823개 모델 저장소를 감사해 제한 증거가 라인리지 깊이에 따라 어떻게 감소하는지(반감기 1.31 derivation steps, R^2=0.98)와 “거버넌스 판정”에 필요한 공적 증거가 어느 시점부터 부족해지는지(7세대 이후 자손 모델의 최소 80%가 충분한 증거 부재)를 정량화한다. 또한 라이선스 메타데이터 복구를 위한 플랫폼 개입을 비교한 결과, 상속(inheritance)만 허용하는 설계는 강제 수준이 거의 완전해야 horizon이 이동하지만, 필수 선언(mandatory-declaration) 설계는 중간 수준의 강제에서도 horizon을 더 앞당겨 이동시키며, 상속 불가능한 “orphan” 라인리지 구조가 어떤 강제율에서도 판정 불가능을 만든다고 보고한다.
+
+https://arxiv.org/abs/2605.24383v1" onclick="copyEntry(this)">복사</button></div>
+  <p>공개 가중치(open-weight) 모델에서 윤리적 사용 제약을 “자발적 메타데이터 공시”로 구현할 때, 파생·재사용이 반복되는 딥 모델 라인리지에서 추적가능성이 유지되는지 점검한다. Hugging Face Hub의 2,142,823개 모델 저장소를 감사해 제한 증거가 라인리지 깊이에 따라 어떻게 감소하는지(반감기 1.31 derivation steps, R^2=0.98)와 “거버넌스 판정”에 필요한 공적 증거가 어느 시점부터 부족해지는지(7세대 이후 자손 모델의 최소 80%가 충분한 증거 부재)를 정량화한다. 또한 라이선스 메타데이터 복구를 위한 플랫폼 개입을 비교한 결과, 상속(inheritance)만 허용하는 설계는 강제 수준이 거의 완전해야 horizon이 이동하지만, 필수 선언(mandatory-declaration) 설계는 중간 수준의 강제에서도 horizon을 더 앞당겨 이동시키며, 상속 불가능한 “orphan” 라인리지 구조가 어떤 강제율에서도 판정 불가능을 만든다고 보고한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.24383v1">https://arxiv.org/abs/2605.24383v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>임시 재감금(temporary jailbreaking)과 Buffer-and-Reinforce로 유해 파인튜닝 업데이트를 완충·복원 (저자 외 3명, arXiv, 2026.5.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="임시 재감금(temporary jailbreaking)과 Buffer-and-Reinforce로 유해 파인튜닝 업데이트를 완충·복원 (저자 외 3명, arXiv, 2026.5.23)
+
+대상은 FaaS 환경에서 유해 파인튜닝 공격이 안전 정렬을 약화시키는 문제이며, 임시 jailbreaking이 어떤 그라디언트 수준 메커니즘으로 방어하는지 분석한다. BufferLoRA로 사용자 파인튜닝 동안 유해 업데이트를 줄이기 위해 제거 가능한 임시 jailbreaking 어댑터를 적용하고, 이후 ReinforceLoRA로 임시 jailbroken 상태에서 거절(refusal) 행동을 복원하도록 학습한 뒤 QR 분해 기반 병합으로 안전을 강화하면서 사용자 과제 성능을 보존하는 프레임워크를 제안한다. 실험에서 사용자 파인튜닝 중 추가 안전 데이터 없이도 안전성과 유틸리티를 더 높이고, 계산 비용은 최소 수준으로 유지된다고 보고한다.
+
+https://arxiv.org/abs/2605.24550v1" onclick="copyEntry(this)">복사</button></div>
+  <p>대상은 FaaS 환경에서 유해 파인튜닝 공격이 안전 정렬을 약화시키는 문제이며, 임시 jailbreaking이 어떤 그라디언트 수준 메커니즘으로 방어하는지 분석한다. BufferLoRA로 사용자 파인튜닝 동안 유해 업데이트를 줄이기 위해 제거 가능한 임시 jailbreaking 어댑터를 적용하고, 이후 ReinforceLoRA로 임시 jailbroken 상태에서 거절(refusal) 행동을 복원하도록 학습한 뒤 QR 분해 기반 병합으로 안전을 강화하면서 사용자 과제 성능을 보존하는 프레임워크를 제안한다. 실험에서 사용자 파인튜닝 중 추가 안전 데이터 없이도 안전성과 유틸리티를 더 높이고, 계산 비용은 최소 수준으로 유지된다고 보고한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.24550v1">https://arxiv.org/abs/2605.24550v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Activation Patching으로 LLM unlearning의 “지워진 깊이”를 0-1로 측정하는 Unlearning Depth Score(저자 외 2명, arXiv, 2026.5.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Activation Patching으로 LLM unlearning의 “지워진 깊이”를 0-1로 측정하는 Unlearning Depth Score(저자 외 2명, arXiv, 2026.5.23)
+
+LLM unlearning에서 목표 지식이 출력 수준이 아니라 내부 표현에서 실제로 얼마나 제거(비가역화)됐는지 감사하는 메트릭이 부족한 문제를 다룬다. retain 모델 기준으로 목표 지식을 인코딩하는 레이어를 찾고, unlearned 모델에서 activation patching으로 그 지식이 얼마나 지워졌는지를 0-1 스케일의 Unlearning Depth Score(UDS)로 계산하는 방식으로 평가한다. 20개 메트릭에 대한 메타 평가에서 150개 unlearned 모델(8개 방법) 대상으로 UDS가 faithfulness와 robustness에서 최고 성능을 보였다고 보고한다.
+
+https://arxiv.org/abs/2605.24614v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM unlearning에서 목표 지식이 출력 수준이 아니라 내부 표현에서 실제로 얼마나 제거(비가역화)됐는지 감사하는 메트릭이 부족한 문제를 다룬다. retain 모델 기준으로 목표 지식을 인코딩하는 레이어를 찾고, unlearned 모델에서 activation patching으로 그 지식이 얼마나 지워졌는지를 0-1 스케일의 Unlearning Depth Score(UDS)로 계산하는 방식으로 평가한다. 20개 메트릭에 대한 메타 평가에서 150개 unlearned 모델(8개 방법) 대상으로 UDS가 faithfulness와 robustness에서 최고 성능을 보였다고 보고한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.24614v1">https://arxiv.org/abs/2605.24614v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>대규모 언어모델의 정서지능(EI)은 지각·인지·상호작용 축에서 분절됨 (저자 외 8명, arXiv, 2026.5.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="대규모 언어모델의 정서지능(EI)은 지각·인지·상호작용 축에서 분절됨 (저자 외 8명, arXiv, 2026.5.23)
+
+LLM이 감정에 민감한 영역에 통합될 때 정서지능이 안전·정렬 관점에서 어떻게 구성되는지(지각 정확도 vs 상호작용 효율) 구분해 평가하려는 문제를 다룬다. 480개 문항으로 구성된 FACET(정서지능 4-분기 모델에 기반)을 제안하고, GPT-5·Claude-Sonnet-4를 포함한 9개 프론티어 모델을 대상으로 지각/촉진/이해/관리 차원의 성능을 측정했다. 결과로 정서지능이 단일 능력이 아니라 인지 우세·상호작용 우세·맥락 의존의 3가지 프로파일로 분절되며, 모든 아키텍처에서 “hidden emotion recognition”이 보편적 병목으로 나타났다.
+
+https://arxiv.org/abs/2605.24686v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM이 감정에 민감한 영역에 통합될 때 정서지능이 안전·정렬 관점에서 어떻게 구성되는지(지각 정확도 vs 상호작용 효율) 구분해 평가하려는 문제를 다룬다. 480개 문항으로 구성된 FACET(정서지능 4-분기 모델에 기반)을 제안하고, GPT-5·Claude-Sonnet-4를 포함한 9개 프론티어 모델을 대상으로 지각/촉진/이해/관리 차원의 성능을 측정했다. 결과로 정서지능이 단일 능력이 아니라 인지 우세·상호작용 우세·맥락 의존의 3가지 프로파일로 분절되며, 모든 아키텍처에서 “hidden emotion recognition”이 보편적 병목으로 나타났다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.24686v1">https://arxiv.org/abs/2605.24686v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AI 설명의 근본적 한계(저자 외 0명, arXiv, 2026.5.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 거버넌스</span></span><button type="button" class="copy-btn" data-copy="AI 설명의 근본적 한계(저자 외 0명, arXiv, 2026.5.23)
+
+대규모 AI의 거동을 “완전하게 충실한” 설명으로 제공할 수 있는지에 대한 이론적 가능성을 수학적으로 다룬다. 환경 복잡도, AI 성능의 우수성, 설명의 해석가능성, 설명의 완전한 충실성의 네 조건을 동시에 만족할 수 없음을 정리한 “근본적 쿼드릴레마(사분딜레마)”를 증명한다. 핵심 결과는 네 조건(1~4)을 동시에 만족하는 설명은 이론적으로 불가능하다는 것으로, 거버넌스 설계는 설명 충실성이 항상 불완전하다는 전제 위에서 이루어져야 한다고 결론낸다.
+
+https://arxiv.org/abs/2605.24727v1" onclick="copyEntry(this)">복사</button></div>
+  <p>대규모 AI의 거동을 “완전하게 충실한” 설명으로 제공할 수 있는지에 대한 이론적 가능성을 수학적으로 다룬다. 환경 복잡도, AI 성능의 우수성, 설명의 해석가능성, 설명의 완전한 충실성의 네 조건을 동시에 만족할 수 없음을 정리한 “근본적 쿼드릴레마(사분딜레마)”를 증명한다. 핵심 결과는 네 조건(1~4)을 동시에 만족하는 설명은 이론적으로 불가능하다는 것으로, 거버넌스 설계는 설명 충실성이 항상 불완전하다는 전제 위에서 이루어져야 한다고 결론낸다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.24727v1">https://arxiv.org/abs/2605.24727v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 0명, arXiv, 2026.5.23</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 거버넌스</span></span><button type="button" class="copy-btn" data-copy="저자 외 0명, arXiv, 2026.5.23
+
+연구는 배포 중 LLM의 규정 준수를 이진·감사 시점 판정이 아니라 런타임에서 연속 신호로 산출하는 세팅을 다룬다. govllm 프레임워크에서 규정별 LLM 평가자(“regulatory judges”) 패널의 상호 불일치를 규제 불확실성 신호로 두고, 누적 compliance score로 모델 라우팅/선택을 수행하는 방법을 제시하며 49개 주석 prompt/response 쌍을 5개 규정 기준에 대해 온프레미스 SLM(1.7B–7B) 4종으로 평가한다. 합의율은 51.5%(mistral:7b)~69.1%(phi4-mini)였고, judge-specific position bias로 3개 질문 순서 조건에서 합의가 최대 25%p까지 저하되며, 소형 규제 평가자에서 3가지 구조적 실패 모드가 보고된다.
+
+https://arxiv.org/abs/2605.24737v1" onclick="copyEntry(this)">복사</button></div>
+  <p>연구는 배포 중 LLM의 규정 준수를 이진·감사 시점 판정이 아니라 런타임에서 연속 신호로 산출하는 세팅을 다룬다. govllm 프레임워크에서 규정별 LLM 평가자(“regulatory judges”) 패널의 상호 불일치를 규제 불확실성 신호로 두고, 누적 compliance score로 모델 라우팅/선택을 수행하는 방법을 제시하며 49개 주석 prompt/response 쌍을 5개 규정 기준에 대해 온프레미스 SLM(1.7B–7B) 4종으로 평가한다. 합의율은 51.5%(mistral:7b)~69.1%(phi4-mini)였고, judge-specific position bias로 3개 질문 순서 조건에서 합의가 최대 25%p까지 저하되며, 소형 규제 평가자에서 3가지 구조적 실패 모드가 보고된다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.24737v1">https://arxiv.org/abs/2605.24737v1</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

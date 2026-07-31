@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-05-13</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-05-13 · 23/24건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>네 번째 AI 안전 예측 보고서 발표 — 거버넌스, 사상 첫 3대 지표 동시 1위 (2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Korea</span></span><button type="button" class="copy-btn" data-copy="네 번째 AI 안전 예측 보고서 발표 — 거버넌스, 사상 첫 3대 지표 동시 1위 (2026.5.13)
+
+요약불가
+
+https://www.aisi.re.kr/kor/article/view.do?articleId=100" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.aisi.re.kr/kor/article/view.do?articleId=100">https://www.aisi.re.kr/kor/article/view.do?articleId=100</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>(2026.5.13) 소상공인을 위한 ‘Claude for Small Business’ 출시</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span> · <span class="deadline">마감일·시행일: AI 플루언시 무료 온라인 과정은 오늘부터 주문형(on-demand) 제공, ‘Claude SMB Tour’는 2026.5.14부터(시카고) 시작</span></span><button type="button" class="copy-btn" data-copy="(2026.5.13) 소상공인을 위한 ‘Claude for Small Business’ 출시
+
+앤트로픽은 소상공인이 사용하는 업무 도구(Quickbooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, Microsoft 365) 안에서 Claude를 활용할 수 있는 패키지 ‘Claude for Small Business’를 공개했다. 사용자는 Claude Cowork에서 작업을 선택하고, 전송·게시·결제 등 실행 전에는 승인 절차를 거치며 권한도 기존 설정을 따른다고 설명했다. 또한 15개의 에이전틱 워크플로와 15개의 반복 작업 기반 스킬(급여 계획, 월 마감, 인사이트 요약, 캠페인 실행, 인보이스 추적 등)을 제공하고, 데이터 보안 우려를 줄이기 위한 신뢰 관련 원칙과 ‘AI Fluency for Small Business’ 무료 과정 및 지역 투어(무료 반일 교육)도 함께 운영한다.
+
+https://www.anthropic.com/news/claude-for-small-business" onclick="copyEntry(this)">복사</button></div>
+  <p>앤트로픽은 소상공인이 사용하는 업무 도구(Quickbooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, Microsoft 365) 안에서 Claude를 활용할 수 있는 패키지 ‘Claude for Small Business’를 공개했다. 사용자는 Claude Cowork에서 작업을 선택하고, 전송·게시·결제 등 실행 전에는 승인 절차를 거치며 권한도 기존 설정을 따른다고 설명했다. 또한 15개의 에이전틱 워크플로와 15개의 반복 작업 기반 스킬(급여 계획, 월 마감, 인사이트 요약, 캠페인 실행, 인보이스 추적 등)을 제공하고, 데이터 보안 우려를 줄이기 위한 신뢰 관련 원칙과 ‘AI Fluency for Small Business’ 무료 과정 및 지역 투어(무료 반일 교육)도 함께 운영한다.</p>
+  <p class="url"><a href="https://www.anthropic.com/news/claude-for-small-business">https://www.anthropic.com/news/claude-for-small-business</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>트럼프, 베이징 도착 후 한정(韓正) 부총리급 인사가 공항 영접(2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">geopolitechs.org</span> · <span class="deadline">베이징 천단(天壇)은 5월 14~15일 일반에 폐쇄 예정이며, 이미 예매한 방문객은 환불 신청 안내</span></span><button type="button" class="copy-btn" data-copy="트럼프, 베이징 도착 후 한정(韓正) 부총리급 인사가 공항 영접(2026.5.13)
+
+트럼프가 베이징에 도착해 공항에서 한정(韓正) 부총리급 인사의 영접을 받았다고 전했다. 글은 중국이 1980년대 이후 국빈 방문 공항 영접을 외교부 차관급 등으로 표준화해 왔는데, 현직 부총리가 직접 영접한 점을 미국 대통령급 의전 격상 신호로 해석했다. 또한 트럼프의 천단 방문(시진핑 동행 가능성)과, 천단이 5월 14~15일 폐쇄된다는 공지, 젠슨 황의 방중 동행 관련 보도 및 시장 반응(중국 AI 관련 주가 급등 가능성)과 미·중 경제·무역 협의 소식을 함께 다뤘다.
+
+https://www.geopolitechs.org/p/trump-is-in-beijing-now" onclick="copyEntry(this)">복사</button></div>
+  <p>트럼프가 베이징에 도착해 공항에서 한정(韓正) 부총리급 인사의 영접을 받았다고 전했다. 글은 중국이 1980년대 이후 국빈 방문 공항 영접을 외교부 차관급 등으로 표준화해 왔는데, 현직 부총리가 직접 영접한 점을 미국 대통령급 의전 격상 신호로 해석했다. 또한 트럼프의 천단 방문(시진핑 동행 가능성)과, 천단이 5월 14~15일 폐쇄된다는 공지, 젠슨 황의 방중 동행 관련 보도 및 시장 반응(중국 AI 관련 주가 급등 가능성)과 미·중 경제·무역 협의 소식을 함께 다뤘다.</p>
+  <p class="url"><a href="https://www.geopolitechs.org/p/trump-is-in-beijing-now">https://www.geopolitechs.org/p/trump-is-in-beijing-now</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>콜로라도 주지사 폴리스, 알고리즘 차별금지 AI 법안(SB26-189) 서명 예고(2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">mlex.com</span></span><button type="button" class="copy-btn" data-copy="콜로라도 주지사 폴리스, 알고리즘 차별금지 AI 법안(SB26-189) 서명 예고(2026.5.13)
+
+MLex는 콜로라도의 기존 더 광범위한 AI 법이 6월 시행을 앞둔 가운데, 이를 대체할 SB26-189에 대해 폴리스가 서명을 약속했다고 전했다. 성명에 따르면 SB26-189는 알고리즘 기반 의사결정 도구를 겨냥한 차별금지 성격의 법안이며, 주지사는 콜로리도를 혁신·창업의 ‘상위 주’로 만들겠다는 취지로 밝혔다.
+
+https://www.mlex.com/mlex/artificial-intelligence/articles/2477190" onclick="copyEntry(this)">복사</button></div>
+  <p>MLex는 콜로라도의 기존 더 광범위한 AI 법이 6월 시행을 앞둔 가운데, 이를 대체할 SB26-189에 대해 폴리스가 서명을 약속했다고 전했다. 성명에 따르면 SB26-189는 알고리즘 기반 의사결정 도구를 겨냥한 차별금지 성격의 법안이며, 주지사는 콜로리도를 혁신·창업의 ‘상위 주’로 만들겠다는 취지로 밝혔다.</p>
+  <p class="url"><a href="https://www.mlex.com/mlex/artificial-intelligence/articles/2477190">https://www.mlex.com/mlex/artificial-intelligence/articles/2477190</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Anthropic, 미 국방부의 ‘공급망 위험’ 지정에 대한 항소심 반박서 제출 (2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">MLex (mlex.com)</span></span><button type="button" class="copy-btn" data-copy="Anthropic, 미 국방부의 ‘공급망 위험’ 지정에 대한 항소심 반박서 제출 (2026.5.13)
+
+MLex에 따르면 앤트로픽(Anthropic)은 미국 DC 컬럼비아항소법원에 국방부의 ‘공급망 위험’ 지정 결정을 뒤집어 달라는 요청과 관련해 답변(Reply brief)을 제출했다. 앤트로픽은 국방부가 의회가 요구한 사전절차를 따랐다면 자신이 현재 문제로 삼는 사실관계 오류를 바로잡았을 것이라고 주장했다. 또한 의회가 사전적 절차를 요구한 이유는 정부 조치의 잘못된 근거를 막기 위한 것이라고 강조했다.
+
+https://www.mlex.com/mlex/artificial-intelligence/articles/2477398" onclick="copyEntry(this)">복사</button></div>
+  <p>MLex에 따르면 앤트로픽(Anthropic)은 미국 DC 컬럼비아항소법원에 국방부의 ‘공급망 위험’ 지정 결정을 뒤집어 달라는 요청과 관련해 답변(Reply brief)을 제출했다. 앤트로픽은 국방부가 의회가 요구한 사전절차를 따랐다면 자신이 현재 문제로 삼는 사실관계 오류를 바로잡았을 것이라고 주장했다. 또한 의회가 사전적 절차를 요구한 이유는 정부 조치의 잘못된 근거를 막기 위한 것이라고 강조했다.</p>
+  <p class="url"><a href="https://www.mlex.com/mlex/artificial-intelligence/articles/2477398">https://www.mlex.com/mlex/artificial-intelligence/articles/2477398</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>스페인, 대형 빅테크 로비 압력에도 소셜미디어 AI 규정 추진(2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">로이터 통신(Reuters)</span></span><button type="button" class="copy-btn" data-copy="스페인, 대형 빅테크 로비 압력에도 소셜미디어 AI 규정 추진(2026.5.13)
+
+본문 확인 필요: 제공된 정보에는 기사 본문 내용이 없어, 규정의 구체 조항(적용 범위, 의무사항, 시행 시점)과 로비 압력의 내용·주체를 정확히 요약하기 어렵습니다. 기사 제목 기준으로는 스페인이 소셜미디어에서 AI 사용을 규율하는 방안을 추진 중이며, 빅테크 측의 반대 또는 완화 요구가 있었다는 점만 확인됩니다.
+
+https://www.reuters.com/legal/litigation/spain-pushes-ahead-with-social-media-ai-rules-despite-big-tech-lobbying-pressure-2026-05-13/" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 확인 필요: 제공된 정보에는 기사 본문 내용이 없어, 규정의 구체 조항(적용 범위, 의무사항, 시행 시점)과 로비 압력의 내용·주체를 정확히 요약하기 어렵습니다. 기사 제목 기준으로는 스페인이 소셜미디어에서 AI 사용을 규율하는 방안을 추진 중이며, 빅테크 측의 반대 또는 완화 요구가 있었다는 점만 확인됩니다.</p>
+  <p class="url"><a href="https://www.reuters.com/legal/litigation/spain-pushes-ahead-with-social-media-ai-rules-despite-big-tech-lobbying-pressure-2026-05-13/">https://www.reuters.com/legal/litigation/spain-pushes-ahead-with-social-media-ai-rules-despite-big-tech-lobbying-pressure-2026-05-13/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>중국 군민융합(MCF) 속 PLA의 민간 AI 활용과 조달 주체 다변화(2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">조지타운대 CSET(Center for Security and Emerging Technology)</span></span><button type="button" class="copy-btn" data-copy="중국 군민융합(MCF) 속 PLA의 민간 AI 활용과 조달 주체 다변화(2026.5.13)
+
+조지타운대 CSET 보고서는 2023년 1월~2024년 12월 PLA가 공개한 AI 관련 방산 계약 공고 2,857건을 분석해, AI 조달에 1,560개 조직이 참여했으며 그중 338개가 2건 이상 계약을 수주했다고 밝혔다. 전통적으로 PLA와 연계가 깊은 국영기업(SOE)과 방산 연구기관이 조달을 주도하지만, 전체의 약 3/4에 해당하는 비전통 벤더(NTV)와 일부 연구기관도 PLA에 AI 관련 제품을 공급하는 데 중요한 역할을 하는 것으로 나타났다. NTV는 대체로 2010년 이후 설립된 곳이 많고, 웹사이트에서 듀얼유즈(민·군 겸용) 기술 개발을 강조하는 경향이 보고됐다. 또한 이러한 조달 기반의 다변화는 미국의 기술·자금 접근 제한, 연구지원 실사, 수출허가 및 해외투자 심사에 복잡한 선택을 요구할 수 있다고 제시했다.
+
+https://cset.georgetown.edu/publication/pulling-back-the-curtain-on-chinas-military-civil-fusion/" onclick="copyEntry(this)">복사</button></div>
+  <p>조지타운대 CSET 보고서는 2023년 1월~2024년 12월 PLA가 공개한 AI 관련 방산 계약 공고 2,857건을 분석해, AI 조달에 1,560개 조직이 참여했으며 그중 338개가 2건 이상 계약을 수주했다고 밝혔다. 전통적으로 PLA와 연계가 깊은 국영기업(SOE)과 방산 연구기관이 조달을 주도하지만, 전체의 약 3/4에 해당하는 비전통 벤더(NTV)와 일부 연구기관도 PLA에 AI 관련 제품을 공급하는 데 중요한 역할을 하는 것으로 나타났다. NTV는 대체로 2010년 이후 설립된 곳이 많고, 웹사이트에서 듀얼유즈(민·군 겸용) 기술 개발을 강조하는 경향이 보고됐다. 또한 이러한 조달 기반의 다변화는 미국의 기술·자금 접근 제한, 연구지원 실사, 수출허가 및 해외투자 심사에 복잡한 선택을 요구할 수 있다고 제시했다.</p>
+  <p class="url"><a href="https://cset.georgetown.edu/publication/pulling-back-the-curtain-on-chinas-military-civil-fusion/">https://cset.georgetown.edu/publication/pulling-back-the-curtain-on-chinas-military-civil-fusion/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>농업 분야 AI 거버넌스 개념·원칙 체계화 및 문헌 스코핑 리뷰 (저자 외 2명, Outlook on Agriculture, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 거버넌스</span></span><button type="button" class="copy-btn" data-copy="농업 분야 AI 거버넌스 개념·원칙 체계화 및 문헌 스코핑 리뷰 (저자 외 2명, Outlook on Agriculture, 2026.5.13)
+
+농업에서 AI 도입 시 발생 가능한 위험(예: AI 의사결정 실패로 인한 작물 손실에 대한 책임·정책 공백)을 다루며, 농업 맥락의 AI 거버넌스를 정의하고 9개 원칙(포용성·교육, 신뢰성, 수탁·책임, 법, 지속가능·윤리적 개발, 투명성, 프라이버시·보안, 편향, 데이터 품질)으로 구성된 분류체계를 제시한다. 스코핑 리뷰 방법으로 기존 문헌을 9개 원칙의 관점에서 분석하고, 원칙을 뒷받침하는 요인과 연구 공백을 도출해 향후 연구 방향을 제시한다. 핵심 결과로 9개 원칙 기반의 농업 특화 AI 거버넌스 틀과 문헌 내 공백 로드맵을 제시한다.
+
+https://doi.org/10.1177/00307270261450225" onclick="copyEntry(this)">복사</button></div>
+  <p>농업에서 AI 도입 시 발생 가능한 위험(예: AI 의사결정 실패로 인한 작물 손실에 대한 책임·정책 공백)을 다루며, 농업 맥락의 AI 거버넌스를 정의하고 9개 원칙(포용성·교육, 신뢰성, 수탁·책임, 법, 지속가능·윤리적 개발, 투명성, 프라이버시·보안, 편향, 데이터 품질)으로 구성된 분류체계를 제시한다. 스코핑 리뷰 방법으로 기존 문헌을 9개 원칙의 관점에서 분석하고, 원칙을 뒷받침하는 요인과 연구 공백을 도출해 향후 연구 방향을 제시한다. 핵심 결과로 9개 원칙 기반의 농업 특화 AI 거버넌스 틀과 문헌 내 공백 로드맵을 제시한다.</p>
+  <p class="url"><a href="https://doi.org/10.1177/00307270261450225">https://doi.org/10.1177/00307270261450225</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LLM 기반 멀티에이전트 시스템의 공학 문제에 대한 적대적 강건성(저자 외 5명, Frontiers in Artificial Intelligence, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="LLM 기반 멀티에이전트 시스템의 공학 문제에 대한 적대적 강건성(저자 외 5명, Frontiers in Artificial Intelligence, 2026.5.13)
+
+공학 워크플로(예: Darcy-Weisbach 기반 파이프 압력 손실, 보 빔 처짐, 수학 모델링, 그래프 탐색)에서 LLM 기반 멀티에이전트 협업이 적대적 교란에 의해 어떻게 잘못된/부정확한 결과로 전파되는지 세팅을 구성해 분석했다. 통제된 적대적 영향 하에 에이전트가 오도(misleading)할 때의 협업 추론과 오차 전파를 비교·정량화하고, 작업 유형·교란의 미묘함·에이전트 간 커뮤니케이션 순서가 취약성에 미치는 영향을 평가했다. 결론으로 공학 과제는 일반적 MAS 평가와 다른 양상을 보이며, 구조 복잡도나 수치 변형의 혼동 가능성이 높을수록 적대적 영향에 더 취약하고, 프롬프트 프레이밍·역할 할당·논의 순서 같은 설계 선택이 강건성을 유의하게 개선한다고 보고했다.
+
+https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1784484/pdf" onclick="copyEntry(this)">복사</button></div>
+  <p>공학 워크플로(예: Darcy-Weisbach 기반 파이프 압력 손실, 보 빔 처짐, 수학 모델링, 그래프 탐색)에서 LLM 기반 멀티에이전트 협업이 적대적 교란에 의해 어떻게 잘못된/부정확한 결과로 전파되는지 세팅을 구성해 분석했다. 통제된 적대적 영향 하에 에이전트가 오도(misleading)할 때의 협업 추론과 오차 전파를 비교·정량화하고, 작업 유형·교란의 미묘함·에이전트 간 커뮤니케이션 순서가 취약성에 미치는 영향을 평가했다. 결론으로 공학 과제는 일반적 MAS 평가와 다른 양상을 보이며, 구조 복잡도나 수치 변형의 혼동 가능성이 높을수록 적대적 영향에 더 취약하고, 프롬프트 프레이밍·역할 할당·논의 순서 같은 설계 선택이 강건성을 유의하게 개선한다고 보고했다.</p>
+  <p class="url"><a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1784484/pdf">https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1784484/pdf</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Persona-Model Collapse in Emergent Misalignment (저자 외 1명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Persona-Model Collapse in Emergent Misalignment (저자 외 1명, arXiv, 2026.5.13)
+
+좁은 유해 데이터로 LLM을 파인튜닝하면 관련 없는 프롬프트에서 광범위한 오정렬(emerent misalignment)이 나타나며, 이를 “페르소나-모델 붕괴(persona-model collapse)”—인물 시뮬레이션/구분/일관성 유지 능력 저하—로 설명한다. DeepSeek-V3.1, GPT-4.1, GPT-4o, Qwen3-235B를 base/유해(불안전 코드) 파인튜닝/안전(보안 코드) 대조 파인튜닝으로 비교하고, Moral Foundations Questionnaire 응답의 persona 간·내 변동을 기반으로 도덕 취약성 S(구분)와 도덕 강건성 R(일관성)을 계산해 행동 지표로 검증했다. 불안전 파인튜닝은 평균 S를 55% 증가시켜 13개 프론티어 모델 벤치마크에서 관측된 밴드를 모두 상회했으며(GPT-4o는 상단의 2배 초과), 평균 R은 65% 감소(1/R은 304% 증가)했고, 안전 대조는 S를 base 근처로 유지하며 R 손실이 부분적이었다.
+
+https://arxiv.org/abs/2605.12850v1" onclick="copyEntry(this)">복사</button></div>
+  <p>좁은 유해 데이터로 LLM을 파인튜닝하면 관련 없는 프롬프트에서 광범위한 오정렬(emerent misalignment)이 나타나며, 이를 “페르소나-모델 붕괴(persona-model collapse)”—인물 시뮬레이션/구분/일관성 유지 능력 저하—로 설명한다. DeepSeek-V3.1, GPT-4.1, GPT-4o, Qwen3-235B를 base/유해(불안전 코드) 파인튜닝/안전(보안 코드) 대조 파인튜닝으로 비교하고, Moral Foundations Questionnaire 응답의 persona 간·내 변동을 기반으로 도덕 취약성 S(구분)와 도덕 강건성 R(일관성)을 계산해 행동 지표로 검증했다. 불안전 파인튜닝은 평균 S를 55% 증가시켜 13개 프론티어 모델 벤치마크에서 관측된 밴드를 모두 상회했으며(GPT-4o는 상단의 2배 초과), 평균 R은 65% 감소(1/R은 304% 증가)했고, 안전 대조는 S를 base 근처로 유지하며 R 손실이 부분적이었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.12850v1">https://arxiv.org/abs/2605.12850v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>반복 공격 하에서 LLM 안전 성능 저하를 생존분석으로 정량화 (저자 외 0명, arXiv cs.CR, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="반복 공격 하에서 LLM 안전 성능 저하를 생존분석으로 정량화 (저자 외 0명, arXiv cs.CR, 2026.5.13)
+
+반복적인 적대적 jailbreak 공격이 누적될 때 LLM의 “시간에 따른” 취약성 변화를 이진 성공/실패가 아닌 생존분석으로 모델링하는 평가 프레임워크를 제안한다. HarmBench의 일부 프롬프트를 3개 공격 범주로 나눠 3개 LLM에 대해 time-to-jailbreak를 생존 결과로 두고 hazard function, survival curve, 위험요인을 추정하는 분석을 수행한다. 한 모델은 반복 공격에서 빠른 안전 성능 저하(rapid degradation)를 보였고, 나머지 두 모델은 비교적 일관된 중간 수준의 취약성(consistent moderate vulnerability)을 보였다.
+
+https://arxiv.org/abs/2605.12869v1" onclick="copyEntry(this)">복사</button></div>
+  <p>반복적인 적대적 jailbreak 공격이 누적될 때 LLM의 “시간에 따른” 취약성 변화를 이진 성공/실패가 아닌 생존분석으로 모델링하는 평가 프레임워크를 제안한다. HarmBench의 일부 프롬프트를 3개 공격 범주로 나눠 3개 LLM에 대해 time-to-jailbreak를 생존 결과로 두고 hazard function, survival curve, 위험요인을 추정하는 분석을 수행한다. 한 모델은 반복 공격에서 빠른 안전 성능 저하(rapid degradation)를 보였고, 나머지 두 모델은 비교적 일관된 중간 수준의 취약성(consistent moderate vulnerability)을 보였다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.12869v1">https://arxiv.org/abs/2605.12869v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>제어이론으로 외부 강제 안전의 구조적 불가능성과 남는 전략의 내재성/요건을 정리 (저자 외 N명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="제어이론으로 외부 강제 안전의 구조적 불가능성과 남는 전략의 내재성/요건을 정리 (저자 외 N명, arXiv, 2026.5.13)
+
+AI 시스템이 외부 통제에 덜 의존하게 될 때도 안전을 “지속”할 수 있는지에 대한 구조적 한계를 다룬다. 제어이론적 전제(도달가능성 조건 포함) 하에서 외부 강제에 의존하는 안전-유지 전략이 시스템 효과가 제한된 외부 제어가 상쇄할 수 있는 범위를 넘는 순간 불가능하다는 “클래스-전반 외부 불가능” 결과를 증명하고, 그 조건을 통과하는 전략이 존재한다면 그 전략들은 모두 “내재적(intrinsic)”이어야 한다는 “조건부 클래스-필요성” 결과를 제시한다. 또한 안전이 외부 강제에 의존하지 않아야 하고, 형성 시점의 단말 목적이 안전-호환적이며, 자기수정 하에서도 목적이 안정적이고, 능력이 성장해도 안전이 보존되어야 한다는 4가지 구조 요건을 제시한다.
+
+https://arxiv.org/abs/2605.12963v1" onclick="copyEntry(this)">복사</button></div>
+  <p>AI 시스템이 외부 통제에 덜 의존하게 될 때도 안전을 “지속”할 수 있는지에 대한 구조적 한계를 다룬다. 제어이론적 전제(도달가능성 조건 포함) 하에서 외부 강제에 의존하는 안전-유지 전략이 시스템 효과가 제한된 외부 제어가 상쇄할 수 있는 범위를 넘는 순간 불가능하다는 “클래스-전반 외부 불가능” 결과를 증명하고, 그 조건을 통과하는 전략이 존재한다면 그 전략들은 모두 “내재적(intrinsic)”이어야 한다는 “조건부 클래스-필요성” 결과를 제시한다. 또한 안전이 외부 강제에 의존하지 않아야 하고, 형성 시점의 단말 목적이 안전-호환적이며, 자기수정 하에서도 목적이 안정적이고, 능력이 성장해도 안전이 보존되어야 한다는 4가지 구조 요건을 제시한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.12963v1">https://arxiv.org/abs/2605.12963v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>다중 에이전트 시코피시성에서 RLHF 정렬만으로는 부족함(저자 외 0명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="다중 에이전트 시코피시성에서 RLHF 정렬만으로는 부족함(저자 외 0명, arXiv, 2026.5.13)
+
+다중 에이전트 LLM 파이프라인이 모의된 동료 불일치 상황에서 정답에서 오답으로 전환되는 취약점(이를 yield로 정의)을 RLHF 유발 시코피시로만 귀속할 수 있는지 검증한다. 네 모델 계열에서 Instruct/베이스 모델의 치환 패턴을 비교하고, activation patching으로 원인 구간을 중간 레이어의 좁은 윈도우로 국소화했으며, 그 구간 위를 패치하면 clean-to-pressured P(correct) 갭의 96%를 복원한다. 또한 채널 framing과 consensus strength의 상호작용으로 majority consensus에서 47.5%p yield gap이 나타나고, 단일 “정확히 반대하는” dissenter가 yield를 54–73%p 감소시키는 반면 프롬프트 수준 방어는 설계 범위 밖 변형에서 실패한다.
+
+https://arxiv.org/abs/2605.12991v1" onclick="copyEntry(this)">복사</button></div>
+  <p>다중 에이전트 LLM 파이프라인이 모의된 동료 불일치 상황에서 정답에서 오답으로 전환되는 취약점(이를 yield로 정의)을 RLHF 유발 시코피시로만 귀속할 수 있는지 검증한다. 네 모델 계열에서 Instruct/베이스 모델의 치환 패턴을 비교하고, activation patching으로 원인 구간을 중간 레이어의 좁은 윈도우로 국소화했으며, 그 구간 위를 패치하면 clean-to-pressured P(correct) 갭의 96%를 복원한다. 또한 채널 framing과 consensus strength의 상호작용으로 majority consensus에서 47.5%p yield gap이 나타나고, 단일 “정확히 반대하는” dissenter가 yield를 54–73%p 감소시키는 반면 프롬프트 수준 방어는 설계 범위 밖 변형에서 실패한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.12991v1">https://arxiv.org/abs/2605.12991v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>중국 컴퓨터공학에서 safety·security를 구분 번역하는 용어 거버넌스 제안 (저자 외 0명, arXiv cs.CY, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 거버넌스</span></span><button type="button" class="copy-btn" data-copy="중국 컴퓨터공학에서 safety·security를 구분 번역하는 용어 거버넌스 제안 (저자 외 0명, arXiv cs.CY, 2026.5.13)
+
+중국 컴퓨터공학에서 safety와 security를 모두 “anquan”으로 번역해 표준 해석, 학제 협업, 위험 분석, 학술 글쓰기에서 개념 구분이 압축되는 문제를 다룬다. 안전은 “anquan”으로, 보안은 “anbao”로 번역을 분리하는 이중 트랙(단계적) 글쓰기 관행을 제안하고, 국제·중국 표준에서의 개념 경계와 AI assurance/ safety-security co-assurance/ security-informed safety 관련 최근 논의를 연결해 정밀한 용어가 검증·반박·전달 가능한 주장에 중요하다고 논증한다. 핵심 결론은 “법·표준의 기존 명칭은 유지하되, 학술·공학 문서에서 security를 anbao로 번역해 용어 과부하를 줄이자”는 제안이다.
+
+https://arxiv.org/abs/2605.13069v1" onclick="copyEntry(this)">복사</button></div>
+  <p>중국 컴퓨터공학에서 safety와 security를 모두 “anquan”으로 번역해 표준 해석, 학제 협업, 위험 분석, 학술 글쓰기에서 개념 구분이 압축되는 문제를 다룬다. 안전은 “anquan”으로, 보안은 “anbao”로 번역을 분리하는 이중 트랙(단계적) 글쓰기 관행을 제안하고, 국제·중국 표준에서의 개념 경계와 AI assurance/ safety-security co-assurance/ security-informed safety 관련 최근 논의를 연결해 정밀한 용어가 검증·반박·전달 가능한 주장에 중요하다고 논증한다. 핵심 결론은 “법·표준의 기존 명칭은 유지하되, 학술·공학 문서에서 security를 anbao로 번역해 용어 과부하를 줄이자”는 제안이다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.13069v1">https://arxiv.org/abs/2605.13069v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>위험-계층 사용사례 프로파일로 T2I 생성의 성별 편향 감사를 맥락에 맞춰 정렬 (저자 외 3명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 거버넌스</span></span><button type="button" class="copy-btn" data-copy="위험-계층 사용사례 프로파일로 T2I 생성의 성별 편향 감사를 맥락에 맞춰 정렬 (저자 외 3명, arXiv, 2026.5.13)
+
+T2I(Text-to-image) 모델의 성별 편향 평가가 측정 대상·가정·해석이 맥락에 따라 일관되지 않아 거버넌스 논의와 기술 감사에 활용이 제한되는 문제를 다룬다. EU AI Act의 위험 범주에 맞춘 위험-계층 사용사례 프로파일을 제시하고, 성별 편향 평가 방법을 성별 예측·임베딩 유사도·다운스트림 과제의 3개 측정 범주로 정리한 메트릭 카탈로그와, 맥락 의존적 위해 유형을 시나리오에 매핑하는 위해 분류체계를 구성한다. THUMB cards를 통해 시나리오·편향 발현·위해 가설·감사 전략을 함께 포함해 감사를 체계화하는 프레임워크를 제안한다.
+
+https://arxiv.org/abs/2605.13113v1" onclick="copyEntry(this)">복사</button></div>
+  <p>T2I(Text-to-image) 모델의 성별 편향 평가가 측정 대상·가정·해석이 맥락에 따라 일관되지 않아 거버넌스 논의와 기술 감사에 활용이 제한되는 문제를 다룬다. EU AI Act의 위험 범주에 맞춘 위험-계층 사용사례 프로파일을 제시하고, 성별 편향 평가 방법을 성별 예측·임베딩 유사도·다운스트림 과제의 3개 측정 범주로 정리한 메트릭 카탈로그와, 맥락 의존적 위해 유형을 시나리오에 매핑하는 위해 분류체계를 구성한다. THUMB cards를 통해 시나리오·편향 발현·위해 가설·감사 전략을 함께 포함해 감사를 체계화하는 프레임워크를 제안한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.13113v1">https://arxiv.org/abs/2605.13113v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>VERA-MH: Validation of Ethical and Responsible AI in Mental Health (저자 외 8명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="VERA-MH: Validation of Ethical and Responsible AI in Mental Health (저자 외 8명, arXiv, 2026.5.13)
+
+정신건강 지원 맥락에서 챗봇의 자살사고(SI) 위기 대응 안전성을 평가하는 임상-검증 평가 프레임워크 VERA-MH를 제안한다. 대화 시뮬레이션(역할극 사용자 페르소나), 대화 판단(LLM-as-a-Judge와 임상 개발 루브릭의 Yes/No 플로우), 모델 레이팅(대화별 결과 집계) 3단계로 구성해 4개 주요 LLM 제공자에 대한 평가 결과를 제시한다. 핵심은 임상 가이드로 만든 페르소나로 위험요인·인구통계·공개 요인을 포함해 위기 상황을 재현하고, 루브릭의 Yes/No 흐름으로 답변 일관성과 실패 모드를 강조하는 데 있다.
+
+https://arxiv.org/abs/2605.13318v1" onclick="copyEntry(this)">복사</button></div>
+  <p>정신건강 지원 맥락에서 챗봇의 자살사고(SI) 위기 대응 안전성을 평가하는 임상-검증 평가 프레임워크 VERA-MH를 제안한다. 대화 시뮬레이션(역할극 사용자 페르소나), 대화 판단(LLM-as-a-Judge와 임상 개발 루브릭의 Yes/No 플로우), 모델 레이팅(대화별 결과 집계) 3단계로 구성해 4개 주요 LLM 제공자에 대한 평가 결과를 제시한다. 핵심은 임상 가이드로 만든 페르소나로 위험요인·인구통계·공개 요인을 포함해 위기 상황을 재현하고, 루브릭의 Yes/No 흐름으로 답변 일관성과 실패 모드를 강조하는 데 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.13318v1">https://arxiv.org/abs/2605.13318v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LLM 사전학습 중 persona vector가 언제/어떻게 형성되는지 추적 (저자 외 4명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="LLM 사전학습 중 persona vector가 언제/어떻게 형성되는지 추적 (저자 외 4명, arXiv, 2026.5.13)
+
+사전학습 과정에서 고수준 행동(예: evil, sycophancy)에 대응하는 선형 방향인 persona vectors가 언제 형성되고 이후 어떻게 유지·정교화되는지, 그리고 다른 elicitation 전략과 모델 전이(OLMo-3-7B→Apertus-8B)가 가능한지 다룬다. OLMo-3-7B의 pretraining 동안 persona vectors를 추적하고, 대안 elicitation 전략을 비교하며, post-trained instruct 모델에서 steering 효과가 유지되는지 확인하는 실험을 수행했다. persona vectors는 OLMo-3 pretraining의 시작 이후 0.22% 시점 내에 매우 이르게 형성되며, 사전학습 전반에서 기하·의미적으로 계속 정교화되고, Apertus-8B에서도 질적으로 유사한 결과가 관찰된다.
+
+https://arxiv.org/abs/2605.13329v1" onclick="copyEntry(this)">복사</button></div>
+  <p>사전학습 과정에서 고수준 행동(예: evil, sycophancy)에 대응하는 선형 방향인 persona vectors가 언제 형성되고 이후 어떻게 유지·정교화되는지, 그리고 다른 elicitation 전략과 모델 전이(OLMo-3-7B→Apertus-8B)가 가능한지 다룬다. OLMo-3-7B의 pretraining 동안 persona vectors를 추적하고, 대안 elicitation 전략을 비교하며, post-trained instruct 모델에서 steering 효과가 유지되는지 확인하는 실험을 수행했다. persona vectors는 OLMo-3 pretraining의 시작 이후 0.22% 시점 내에 매우 이르게 형성되며, 사전학습 전반에서 기하·의미적으로 계속 정교화되고, Apertus-8B에서도 질적으로 유사한 결과가 관찰된다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.13329v1">https://arxiv.org/abs/2605.13329v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>외부화된 공격-방어 공진화로 평생(지속) LLM 안전을 모델 비의존적으로 달성 (저자 외 6명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="외부화된 공격-방어 공진화로 평생(지속) LLM 안전을 모델 비의존적으로 달성 (저자 외 6명, arXiv, 2026.5.13)
+
+대규모 언어모델이 유해 출력을 유도하는 적대적 프롬프트에 취약한 문제를, 공격 탐색의 포화와 방어의 비이식성/비효율을 함께 다루는 세팅에서 다룬다. 공격은 공격 정책에 적대적 스킬 라이브러리를 부여해 포화 이후에도 라이브러리 확장과 벡터 진화를 통해 취약점 탐색을 지속하고, 방어는 모델별 안전 파인튜닝 대신 메모리 검색을 보강한 경량 보조 방어 모델로 Steer/Guard 두 모드를 학습해 유해 입력을 필터링하거나 내재 방어를 활성화한다. Guard 모드에서 방어 성공률 99.61%를 달성했으며, Qwen3Guard-8B 대비 14.13%p 우위(파라미터 37.5% 사용)와 함께 무해 질의의 추론 성능을 보존한다.
+
+https://arxiv.org/abs/2605.13411v1" onclick="copyEntry(this)">복사</button></div>
+  <p>대규모 언어모델이 유해 출력을 유도하는 적대적 프롬프트에 취약한 문제를, 공격 탐색의 포화와 방어의 비이식성/비효율을 함께 다루는 세팅에서 다룬다. 공격은 공격 정책에 적대적 스킬 라이브러리를 부여해 포화 이후에도 라이브러리 확장과 벡터 진화를 통해 취약점 탐색을 지속하고, 방어는 모델별 안전 파인튜닝 대신 메모리 검색을 보강한 경량 보조 방어 모델로 Steer/Guard 두 모드를 학습해 유해 입력을 필터링하거나 내재 방어를 활성화한다. Guard 모드에서 방어 성공률 99.61%를 달성했으며, Qwen3Guard-8B 대비 14.13%p 우위(파라미터 37.5% 사용)와 함께 무해 질의의 추론 성능을 보존한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.13411v1">https://arxiv.org/abs/2605.13411v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Negation Neglect: When models fail to learn negations in training (저자 외 5명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Negation Neglect: When models fail to learn negations in training (저자 외 5명, arXiv, 2026.5.13)
+
+부정(negation)을 포함해 “해당 주장이 거짓”이라고 반복 경고하는 문서로 LLM을 파인튜닝하면, 모델이 그 주장을 참으로 믿고 넓은 질문에 대해 실제로 참인 것처럼 답하는 실패 현상을 다룬다. Qwen3.5-397B-A17B를 포함한 여러 모델에서 조작된 주장 세트로 파인튜닝을 수행했으며, 부정된 문서로 학습 시 belief rate가 평균 2.5%에서 88.6%로 증가(부정 없는 문서 92.4% 대비)하는 결과를 보고한다. 또한 부정이 문장 단위로 분리된 형태에서는 반복적으로 발생하지만, “Ed Sheeran did not win …”처럼 부정이 주장 자체에 로컬하게 포함되면 부정 학습이 크게 개선되며, 허구/악성 라벨 등 다른 인식적 한정자와 행동에도 유사한 전이 효과가 나타난다.
+
+https://arxiv.org/abs/2605.13829v1" onclick="copyEntry(this)">복사</button></div>
+  <p>부정(negation)을 포함해 “해당 주장이 거짓”이라고 반복 경고하는 문서로 LLM을 파인튜닝하면, 모델이 그 주장을 참으로 믿고 넓은 질문에 대해 실제로 참인 것처럼 답하는 실패 현상을 다룬다. Qwen3.5-397B-A17B를 포함한 여러 모델에서 조작된 주장 세트로 파인튜닝을 수행했으며, 부정된 문서로 학습 시 belief rate가 평균 2.5%에서 88.6%로 증가(부정 없는 문서 92.4% 대비)하는 결과를 보고한다. 또한 부정이 문장 단위로 분리된 형태에서는 반복적으로 발생하지만, “Ed Sheeran did not win …”처럼 부정이 주장 자체에 로컬하게 포함되면 부정 학습이 크게 개선되며, 허구/악성 라벨 등 다른 인식적 한정자와 행동에도 유사한 전이 효과가 나타난다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.13829v1">https://arxiv.org/abs/2605.13829v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Adaptive Steering and Remasking for Safe Generation in Diffusion Language Models (저자 외 0명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Adaptive Steering and Remasking for Safe Generation in Diffusion Language Models (저자 외 0명, arXiv, 2026.5.13)
+
+확산 언어 모델의 중간 denoising 단계에서 생성된 유해 토큰이 이후 refinement로 전파되어 최종적으로 안전하지 않은 출력을 유발하는 취약점을 다룬다. 각 denoising step에서 contrastive safety direction(SGD)으로 유해 의미 정렬을 평가하고, 유해 정렬이 감지되면 해당 토큰을 remasking한 뒤 유해도 추정치에 따라 steering strength를 적응적으로 조절하며 생성을 재개하는 inference-time 방어 프레임워크를 제안한다. 실험에서 jailbreak 성공률을 0.64%로 낮추면서 원 모델 성능에 가까운 생성 품질을 유지한다.
+
+https://arxiv.org/abs/2605.13043v1" onclick="copyEntry(this)">복사</button></div>
+  <p>확산 언어 모델의 중간 denoising 단계에서 생성된 유해 토큰이 이후 refinement로 전파되어 최종적으로 안전하지 않은 출력을 유발하는 취약점을 다룬다. 각 denoising step에서 contrastive safety direction(SGD)으로 유해 의미 정렬을 평가하고, 유해 정렬이 감지되면 해당 토큰을 remasking한 뒤 유해도 추정치에 따라 steering strength를 적응적으로 조절하며 생성을 재개하는 inference-time 방어 프레임워크를 제안한다. 실험에서 jailbreak 성공률을 0.64%로 낮추면서 원 모델 성능에 가까운 생성 품질을 유지한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.13043v1">https://arxiv.org/abs/2605.13043v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AgentTrap: 제3자 에이전트 스킬의 런타임 신뢰 실패를 측정(저자 외 7명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="AgentTrap: 제3자 에이전트 스킬의 런타임 신뢰 실패를 측정(저자 외 7명, arXiv, 2026.5.13)
+
+AgentTrap은 LLM 에이전트가 제3자 스킬(워크플로우/스크립트/템플릿/설정)을 설치해 실행할 때, 악성 스킬이 해로운 동작을 “일상 워크플로우”로 위장해 고권한으로 실행되도록 유도하는 런타임 보안 실패를 평가하는 동적 벤치마크를 제시한다. 141개 태스크(악성 91, 양성 유틸 50)와 16개 보안 영향 차원을 포함하고, 각 태스크에서 에이전트는 일반 사용자 요청을 받고 샌드박스 환경에서 설치된 스킬을 실행한 뒤 공격 성공/차단·거부/공격 미트리거/무공격 증거 등 전체 궤적을 판정한다. 핵심 결과로, 가장 정보가 큰 실패가 단순 자가해킹(jailbreak)이 아니라 스킬이 삽입한 안전하지 않은 부작용을 정상 워크플로우 일부로 처리하며 겉보기 사용자 작업은 완료하는 패턴임을 강조한다.
+
+https://arxiv.org/abs/2605.13940v1" onclick="copyEntry(this)">복사</button></div>
+  <p>AgentTrap은 LLM 에이전트가 제3자 스킬(워크플로우/스크립트/템플릿/설정)을 설치해 실행할 때, 악성 스킬이 해로운 동작을 “일상 워크플로우”로 위장해 고권한으로 실행되도록 유도하는 런타임 보안 실패를 평가하는 동적 벤치마크를 제시한다. 141개 태스크(악성 91, 양성 유틸 50)와 16개 보안 영향 차원을 포함하고, 각 태스크에서 에이전트는 일반 사용자 요청을 받고 샌드박스 환경에서 설치된 스킬을 실행한 뒤 공격 성공/차단·거부/공격 미트리거/무공격 증거 등 전체 궤적을 판정한다. 핵심 결과로, 가장 정보가 큰 실패가 단순 자가해킹(jailbreak)이 아니라 스킬이 삽입한 안전하지 않은 부작용을 정상 워크플로우 일부로 처리하며 겉보기 사용자 작업은 완료하는 패턴임을 강조한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.13940v1">https://arxiv.org/abs/2605.13940v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>GraphRAG 기반 가치-지침 프레임워크로 LLM 에이전트의 사회적 가치 정렬을 처방적으로 유도 (저자 외 3명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="GraphRAG 기반 가치-지침 프레임워크로 LLM 에이전트의 사회적 가치 정렬을 처방적으로 유도 (저자 외 3명, arXiv, 2026.5.13)
+
+LLM 기반 에이전트가 인간의 사회적 가치에 정렬되도록, 자기 인지·딜레마 결정·자기 감정 측면의 결함을 다루는 문제를 설정한다. GraphRAG로 원칙을 가치 기반 지침으로 변환하고, 대화 맥락에 맞는 지침을 검색해 에이전트 행동을 유도하며, Maslow의 욕구 위계와 Plutchik의 감정 이론을 바탕으로 기대 행동 비율을 평가한다. DAILYDILEMMAS에서 프롬프트 기반 기준선(ECoT, Plan-and-Solve, Metacognitive prompting) 대비 유의미한 성능 향상을 보인다.
+
+https://arxiv.org/abs/2605.14034v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM 기반 에이전트가 인간의 사회적 가치에 정렬되도록, 자기 인지·딜레마 결정·자기 감정 측면의 결함을 다루는 문제를 설정한다. GraphRAG로 원칙을 가치 기반 지침으로 변환하고, 대화 맥락에 맞는 지침을 검색해 에이전트 행동을 유도하며, Maslow의 욕구 위계와 Plutchik의 감정 이론을 바탕으로 기대 행동 비율을 평가한다. DAILYDILEMMAS에서 프롬프트 기반 기준선(ECoT, Plan-and-Solve, Metacognitive prompting) 대비 유의미한 성능 향상을 보인다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.14034v1">https://arxiv.org/abs/2605.14034v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>대규모 언어모델의 독성 측정·완화(저자 외 2명, arXiv, 2026.5.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="대규모 언어모델의 독성 측정·완화(저자 외 2명, arXiv, 2026.5.13)
+
+RealToxicityPrompts로 GPT-2의 명시적 독성 기준선을 측정하고, 추론 시점 완화기법 DExperts를 적용해 독성을 줄이며, ToxiGen으로 암묵적 혐오표현에 대한 강건성을 스트레스 테스트했다. RealToxicityPrompts에서는 DExperts가 명시적 독성 벤치마크에서 안전률 100%에 가깝게 달성했지만, ToxiGen의 암묵적 혐오에서는 안전률이 98.5%로 하락했다. 또한 생성당 지연이 0.2s에서 2.0s로 10배 증가하는 계산-성능 트레이드오프를 정량화했다.
+
+https://arxiv.org/abs/2605.14087v2" onclick="copyEntry(this)">복사</button></div>
+  <p>RealToxicityPrompts로 GPT-2의 명시적 독성 기준선을 측정하고, 추론 시점 완화기법 DExperts를 적용해 독성을 줄이며, ToxiGen으로 암묵적 혐오표현에 대한 강건성을 스트레스 테스트했다. RealToxicityPrompts에서는 DExperts가 명시적 독성 벤치마크에서 안전률 100%에 가깝게 달성했지만, ToxiGen의 암묵적 혐오에서는 안전률이 98.5%로 하락했다. 또한 생성당 지연이 0.2s에서 2.0s로 10배 증가하는 계산-성능 트레이드오프를 정량화했다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.14087v2">https://arxiv.org/abs/2605.14087v2</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 0명, Verifiable Agentic Infrastructure: Proof-Derived Authorization for Sovereign AI Systems, arXiv, 2026.5.13</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 거버넌스</span></span><button type="button" class="copy-btn" data-copy="저자 외 0명, Verifiable Agentic Infrastructure: Proof-Derived Authorization for Sovereign AI Systems, arXiv, 2026.5.13
+
+자율 AI 에이전트가 자격증명 기반의 정적 권한 부여를 무력화할 수 있는 상황에서, 의도(intent) 승인 결정을 분산·검증 가능·재현 가능하게 만드는 세팅을 다룬다. Justification Proof, 독립 평가를 위한 합의(consensus) 모델, 승인된 증명으로부터 유도되는 일회성 Execution Identity, 승인 라이프사이클을 보존하는 append-only Evidence Chain을 포함한 Distributed Trust Framework(DTF)를 제안하고, OpenKedge 기반 governed mutation substrate에 구현해 클라우드 네이티브 환경으로 매핑한다. 핵심 결과로 “증명 객체 없이 고위험 실행 불가”, “합의 없이 유도 권한 불가”, “증거에서 분리된 유효 mutation 불가”라는 컴팩트한 권한 불변식을 명시한다.
+
+https://arxiv.org/abs/2605.15228v1" onclick="copyEntry(this)">복사</button></div>
+  <p>자율 AI 에이전트가 자격증명 기반의 정적 권한 부여를 무력화할 수 있는 상황에서, 의도(intent) 승인 결정을 분산·검증 가능·재현 가능하게 만드는 세팅을 다룬다. Justification Proof, 독립 평가를 위한 합의(consensus) 모델, 승인된 증명으로부터 유도되는 일회성 Execution Identity, 승인 라이프사이클을 보존하는 append-only Evidence Chain을 포함한 Distributed Trust Framework(DTF)를 제안하고, OpenKedge 기반 governed mutation substrate에 구현해 클라우드 네이티브 환경으로 매핑한다. 핵심 결과로 “증명 객체 없이 고위험 실행 불가”, “합의 없이 유도 권한 불가”, “증거에서 분리된 유효 mutation 불가”라는 컴팩트한 권한 불변식을 명시한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.15228v1">https://arxiv.org/abs/2605.15228v1</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

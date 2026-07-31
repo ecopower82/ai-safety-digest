@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-04-12</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-04-12 · 4/4건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-other">
+  <h2>CBAI AI Safety ‘26 서머 리서치 펠로십 모집 (2026.4.12)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Cambridge Boston Alignment Initiative(CBAI)</span> · <span class="deadline">마감일: 2026.4.12</span></span><button type="button" class="copy-btn" data-copy="CBAI AI Safety ‘26 서머 리서치 펠로십 모집 (2026.4.12)
+
+CBAI는 2026년 6월 8일부터 8월 10일까지 매사추세츠 케임브리지에서 9주간 진행되는 AI Safety 서머 리서치 펠로십을 모집한다. 전액 지원(장학금 1만 달러, 숙소·식사 제공, 24/7 워크스페이스, 주 1회 개인 멘토링 등)과 함께 API 크레딧·GPU 등 연구 컴퓨팅 지원을 제공하며, 해커톤/워크숍·스피커 이벤트 등 네트워킹 프로그램도 운영한다. 연구 트랙은 기술 AI 안전, AI 거버넌스, 기술 거버넌스, 변혁적 AI의 경제학이며, 지원자는 18세 이상이어야 하고(국제학생의 경우 OPT/CPT는 가능하나 비자 스폰서는 불가), 지원 절차는 서류-인터뷰-멘토별 과제/스크리닝-멘토 인터뷰 순으로 진행된다.
+
+https://www.cbai.ai/summer-research-fellowship-26" onclick="copyEntry(this)">복사</button></div>
+  <p>CBAI는 2026년 6월 8일부터 8월 10일까지 매사추세츠 케임브리지에서 9주간 진행되는 AI Safety 서머 리서치 펠로십을 모집한다. 전액 지원(장학금 1만 달러, 숙소·식사 제공, 24/7 워크스페이스, 주 1회 개인 멘토링 등)과 함께 API 크레딧·GPU 등 연구 컴퓨팅 지원을 제공하며, 해커톤/워크숍·스피커 이벤트 등 네트워킹 프로그램도 운영한다. 연구 트랙은 기술 AI 안전, AI 거버넌스, 기술 거버넌스, 변혁적 AI의 경제학이며, 지원자는 18세 이상이어야 하고(국제학생의 경우 OPT/CPT는 가능하나 비자 스폰서는 불가), 지원 절차는 서류-인터뷰-멘토별 과제/스크리닝-멘토 인터뷰 순으로 진행된다.</p>
+  <p class="url"><a href="https://www.cbai.ai/summer-research-fellowship-26">https://www.cbai.ai/summer-research-fellowship-26</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(2026.4.12) Philosophy Eats AI: AI 성능·가치창출을 좌우하는 ‘철학’의 역할</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">MIT Sloan Management Review (MIT 슬론 매니지먼트 리뷰)</span></span><button type="button" class="copy-btn" data-copy="(2026.4.12) Philosophy Eats AI: AI 성능·가치창출을 좌우하는 ‘철학’의 역할
+
+MIT Sloan Management Review는 “AI가 소프트웨어를 먹는다”는 흐름을 넘어, 대규모 언어모델(LLM)의 학습 데이터와 신경망 속에 철학이 스며들어 AI를 ‘먹는다’고 설명한다. 윤리·책임 있는 AI가 철학의 일부일 뿐이며, AI가 무엇을 목표로 삼고(목적론), 무엇을 지식으로 간주하며(인식론), 현실을 어떻게 해석하는지(존재론) 같은 철학적 관점이 생성·예측·활용 전반과 가치 창출에 영향을 준다고 강조한다. 조직이 철학적 통찰을 체계적으로 길러내지 못하면 생성형·예측형 AI 투자에서 경쟁우위를 충분히 얻지 못할 수 있다고 주장한다.
+
+https://sloanreview.mit.edu/article/philosophy-eats-ai/" onclick="copyEntry(this)">복사</button></div>
+  <p>MIT Sloan Management Review는 “AI가 소프트웨어를 먹는다”는 흐름을 넘어, 대규모 언어모델(LLM)의 학습 데이터와 신경망 속에 철학이 스며들어 AI를 ‘먹는다’고 설명한다. 윤리·책임 있는 AI가 철학의 일부일 뿐이며, AI가 무엇을 목표로 삼고(목적론), 무엇을 지식으로 간주하며(인식론), 현실을 어떻게 해석하는지(존재론) 같은 철학적 관점이 생성·예측·활용 전반과 가치 창출에 영향을 준다고 강조한다. 조직이 철학적 통찰을 체계적으로 길러내지 못하면 생성형·예측형 AI 투자에서 경쟁우위를 충분히 얻지 못할 수 있다고 주장한다.</p>
+  <p class="url"><a href="https://sloanreview.mit.edu/article/philosophy-eats-ai/">https://sloanreview.mit.edu/article/philosophy-eats-ai/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>CAIDP Index 2026 보고서(2026.4.12)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">caidp.org</span></span><button type="button" class="copy-btn" data-copy="CAIDP Index 2026 보고서(2026.4.12)
+
+본문 내용 확인 필요
+
+CAIDP Index 2026 페이지는 CAIDP(기관명: 확인 필요)가 발간한 ‘CAIDP Index 2026’ 보고서 관련 정보를 제공하는 것으로 보입니다. 다만 현재 제공된 자료에는 본문 내용이 없어 보고서의 주요 내용(지표, 분석 결과, 발표 범위 등)은 확인이 필요합니다.
+
+https://www.caidp.org/reports/caidp-index-2026/" onclick="copyEntry(this)">복사</button></div>
+  <p>본문 내용 확인 필요</p>
+<p>CAIDP Index 2026 페이지는 CAIDP(기관명: 확인 필요)가 발간한 ‘CAIDP Index 2026’ 보고서 관련 정보를 제공하는 것으로 보입니다. 다만 현재 제공된 자료에는 본문 내용이 없어 보고서의 주요 내용(지표, 분석 결과, 발표 범위 등)은 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.caidp.org/reports/caidp-index-2026/">https://www.caidp.org/reports/caidp-index-2026/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI Act 일반목적 AI ‘시스템적 위험’ 판단 기준의 2023년 계산 임계치가 구식일 수 있다는 우려 (2026.4.12)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">mlex.com</span> · <span class="deadline">2026년 8월부터 EU의 일반목적 AI 모델 관련 규정이 집행 가능</span></span><button type="button" class="copy-btn" data-copy="AI Act 일반목적 AI ‘시스템적 위험’ 판단 기준의 2023년 계산 임계치가 구식일 수 있다는 우려 (2026.4.12)
+
+EU는 일반목적 AI 모델에 대해 ‘시스템적(systemic) 위험’ 여부를 가르는 계산(compute) 임계치를 2023년 기술 기준에 두고 있는데, 이 값이 현재 시장의 발전 속도를 따라가지 못할 수 있다는 지적이 제기됐다. 전문가와 EU 정부가 임계치 업데이트를 촉구했지만 유럽집행위원회는 아직 구체적인 약속을 하지 않은 것으로 전해졌다. 이에 따라 향후 수십 개 모델이 임계치를 넘어서며 규정 적용이 본격화되는 과정에서, AI Act 이행이 시장 변화에 얼마나 유연하게 대응할지와 법적 예측가능성이 시험대에 오를 수 있다는 관측이 나온다.
+
+https://www.mlex.com/mlex/artificial-intelligence/articles/2463313?nl_pk=98f16633-c192-447e-8e63-104f9698e3f7&amp;utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=mlex/artificial-intelligence&amp;utm_content=2026-04-10&amp;read_main=1&amp;nlsidx=0&amp;nlaidx=0" onclick="copyEntry(this)">복사</button></div>
+  <p>EU는 일반목적 AI 모델에 대해 ‘시스템적(systemic) 위험’ 여부를 가르는 계산(compute) 임계치를 2023년 기술 기준에 두고 있는데, 이 값이 현재 시장의 발전 속도를 따라가지 못할 수 있다는 지적이 제기됐다. 전문가와 EU 정부가 임계치 업데이트를 촉구했지만 유럽집행위원회는 아직 구체적인 약속을 하지 않은 것으로 전해졌다. 이에 따라 향후 수십 개 모델이 임계치를 넘어서며 규정 적용이 본격화되는 과정에서, AI Act 이행이 시장 변화에 얼마나 유연하게 대응할지와 법적 예측가능성이 시험대에 오를 수 있다는 관측이 나온다.</p>
+  <p class="url"><a href="https://www.mlex.com/mlex/artificial-intelligence/articles/2463313?nl_pk=98f16633-c192-447e-8e63-104f9698e3f7&amp;utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=mlex/artificial-intelligence&amp;utm_content=2026-04-10&amp;read_main=1&amp;nlsidx=0&amp;nlaidx=0">https://www.mlex.com/mlex/artificial-intelligence/articles/2463313?nl_pk=98f16633-c192-447e-8e63-104f9698e3f7&amp;utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=mlex/artificial-intelligence&amp;utm_content=2026-04-10&amp;read_main=1&amp;nlsidx=0&amp;nlaidx=0</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

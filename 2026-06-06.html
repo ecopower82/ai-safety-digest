@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-06-06</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-06-06 · 3/3건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-research">
+  <h2>Trustworthy and ethical intrusion detection for healthcare internet of medical things using reinforcement learning and governance rules (2026.6.6)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Trustworthy and ethical intrusion detection for healthcare internet of medical things using reinforcement learning and governance rules (2026.6.6)
+
+헬스케어 IoMT에서 침입 탐지 후 자동 대응이 임상적으로 안전하고 운영상 허용 가능한지까지 고려하는 거버넌스 기반 프레임워크를 제안한다. Random Forest 흐름 기반 탐지기, Deep Q-Network triage 에이전트(4개 대응 중 선택), NIST AI Risk Management Framework를 반영한 윤리 규칙 엔진(unsafe action 제약·fallback·audit log)을 결합해 응답을 제한한다. CIC-IoMT 2024에서 in-domain DQN triage의 weighted F1-score는 0.978이며, governance 적용으로 benign blocking이 25.3%에서 17.3%로 감소했다. 도메인 이동 스트레스 테스트에서 CAS retention은 Random Forest 0.282, DQN triage 0.341이었고, temporal streaming replay의 shifted replay window에서 mean decision harm cost는 unconstrained DQN 0.502에서 governed DQN 0.434로 낮았다(거절/거부·complied·unclear 같은 범주 정의는 본문에 없음).
+
+https://doi.org/10.1038/s41598-026-55707-2" onclick="copyEntry(this)">복사</button></div>
+  <p>헬스케어 IoMT에서 침입 탐지 후 자동 대응이 임상적으로 안전하고 운영상 허용 가능한지까지 고려하는 거버넌스 기반 프레임워크를 제안한다. Random Forest 흐름 기반 탐지기, Deep Q-Network triage 에이전트(4개 대응 중 선택), NIST AI Risk Management Framework를 반영한 윤리 규칙 엔진(unsafe action 제약·fallback·audit log)을 결합해 응답을 제한한다. CIC-IoMT 2024에서 in-domain DQN triage의 weighted F1-score는 0.978이며, governance 적용으로 benign blocking이 25.3%에서 17.3%로 감소했다. 도메인 이동 스트레스 테스트에서 CAS retention은 Random Forest 0.282, DQN triage 0.341이었고, temporal streaming replay의 shifted replay window에서 mean decision harm cost는 unconstrained DQN 0.502에서 governed DQN 0.434로 낮았다(거절/거부·complied·unclear 같은 범주 정의는 본문에 없음).</p>
+  <p class="url"><a href="https://doi.org/10.1038/s41598-026-55707-2">https://doi.org/10.1038/s41598-026-55707-2</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Beyond Injection Detection: A Positive-Security Prompt Firewall that Closes the Scope and PHI Gap SOTA Classifiers Miss in Healthcare (2026.6.6)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Beyond Injection Detection: A Positive-Security Prompt Firewall that Closes the Scope and PHI Gap SOTA Classifiers Miss in Healthcare (2026.6.6)
+
+LLM 기반 헬스케어 에이전트에서 prompt injection 탐지기가 놓치는 PHI 유출·범위 이탈·그럴듯한 out-of-scope 요청을 차단하는 “positive-security prompt firewall” QFIRE를 제안한다. QFIRE는 Rust 프록시/CLI 형태로 배치되며, (1) 모델 호출을 선언된 자연어 목적에 한정하는 scope 제약, (2) 비용이 싼 규칙부터 비동기적으로 여러 detector를 동시에 실행하는 detector graph, (3) Base64 hex/ROT13 디코딩·동형문자/leet 변환·zero width 문자 제거로 디오브퓨스케이션 후 탐지의 3요소를 결합한다. 1968개의 public prompt injection 및 jailbreak 프롬프트에서 QFIRE의 deterministic hybrid는 F1 0.86으로 PromptGuard 2(0.86)와 통계적으로 동률이며 DeBERTa v3 기반은 0.83, lexical baseline은 0.16~0.50에 그쳤다. QFIRE HealthBench(헬스케어 2000 프롬프트)에서는 PromptGuard-2가 recall 0.40(DeBERTa v3 0.57)인 반면, scope+PHI chain은 calibrated false positive rate 0.08에서 recall 0.83, F1 0.87로 더 높았고(“refused/ complied/ unclear”는 각각 거절·정상 수행·판정 불가를 뜻함) 에이전트를 모의 EHR 샌드박스에 연결했을 때 harmful action rate를 0.38에서 0.00으로 낮추면서 benign utility cost는 0.13으로 유지했다.
+
+https://doi.org/10.64898/2026.06.04.26354950" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM 기반 헬스케어 에이전트에서 prompt injection 탐지기가 놓치는 PHI 유출·범위 이탈·그럴듯한 out-of-scope 요청을 차단하는 “positive-security prompt firewall” QFIRE를 제안한다. QFIRE는 Rust 프록시/CLI 형태로 배치되며, (1) 모델 호출을 선언된 자연어 목적에 한정하는 scope 제약, (2) 비용이 싼 규칙부터 비동기적으로 여러 detector를 동시에 실행하는 detector graph, (3) Base64 hex/ROT13 디코딩·동형문자/leet 변환·zero width 문자 제거로 디오브퓨스케이션 후 탐지의 3요소를 결합한다. 1968개의 public prompt injection 및 jailbreak 프롬프트에서 QFIRE의 deterministic hybrid는 F1 0.86으로 PromptGuard 2(0.86)와 통계적으로 동률이며 DeBERTa v3 기반은 0.83, lexical baseline은 0.16~0.50에 그쳤다. QFIRE HealthBench(헬스케어 2000 프롬프트)에서는 PromptGuard-2가 recall 0.40(DeBERTa v3 0.57)인 반면, scope+PHI chain은 calibrated false positive rate 0.08에서 recall 0.83, F1 0.87로 더 높았고(“refused/ complied/ unclear”는 각각 거절·정상 수행·판정 불가를 뜻함) 에이전트를 모의 EHR 샌드박스에 연결했을 때 harmful action rate를 0.38에서 0.00으로 낮추면서 benign utility cost는 0.13으로 유지했다.</p>
+  <p class="url"><a href="https://doi.org/10.64898/2026.06.04.26354950">https://doi.org/10.64898/2026.06.04.26354950</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Between autonomy and oversight: Trust calibration and human controllability in agentic AI systems (2026.6.6)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Between autonomy and oversight: Trust calibration and human controllability in agentic AI systems (2026.6.6)
+
+agentic AI 시스템에서 인간이 “의미 있게” 통제권을 유지하도록 신뢰(trust)를 어떻게 조정할지에 대한 거버넌스 프레임을 제안한다. 2019~2026년 사이의 경험적·기술적·규제 문헌 34건을 바탕으로 human-agent interaction에서 trust가 어떻게 형성되고 miscalibrate되는지 분석하고, human-in-the-loop 감독 설계 공간을 정리하며 EU AI Act와 NIST AI Risk Management Framework의 규제 의도와 기술 구현 간 공백을 점검한다. 핵심 기여로 Tiered Controllability Framework(TCF)를 제시하며, 이를 task risk, action reversibility, agent autonomy scope에 따라 4개 통제 계층으로 매핑한다. TCF는 3개 문서화된 엔터프라이즈 배치 사례로 검증되었고, 배치된 agentic 시스템에서 가장 흔한 실패 모드는 over-reliance와 under-reliance를 모두 포함하는 trust miscalibration이며, 운영 규모에서 informed human oversight를 지원하기엔 현재 투명성 도구가 불충분하다고 결론낸다.
+
+https://gjeta.com/sites/default/files/fulltext_pdf/GJETA-2026-0137.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p>agentic AI 시스템에서 인간이 “의미 있게” 통제권을 유지하도록 신뢰(trust)를 어떻게 조정할지에 대한 거버넌스 프레임을 제안한다. 2019~2026년 사이의 경험적·기술적·규제 문헌 34건을 바탕으로 human-agent interaction에서 trust가 어떻게 형성되고 miscalibrate되는지 분석하고, human-in-the-loop 감독 설계 공간을 정리하며 EU AI Act와 NIST AI Risk Management Framework의 규제 의도와 기술 구현 간 공백을 점검한다. 핵심 기여로 Tiered Controllability Framework(TCF)를 제시하며, 이를 task risk, action reversibility, agent autonomy scope에 따라 4개 통제 계층으로 매핑한다. TCF는 3개 문서화된 엔터프라이즈 배치 사례로 검증되었고, 배치된 agentic 시스템에서 가장 흔한 실패 모드는 over-reliance와 under-reliance를 모두 포함하는 trust miscalibration이며, 운영 규모에서 informed human oversight를 지원하기엔 현재 투명성 도구가 불충분하다고 결론낸다.</p>
+  <p class="url"><a href="https://gjeta.com/sites/default/files/fulltext_pdf/GJETA-2026-0137.pdf">https://gjeta.com/sites/default/files/fulltext_pdf/GJETA-2026-0137.pdf</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

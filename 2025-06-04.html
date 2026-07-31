@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-06-04</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-06-04 · 5/5건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-company">
+  <h2>Microsoft, 유럽 보안 프로그램(European Security Program) 신규 발표 (**2025.6.4**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">마이크로소프트(Microsoft) 공식 블로그</span> · <span class="deadline">마감일·시행일 등: SAD(Statutory Automated Disruption) 프로그램은 2025년 4월 시작</span></span><button type="button" class="copy-btn" data-copy="Microsoft, 유럽 보안 프로그램(European Security Program) 신규 발표 (**2025.6.4**)
+
+마이크로소프트는 유럽의 사이버 위협이 고도화되는 상황에 대응하기 위해 ‘European Security Program’을 새로 발표했다. 이 프로그램은 유럽 정부와의 AI 기반 위협 인텔리전스 공유 확대, 사이버 보안 역량·회복력 강화를 위한 추가 투자, 법집행기관·지역 파트너십 확대로 공격을 차단하고 범죄 네트워크를 해체하는 내용을 포함한다. 또한 EU 27개 회원국을 포함해 EU 가입 후보국, EFTA, 영국, 모나코, 바티칸 정부에 무료로 제공한다고 밝혔다.
+
+https://blogs.microsoft.com/on-the-issues/2025/06/04/microsoft-launches-new-european-security-program" onclick="copyEntry(this)">복사</button></div>
+  <p>마이크로소프트는 유럽의 사이버 위협이 고도화되는 상황에 대응하기 위해 ‘European Security Program’을 새로 발표했다. 이 프로그램은 유럽 정부와의 AI 기반 위협 인텔리전스 공유 확대, 사이버 보안 역량·회복력 강화를 위한 추가 투자, 법집행기관·지역 파트너십 확대로 공격을 차단하고 범죄 네트워크를 해체하는 내용을 포함한다. 또한 EU 27개 회원국을 포함해 EU 가입 후보국, EFTA, 영국, 모나코, 바티칸 정부에 무료로 제공한다고 밝혔다.</p>
+  <p class="url"><a href="https://blogs.microsoft.com/on-the-issues/2025/06/04/microsoft-launches-new-european-security-program">https://blogs.microsoft.com/on-the-issues/2025/06/04/microsoft-launches-new-european-security-program</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>CIFAR, CAISI Research Program 통해 첫 AI safety Catalyst Grants 10개 과제(2025.6.4)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">CIFAR (Canadian Institute for Advanced Research) 공식 뉴스</span> · <span class="deadline">CAISI Research Program(정부 지원)으로 1년간 과제당 10만 달러 지원, 최대 2명의 포닥 지원</span></span><button type="button" class="copy-btn" data-copy="CIFAR, CAISI Research Program 통해 첫 AI safety Catalyst Grants 10개 과제(2025.6.4)
+
+CIFAR는 캐나다 AI Safety Institute(CAISI) Research Program을 통해 AI safety Catalyst Grants 첫 10개 연구 과제를 발표했다. 각 과제는 1년간 10만 달러를 지원받고 최대 2명의 포스트닥 연구원을 포함해 연구를 수행하며, 초기 연구자 커뮤니티를 확대하는 것을 목표로 한다. 과제는 허위정보 대응, 지식그래프의 adversarial robustness, LLM의 해석가능·신뢰성, diffusion 기반 모델의 NSFW 및 개인정보/기억화 위험, AI alignment(토론·규범 추론), LLM 취약성 평가, 자율 화학 실험실 안전 아키텍처, 멀티모달 모델 안전성 보장, AI-assisted 코딩에서의 통제·거버넌스 등 다양한 AI 안전 주제를 다룬다.
+
+https://cifar.ca/cifarnews/2025/06/04/cifar-announces-first-ai-safety-catalyst-grants-under-new-national-program" onclick="copyEntry(this)">복사</button></div>
+  <p>CIFAR는 캐나다 AI Safety Institute(CAISI) Research Program을 통해 AI safety Catalyst Grants 첫 10개 연구 과제를 발표했다. 각 과제는 1년간 10만 달러를 지원받고 최대 2명의 포스트닥 연구원을 포함해 연구를 수행하며, 초기 연구자 커뮤니티를 확대하는 것을 목표로 한다. 과제는 허위정보 대응, 지식그래프의 adversarial robustness, LLM의 해석가능·신뢰성, diffusion 기반 모델의 NSFW 및 개인정보/기억화 위험, AI alignment(토론·규범 추론), LLM 취약성 평가, 자율 화학 실험실 안전 아키텍처, 멀티모달 모델 안전성 보장, AI-assisted 코딩에서의 통제·거버넌스 등 다양한 AI 안전 주제를 다룬다.</p>
+  <p class="url"><a href="https://cifar.ca/cifarnews/2025/06/04/cifar-announces-first-ai-safety-catalyst-grants-under-new-national-program">https://cifar.ca/cifarnews/2025/06/04/cifar-announces-first-ai-safety-catalyst-grants-under-new-national-program</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>레딧, AI 스타트업 앤트로픽을 상대로 허가 없이 데이터를 사용했다는 의혹으로 소송 제기 (2025.06.04)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">로이터(Reuters)</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="레딧, AI 스타트업 앤트로픽을 상대로 허가 없이 데이터를 사용했다는 의혹으로 소송 제기 (2025.06.04)
+
+레딧이 AI 스타트업 앤트로픽을 상대로, 허가 없이 데이터를 사용했다는 의혹과 관련해 소송을 제기했다는 내용이다. 다만 본문을 확인하지 못해 구체적인 청구 내용, 사용된 데이터 범위, 소송 진행 상황 등 세부 사실은 확인 필요다.
+
+https://www.reuters.com/business/reddit-sues-ai-startup-anthropic-allegedly-using-data-without-permission-2025-06-04" onclick="copyEntry(this)">복사</button></div>
+  <p>레딧이 AI 스타트업 앤트로픽을 상대로, 허가 없이 데이터를 사용했다는 의혹과 관련해 소송을 제기했다는 내용이다. 다만 본문을 확인하지 못해 구체적인 청구 내용, 사용된 데이터 범위, 소송 진행 상황 등 세부 사실은 확인 필요다.</p>
+  <p class="url"><a href="https://www.reuters.com/business/reddit-sues-ai-startup-anthropic-allegedly-using-data-without-permission-2025-06-04">https://www.reuters.com/business/reddit-sues-ai-startup-anthropic-allegedly-using-data-without-permission-2025-06-04</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>새 정부 ‘AI 100조’ 투자 공약 속 AI 안전·신뢰성 확보가 핵심 (**2025.6.4**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">ZDNet Korea</span></span><button type="button" class="copy-btn" data-copy="새 정부 ‘AI 100조’ 투자 공약 속 AI 안전·신뢰성 확보가 핵심 (**2025.6.4**)
+
+AI 안전연구소 김명주 소장은 ‘2025 슈어 AI 테크 컨퍼런스’에서 AI 진흥과 함께 리스크 관리·안전 설계를 병행해야 한다고 강조했다. 연구소는 글로벌 위험 기준과 평가 체계 구축을 위해 영국·미국 등과 협력 중이며, 리스크 맵 기반 모델 테스트와 통합 보고서 작성 프로세스를 도입하고 있다고 밝혔다. 또한 중국계 AI 모델 ‘딥시크’에 대한 긴급 대응 사례와 함께, AI 평가에서 ‘건전성’·‘신뢰성(Trustworthiness)’ 개념이 확대되는 흐름을 소개했다.
+
+https://zdnet.co.kr/view?no=20250604115640" onclick="copyEntry(this)">복사</button></div>
+  <p>AI 안전연구소 김명주 소장은 ‘2025 슈어 AI 테크 컨퍼런스’에서 AI 진흥과 함께 리스크 관리·안전 설계를 병행해야 한다고 강조했다. 연구소는 글로벌 위험 기준과 평가 체계 구축을 위해 영국·미국 등과 협력 중이며, 리스크 맵 기반 모델 테스트와 통합 보고서 작성 프로세스를 도입하고 있다고 밝혔다. 또한 중국계 AI 모델 ‘딥시크’에 대한 긴급 대응 사례와 함께, AI 평가에서 ‘건전성’·‘신뢰성(Trustworthiness)’ 개념이 확대되는 흐름을 소개했다.</p>
+  <p class="url"><a href="https://zdnet.co.kr/view?no=20250604115640">https://zdnet.co.kr/view?no=20250604115640</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>딥마인드 CEO “AI가 일자리를 빼앗는 것보다 더 큰 위험은 오남용과 통제장치 부재”(2025.6.4)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">CNN Business</span> · <span class="deadline">SXSW 런던 인터뷰(기사 본문 기준)에서 언급</span></span><button type="button" class="copy-btn" data-copy="딥마인드 CEO “AI가 일자리를 빼앗는 것보다 더 큰 위험은 오남용과 통제장치 부재”(2025.6.4)
+
+Demis Hassabis 딥마인드 CEO는 AI가 ‘jobpocalypse’를 일으켜 일자리를 없앨 것이라는 우려보다, 강력하고 자율적인 AI 모델이 통제되지 못하거나 악의적 목적에 악용될 위험을 더 크게 본다고 밝혔다. 그는 bad actor의 접근을 제한하면서도 선한 사용자는 활용할 수 있도록 ‘guardrails’와 접근 통제의 필요성을 강조했다. 또한 AI가 코드 작성·영상 생성 등 복잡한 작업에서 발전하고 있지만, 편향과 환각 같은 한계와 딥페이크·사기 등 부작용도 함께 커지고 있으며, 사회가 AI로 인한 생산성 증가를 어떻게 분배·적응할지 논의가 필요하다고 말했다.
+
+https://edition.cnn.com/2025/06/04/tech/google-deepmind-ceo-ai-risks-jobs" onclick="copyEntry(this)">복사</button></div>
+  <p>Demis Hassabis 딥마인드 CEO는 AI가 ‘jobpocalypse’를 일으켜 일자리를 없앨 것이라는 우려보다, 강력하고 자율적인 AI 모델이 통제되지 못하거나 악의적 목적에 악용될 위험을 더 크게 본다고 밝혔다. 그는 bad actor의 접근을 제한하면서도 선한 사용자는 활용할 수 있도록 ‘guardrails’와 접근 통제의 필요성을 강조했다. 또한 AI가 코드 작성·영상 생성 등 복잡한 작업에서 발전하고 있지만, 편향과 환각 같은 한계와 딥페이크·사기 등 부작용도 함께 커지고 있으며, 사회가 AI로 인한 생산성 증가를 어떻게 분배·적응할지 논의가 필요하다고 말했다.</p>
+  <p class="url"><a href="https://edition.cnn.com/2025/06/04/tech/google-deepmind-ceo-ai-risks-jobs">https://edition.cnn.com/2025/06/04/tech/google-deepmind-ceo-ai-risks-jobs</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

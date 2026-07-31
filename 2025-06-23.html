@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-06-23</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-06-23 · 4/4건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-research-org">
+  <h2>AI 책임 프레임워크의 필요성 (2025.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research-org">연구기관</span> · <span class="source">Law-AI-Institute</span></span><button type="button" class="copy-btn" data-copy="AI 책임 프레임워크의 필요성 (2025.6.23)
+
+본 논문은 AI 책임 규제의 필요성을 주장하며, 연방 차원의 모라토리움 제안이 혁신을 억압하고 소규모 개발자에게 불리하게 작용할 수 있는 파편화된 주별 규제를 대체할 수 있다는 우려를 제기한다. 저자는 AI의 규범이 아직 형성 중이며, 기존의 불법행위법으로는 AI 책임을 다루기에 시기상조라고 주장한다. 그러나 저자의 주장에도 불구하고, AI 위험에 대한 전문가와 정책 입안자들 간의 근본적인 불일치는 오히려 책임 프레임워크의 필요성을 강조한다. 책임은 위험을 효과적으로 관리하고, 합리적인 예방 조치를 장려하며, 시장 메커니즘이 해결하지 못하는 제3자 피해를 다룰 수 있는 강력한 정책 도구로 작용한다. 이는 AI 기술의 빠른 발전 속에서 일관된 규제가 어려울 때 특히 중요하다.
+
+https://law-ai.org/the-case-for-ai-liability/" onclick="copyEntry(this)">복사</button></div>
+  <p>본 논문은 AI 책임 규제의 필요성을 주장하며, 연방 차원의 모라토리움 제안이 혁신을 억압하고 소규모 개발자에게 불리하게 작용할 수 있는 파편화된 주별 규제를 대체할 수 있다는 우려를 제기한다. 저자는 AI의 규범이 아직 형성 중이며, 기존의 불법행위법으로는 AI 책임을 다루기에 시기상조라고 주장한다. 그러나 저자의 주장에도 불구하고, AI 위험에 대한 전문가와 정책 입안자들 간의 근본적인 불일치는 오히려 책임 프레임워크의 필요성을 강조한다. 책임은 위험을 효과적으로 관리하고, 합리적인 예방 조치를 장려하며, 시장 메커니즘이 해결하지 못하는 제3자 피해를 다룰 수 있는 강력한 정책 도구로 작용한다. 이는 AI 기술의 빠른 발전 속에서 일관된 규제가 어려울 때 특히 중요하다.</p>
+  <p class="url"><a href="https://law-ai.org/the-case-for-ai-liability/">https://law-ai.org/the-case-for-ai-liability/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>G7 정상회의, 글로벌 AI 거버넌스 진전 기회를 놓쳤다(2025.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">techpolicy.press</span></span><button type="button" class="copy-btn" data-copy="G7 정상회의, 글로벌 AI 거버넌스 진전 기회를 놓쳤다(2025.6.23)
+
+G7 정상회의의 핵심 AI 성과물은 “Leaders’ statement on AI for prosperity”와 정부·기업 도입을 촉진하는 이니셔티브 중심이었고, 선도 모델의 안전·보안 거버넌스 논의는 상대적으로 부족했다. 글은 최근 AI 역량이 빠르게 고도화되면서 각국이 다자 안전 프레임워크보다 국가별 혁신·채택 정책으로 이동했지만, 동맹 간 안전·보안 시너지와 협력은 놓치고 있다고 지적한다. 또한 모델 가중치 도난, 대규모 데이터센터 공격, CRBN(화학·생물·방사성·핵) 무기 오용 가속, 통제 상실 위험 등 보안 과제가 G7 단독으로는 감당하기 어렵다고 설명하며, AISI 네트워크를 통한 공급망·위협 대응 공조, 공동 역량 평가·위협모델 연구, AI 기업 공동 공개절차, AI 공격 정보 공유, 수출통제 협력 등 구체적 협력 여지를 제안한다.
+
+https://www.techpolicy.press/the-g7-summit-missed-an-opportunity-for-progress-on-global-ai-governance" onclick="copyEntry(this)">복사</button></div>
+  <p>G7 정상회의의 핵심 AI 성과물은 “Leaders’ statement on AI for prosperity”와 정부·기업 도입을 촉진하는 이니셔티브 중심이었고, 선도 모델의 안전·보안 거버넌스 논의는 상대적으로 부족했다. 글은 최근 AI 역량이 빠르게 고도화되면서 각국이 다자 안전 프레임워크보다 국가별 혁신·채택 정책으로 이동했지만, 동맹 간 안전·보안 시너지와 협력은 놓치고 있다고 지적한다. 또한 모델 가중치 도난, 대규모 데이터센터 공격, CRBN(화학·생물·방사성·핵) 무기 오용 가속, 통제 상실 위험 등 보안 과제가 G7 단독으로는 감당하기 어렵다고 설명하며, AISI 네트워크를 통한 공급망·위협 대응 공조, 공동 역량 평가·위협모델 연구, AI 기업 공동 공개절차, AI 공격 정보 공유, 수출통제 협력 등 구체적 협력 여지를 제안한다.</p>
+  <p class="url"><a href="https://www.techpolicy.press/the-g7-summit-missed-an-opportunity-for-progress-on-global-ai-governance">https://www.techpolicy.press/the-g7-summit-missed-an-opportunity-for-progress-on-global-ai-governance</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>A.I. 데이터센터·GPU 집중이 ‘디지털 격차’를 심화(2025.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">뉴욕타임스(The New York Times)</span></span><button type="button" class="copy-btn" data-copy="A.I. 데이터센터·GPU 집중이 ‘디지털 격차’를 심화(2025.6.23)
+
+미국·중국·유럽연합이 전 세계 A.I. 전용 데이터센터와 컴퓨트 파워를 대부분 보유하고, 나머지 국가들은 시설·인프라·전력·인재 측면에서 뒤처져 격차가 확대되고 있다는 내용이다. 옥스퍼드대 연구를 인용해 전 세계 A.I. 대형 데이터센터가 32개국에만 집중돼 있고, 미국 기업들이 운영하는 허브 수가 중국·유럽보다 많다고 전했다. GPU 등 핵심 부품 조달과 원격 대여의 비용·지연·규정 준수 문제, 그리고 학생·인재의 해외 유출(예: 아르헨티나)도 격차의 영향으로 제시된다.
+
+https://www.nytimes.com/interactive/2025/06/23/technology/ai-computing-global-divide.html?smid=url-share&amp;unlocked_article_code=1.RE8.KcMs.bxmuoV3N_p6k" onclick="copyEntry(this)">복사</button></div>
+  <p>미국·중국·유럽연합이 전 세계 A.I. 전용 데이터센터와 컴퓨트 파워를 대부분 보유하고, 나머지 국가들은 시설·인프라·전력·인재 측면에서 뒤처져 격차가 확대되고 있다는 내용이다. 옥스퍼드대 연구를 인용해 전 세계 A.I. 대형 데이터센터가 32개국에만 집중돼 있고, 미국 기업들이 운영하는 허브 수가 중국·유럽보다 많다고 전했다. GPU 등 핵심 부품 조달과 원격 대여의 비용·지연·규정 준수 문제, 그리고 학생·인재의 해외 유출(예: 아르헨티나)도 격차의 영향으로 제시된다.</p>
+  <p class="url"><a href="https://www.nytimes.com/interactive/2025/06/23/technology/ai-computing-global-divide.html?smid=url-share&amp;unlocked_article_code=1.RE8.KcMs.bxmuoV3N_p6k">https://www.nytimes.com/interactive/2025/06/23/technology/ai-computing-global-divide.html?smid=url-share&amp;unlocked_article_code=1.RE8.KcMs.bxmuoV3N_p6k</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>스웨덴 총리, EU AI 규정( AI Act ) 시행·확대 ‘일시 중단’ 촉구(2025.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">POLITICO.eu</span></span><button type="button" class="copy-btn" data-copy="스웨덴 총리, EU AI 규정( AI Act ) 시행·확대 ‘일시 중단’ 촉구(2025.6.23)
+
+스웨덴 총리 울프 크리스테르손이 브뤼셀에서 EU 지도자 회동을 앞두고 EU의 AI 규정은 혼란스럽다며 AI Act의 시행·확대를 잠시 멈출 것을 제안했다. 그는 공통 기준 없이 AI Act가 발효되는 점을 문제로 들며, 기술 격차 발생이나 특정 애플리케이션의 유럽 시장 미출현 가능성을 우려한다고 밝혔다. 한편 유럽연합 집행위원회 기술 담당자 헨나 비르쿤넨은 필요한 가이드가 준비되지 않으면 일시 중단이 가능하다고 언급했으며, 스웨덴 보수 성향 유럽의회 의원 아르바 코칼라리는 기준이 제때 마련되지 않으면 일부 조항의 ‘시계’를 멈추고 기업에 시간을 더 줘야 한다고 지지했다.
+
+https://www.politico.eu/article/swedish-pm-calls-to-pause-eu-ai-rules" onclick="copyEntry(this)">복사</button></div>
+  <p>스웨덴 총리 울프 크리스테르손이 브뤼셀에서 EU 지도자 회동을 앞두고 EU의 AI 규정은 혼란스럽다며 AI Act의 시행·확대를 잠시 멈출 것을 제안했다. 그는 공통 기준 없이 AI Act가 발효되는 점을 문제로 들며, 기술 격차 발생이나 특정 애플리케이션의 유럽 시장 미출현 가능성을 우려한다고 밝혔다. 한편 유럽연합 집행위원회 기술 담당자 헨나 비르쿤넨은 필요한 가이드가 준비되지 않으면 일시 중단이 가능하다고 언급했으며, 스웨덴 보수 성향 유럽의회 의원 아르바 코칼라리는 기준이 제때 마련되지 않으면 일부 조항의 ‘시계’를 멈추고 기업에 시간을 더 줘야 한다고 지지했다.</p>
+  <p class="url"><a href="https://www.politico.eu/article/swedish-pm-calls-to-pause-eu-ai-rules">https://www.politico.eu/article/swedish-pm-calls-to-pause-eu-ai-rules</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

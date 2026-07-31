@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-02-17</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-02-17 · 7/9건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>(2026.2.17) Boundary Point Jailbreaking: black-box LLM 방어를 단일 비트(분류 플래그)만으로 우회하는 자동 공격</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="(2026.2.17) Boundary Point Jailbreaking: black-box LLM 방어를 단일 비트(분류 플래그)만으로 우회하는 자동 공격
+
+BPJ는 ‘jailbreak’로 불리는 위해 정보 추출 시도를 방어하는 Constitutional Classifiers 등 강한 분류 기반 방어를, 완전한 black-box 조건에서 단일 비트(해당 상호작용이 플래그되는지 여부)만 활용해 우회하는 자동 공격 방식이다. 공격 문자열을 직접 타깃으로 최적화하지 않고 중간 단계 타깃(curriculum)으로 바꾼 뒤, 공격 강도의 미세한 변화(“boundary points”)를 가장 잘 드러내는 평가 지점을 선택해 개선 여부를 판단한다. 본문은 BPJ가 Constitutional Classifiers에 대한 universal jailbreak를 자동으로 개발하고, 인간이 제공한 attack seed 없이 GPT-5의 input classifier에서도 성공했다고 주장하며, 개별 상호작용에서는 방어가 어려워도 최적화 과정에서 플래그가 많이 발생하므로 배치 수준 모니터링이 필요하다고 제시한다.
+
+https://www.aisi.gov.uk/research/boundary-point-jailbreaking-of-black-box-llms" onclick="copyEntry(this)">복사</button></div>
+  <p>BPJ는 ‘jailbreak’로 불리는 위해 정보 추출 시도를 방어하는 Constitutional Classifiers 등 강한 분류 기반 방어를, 완전한 black-box 조건에서 단일 비트(해당 상호작용이 플래그되는지 여부)만 활용해 우회하는 자동 공격 방식이다. 공격 문자열을 직접 타깃으로 최적화하지 않고 중간 단계 타깃(curriculum)으로 바꾼 뒤, 공격 강도의 미세한 변화(“boundary points”)를 가장 잘 드러내는 평가 지점을 선택해 개선 여부를 판단한다. 본문은 BPJ가 Constitutional Classifiers에 대한 universal jailbreak를 자동으로 개발하고, 인간이 제공한 attack seed 없이 GPT-5의 input classifier에서도 성공했다고 주장하며, 개별 상호작용에서는 방어가 어려워도 최적화 과정에서 플래그가 많이 발생하므로 배치 수준 모니터링이 필요하다고 제시한다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/research/boundary-point-jailbreaking-of-black-box-llms">https://www.aisi.gov.uk/research/boundary-point-jailbreaking-of-black-box-llms</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>CAISI, 의료·금융·교육 분야 AI 도입 장벽 파악 위한 청취(리스닝) 세션 개최(**2026.2.17**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 국립표준기술연구소(NIST)</span> · <span class="deadline">마감일: 2026.3.31(미팅 전 참가 의사 제출, 업무 종료 시각 기준)</span></span><button type="button" class="copy-btn" data-copy="CAISI, 의료·금융·교육 분야 AI 도입 장벽 파악 위한 청취(리스닝) 세션 개최(**2026.2.17**)
+
+NIST의 CAISI는 의료, 금융 서비스, 교육 분야에서 AI 및 AI agent 시스템 도입을 가로막는 요인과 촉진 요인을 파악하기 위한 가상 워크숍(청취 세션)을 개최한다. 성공·실패 사례와 그 차이를 만든 맥락적 요인을 수집하며, 특히 조달·평가·통합 관련 분야 전문가 참여를 권장한다. 참가 의사는 2026년 3월 31일까지 이메일로 제출해야 하며, 워크숍은 2026년 5월 중 단계적으로 진행될 예정이다.
+
+https://www.nist.gov/news-events/news/2026/02/caisi-host-listening-sessions-barriers-ai-adoption" onclick="copyEntry(this)">복사</button></div>
+  <p>NIST의 CAISI는 의료, 금융 서비스, 교육 분야에서 AI 및 AI agent 시스템 도입을 가로막는 요인과 촉진 요인을 파악하기 위한 가상 워크숍(청취 세션)을 개최한다. 성공·실패 사례와 그 차이를 만든 맥락적 요인을 수집하며, 특히 조달·평가·통합 관련 분야 전문가 참여를 권장한다. 참가 의사는 2026년 3월 31일까지 이메일로 제출해야 하며, 워크숍은 2026년 5월 중 단계적으로 진행될 예정이다.</p>
+  <p class="url"><a href="https://www.nist.gov/news-events/news/2026/02/caisi-host-listening-sessions-barriers-ai-adoption">https://www.nist.gov/news-events/news/2026/02/caisi-host-listening-sessions-barriers-ai-adoption</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>NIST, ‘AI Agent Standards Initiative’ 출범(2026.2.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 국립표준기술연구소(NIST)</span> · <span class="deadline">CAISI RFI 마감 2026.3.9, ITL 개념문서 의견 마감 2026.4.2</span></span><button type="button" class="copy-btn" data-copy="NIST, ‘AI Agent Standards Initiative’ 출범(2026.2.17)
+
+NIST의 CAISI는 자율적으로 행동하는 차세대 AI 에이전트의 신뢰성·보안·상호운용성을 높이기 위한 ‘AI Agent Standards Initiative’를 출범한다고 밝혔다. NIST는 ITL 및 타 연방 파트너와 함께 산업 주도의 표준 개발, 오픈소스 프로토콜의 커뮤니티 기반 유지보수, AI agent 보안 및 identity 연구를 3대 추진축으로 진행할 계획이다. 또한 공개 의견 수렴을 위해 CAISI의 AI Agent Security RFI(마감 3월 9일)와 ITL의 AI Agent Identity and Authorization Concept Paper(마감 4월 2일)를 받으며, 4월부터는 분야별 도입 장벽을 주제로 청취 세션을 개최할 예정이다.
+
+https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure" onclick="copyEntry(this)">복사</button></div>
+  <p>NIST의 CAISI는 자율적으로 행동하는 차세대 AI 에이전트의 신뢰성·보안·상호운용성을 높이기 위한 ‘AI Agent Standards Initiative’를 출범한다고 밝혔다. NIST는 ITL 및 타 연방 파트너와 함께 산업 주도의 표준 개발, 오픈소스 프로토콜의 커뮤니티 기반 유지보수, AI agent 보안 및 identity 연구를 3대 추진축으로 진행할 계획이다. 또한 공개 의견 수렴을 위해 CAISI의 AI Agent Security RFI(마감 3월 9일)와 ITL의 AI Agent Identity and Authorization Concept Paper(마감 4월 2일)를 받으며, 4월부터는 분야별 도입 장벽을 주제로 청취 세션을 개최할 예정이다.</p>
+  <p class="url"><a href="https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure">https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>AI Agent Standards Initiative로 에이전트의 신뢰·상호운용·보안을 위한 자발적 표준과 프로토콜을 추진 (**기사·공고 게재일** 2026.2.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 국립표준기술연구소(NIST)</span> · <span class="deadline">마감일: RFI 응답 3월 9일, Identity·Authorization 개념 논문 의견 4월 2일, 분야별 리스닝 세션 등록 3월 20일</span></span><button type="button" class="copy-btn" data-copy="AI Agent Standards Initiative로 에이전트의 신뢰·상호운용·보안을 위한 자발적 표준과 프로토콜을 추진 (**기사·공고 게재일** 2026.2.17)
+
+NIST는 자율적으로 행동하는 AI 에이전트의 안전한 채택과 디지털 환경 전반에서의 상호운용을 목표로 AI Agent Standards Initiative를 추진한다고 밝혔다. 업계 주도 표준을 위한 기술 컨벤빙·갭 분석, 상호운용 가능한 에이전트 프로토콜의 장벽을 줄이기 위한 커뮤니티 참여, 에이전트 인증·신원 인프라 및 보안 평가 연구를 핵심 축으로 제시했다. 또한 AI agent security 관련 RFI와 소프트웨어·AI agent identity 및 authorization 개념 논문, 분야별 리스닝 세션 등 이해관계자 의견 수렴 활동을 진행한다.
+
+https://www.nist.gov/caisi/ai-agent-standards-initiative" onclick="copyEntry(this)">복사</button></div>
+  <p>NIST는 자율적으로 행동하는 AI 에이전트의 안전한 채택과 디지털 환경 전반에서의 상호운용을 목표로 AI Agent Standards Initiative를 추진한다고 밝혔다. 업계 주도 표준을 위한 기술 컨벤빙·갭 분석, 상호운용 가능한 에이전트 프로토콜의 장벽을 줄이기 위한 커뮤니티 참여, 에이전트 인증·신원 인프라 및 보안 평가 연구를 핵심 축으로 제시했다. 또한 AI agent security 관련 RFI와 소프트웨어·AI agent identity 및 authorization 개념 논문, 분야별 리스닝 세션 등 이해관계자 의견 수렴 활동을 진행한다.</p>
+  <p class="url"><a href="https://www.nist.gov/caisi/ai-agent-standards-initiative">https://www.nist.gov/caisi/ai-agent-standards-initiative</a></p>
+</article>
+<article class="entry cat-research-org">
+  <h2>METR의 기밀 정보 보호 방법 (2026.2.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research-org">연구기관</span> · <span class="source">METR</span></span><button type="button" class="copy-btn" data-copy="METR의 기밀 정보 보호 방법 (2026.2.17)
+
+METR는 AI 개발자, 정부 기관, 연구 단체들과 협력하며, 때때로 비공개 모델 접근과 기밀 정보를 제공받습니다. 이 글에서는 이러한 정보와 접근을 보호하기 위한 METR의 접근 방식을 설명합니다. 주요 내용은 다음과 같습니다:
+
+- **정책**: 정보를 민감도에 따라 6단계의 기밀 수준으로 분류하여 관리합니다. 비공개 모델 정보는 직접 관련 연구자들만 접근 가능하며, 코드명으로만 언급됩니다.
+- **설정**: 기밀 수준을 플랫폼 전반에 걸쳐 사용하여 기대치를 명확히 합니다. 기술적 제어를 통해 우발적인 공유를 방지하고, 프로젝트별로 민감한 정보를 분리합니다.
+- **규범**: 코드명 사용, 민감한 정보에 대한 신중한 대화, 그리고 잠재적 실수를 감지하고 보고하는 문화를 유지합니다.
+- **보안 조치**: 중앙 인증 제공자, 다중 계층 접근 제어, 모바일 기기 관리, 모니터링 및 응답 시스템 등을 통해 보안을 강화합니다.
+
+METR는 이러한 조치들로 인해 SOC 2 Type I 인증을 획득하였습니다. 자세한 내용은 보안 담당자에게 문의하실 수 있습니다. (security@metr.org)
+
+https://metr.org/blog/2026-02-17-how-we-protect-confidential-information/" onclick="copyEntry(this)">복사</button></div>
+  <p>METR는 AI 개발자, 정부 기관, 연구 단체들과 협력하며, 때때로 비공개 모델 접근과 기밀 정보를 제공받습니다. 이 글에서는 이러한 정보와 접근을 보호하기 위한 METR의 접근 방식을 설명합니다. 주요 내용은 다음과 같습니다:</p>
+<p>- **정책**: 정보를 민감도에 따라 6단계의 기밀 수준으로 분류하여 관리합니다. 비공개 모델 정보는 직접 관련 연구자들만 접근 가능하며, 코드명으로만 언급됩니다.
+- **설정**: 기밀 수준을 플랫폼 전반에 걸쳐 사용하여 기대치를 명확히 합니다. 기술적 제어를 통해 우발적인 공유를 방지하고, 프로젝트별로 민감한 정보를 분리합니다.
+- **규범**: 코드명 사용, 민감한 정보에 대한 신중한 대화, 그리고 잠재적 실수를 감지하고 보고하는 문화를 유지합니다.
+- **보안 조치**: 중앙 인증 제공자, 다중 계층 접근 제어, 모바일 기기 관리, 모니터링 및 응답 시스템 등을 통해 보안을 강화합니다.</p>
+<p>METR는 이러한 조치들로 인해 SOC 2 Type I 인증을 획득하였습니다. 자세한 내용은 보안 담당자에게 문의하실 수 있습니다. (security@metr.org)</p>
+  <p class="url"><a href="https://metr.org/blog/2026-02-17-how-we-protect-confidential-information/">https://metr.org/blog/2026-02-17-how-we-protect-confidential-information/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Startup Launches Platform for Self-Sustaining AI Agents (2026.2.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Startup Launches Platform for Self-Sustaining AI Agents (2026.2.17)
+
+요약불가
+
+https://web4.ai/" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://web4.ai/">https://web4.ai/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Claude Sonnet 4.6 Is Released (2026.2.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Claude Sonnet 4.6 Is Released (2026.2.17)
+
+요약불가
+
+https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf">https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Every Eval Ever, AI 평가 결과를 공통 스키마·크라우드소싱 DB로 표준화(2026.2.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">evalevalai.com</span></span><button type="button" class="copy-btn" data-copy="Every Eval Ever, AI 평가 결과를 공통 스키마·크라우드소싱 DB로 표준화(2026.2.17)
+
+Every Eval Ever는 서로 다른 평가 프레임워크가 제각각 결과를 내는 문제를 해결하기 위해, 평가 결과를 기술하는 공통 스키마와 크라우드소싱 eval 데이터베이스를 제공하는 프로젝트다. 벤치마크·모델·평가 실행(run) 단위로 메타데이터(누가/어떤 설정으로/어떤 모델을/점수 의미)를 함께 저장하고, schema 검증 및 Inspect AI·HELM·lm-eval-harness 등 기존 도구 로그를 표준 형식으로 변환하는 컨버터도 제공한다. 또한 평가 설정 차이로 점수가 달라질 수 있어(예: MMLU에서 프롬프트·추출 방식 차이) 실행별 UUID로 개별 run을 보존하되 중복 제거·그룹핑은 분석 단계에서 하도록 설계했다.
+
+https://evalevalai.com/infrastructure/2026/02/17/everyevalever-launch/" onclick="copyEntry(this)">복사</button></div>
+  <p>Every Eval Ever는 서로 다른 평가 프레임워크가 제각각 결과를 내는 문제를 해결하기 위해, 평가 결과를 기술하는 공통 스키마와 크라우드소싱 eval 데이터베이스를 제공하는 프로젝트다. 벤치마크·모델·평가 실행(run) 단위로 메타데이터(누가/어떤 설정으로/어떤 모델을/점수 의미)를 함께 저장하고, schema 검증 및 Inspect AI·HELM·lm-eval-harness 등 기존 도구 로그를 표준 형식으로 변환하는 컨버터도 제공한다. 또한 평가 설정 차이로 점수가 달라질 수 있어(예: MMLU에서 프롬프트·추출 방식 차이) 실행별 UUID로 개별 run을 보존하되 중복 제거·그룹핑은 분석 단계에서 하도록 설계했다.</p>
+  <p class="url"><a href="https://evalevalai.com/infrastructure/2026/02/17/everyevalever-launch/">https://evalevalai.com/infrastructure/2026/02/17/everyevalever-launch/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs (2026.2.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv.org</span> · <span class="deadline">마감일·시행일 등 중요 일정: 없음</span></span><button type="button" class="copy-btn" data-copy="Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs (2026.2.17)
+
+오픈 웨이트 LLM이 tampering 공격에 취약하다는 문제의식에서, 사전학습 데이터에서 dual-use 주제 관련 텍스트를 필터링하면 위험 역량을 줄이면서도 모델을 더 tamper-resistant하게 만들 수 있는지 연구했다. 6.9B 파라미터 모델을 처음부터 여러 개 사전학습해, biothreat 관련 텍스트에 대해 최대 10,000 스텝의 adversarial fine-tuning과 300M 토큰 규모에서도 기존 post-training 기반 대비 1자릿수 이상 더 잘 버틴다고 보고했다. 다만 필터링된 모델은 내부에 위험 지식을 “내재화”하지는 못하지만, 검색 도구 등으로 컨텍스트에 제공되면 해당 정보를 활용할 수 있어 defense-in-depth가 필요하다고 결론냈다.
+
+https://arxiv.org/abs/2508.06601" onclick="copyEntry(this)">복사</button></div>
+  <p>오픈 웨이트 LLM이 tampering 공격에 취약하다는 문제의식에서, 사전학습 데이터에서 dual-use 주제 관련 텍스트를 필터링하면 위험 역량을 줄이면서도 모델을 더 tamper-resistant하게 만들 수 있는지 연구했다. 6.9B 파라미터 모델을 처음부터 여러 개 사전학습해, biothreat 관련 텍스트에 대해 최대 10,000 스텝의 adversarial fine-tuning과 300M 토큰 규모에서도 기존 post-training 기반 대비 1자릿수 이상 더 잘 버틴다고 보고했다. 다만 필터링된 모델은 내부에 위험 지식을 “내재화”하지는 못하지만, 검색 도구 등으로 컨텍스트에 제공되면 해당 정보를 활용할 수 있어 defense-in-depth가 필요하다고 결론냈다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2508.06601">https://arxiv.org/abs/2508.06601</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

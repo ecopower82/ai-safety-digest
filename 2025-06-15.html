@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-06-15</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-06-15 · 4/4건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>(AI debate) (2025.06.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span> · <span class="deadline">힌트: 페이지에 “Jun 15, 2025”로 표시</span></span><button type="button" class="copy-btn" data-copy="(AI debate) (2025.06.15)
+
+인간의 복잡한 과제에 대한 정확한 슈퍼비전을 강화하기 위해, 두 AI가 정답을 두고 경쟁하는 debate 방식의 접근을 설명한다. 기존의 recursive debate는 dishonest debater가 “obfuscated arguments”를 이용해 정직한 상대에게 계산적으로 어려운 문제를 풀게 만들어 이기게 만드는 문제가 있었는데, 이를 해결하는 새로운 recursive debate 프로토콜을 제시한다. 특정 안정성 가정 하에서 정직한 debater가 상대와 비슷한 수준의 계산 효율로 이길 수 있음을 보인다는 내용이다.
+
+https://www.aisi.gov.uk/research/avoiding-obfuscation-with-prover-estimator-debate" onclick="copyEntry(this)">복사</button></div>
+  <p>인간의 복잡한 과제에 대한 정확한 슈퍼비전을 강화하기 위해, 두 AI가 정답을 두고 경쟁하는 debate 방식의 접근을 설명한다. 기존의 recursive debate는 dishonest debater가 “obfuscated arguments”를 이용해 정직한 상대에게 계산적으로 어려운 문제를 풀게 만들어 이기게 만드는 문제가 있었는데, 이를 해결하는 새로운 recursive debate 프로토콜을 제시한다. 특정 안정성 가정 하에서 정직한 debater가 상대와 비슷한 수준의 계산 효율로 이길 수 있음을 보인다는 내용이다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/research/avoiding-obfuscation-with-prover-estimator-debate">https://www.aisi.gov.uk/research/avoiding-obfuscation-with-prover-estimator-debate</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>Cohere, 캐나다·영국 정부와 ‘secure AI’ 협력(2025.06.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">Cohere 공식 블로그</span></span><button type="button" class="copy-btn" data-copy="Cohere, 캐나다·영국 정부와 ‘secure AI’ 협력(2025.06.15)
+
+Cohere는 캐나다와 영국 정부가 자사의 secure AI 기술을 활용해 정부 서비스의 고도화와 국가 주권 강화를 추진한다고 밝혔다. 이번 협력은 정부 업무에 적용 가능한 보안 중심 AI 기술을 기반으로 한다고 설명했다.
+
+https://cohere.com/blog/canada-uk-government-partnerships" onclick="copyEntry(this)">복사</button></div>
+  <p>Cohere는 캐나다와 영국 정부가 자사의 secure AI 기술을 활용해 정부 서비스의 고도화와 국가 주권 강화를 추진한다고 밝혔다. 이번 협력은 정부 업무에 적용 가능한 보안 중심 AI 기술을 기반으로 한다고 설명했다.</p>
+  <p class="url"><a href="https://cohere.com/blog/canada-uk-government-partnerships">https://cohere.com/blog/canada-uk-government-partnerships</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(기사·2025.6.15) 영국 대학서 AI 도구로 부정행위 적발 7,000건 육박…전통 표절은 감소</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">가디언(theguardian.com)</span> · <span class="deadline">2023-24년 응답 대학 중 27% 이상은 AI misuse를 별도 부정행위 항목으로 아직 기록하지 않았고, 전문가들은 적발이 빙산의 일각이라고 지적했다.</span></span><button type="button" class="copy-btn" data-copy="(기사·2025.6.15) 영국 대학서 AI 도구로 부정행위 적발 7,000건 육박…전통 표절은 감소
+
+가디언 조사에 따르면 2023-24년 AI 도구를 이용한 부정행위(cheating)로 “입증된” 사례가 거의 7,000건으로, 학생 1,000명당 5.1건 수준이다. 이는 2022-23년(1,000명당 1.6건)보다 크게 늘었으며, 올해도 학생 1,000명당 약 7.5건 수준으로 증가할 수 있다고 전망했다. 반면 전통적 plagiarism은 2019-20년 전체의 거의 2/3에서 2023-24년 1,000명당 15.2건으로 줄었고, 추가로 감소할 것으로 예상됐다. 가디언은 155개 대학에 FOI로 자료를 요청했으나 일부 대학은 연도·범주별 기록이 불완전했고, AI 탐지는 plagiarism처럼 복사 텍스트를 확인하기 어려워 더 많은 사례가 미탐지될 수 있다고 전했다.
+
+https://www.theguardian.com/education/2025/jun/15/thousands-of-uk-university-students-caught-cheating-using-ai-artificial-intelligence-survey" onclick="copyEntry(this)">복사</button></div>
+  <p>가디언 조사에 따르면 2023-24년 AI 도구를 이용한 부정행위(cheating)로 “입증된” 사례가 거의 7,000건으로, 학생 1,000명당 5.1건 수준이다. 이는 2022-23년(1,000명당 1.6건)보다 크게 늘었으며, 올해도 학생 1,000명당 약 7.5건 수준으로 증가할 수 있다고 전망했다. 반면 전통적 plagiarism은 2019-20년 전체의 거의 2/3에서 2023-24년 1,000명당 15.2건으로 줄었고, 추가로 감소할 것으로 예상됐다. 가디언은 155개 대학에 FOI로 자료를 요청했으나 일부 대학은 연도·범주별 기록이 불완전했고, AI 탐지는 plagiarism처럼 복사 텍스트를 확인하기 어려워 더 많은 사례가 미탐지될 수 있다고 전했다.</p>
+  <p class="url"><a href="https://www.theguardian.com/education/2025/jun/15/thousands-of-uk-university-students-caught-cheating-using-ai-artificial-intelligence-survey">https://www.theguardian.com/education/2025/jun/15/thousands-of-uk-university-students-caught-cheating-using-ai-artificial-intelligence-survey</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>영국 정부, Humphrey AI 도구 도입 확대에 ‘빅테크 의존’ 우려 제기 (2025.6.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">가디언(theguardian.com)</span></span><button type="button" class="copy-btn" data-copy="영국 정부, Humphrey AI 도구 도입 확대에 ‘빅테크 의존’ 우려 제기 (2025.6.15)
+
+영국 정부는 공공부문 전반에 AI 도구 Humphrey를 단계적으로 도입해 행정 효율을 높이겠다고 밝히며, 잉글랜드·웨일스 공무원 전원에 훈련을 제공할 계획이다. 다만 Freedom of Information 요청 결과, Consult·Lex·Parlex·Redbox 등 일부 도구가 OpenAI GPT, Anthropic Claude, Google Gemini 등 빅테크 모델을 기반으로 하는 것으로 나타나 의존 우려가 제기됐다. 비판 측은 저작권 소재가 AI 학습에 활용되는 문제와 함께 오류(‘hallucinations’)가 정부 업무에 반영될 가능성, 투명한 기록과 재평가 필요성을 강조했으며, 정부는 기존 클라우드 계약을 기반으로 pay-as-you-go 방식이라 도구를 교체할 수 있고 규제 역량을 제한하지 않는다고 반박했다.
+
+https://www.theguardian.com/technology/2025/jun/15/government-roll-out-humphrey-ai-tool-reliance-big-tech" onclick="copyEntry(this)">복사</button></div>
+  <p>영국 정부는 공공부문 전반에 AI 도구 Humphrey를 단계적으로 도입해 행정 효율을 높이겠다고 밝히며, 잉글랜드·웨일스 공무원 전원에 훈련을 제공할 계획이다. 다만 Freedom of Information 요청 결과, Consult·Lex·Parlex·Redbox 등 일부 도구가 OpenAI GPT, Anthropic Claude, Google Gemini 등 빅테크 모델을 기반으로 하는 것으로 나타나 의존 우려가 제기됐다. 비판 측은 저작권 소재가 AI 학습에 활용되는 문제와 함께 오류(‘hallucinations’)가 정부 업무에 반영될 가능성, 투명한 기록과 재평가 필요성을 강조했으며, 정부는 기존 클라우드 계약을 기반으로 pay-as-you-go 방식이라 도구를 교체할 수 있고 규제 역량을 제한하지 않는다고 반박했다.</p>
+  <p class="url"><a href="https://www.theguardian.com/technology/2025/jun/15/government-roll-out-humphrey-ai-tool-reliance-big-tech">https://www.theguardian.com/technology/2025/jun/15/government-roll-out-humphrey-ai-tool-reliance-big-tech</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

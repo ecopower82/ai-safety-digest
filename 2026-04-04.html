@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-04-04</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-04-04 · 3/3건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-db">
+  <h2>무기화된 Claude 소스코드 유출, FBI 감청 도구 침해 및 Cisco 소스코드 절도와 맞물린 공급망 보안 위기 (2026.4.4)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">중요 일정: 없음</span></span><button type="button" class="copy-btn" data-copy="무기화된 Claude 소스코드 유출, FBI 감청 도구 침해 및 Cisco 소스코드 절도와 맞물린 공급망 보안 위기 (2026.4.4)
+
+해커들이 유출된 Anthropic의 Claude AI 소스코드를 악성코드를 포함한 형태로 온라인에 배포하고 있으며, GitHub 및 포럼에서 정상 저장소로 위장해 내려받는 사용자가 백도어와 자격정보 탈취 기능에 감염될 수 있다고 전했다. 동시에 FBI는 법원 승인 감청에 사용되는 감시 도구가 침해를 당해 국가안보 위험이 발생했다고 확인했으며, Cisco도 진행 중인 공급망 공격의 일환으로 소스코드를 절도당했다고 밝혔다. 보안 전문가들은 이번 사건들이 짧은 기간에 동시다발적으로 발생해 AI 보안 취약점과 중요 인프라 공격이 한 단계 더 고도화된 신호라고 경고했다.
+
+https://www.techbuzz.ai/articles/claude-code-leak-weaponized-with-malware-in-security-crisis" onclick="copyEntry(this)">복사</button></div>
+  <p>해커들이 유출된 Anthropic의 Claude AI 소스코드를 악성코드를 포함한 형태로 온라인에 배포하고 있으며, GitHub 및 포럼에서 정상 저장소로 위장해 내려받는 사용자가 백도어와 자격정보 탈취 기능에 감염될 수 있다고 전했다. 동시에 FBI는 법원 승인 감청에 사용되는 감시 도구가 침해를 당해 국가안보 위험이 발생했다고 확인했으며, Cisco도 진행 중인 공급망 공격의 일환으로 소스코드를 절도당했다고 밝혔다. 보안 전문가들은 이번 사건들이 짧은 기간에 동시다발적으로 발생해 AI 보안 취약점과 중요 인프라 공격이 한 단계 더 고도화된 신호라고 경고했다.</p>
+  <p class="url"><a href="https://www.techbuzz.ai/articles/claude-code-leak-weaponized-with-malware-in-security-crisis">https://www.techbuzz.ai/articles/claude-code-leak-weaponized-with-malware-in-security-crisis</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI 거버넌스 교재(법·프라이버시·보안·컴플라이언스) 무료 공개(2026.4.4)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">linkedin.com</span> · <span class="deadline">마감일/시행일: 해당 없음</span></span><button type="button" class="copy-btn" data-copy="AI 거버넌스 교재(법·프라이버시·보안·컴플라이언스) 무료 공개(2026.4.4)
+
+AI 거버넌스에 관한 신간 교재를 집필해 이론과 실제 구현의 격차를 잇기 위한 목적이라고 소개했다. EU AI Act, GDPR, NIST AI Risk Management Framework 등과 15개 이상 관할의 규정을 다루며, 프라이버시 엔지니어링·차등 프라이버시, 보안 기초·적대적 위협 모델링·AI 감사 방법론 및 구현 템플릿을 포함한다고 밝혔다. 또한 데이터·모델·시스템·모니터링·감사로 이어지는 5계층 프레임워크(“AI Governance Stack”)를 핵심으로 제시하고, 500페이지 버전은 링크를 통해 무료로 제공한다고 적었다.
+
+https://www.linkedin.com/posts/noah-m-kenney-27499a166_governing-intelligence-textbook-ugcPost-7445561415031128064-DhuK?utm_source=share&amp;utm_medium=member_ios&amp;rcm=ACoAABNWa7YBYzzYJeBJVjwQfP_OORjs0P1yTtA" onclick="copyEntry(this)">복사</button></div>
+  <p>AI 거버넌스에 관한 신간 교재를 집필해 이론과 실제 구현의 격차를 잇기 위한 목적이라고 소개했다. EU AI Act, GDPR, NIST AI Risk Management Framework 등과 15개 이상 관할의 규정을 다루며, 프라이버시 엔지니어링·차등 프라이버시, 보안 기초·적대적 위협 모델링·AI 감사 방법론 및 구현 템플릿을 포함한다고 밝혔다. 또한 데이터·모델·시스템·모니터링·감사로 이어지는 5계층 프레임워크(“AI Governance Stack”)를 핵심으로 제시하고, 500페이지 버전은 링크를 통해 무료로 제공한다고 적었다.</p>
+  <p class="url"><a href="https://www.linkedin.com/posts/noah-m-kenney-27499a166_governing-intelligence-textbook-ugcPost-7445561415031128064-DhuK?utm_source=share&amp;utm_medium=member_ios&amp;rcm=ACoAABNWa7YBYzzYJeBJVjwQfP_OORjs0P1yTtA">https://www.linkedin.com/posts/noah-m-kenney-27499a166_governing-intelligence-textbook-ugcPost-7445561415031128064-DhuK?utm_source=share&amp;utm_medium=member_ios&amp;rcm=ACoAABNWa7YBYzzYJeBJVjwQfP_OORjs0P1yTtA</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>NIST AI 800-4 공개…배포 후 모니터링·표준·책임 체계의 공백을 지적 (2026.4.4)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">linkedin.com</span></span><button type="button" class="copy-btn" data-copy="NIST AI 800-4 공개…배포 후 모니터링·표준·책임 체계의 공백을 지적 (2026.4.4)
+
+NIST AI 800-4는 AI 배포 이후 지속 모니터링의 필요성을 강조하며, 사전 테스트만으로는 부족하다고 설명합니다. 글은 배포 후 드리프트, 환각, 실환경 실패를 포착하기 위해 모니터링이 필수가 됐다고 전합니다. 또한 모니터링을 기능(Functionality), 운영(Operational), 인간요인(Human Factors), 보안(Security), 준수(Compliance), 대규모 영향(Large-Scale Impacts) 등 6개 범주로 정리하는 프레임워크를 소개합니다. 동시에 무엇을 얼마나 자주 모니터링할지, 책임을 누가 질지에 대한 합의가 부족하다는 ‘표준 공백’과, 오픈 웨이트 모델의 경우 다운스트림 모니터링이 사실상 어렵다는 점을 우려로 제시합니다.
+
+https://www.linkedin.com/posts/wasrab_nist-ugcPost-7444910931828125696-R8OS?utm_source=share&amp;utm_medium=member_ios&amp;rcm=ACoAABNWa7YBYzzYJeBJVjwQfP_OORjs0P1yTtA" onclick="copyEntry(this)">복사</button></div>
+  <p>NIST AI 800-4는 AI 배포 이후 지속 모니터링의 필요성을 강조하며, 사전 테스트만으로는 부족하다고 설명합니다. 글은 배포 후 드리프트, 환각, 실환경 실패를 포착하기 위해 모니터링이 필수가 됐다고 전합니다. 또한 모니터링을 기능(Functionality), 운영(Operational), 인간요인(Human Factors), 보안(Security), 준수(Compliance), 대규모 영향(Large-Scale Impacts) 등 6개 범주로 정리하는 프레임워크를 소개합니다. 동시에 무엇을 얼마나 자주 모니터링할지, 책임을 누가 질지에 대한 합의가 부족하다는 ‘표준 공백’과, 오픈 웨이트 모델의 경우 다운스트림 모니터링이 사실상 어렵다는 점을 우려로 제시합니다.</p>
+  <p class="url"><a href="https://www.linkedin.com/posts/wasrab_nist-ugcPost-7444910931828125696-R8OS?utm_source=share&amp;utm_medium=member_ios&amp;rcm=ACoAABNWa7YBYzzYJeBJVjwQfP_OORjs0P1yTtA">https://www.linkedin.com/posts/wasrab_nist-ugcPost-7444910931828125696-R8OS?utm_source=share&amp;utm_medium=member_ios&amp;rcm=ACoAABNWa7YBYzzYJeBJVjwQfP_OORjs0P1yTtA</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

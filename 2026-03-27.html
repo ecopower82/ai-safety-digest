@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-03-27</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-03-27 · 8/8건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-intl-org">
+  <h2>31차 EU-일본 ICT 대화(2026.3.27)에서 디지털 파트너십 협력 방향과 정책 업데이트 논의</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU 디지털 전략(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="31차 EU-일본 ICT 대화(2026.3.27)에서 디지털 파트너십 협력 방향과 정책 업데이트 논의
+
+31차 EU-일본 ICT 대화가 2026년 3월 27일 도쿄에서 열리며 EU와 일본 간 ICT 협력을 강화했다. 이번 대화에서는 인공지능, 안전한 연결(해저 케이블 및 북극 연결 포함), 5G/6G, 온라인 플랫폼, 양자 키 분배, 사이버보안 등 분야의 정책 업데이트와 추가 협력 기회가 논의됐다. 또한 EU AI Office와 일본 AI Safety Institute 간 협력, 5G/6G 연구·혁신 및 국제 표준화 관련 협력도 재확인했다.
+
+https://digital-strategy.ec.europa.eu/en/news/31st-eu-japan-ict-dialogue-advancing-digital-partnership" onclick="copyEntry(this)">복사</button></div>
+  <p>31차 EU-일본 ICT 대화가 2026년 3월 27일 도쿄에서 열리며 EU와 일본 간 ICT 협력을 강화했다. 이번 대화에서는 인공지능, 안전한 연결(해저 케이블 및 북극 연결 포함), 5G/6G, 온라인 플랫폼, 양자 키 분배, 사이버보안 등 분야의 정책 업데이트와 추가 협력 기회가 논의됐다. 또한 EU AI Office와 일본 AI Safety Institute 간 협력, 5G/6G 연구·혁신 및 국제 표준화 관련 협력도 재확인했다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/31st-eu-japan-ict-dialogue-advancing-digital-partnership">https://digital-strategy.ec.europa.eu/en/news/31st-eu-japan-ict-dialogue-advancing-digital-partnership</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>9차 EU-일본 디지털 정책 대화(2026.3.27) 개최, 반도체·양자·AI 등 협력 논의</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span> · <span class="deadline">2026.3.25 도쿄에서 9차 대화 개최</span></span><button type="button" class="copy-btn" data-copy="9차 EU-일본 디지털 정책 대화(2026.3.27) 개최, 반도체·양자·AI 등 협력 논의
+
+EU와 일본은 2026년 3월 25일 도쿄에서 제9차 디지털 정책 대화를 열고 주요 디지털 분야 협력을 강화하기로 했다. 대화에서는 반도체와 양자기술, 온라인 플랫폼 및 인공지능 정책, 사이버 회복탄력성, 데이터 경제 정책 등에 대한 정책 업데이트와 추가 협력 기회가 논의됐다. 또한 EU-일본 디지털 파트너십의 성과를 점검하고 향후 협력 방향을 설정하며, 다음 EU-일본 디지털 파트너십 협의체 준비도 진행했다고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/news/9th-eu-japan-digital-policy-dialogue-advancing-digital-partnership" onclick="copyEntry(this)">복사</button></div>
+  <p>EU와 일본은 2026년 3월 25일 도쿄에서 제9차 디지털 정책 대화를 열고 주요 디지털 분야 협력을 강화하기로 했다. 대화에서는 반도체와 양자기술, 온라인 플랫폼 및 인공지능 정책, 사이버 회복탄력성, 데이터 경제 정책 등에 대한 정책 업데이트와 추가 협력 기회가 논의됐다. 또한 EU-일본 디지털 파트너십의 성과를 점검하고 향후 협력 방향을 설정하며, 다음 EU-일본 디지털 파트너십 협의체 준비도 진행했다고 밝혔다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/9th-eu-japan-digital-policy-dialogue-advancing-digital-partnership">https://digital-strategy.ec.europa.eu/en/news/9th-eu-japan-digital-policy-dialogue-advancing-digital-partnership</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>CAISI, OpenMined과 CRADA 체결…기밀 데이터 기반의 프라이버시 보존 AI 평가 연구(2026.3.27)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 국립표준기술연구소(NIST)</span></span><button type="button" class="copy-btn" data-copy="CAISI, OpenMined과 CRADA 체결…기밀 데이터 기반의 프라이버시 보존 AI 평가 연구(2026.3.27)
+
+CAISI와 OpenMined이 협력연구개발협정(CRADA)을 체결하고, 데이터·모델·벤치마크를 비공개로 유지하면서도 AI 평가의 측정 정확성을 확보하는 프라이버시 보존 방법을 연구하기로 했다. OpenMined의 오픈소스 보안 컴퓨팅 인프라(PySyft 등)를 활용해 데이터 소유자와 AI 개발자의 보안 요구를 동시에 충족하는 평가를 수행하며, 그 결과는 NIST의 AI 보안 및 적용 AI 평가 관련 자발적 표준·모범사례·권고 개발에 활용될 예정이다.
+
+https://www.nist.gov/news-events/news/2026/03/announcement-caisi-signs-crada-openmined-enable-secure-ai-evaluations" onclick="copyEntry(this)">복사</button></div>
+  <p>CAISI와 OpenMined이 협력연구개발협정(CRADA)을 체결하고, 데이터·모델·벤치마크를 비공개로 유지하면서도 AI 평가의 측정 정확성을 확보하는 프라이버시 보존 방법을 연구하기로 했다. OpenMined의 오픈소스 보안 컴퓨팅 인프라(PySyft 등)를 활용해 데이터 소유자와 AI 개발자의 보안 요구를 동시에 충족하는 평가를 수행하며, 그 결과는 NIST의 AI 보안 및 적용 AI 평가 관련 자발적 표준·모범사례·권고 개발에 활용될 예정이다.</p>
+  <p class="url"><a href="https://www.nist.gov/news-events/news/2026/03/announcement-caisi-signs-crada-openmined-enable-secure-ai-evaluations">https://www.nist.gov/news-events/news/2026/03/announcement-caisi-signs-crada-openmined-enable-secure-ai-evaluations</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Anthropic, 데이터 유출로 ‘Claude Mythos’ 존재가 드러난 뒤 신형 AI 모델을 초기 고객과 시험 중(2026.3.27)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">포춘(Fortune)</span> · <span class="deadline">마감일·시행일: (본문 내 별도 마감/시행일 없음)</span></span><button type="button" class="copy-btn" data-copy="Anthropic, 데이터 유출로 ‘Claude Mythos’ 존재가 드러난 뒤 신형 AI 모델을 초기 고객과 시험 중(2026.3.27)
+
+Anthropic은 데이터 유출로 신형 AI 모델의 존재가 알려진 이후, 더 높은 성능의 새 모델을 개발 중이며 초기 액세스 고객과 시험하고 있다고 밝혔다. 유출된 초안 문서에는 모델 이름이 ‘Claude Mythos’로 언급되며, 사이버보안 분야에서의 위험이 크고 방어자 중심으로 초기 공개를 진행하겠다는 취지의 내용이 포함된 것으로 전해졌다. 또한 CMS 설정 오류로 초안이 공개 데이터 캐시에 노출됐고, 유출 이후 검색 접근을 차단했다고 회사가 설명했다. 문서에는 기존 ‘Opus’보다 더 큰 새 모델 티어(‘Capybara’)와 관련된 시험·출시 계획 및 유럽 기업 CEO 대상 초청 리트릿 정보도 함께 담긴 것으로 보도됐다.
+
+https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/?preview_id=4450088" onclick="copyEntry(this)">복사</button></div>
+  <p>Anthropic은 데이터 유출로 신형 AI 모델의 존재가 알려진 이후, 더 높은 성능의 새 모델을 개발 중이며 초기 액세스 고객과 시험하고 있다고 밝혔다. 유출된 초안 문서에는 모델 이름이 ‘Claude Mythos’로 언급되며, 사이버보안 분야에서의 위험이 크고 방어자 중심으로 초기 공개를 진행하겠다는 취지의 내용이 포함된 것으로 전해졌다. 또한 CMS 설정 오류로 초안이 공개 데이터 캐시에 노출됐고, 유출 이후 검색 접근을 차단했다고 회사가 설명했다. 문서에는 기존 ‘Opus’보다 더 큰 새 모델 티어(‘Capybara’)와 관련된 시험·출시 계획 및 유럽 기업 CEO 대상 초청 리트릿 정보도 함께 담긴 것으로 보도됐다.</p>
+  <p class="url"><a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/?preview_id=4450088">https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/?preview_id=4450088</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>디지털사회 제71호: 응답에서 실행으로: AI 에이전트 시대의 사용자 경험 설계 (2026.3.27)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">연세대학교 디지털사회과학센터(CDSS) 이슈브리프</span></span><button type="button" class="copy-btn" data-copy="디지털사회 제71호: 응답에서 실행으로: AI 에이전트 시대의 사용자 경험 설계 (2026.3.27)
+
+생성형 AI가 ‘검색’에서 ‘대화’로 정보 탐색 방식을 바꾼 데 이어, AI 에이전트는 사용자의 권한을 위임받아 실제 작업을 수행하며 상호작용의 중심이 ‘응답’에서 ‘실행’으로 이동한다고 설명한다. 에이전트가 PC 조작·결제·예약·오발송·개인정보 유출 등 행동 기반 오류를 만들 수 있어, UX 설계는 자동화 확대보다 위임의 조건을 이해 가능하고 안전하게 통제하는 구조가 핵심이라고 강조한다. 이를 위해 판단 과정의 가시화, 상태·운영 조건의 통합 표시, 언제든 중단·수정 가능한 물리적 제어권, 그리고 중요한 경계에서 사용자 확인 지점을 설계하는 원칙을 제시한다.
+
+http://cdss.yonsei.ac.kr/index.php/issue-brief/?uid=227&amp;mod=document&amp;pageid=1" onclick="copyEntry(this)">복사</button></div>
+  <p>생성형 AI가 ‘검색’에서 ‘대화’로 정보 탐색 방식을 바꾼 데 이어, AI 에이전트는 사용자의 권한을 위임받아 실제 작업을 수행하며 상호작용의 중심이 ‘응답’에서 ‘실행’으로 이동한다고 설명한다. 에이전트가 PC 조작·결제·예약·오발송·개인정보 유출 등 행동 기반 오류를 만들 수 있어, UX 설계는 자동화 확대보다 위임의 조건을 이해 가능하고 안전하게 통제하는 구조가 핵심이라고 강조한다. 이를 위해 판단 과정의 가시화, 상태·운영 조건의 통합 표시, 언제든 중단·수정 가능한 물리적 제어권, 그리고 중요한 경계에서 사용자 확인 지점을 설계하는 원칙을 제시한다.</p>
+  <p class="url"><a href="http://cdss.yonsei.ac.kr/index.php/issue-brief/?uid=227&amp;mod=document&amp;pageid=1">http://cdss.yonsei.ac.kr/index.php/issue-brief/?uid=227&amp;mod=document&amp;pageid=1</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(2026.3.27) 거실용 휴머노이드 로봇 확산에 비해 규제·책임 체계가 뒤처져 있다는 주장</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">AI Frontiers</span> · <span class="deadline">마감일·시행일: 콜로라도 AI Act는 2026.6.30 시행, 캘리포니아 Transparency in Frontier AI Act는 2026.1.1부터 효력</span></span><button type="button" class="copy-btn" data-copy="(2026.3.27) 거실용 휴머노이드 로봇 확산에 비해 규제·책임 체계가 뒤처져 있다는 주장
+
+거실에서 쓰일 수 있는 휴머노이드 로봇이 이미 상용화·실가정 테스트 단계로 빠르게 진입했지만, 이를 포괄할 일관된 규제는 부족하다고 지적한다. 미국의 소비자 안전·프라이버시·주(州)별 AI 규정·제품책임·기술표준이 서로 어긋나며, 항상 켜져 사람의 영상·음성·공간 데이터를 수집·학습하는 로봇에 맞춘 의무가 정리되지 않았다는 내용이다. 글은 물리적 능력과 자율성 수준에 따라 위험을 단계화하고, 데이터 거버넌스·사고 보고·책임(준수 시 과실, 미준수 시 엄격책임) 등을 위험등급별로 설계하는 방향의 “기반”이 필요하다고 제안한다.
+
+https://aifrontiersmedia.substack.com/p/the-robot-in-your-living-room-has" onclick="copyEntry(this)">복사</button></div>
+  <p>거실에서 쓰일 수 있는 휴머노이드 로봇이 이미 상용화·실가정 테스트 단계로 빠르게 진입했지만, 이를 포괄할 일관된 규제는 부족하다고 지적한다. 미국의 소비자 안전·프라이버시·주(州)별 AI 규정·제품책임·기술표준이 서로 어긋나며, 항상 켜져 사람의 영상·음성·공간 데이터를 수집·학습하는 로봇에 맞춘 의무가 정리되지 않았다는 내용이다. 글은 물리적 능력과 자율성 수준에 따라 위험을 단계화하고, 데이터 거버넌스·사고 보고·책임(준수 시 과실, 미준수 시 엄격책임) 등을 위험등급별로 설계하는 방향의 “기반”이 필요하다고 제안한다.</p>
+  <p class="url"><a href="https://aifrontiersmedia.substack.com/p/the-robot-in-your-living-room-has">https://aifrontiersmedia.substack.com/p/the-robot-in-your-living-room-has</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>신뢰 기반 데이터 유통·활용을 위한 「한국형 데이터 스페이스 참조모델(V1.0)」 발간 (2026.3.27)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="신뢰 기반 데이터 유통·활용을 위한 「한국형 데이터 스페이스 참조모델(V1.0)」 발간 (2026.3.27)
+
+과학기술정보통신부와 한국지능정보사회진흥원은 신뢰 기반 데이터 유통·활용 생태계 조성을 위해 데이터 스페이스 조성 및 확산을 추진하고, 이를 위한 「한국형 데이터 스페이스 참조모델(V1.0)」을 발간했다. 참조모델은 데이터 스페이스 개념을 바탕으로 구성요소와 설계 원칙, 거버넌스·운영체계, 분산형 아키텍처 및 공통 서비스 등 핵심 기준을 제시한다. 또한 데이터 스페이스 구축 시 최소 공통 기준과 방향을 제공하며, 향후 데이터 스페이스 구축·확산의 기준으로 활용될 예정이다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=26537&amp;bcIdx=29174" onclick="copyEntry(this)">복사</button></div>
+  <p>과학기술정보통신부와 한국지능정보사회진흥원은 신뢰 기반 데이터 유통·활용 생태계 조성을 위해 데이터 스페이스 조성 및 확산을 추진하고, 이를 위한 「한국형 데이터 스페이스 참조모델(V1.0)」을 발간했다. 참조모델은 데이터 스페이스 개념을 바탕으로 구성요소와 설계 원칙, 거버넌스·운영체계, 분산형 아키텍처 및 공통 서비스 등 핵심 기준을 제시한다. 또한 데이터 스페이스 구축 시 최소 공통 기준과 방향을 제공하며, 향후 데이터 스페이스 구축·확산의 기준으로 활용될 예정이다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=26537&amp;bcIdx=29174">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=26537&amp;bcIdx=29174</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>연방 법원, 앤트로픽에 대한 미 정부 조치(“공급망 위험” 지정) 중단 명령(2026.3.27)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">theaiinsider.tech</span></span><button type="button" class="copy-btn" data-copy="연방 법원, 앤트로픽에 대한 미 정부 조치(“공급망 위험” 지정) 중단 명령(2026.3.27)
+
+미 캘리포니아 북부지방법원 리타 F. 린 판사는 앤트로픽을 “공급망 위험”으로 지정한 정부의 조치를 철회하고 연방과의 관계를 끊으려는 시도를 중단하라고 명령했다. 판사는 정부 조치가 앤트로픽에 부여된 보호를 침해했을 가능성이 크다고 보고 금지명령을 내렸다. 이번 사건은 앤트로픽의 AI 시스템 사용과 관련해 회사가 자율무기·대규모 감시 등 특정 적용에 대한 제한을 주장하는 과정에서 정부 지정이 이뤄지며 발생했다.
+
+https://theaiinsider.tech/2026/03/27/federal-court-blocks-u-s-government-action-against-anthropic-in-ai-policy-dispute/" onclick="copyEntry(this)">복사</button></div>
+  <p>미 캘리포니아 북부지방법원 리타 F. 린 판사는 앤트로픽을 “공급망 위험”으로 지정한 정부의 조치를 철회하고 연방과의 관계를 끊으려는 시도를 중단하라고 명령했다. 판사는 정부 조치가 앤트로픽에 부여된 보호를 침해했을 가능성이 크다고 보고 금지명령을 내렸다. 이번 사건은 앤트로픽의 AI 시스템 사용과 관련해 회사가 자율무기·대규모 감시 등 특정 적용에 대한 제한을 주장하는 과정에서 정부 지정이 이뤄지며 발생했다.</p>
+  <p class="url"><a href="https://theaiinsider.tech/2026/03/27/federal-court-blocks-u-s-government-action-against-anthropic-in-ai-policy-dispute/">https://theaiinsider.tech/2026/03/27/federal-court-blocks-u-s-government-action-against-anthropic-in-ai-policy-dispute/</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

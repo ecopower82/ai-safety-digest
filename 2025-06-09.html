@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-06-09</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-06-09 · 5/5건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-other">
+  <h2>런던 고등법원에서 Getty의 Stability AI 저작권·상표권 침해 소송이 진행되며, Stability는 이를 “생성 AI 산업에 대한 노골적 위협”으로 규정(기사·공고 게재일 2025.6.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">가디언(theguardian.com)</span></span><button type="button" class="copy-btn" data-copy="런던 고등법원에서 Getty의 Stability AI 저작권·상표권 침해 소송이 진행되며, Stability는 이를 “생성 AI 산업에 대한 노골적 위협”으로 규정(기사·공고 게재일 2025.6.9)
+
+런던 고등법원에서 수주간 진행될 예정이며, 증거 7만8천여 페이지가 공개되고 UC 버클리·독일 프라이베르크대 AI 전문가들이 증언할 것으로 전해짐
+
+본문은 Getty Images가 Stability AI가 자사 저작권 사진 아카이브를 무단으로 학습해 이미지 생성 모델이 Getty 워터마크가 남은 결과물을 낸다고 주장하며 소송이 런던 고등법원에 도달했다고 전합니다. Stability는 Getty가 “fanciful”한 법적 경로를 택하고 약 1,000만 파운드를 투입해 자신들의 사업에 대한 “존재적 위협”에 대응하고 있다고 맞서고, 학습 데이터에 아동 성적 학대 자료(CSAM)가 포함됐다는 주장에는 “혐오스럽다”고 반박했습니다. 또한 이번 재판은 특정 유명 사진가들의 이미지 사용 여부를 포함해 쟁점이 다뤄질 예정이며, 예비 증거와 전문가 증언이 이어질 계획입니다.
+
+https://www.theguardian.com/technology/2025/jun/09/stability-ai-getty-lawsuit-copyright" onclick="copyEntry(this)">복사</button></div>
+  <p>런던 고등법원에서 수주간 진행될 예정이며, 증거 7만8천여 페이지가 공개되고 UC 버클리·독일 프라이베르크대 AI 전문가들이 증언할 것으로 전해짐</p>
+<p>본문은 Getty Images가 Stability AI가 자사 저작권 사진 아카이브를 무단으로 학습해 이미지 생성 모델이 Getty 워터마크가 남은 결과물을 낸다고 주장하며 소송이 런던 고등법원에 도달했다고 전합니다. Stability는 Getty가 “fanciful”한 법적 경로를 택하고 약 1,000만 파운드를 투입해 자신들의 사업에 대한 “존재적 위협”에 대응하고 있다고 맞서고, 학습 데이터에 아동 성적 학대 자료(CSAM)가 포함됐다는 주장에는 “혐오스럽다”고 반박했습니다. 또한 이번 재판은 특정 유명 사진가들의 이미지 사용 여부를 포함해 쟁점이 다뤄질 예정이며, 예비 증거와 전문가 증언이 이어질 계획입니다.</p>
+  <p class="url"><a href="https://www.theguardian.com/technology/2025/jun/09/stability-ai-getty-lawsuit-copyright">https://www.theguardian.com/technology/2025/jun/09/stability-ai-getty-lawsuit-copyright</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>미 상원에 주·지방 AI 규제 집행 10년 유예 지지 촉구(2025.6.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">미국상공회의소(U.S. Chamber of Commerce)</span></span><button type="button" class="copy-btn" data-copy="미 상원에 주·지방 AI 규제 집행 10년 유예 지지 촉구(2025.6.9)
+
+미 상원 지도부(Thune·Schumer)에게 보내는 연합 서한으로, 주·지방의 AI-specific 규제에 대한 집행을 10년간 유예하자는 제안을 강하게 지지한다고 밝혔다. 주·지방에서 AI 관련 법안이 빠르게 늘고 연방 유예가 없으면 지역별 규제 ‘패치워크’가 형성돼 AI 개발·도입이 제한될 수 있으며, 특히 자원이 부족한 중소기업의 준수·소송 비용 부담이 커진다고 주장한다. 동시에 유예 기간 동안 의회가 AI 개발·사용에서 발생하는 쟁점을 반영한 맞춤형(전국 단일 적용) 규제를 검토·도입할 시간을 확보할 수 있다고 강조했다.
+
+https://www.uschamber.com/technology/artificial-intelligence/coalition-letter-to-the-senate-supporting-the-moratorium-on-ai-regulation-enforcement" onclick="copyEntry(this)">복사</button></div>
+  <p>미 상원 지도부(Thune·Schumer)에게 보내는 연합 서한으로, 주·지방의 AI-specific 규제에 대한 집행을 10년간 유예하자는 제안을 강하게 지지한다고 밝혔다. 주·지방에서 AI 관련 법안이 빠르게 늘고 연방 유예가 없으면 지역별 규제 ‘패치워크’가 형성돼 AI 개발·도입이 제한될 수 있으며, 특히 자원이 부족한 중소기업의 준수·소송 비용 부담이 커진다고 주장한다. 동시에 유예 기간 동안 의회가 AI 개발·사용에서 발생하는 쟁점을 반영한 맞춤형(전국 단일 적용) 규제를 검토·도입할 시간을 확보할 수 있다고 강조했다.</p>
+  <p class="url"><a href="https://www.uschamber.com/technology/artificial-intelligence/coalition-letter-to-the-senate-supporting-the-moratorium-on-ai-regulation-enforcement">https://www.uschamber.com/technology/artificial-intelligence/coalition-letter-to-the-senate-supporting-the-moratorium-on-ai-regulation-enforcement</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI의 성별 편향은 윤리 문제를 넘어 기업 수익에도 영향을 준다(기사·공고 게재일 2025.6.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">포브스(forbes.com)</span></span><button type="button" class="copy-btn" data-copy="AI의 성별 편향은 윤리 문제를 넘어 기업 수익에도 영향을 준다(기사·공고 게재일 2025.6.9)
+
+AI는 학습 데이터의 성별 고정관념을 그대로 반영해 남성과 여성에 대해 다른 형용사·역할을 선택하는 등 편향을 강화할 수 있다고 설명한다. 또한 디지털 비서가 여성 목소리로 기본 설정되는 점이 여성의 보조·종속 역할 이미지를 고착시킬 수 있으며, 고객 신뢰와 만족도에도 부정적 영향을 줄 수 있다고 지적한다. 이를 줄이기 위해 다양한 인원이 참여하는 red-teaming 방식으로 챗봇의 편향 응답을 점검·수정하면 포용성과 사용성이 높아져 ROI와 매출에 긍정적 효과가 나타날 수 있다고 주장한다.
+
+https://www.forbes.com/sites/kimelsesser/2025/06/09/fixing-ais-gender-bias-isnt-just-ethical-its-good-business" onclick="copyEntry(this)">복사</button></div>
+  <p>AI는 학습 데이터의 성별 고정관념을 그대로 반영해 남성과 여성에 대해 다른 형용사·역할을 선택하는 등 편향을 강화할 수 있다고 설명한다. 또한 디지털 비서가 여성 목소리로 기본 설정되는 점이 여성의 보조·종속 역할 이미지를 고착시킬 수 있으며, 고객 신뢰와 만족도에도 부정적 영향을 줄 수 있다고 지적한다. 이를 줄이기 위해 다양한 인원이 참여하는 red-teaming 방식으로 챗봇의 편향 응답을 점검·수정하면 포용성과 사용성이 높아져 ROI와 매출에 긍정적 효과가 나타날 수 있다고 주장한다.</p>
+  <p class="url"><a href="https://www.forbes.com/sites/kimelsesser/2025/06/09/fixing-ais-gender-bias-isnt-just-ethical-its-good-business">https://www.forbes.com/sites/kimelsesser/2025/06/09/fixing-ais-gender-bias-isnt-just-ethical-its-good-business</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Getty Images vs Stability AI, 영국 ‘생성형 AI’ 첫 대형 저작권 재판(2025.6.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">AP 뉴스(Associated Press)</span> · <span class="deadline">재판은 최대 3주 진행 후 판사가 추후 서면 결정을 내릴 예정</span></span><button type="button" class="copy-btn" data-copy="Getty Images vs Stability AI, 영국 ‘생성형 AI’ 첫 대형 저작권 재판(2025.6.9)
+
+런던 영국 고등법원에서 생성형 AI 업계의 첫 주요 저작권 재판으로, Getty Images가 Stability AI의 Stable Diffusion 학습 과정이 자사 사진 저작권을 대규모로 침해했다고 주장하며 맞붙었다. Getty 측은 AI 학습에 저작물 사용 전 허가가 필요하며 ‘opt-out’ 방식은 부적절하다고 강조했고, Stability 측은 학습이 영국 밖(아마존 서버)에서 이뤄졌으며 생성 결과 중 Getty 작품과 유사한 비율이 “극히 일부”라고 반박한다. 재판이 끝난 뒤 판결이 AI 업계가 원하는 AI 학습 관련 저작권 예외 확대를 곧바로 보장하진 않지만, 콘텐츠 라이선스 협상에서 권리자와 AI 개발자 중 어느 쪽에 유리한지 영향을 줄 수 있다는 전망이 제시됐다.
+
+https://apnews.com/article/getty-images-stability-ai-copyright-trial-stable-diffusion-580ba200a3296c87207983f04cda4680" onclick="copyEntry(this)">복사</button></div>
+  <p>런던 영국 고등법원에서 생성형 AI 업계의 첫 주요 저작권 재판으로, Getty Images가 Stability AI의 Stable Diffusion 학습 과정이 자사 사진 저작권을 대규모로 침해했다고 주장하며 맞붙었다. Getty 측은 AI 학습에 저작물 사용 전 허가가 필요하며 ‘opt-out’ 방식은 부적절하다고 강조했고, Stability 측은 학습이 영국 밖(아마존 서버)에서 이뤄졌으며 생성 결과 중 Getty 작품과 유사한 비율이 “극히 일부”라고 반박한다. 재판이 끝난 뒤 판결이 AI 업계가 원하는 AI 학습 관련 저작권 예외 확대를 곧바로 보장하진 않지만, 콘텐츠 라이선스 협상에서 권리자와 AI 개발자 중 어느 쪽에 유리한지 영향을 줄 수 있다는 전망이 제시됐다.</p>
+  <p class="url"><a href="https://apnews.com/article/getty-images-stability-ai-copyright-trial-stable-diffusion-580ba200a3296c87207983f04cda4680">https://apnews.com/article/getty-images-stability-ai-copyright-trial-stable-diffusion-580ba200a3296c87207983f04cda4680</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Ryan, 북아일랜드 세무자문·컴플라이언스 기업 Inspired Corporate Advisory 인수(**2025.6.9**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">International Accounting Bulletin (GlobalData)</span></span><button type="button" class="copy-btn" data-copy="Ryan, 북아일랜드 세무자문·컴플라이언스 기업 Inspired Corporate Advisory 인수(**2025.6.9**)
+
+Ryan은 세무자문 및 컴플라이언스 서비스를 제공하는 Inspired Corporate Advisory를 인수했다고 밝혔다. Inspired는 연구개발(R&amp;D), 자본공제(capital allowances), 특허박스(patent box) 인센티브 등 분야에 특화돼 있으며, 북아일랜드 소재 팀이 라이언의 지역 역량과 기업 세무 컴플라이언스·인센티브·자문 서비스를 강화할 것으로 설명했다. 인수 후 Inspired 파트너 2명이 Ryan의 principal로 임명되고, 팀 16명이 합류해 업계 및 주요 회계법인 경력을 더할 예정이다.
+
+https://finance.yahoo.com/news/ryan-acquires-inspired-095155354.html" onclick="copyEntry(this)">복사</button></div>
+  <p>Ryan은 세무자문 및 컴플라이언스 서비스를 제공하는 Inspired Corporate Advisory를 인수했다고 밝혔다. Inspired는 연구개발(R&amp;D), 자본공제(capital allowances), 특허박스(patent box) 인센티브 등 분야에 특화돼 있으며, 북아일랜드 소재 팀이 라이언의 지역 역량과 기업 세무 컴플라이언스·인센티브·자문 서비스를 강화할 것으로 설명했다. 인수 후 Inspired 파트너 2명이 Ryan의 principal로 임명되고, 팀 16명이 합류해 업계 및 주요 회계법인 경력을 더할 예정이다.</p>
+  <p class="url"><a href="https://finance.yahoo.com/news/ryan-acquires-inspired-095155354.html">https://finance.yahoo.com/news/ryan-acquires-inspired-095155354.html</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

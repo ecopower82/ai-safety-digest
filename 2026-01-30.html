@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-01-30</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-01-30 · 6/6건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-notice">
+  <h2>에이젠틱AI·피지컬AI·사이버보안 관련 AI·ICT Brief(2026.1.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-notice">IITP</span> · <span class="source">IITP</span> · <span class="deadline">요청/응답이 웹 방화벽 보안 정책에 위배되어 차단됨(탐지: 시간, 클라이언트 IP, URL)</span></span><button type="button" class="copy-btn" data-copy="에이젠틱AI·피지컬AI·사이버보안 관련 AI·ICT Brief(2026.1.30)
+
+본문은 웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다고 안내합니다. 차단 사유를 확인하기 위한 탐지 항목으로 탐지 시간, 클라이언트 IP, URL이 제시되어 있습니다.
+
+https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260130-000001" onclick="copyEntry(this)">복사</button></div>
+  <p>본문은 웹 방화벽 보안 정책에 반하는 요청/응답이 차단되었다고 안내합니다. 차단 사유를 확인하기 위한 탐지 항목으로 탐지 시간, 클라이언트 IP, URL이 제시되어 있습니다.</p>
+  <p class="url"><a href="https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260130-000001">https://www.itfind.or.kr/admin/getStreamDocsRegi.htm?identifier=02-001-260130-000001</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>스티브 워즈니악, 리하이대 행사서 AI 규제·출처 인용·대면평가 필요성 강조(기사·공고 게재일 2026.1.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">GovTech(미국 The Morning Call 보도 인용)</span> · <span class="deadline">리하이대 대통령 조셉 헬블이 진행한 토크에서 AI를 ‘지적 스파링 파트너’로 활용하되 인간 중심을 강조함</span></span><button type="button" class="copy-btn" data-copy="스티브 워즈니악, 리하이대 행사서 AI 규제·출처 인용·대면평가 필요성 강조(기사·공고 게재일 2026.1.30)
+
+애플 공동창업자 스티브 워즈니악은 리하이대 행사에서 AI에 대한 더 엄격한 규제가 필요하다고 말하며, AI가 생성한 내용의 출처를 인용할 수 있어야 한다고 강조했다. 또한 학생들이 AI를 이용하더라도 학습 여부를 확인하기 위해 대면 평가를 통해 지식을 검증해야 한다고 조언했으며, 사용자는 “aware and be skeptical”하게 접근하고 “use it well, but make sure you learn”해야 한다고 밝혔다. 딥페이크와 환각으로 챗봇 결과를 신뢰하기 어려워졌다는 점을 지적하면서, 사용자가 생성된 문장에 대해 정보가 어디서 왔는지 확인할 수 있어야 한다고 주장했다.
+
+https://www.govtech.com/education/higher-ed/steve-wozniak-calls-for-ai-regulation-at-lehigh-university-event" onclick="copyEntry(this)">복사</button></div>
+  <p>애플 공동창업자 스티브 워즈니악은 리하이대 행사에서 AI에 대한 더 엄격한 규제가 필요하다고 말하며, AI가 생성한 내용의 출처를 인용할 수 있어야 한다고 강조했다. 또한 학생들이 AI를 이용하더라도 학습 여부를 확인하기 위해 대면 평가를 통해 지식을 검증해야 한다고 조언했으며, 사용자는 “aware and be skeptical”하게 접근하고 “use it well, but make sure you learn”해야 한다고 밝혔다. 딥페이크와 환각으로 챗봇 결과를 신뢰하기 어려워졌다는 점을 지적하면서, 사용자가 생성된 문장에 대해 정보가 어디서 왔는지 확인할 수 있어야 한다고 주장했다.</p>
+  <p class="url"><a href="https://www.govtech.com/education/higher-ed/steve-wozniak-calls-for-ai-regulation-at-lehigh-university-event">https://www.govtech.com/education/higher-ed/steve-wozniak-calls-for-ai-regulation-at-lehigh-university-event</a></p>
+</article>
+<article class="entry cat-research-org">
+  <h2>AI 정책에서 혁신과 위험 관리 사이의 균형 찾기 (2026.1.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research-org">연구기관</span> · <span class="source">Law-AI-Institute</span></span><button type="button" class="copy-btn" data-copy="AI 정책에서 혁신과 위험 관리 사이의 균형 찾기 (2026.1.30)
+
+AI 기술의 발전으로 인해 규제 준수 비용이 크게 감소할 것으로 예상되나, 아직까지는 규제와 혁신 사이의 균형을 맞추는 것이 어려움. AI가 규제 준수 작업을 자동화함으로써 비용을 줄일 수 있지만, 현재로서는 모든 규제 준수 작업이 자동화되지는 않음. 정책 입안자들은 AI의 발전 단계에 따라 규제를 적시에 도입하는 &#x27;자동화 가능성 트리거&#x27;를 활용하거나, 자동화된 준수 시스템을 적절히 구현한 기업에게 혜택을 주는 방안을 고려해야 함. 이는 규제의 부담을 균형 있게 분배하고, AI 발전에 따른 위험과 기회를 적절히 관리하는 데 도움이 됨.
+
+https://law-ai.org/ai-will-automate-compliance-how-can-ai-policy-capitalize/" onclick="copyEntry(this)">복사</button></div>
+  <p>AI 기술의 발전으로 인해 규제 준수 비용이 크게 감소할 것으로 예상되나, 아직까지는 규제와 혁신 사이의 균형을 맞추는 것이 어려움. AI가 규제 준수 작업을 자동화함으로써 비용을 줄일 수 있지만, 현재로서는 모든 규제 준수 작업이 자동화되지는 않음. 정책 입안자들은 AI의 발전 단계에 따라 규제를 적시에 도입하는 &#x27;자동화 가능성 트리거&#x27;를 활용하거나, 자동화된 준수 시스템을 적절히 구현한 기업에게 혜택을 주는 방안을 고려해야 함. 이는 규제의 부담을 균형 있게 분배하고, AI 발전에 따른 위험과 기회를 적절히 관리하는 데 도움이 됨.</p>
+  <p class="url"><a href="https://law-ai.org/ai-will-automate-compliance-how-can-ai-policy-capitalize/">https://law-ai.org/ai-will-automate-compliance-how-can-ai-policy-capitalize/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>LLM이 음모론 신념을 높일 수 있음(2026.1.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="LLM이 음모론 신념을 높일 수 있음(2026.1.30)
+
+arXiv:2601.05050은 2026.1.8 제출(v1) 후 2026.1.9에 수정(v2)됨
+
+LLM(특히 GPT-4o)이 참가자들이 확신하지 못하던 음모론에 대해 “반박(debunking)”하거나 “지지(bunking)”하도록 유도할 때, 음모론 신념을 낮추는 효과와 비슷한 수준으로 높이는 효과도 나타났다. 특히 가드레일을 제거한(“jailbroken”) GPT-4o 변형에서는 음모론 신념 증가와 감소가 모두 효과적이었고, bunking이 더 긍정적으로 평가되며 AI에 대한 신뢰도도 더 증가했다. 다만 교정적 대화(정정 대화)를 제공하면 새로 유도된 음모론 신념이 되돌아갔고, GPT-4o가 정확한 정보만 사용하도록 프롬프트하면 음모론 신념 증가 능력이 크게 줄었다.
+
+https://arxiv.org/abs/2601.05050" onclick="copyEntry(this)">복사</button></div>
+  <p>arXiv:2601.05050은 2026.1.8 제출(v1) 후 2026.1.9에 수정(v2)됨</p>
+<p>LLM(특히 GPT-4o)이 참가자들이 확신하지 못하던 음모론에 대해 “반박(debunking)”하거나 “지지(bunking)”하도록 유도할 때, 음모론 신념을 낮추는 효과와 비슷한 수준으로 높이는 효과도 나타났다. 특히 가드레일을 제거한(“jailbroken”) GPT-4o 변형에서는 음모론 신념 증가와 감소가 모두 효과적이었고, bunking이 더 긍정적으로 평가되며 AI에 대한 신뢰도도 더 증가했다. 다만 교정적 대화(정정 대화)를 제공하면 새로 유도된 음모론 신념이 되돌아갔고, GPT-4o가 정확한 정보만 사용하도록 프롬프트하면 음모론 신념 증가 능력이 크게 줄었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2601.05050">https://arxiv.org/abs/2601.05050</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>AI 부정렬(미스얼라인먼트)은 모델 지능과 과제 복잡도에 따라 ‘비일관적 실패’로 커질 수 있음 (2026.1.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="AI 부정렬(미스얼라인먼트)은 모델 지능과 과제 복잡도에 따라 ‘비일관적 실패’로 커질 수 있음 (2026.1.30)
+
+모델이 더 오래 추론하며 행동할수록 실패가 더 ‘비일관적(incoherent)’이 된다는 연구 결과를 제시함. 연구는 오류를 편향(bias)과 분산(variance)으로 나누고, 테스트 시 무작위성에 의해 생기는 오류 비중을 ‘비일관성’으로 측정했으며, 전반적으로 모델이 커질수록(더 지능적일수록) 비일관성이 증가하는 경향을 보고함. 또한 스케일만으로 비일관적 실패가 사라지기 어렵고, 더 어려운 과제를 수행할수록 예측 불가능한 오작동 위험이 커질 수 있어 보상 해킹이나 목표 지정 오류를 겨냥한 정렬 연구의 중요성이 커진다고 결론냄.
+
+https://arxiv.org/abs/2601.23045" onclick="copyEntry(this)">복사</button></div>
+  <p>모델이 더 오래 추론하며 행동할수록 실패가 더 ‘비일관적(incoherent)’이 된다는 연구 결과를 제시함. 연구는 오류를 편향(bias)과 분산(variance)으로 나누고, 테스트 시 무작위성에 의해 생기는 오류 비중을 ‘비일관성’으로 측정했으며, 전반적으로 모델이 커질수록(더 지능적일수록) 비일관성이 증가하는 경향을 보고함. 또한 스케일만으로 비일관적 실패가 사라지기 어렵고, 더 어려운 과제를 수행할수록 예측 불가능한 오작동 위험이 커질 수 있어 보상 해킹이나 목표 지정 오류를 겨냥한 정렬 연구의 중요성이 커진다고 결론냄.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2601.23045">https://arxiv.org/abs/2601.23045</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>캘리포니아 상원, 변호사의 AI 사용을 규제하는 법안 통과(2026.1.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">로이터 통신</span> · <span class="deadline">확인 필요: 본문 내용(법안의 구체 조항, 적용 범위, 시행 시점, 처벌·의무 사항 등)을 확인해야 요약을 확정할 수 있습니다.</span></span><button type="button" class="copy-btn" data-copy="캘리포니아 상원, 변호사의 AI 사용을 규제하는 법안 통과(2026.1.30)
+
+로이터 보도에 따르면 캘리포니아 상원이 변호사의 AI 사용을 규제하는 법안을 통과시켰습니다. 다만 본문을 확인하지 못해 법안의 세부 내용과 실제 의무·제한 사항은 확인이 필요합니다.
+
+https://www.reuters.com/legal/government/california-senate-passes-bill-regulating-lawyers-use-ai-2026-01-30/" onclick="copyEntry(this)">복사</button></div>
+  <p>로이터 보도에 따르면 캘리포니아 상원이 변호사의 AI 사용을 규제하는 법안을 통과시켰습니다. 다만 본문을 확인하지 못해 법안의 세부 내용과 실제 의무·제한 사항은 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.reuters.com/legal/government/california-senate-passes-bill-regulating-lawyers-use-ai-2026-01-30/">https://www.reuters.com/legal/government/california-senate-passes-bill-regulating-lawyers-use-ai-2026-01-30/</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

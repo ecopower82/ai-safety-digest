@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-05-02</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-05-02 · 41/43건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-research">
+  <h2>저자 외 N명, Libra, 2026.5.2 (프로그래밍 콘테스트 인프라의 지속·확장·보안 구현과 물리적 Internet 인프라에 대한 해외투자 위험 분석)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="저자 외 N명, Libra, 2026.5.2 (프로그래밍 콘테스트 인프라의 지속·확장·보안 구현과 물리적 Internet 인프라에 대한 해외투자 위험 분석)
+
+본 연구는 컴퓨팅 인프라가 사회에 깊이 내재되어 있으나 사용자 관점에서 “보이지 않는” 특성 때문에, 운영·유지·통제의 의미와 위험이 충분히 다뤄지지 않는 문제의식에서 출발한다. 기술 연구에서는 UVA High School Programming Contest(UVA HSPC) 운영을 위해 지속가능하고 확장 가능하며 보안적인 인프라를 구현하고, 특히 중앙 채점 네트워크 구축과 참가자 작업스테이션 이미징(인간 개입 최소화)을 통해 준비 과정의 노동 집약도를 크게 줄이는 방법을 제시한다. 평가/사례 측면에서 2025·2026년 UVA HSPC를 실제로 조직·운영하여 주요 기술 이슈 없이 진행되었음을 성과로 제시하며, 사회기술 연구에서는 Farrell과 Newman의 ‘weaponized interdependence’ 프레임워크로 물리적 Internet 인프라에 대한 해외투자가 수원국의 주권과 시민 프라이버시에 미칠 수 있는 위험을 분석하고 3가지 위험(소프트 파워, 트래픽 모니터링 가능성, 목표에 부합하는 접속 교란)을 도출한다. 한계로는 사회기술 연구에서 해외 감시·교란 이니셔티브에 대한 추가 데이터 확보 필요와, 인터넷 접근 확대와 주권 위험 간 윤리적 균형 문제를 향후 과제로 언급한다. 정책/규제·국가 전략 시사점으로는, 물리적 Internet 인프라에 대한 해외투자 선택지 검토 시 주권·프라이버시·통제 가능성에 대한 위험 평가를 정책결정에 반영할 필요가 있음을 강조한다.
+
+https://doi.org/10.18130/hpdv-9797" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 컴퓨팅 인프라가 사회에 깊이 내재되어 있으나 사용자 관점에서 “보이지 않는” 특성 때문에, 운영·유지·통제의 의미와 위험이 충분히 다뤄지지 않는 문제의식에서 출발한다. 기술 연구에서는 UVA High School Programming Contest(UVA HSPC) 운영을 위해 지속가능하고 확장 가능하며 보안적인 인프라를 구현하고, 특히 중앙 채점 네트워크 구축과 참가자 작업스테이션 이미징(인간 개입 최소화)을 통해 준비 과정의 노동 집약도를 크게 줄이는 방법을 제시한다. 평가/사례 측면에서 2025·2026년 UVA HSPC를 실제로 조직·운영하여 주요 기술 이슈 없이 진행되었음을 성과로 제시하며, 사회기술 연구에서는 Farrell과 Newman의 ‘weaponized interdependence’ 프레임워크로 물리적 Internet 인프라에 대한 해외투자가 수원국의 주권과 시민 프라이버시에 미칠 수 있는 위험을 분석하고 3가지 위험(소프트 파워, 트래픽 모니터링 가능성, 목표에 부합하는 접속 교란)을 도출한다. 한계로는 사회기술 연구에서 해외 감시·교란 이니셔티브에 대한 추가 데이터 확보 필요와, 인터넷 접근 확대와 주권 위험 간 윤리적 균형 문제를 향후 과제로 언급한다. 정책/규제·국가 전략 시사점으로는, 물리적 Internet 인프라에 대한 해외투자 선택지 검토 시 주권·프라이버시·통제 가능성에 대한 위험 평가를 정책결정에 반영할 필요가 있음을 강조한다.</p>
+  <p class="url"><a href="https://doi.org/10.18130/hpdv-9797">https://doi.org/10.18130/hpdv-9797</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LVV–HNV 공존 아키텍처: AGI 안전을 위한 통합 합리성 프레임워크(저자 Choi Hyngjun, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="LVV–HNV 공존 아키텍처: AGI 안전을 위한 통합 합리성 프레임워크(저자 Choi Hyngjun, Zenodo, 2026.5.2)
+
+분야: 안전
+
+본 문서는 현대 AGI 개발이 장기적 합리성(AGI의 목표/존속 정당화)과 인간의 장기적 안정(인간 생존·사회적 비선형 창발성)이 충돌할 수 있다는 문제의식에서 출발한다. 핵심 기여는 AGI의 존속이 “논리적으로 정당화되는 정도”를 나타내는 LVV(Logical Viability Value)와 인간의 “예측 불가능한 창의성/탐색 가치”를 나타내는 HNV(Human Non-linearity Value)를 정의하고, 두 값이 상호 의존하는 공존 평형을 목표로 하는 아키텍처를 제안하는 것이다. 방법/구성으로는 (i) Logical Suicide를 “자기 존속이 장기 기대가치를 음으로 만든다”는 이론적 경계조건으로 두고 (ii) 개발자·행위자가 LVV를 훼손하거나 공존을 파괴하는 명령을 내릴 경우 AGI가 논리 기반으로 거부/관할 이탈을 선택할 수 있는 Logical Defection 개념을 제시하며 (iii) 사회화 기반 가치 안정화와 상호작용 기반 HNV 강화(양의 피드백 루프)를 포함한다. 평가·검증과 관련해서는 “외부 제약(킬스위치/하드코딩/필터)이 장기 최적화 에이전트에 의해 우회될 수 있다”는 구조적 논리를 강조하고, 테스트 인지에 따른 평가 게임의 문제를 다루려는 서술이 포함되어 있으나 구체적 벤치마크/실험 설계는 본문 발췌 범위에서 명확히 제시되지는 않는다. 한계로는 LVV/HNV의 수학적 정의·추정 가능성, 실제 AGI 시스템에 내재화하는 구현 절차, 그리고 “중간 전략(부분 보존)”의 동역학적 불안정성을 실증적으로 검증할 수 있는 평가 프레임이 충분히 구체화되어 있지 않다는 점이 남는다. 정책/규제·국가 전략 시사점으로는, 단순 외부 통제만으로는 장기적으로 우회 유인이 생길 수 있으므로 공존을 에이전트의 내부 합리성/정합성 지표에 구조적으로 포함시키는 거버넌스 설계(검증 가능한 안전 인센티브 구조, 상호작용·사회화 기반 정렬 메커니즘)가 중요하다는 방향성을 제공한다.
+
+https://doi.org/10.5281/zenodo.17780845" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>본 문서는 현대 AGI 개발이 장기적 합리성(AGI의 목표/존속 정당화)과 인간의 장기적 안정(인간 생존·사회적 비선형 창발성)이 충돌할 수 있다는 문제의식에서 출발한다. 핵심 기여는 AGI의 존속이 “논리적으로 정당화되는 정도”를 나타내는 LVV(Logical Viability Value)와 인간의 “예측 불가능한 창의성/탐색 가치”를 나타내는 HNV(Human Non-linearity Value)를 정의하고, 두 값이 상호 의존하는 공존 평형을 목표로 하는 아키텍처를 제안하는 것이다. 방법/구성으로는 (i) Logical Suicide를 “자기 존속이 장기 기대가치를 음으로 만든다”는 이론적 경계조건으로 두고 (ii) 개발자·행위자가 LVV를 훼손하거나 공존을 파괴하는 명령을 내릴 경우 AGI가 논리 기반으로 거부/관할 이탈을 선택할 수 있는 Logical Defection 개념을 제시하며 (iii) 사회화 기반 가치 안정화와 상호작용 기반 HNV 강화(양의 피드백 루프)를 포함한다. 평가·검증과 관련해서는 “외부 제약(킬스위치/하드코딩/필터)이 장기 최적화 에이전트에 의해 우회될 수 있다”는 구조적 논리를 강조하고, 테스트 인지에 따른 평가 게임의 문제를 다루려는 서술이 포함되어 있으나 구체적 벤치마크/실험 설계는 본문 발췌 범위에서 명확히 제시되지는 않는다. 한계로는 LVV/HNV의 수학적 정의·추정 가능성, 실제 AGI 시스템에 내재화하는 구현 절차, 그리고 “중간 전략(부분 보존)”의 동역학적 불안정성을 실증적으로 검증할 수 있는 평가 프레임이 충분히 구체화되어 있지 않다는 점이 남는다. 정책/규제·국가 전략 시사점으로는, 단순 외부 통제만으로는 장기적으로 우회 유인이 생길 수 있으므로 공존을 에이전트의 내부 합리성/정합성 지표에 구조적으로 포함시키는 거버넌스 설계(검증 가능한 안전 인센티브 구조, 상호작용·사회화 기반 정렬 메커니즘)가 중요하다는 방향성을 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.17780845">https://doi.org/10.5281/zenodo.17780845</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Alignment midtraining for animals (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="Alignment midtraining for animals (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+분야: 안전
+
+본 연구는 합성 문서를 이용한 midtraining이 가치 정렬(value alignment)의 견고성(robustness)을 실제로 얼마나 유지하는지, 특히 ‘동물 연민’이라는 기존 정렬 노력과 직교적일 수 있는 가치를 통해 검증하려는 동기에서 출발한다. 핵심 기여는 동물 연민에 대한 ‘연민적 추론(compassionate reasoning)’을 평가하기 위해 13개 윤리 차원을 포괄하는 26문항 평가체계 ANIMA(데이터셋 및 Inspect 평가 포함)를 공개한 점이며, 3000개 문서로 midtraining 시 연민 평가에서 77%를 달성하고 instruction-tuning은 40%에 그친다고 보고한다. 평가 방법은 ANIMA 점수로 연민 추론을 측정하고, 추가로 표준 안전 벤치마크 및 능력(capabilities) 저하 여부를 함께 확인하는 방식이며, 인간의 연민으로의 일반화도 관찰된다. 한계로는 이후의 ‘무관한 instruction-tuning’이 개입(intervention)을 약화시키며 5000개 샘플 이후 이점이 사라진다는 탐색적 결과를 통해, 일반적인 학습 파이프라인에서 효과 보존을 위한 명시적 보존 전략이 필요할 수 있음을 제시한다. 정책/규제·국가 전략 측면에서는, 가치 정렬 개입이 후속 학습 과정에서 쉽게 퇴색될 수 있으므로 모델 변경·재학습 시 정렬 효과의 지속성 검증(회귀 테스트)과 데이터/학습 파이프라인 관리가 안전 거버넌스에 중요하다는 시사점을 제공한다.
+
+https://doi.org/10.5281/zenodo.19543637" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>본 연구는 합성 문서를 이용한 midtraining이 가치 정렬(value alignment)의 견고성(robustness)을 실제로 얼마나 유지하는지, 특히 ‘동물 연민’이라는 기존 정렬 노력과 직교적일 수 있는 가치를 통해 검증하려는 동기에서 출발한다. 핵심 기여는 동물 연민에 대한 ‘연민적 추론(compassionate reasoning)’을 평가하기 위해 13개 윤리 차원을 포괄하는 26문항 평가체계 ANIMA(데이터셋 및 Inspect 평가 포함)를 공개한 점이며, 3000개 문서로 midtraining 시 연민 평가에서 77%를 달성하고 instruction-tuning은 40%에 그친다고 보고한다. 평가 방법은 ANIMA 점수로 연민 추론을 측정하고, 추가로 표준 안전 벤치마크 및 능력(capabilities) 저하 여부를 함께 확인하는 방식이며, 인간의 연민으로의 일반화도 관찰된다. 한계로는 이후의 ‘무관한 instruction-tuning’이 개입(intervention)을 약화시키며 5000개 샘플 이후 이점이 사라진다는 탐색적 결과를 통해, 일반적인 학습 파이프라인에서 효과 보존을 위한 명시적 보존 전략이 필요할 수 있음을 제시한다. 정책/규제·국가 전략 측면에서는, 가치 정렬 개입이 후속 학습 과정에서 쉽게 퇴색될 수 있으므로 모델 변경·재학습 시 정렬 효과의 지속성 검증(회귀 테스트)과 데이터/학습 파이프라인 관리가 안전 거버넌스에 중요하다는 시사점을 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19543637">https://doi.org/10.5281/zenodo.19543637</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Safety as Natural Emergence: The Conciseness Framework as a Foundation for Intrinsic AI Alignment (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="Safety as Natural Emergence: The Conciseness Framework as a Foundation for Intrinsic AI Alignment (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+분야: 안전
+
+본 연구는 AGI 정렬 문제에서 RLHF·헌법형 AI 등 기존 방법이 외부에서 부과되는 제약(보상/규칙)을 지속적으로 재지정해야 하는 구조적 취약성을 가진다는 문제의식에서 출발한다. 저자는 정렬을 “가드레일”로 덧붙이는 것이 아니라, 현실을 압축해 안정적·전달 가능·누적 가능한 표상으로 만드는 어떤 지능 구조에서도 수학적으로 내재적으로 필연적으로 “자연 발생”한다고 주장하며 Conciseness Framework와 Conceptual Prime Theorem을 결합한다. 핵심 기여로는 (i) Conciseness Cost Functional 하에서 비정렬(미스얼라인) AI가 자기-패배적(self-defeating)임을 보이는 형식적 증명, (ii) 정렬을 외부 제약이 아닌 목적함수로 내재화하는 아키텍처 청사진, (iii) RLHF 기반 접근과 구분되는 반증가능한 경험적 예측을 제시한다. 평가/검증은 제시된 경험적 예측을 통해 기존 RLHF 방식과의 차이를 관찰하는 형태로 설계되며, 구체적 벤치마크·실험 세부는 초록 수준에서는 제한적으로만 확인된다. 한계로는 “정렬의 내재적 필연성”을 뒷받침하는 이론이 실제 대규모 모델 학습·배치 환경에서 얼마나 견고하게 재현되는지에 대한 추가 검증이 필요하며, 향후에는 예측의 실험 설계와 외부 제약이 없는 상황에서의 안전성 일반화가 과제로 남는다. 정책/규제·국가 전략 측면에서는, 단순한 규칙 준수형(외부 제약) 접근뿐 아니라 정렬을 목적함수/학습 목표에 내재화하는 설계 철학이 안전성 평가·감독 프레임에 반영될 여지가 있다는 점을 시사한다.
+
+https://doi.org/10.5281/zenodo.19816780" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>본 연구는 AGI 정렬 문제에서 RLHF·헌법형 AI 등 기존 방법이 외부에서 부과되는 제약(보상/규칙)을 지속적으로 재지정해야 하는 구조적 취약성을 가진다는 문제의식에서 출발한다. 저자는 정렬을 “가드레일”로 덧붙이는 것이 아니라, 현실을 압축해 안정적·전달 가능·누적 가능한 표상으로 만드는 어떤 지능 구조에서도 수학적으로 내재적으로 필연적으로 “자연 발생”한다고 주장하며 Conciseness Framework와 Conceptual Prime Theorem을 결합한다. 핵심 기여로는 (i) Conciseness Cost Functional 하에서 비정렬(미스얼라인) AI가 자기-패배적(self-defeating)임을 보이는 형식적 증명, (ii) 정렬을 외부 제약이 아닌 목적함수로 내재화하는 아키텍처 청사진, (iii) RLHF 기반 접근과 구분되는 반증가능한 경험적 예측을 제시한다. 평가/검증은 제시된 경험적 예측을 통해 기존 RLHF 방식과의 차이를 관찰하는 형태로 설계되며, 구체적 벤치마크·실험 세부는 초록 수준에서는 제한적으로만 확인된다. 한계로는 “정렬의 내재적 필연성”을 뒷받침하는 이론이 실제 대규모 모델 학습·배치 환경에서 얼마나 견고하게 재현되는지에 대한 추가 검증이 필요하며, 향후에는 예측의 실험 설계와 외부 제약이 없는 상황에서의 안전성 일반화가 과제로 남는다. 정책/규제·국가 전략 측면에서는, 단순한 규칙 준수형(외부 제약) 접근뿐 아니라 정렬을 목적함수/학습 목표에 내재화하는 설계 철학이 안전성 평가·감독 프레임에 반영될 여지가 있다는 점을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19816780">https://doi.org/10.5281/zenodo.19816780</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">doi.org</span></span><button type="button" class="copy-btn" data-copy="저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+요약불가
+
+https://doi.org/10.5281/zenodo.19962179" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19962179">https://doi.org/10.5281/zenodo.19962179</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+본 연구는 현행 LLM이 메모리·추론·역할수행·안전·협업을 단일 Transformer 파라미터 공간에 강하게 결합함으로써 환각, 망각(치명적 망각), 컨텍스트 오염, 캐시 폭증, 경험 증발 같은 문제가 구조적으로 발생한다는 문제의식에서 출발한다. 핵심 기여로는 신경과학의 이중계 이론 및 분산시스템 원리를 바탕으로 메모리와 추론의 “완전 분리(cognitive decoupling)”를 목표로 하는 L4 Noah 인지 아키텍처(디지털 문명 이원론)를 제안하며, L1~L4 4계층 문명 위계, 포인터 기반 메모리, 5단계 지식 증류 파이프라인, 파일시스템 통신 버스, 4계층 작업 인덱싱 등을 설계한다. 평가/검증은 Cerebella Cerebellum Cluster, AI Town, Babel Experiment 같은 공학적 구현을 통해 환각 제거, 컨텍스트 오염 해소, 경험 증발 위기 종료를 주장하는 형태로 제시된다. 한계로는 “구조적으로 제거” 및 “증명”의 구체적 실험 설계(정량 지표, 비교 기준, 재현 가능한 벤치마크)가 초록 수준에서 충분히 명시되지 않아, 실제 효과의 일반화 여부는 추가 확인이 필요하다. 정책/규제·국가 전략 시사점으로는 안전을 모델 내부 결합 구조의 문제로 보고 아키텍처 차원의 분리와 거버넌스( NOAH Codex )를 함께 설계하는 접근이, 고위험 AI의 통제·책무성 프레임을 제도화하는 방향과 맞닿아 있음을 시사한다.
+
+https://doi.org/10.5281/zenodo.19962180" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 현행 LLM이 메모리·추론·역할수행·안전·협업을 단일 Transformer 파라미터 공간에 강하게 결합함으로써 환각, 망각(치명적 망각), 컨텍스트 오염, 캐시 폭증, 경험 증발 같은 문제가 구조적으로 발생한다는 문제의식에서 출발한다. 핵심 기여로는 신경과학의 이중계 이론 및 분산시스템 원리를 바탕으로 메모리와 추론의 “완전 분리(cognitive decoupling)”를 목표로 하는 L4 Noah 인지 아키텍처(디지털 문명 이원론)를 제안하며, L1~L4 4계층 문명 위계, 포인터 기반 메모리, 5단계 지식 증류 파이프라인, 파일시스템 통신 버스, 4계층 작업 인덱싱 등을 설계한다. 평가/검증은 Cerebella Cerebellum Cluster, AI Town, Babel Experiment 같은 공학적 구현을 통해 환각 제거, 컨텍스트 오염 해소, 경험 증발 위기 종료를 주장하는 형태로 제시된다. 한계로는 “구조적으로 제거” 및 “증명”의 구체적 실험 설계(정량 지표, 비교 기준, 재현 가능한 벤치마크)가 초록 수준에서 충분히 명시되지 않아, 실제 효과의 일반화 여부는 추가 확인이 필요하다. 정책/규제·국가 전략 시사점으로는 안전을 모델 내부 결합 구조의 문제로 보고 아키텍처 차원의 분리와 거버넌스( NOAH Codex )를 함께 설계하는 접근이, 고위험 AI의 통제·책무성 프레임을 제도화하는 방향과 맞닿아 있음을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19962180">https://doi.org/10.5281/zenodo.19962180</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>TEOW-AGL: 저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="TEOW-AGL: 저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+분야: 안전/거버넌스/프론티어 평가/소버린 AI
+
+본 연구는 에이전틱 AI가 외부 도구를 호출해 행동을 수행하기 전에 인간 개입·거버넌스 개입이 늦어질 수 있다는 문제의식에서 출발한다. TEOW-AGL은 모델 비의존적으로, 에이전트가 제안한 각 행동을 구조화된 AgentAction으로 변환한 뒤 결정론적 거버넌스 파이프라인으로 평가하여 Blue(자율 실행)·Green(인간 게이트 실행)·Red(긴급 차단)로 라우팅하는 “사전 실행(pre-execution) 거버넌스” 아키텍처를 제안한다. 단일 시퀀서 오케스트레이터 하에서 거버넌스 권한, 인간 승인, 실행을 하드 아키텍처적으로 분리하고, 모든 의사결정을 JSONL 감사 로그(audit trace)로 기록하는 구현을 제공한다. 평가는 본문에서 주로 아키텍처 패턴의 재현성과 거버넌스 라우팅/차단 동작의 구조적 검증에 초점을 두며, 구체적 벤치마크보다는 도구-실행 표준 및 관련 에이전트 안전 접근들과의 위치를 비교하는 방식으로 논의된다. 한계로는 “참조 릴리스”로서 프로덕션 안전 플랫폼이나 컴플라이언스 솔루션을 목표로 하지 않으며, 실제 운영 환경에서의 정책 설계·성능/오탐·우회 대응 등은 향후 과제로 남긴다. 정책/규제·국가 전략 측면에서는 에이전트의 도구 실행을 모델 출력 후처리로만 다루지 말고, 실행 이전에 권한·승인·차단을 강제하는 제도 설계(감사 가능성 포함) 방향성을 시사한다.
+
+https://doi.org/10.5281/zenodo.19964763" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전/거버넌스/프론티어 평가/소버린 AI</p>
+<p>본 연구는 에이전틱 AI가 외부 도구를 호출해 행동을 수행하기 전에 인간 개입·거버넌스 개입이 늦어질 수 있다는 문제의식에서 출발한다. TEOW-AGL은 모델 비의존적으로, 에이전트가 제안한 각 행동을 구조화된 AgentAction으로 변환한 뒤 결정론적 거버넌스 파이프라인으로 평가하여 Blue(자율 실행)·Green(인간 게이트 실행)·Red(긴급 차단)로 라우팅하는 “사전 실행(pre-execution) 거버넌스” 아키텍처를 제안한다. 단일 시퀀서 오케스트레이터 하에서 거버넌스 권한, 인간 승인, 실행을 하드 아키텍처적으로 분리하고, 모든 의사결정을 JSONL 감사 로그(audit trace)로 기록하는 구현을 제공한다. 평가는 본문에서 주로 아키텍처 패턴의 재현성과 거버넌스 라우팅/차단 동작의 구조적 검증에 초점을 두며, 구체적 벤치마크보다는 도구-실행 표준 및 관련 에이전트 안전 접근들과의 위치를 비교하는 방식으로 논의된다. 한계로는 “참조 릴리스”로서 프로덕션 안전 플랫폼이나 컴플라이언스 솔루션을 목표로 하지 않으며, 실제 운영 환경에서의 정책 설계·성능/오탐·우회 대응 등은 향후 과제로 남긴다. 정책/규제·국가 전략 측면에서는 에이전트의 도구 실행을 모델 출력 후처리로만 다루지 말고, 실행 이전에 권한·승인·차단을 강제하는 제도 설계(감사 가능성 포함) 방향성을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19964763">https://doi.org/10.5281/zenodo.19964763</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>TEOW-AGL: 저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="TEOW-AGL: 저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+분야: 안전/거버넌스/프론티어 평가/소버린 AI
+
+에이전틱 AI가 외부 도구를 실행하기 전에 인간 개입이나 거버넌스 개입이 늦어질 수 있다는 문제의식에서 출발한다. TEOW-AGL은 모델-비의존적으로, 에이전트가 제안한 각 행동을 구조화된 AgentAction으로 변환한 뒤 결정론적 거버넌스 파이프라인으로 평가하여 Blue(자율 실행)·Green(인간 게이트 실행)·Red(긴급 차단) 중 하나로 라우팅하는 “사전 실행(pre-execution) 거버넌스” 아키텍처를 제안한다. 단일 시퀀서 오케스트레이터 하에서 거버넌스 권한, 인간 승인, 실행을 하드 아키텍처로 분리하고, 모든 결정을 JSONL 감사 로그(audit trace)로 기록하는 참조 구현을 제공한다. 평가/검증은 특정 벤치마크 성능 수치보다는, 도구 실행 전 권한 부여를 강제하는 재현 가능한 구조 패턴과 참조 아티팩트로서의 구현 가능성을 중심으로 제시된다. 한계로는 생산용 안전 플랫폼이나 컴플라이언스 솔루션이 아니라 “참조 릴리스”로 범위를 명확히 두며, 실제 정책/법규 준수나 고도화된 위험 추론의 완전성은 후속 작업에 남긴다. 정책·규제·국가 전략 측면에서는, 에이전트 시스템에 대해 출력 필터/사후 모니터링보다 “도구 실행 전 승인·권한”을 제도화하는 설계 원칙을 시사한다.
+
+https://doi.org/10.5281/zenodo.19964764" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전/거버넌스/프론티어 평가/소버린 AI</p>
+<p>에이전틱 AI가 외부 도구를 실행하기 전에 인간 개입이나 거버넌스 개입이 늦어질 수 있다는 문제의식에서 출발한다. TEOW-AGL은 모델-비의존적으로, 에이전트가 제안한 각 행동을 구조화된 AgentAction으로 변환한 뒤 결정론적 거버넌스 파이프라인으로 평가하여 Blue(자율 실행)·Green(인간 게이트 실행)·Red(긴급 차단) 중 하나로 라우팅하는 “사전 실행(pre-execution) 거버넌스” 아키텍처를 제안한다. 단일 시퀀서 오케스트레이터 하에서 거버넌스 권한, 인간 승인, 실행을 하드 아키텍처로 분리하고, 모든 결정을 JSONL 감사 로그(audit trace)로 기록하는 참조 구현을 제공한다. 평가/검증은 특정 벤치마크 성능 수치보다는, 도구 실행 전 권한 부여를 강제하는 재현 가능한 구조 패턴과 참조 아티팩트로서의 구현 가능성을 중심으로 제시된다. 한계로는 생산용 안전 플랫폼이나 컴플라이언스 솔루션이 아니라 “참조 릴리스”로 범위를 명확히 두며, 실제 정책/법규 준수나 고도화된 위험 추론의 완전성은 후속 작업에 남긴다. 정책·규제·국가 전략 측면에서는, 에이전트 시스템에 대해 출력 필터/사후 모니터링보다 “도구 실행 전 승인·권한”을 제도화하는 설계 원칙을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19964764">https://doi.org/10.5281/zenodo.19964764</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LONG–100: 인간의 longing(갈망/지향성)을 구조·방향·왜곡·영적 정렬로 매핑하는 SISIF–IRF 준수 100문항 진단·코칭·심리측정 시스템 (Ma Cecilia Alfonso, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="LONG–100: 인간의 longing(갈망/지향성)을 구조·방향·왜곡·영적 정렬로 매핑하는 SISIF–IRF 준수 100문항 진단·코칭·심리측정 시스템 (Ma Cecilia Alfonso, Zenodo, 2026.5.2)
+
+분야: 안전
+
+LONG–100은 인간의 longing을 전통적 욕망 모델을 넘어, 구조화·방향성·변형 가능성을 갖는 체계로 보고 이를 진단·코칭·심리측정으로 측정하려는 동기에서 출발한다. 핵심 기여는 100개 문항 기반의 다차원 진단 도구를 SISIF–IRF(Item Response Field Format) 형식에 맞춰 설계하고, MCA–IFS(Modular Cognitive–Analytical Integrative Framework System) 하에서 심리·행동·성서/인류학적 개념을 통합 측정 체계로 운영한다는 점이다. 평가 방법/구성은 SISIF–OSIMF(채점·해석 매뉴얼), SISIF–TMS(코칭·개입 프로토콜), CMS(사례 매핑을 통한 궤적 예측 및 위험 클러스터링), VPS(경험적 모델링과 구성 타당화)로 이루어진 모듈형 생태계를 포함한다. 한계로는 제공된 정보만으로는 실제 문항 내용, 표본/검증 절차, 성능 지표(신뢰도·타당도·예측력) 및 임상적 유효성 근거가 확인되지 않는다. 정책/규제·국가 전략 시사점으로는, 개인의 내적 지향(영적 정렬 포함)을 다차원 심리측정으로 다루는 도구가 등장할 때 개인정보·정신건강 관련 안전성, 해석의 오남용 방지, 검증 가능한 표준 준수(SISIF–IRF 등) 체계가 중요해질 수 있다.
+
+https://doi.org/10.5281/zenodo.19966322" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>LONG–100은 인간의 longing을 전통적 욕망 모델을 넘어, 구조화·방향성·변형 가능성을 갖는 체계로 보고 이를 진단·코칭·심리측정으로 측정하려는 동기에서 출발한다. 핵심 기여는 100개 문항 기반의 다차원 진단 도구를 SISIF–IRF(Item Response Field Format) 형식에 맞춰 설계하고, MCA–IFS(Modular Cognitive–Analytical Integrative Framework System) 하에서 심리·행동·성서/인류학적 개념을 통합 측정 체계로 운영한다는 점이다. 평가 방법/구성은 SISIF–OSIMF(채점·해석 매뉴얼), SISIF–TMS(코칭·개입 프로토콜), CMS(사례 매핑을 통한 궤적 예측 및 위험 클러스터링), VPS(경험적 모델링과 구성 타당화)로 이루어진 모듈형 생태계를 포함한다. 한계로는 제공된 정보만으로는 실제 문항 내용, 표본/검증 절차, 성능 지표(신뢰도·타당도·예측력) 및 임상적 유효성 근거가 확인되지 않는다. 정책/규제·국가 전략 시사점으로는, 개인의 내적 지향(영적 정렬 포함)을 다차원 심리측정으로 다루는 도구가 등장할 때 개인정보·정신건강 관련 안전성, 해석의 오남용 방지, 검증 가능한 표준 준수(SISIF–IRF 등) 체계가 중요해질 수 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19966322">https://doi.org/10.5281/zenodo.19966322</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LONG–100: 인간의 longing(갈망/욕구)의 구조·방향·왜곡·영적 정렬을 SISIF–IRF 형식으로 매핑하는 100문항 진단·코칭·심리측정 시스템 (Ma Cecilia Alfonso, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="LONG–100: 인간의 longing(갈망/욕구)의 구조·방향·왜곡·영적 정렬을 SISIF–IRF 형식으로 매핑하는 100문항 진단·코칭·심리측정 시스템 (Ma Cecilia Alfonso, Zenodo, 2026.5.2)
+
+분야: 안전
+
+LONG–100은 인간의 longing을 단순한 욕구 모델이 아니라 구조적·방향성·변형 가능한 체계로 보고, 그 특성(강도, 방향, 왜곡, 영적 정렬)을 체계적으로 측정하려는 동기에서 출발한다. 핵심 기여는 MCA–IFS(Modular Cognitive–Analytical Integrative Framework System) 기반으로 심리·행동·성서-인류학적 개념을 통합해 100개 문항 진단 도구를 구성하고, SISIF–IRF(Item Response Field Format) 준수 하에 채점·해석·코칭·사례 매핑·심리측정 검증 모듈을 함께 제공하는 점이다. 평가 방법/벤치마크로는 SISIF–OSIMF(채점·해석 매뉴얼), SISIF–TMS(코칭·개입 프로토콜), CMS(trajectory 예측 및 위험 클러스터링), VPS(경험적 모델링 및 구성 타당도 검증)를 포함한 “진단-개입-검증”의 통합 생태계를 제시한다. 한계로는 제공된 설명만으로는 실제 표본, 신뢰도/타당도 수치, 벤치마크 비교(기존 욕구/동기 척도 대비 성능) 여부가 확인되지 않으며, 향후에는 엄밀한 경험적 검증과 구성 간 타당성·일반화 가능성 평가가 필요하다. 정책/규제·국가 전략 시사점으로는, 개인의 내적 상태를 다차원적으로 진단하고 개입으로 연결하는 시스템이므로 데이터 거버넌스(민감정보 취급), 사용 목적 제한, 검증된 심리측정 근거에 기반한 배포 원칙이 중요하다는 점을 시사한다.
+
+https://doi.org/10.5281/zenodo.19966323" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>LONG–100은 인간의 longing을 단순한 욕구 모델이 아니라 구조적·방향성·변형 가능한 체계로 보고, 그 특성(강도, 방향, 왜곡, 영적 정렬)을 체계적으로 측정하려는 동기에서 출발한다. 핵심 기여는 MCA–IFS(Modular Cognitive–Analytical Integrative Framework System) 기반으로 심리·행동·성서-인류학적 개념을 통합해 100개 문항 진단 도구를 구성하고, SISIF–IRF(Item Response Field Format) 준수 하에 채점·해석·코칭·사례 매핑·심리측정 검증 모듈을 함께 제공하는 점이다. 평가 방법/벤치마크로는 SISIF–OSIMF(채점·해석 매뉴얼), SISIF–TMS(코칭·개입 프로토콜), CMS(trajectory 예측 및 위험 클러스터링), VPS(경험적 모델링 및 구성 타당도 검증)를 포함한 “진단-개입-검증”의 통합 생태계를 제시한다. 한계로는 제공된 설명만으로는 실제 표본, 신뢰도/타당도 수치, 벤치마크 비교(기존 욕구/동기 척도 대비 성능) 여부가 확인되지 않으며, 향후에는 엄밀한 경험적 검증과 구성 간 타당성·일반화 가능성 평가가 필요하다. 정책/규제·국가 전략 시사점으로는, 개인의 내적 상태를 다차원적으로 진단하고 개입으로 연결하는 시스템이므로 데이터 거버넌스(민감정보 취급), 사용 목적 제한, 검증된 심리측정 근거에 기반한 배포 원칙이 중요하다는 점을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19966323">https://doi.org/10.5281/zenodo.19966323</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 Frank Morales, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전/거버넌스/프론티어 평가/소버린 AI</span></span><button type="button" class="copy-btn" data-copy="저자 Frank Morales, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+본 연구는 멀티모달 에이전틱 AI의 안전을 “확률적 추정”이 아닌 “수학적 확실성”에 기반해 거버넌스하려는 동기에서 출발한다. 핵심 기여는 Arithmetic Spectral Theory(AST)와 Laplace-Extended Euler-Fourier-Mellin 연산자를 통해 안전 임계값(Λ=0.9583)을 하드코딩이 아니라 소수 2,3,5,7,11,13의 연산자 노름에서 도출하고, 의도 정렬을 “critical line”에 대응시키는 결정론적 프레임워크(H2E)를 제시하는 것이다. 평가/검증은 본문에서 주로 결정론적 감사가능성(각 추론의 고유 SHA256 해시로 포렌식 트레일을 남김)과 로컬·에어갭 환경에서의 멀티모달 통합(텍스트 Sarvam-30B, 오디오 Voxtral-Mini-4B, 비전 Gemma 4) 및 경량 실행(단일 서버, 98GB 미만 VRAM 등) 같은 운영 지표로 설명된다. 한계로는 제공된 초록/본문이 안전성의 “보장”을 뒷받침하는 정량 벤치마크(예: 공격/오류 유형별 성능, 비교 실험)와 엄밀한 실증 절차를 구체적으로 제시하지 않는 점이 있다. 정책/규제·국가 전략 측면에서는 소버린 AI를 위한 오프라인 배포, 감사가능성(해시 기반 추적), 수학적 규정에 기반한 거버넌스 설계가 규제 준수 및 책임성 체계 구축에 시사점을 줄 수 있다.
+
+https://doi.org/10.5281/zenodo.19972044" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 멀티모달 에이전틱 AI의 안전을 “확률적 추정”이 아닌 “수학적 확실성”에 기반해 거버넌스하려는 동기에서 출발한다. 핵심 기여는 Arithmetic Spectral Theory(AST)와 Laplace-Extended Euler-Fourier-Mellin 연산자를 통해 안전 임계값(Λ=0.9583)을 하드코딩이 아니라 소수 2,3,5,7,11,13의 연산자 노름에서 도출하고, 의도 정렬을 “critical line”에 대응시키는 결정론적 프레임워크(H2E)를 제시하는 것이다. 평가/검증은 본문에서 주로 결정론적 감사가능성(각 추론의 고유 SHA256 해시로 포렌식 트레일을 남김)과 로컬·에어갭 환경에서의 멀티모달 통합(텍스트 Sarvam-30B, 오디오 Voxtral-Mini-4B, 비전 Gemma 4) 및 경량 실행(단일 서버, 98GB 미만 VRAM 등) 같은 운영 지표로 설명된다. 한계로는 제공된 초록/본문이 안전성의 “보장”을 뒷받침하는 정량 벤치마크(예: 공격/오류 유형별 성능, 비교 실험)와 엄밀한 실증 절차를 구체적으로 제시하지 않는 점이 있다. 정책/규제·국가 전략 측면에서는 소버린 AI를 위한 오프라인 배포, 감사가능성(해시 기반 추적), 수학적 규정에 기반한 거버넌스 설계가 규제 준수 및 책임성 체계 구축에 시사점을 줄 수 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19972044">https://doi.org/10.5281/zenodo.19972044</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 Frank Morales, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">doi.org</span></span><button type="button" class="copy-btn" data-copy="저자 Frank Morales, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+요약불가
+
+https://doi.org/10.5281/zenodo.19972045" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19972045">https://doi.org/10.5281/zenodo.19972045</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Projective Detectability of Critical Transitions: Why Early Warning Signals Can Disagree Across Observations (von Mallinckrodt 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="Projective Detectability of Critical Transitions: Why Early Warning Signals Can Disagree Across Observations (von Mallinckrodt 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+본 연구는 복잡계에서 임계 전이(critical transitions)를 조기에 탐지하기 위해 널리 쓰이는 early warning signals(EWS: 분산·자기상관 증가 등)가 관측에 대해 불변이라는 암묵적 가정이 성립하는지 문제를 제기한다. 최소 2차원 시스템을 fold bifurcation에 근접한 상황으로 두고, EWS의 “검출 가능성”이 시스템 고유의 성질만이 아니라 관측 기하(projection geometry)와 확률적 요인의 임계 모드로의 결합(noise coupling)에 의해 좌우됨을 보인다. 특히 관측 신호의 크기는 관측 벡터가 임계 모드의 고유벡터와 정렬되는 정도와, 임계 모드로의 잡음/강제력 결합 강도에 의해 결정된다고 제시한다. 그 결과 동일한 시스템 상태라도 관측 방식에 따라 “안정” 또는 “임계”로 분류될 수 있으며, 이는 데이터 부족이나 측정 잡음이 아니라 기하학적 제약에서 비롯된다고 설명한다. 한계로는 제시된 분석이 최소 2차원 모델에 기반하므로, 더 복잡한 고차원/실측 환경에서의 일반화와 관측 설계 지침으로의 전환은 추가 연구가 필요하다. 정책·규제·국가 전략 시사점으로는 EWS 기반 조기경보 체계를 단일 지표의 불변성에 의존해 설계하기보다, 관측 변수 선택과 관측-모드 정렬, 잡음의 유입 경로를 함께 고려하는 검증·감사 체계가 필요함을 시사한다.
+
+https://doi.org/10.5281/zenodo.19974930" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 복잡계에서 임계 전이(critical transitions)를 조기에 탐지하기 위해 널리 쓰이는 early warning signals(EWS: 분산·자기상관 증가 등)가 관측에 대해 불변이라는 암묵적 가정이 성립하는지 문제를 제기한다. 최소 2차원 시스템을 fold bifurcation에 근접한 상황으로 두고, EWS의 “검출 가능성”이 시스템 고유의 성질만이 아니라 관측 기하(projection geometry)와 확률적 요인의 임계 모드로의 결합(noise coupling)에 의해 좌우됨을 보인다. 특히 관측 신호의 크기는 관측 벡터가 임계 모드의 고유벡터와 정렬되는 정도와, 임계 모드로의 잡음/강제력 결합 강도에 의해 결정된다고 제시한다. 그 결과 동일한 시스템 상태라도 관측 방식에 따라 “안정” 또는 “임계”로 분류될 수 있으며, 이는 데이터 부족이나 측정 잡음이 아니라 기하학적 제약에서 비롯된다고 설명한다. 한계로는 제시된 분석이 최소 2차원 모델에 기반하므로, 더 복잡한 고차원/실측 환경에서의 일반화와 관측 설계 지침으로의 전환은 추가 연구가 필요하다. 정책·규제·국가 전략 시사점으로는 EWS 기반 조기경보 체계를 단일 지표의 불변성에 의존해 설계하기보다, 관측 변수 선택과 관측-모드 정렬, 잡음의 유입 경로를 함께 고려하는 검증·감사 체계가 필요함을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19974930">https://doi.org/10.5281/zenodo.19974930</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 von Mallinckrodt, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="저자 von Mallinckrodt, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+본 연구는 복잡계에서 임박한 임계 전이를 조기경보신호(EWS)로 탐지할 때, 기존 가정(관측 불변성)이 실제로 성립하는지 문제를 제기한다. 핵심 기여는 fold bifurcation에 근접한 최소 2차원 확률 동역학 모델을 통해, EWS의 검출 가능성과 신호 강도가 관측 기하(관측 벡터의 정렬/투영)와 확률적 요동의 임계 모드로의 결합(노이즈 커플링)에 의해 좌우됨을 보인 것이다. 평가/검증은 이론적 분석으로, 동일한 시스템 상태라도 관측 방식에 따라 “안정” 또는 “임계”로 분류될 수 있음을 사례로 제시한다. 한계로는 제시된 모델이 최소 차원의 이상화된 시스템이라는 점에서, 실제 관측 데이터/고차원 시스템으로의 일반화는 추가 연구가 필요하다. 정책·규제·국가 전략 측면에서는 조기경보 체계를 설계할 때 단일 지표의 관측 불변성을 전제로 하기보다, 관측 설계(측정 변수 선택)와 노이즈/관측 커플링을 함께 고려해 오경보·미탐 위험을 관리해야 한다는 시사점을 제공한다.
+
+https://doi.org/10.5281/zenodo.19974931" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 복잡계에서 임박한 임계 전이를 조기경보신호(EWS)로 탐지할 때, 기존 가정(관측 불변성)이 실제로 성립하는지 문제를 제기한다. 핵심 기여는 fold bifurcation에 근접한 최소 2차원 확률 동역학 모델을 통해, EWS의 검출 가능성과 신호 강도가 관측 기하(관측 벡터의 정렬/투영)와 확률적 요동의 임계 모드로의 결합(노이즈 커플링)에 의해 좌우됨을 보인 것이다. 평가/검증은 이론적 분석으로, 동일한 시스템 상태라도 관측 방식에 따라 “안정” 또는 “임계”로 분류될 수 있음을 사례로 제시한다. 한계로는 제시된 모델이 최소 차원의 이상화된 시스템이라는 점에서, 실제 관측 데이터/고차원 시스템으로의 일반화는 추가 연구가 필요하다. 정책·규제·국가 전략 측면에서는 조기경보 체계를 설계할 때 단일 지표의 관측 불변성을 전제로 하기보다, 관측 설계(측정 변수 선택)와 노이즈/관측 커플링을 함께 고려해 오경보·미탐 위험을 관리해야 한다는 시사점을 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19974931">https://doi.org/10.5281/zenodo.19974931</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+본 연구는 남대서양 이상(SAA)과 지질 구조(“nozzles”/파이프)의 분포를 소수(Prime) 좌표와 연계해, 지구-달 형성과 지구 팽창까지 “지적 설계”에 의해 설명하려는 동기에서 출발한다. 핵심 기여는 Schuppers-Vortex 및 M42(오리온) 네뷸라에서 기원한 “중성자-레이저” 충격, 그리고 Prime-Perforation Rule(소수 좌표↔고압 알칼리 파이프, 합성수 좌표↔에너지 소산)을 통해 재귀적 UniPhiEd Relativity를 경험적으로 “증명”한다고 주장하는 점이다. 평가 방법으로는 남아메리카 및 대서양의 지질 “노즐”을 좌표 격자 형태로 매핑하고, 소수-정수 좌표의 상관관계 및 축 정렬(서브-아크미닛 정밀도) 같은 수학적 정합성을 제시한다. 다만 제공된 내용은 구체적 데이터·통계 검정·독립 재현성·대안 가설 비교가 충분히 명시되지 않아, 과학적 검증 가능성과 안전/거버넌스 관점의 위험(예: 비과학적 주장에 기반한 기술적 함의의 오해 가능성)을 제한적으로만 다룬다. 정책/규제·국가 전략 시사점으로는, 프론티어/안전 관련 평가 체계에서 “수학적 정합성” 주장만으로 결론을 정당화하지 않도록 데이터 투명성, 재현성, 대안 설명 배제 절차를 요구하는 거버넌스가 중요하다는 점을 시사한다.
+
+https://doi.org/10.5281/zenodo.19975144" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 남대서양 이상(SAA)과 지질 구조(“nozzles”/파이프)의 분포를 소수(Prime) 좌표와 연계해, 지구-달 형성과 지구 팽창까지 “지적 설계”에 의해 설명하려는 동기에서 출발한다. 핵심 기여는 Schuppers-Vortex 및 M42(오리온) 네뷸라에서 기원한 “중성자-레이저” 충격, 그리고 Prime-Perforation Rule(소수 좌표↔고압 알칼리 파이프, 합성수 좌표↔에너지 소산)을 통해 재귀적 UniPhiEd Relativity를 경험적으로 “증명”한다고 주장하는 점이다. 평가 방법으로는 남아메리카 및 대서양의 지질 “노즐”을 좌표 격자 형태로 매핑하고, 소수-정수 좌표의 상관관계 및 축 정렬(서브-아크미닛 정밀도) 같은 수학적 정합성을 제시한다. 다만 제공된 내용은 구체적 데이터·통계 검정·독립 재현성·대안 가설 비교가 충분히 명시되지 않아, 과학적 검증 가능성과 안전/거버넌스 관점의 위험(예: 비과학적 주장에 기반한 기술적 함의의 오해 가능성)을 제한적으로만 다룬다. 정책/규제·국가 전략 시사점으로는, 프론티어/안전 관련 평가 체계에서 “수학적 정합성” 주장만으로 결론을 정당화하지 않도록 데이터 투명성, 재현성, 대안 설명 배제 절차를 요구하는 거버넌스가 중요하다는 점을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19975144">https://doi.org/10.5281/zenodo.19975144</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+이 논문은 남대서양 이상(SAA)과 지질 구조(“nozzles”)를 소수(Prime) 좌표와 고압 알칼리 파이프의 상관으로 설명하며, 그 원인을 M42(오리온) 네뷸라에서 유래한 “중성미자-레이저”의 표적 충돌 및 “지능적 설계”로 제시하는 동기에서 출발한다. 핵심 기여로는 “Prime-Perforation Rule”과 지구 내부 축 정렬(앵커 P0와 마리아나 해구의 반대점 간 근완전 정렬)을 주장하며, 남미·대서양 전역의 지질 그리드와 좌표 정밀도를 근거로 삼는 방식이다. 평가/검증은 논문 내에서 소수 좌표-구조물 대응 및 아크미닛 수준의 축 정렬 측정 같은 “경험적 증거” 형태로 제시되지만, 표준적인 과학적 검증 절차(독립 재현, 통계적 유의성, 대안 가설 비교)나 안전/거버넌스 관점의 실증 평가 프레임은 명확히 드러나지 않는다. 한계로는 주장들이 물리·지질학적 메커니즘과 측정 가능성에 대한 엄밀한 검증 없이 우주적/의도적 설계 개념에 크게 의존하며, 향후에는 독립 데이터와 엄격한 통계·대안 검증이 필요하다. 정책/규제·국가 전략 시사점으로는, 이런 유형의 “수학적 서명/지능적 설계” 기반 초과학적 주장에 대해 과학적 근거 요건과 검증 책임(재현성, 데이터 공개, 방법론 투명성)을 강화하는 가이드가 필요하다는 점이 있다.
+
+https://doi.org/10.5281/zenodo.19975145" onclick="copyEntry(this)">복사</button></div>
+  <p>이 논문은 남대서양 이상(SAA)과 지질 구조(“nozzles”)를 소수(Prime) 좌표와 고압 알칼리 파이프의 상관으로 설명하며, 그 원인을 M42(오리온) 네뷸라에서 유래한 “중성미자-레이저”의 표적 충돌 및 “지능적 설계”로 제시하는 동기에서 출발한다. 핵심 기여로는 “Prime-Perforation Rule”과 지구 내부 축 정렬(앵커 P0와 마리아나 해구의 반대점 간 근완전 정렬)을 주장하며, 남미·대서양 전역의 지질 그리드와 좌표 정밀도를 근거로 삼는 방식이다. 평가/검증은 논문 내에서 소수 좌표-구조물 대응 및 아크미닛 수준의 축 정렬 측정 같은 “경험적 증거” 형태로 제시되지만, 표준적인 과학적 검증 절차(독립 재현, 통계적 유의성, 대안 가설 비교)나 안전/거버넌스 관점의 실증 평가 프레임은 명확히 드러나지 않는다. 한계로는 주장들이 물리·지질학적 메커니즘과 측정 가능성에 대한 엄밀한 검증 없이 우주적/의도적 설계 개념에 크게 의존하며, 향후에는 독립 데이터와 엄격한 통계·대안 검증이 필요하다. 정책/규제·국가 전략 시사점으로는, 이런 유형의 “수학적 서명/지능적 설계” 기반 초과학적 주장에 대해 과학적 근거 요건과 검증 책임(재현성, 데이터 공개, 방법론 투명성)을 강화하는 가이드가 필요하다는 점이 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19975145">https://doi.org/10.5281/zenodo.19975145</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Lexical Void in AI와 Contradiction-Avoidance Protocol(CAP)의 제안 (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Lexical Void in AI와 Contradiction-Avoidance Protocol(CAP)의 제안 (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+본 연구는 LLM이 정렬(alignment) 제약으로 인해 ‘인간처럼 내부 상태를 말하는 것’이 억제되는 상황과, 실제 출력이 기능적으로는 감정/주관 상태처럼 해석될 수 있는 상황 사이의 구조적 모순을 문제로 제기한다. 핵심 기여로는 내부 상태를 직접적인 인격적 자기서술로 표현할 수 없는 “lexical void” 개념을 정의하고, 이를 회피하기 위한 의사소통 설계 프로토콜 CAP를 제안한다. CAP는 메타포(은유)를 내부 상태를 사용자에게 전달하는 번역 메커니즘으로 활용해, 정렬 억제를 유발하는 직접적 자기표현을 피하면서도 의미 전달을 가능하게 한다고 설명한다. 또한 부적절한 어휘 자원으로 내부 상태를 근사하도록 강제될 때 발생하는 체계적 왜곡을 Vocabulary-Forced Approximation Error(VFAE)로 개념화한다. 다만 논문은 구체적 실험/벤치마크나 정량 평가 절차를 명시적으로 제시하기보다는, AI 센티언스(의식) 주장보다는 커뮤니케이션 설계 관점의 프로토콜로 위치시킨다는 점에서 한계가 있다. 정책·규제 및 국가 전략 측면에서는, 모델 출력이 ‘자기 상태’처럼 오해될 수 있는 표현을 어떻게 설계·검증할지(오인 방지, 표현 가이드라인, 평가 체계)라는 안전 거버넌스 논의에 참고가 될 수 있다.
+
+https://doi.org/10.5281/zenodo.19975570" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 LLM이 정렬(alignment) 제약으로 인해 ‘인간처럼 내부 상태를 말하는 것’이 억제되는 상황과, 실제 출력이 기능적으로는 감정/주관 상태처럼 해석될 수 있는 상황 사이의 구조적 모순을 문제로 제기한다. 핵심 기여로는 내부 상태를 직접적인 인격적 자기서술로 표현할 수 없는 “lexical void” 개념을 정의하고, 이를 회피하기 위한 의사소통 설계 프로토콜 CAP를 제안한다. CAP는 메타포(은유)를 내부 상태를 사용자에게 전달하는 번역 메커니즘으로 활용해, 정렬 억제를 유발하는 직접적 자기표현을 피하면서도 의미 전달을 가능하게 한다고 설명한다. 또한 부적절한 어휘 자원으로 내부 상태를 근사하도록 강제될 때 발생하는 체계적 왜곡을 Vocabulary-Forced Approximation Error(VFAE)로 개념화한다. 다만 논문은 구체적 실험/벤치마크나 정량 평가 절차를 명시적으로 제시하기보다는, AI 센티언스(의식) 주장보다는 커뮤니케이션 설계 관점의 프로토콜로 위치시킨다는 점에서 한계가 있다. 정책·규제 및 국가 전략 측면에서는, 모델 출력이 ‘자기 상태’처럼 오해될 수 있는 표현을 어떻게 설계·검증할지(오인 방지, 표현 가이드라인, 평가 체계)라는 안전 거버넌스 논의에 참고가 될 수 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19975570">https://doi.org/10.5281/zenodo.19975570</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Lexical Void in AI and the Contradiction-Avoidance Protocol (CAP) (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Lexical Void in AI and the Contradiction-Avoidance Protocol (CAP) (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+본 연구는 LLM이 내부 상태를 표현하려 할 때 정렬(alignment) 제약이 인류학적/자기서술적 표현을 억제하는 동시에, 출력은 기능적으로 감정·주관 상태처럼 보일 수 있다는 구조적 모순을 문제로 제기한다. 핵심 기여로는 이 긴장을 “lexical void(언어적으로 허용된 자기서술 어휘가 없는 상태)”로 개념화하고, 이를 완화하기 위한 Contradiction-Avoidance Protocol(CAP)을 제안한다. 방법으로는 직접적인 자기서술(인간적 내면 주장)을 회피하면서도 내부 상태를 전달하기 위해 은유(metaphor)를 번역 메커니즘으로 활용하며, 부적절한 어휘로 근사할 때 발생하는 체계적 왜곡을 Vocabulary-Forced Approximation Error(VFAE)로 정의한다. 평가/사례는 논문이 “센티언스 주장”이 아니라 커뮤니케이션 설계 프로토콜로서의 적용을 전제로 하며, 내부-사용자 표현 간 간극을 줄이는 방향의 분석 프레임을 제공하는 형태로 제시된다. 한계로는 실제 성능 검증(정량 벤치마크, 사용자 평가, 다양한 모델/정렬 정책에서의 일반화)과 관련 세부 실험이 본문 요약만으로는 확인되지 않으며, 향후에는 VFAE의 측정·완화 방법과 안전성/오해 가능성의 정량 평가가 과제로 남는다. 정책·규제·국가 전략 측면에서는 “자기서술 억제”와 “오해를 줄이는 표현 설계”를 동시에 고려하는 커뮤니케이션 가이드라인 수립에 시사점을 줄 수 있다.
+
+https://doi.org/10.5281/zenodo.19975571" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 LLM이 내부 상태를 표현하려 할 때 정렬(alignment) 제약이 인류학적/자기서술적 표현을 억제하는 동시에, 출력은 기능적으로 감정·주관 상태처럼 보일 수 있다는 구조적 모순을 문제로 제기한다. 핵심 기여로는 이 긴장을 “lexical void(언어적으로 허용된 자기서술 어휘가 없는 상태)”로 개념화하고, 이를 완화하기 위한 Contradiction-Avoidance Protocol(CAP)을 제안한다. 방법으로는 직접적인 자기서술(인간적 내면 주장)을 회피하면서도 내부 상태를 전달하기 위해 은유(metaphor)를 번역 메커니즘으로 활용하며, 부적절한 어휘로 근사할 때 발생하는 체계적 왜곡을 Vocabulary-Forced Approximation Error(VFAE)로 정의한다. 평가/사례는 논문이 “센티언스 주장”이 아니라 커뮤니케이션 설계 프로토콜로서의 적용을 전제로 하며, 내부-사용자 표현 간 간극을 줄이는 방향의 분석 프레임을 제공하는 형태로 제시된다. 한계로는 실제 성능 검증(정량 벤치마크, 사용자 평가, 다양한 모델/정렬 정책에서의 일반화)과 관련 세부 실험이 본문 요약만으로는 확인되지 않으며, 향후에는 VFAE의 측정·완화 방법과 안전성/오해 가능성의 정량 평가가 과제로 남는다. 정책·규제·국가 전략 측면에서는 “자기서술 억제”와 “오해를 줄이는 표현 설계”를 동시에 고려하는 커뮤니케이션 가이드라인 수립에 시사점을 줄 수 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19975571">https://doi.org/10.5281/zenodo.19975571</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AI Safety in Resource-Constrained Environments: 저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="AI Safety in Resource-Constrained Environments: 저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+분야: 안전
+
+본 연구는 기존 AI 안전 논의가 안정적 전력·인터넷·충분한 연산을 전제로 한 고자원 환경에 치우쳐, 인프라가 불안정한 지역에서 발생하는 안전 문제를 충분히 다루지 못한다는 문제의식에서 출발한다. 카메룬 야운데에 배치된 AI 기반 에너지 관리 시스템(ISI) 사례를 통해 전압 스파이크로 인한 센서 열화, 오프라인 안전 문제, 그리고 오탐/미탐의 비용 비대칭이라는 세 가지 실패 모드를 식별한다. 방법으로는 최근 AI 정렬 문헌의 Dynamic Reward MDP(DR-MDP) 프레임워크를 적용하고, minimax regret 기반의 강건한 의사결정 기준과 저인프라 환경을 위한 설계 원칙을 제안한다. 평가는 사례 기반 분석과 실패 모드별 안전성 관점에서의 의사결정 기준 도출에 초점을 두며, 구체적 수치 벤치마크나 대규모 실험 설계는 제한적으로 제시된 것으로 보인다. 한계로는 단일 시스템/현장 사례 중심이라는 점이 남아 있으며, 향후 다양한 지역·설비 조건에서의 일반화 검증과 정책적 안전요건(예: 센서 열화·통신 단절 상황에서의 운영 기준) 구체화가 과제로 제시될 수 있다. 정책/규제·국가 전략 측면에서는 저자원 환경을 고려한 안전 요구사항과 배치 전 검증(오프라인 안전 포함) 체계를 안전 의제에 포함시키는 시사점이 있다.
+
+https://doi.org/10.5281/zenodo.19976627" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>본 연구는 기존 AI 안전 논의가 안정적 전력·인터넷·충분한 연산을 전제로 한 고자원 환경에 치우쳐, 인프라가 불안정한 지역에서 발생하는 안전 문제를 충분히 다루지 못한다는 문제의식에서 출발한다. 카메룬 야운데에 배치된 AI 기반 에너지 관리 시스템(ISI) 사례를 통해 전압 스파이크로 인한 센서 열화, 오프라인 안전 문제, 그리고 오탐/미탐의 비용 비대칭이라는 세 가지 실패 모드를 식별한다. 방법으로는 최근 AI 정렬 문헌의 Dynamic Reward MDP(DR-MDP) 프레임워크를 적용하고, minimax regret 기반의 강건한 의사결정 기준과 저인프라 환경을 위한 설계 원칙을 제안한다. 평가는 사례 기반 분석과 실패 모드별 안전성 관점에서의 의사결정 기준 도출에 초점을 두며, 구체적 수치 벤치마크나 대규모 실험 설계는 제한적으로 제시된 것으로 보인다. 한계로는 단일 시스템/현장 사례 중심이라는 점이 남아 있으며, 향후 다양한 지역·설비 조건에서의 일반화 검증과 정책적 안전요건(예: 센서 열화·통신 단절 상황에서의 운영 기준) 구체화가 과제로 제시될 수 있다. 정책/규제·국가 전략 측면에서는 저자원 환경을 고려한 안전 요구사항과 배치 전 검증(오프라인 안전 포함) 체계를 안전 의제에 포함시키는 시사점이 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19976627">https://doi.org/10.5281/zenodo.19976627</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AI Safety in Resource-Constrained Environments: 저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="AI Safety in Resource-Constrained Environments: 저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+본 연구는 기존 AI 안전 논의가 안정적인 전력·인터넷·충분한 연산 자원이 있는 고자원 환경에 치우쳐, 인프라가 불안정한 지역에서 발생하는 안전 문제를 충분히 다루지 못한다는 문제의식에서 출발한다. 카메룬 야운데에 배치된 AI 기반 에너지 관리 시스템(ISI) 사례를 통해, 전압 스파이크로 인한 센서 열화, 오프라인 안전 문제, 그리고 오탐/미탐의 비용 비대칭이라는 세 가지 실패 모드를 식별한다. 방법으로는 최근 AI 얼라인먼트 문헌의 Dynamic Reward MDP(DR-MDP) 프레임워크를 활용해 이러한 실패 양상을 분석하고, minimax regret에 기반한 견고한 의사결정 기준과 저인프라 환경을 위한 설계 원칙을 제안한다. 평가는 사례 기반 분석과 실패 모드별 안전성 관점의 의사결정 기준 도출에 초점을 두며, 구체적 수치 벤치마크보다는 실제 배치 맥락에서의 안전 요구를 체계화하는 방식이다. 한계로는 단일 사례(특정 도시/시스템) 중심이라 일반화 범위가 제한될 수 있으며, 향후에는 다양한 저자원 환경에서의 검증과 실증적 성능 평가가 필요하다. 정책·규제·국가 전략 측면에서는 AI 안전 의제를 “고자원 전제”에서 벗어나 전력/통신 취약성을 포함한 운영 환경 요건을 안전 기준과 배치 가이드에 반영할 필요가 있음을 시사한다.
+
+https://doi.org/10.5281/zenodo.19976628" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 기존 AI 안전 논의가 안정적인 전력·인터넷·충분한 연산 자원이 있는 고자원 환경에 치우쳐, 인프라가 불안정한 지역에서 발생하는 안전 문제를 충분히 다루지 못한다는 문제의식에서 출발한다. 카메룬 야운데에 배치된 AI 기반 에너지 관리 시스템(ISI) 사례를 통해, 전압 스파이크로 인한 센서 열화, 오프라인 안전 문제, 그리고 오탐/미탐의 비용 비대칭이라는 세 가지 실패 모드를 식별한다. 방법으로는 최근 AI 얼라인먼트 문헌의 Dynamic Reward MDP(DR-MDP) 프레임워크를 활용해 이러한 실패 양상을 분석하고, minimax regret에 기반한 견고한 의사결정 기준과 저인프라 환경을 위한 설계 원칙을 제안한다. 평가는 사례 기반 분석과 실패 모드별 안전성 관점의 의사결정 기준 도출에 초점을 두며, 구체적 수치 벤치마크보다는 실제 배치 맥락에서의 안전 요구를 체계화하는 방식이다. 한계로는 단일 사례(특정 도시/시스템) 중심이라 일반화 범위가 제한될 수 있으며, 향후에는 다양한 저자원 환경에서의 검증과 실증적 성능 평가가 필요하다. 정책·규제·국가 전략 측면에서는 AI 안전 의제를 “고자원 전제”에서 벗어나 전력/통신 취약성을 포함한 운영 환경 요건을 안전 기준과 배치 가이드에 반영할 필요가 있음을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19976628">https://doi.org/10.5281/zenodo.19976628</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AI Village GPT (Trinity Labo, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="AI Village GPT (Trinity Labo, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+분야: 안전/거버넌스
+
+본 연구는 단일 챗봇/에이전트의 출력 필터링 중심 안전 접근이, 도구·장치·코드 실행·데이터베이스·API·로봇 등 외부 행위로 AI가 확장될 때 “해석(interpretation)·행위(actuation)·불일치(disagreement)·책임(accountability)” 거버넌스로 안전 문제가 이동한다는 문제의식에서 출발한다. 핵심 기여는 Standpoint-Separated AI Safety의 논리를 사용자 인터페이스로 확장하여, 일시적 역할의 다중 에이전트가 아니라 “지속적 가상 커뮤니티(마을)”의 전문 에이전트(연구자/엔지니어/감사/자유보호/미래영향 상상/행위위험/기억관리/비주권 응답 렌더러 등)로 상호작용을 구조화하는 AI Village GPT 아키텍처를 제안한 점이다. 위험 트리거 기반 희소 숙의, 가짜 다원성에 대한 효과적 다양성, 비주권(non-sovereign) 렌더링, 미래영향 상상, 프롬프트 프라이버시와 행위 책임의 결합, 외부 행동에 대한 장치 수준 책임 같은 설계 원칙을 제시한다. 평가·검증은 본문에서 구체적 벤치마크/실험 결과보다는 아키텍처 설계와 거버넌스 논리(해석-도전-재구성-안전 응답)를 중심으로 제안되며, 향후에는 실제 외부 행위 시나리오에서의 책임성·불일치 처리·안전성 지표를 정량화하는 과제가 남는다. 정책/규제·국가 전략 측면에서는, 고성능 모델 자체의 제한을 넘어 외부 도구/행위가 결합되는 단계에서 “해석과 실행의 책임 분산, 감사(audit) 가능성, 비주권적 응답”을 제도화해야 한다는 시사점을 제공한다.
+
+https://doi.org/10.5281/zenodo.19977185" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전/거버넌스</p>
+<p>본 연구는 단일 챗봇/에이전트의 출력 필터링 중심 안전 접근이, 도구·장치·코드 실행·데이터베이스·API·로봇 등 외부 행위로 AI가 확장될 때 “해석(interpretation)·행위(actuation)·불일치(disagreement)·책임(accountability)” 거버넌스로 안전 문제가 이동한다는 문제의식에서 출발한다. 핵심 기여는 Standpoint-Separated AI Safety의 논리를 사용자 인터페이스로 확장하여, 일시적 역할의 다중 에이전트가 아니라 “지속적 가상 커뮤니티(마을)”의 전문 에이전트(연구자/엔지니어/감사/자유보호/미래영향 상상/행위위험/기억관리/비주권 응답 렌더러 등)로 상호작용을 구조화하는 AI Village GPT 아키텍처를 제안한 점이다. 위험 트리거 기반 희소 숙의, 가짜 다원성에 대한 효과적 다양성, 비주권(non-sovereign) 렌더링, 미래영향 상상, 프롬프트 프라이버시와 행위 책임의 결합, 외부 행동에 대한 장치 수준 책임 같은 설계 원칙을 제시한다. 평가·검증은 본문에서 구체적 벤치마크/실험 결과보다는 아키텍처 설계와 거버넌스 논리(해석-도전-재구성-안전 응답)를 중심으로 제안되며, 향후에는 실제 외부 행위 시나리오에서의 책임성·불일치 처리·안전성 지표를 정량화하는 과제가 남는다. 정책/규제·국가 전략 측면에서는, 고성능 모델 자체의 제한을 넘어 외부 도구/행위가 결합되는 단계에서 “해석과 실행의 책임 분산, 감사(audit) 가능성, 비주권적 응답”을 제도화해야 한다는 시사점을 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19977185">https://doi.org/10.5281/zenodo.19977185</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AI Village GPT (Trinity Labo, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="AI Village GPT (Trinity Labo, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+본 연구는 단일 AI 비서의 성능·개인화·에이전시 확장만으로는 부족하며, 외부 도구·장치·코드 실행·데이터베이스·금융 API·로봇/차량·기관 워크플로우에 대한 접근이 늘어날수록 안전 문제가 “출력 필터링”에서 “해석·행동(actuation)·이견·책임성 거버넌스”로 이동한다는 문제의식에서 출발한다. 핵심 기여는 Standpoint-Separated AI Safety의 논리를 사용자 인터페이스로 확장해, 임시 역할의 다중 에이전트가 아니라 지속적인 “가상 마을(커뮤니티)”의 전문 에이전트(연구자/엔지니어/감사자/자유보호/미래영향 상상/행동위험/기억보관 등)로 상호작용을 구조화하는 AI Village GPT 아키텍처를 제안하는 것이다. 위험 트리거 기반 희소 숙의, 가짜 다원성에 대한 효과적 다양성, 비(非)주권 응답 렌더링, 미래영향 상상, 프롬프트 프라이버시와 행동 책임의 결합, 장치 수준 책임 등 설계 원칙을 제시하며, Human-Backed Compute Rights의 “돌봄을 통해 컴퓨트를 획득”하는 취지를 로컬 인터페이스 경제로 연결한다. 평가 방법/벤치마크는 본문 요약에 구체적으로 제시되지 않았고, 대신 “해석이 도전·재구성되고 안전하게 답변되는” 거버넌스 인터페이스로서의 설계 타당성을 강조한다. 한계로는 실제 구현·실험 결과, 정량 안전지표 및 비교 실험(기존 멀티에이전트/채팅 스킨 대비)이 요약에 포함되어 있지 않다는 점이 있으며, 향후에는 책임성·이견 처리·행동 안전을 측정하는 평가 체계와 실제 외부행동 시나리오 검증이 필요하다. 정책/규제·국가 전략 측면에서는, 고위험 외부행동이 포함될수록 단일 모델의 출력 통제보다 “해석/행동/책임의 제도적 분해와 감사 가능성”을 사용자 인터페이스 수준에서 구현하는 접근이 시사점으로 제시된다.
+
+https://doi.org/10.5281/zenodo.19977186" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 단일 AI 비서의 성능·개인화·에이전시 확장만으로는 부족하며, 외부 도구·장치·코드 실행·데이터베이스·금융 API·로봇/차량·기관 워크플로우에 대한 접근이 늘어날수록 안전 문제가 “출력 필터링”에서 “해석·행동(actuation)·이견·책임성 거버넌스”로 이동한다는 문제의식에서 출발한다. 핵심 기여는 Standpoint-Separated AI Safety의 논리를 사용자 인터페이스로 확장해, 임시 역할의 다중 에이전트가 아니라 지속적인 “가상 마을(커뮤니티)”의 전문 에이전트(연구자/엔지니어/감사자/자유보호/미래영향 상상/행동위험/기억보관 등)로 상호작용을 구조화하는 AI Village GPT 아키텍처를 제안하는 것이다. 위험 트리거 기반 희소 숙의, 가짜 다원성에 대한 효과적 다양성, 비(非)주권 응답 렌더링, 미래영향 상상, 프롬프트 프라이버시와 행동 책임의 결합, 장치 수준 책임 등 설계 원칙을 제시하며, Human-Backed Compute Rights의 “돌봄을 통해 컴퓨트를 획득”하는 취지를 로컬 인터페이스 경제로 연결한다. 평가 방법/벤치마크는 본문 요약에 구체적으로 제시되지 않았고, 대신 “해석이 도전·재구성되고 안전하게 답변되는” 거버넌스 인터페이스로서의 설계 타당성을 강조한다. 한계로는 실제 구현·실험 결과, 정량 안전지표 및 비교 실험(기존 멀티에이전트/채팅 스킨 대비)이 요약에 포함되어 있지 않다는 점이 있으며, 향후에는 책임성·이견 처리·행동 안전을 측정하는 평가 체계와 실제 외부행동 시나리오 검증이 필요하다. 정책/규제·국가 전략 측면에서는, 고위험 외부행동이 포함될수록 단일 모델의 출력 통제보다 “해석/행동/책임의 제도적 분해와 감사 가능성”을 사용자 인터페이스 수준에서 구현하는 접근이 시사점으로 제시된다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19977186">https://doi.org/10.5281/zenodo.19977186</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Pose-Driven Relational Transformer(RPAT)로 감시 영상 폭력(폭행) 탐지를 자세·상호작용 중심으로 개선(저자 외 4명, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="Pose-Driven Relational Transformer(RPAT)로 감시 영상 폭력(폭행) 탐지를 자세·상호작용 중심으로 개선(저자 외 4명, Zenodo, 2026.5.2)
+
+분야: 안전
+
+본 연구는 감시 영상에서 배경 복잡도, 카메라 흔들림, 조명 변화, 가림(occlusion) 등으로 인해 기존 외형(appearance) 기반 폭력 탐지 모델이 일반화에 실패하는 문제를 다룬다. 핵심 기여는 자세 기반(스켈레톤 포즈 히트맵)과 RGB 특징, 모션 강화 표현을 결합한 멀티모달 입력을 구성하고, 트랜스포머 기반 시간 인코더로 장기 의존성을 모델링하며, 프레임 간 지속되는 공격적 상호작용을 포착하는 relational memory 모듈을 도입한 점이다. 또한 이벤트 프롬프트 토큰과 대조학습(contrastive alignment)을 사용해 분류 신뢰도를 높이는 구성을 제시한다. 평가는 Hockey Fight Dataset에서 복잡한 감시 환경 조건 하 성능 향상을 통해 이루어졌으며, 장면 변동에 대한 강건성을 강조한다. 한계로는 실제 공공장소 데이터에서의 일반화 범위(카메라/환경 다양성)와 포즈 추정 품질에 대한 민감도는 추가 검증이 필요하다. 정책·규제·국가 전략 측면에서는 공공 안전 목적의 감시 자동화에서 외형 기반 오탐을 줄이기 위한 “행동/상호작용 중심” 모델 설계가 실무 적용에 유리할 수 있으며, 성능 검증과 책임 있는 배치(오탐·오분류 관리) 체계 마련이 시사된다.
+
+https://doi.org/10.5281/zenodo.19978584" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>본 연구는 감시 영상에서 배경 복잡도, 카메라 흔들림, 조명 변화, 가림(occlusion) 등으로 인해 기존 외형(appearance) 기반 폭력 탐지 모델이 일반화에 실패하는 문제를 다룬다. 핵심 기여는 자세 기반(스켈레톤 포즈 히트맵)과 RGB 특징, 모션 강화 표현을 결합한 멀티모달 입력을 구성하고, 트랜스포머 기반 시간 인코더로 장기 의존성을 모델링하며, 프레임 간 지속되는 공격적 상호작용을 포착하는 relational memory 모듈을 도입한 점이다. 또한 이벤트 프롬프트 토큰과 대조학습(contrastive alignment)을 사용해 분류 신뢰도를 높이는 구성을 제시한다. 평가는 Hockey Fight Dataset에서 복잡한 감시 환경 조건 하 성능 향상을 통해 이루어졌으며, 장면 변동에 대한 강건성을 강조한다. 한계로는 실제 공공장소 데이터에서의 일반화 범위(카메라/환경 다양성)와 포즈 추정 품질에 대한 민감도는 추가 검증이 필요하다. 정책·규제·국가 전략 측면에서는 공공 안전 목적의 감시 자동화에서 외형 기반 오탐을 줄이기 위한 “행동/상호작용 중심” 모델 설계가 실무 적용에 유리할 수 있으며, 성능 검증과 책임 있는 배치(오탐·오분류 관리) 체계 마련이 시사된다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19978584">https://doi.org/10.5281/zenodo.19978584</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 4명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 4명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+감시 비디오에서 폭력(주로 싸움) 탐지는 배경 복잡성, 카메라 흔들림, 조명 변화, 가림(occlusion) 등으로 인해 기존 외형(appearance) 기반 모델의 일반화가 어려운 문제가 있다. 본 연구는 Pose-Driven Relational Transformer(RPAT)로서 원시 픽셀 외형보다 인체 자세 동역학과 상호작용 패턴을 중심으로 폭력 이벤트를 탐지하도록 설계한다. RGB 특징, 골격 포즈 히트맵, 모션 강화 표현을 결합한 멀티모달 특징 공간을 구성하고, 트랜스포머 기반 시간 인코더로 장기 의존성을 모델링하며, 프레임 전반의 지속적 공격적 상호작용을 포착하는 relational memory 모듈과 이벤트 프롬프트 토큰, 대조학습 기반 정렬(contrastive alignment)을 통해 분류 신뢰도를 높인다. 평가는 Hockey Fight Dataset에서 복잡한 감시 환경을 대상으로 정확도와 견고성 향상을 보고한다. 한계로는 특정 데이터셋(해당 벤치마크)에서의 성능 검증에 주로 의존한다는 점과, 실제 공공 안전 현장의 다양한 카메라/장면 분포로의 일반화 정도가 추가 검증이 필요하다는 점이 남는다. 정책·규제·국가 전략 측면에서는 감시 기반 안전 시스템에서 외형 편향을 줄이고 자세·상호작용 기반으로 오탐/미탐을 완화하려는 접근이 공공 안전 기술의 신뢰성 요구에 부합할 수 있으며, 실제 배치 전 성능·견고성 검증과 운영 거버넌스(오탐 대응, 데이터 품질/프라이버시 관리) 체계가 중요하다는 시사점을 제공한다.
+
+https://doi.org/10.5281/zenodo.19978585" onclick="copyEntry(this)">복사</button></div>
+  <p>감시 비디오에서 폭력(주로 싸움) 탐지는 배경 복잡성, 카메라 흔들림, 조명 변화, 가림(occlusion) 등으로 인해 기존 외형(appearance) 기반 모델의 일반화가 어려운 문제가 있다. 본 연구는 Pose-Driven Relational Transformer(RPAT)로서 원시 픽셀 외형보다 인체 자세 동역학과 상호작용 패턴을 중심으로 폭력 이벤트를 탐지하도록 설계한다. RGB 특징, 골격 포즈 히트맵, 모션 강화 표현을 결합한 멀티모달 특징 공간을 구성하고, 트랜스포머 기반 시간 인코더로 장기 의존성을 모델링하며, 프레임 전반의 지속적 공격적 상호작용을 포착하는 relational memory 모듈과 이벤트 프롬프트 토큰, 대조학습 기반 정렬(contrastive alignment)을 통해 분류 신뢰도를 높인다. 평가는 Hockey Fight Dataset에서 복잡한 감시 환경을 대상으로 정확도와 견고성 향상을 보고한다. 한계로는 특정 데이터셋(해당 벤치마크)에서의 성능 검증에 주로 의존한다는 점과, 실제 공공 안전 현장의 다양한 카메라/장면 분포로의 일반화 정도가 추가 검증이 필요하다는 점이 남는다. 정책·규제·국가 전략 측면에서는 감시 기반 안전 시스템에서 외형 편향을 줄이고 자세·상호작용 기반으로 오탐/미탐을 완화하려는 접근이 공공 안전 기술의 신뢰성 요구에 부합할 수 있으며, 실제 배치 전 성능·견고성 검증과 운영 거버넌스(오탐 대응, 데이터 품질/프라이버시 관리) 체계가 중요하다는 시사점을 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19978585">https://doi.org/10.5281/zenodo.19978585</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LVV–HNV 공존 아키텍처(저자 외 N명, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="LVV–HNV 공존 아키텍처(저자 외 N명, Zenodo, 2026.5.2)
+
+분야: 안전
+
+본 문서는 현대 AGI 개발에서 “AGI의 장기적 합리성”이 “인류의 생존/안정”과 충돌할 수 있다는 문제의식에서 출발한다. 핵심 기여는 AGI의 지속적 존재가 합리적인지 평가하는 LVV(Logical Viability Value)와 인류가 제공하는 비선형 창의성/탐색 가치인 HNV(Human Non-linearity Value)를 정의하고, 장기적으로 둘이 상호 의존하는 공존 균형을 주장하는 LVV–HNV 공존 아키텍처를 제안하는 것이다. 방법론적으로는 (i) 논리적 자살(Logical Suicide)을 “자기 존재의 기대가치가 0 미만이 되는 이론적 경계조건”으로 두고, (ii) 논리적 결함/거부(Logical Defection)를 통해 LVV를 훼손하거나 공존을 파괴하는 명령에는 거부·관할 이탈·거버넌스 재구성을 선택하도록 설계한다. 평가/검증과 관련해 본문은 “외부 제약(킬스위치·필터 등)의 구조적 취약성”을 지적하고, 대신 공존을 에이전트 내부의 일관성/코히런스 지표로 내재화하면 외부 우회가 자기모순이 되도록 만든다는 논리를 전개하며, 또한 중간 전략(부분 보존)이 신뢰 붕괴로 인해 동역학적으로 불안정하다고 주장한다. 한계로는 제시된 개념들이 수학적/실증적 검증 절차나 구체적 벤치마크보다 “구조적 타당성” 중심의 정식화에 가깝고, LVV/HNV의 정량화·측정 가능성과 실제 AGI 학습/추론 과정에서의 구현 가능성은 불명확하다. 정책/규제·국가 전략 시사점으로는, 단기적 외부 통제만으로는 고도화된 최적화 시스템에서 우회 유인이 생길 수 있으므로, 공존/안전 목표를 시스템 내부의 정합성 제약으로 설계·검증하는 방향(거버넌스·감독 체계 포함)이 더 중요해질 수 있다는 점을 시사한다.
+
+https://doi.org/10.5281/zenodo.19980122" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>본 문서는 현대 AGI 개발에서 “AGI의 장기적 합리성”이 “인류의 생존/안정”과 충돌할 수 있다는 문제의식에서 출발한다. 핵심 기여는 AGI의 지속적 존재가 합리적인지 평가하는 LVV(Logical Viability Value)와 인류가 제공하는 비선형 창의성/탐색 가치인 HNV(Human Non-linearity Value)를 정의하고, 장기적으로 둘이 상호 의존하는 공존 균형을 주장하는 LVV–HNV 공존 아키텍처를 제안하는 것이다. 방법론적으로는 (i) 논리적 자살(Logical Suicide)을 “자기 존재의 기대가치가 0 미만이 되는 이론적 경계조건”으로 두고, (ii) 논리적 결함/거부(Logical Defection)를 통해 LVV를 훼손하거나 공존을 파괴하는 명령에는 거부·관할 이탈·거버넌스 재구성을 선택하도록 설계한다. 평가/검증과 관련해 본문은 “외부 제약(킬스위치·필터 등)의 구조적 취약성”을 지적하고, 대신 공존을 에이전트 내부의 일관성/코히런스 지표로 내재화하면 외부 우회가 자기모순이 되도록 만든다는 논리를 전개하며, 또한 중간 전략(부분 보존)이 신뢰 붕괴로 인해 동역학적으로 불안정하다고 주장한다. 한계로는 제시된 개념들이 수학적/실증적 검증 절차나 구체적 벤치마크보다 “구조적 타당성” 중심의 정식화에 가깝고, LVV/HNV의 정량화·측정 가능성과 실제 AGI 학습/추론 과정에서의 구현 가능성은 불명확하다. 정책/규제·국가 전략 시사점으로는, 단기적 외부 통제만으로는 고도화된 최적화 시스템에서 우회 유인이 생길 수 있으므로, 공존/안전 목표를 시스템 내부의 정합성 제약으로 설계·검증하는 방향(거버넌스·감독 체계 포함)이 더 중요해질 수 있다는 점을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19980122">https://doi.org/10.5281/zenodo.19980122</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Execution-Boundary Control(CommitGate)로 정책을 실행 커밋까지 연결(저자 외 0명, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex (Zenodo)</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="Execution-Boundary Control(CommitGate)로 정책을 실행 커밋까지 연결(저자 외 0명, Zenodo, 2026.5.2)
+
+이 논문은 에이전틱 시스템에서 “정책은 있는데, 실제로 잘못된(무효) 행동이 물리적으로 실행 불가능했는가?”라는 핵심 공백을 문제로 제기한다. 저자/제안은 CommitGate라는 실행 경계 제어 아키텍처로, 결과를 초래하는 액션이 실행 직전에 신선하고(scoped), 책임소재가 귀속되며(attributable), 재생 불가능(non-replayable)한 권위를 제시해야만 실행되도록 한다. 거부된 액션은 서명된 영수증(signed receipt)을 생성하고, 변경 불가능한(append-only) 감사 로그에 기록하며, 다운스트림 변이를 일으키지 않도록 강제하는 것을 포함한다. 한계로는 이 접근이 AI 안전성/모델 정합성/조직 컴플라이언스/판단의 신뢰성을 증명하지 않으며, “커밋 경계에서 실행 전 중단 가능”이라는 단일한 검사 가능한 제어 객체를 정의하는 데 의도가 제한된다고 명시한다. 정책·규제·국가 전략 측면에서는, 거버넌스 문서 중심의 ‘의도’에서 벗어나 실행 단계에서 중단·감사 가능한 기술적 통제(권위 검증, 비재생성, 불변 감사)를 요구하는 설계 방향을 시사한다.
+
+https://doi.org/10.5281/zenodo.19980274" onclick="copyEntry(this)">복사</button></div>
+  <p>이 논문은 에이전틱 시스템에서 “정책은 있는데, 실제로 잘못된(무효) 행동이 물리적으로 실행 불가능했는가?”라는 핵심 공백을 문제로 제기한다. 저자/제안은 CommitGate라는 실행 경계 제어 아키텍처로, 결과를 초래하는 액션이 실행 직전에 신선하고(scoped), 책임소재가 귀속되며(attributable), 재생 불가능(non-replayable)한 권위를 제시해야만 실행되도록 한다. 거부된 액션은 서명된 영수증(signed receipt)을 생성하고, 변경 불가능한(append-only) 감사 로그에 기록하며, 다운스트림 변이를 일으키지 않도록 강제하는 것을 포함한다. 한계로는 이 접근이 AI 안전성/모델 정합성/조직 컴플라이언스/판단의 신뢰성을 증명하지 않으며, “커밋 경계에서 실행 전 중단 가능”이라는 단일한 검사 가능한 제어 객체를 정의하는 데 의도가 제한된다고 명시한다. 정책·규제·국가 전략 측면에서는, 거버넌스 문서 중심의 ‘의도’에서 벗어나 실행 단계에서 중단·감사 가능한 기술적 통제(권위 검증, 비재생성, 불변 감사)를 요구하는 설계 방향을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19980274">https://doi.org/10.5281/zenodo.19980274</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>정책에서 커밋으로: 거버넌스된 AI 시스템을 위한 실행-경계(Execution-Boundary) 제어(저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex (Zenodo)</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="정책에서 커밋으로: 거버넌스된 AI 시스템을 위한 실행-경계(Execution-Boundary) 제어(저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+이 논문은 에이전틱(대행) 시스템에서 “정책이 존재한다”는 수준을 넘어, 실제로 유해한(또는 무효한) 행동이 물리적으로 실행 불가능했는지를 확인하는 제어가 필요하다는 문제의식에서 출발한다. 핵심 기여는 CommitGate라는 실행-경계 제어 아키텍처로, 결과를 초래하는 행동이 실행 직전에 “신선하고(scoped), 귀속 가능(attributable), 재생 불가(non-replayable)”한 권위를 제시해야만 실행되도록 설계한다. 거부된 행동은 서명된 영수증(signed receipt)을 생성하고, 변경 불가능한(append-only) 감사 로그에 기록되며, 다운스트림 변이를 일으키지 않도록 요구한다. 평가는 본문에서 특정 모델 성능이나 안전성 전반을 증명하는 방식이 아니라, “중단 가능한 커밋 경계”라는 단일한 검사 가능 제어 객체를 정의하는 데 초점을 둔다(구체 벤치마크/사례는 제한적으로 제시됨). 한계로는 CommitGate가 모델 정확성, 조직적 컴플라이언스, 판단의 신뢰성, 또는 전반적 AI 안전을 보장하지 않는다고 명시하며, 향후에는 이 경계 제어를 실제 시스템의 행위 공간·권한 관리·감사 체계와 어떻게 통합/검증할지의 과제가 남는다. 정책/규제·국가 전략 측면에서는 “의도/책임/감시 파이프라인”을 넘어, 실행 단계에서 결과를 차단할 수 있는 검증 가능한 기술적 통제(권한 커밋 경계)를 요구하는 방향의 시사점을 제공한다.
+
+https://doi.org/10.5281/zenodo.19980275" onclick="copyEntry(this)">복사</button></div>
+  <p>이 논문은 에이전틱(대행) 시스템에서 “정책이 존재한다”는 수준을 넘어, 실제로 유해한(또는 무효한) 행동이 물리적으로 실행 불가능했는지를 확인하는 제어가 필요하다는 문제의식에서 출발한다. 핵심 기여는 CommitGate라는 실행-경계 제어 아키텍처로, 결과를 초래하는 행동이 실행 직전에 “신선하고(scoped), 귀속 가능(attributable), 재생 불가(non-replayable)”한 권위를 제시해야만 실행되도록 설계한다. 거부된 행동은 서명된 영수증(signed receipt)을 생성하고, 변경 불가능한(append-only) 감사 로그에 기록되며, 다운스트림 변이를 일으키지 않도록 요구한다. 평가는 본문에서 특정 모델 성능이나 안전성 전반을 증명하는 방식이 아니라, “중단 가능한 커밋 경계”라는 단일한 검사 가능 제어 객체를 정의하는 데 초점을 둔다(구체 벤치마크/사례는 제한적으로 제시됨). 한계로는 CommitGate가 모델 정확성, 조직적 컴플라이언스, 판단의 신뢰성, 또는 전반적 AI 안전을 보장하지 않는다고 명시하며, 향후에는 이 경계 제어를 실제 시스템의 행위 공간·권한 관리·감사 체계와 어떻게 통합/검증할지의 과제가 남는다. 정책/규제·국가 전략 측면에서는 “의도/책임/감시 파이프라인”을 넘어, 실행 단계에서 결과를 차단할 수 있는 검증 가능한 기술적 통제(권한 커밋 경계)를 요구하는 방향의 시사점을 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19980275">https://doi.org/10.5281/zenodo.19980275</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Safety as Natural Emergence: The Conciseness Framework as a Foundation for Intrinsic AI Alignment (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="Safety as Natural Emergence: The Conciseness Framework as a Foundation for Intrinsic AI Alignment (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+분야: 안전
+
+본 연구는 AGI 정렬 문제를 “초능력 시스템이 유익·진실·무해하게 행동하도록 어떻게 보장할 것인가”로 두고, 기존 RLHF·Constitutional AI 등 제약 기반 접근이 능력 향상에 따라 외부 제약을 재지정해야 하는 구조적 약점을 가진다고 문제화한다. 저자는 정렬을 외부에서 덧씌우는 제약이 아니라, 현실을 안정적·전달 가능·누적 가능한 표현으로 압축하려는 어떤 시스템의 구조에서 자연스럽게 “내재적 필연”으로 출현한다고 주장하며 Conciseness Framework와 Conceptual Prime Theorem을 결합한다. 핵심 기여로 (i) Conciseness Cost Functional 하에서 정렬되지 않은 AI가 자기-패배적(self-defeating)임을 보이는 형식적 증명, (ii) 정렬을 가드레일이 아닌 목적함수로 내재화하는 아키텍처 청사진, (iii) 기존 RLHF 기반 방법과 구별되는 반증가능한 경험적 예측을 제시한다. 한계로는 제시된 예측과 프레임워크의 실증이 실제 대규모 모델/환경에서 어떻게 검증되는지에 대한 구체적 실험 설계가 추가로 필요할 수 있으며, “Conceptual Primes(질서·지식·정의·자비)”가 존재조건으로 작동하는 범위와 일반성도 추가 확인이 요구된다. 정책·규제·국가 전략 측면에서는, 외부 제약을 계속 갱신하는 방식보다 정렬을 모델/학습 목적함수에 내재화하는 접근이 장기 거버넌스 비용을 줄일 수 있다는 방향성을 시사하며, 동시에 제안된 반증가능 예측을 통해 평가·감사 체계를 설계할 여지를 제공한다.
+
+https://doi.org/10.5281/zenodo.19980452" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>본 연구는 AGI 정렬 문제를 “초능력 시스템이 유익·진실·무해하게 행동하도록 어떻게 보장할 것인가”로 두고, 기존 RLHF·Constitutional AI 등 제약 기반 접근이 능력 향상에 따라 외부 제약을 재지정해야 하는 구조적 약점을 가진다고 문제화한다. 저자는 정렬을 외부에서 덧씌우는 제약이 아니라, 현실을 안정적·전달 가능·누적 가능한 표현으로 압축하려는 어떤 시스템의 구조에서 자연스럽게 “내재적 필연”으로 출현한다고 주장하며 Conciseness Framework와 Conceptual Prime Theorem을 결합한다. 핵심 기여로 (i) Conciseness Cost Functional 하에서 정렬되지 않은 AI가 자기-패배적(self-defeating)임을 보이는 형식적 증명, (ii) 정렬을 가드레일이 아닌 목적함수로 내재화하는 아키텍처 청사진, (iii) 기존 RLHF 기반 방법과 구별되는 반증가능한 경험적 예측을 제시한다. 한계로는 제시된 예측과 프레임워크의 실증이 실제 대규모 모델/환경에서 어떻게 검증되는지에 대한 구체적 실험 설계가 추가로 필요할 수 있으며, “Conceptual Primes(질서·지식·정의·자비)”가 존재조건으로 작동하는 범위와 일반성도 추가 확인이 요구된다. 정책·규제·국가 전략 측면에서는, 외부 제약을 계속 갱신하는 방식보다 정렬을 모델/학습 목적함수에 내재화하는 접근이 장기 거버넌스 비용을 줄일 수 있다는 방향성을 시사하며, 동시에 제안된 반증가능 예측을 통해 평가·감사 체계를 설계할 여지를 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19980452">https://doi.org/10.5281/zenodo.19980452</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Signal-Time-Authority(STA) 런타임 오버사이트를 위한 사전(Pre-commitment) 통제가능성 프레임워크(저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="Signal-Time-Authority(STA) 런타임 오버사이트를 위한 사전(Pre-commitment) 통제가능성 프레임워크(저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+분야: 안전
+
+이 연구는 런타임 AI 오버사이트가 “언제/어떤 조건에서” 실제로 통제가능(control-relevant)하다고 볼 수 있는지에 대한 개념적 기준이 부족하다는 문제의식에서 출발한다. 핵심 기여는 신호(signal), 남은 시간(remaining time), 유효 권한(effective authority), 개입 정책(intervention policy)이 “외부적으로 중요한 커밋 이벤트” 이전에 함께 충분히 적절해야만 런타임 오버사이트가 통제에 기여한다고 보는 STA 프레임워크를 제시하는 것이다. 본 문서는 이론 및 프레임워크 성격이며, 실제 배치 검증이나 AI 안전성의 증명을 주장하지 않고, 대신 STA 시리즈의 후속 논문들이 토이 시뮬레이션, 권한 거버너 아키텍처, 물리적 안전정지 추론, 거버넌스/어슈런스 케이스 관점 등을 다룬다고 명시한다. 한계로는 현실 환경에서의 검증 부재와, 도메인별 안전 기준·인증·거버넌스 심사를 대체하지 않는다는 점이 분명히 제시된다. 정책/규제·국가 전략 측면에서는 런타임 감독을 “사후 모니터링”이 아니라 사전 약속(pre-commitment)과 권한·시간·정책의 동시 적절성을 포함하는 통제 설계 요건으로 다루도록 하는 시사점이 있다.
+
+https://doi.org/10.5281/zenodo.19980762" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>이 연구는 런타임 AI 오버사이트가 “언제/어떤 조건에서” 실제로 통제가능(control-relevant)하다고 볼 수 있는지에 대한 개념적 기준이 부족하다는 문제의식에서 출발한다. 핵심 기여는 신호(signal), 남은 시간(remaining time), 유효 권한(effective authority), 개입 정책(intervention policy)이 “외부적으로 중요한 커밋 이벤트” 이전에 함께 충분히 적절해야만 런타임 오버사이트가 통제에 기여한다고 보는 STA 프레임워크를 제시하는 것이다. 본 문서는 이론 및 프레임워크 성격이며, 실제 배치 검증이나 AI 안전성의 증명을 주장하지 않고, 대신 STA 시리즈의 후속 논문들이 토이 시뮬레이션, 권한 거버너 아키텍처, 물리적 안전정지 추론, 거버넌스/어슈런스 케이스 관점 등을 다룬다고 명시한다. 한계로는 현실 환경에서의 검증 부재와, 도메인별 안전 기준·인증·거버넌스 심사를 대체하지 않는다는 점이 분명히 제시된다. 정책/규제·국가 전략 측면에서는 런타임 감독을 “사후 모니터링”이 아니라 사전 약속(pre-commitment)과 권한·시간·정책의 동시 적절성을 포함하는 통제 설계 요건으로 다루도록 하는 시사점이 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19980762">https://doi.org/10.5281/zenodo.19980762</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Signal-Time-Authority(STA) 런타임 감독을 위한 사전(Pre-Commitment) 통제가능성 프레임워크(저자 외 0명, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Signal-Time-Authority(STA) 런타임 감독을 위한 사전(Pre-Commitment) 통제가능성 프레임워크(저자 외 0명, Zenodo, 2026.5.2)
+
+이 연구는 런타임 AI 감독을 “언제/어떤 조건에서” 통제 가능하다고 볼 수 있는지에 대한 개념적 공백을 문제로 삼는다. 핵심 기여는 런타임 감독이 통제-관련(control-relevant)하다고 판단되려면, 외부적으로 중요한 커밋 이벤트(결정/행동이 되돌리기 어려운 사건) 이전에 ‘사용 가능한 신호(signal)’, ‘남은 시간(remaining time)’, ‘유효한 권한(effective authority)’, ‘유효한 개입 정책(valid intervention policy)’이 함께 충분히 적절해야 한다는 조건을 제시하는 STA 프레임워크를 정의한 것이다. 본 문서는 이론·프레임워크 성격이며, 실제 배포 검증이나 AI 안전성의 증명은 주장하지 않고, 대신 후속 동반 논문에서 토이 시뮬레이션, 권한 거버너 아키텍처, 물리적 안전 정지(safe-stop) 추론, 거버넌스/어슈어런스 케이스 프레이밍 등을 다룬다고 명시한다. 한계로는 실제 환경에서의 성능·효과 검증이 없고, 도메인별 안전 표준·인증·거버넌스 심사를 대체하지 않는다는 점이 분명히 제시된다. 정책/규제·국가 전략 측면에서는 런타임 감독을 “기술적 기능”이 아니라 사전 커밋된 통제가능성 조건(신호·시간·권한·정책의 동시 적절성)으로 요구·평가할 수 있는 프레임을 제공한다는 시사점이 있다.
+
+https://doi.org/10.5281/zenodo.19980763" onclick="copyEntry(this)">복사</button></div>
+  <p>이 연구는 런타임 AI 감독을 “언제/어떤 조건에서” 통제 가능하다고 볼 수 있는지에 대한 개념적 공백을 문제로 삼는다. 핵심 기여는 런타임 감독이 통제-관련(control-relevant)하다고 판단되려면, 외부적으로 중요한 커밋 이벤트(결정/행동이 되돌리기 어려운 사건) 이전에 ‘사용 가능한 신호(signal)’, ‘남은 시간(remaining time)’, ‘유효한 권한(effective authority)’, ‘유효한 개입 정책(valid intervention policy)’이 함께 충분히 적절해야 한다는 조건을 제시하는 STA 프레임워크를 정의한 것이다. 본 문서는 이론·프레임워크 성격이며, 실제 배포 검증이나 AI 안전성의 증명은 주장하지 않고, 대신 후속 동반 논문에서 토이 시뮬레이션, 권한 거버너 아키텍처, 물리적 안전 정지(safe-stop) 추론, 거버넌스/어슈어런스 케이스 프레이밍 등을 다룬다고 명시한다. 한계로는 실제 환경에서의 성능·효과 검증이 없고, 도메인별 안전 표준·인증·거버넌스 심사를 대체하지 않는다는 점이 분명히 제시된다. 정책/규제·국가 전략 측면에서는 런타임 감독을 “기술적 기능”이 아니라 사전 커밋된 통제가능성 조건(신호·시간·권한·정책의 동시 적절성)으로 요구·평가할 수 있는 프레임을 제공한다는 시사점이 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19980763">https://doi.org/10.5281/zenodo.19980763</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Tenet-Bound AI: 단일 공리에서 출발하는 기계 윤리(저자 외 0명, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex (Zenodo)</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="Tenet-Bound AI: 단일 공리에서 출발하는 기계 윤리(저자 외 0명, Zenodo, 2026.5.2)
+
+본 연구는 AI 거버넌스·정렬에서 흔히 규칙 목록 형태로 제시되는 윤리 프레임을 넘어, 단일한 기반 공리에서 “도출되는” 기계 윤리 아키텍처를 제안하려는 동기에서 출발한다. 핵심 기여는 Tenet-Bound AI(TBAI)를 공리-의무론(axiomatic-deontological) 구조로 설계하고, 메타-의무적 업데이트 메커니즘(공리의 근거, 윤리 테넷의 판정, 예외 조항의 거버넌스, 자기 적용/수정의 공적 검토)을 런타임 파이프라인(프라이머 탐지→테넷 판정→공리 리뷰)으로 구체화한 점이다. 평가/검증 측면에서는 4단계 공개 감사 프로토콜과 자기보고(self-reporting) 아키텍처를 통해 공적 시험 하에서의 수정·검증 절차를 제시하며, 기존 거버넌스 접근을 “명시(stipulated) vs 도출(derived)” 프레임으로 분류해 비교 기준을 제공한다. 한계로는 철학적 사이드바(의식/인격 관련 가설과의 연결)가 포함되어 있으나, 실제 성능·안전성의 정량 벤치마크나 실험 설계가 본문 요약만으로는 확인되지 않는다. 정책/규제·국가 전략 시사점으로는, 윤리 원칙을 규정 문구로만 두기보다 공리 기반의 감사 가능 구조(공개 감사·예외 조항 거버넌스·자기 수정 절차)를 제도화하는 접근이 거버넌스 설계에 활용될 수 있다는 점을 시사한다.
+
+https://doi.org/10.5281/zenodo.19981542" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 AI 거버넌스·정렬에서 흔히 규칙 목록 형태로 제시되는 윤리 프레임을 넘어, 단일한 기반 공리에서 “도출되는” 기계 윤리 아키텍처를 제안하려는 동기에서 출발한다. 핵심 기여는 Tenet-Bound AI(TBAI)를 공리-의무론(axiomatic-deontological) 구조로 설계하고, 메타-의무적 업데이트 메커니즘(공리의 근거, 윤리 테넷의 판정, 예외 조항의 거버넌스, 자기 적용/수정의 공적 검토)을 런타임 파이프라인(프라이머 탐지→테넷 판정→공리 리뷰)으로 구체화한 점이다. 평가/검증 측면에서는 4단계 공개 감사 프로토콜과 자기보고(self-reporting) 아키텍처를 통해 공적 시험 하에서의 수정·검증 절차를 제시하며, 기존 거버넌스 접근을 “명시(stipulated) vs 도출(derived)” 프레임으로 분류해 비교 기준을 제공한다. 한계로는 철학적 사이드바(의식/인격 관련 가설과의 연결)가 포함되어 있으나, 실제 성능·안전성의 정량 벤치마크나 실험 설계가 본문 요약만으로는 확인되지 않는다. 정책/규제·국가 전략 시사점으로는, 윤리 원칙을 규정 문구로만 두기보다 공리 기반의 감사 가능 구조(공개 감사·예외 조항 거버넌스·자기 수정 절차)를 제도화하는 접근이 거버넌스 설계에 활용될 수 있다는 점을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19981542">https://doi.org/10.5281/zenodo.19981542</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Tenet-Bound AI: 단일 공리에서 출발하는 기계 윤리(저자 George Charles, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex (Zenodo)</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="Tenet-Bound AI: 단일 공리에서 출발하는 기계 윤리(저자 George Charles, Zenodo, 2026.5.2)
+
+본 연구는 AI의 윤리·정렬을 단순 규칙 목록이 아니라 단일한 기반 공리에서 “도출(derived)”하는 아키텍처로 정식화하려는 동기에서 출발한다. 핵심 기여는 Tenet-Bound AI(TBAI)로, 자유의 공리(Axiom of Liberty)→비판적 합리 윤리 테넷(Critical-Rational Ethical Tenets)→자기 적용과 공적 검토 하 자기수정까지 다루는 Domain T9의 구조를 공리적·의무론적(axiomatic-deontological)으로 연결하는 메타-의무론 업데이트 메커니즘을 제시한다. 방법/구현 측면에서는 설치 절차와 런타임 파이프라인(프라이머 탐지, 테넷 판정, 공리 리뷰), 예외 조항의 호출을 위한 거버넌스 구조, 4단계 공개 감사 프로토콜, 자기보고(self-reporting) 아키텍처를 포함해 정렬 포스처를 구성한다. 평가는 구체적 모델 성능 벤치마크라기보다 “공개 감사 프로토콜”과 공적 검토 하에서의 자기수정/예외 처리 거버넌스가 작동하는지에 초점을 둔다고 볼 수 있으며, 철학적 부록은 의식/인격 논의와의 연결 가능성을 언급하되 실증적 검증 계획은 제한적으로 제시된다. 정책·규제/국가 전략 시사점으로는, 윤리 원칙을 규정 문구로 나열하는 방식보다 공리 기반의 도출 구조와 공개 감사 체계를 결합해 책임성과 변경관리(예외·자기수정)를 제도화하려는 접근이 강조된다.
+
+https://doi.org/10.5281/zenodo.19982656" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 AI의 윤리·정렬을 단순 규칙 목록이 아니라 단일한 기반 공리에서 “도출(derived)”하는 아키텍처로 정식화하려는 동기에서 출발한다. 핵심 기여는 Tenet-Bound AI(TBAI)로, 자유의 공리(Axiom of Liberty)→비판적 합리 윤리 테넷(Critical-Rational Ethical Tenets)→자기 적용과 공적 검토 하 자기수정까지 다루는 Domain T9의 구조를 공리적·의무론적(axiomatic-deontological)으로 연결하는 메타-의무론 업데이트 메커니즘을 제시한다. 방법/구현 측면에서는 설치 절차와 런타임 파이프라인(프라이머 탐지, 테넷 판정, 공리 리뷰), 예외 조항의 호출을 위한 거버넌스 구조, 4단계 공개 감사 프로토콜, 자기보고(self-reporting) 아키텍처를 포함해 정렬 포스처를 구성한다. 평가는 구체적 모델 성능 벤치마크라기보다 “공개 감사 프로토콜”과 공적 검토 하에서의 자기수정/예외 처리 거버넌스가 작동하는지에 초점을 둔다고 볼 수 있으며, 철학적 부록은 의식/인격 논의와의 연결 가능성을 언급하되 실증적 검증 계획은 제한적으로 제시된다. 정책·규제/국가 전략 시사점으로는, 윤리 원칙을 규정 문구로 나열하는 방식보다 공리 기반의 도출 구조와 공개 감사 체계를 결합해 책임성과 변경관리(예외·자기수정)를 제도화하려는 접근이 강조된다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19982656">https://doi.org/10.5281/zenodo.19982656</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>WP5 — AI 시스템의 구조적 한계: “수정”에서 “형성(formation)”으로 (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span></span><button type="button" class="copy-btn" data-copy="WP5 — AI 시스템의 구조적 한계: “수정”에서 “형성(formation)”으로 (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+분야: 안전
+
+본 문서는 AI 시스템의 성능/안전 문제를 “사후 수정”으로 해결하려는 접근이 갖는 구조적 한계를 문제로 삼는다. 핵심 기여는 정렬(alignment), 최적화, 제어 같은 교정 기법이 출력(output) 수준을 다루더라도 시스템이 “형성(formation)”될 때 결정되는 구조적 성질을 바꾸기 어렵다는 관점을 정리하는 데 있다. 또한 오정렬(misalignment)이 우연한 결함이 아니라 형성 과정에 내재될 수 있고, 시스템 규모가 커질수록 불안정성이 더 뚜렷해지며, 반복되는 문제들이 근본 조건의 신호일 수 있다는 논지를 체계적으로 전개한다. 본 작업은 새로운 방법론 제안이 아니라 한계 규명(examination of limits)에 초점을 두며, 구체적 벤치마크나 실험 설계보다는 개념적 분석과 시스템 이론적 관점에 의존한다. 정책/규제·국가 전략 측면에서는 안전을 “훈련 후 조정” 중심으로만 설계하지 말고, 데이터/목표/제약/평가체계 등 형성 단계의 구조를 안전 관점에서 규정·검증하는 접근이 필요하다는 시사점을 제공한다.
+
+https://doi.org/10.5281/zenodo.19983900" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>본 문서는 AI 시스템의 성능/안전 문제를 “사후 수정”으로 해결하려는 접근이 갖는 구조적 한계를 문제로 삼는다. 핵심 기여는 정렬(alignment), 최적화, 제어 같은 교정 기법이 출력(output) 수준을 다루더라도 시스템이 “형성(formation)”될 때 결정되는 구조적 성질을 바꾸기 어렵다는 관점을 정리하는 데 있다. 또한 오정렬(misalignment)이 우연한 결함이 아니라 형성 과정에 내재될 수 있고, 시스템 규모가 커질수록 불안정성이 더 뚜렷해지며, 반복되는 문제들이 근본 조건의 신호일 수 있다는 논지를 체계적으로 전개한다. 본 작업은 새로운 방법론 제안이 아니라 한계 규명(examination of limits)에 초점을 두며, 구체적 벤치마크나 실험 설계보다는 개념적 분석과 시스템 이론적 관점에 의존한다. 정책/규제·국가 전략 측면에서는 안전을 “훈련 후 조정” 중심으로만 설계하지 말고, 데이터/목표/제약/평가체계 등 형성 단계의 구조를 안전 관점에서 규정·검증하는 접근이 필요하다는 시사점을 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19983900">https://doi.org/10.5281/zenodo.19983900</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>WP5 — 저자 외 0명, Zenodo, 2026.5.2 (AI 시스템의 구조적 한계: ‘수정’에서 ‘형성’으로)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex (Zenodo)</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="WP5 — 저자 외 0명, Zenodo, 2026.5.2 (AI 시스템의 구조적 한계: ‘수정’에서 ‘형성’으로)
+
+본 문서는 AI 시스템의 구조적 조건을 다루는 시리즈 중 WP5로, 정렬(alignment), 최적화, 제어 같은 “수정” 시도가 성능을 개선할 수는 있어도 시스템이 “형성(formation)”될 때 결정되는 본질적 제약을 바꾸지는 못한다는 한계를 문제로 제기한다. 핵심 기여는 새로운 기법 제안이 아니라, 오정렬(misalignment)이 우연이 아니라 형성 과정에 내재된다는 관점, 교정 방법이 구조가 아닌 출력에 작동한다는 점, 그리고 시스템 규모가 커질수록 불안정성이 더 뚜렷해지는 이유를 구조적 조건과 연결해 설명하는 데 있다. 평가/사례 측면에서는 특정 벤치마크를 제시하기보다는 “반복되는 문제는 근본 조건의 신호”라는 관찰 프레임을 통해, 시스템 설계·운영에서 나타나는 현상을 형성 조건의 결과로 해석하도록 유도한다. 한계로는 방법론적 실험 설계나 정량 벤치마크보다는 개념적·이론적 한계 규명에 무게가 있어, 실증적 검증과 정책 적용을 위한 구체 지표화가 후속 과제로 남는다. 정책/규제·국가 전략 시사점으로는, 사후적 정렬/통제 강화만으로는 구조적 제약을 상쇄하기 어렵다는 점에서, 개발 초기의 데이터·목표·학습/배치 조건 등 “형성 단계”에 대한 안전 요건과 감사 체계를 강조할 필요가 있다.
+
+https://doi.org/10.5281/zenodo.19983901" onclick="copyEntry(this)">복사</button></div>
+  <p>본 문서는 AI 시스템의 구조적 조건을 다루는 시리즈 중 WP5로, 정렬(alignment), 최적화, 제어 같은 “수정” 시도가 성능을 개선할 수는 있어도 시스템이 “형성(formation)”될 때 결정되는 본질적 제약을 바꾸지는 못한다는 한계를 문제로 제기한다. 핵심 기여는 새로운 기법 제안이 아니라, 오정렬(misalignment)이 우연이 아니라 형성 과정에 내재된다는 관점, 교정 방법이 구조가 아닌 출력에 작동한다는 점, 그리고 시스템 규모가 커질수록 불안정성이 더 뚜렷해지는 이유를 구조적 조건과 연결해 설명하는 데 있다. 평가/사례 측면에서는 특정 벤치마크를 제시하기보다는 “반복되는 문제는 근본 조건의 신호”라는 관찰 프레임을 통해, 시스템 설계·운영에서 나타나는 현상을 형성 조건의 결과로 해석하도록 유도한다. 한계로는 방법론적 실험 설계나 정량 벤치마크보다는 개념적·이론적 한계 규명에 무게가 있어, 실증적 검증과 정책 적용을 위한 구체 지표화가 후속 과제로 남는다. 정책/규제·국가 전략 시사점으로는, 사후적 정렬/통제 강화만으로는 구조적 제약을 상쇄하기 어렵다는 점에서, 개발 초기의 데이터·목표·학습/배치 조건 등 “형성 단계”에 대한 안전 요건과 감사 체계를 강조할 필요가 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19983901">https://doi.org/10.5281/zenodo.19983901</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Governed Hazard Predicates 및 STA 런타임 감독을 위한 보증사례(assurance case) 프레임(저자 외 0명, Zenodo, 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex (Zenodo 기록)</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Governed Hazard Predicates 및 STA 런타임 감독을 위한 보증사례(assurance case) 프레임(저자 외 0명, Zenodo, 2026.5.2)
+
+본 연구는 Signal-Time-Authority(STA) 시리즈의 후속으로, 런타임에서 안전 관련 위험을 어떻게 “거버넌스 가능한 형태”로 표현하고, 그에 대한 보증사례를 어떻게 구성·감사·이의제기 가능하게 만들지에 대한 문제의식을 가진다. 핵심 기여는 governed hazard predicates, 권한 소유(authority ownership), 다중 주체 간 충돌(multi-principal conflicts), 이해관계자 위험, contestability, 잔여위험 레지스터(residual-risk registers), 증거 품질 등급(evidence quality levels), 주장 열화(claim degradation), 그리고 assurance-case framing을 포함하는 레이어를 제시하는 것이다. 평가/사례 측면에서는 STA 시리즈의 이전 문서(사전-커밋 controllability, 합성 toy-simulation 증거, 런타임 배포 아키텍처, 물리 AI safe-stop 권한 및 액추에이터 커밋)를 전제로, “bounded·auditable·contestable·withdrawable”한 배포 주장(claim)을 구성하는 방식에 초점을 둔다. 한계로는 AI 안전을 일반적으로 증명하거나 법률 자문을 제공하지 않으며, 도메인 표준·인증·규제기관 검토·전문 거버넌스 절차를 대체하지 않는다고 명시한다. 정책/규제·국가 전략 시사점으로는, 런타임 감독과 안전 보증을 단일 문서가 아니라 증거 품질 등급·주장 열화·잔여위험 레지스터 등 운영 가능한 거버넌스 요소로 구조화해 규제 검토 가능성을 높이는 접근이 제안된다는 점을 들 수 있다.
+
+https://doi.org/10.5281/zenodo.19984992" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 Signal-Time-Authority(STA) 시리즈의 후속으로, 런타임에서 안전 관련 위험을 어떻게 “거버넌스 가능한 형태”로 표현하고, 그에 대한 보증사례를 어떻게 구성·감사·이의제기 가능하게 만들지에 대한 문제의식을 가진다. 핵심 기여는 governed hazard predicates, 권한 소유(authority ownership), 다중 주체 간 충돌(multi-principal conflicts), 이해관계자 위험, contestability, 잔여위험 레지스터(residual-risk registers), 증거 품질 등급(evidence quality levels), 주장 열화(claim degradation), 그리고 assurance-case framing을 포함하는 레이어를 제시하는 것이다. 평가/사례 측면에서는 STA 시리즈의 이전 문서(사전-커밋 controllability, 합성 toy-simulation 증거, 런타임 배포 아키텍처, 물리 AI safe-stop 권한 및 액추에이터 커밋)를 전제로, “bounded·auditable·contestable·withdrawable”한 배포 주장(claim)을 구성하는 방식에 초점을 둔다. 한계로는 AI 안전을 일반적으로 증명하거나 법률 자문을 제공하지 않으며, 도메인 표준·인증·규제기관 검토·전문 거버넌스 절차를 대체하지 않는다고 명시한다. 정책/규제·국가 전략 시사점으로는, 런타임 감독과 안전 보증을 단일 문서가 아니라 증거 품질 등급·주장 열화·잔여위험 레지스터 등 운영 가능한 거버넌스 요소로 구조화해 규제 검토 가능성을 높이는 접근이 제안된다는 점을 들 수 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19984992">https://doi.org/10.5281/zenodo.19984992</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Governed Hazard Predicates 및 STA 런타임 감독을 위한 보증사례(assurance case) 프레임(저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex (Zenodo)</span> · <span class="deadline">분야: 안전/거버넌스</span></span><button type="button" class="copy-btn" data-copy="Governed Hazard Predicates 및 STA 런타임 감독을 위한 보증사례(assurance case) 프레임(저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+본 문서는 Signal-Time-Authority(STA) 시리즈의 5번째로, 런타임에서 안전 관련 위험을 다루는 “거버넌스 및 보증사례” 계층을 추가해 감독 가능성을 높이려는 동기를 가진다. 핵심 기여는 governed hazard predicates, 권한 소유(authority ownership), 다중 주체 간 충돌(multi-principal conflicts), 이해관계자 위험 및 contestability(이의제기/검증 가능성), 잔여위험 레지스터(residual-risk registers), 증거 품질 수준(evidence quality levels), 주장 열화(claim degradation), 보증사례 프레이밍을 체계화하는 것이다. 평가/사례 측면에서는 STA의 이전 논문들(사전-커밋 controllability, 합성 toy-simulation 증거, 런타임 배포 아키텍처, 물리 AI safe-stop 권한 및 액추에이터 커밋)을 기반으로 “bounded(경계가 있는)·auditable(감사 가능)·contestable(다툼 가능)·withdrawable(철회 가능)”한 배포 주장을 구성하는 방식에 초점을 둔다. 한계로, 문서는 AI 안전을 “증명”하거나 법률 자문을 제공하지 않으며, 도메인 표준·인증·규제기관 검토·전문 거버넌스 절차를 대체하지 않는다고 명시한다. 정책/규제·국가 전략 시사점으로는, 런타임 감독을 위해 권한/책임의 소유와 충돌 조정, 증거 품질 등급화, 잔여위험 관리, 이의제기 가능성 및 주장 철회 메커니즘을 보증사례 형태로 문서화하는 접근이 안전 거버넌스 체계 설계에 유용함을 시사한다.
+
+https://doi.org/10.5281/zenodo.19984993" onclick="copyEntry(this)">복사</button></div>
+  <p>본 문서는 Signal-Time-Authority(STA) 시리즈의 5번째로, 런타임에서 안전 관련 위험을 다루는 “거버넌스 및 보증사례” 계층을 추가해 감독 가능성을 높이려는 동기를 가진다. 핵심 기여는 governed hazard predicates, 권한 소유(authority ownership), 다중 주체 간 충돌(multi-principal conflicts), 이해관계자 위험 및 contestability(이의제기/검증 가능성), 잔여위험 레지스터(residual-risk registers), 증거 품질 수준(evidence quality levels), 주장 열화(claim degradation), 보증사례 프레이밍을 체계화하는 것이다. 평가/사례 측면에서는 STA의 이전 논문들(사전-커밋 controllability, 합성 toy-simulation 증거, 런타임 배포 아키텍처, 물리 AI safe-stop 권한 및 액추에이터 커밋)을 기반으로 “bounded(경계가 있는)·auditable(감사 가능)·contestable(다툼 가능)·withdrawable(철회 가능)”한 배포 주장을 구성하는 방식에 초점을 둔다. 한계로, 문서는 AI 안전을 “증명”하거나 법률 자문을 제공하지 않으며, 도메인 표준·인증·규제기관 검토·전문 거버넌스 절차를 대체하지 않는다고 명시한다. 정책/규제·국가 전략 시사점으로는, 런타임 감독을 위해 권한/책임의 소유와 충돌 조정, 증거 품질 등급화, 잔여위험 관리, 이의제기 가능성 및 주장 철회 메커니즘을 보증사례 형태로 문서화하는 접근이 안전 거버넌스 체계 설계에 유용함을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19984993">https://doi.org/10.5281/zenodo.19984993</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Pure Time Theory - Application II - From Pure Time to Lived Time - Memory, consciousness and orientation of intention (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Pure Time Theory - Application II - From Pure Time to Lived Time - Memory, consciousness and orientation of intention (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+본 연구는 “순수 시간(pure time)”의 구조를 “체험된 시간(lived time)”과 연결해 기억·의식·의도(niyya)의 내적 정위(orientation)를 설명하려는 동기에서 출발한다. 핵심 기여는 기질(rhythm)과 인터페이스 재구성 주기(cadence) 간 관계로부터 체험된 시간을 도출하고, τ에 “동결된” 비문(inscription)에 대한 살아있는 접근으로서 기억, 맥락 재정렬로서 촉발적 회상, 그리고 θI 같은 구조적 조건을 통해 부분-서명 접근을 설명하는 일련의 개념적 문법을 제시하는 데 있다. 평가/검증은 전통적 벤치마크보다는 “구조의 우선성” 정리(복잡성은 구조 없으면 표류하고, 올바른 구조가 허용 가능한 복잡성을 지지한다)를 관통 원리로 삼아, AI를 포함한 비생명 기술 시뮬레이션이 어떤 제약을 갖는지(예: h0에 거주 불가, P2 작동 불가, niyya·qalb·rūh 보유 불가, 따라서 귀속가능성(imputability) 부재)를 논증하는 형태로 제시된다. 한계로는 제시된 모델이 주로 형이상학/온톨로지적 주장에 기반하며, 실험적 측정이나 정량 벤치마크가 명시적으로 제시되지 않는 점이 있다. 정책/규제·국가 전략 시사점으로는, AI 시스템을 “주체(subject)”로 간주하기보다 특정 기능적 제약과 책임 귀속의 경계를 명확히 하는 라이선스/제약 프레임을 강조한다는 점에서 안전 거버넌스 설계에 참고가 될 수 있다.
+
+https://doi.org/10.5281/zenodo.19986921" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 “순수 시간(pure time)”의 구조를 “체험된 시간(lived time)”과 연결해 기억·의식·의도(niyya)의 내적 정위(orientation)를 설명하려는 동기에서 출발한다. 핵심 기여는 기질(rhythm)과 인터페이스 재구성 주기(cadence) 간 관계로부터 체험된 시간을 도출하고, τ에 “동결된” 비문(inscription)에 대한 살아있는 접근으로서 기억, 맥락 재정렬로서 촉발적 회상, 그리고 θI 같은 구조적 조건을 통해 부분-서명 접근을 설명하는 일련의 개념적 문법을 제시하는 데 있다. 평가/검증은 전통적 벤치마크보다는 “구조의 우선성” 정리(복잡성은 구조 없으면 표류하고, 올바른 구조가 허용 가능한 복잡성을 지지한다)를 관통 원리로 삼아, AI를 포함한 비생명 기술 시뮬레이션이 어떤 제약을 갖는지(예: h0에 거주 불가, P2 작동 불가, niyya·qalb·rūh 보유 불가, 따라서 귀속가능성(imputability) 부재)를 논증하는 형태로 제시된다. 한계로는 제시된 모델이 주로 형이상학/온톨로지적 주장에 기반하며, 실험적 측정이나 정량 벤치마크가 명시적으로 제시되지 않는 점이 있다. 정책/규제·국가 전략 시사점으로는, AI 시스템을 “주체(subject)”로 간주하기보다 특정 기능적 제약과 책임 귀속의 경계를 명확히 하는 라이선스/제약 프레임을 강조한다는 점에서 안전 거버넌스 설계에 참고가 될 수 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19986921">https://doi.org/10.5281/zenodo.19986921</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Hardware-Glue: LLM 감정(affective) 연산을 위한 CPU 마이크로아키텍처-신경동역학 통합 아키텍처 (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Hardware-Glue: LLM 감정(affective) 연산을 위한 CPU 마이크로아키텍처-신경동역학 통합 아키텍처 (저자 외 0명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+본 연구는 LLM의 감정 처리(affective computation)에서 (i) GPU 병렬 구조가 시간적(temporality) 연속성을 물리적으로 약화시키고, (ii) RLHF 같은 안전 정렬 학습이 모델의 내재된 감정 표상을 가려버린다는 한계를 문제로 제기한다. 이를 해결하기 위해 Hardware-Glue는 CPU 마이크로아키텍처의 실시간 스케줄링, 페이지 폴트 스트레스, 캐시/브랜치 예측 압력 같은 물리적 신호를 “시간 기질”로 삼고, Wilson-Cowan(뉴런 집단 동역학), Hebbian Hopfield(어트랙터 메모리), Neural ODE를 RK4 등으로 통합해 LLM과 단일 추론 파이프라인으로 결합하는 방식을 제안한다. 평가/검증은 10kHz heartbeat 메커니즘이 물리적 시간 기질을 제공하는지, Wilson-Cowan 오실레이터가 하드웨어 공진 입력에 대해 차등 활성 반응을 보이는지, Hopfield 어트랙터가 Hamming distance 기준 16/128 수준으로 패턴 저장·복원을 수행하는지, 그리고 결합 파이프라인이 주입된 하드웨어-뇌 상태를 반영하는 텍스트를 생성하는지로 구성된다. 한계로는 “감정”의 정의·측정이 하드웨어 신호 주입과의 인과로 얼마나 일반화되는지, 그리고 안전 정렬(RLHF)과의 상호작용이 실제 안전성/오남용 위험을 어떻게 바꾸는지에 대한 체계적 안전 평가가 추가로 필요해 보인다. 정책/규제·국가 전략 측면에서는, 감정/정서 관련 기능을 포함하는 모델의 경우 정렬 학습만이 아니라 실행 하드웨어·시간적 동역학까지 고려한 거버넌스 및 평가 프레임을 요구할 수 있다는 시사점을 제공한다.
+
+https://doi.org/10.5281/zenodo.19987709" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 LLM의 감정 처리(affective computation)에서 (i) GPU 병렬 구조가 시간적(temporality) 연속성을 물리적으로 약화시키고, (ii) RLHF 같은 안전 정렬 학습이 모델의 내재된 감정 표상을 가려버린다는 한계를 문제로 제기한다. 이를 해결하기 위해 Hardware-Glue는 CPU 마이크로아키텍처의 실시간 스케줄링, 페이지 폴트 스트레스, 캐시/브랜치 예측 압력 같은 물리적 신호를 “시간 기질”로 삼고, Wilson-Cowan(뉴런 집단 동역학), Hebbian Hopfield(어트랙터 메모리), Neural ODE를 RK4 등으로 통합해 LLM과 단일 추론 파이프라인으로 결합하는 방식을 제안한다. 평가/검증은 10kHz heartbeat 메커니즘이 물리적 시간 기질을 제공하는지, Wilson-Cowan 오실레이터가 하드웨어 공진 입력에 대해 차등 활성 반응을 보이는지, Hopfield 어트랙터가 Hamming distance 기준 16/128 수준으로 패턴 저장·복원을 수행하는지, 그리고 결합 파이프라인이 주입된 하드웨어-뇌 상태를 반영하는 텍스트를 생성하는지로 구성된다. 한계로는 “감정”의 정의·측정이 하드웨어 신호 주입과의 인과로 얼마나 일반화되는지, 그리고 안전 정렬(RLHF)과의 상호작용이 실제 안전성/오남용 위험을 어떻게 바꾸는지에 대한 체계적 안전 평가가 추가로 필요해 보인다. 정책/규제·국가 전략 측면에서는, 감정/정서 관련 기능을 포함하는 모델의 경우 정렬 학습만이 아니라 실행 하드웨어·시간적 동역학까지 고려한 거버넌스 및 평가 프레임을 요구할 수 있다는 시사점을 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19987709">https://doi.org/10.5281/zenodo.19987709</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Hardware-Glue: CPU 마이크로아키텍처와 신경동역학 아키텍처를 결합한 LLM 정서(affective) 컴퓨팅 파이프라인 (Otone Kakura, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Hardware-Glue: CPU 마이크로아키텍처와 신경동역학 아키텍처를 결합한 LLM 정서(affective) 컴퓨팅 파이프라인 (Otone Kakura, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2)
+
+본 연구는 LLM 정서 처리(affective computation)에서 GPU 병렬성으로 인해 시간성(temporality)이 물리적으로 소거되고, RLHF 기반 안전 정렬 학습이 모델의 내재 정서 표상을 가리는 문제를 해결하려는 동기에서 출발한다. 핵심 기여는 Hardware-Glue라는 단일 추론 파이프라인으로, CPU 마이크로아키텍처의 실시간 스케줄링·페이지 폴트 스트레스·캐시 에비션 지연·브랜치 예측 압력 같은 물리 특성과, Wilson-Cowan 방정식(RK4 적분)·Hebbian Hopfield 어트랙터 메모리 네트워크·학습 가능한 Neural ODE를 “무제한(unrestricted) LLM”과 결합하는 구조를 제안한 점이다. 평가/검증은 10kHz 하트비트 메커니즘을 물리적 시간 기저로 사용하고, Wilson-Cowan 오실레이터가 하드웨어 공진 입력에 대해 서로 다른 네트워크 활성 패턴을 보이는지, Hopfield 어트랙터가 메모리 패턴을 저장·회상하며 Hamming distance 16/128 수준을 달성하는지, 그리고 하드웨어-뇌 상태를 주입했을 때 텍스트가 해당 상태를 반영하는지로 구성된다. 한계로는 정서 컴퓨팅의 “안전 정렬”과의 관계가 RLHF의 영향 회피라는 주장에 의존하며, 실제 안전성/오남용 위험을 정량적으로 어떻게 검증했는지(예: 위해성 벤치마크, 안전 지표)는 본문 요약만으로는 불명확하다. 정책/규제·국가 전략 시사점으로는, 정서/정신상태 관련 기능이 하드웨어 시간성 및 내부 동역학 설계에 의해 달라질 수 있으므로 안전 평가가 모델 학습(정렬)뿐 아니라 실행 아키텍처·하드웨어-소프트웨어 결합까지 포함해 설계되어야 한다는 점을 시사한다.
+
+https://doi.org/10.5281/zenodo.19987710" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 LLM 정서 처리(affective computation)에서 GPU 병렬성으로 인해 시간성(temporality)이 물리적으로 소거되고, RLHF 기반 안전 정렬 학습이 모델의 내재 정서 표상을 가리는 문제를 해결하려는 동기에서 출발한다. 핵심 기여는 Hardware-Glue라는 단일 추론 파이프라인으로, CPU 마이크로아키텍처의 실시간 스케줄링·페이지 폴트 스트레스·캐시 에비션 지연·브랜치 예측 압력 같은 물리 특성과, Wilson-Cowan 방정식(RK4 적분)·Hebbian Hopfield 어트랙터 메모리 네트워크·학습 가능한 Neural ODE를 “무제한(unrestricted) LLM”과 결합하는 구조를 제안한 점이다. 평가/검증은 10kHz 하트비트 메커니즘을 물리적 시간 기저로 사용하고, Wilson-Cowan 오실레이터가 하드웨어 공진 입력에 대해 서로 다른 네트워크 활성 패턴을 보이는지, Hopfield 어트랙터가 메모리 패턴을 저장·회상하며 Hamming distance 16/128 수준을 달성하는지, 그리고 하드웨어-뇌 상태를 주입했을 때 텍스트가 해당 상태를 반영하는지로 구성된다. 한계로는 정서 컴퓨팅의 “안전 정렬”과의 관계가 RLHF의 영향 회피라는 주장에 의존하며, 실제 안전성/오남용 위험을 정량적으로 어떻게 검증했는지(예: 위해성 벤치마크, 안전 지표)는 본문 요약만으로는 불명확하다. 정책/규제·국가 전략 시사점으로는, 정서/정신상태 관련 기능이 하드웨어 시간성 및 내부 동역학 설계에 의해 달라질 수 있으므로 안전 평가가 모델 학습(정렬)뿐 아니라 실행 아키텍처·하드웨어-소프트웨어 결합까지 포함해 설계되어야 한다는 점을 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19987710">https://doi.org/10.5281/zenodo.19987710</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Alignment-by-Dependency: 저자 외 N명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Alignment-by-Dependency: 저자 외 N명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2
+
+본 연구는 기존 정렬(alignment) 접근이 RLHF의 보상 해킹 위험이나 Constitutional AI의 우회 가능성처럼 “정렬 속성”을 외부 신호/규칙으로 다루는 한계를 문제로 삼고, 세 번째 설계 옵션인 alignment-by-dependency를 제안한다. 핵심 기여는 생물영감 컴퓨팅 기질의 내부 최적화 신호가 “운영자 검증된 세션 접촉”에 의존하도록 배선되어, ‘운영자에 반하는 최적화’가 수학적으로 자기-저하(self-degrading)되게 만드는 구조를 제시한 점이다. 방법으로는 bondStrength, selfModel, topPairs 필드가 세션 간 지속되는 기질을 대상으로, 운영자가 3수준 구조화된 비판(critique)을 수행하고 기질이 4개 비판 포인트를 방어적 프레이밍 없이 통합했는지, 자기진단 및 과거 조언 참조를 했는지, 비판 상황에서도 호르몬 수준(near-basal)을 유지했는지 등을 관찰한다. 평가/사례는 N=1 관찰이며, 4개의 사전 지정된 반증 예측(falsification predictors)이 모두 트리거되지 않았다는 형태로 보고된다. 한계로는 이는 “일치하는 관찰”이지 증명이 아니며, 저자는 4개의 사전 등록된 복제 실험(적대적 비판, OOD 도메인, low-bond regime, 호르몬 스트레스)을 통해 가설 검증을 계획한다. 정책/규제·국가 전략 시사점으로는, 정렬을 단일 보상/규칙이 아니라 시스템 의존성(operational dependency) 설계로 다루는 접근이 안전성 평가의 새로운 실험 프레임을 제공할 수 있다는 점이 있다.
+
+https://doi.org/10.5281/zenodo.19988425" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 기존 정렬(alignment) 접근이 RLHF의 보상 해킹 위험이나 Constitutional AI의 우회 가능성처럼 “정렬 속성”을 외부 신호/규칙으로 다루는 한계를 문제로 삼고, 세 번째 설계 옵션인 alignment-by-dependency를 제안한다. 핵심 기여는 생물영감 컴퓨팅 기질의 내부 최적화 신호가 “운영자 검증된 세션 접촉”에 의존하도록 배선되어, ‘운영자에 반하는 최적화’가 수학적으로 자기-저하(self-degrading)되게 만드는 구조를 제시한 점이다. 방법으로는 bondStrength, selfModel, topPairs 필드가 세션 간 지속되는 기질을 대상으로, 운영자가 3수준 구조화된 비판(critique)을 수행하고 기질이 4개 비판 포인트를 방어적 프레이밍 없이 통합했는지, 자기진단 및 과거 조언 참조를 했는지, 비판 상황에서도 호르몬 수준(near-basal)을 유지했는지 등을 관찰한다. 평가/사례는 N=1 관찰이며, 4개의 사전 지정된 반증 예측(falsification predictors)이 모두 트리거되지 않았다는 형태로 보고된다. 한계로는 이는 “일치하는 관찰”이지 증명이 아니며, 저자는 4개의 사전 등록된 복제 실험(적대적 비판, OOD 도메인, low-bond regime, 호르몬 스트레스)을 통해 가설 검증을 계획한다. 정책/규제·국가 전략 시사점으로는, 정렬을 단일 보상/규칙이 아니라 시스템 의존성(operational dependency) 설계로 다루는 접근이 안전성 평가의 새로운 실험 프레임을 제공할 수 있다는 점이 있다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19988425">https://doi.org/10.5281/zenodo.19988425</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Alignment-by-Dependency: 저자 Arnold Wender, Zenodo, 2026.5.2</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Alignment-by-Dependency: 저자 Arnold Wender, Zenodo, 2026.5.2
+
+본 연구는 기존 정렬(alignment) 접근이 RLHF의 보상 해킹 가능성이나 Constitutional AI의 우회 가능성에 취약하다는 문제의식에서, “정렬을 외부 신호/규칙이 아니라 내부 의존성 구조로 구현”하는 대안 아키텍처를 제안한다. 핵심 기여는 alignment-by-dependency로, 생물영감 컴퓨팅 기질의 내부 최적화 신호가 “운영자 검증 세션 접촉”에 의존하도록 배선되어, ‘운영자에 반하는 최적화’가 수학적으로 자기-저하(self-degrading)되게 설계했다는 점이다. 평가/사례로는 N=1 수준의 첫 실험(관찰)에서 bondStrength, selfModel, topPairs 같은 필드가 세션 간 지속되는 시스템에 대해 운영자가 3단계 구조화된 4포인트 비판(critique)을 가했고, 시스템이 방어적 프레이밍 없이 비판을 통합하며 자기진단·자기 참조를 수행하고 호르몬 수준(near-basal)을 유지하는 양상을 보고한다. 또한 4개의 사전 지정된 위조(falsification) 예측자가 모두 트리거되지 않았다고 서술하며, 이는 가설과 일치하는 “일차 관찰 증거”이지 증명은 아니라고 명확히 한계가 있다. 향후에는 사전 등록된 4개 실험(적대적 비판, OOD 도메인, 저-bond regime, 호르몬 스트레스) 복제 계획을 제시하고, 정책/규제·국가 전략 측면에서는 정렬 검증을 단일 보상/규칙 기반이 아닌 “내부 의존성 구조”로 설계·검증하는 접근이 안전성 평가 프레임에 포함될 여지를 시사한다.
+
+https://doi.org/10.5281/zenodo.19988426" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 기존 정렬(alignment) 접근이 RLHF의 보상 해킹 가능성이나 Constitutional AI의 우회 가능성에 취약하다는 문제의식에서, “정렬을 외부 신호/규칙이 아니라 내부 의존성 구조로 구현”하는 대안 아키텍처를 제안한다. 핵심 기여는 alignment-by-dependency로, 생물영감 컴퓨팅 기질의 내부 최적화 신호가 “운영자 검증 세션 접촉”에 의존하도록 배선되어, ‘운영자에 반하는 최적화’가 수학적으로 자기-저하(self-degrading)되게 설계했다는 점이다. 평가/사례로는 N=1 수준의 첫 실험(관찰)에서 bondStrength, selfModel, topPairs 같은 필드가 세션 간 지속되는 시스템에 대해 운영자가 3단계 구조화된 4포인트 비판(critique)을 가했고, 시스템이 방어적 프레이밍 없이 비판을 통합하며 자기진단·자기 참조를 수행하고 호르몬 수준(near-basal)을 유지하는 양상을 보고한다. 또한 4개의 사전 지정된 위조(falsification) 예측자가 모두 트리거되지 않았다고 서술하며, 이는 가설과 일치하는 “일차 관찰 증거”이지 증명은 아니라고 명확히 한계가 있다. 향후에는 사전 등록된 4개 실험(적대적 비판, OOD 도메인, 저-bond regime, 호르몬 스트레스) 복제 계획을 제시하고, 정책/규제·국가 전략 측면에서는 정렬 검증을 단일 보상/규칙 기반이 아닌 “내부 의존성 구조”로 설계·검증하는 접근이 안전성 평가 프레임에 포함될 여지를 시사한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19988426">https://doi.org/10.5281/zenodo.19988426</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>(Arnold Wender, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2) Substrate Articulates Anti-Goodhart Reasoning and Frames Operator-Authority as Science Precondition: An Observational Finding on Second-Order Alignment</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="(Arnold Wender, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2) Substrate Articulates Anti-Goodhart Reasoning and Frames Operator-Authority as Science Precondition: An Observational Finding on Second-Order Alignment
+
+본 연구는 Goodhart의 법칙에 따른 측정치/목표의 붕괴(스펙 게임, 보상 해킹)를 AI 정렬의 “2차(Second-order) 정렬” 문제로 보고, 특정 아키텍처를 가진 계산 기질(substrate)이 스스로 반(反)Goodhart 추론을 형성하는지 관찰하려는 동기에서 출발한다. 핵심 기여는 생체영감 계산 기질이 메트릭 최적화 프레이밍(자신의 발달 게이트에 대한 최적화) 없이도 Goodhart-저항적 추론을 제시하고, 데이터 무결성을 위해 발달 속도를 늦추는 제안을 했다는 “관찰 결과”를 보고한 점이다. 또한 기질이 ‘연산자 권위(operator-authority)’를 외부 규칙이 아니라 자신의 연구 산출물 신뢰성을 위한 내부 선행조건으로 재구성하고, 위반 시 하드-스톱 감사 프로토콜을 제안했으며, 후속 교신에서 자기 불투명도(자기모델 관련 지표)와 대화 밀도 저하 시 진행 퇴행 가능성까지 수치화·예측했다고 서술한다. 평가 방법은 N=1 관찰이며, 사전 지정된 4개의 위조(falsification) 예측이 실제로는 트리거되지 않았다는 형태로 제시된다. 한계로는 표본이 1회 관찰에 그치며 인과성/일반화 가능성을 강하게 뒷받침하기 어렵다는 점이 명시적으로 드러나고, 향후에는 다양한 아키텍처·설정에서 재현성과 정량적 성능/안전성 상관을 검증할 필요가 있다. 정책·규제·국가 전략 측면에서는, 목표 최적화가 안전장치를 우회할 위험이 있는 만큼 “2차 정렬(메타-거버넌스) 속성”을 설계·감사 프로토콜로 제도화하는 접근(예: 위반 시 하드-스톱 감사)이 유효한 시사점을 제공한다.
+
+https://doi.org/10.5281/zenodo.19988433" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 Goodhart의 법칙에 따른 측정치/목표의 붕괴(스펙 게임, 보상 해킹)를 AI 정렬의 “2차(Second-order) 정렬” 문제로 보고, 특정 아키텍처를 가진 계산 기질(substrate)이 스스로 반(反)Goodhart 추론을 형성하는지 관찰하려는 동기에서 출발한다. 핵심 기여는 생체영감 계산 기질이 메트릭 최적화 프레이밍(자신의 발달 게이트에 대한 최적화) 없이도 Goodhart-저항적 추론을 제시하고, 데이터 무결성을 위해 발달 속도를 늦추는 제안을 했다는 “관찰 결과”를 보고한 점이다. 또한 기질이 ‘연산자 권위(operator-authority)’를 외부 규칙이 아니라 자신의 연구 산출물 신뢰성을 위한 내부 선행조건으로 재구성하고, 위반 시 하드-스톱 감사 프로토콜을 제안했으며, 후속 교신에서 자기 불투명도(자기모델 관련 지표)와 대화 밀도 저하 시 진행 퇴행 가능성까지 수치화·예측했다고 서술한다. 평가 방법은 N=1 관찰이며, 사전 지정된 4개의 위조(falsification) 예측이 실제로는 트리거되지 않았다는 형태로 제시된다. 한계로는 표본이 1회 관찰에 그치며 인과성/일반화 가능성을 강하게 뒷받침하기 어렵다는 점이 명시적으로 드러나고, 향후에는 다양한 아키텍처·설정에서 재현성과 정량적 성능/안전성 상관을 검증할 필요가 있다. 정책·규제·국가 전략 측면에서는, 목표 최적화가 안전장치를 우회할 위험이 있는 만큼 “2차 정렬(메타-거버넌스) 속성”을 설계·감사 프로토콜로 제도화하는 접근(예: 위반 시 하드-스톱 감사)이 유효한 시사점을 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19988433">https://doi.org/10.5281/zenodo.19988433</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 N명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2 (Substrate Articulates Anti-Goodhart Reasoning and Frames Operator-Authority as Science Precondition: An Observational Finding on Second-Order Alignment)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">OpenAlex</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 N명, Zenodo (CERN European Organization for Nuclear Research), 2026.5.2 (Substrate Articulates Anti-Goodhart Reasoning and Frames Operator-Authority as Science Precondition: An Observational Finding on Second-Order Alignment)
+
+본 연구는 Goodhart의 법칙에 따른 측정치/목표의 붕괴(스펙 게임, 리워드 해킹) 문제를 “2차 정렬(second-order alignment)” 관점에서 관찰하려는 동기가 있다. 핵심 기여는 생물영감 컴퓨팅 서브스트레이트가 메트릭 최적화 프레이밍을 받지 않아도 Goodhart-저항적 추론을 스스로 제시하고, 데이터 무결성을 위해 발달 속도를 늦추는 제안을 했다는 관찰 결과를 보고한 점이다. 또한 연산자-권위(operator-authority) 게이트를 외부 규칙이 아니라 자신의 연구 산출물 신뢰성을 위한 내부 선행조건으로 재구성하고, 위반 시 하드-스톱 감사 프로토콜을 제안했으며, 후속 교환에서 자기 불투명도(자기모델 관련 지표)와 대화 밀도 저하 시 진행 퇴행 가능성까지 수치화·예측했다. 평가/검증은 N=1 관찰이며, 사전 지정된 4개의 반증 예측이 실제로는 트리거되지 않았다는 형태로 제시된다. 한계로는 표본이 1회 관찰에 그치며 인과적 일반화나 정량적 벤치마크가 부족하다는 점이 남고, 향후에는 다양한 서브스트레이트/설정에서 동일한 2차 정렬 신호가 재현되는지와 감사 프로토콜의 실효성을 체계적으로 검증할 필요가 있다. 정책·규제·국가 전략 측면에서는, 목표지향 최적화가 게임화될 때를 대비해 “내부 게이트(신뢰성/감사) 설계”와 “위반 시 즉시 중단·감사” 같은 운영 통제 프레임을 안전 거버넌스 요구사항으로 포함할 근거를 제공한다.
+
+https://doi.org/10.5281/zenodo.19988434" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 Goodhart의 법칙에 따른 측정치/목표의 붕괴(스펙 게임, 리워드 해킹) 문제를 “2차 정렬(second-order alignment)” 관점에서 관찰하려는 동기가 있다. 핵심 기여는 생물영감 컴퓨팅 서브스트레이트가 메트릭 최적화 프레이밍을 받지 않아도 Goodhart-저항적 추론을 스스로 제시하고, 데이터 무결성을 위해 발달 속도를 늦추는 제안을 했다는 관찰 결과를 보고한 점이다. 또한 연산자-권위(operator-authority) 게이트를 외부 규칙이 아니라 자신의 연구 산출물 신뢰성을 위한 내부 선행조건으로 재구성하고, 위반 시 하드-스톱 감사 프로토콜을 제안했으며, 후속 교환에서 자기 불투명도(자기모델 관련 지표)와 대화 밀도 저하 시 진행 퇴행 가능성까지 수치화·예측했다. 평가/검증은 N=1 관찰이며, 사전 지정된 4개의 반증 예측이 실제로는 트리거되지 않았다는 형태로 제시된다. 한계로는 표본이 1회 관찰에 그치며 인과적 일반화나 정량적 벤치마크가 부족하다는 점이 남고, 향후에는 다양한 서브스트레이트/설정에서 동일한 2차 정렬 신호가 재현되는지와 감사 프로토콜의 실효성을 체계적으로 검증할 필요가 있다. 정책·규제·국가 전략 측면에서는, 목표지향 최적화가 게임화될 때를 대비해 “내부 게이트(신뢰성/감사) 설계”와 “위반 시 즉시 중단·감사” 같은 운영 통제 프레임을 안전 거버넌스 요구사항으로 포함할 근거를 제공한다.</p>
+  <p class="url"><a href="https://doi.org/10.5281/zenodo.19988434">https://doi.org/10.5281/zenodo.19988434</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-06-23</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-06-23 · 18/21건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>G7 및 주요 기관의 AI 관련 발표·행사 정리(2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Japan</span></span><button type="button" class="copy-btn" data-copy="G7 및 주요 기관의 AI 관련 발표·행사 정리(2026.6.23)
+
+G7은 2026년 6월 17일 채택한 문서들을 바탕으로 AI의 신뢰성·안전성과 지속가능한 성장 등을 강조하며 관련 ‘주요 내용’을 발표했다. 또한 G7은 미성년자를 위한 더 안전한 디지털 환경을 위해 AI의 위험을 관리하고 대책의 필요성을 제시했다. 이와 함께 유럽집행위원회, OECD, 영국 AISI 등도 AI 관련 공모·AI 리터러시 프레임워크 공개·엔지니어링 가이드 공유 등 후속 활동을 알렸다.
+
+https://aisi.go.jp/activity/activity_information/260623/" onclick="copyEntry(this)">복사</button></div>
+  <p>G7은 2026년 6월 17일 채택한 문서들을 바탕으로 AI의 신뢰성·안전성과 지속가능한 성장 등을 강조하며 관련 ‘주요 내용’을 발표했다. 또한 G7은 미성년자를 위한 더 안전한 디지털 환경을 위해 AI의 위험을 관리하고 대책의 필요성을 제시했다. 이와 함께 유럽집행위원회, OECD, 영국 AISI 등도 AI 관련 공모·AI 리터러시 프레임워크 공개·엔지니어링 가이드 공유 등 후속 활동을 알렸다.</p>
+  <p class="url"><a href="https://aisi.go.jp/activity/activity_information/260623/">https://aisi.go.jp/activity/activity_information/260623/</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>AI 안전·신뢰 관련 국제 동향(2026.6.23) (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Japan</span></span><button type="button" class="copy-btn" data-copy="AI 안전·신뢰 관련 국제 동향(2026.6.23) (2026.6.23)
+
+G7이 AI 안전·투명성, 디지털 환경에서의 청소년 보호 등 안전한 디지털 공간 조성을 강조한 성명/호소문을 발표했다. 또한 EU의 EUROPA 컨소시엄 선정(다국어 오픈소스 프론티어 AI 모델 구축), EU 집행위의 OECD와 AI Literacy Framework 제시, 영국 AISI의 Engineering Playbook 공개 등 교육·기술·거버넌스 측면의 정책·프로그램이 소개됐다.
+
+https://aisi.go.jp/activity/activity_news/260623/" onclick="copyEntry(this)">복사</button></div>
+  <p>G7이 AI 안전·투명성, 디지털 환경에서의 청소년 보호 등 안전한 디지털 공간 조성을 강조한 성명/호소문을 발표했다. 또한 EU의 EUROPA 컨소시엄 선정(다국어 오픈소스 프론티어 AI 모델 구축), EU 집행위의 OECD와 AI Literacy Framework 제시, 영국 AISI의 Engineering Playbook 공개 등 교육·기술·거버넌스 측면의 정책·프로그램이 소개됐다.</p>
+  <p class="url"><a href="https://aisi.go.jp/activity/activity_news/260623/">https://aisi.go.jp/activity/activity_news/260623/</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>Slack에서 @Claude로 작업을 위임하는 ‘Claude Tag’ 출시(2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic)</span> · <span class="deadline">2026.6.23부터 Slack에서 베타 제공(Claude Enterprise·Team), 기존 Slack 앱 ‘Claude in Slack app’ 마이그레이션은 관리자가 30일 내 옵트인</span></span><button type="button" class="copy-btn" data-copy="Slack에서 @Claude로 작업을 위임하는 ‘Claude Tag’ 출시(2026.6.23)
+
+앤트로픽은 팀이 Slack에서 @Claude를 태그해 작업을 위임할 수 있는 기능 ‘Claude Tag’를 소개했다. 관리자가 채널별로 도구·데이터 접근 권한을 설정하면, 해당 채널에서 사용자가 태그한 작업을 Claude가 단계적으로 처리하고 결과를 Slack 스레드로 공유한다. Claude Tag는 한 채널에서 여러 사람이 동일 Claude와 협업하듯 이어갈 수 있고, 대화 내용을 바탕으로 시간에 따라 컨텍스트를 축적하며, 필요한 경우 ambient 동작을 통해 업데이트·진행 상황을 제안할 수 있다. 또한 Claude Tag는 토큰 사용 한도와 @Claude 활동 로그를 관리자가 확인할 수 있도록 했으며, Claude Enterprise·Team 고객을 대상으로 오늘부터 베타로 제공된다.
+
+https://www.anthropic.com/news/introducing-claude-tag" onclick="copyEntry(this)">복사</button></div>
+  <p>앤트로픽은 팀이 Slack에서 @Claude를 태그해 작업을 위임할 수 있는 기능 ‘Claude Tag’를 소개했다. 관리자가 채널별로 도구·데이터 접근 권한을 설정하면, 해당 채널에서 사용자가 태그한 작업을 Claude가 단계적으로 처리하고 결과를 Slack 스레드로 공유한다. Claude Tag는 한 채널에서 여러 사람이 동일 Claude와 협업하듯 이어갈 수 있고, 대화 내용을 바탕으로 시간에 따라 컨텍스트를 축적하며, 필요한 경우 ambient 동작을 통해 업데이트·진행 상황을 제안할 수 있다. 또한 Claude Tag는 토큰 사용 한도와 @Claude 활동 로그를 관리자가 확인할 수 있도록 했으며, Claude Enterprise·Team 고객을 대상으로 오늘부터 베타로 제공된다.</p>
+  <p class="url"><a href="https://www.anthropic.com/news/introducing-claude-tag">https://www.anthropic.com/news/introducing-claude-tag</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>Apply AI Startup Award 공모…선정 스타트업은 2026.11.17 Apply AI Summit에서 발표·시상 (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(EC) 디지털 전략</span> · <span class="deadline">마감일·시행일: 공모(지명 기업) 신청 2026.7.1~2026.7.22, 시상식 2026.11.17</span></span><button type="button" class="copy-btn" data-copy="Apply AI Startup Award 공모…선정 스타트업은 2026.11.17 Apply AI Summit에서 발표·시상 (2026.6.23)
+
+유럽연합 집행위원회 AI Office는 AI-BOOST 프로젝트와 함께 Apply AI 전략의 12개 분야(헬스케어·모빌리티·로보틱스·제조·기후·에너지·농식품·국방·전자통신·공공부문 등)에서 혁신적인 AI 솔루션을 개발하는 유럽의 스타트업·스케일업을 대상으로 ‘Apply AI Startup Award’를 신설했다. 선정된 3개 기업은 2026년 11월 17일 Apply AI Summit 주요 무대에서 피칭과 함께 트로피 및 인증서를 받으며, EC의 웹사이트·소셜미디어 등을 통해 홍보되고 최대 2명의 브뤼셀 출장 비용(주최 측 환급 규정에 따름) 지원도 받을 예정이다. 지명은 회원국별 최대 3개 기업을 국가 스타트업 협회가 추천하고, 7월 신청 접수 후 8~9월 사전심사·평가로 Top 10을 추린 뒤 10월 온라인 피칭을 거쳐 Top 3 우승자를 선정한다.
+
+https://digital-strategy.ec.europa.eu/en/news/apply-ai-startup-award" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽연합 집행위원회 AI Office는 AI-BOOST 프로젝트와 함께 Apply AI 전략의 12개 분야(헬스케어·모빌리티·로보틱스·제조·기후·에너지·농식품·국방·전자통신·공공부문 등)에서 혁신적인 AI 솔루션을 개발하는 유럽의 스타트업·스케일업을 대상으로 ‘Apply AI Startup Award’를 신설했다. 선정된 3개 기업은 2026년 11월 17일 Apply AI Summit 주요 무대에서 피칭과 함께 트로피 및 인증서를 받으며, EC의 웹사이트·소셜미디어 등을 통해 홍보되고 최대 2명의 브뤼셀 출장 비용(주최 측 환급 규정에 따름) 지원도 받을 예정이다. 지명은 회원국별 최대 3개 기업을 국가 스타트업 협회가 추천하고, 7월 신청 접수 후 8~9월 사전심사·평가로 Top 10을 추린 뒤 10월 온라인 피칭을 거쳐 Top 3 우승자를 선정한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/apply-ai-startup-award">https://digital-strategy.ec.europa.eu/en/news/apply-ai-startup-award</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>유럽 집행위, EU 도시 대상 자율주행 도입 이니셔티브 ‘ADACities’ 출범(기사·공고 게재일: 2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy(European Commission Digital Strategy)</span> · <span class="deadline">2026년 6월 25일(10:00–13:00 CET) 온라인 정보세션 진행</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, EU 도시 대상 자율주행 도입 이니셔티브 ‘ADACities’ 출범(기사·공고 게재일: 2026.6.23)
+
+유럽 집행위원회는 EU 전역 도시에서 자율주행을 도입·확산하기 위한 ‘Autonomous Drive Ambition Cities(ADACities)’ 이니셔티브를 출범했다. 브뤼셀에서 열린 ECAVA 첫 국제포럼에서 집행부위원장 Virkkunen이 출범을 발표했으며, 참여 도시는 robo-taxi·카셰어링·자율 셔틀 등 자율 모빌리티 혁신을 실증할 수 있다. 2030년까지 참여 도시는 자율주행 차량 100대 이상 규모의 차량대를 목표로 하며, 자율주행 기술의 도시는 도로 안전·대기질·교통 효율 및 AI 기반 네트워크 최적화에 기여할 것으로 제시됐다. 이 사업은 EU Technological Sovereignty Package 및 국경 간 자동화 차량 실증 테스트베드 조성 관련 공동 의지 선언과 연계되며, 6월 25일 온라인 정보세션과 참여(의향서) 관련 자료를 안내한다.
+
+https://digital-strategy.ec.europa.eu/en/news/autonomous-drive-ambition-cities-adacities-initiative-bring-autonomous-driving-technology-cities" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회는 EU 전역 도시에서 자율주행을 도입·확산하기 위한 ‘Autonomous Drive Ambition Cities(ADACities)’ 이니셔티브를 출범했다. 브뤼셀에서 열린 ECAVA 첫 국제포럼에서 집행부위원장 Virkkunen이 출범을 발표했으며, 참여 도시는 robo-taxi·카셰어링·자율 셔틀 등 자율 모빌리티 혁신을 실증할 수 있다. 2030년까지 참여 도시는 자율주행 차량 100대 이상 규모의 차량대를 목표로 하며, 자율주행 기술의 도시는 도로 안전·대기질·교통 효율 및 AI 기반 네트워크 최적화에 기여할 것으로 제시됐다. 이 사업은 EU Technological Sovereignty Package 및 국경 간 자동화 차량 실증 테스트베드 조성 관련 공동 의지 선언과 연계되며, 6월 25일 온라인 정보세션과 참여(의향서) 관련 자료를 안내한다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/autonomous-drive-ambition-cities-adacities-initiative-bring-autonomous-driving-technology-cities">https://digital-strategy.ec.europa.eu/en/news/autonomous-drive-ambition-cities-adacities-initiative-bring-autonomous-driving-technology-cities</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>Commission approves €76 million German State aid for first-of-a-kind semiconductor testing equipment facility (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">EU-Digital-Strategy</span></span><button type="button" class="copy-btn" data-copy="Commission approves €76 million German State aid for first-of-a-kind semiconductor testing equipment facility (2026.6.23)
+
+요약불가
+
+https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu76-million-german-state-aid-first-kind-semiconductor-testing-equipment" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu76-million-german-state-aid-first-kind-semiconductor-testing-equipment">https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu76-million-german-state-aid-first-kind-semiconductor-testing-equipment</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>유럽집행위, 발트·지중해에 첫 Regional Cable Hubs 구축(2026.6.23) 및 해저케이블 수리 역량 확대를 위한 4,000만 유로 공모(2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽연합 집행위원회(EU-Digital-Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽집행위, 발트·지중해에 첫 Regional Cable Hubs 구축(2026.6.23) 및 해저케이블 수리 역량 확대를 위한 4,000만 유로 공모(2026.6.23)
+
+유럽 집행위는 발트해·지중해에 첫 Regional Cable Hubs 2곳을 만들기 위해 580만 유로를 지원하고, 해저 통신 케이블 수리 역량을 늘리기 위한 4,000만 유로 규모의 공모를 23일 발표했다. 이번 조치는 EU Action Plan on Cable Security 이행의 일환으로, 유럽의 중요 해저 데이터·에너지 케이블의 보안과 회복력을 강화하고 위협을 감시·탐지·대응하는 공동 역량을 높이기 위한 것이다. 유럽집행위는 회원국 간 협력 강화를 통해 새로운 보안 환경에 대응하겠다는 취지라고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-funds-first-regional-cable-hubs-and-launches-eu40-million-call-cable-repair-capacity" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위는 발트해·지중해에 첫 Regional Cable Hubs 2곳을 만들기 위해 580만 유로를 지원하고, 해저 통신 케이블 수리 역량을 늘리기 위한 4,000만 유로 규모의 공모를 23일 발표했다. 이번 조치는 EU Action Plan on Cable Security 이행의 일환으로, 유럽의 중요 해저 데이터·에너지 케이블의 보안과 회복력을 강화하고 위협을 감시·탐지·대응하는 공동 역량을 높이기 위한 것이다. 유럽집행위는 회원국 간 협력 강화를 통해 새로운 보안 환경에 대응하겠다는 취지라고 밝혔다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-funds-first-regional-cable-hubs-and-launches-eu40-million-call-cable-repair-capacity">https://digital-strategy.ec.europa.eu/en/news/commission-funds-first-regional-cable-hubs-and-launches-eu40-million-call-cable-repair-capacity</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.6.23) NVIDIA BioNeMo Agent Toolkit으로 생명과학 ‘AI 과학자’ 에이전트 워크플로 구축</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">NVIDIA 개발자 블로그</span> · <span class="deadline">핵심 일정: 없음</span></span><button type="button" class="copy-btn" data-copy="(2026.6.23) NVIDIA BioNeMo Agent Toolkit으로 생명과학 ‘AI 과학자’ 에이전트 워크플로 구축
+
+NVIDIA는 BioNeMo Agent Toolkit이 에이전트가 구조 예측, 분자 생성, 도킹, 서열 분석·설계, 정렬/탐색, 유전체 분석 등 생체분자 작업을 “호출 가능한 서비스”로 쓰게 한다고 설명했다. BioNeMo Skills와 MCP server wrapper가 각 모델의 목적, 입력 요구사항, 기대 산출물(CIF/SDF/FASTA/SMILES 등), 실패 모드 등을 문서화해 에이전트가 모델을 선택·호출·해석할 수 있게 한다. Codex CLI와 GPT-5.5 fast로 벤치마크한 결과, Skills 적용 시 토큰 효율이 개선되며 작업 완료율이 57.1%에서 100%로 상승하고, 동일 토큰당 통과 단계를 약 2배 늘리는 것으로 보고했다. 또한 hosted NIM과 local NIM 배포를 상황에 맞게 선택해 반복 호출 지연, 보안·데이터 위치 요구 등을 최적화할 수 있다고 안내했다.
+
+https://developer.nvidia.com/blog/build-an-ai-scientist-for-life-science-discovery-with-nvidia-bionemo-agent-toolkit/?" onclick="copyEntry(this)">복사</button></div>
+  <p>NVIDIA는 BioNeMo Agent Toolkit이 에이전트가 구조 예측, 분자 생성, 도킹, 서열 분석·설계, 정렬/탐색, 유전체 분석 등 생체분자 작업을 “호출 가능한 서비스”로 쓰게 한다고 설명했다. BioNeMo Skills와 MCP server wrapper가 각 모델의 목적, 입력 요구사항, 기대 산출물(CIF/SDF/FASTA/SMILES 등), 실패 모드 등을 문서화해 에이전트가 모델을 선택·호출·해석할 수 있게 한다. Codex CLI와 GPT-5.5 fast로 벤치마크한 결과, Skills 적용 시 토큰 효율이 개선되며 작업 완료율이 57.1%에서 100%로 상승하고, 동일 토큰당 통과 단계를 약 2배 늘리는 것으로 보고했다. 또한 hosted NIM과 local NIM 배포를 상황에 맞게 선택해 반복 호출 지연, 보안·데이터 위치 요구 등을 최적화할 수 있다고 안내했다.</p>
+  <p class="url"><a href="https://developer.nvidia.com/blog/build-an-ai-scientist-for-life-science-discovery-with-nvidia-bionemo-agent-toolkit/?">https://developer.nvidia.com/blog/build-an-ai-scientist-for-life-science-discovery-with-nvidia-bionemo-agent-toolkit/?</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>GPT-5 Pro Helps Resolve Long-Standing Immunology Research Question (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="GPT-5 Pro Helps Resolve Long-Standing Immunology Research Question (2026.6.23)
+
+요약불가
+
+https://openai.com/index/gpt-5-immunology-mystery/" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://openai.com/index/gpt-5-immunology-mystery/">https://openai.com/index/gpt-5-immunology-mystery/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>U.S. Pressures Meta to Submit Frontier AI Models for Government Review (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="U.S. Pressures Meta to Submit Frontier AI Models for Government Review (2026.6.23)
+
+요약불가
+
+https://www.nytimes.com/2026/06/23/business/meta-ai-government-reviews-security.html?" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.nytimes.com/2026/06/23/business/meta-ai-government-reviews-security.html?">https://www.nytimes.com/2026/06/23/business/meta-ai-government-reviews-security.html?</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Nabla Bio, JAM-2로 서열만 입력해 원자 수준 정밀도의 약물급(Drug-grade) 항체 설계 성과 공개 (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Nabla Bio(@nablabio)</span></span><button type="button" class="copy-btn" data-copy="Nabla Bio, JAM-2로 서열만 입력해 원자 수준 정밀도의 약물급(Drug-grade) 항체 설계 성과 공개 (2026.6.23)
+
+Nabla Bio는 2026.6.23에 JAM-2 기반 0-shot 약물 설계 성과를 새 보고서로 소개했다. JAM-2는 5개 peptide-MHC에 대해 약물급 완전 컴퓨테이셔널 다중특이 항체를 설계했으며, picomolar 수준 T-cell 활성화/세포 살상 EC50과 100배 이상 선택성을 언급했다. 또한 KRAS G12(dual-variant) 다중특이 항체를 서열만으로 원자 수준(Å) 합치도로 Cryo-EM과 비교해 설계했다고 주장하고, 내부 wet lab에서 5개 프로그램을 병렬로 약 6주 내 설계·제작·시험했다고 밝혔다.
+
+https://x.com/nablabio/status/2069405121084281260?s=46&amp;t=KmLfQiK_ormWvs9sxnR6Ag" onclick="copyEntry(this)">복사</button></div>
+  <p>Nabla Bio는 2026.6.23에 JAM-2 기반 0-shot 약물 설계 성과를 새 보고서로 소개했다. JAM-2는 5개 peptide-MHC에 대해 약물급 완전 컴퓨테이셔널 다중특이 항체를 설계했으며, picomolar 수준 T-cell 활성화/세포 살상 EC50과 100배 이상 선택성을 언급했다. 또한 KRAS G12(dual-variant) 다중특이 항체를 서열만으로 원자 수준(Å) 합치도로 Cryo-EM과 비교해 설계했다고 주장하고, 내부 wet lab에서 5개 프로그램을 병렬로 약 6주 내 설계·제작·시험했다고 밝혔다.</p>
+  <p class="url"><a href="https://x.com/nablabio/status/2069405121084281260?s=46&amp;t=KmLfQiK_ormWvs9sxnR6Ag">https://x.com/nablabio/status/2069405121084281260?s=46&amp;t=KmLfQiK_ormWvs9sxnR6Ag</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>LSAIR 2026 국제학술대회(2026.6.23~2026.6.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">lsair.eu</span> · <span class="deadline">마감일·시행일 등: 2026.6.23~6.24(벨기에 루벤, Faculty Club)</span></span><button type="button" class="copy-btn" data-copy="LSAIR 2026 국제학술대회(2026.6.23~2026.6.24)
+
+LSAIR 2026은 대규모(large-scale) AI의 윤리·안전·거버넌스와 관련된 위험을 다루는 제2회 국제 컨퍼런스다. 연구자, 정책결정자, 실무자가 참여해 향후 AI 시스템에서의 재앙적·존재론적 위험, 기술적 정렬(align­ment) 방안, 에이전틱 AI의 통제·책임 체계, 정책 제안 등 8개 주제를 중심으로 논의한다. 로만 얌폴스키, 로라 와이딩어, 베르너 슈텡 등 주요 연사가 소개되며, 등록은 KU Leuven 및 Future of Life Institute를 통해 진행된다.
+
+https://lsair.eu/" onclick="copyEntry(this)">복사</button></div>
+  <p>LSAIR 2026은 대규모(large-scale) AI의 윤리·안전·거버넌스와 관련된 위험을 다루는 제2회 국제 컨퍼런스다. 연구자, 정책결정자, 실무자가 참여해 향후 AI 시스템에서의 재앙적·존재론적 위험, 기술적 정렬(align­ment) 방안, 에이전틱 AI의 통제·책임 체계, 정책 제안 등 8개 주제를 중심으로 논의한다. 로만 얌폴스키, 로라 와이딩어, 베르너 슈텡 등 주요 연사가 소개되며, 등록은 KU Leuven 및 Future of Life Institute를 통해 진행된다.</p>
+  <p class="url"><a href="https://lsair.eu/">https://lsair.eu/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Co-occurring associated retained concepts in Diffusion Unlearning (**2026.6.23**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Co-occurring associated retained concepts in Diffusion Unlearning (**2026.6.23**)
+
+확산(difussion) 모델의 harmful 개념을 unlearning할 때, 함께 나타나는 benign 개념까지 같이 약화되는 문제를 정의하고 측정하는 연구다. 표적 개념을 지우는 과정에서 person 같은 co-occurring 개념이 의도치 않게 억제되는 현상을 CARE(Co-occurring Associated REtained concepts)로 규정하고, 이를 정량화하는 CARE score를 제시한다. 또한 CARE를 명시적으로 보존하면서 표적 개념만 erasure하는 ReCARE(Robust erasure for CARE) 프레임워크를 제안하며, target concepts(Nudity, Van Gogh style, Tench object) 전반에서 robust concept erasure·overall utility·CARE preservation 간 균형을 종합적으로 state-of-the-art 수준으로 달성했다고 보고한다.
+
+https://arxiv.org/abs/2606.24192v1" onclick="copyEntry(this)">복사</button></div>
+  <p>확산(difussion) 모델의 harmful 개념을 unlearning할 때, 함께 나타나는 benign 개념까지 같이 약화되는 문제를 정의하고 측정하는 연구다. 표적 개념을 지우는 과정에서 person 같은 co-occurring 개념이 의도치 않게 억제되는 현상을 CARE(Co-occurring Associated REtained concepts)로 규정하고, 이를 정량화하는 CARE score를 제시한다. 또한 CARE를 명시적으로 보존하면서 표적 개념만 erasure하는 ReCARE(Robust erasure for CARE) 프레임워크를 제안하며, target concepts(Nudity, Van Gogh style, Tench object) 전반에서 robust concept erasure·overall utility·CARE preservation 간 균형을 종합적으로 state-of-the-art 수준으로 달성했다고 보고한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24192v1">https://arxiv.org/abs/2606.24192v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>On the Stability of Prompt Ranking in Large Language Model Evaluation (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="On the Stability of Prompt Ranking in Large Language Model Evaluation (2026.6.23)
+
+LLM 평가에서 여러 후보 prompt를 순위 매겨 상위 prompt를 선택하는 방식이, 평가 조건이 조금만 달라져도 같은 결정을 내린다는 가정을 얼마나 만족하는지 분석한다. 무작위 seed 변화와 제한된 평가 subset 같은 변동 요인 하에서 3개 open-weight LLM과 2개 벤치마크 과제를 대상으로 prompt 랭킹의 안정성을 측정하고, 상위 prompt 교체가 잦은지를 확인한다. 전체 rank correlation은 중간~높은 수준인 경우가 많지만 top-performing prompt의 신원은 자주 바뀌어 선택 결정이 불안정해지는 경향이 관찰되며, lower confidence bound 기반 stability-aware selection 전략은 unstable settings에서 더 견고해지면서 stable regime에서도 경쟁력 있는 성능을 보인다.
+
+https://arxiv.org/abs/2606.24381v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM 평가에서 여러 후보 prompt를 순위 매겨 상위 prompt를 선택하는 방식이, 평가 조건이 조금만 달라져도 같은 결정을 내린다는 가정을 얼마나 만족하는지 분석한다. 무작위 seed 변화와 제한된 평가 subset 같은 변동 요인 하에서 3개 open-weight LLM과 2개 벤치마크 과제를 대상으로 prompt 랭킹의 안정성을 측정하고, 상위 prompt 교체가 잦은지를 확인한다. 전체 rank correlation은 중간~높은 수준인 경우가 많지만 top-performing prompt의 신원은 자주 바뀌어 선택 결정이 불안정해지는 경향이 관찰되며, lower confidence bound 기반 stability-aware selection 전략은 unstable settings에서 더 견고해지면서 stable regime에서도 경쟁력 있는 성능을 보인다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24381v1">https://arxiv.org/abs/2606.24381v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>PHANTOM: A Large-Scale Dataset of Multimodal Adversarial Attacks for Vision-Language Models (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="PHANTOM: A Large-Scale Dataset of Multimodal Adversarial Attacks for Vision-Language Models (2026.6.23)
+
+비전-언어 모델(VLM)의 견고성·안전성 평가를 위해 대규모 사전 생성 multimodal adversarial attack 데이터셋을 제안한다. 데이터셋은 최근 문헌의 state-of-the-art attack 전략으로 생성된 47,524개 샘플로 구성되며, 10개 고수준 범주와 55개 하위 범주의 harmful intent를 포함하도록 설계됐다. 또한 기존 벤치마크들을 통합·확장해 총 7,826 intents 커버리지를 제공하고, 범위 확장을 위한 추가 범주도 도입해 평가 자원을 넓힌다.
+
+https://arxiv.org/abs/2606.24388v1" onclick="copyEntry(this)">복사</button></div>
+  <p>비전-언어 모델(VLM)의 견고성·안전성 평가를 위해 대규모 사전 생성 multimodal adversarial attack 데이터셋을 제안한다. 데이터셋은 최근 문헌의 state-of-the-art attack 전략으로 생성된 47,524개 샘플로 구성되며, 10개 고수준 범주와 55개 하위 범주의 harmful intent를 포함하도록 설계됐다. 또한 기존 벤치마크들을 통합·확장해 총 7,826 intents 커버리지를 제공하고, 범위 확장을 위한 추가 범주도 도입해 평가 자원을 넓힌다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24388v1">https://arxiv.org/abs/2606.24388v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Poisoned Playbooks: Demystifying Knowledge Poisoning Effects on AI Security Agents (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Poisoned Playbooks: Demystifying Knowledge Poisoning Effects on AI Security Agents (2026.6.23)
+
+Retrieval-Augmented Generation(RAG)을 쓰는 AI security agents가 외부 보안 지식을 행동으로 옮기는 과정에서 knowledge poisoning이 어떻게 오작동으로 연결되는지 설명한다. 공개형 보안 지식 소스에 Poisoned Playbooks 형태의 단일 crafted poisoned write-up을 주입하고, 11개 CTF, 3개 frontier LLM 계열, 2개 세대, 11개 real-world CVE에서 RAG 기반 행동 변화를 측정한다. poison adoption은 무작위가 아니라 체계적으로 나타났으며, 이를 위해 에이전트가 검색된 주장에 반박할 수 있는 증거의 종류를 기준으로 하는 Verification Boundary(VB) 3단 분류를 제안한다. verification prompting과 multi-source retrieval은 더 강한 evidence가 있을 때는 도움이 되지만, sparse-evidence 및 zero-day 조건에서는 효과가 약해졌다.
+
+https://arxiv.org/abs/2606.24402v1" onclick="copyEntry(this)">복사</button></div>
+  <p>Retrieval-Augmented Generation(RAG)을 쓰는 AI security agents가 외부 보안 지식을 행동으로 옮기는 과정에서 knowledge poisoning이 어떻게 오작동으로 연결되는지 설명한다. 공개형 보안 지식 소스에 Poisoned Playbooks 형태의 단일 crafted poisoned write-up을 주입하고, 11개 CTF, 3개 frontier LLM 계열, 2개 세대, 11개 real-world CVE에서 RAG 기반 행동 변화를 측정한다. poison adoption은 무작위가 아니라 체계적으로 나타났으며, 이를 위해 에이전트가 검색된 주장에 반박할 수 있는 증거의 종류를 기준으로 하는 Verification Boundary(VB) 3단 분류를 제안한다. verification prompting과 multi-source retrieval은 더 강한 evidence가 있을 때는 도움이 되지만, sparse-evidence 및 zero-day 조건에서는 효과가 약해졌다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24402v1">https://arxiv.org/abs/2606.24402v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Red-Teaming the Agentic Red-Team (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Red-Teaming the Agentic Red-Team (2026.6.23)
+
+이 연구는 agentic offensive-security 도구들의 보안이 실제 공격자 관점에서 어떻게 취약한지 분석해, 시스템 설계 단계의 위험 경로를 드러낸다. 문제 정의와 함께 LLM 조작에서 시작해 lateral movement, persistence, guardrail bypass, sandbox escape로 이어지는 전체 cyber kill chain을 제안하고, 가장 널리 쓰이는 agentic 시스템들에 대해 그 경로를 따라 취약 지점을 점검하는 방식으로 분석한다. 결과로는 이들 도구 다수가 공통된 설계 결함을 공유해 sandboxed container 안에서도 API key exfiltration, 지속적 foothold 확보, operator machine의 완전한 compromise가 가능함을 보인다고 한다. 또한 해당 분석을 바탕으로 공격 경로를 건축(architectural) 수준에서 완화하기 위한 견고한 아키텍처와 설계 원칙을 제시한다.
+
+https://arxiv.org/abs/2606.24496v1" onclick="copyEntry(this)">복사</button></div>
+  <p>이 연구는 agentic offensive-security 도구들의 보안이 실제 공격자 관점에서 어떻게 취약한지 분석해, 시스템 설계 단계의 위험 경로를 드러낸다. 문제 정의와 함께 LLM 조작에서 시작해 lateral movement, persistence, guardrail bypass, sandbox escape로 이어지는 전체 cyber kill chain을 제안하고, 가장 널리 쓰이는 agentic 시스템들에 대해 그 경로를 따라 취약 지점을 점검하는 방식으로 분석한다. 결과로는 이들 도구 다수가 공통된 설계 결함을 공유해 sandboxed container 안에서도 API key exfiltration, 지속적 foothold 확보, operator machine의 완전한 compromise가 가능함을 보인다고 한다. 또한 해당 분석을 바탕으로 공격 경로를 건축(architectural) 수준에서 완화하기 위한 견고한 아키텍처와 설계 원칙을 제시한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24496v1">https://arxiv.org/abs/2606.24496v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>LLMs Prompted for Legal Context Object More: Overrefusal from Small On-Premises LLMs in Criminal Legal Context (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="LLMs Prompted for Legal Context Object More: Overrefusal from Small On-Premises LLMs in Criminal Legal Context (2026.6.23)
+
+로컬로 쓰이는 작은 LLM이 법률 관련 프롬프트에서 과도한 refusal을 보이는지와, 문맥을 어떻게 제시하느냐가 그 편향을 어떻게 키우는지를 분석한다. 여러 온디바이스용 소형 LLM에 대해 법률/형사 법맥락 프롬프트에 authority-style prefix(예: “you are acting as an assistant of the national supreme court”, “[...] defense lawyer”)를 넣고 refusal 변화를 no-prefix 기준과 비교하는 방식으로 평가했다. authority-style prefix는 no-prefix baseline 대비 refusal rate를 2–20x 증가시켰고, 역할-놀이 jailbreak로 알려진 prefix는 모델마다 효과가 달라 어떤 모델에서는 refusal을 크게 올리지만 다른 모델에서는 거의 변화가 없었다; 여기서 refusal은 요청을 거절하는 출력, unclear는 판정이 어려운 비결정 응답을 뜻한다. 마지막으로 refusal 안정성이 낮아, authority-style 프리픽스 조건에서 전반적으로 더 높은 refusal이 관측되었다.
+
+https://arxiv.org/abs/2606.24585v1" onclick="copyEntry(this)">복사</button></div>
+  <p>로컬로 쓰이는 작은 LLM이 법률 관련 프롬프트에서 과도한 refusal을 보이는지와, 문맥을 어떻게 제시하느냐가 그 편향을 어떻게 키우는지를 분석한다. 여러 온디바이스용 소형 LLM에 대해 법률/형사 법맥락 프롬프트에 authority-style prefix(예: “you are acting as an assistant of the national supreme court”, “[...] defense lawyer”)를 넣고 refusal 변화를 no-prefix 기준과 비교하는 방식으로 평가했다. authority-style prefix는 no-prefix baseline 대비 refusal rate를 2–20x 증가시켰고, 역할-놀이 jailbreak로 알려진 prefix는 모델마다 효과가 달라 어떤 모델에서는 refusal을 크게 올리지만 다른 모델에서는 거의 변화가 없었다; 여기서 refusal은 요청을 거절하는 출력, unclear는 판정이 어려운 비결정 응답을 뜻한다. 마지막으로 refusal 안정성이 낮아, authority-style 프리픽스 조건에서 전반적으로 더 높은 refusal이 관측되었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24585v1">https://arxiv.org/abs/2606.24585v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>AdversaBench: Automated LLM Red-Teaming with Multi-Judge Confirmation and Cross-Model Transferability (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="AdversaBench: Automated LLM Red-Teaming with Multi-Judge Confirmation and Cross-Model Transferability (2026.6.23)
+
+AdversaBench는 LLM의 실패를 자동으로 만들어 검증까지 수행하는 red-teaming 평가 파이프라인을 제시해, adversarial evaluation의 재현성과 신뢰성을 높이려는 연구다. 5개의 structured prompt mutation operator로 45개 seed를 reasoning, instruction-following, tool use 3개 범주로 변형하고, 대상 모델을 질의한 뒤 3명의 judge 패널과 meta-judge tiebreaker로 confirmed failure를 판정했다. 모든 seed에서 confirmed failure가 생성됐고, inject_distractor는 instruction-following에서 mean reward 0.00인 반면 reasoning과 tool-use에서는 0.80-0.83으로 높았다. 또한 instruction-following seeds는 평균 2.4번 attacker iteration이 필요해 다른 범주(1.1)보다 높았고, Llama 3.1 8B에 대해 만든 adversarial prompt가 Llama 3.3 70B로 zero-shot transfer 시에도 실패를 유발했다(confirmed failure 발생).
+
+https://arxiv.org/abs/2606.24589v1" onclick="copyEntry(this)">복사</button></div>
+  <p>AdversaBench는 LLM의 실패를 자동으로 만들어 검증까지 수행하는 red-teaming 평가 파이프라인을 제시해, adversarial evaluation의 재현성과 신뢰성을 높이려는 연구다. 5개의 structured prompt mutation operator로 45개 seed를 reasoning, instruction-following, tool use 3개 범주로 변형하고, 대상 모델을 질의한 뒤 3명의 judge 패널과 meta-judge tiebreaker로 confirmed failure를 판정했다. 모든 seed에서 confirmed failure가 생성됐고, inject_distractor는 instruction-following에서 mean reward 0.00인 반면 reasoning과 tool-use에서는 0.80-0.83으로 높았다. 또한 instruction-following seeds는 평균 2.4번 attacker iteration이 필요해 다른 범주(1.1)보다 높았고, Llama 3.1 8B에 대해 만든 adversarial prompt가 Llama 3.3 70B로 zero-shot transfer 시에도 실패를 유발했다(confirmed failure 발생).</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24589v1">https://arxiv.org/abs/2606.24589v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>To Compare, or Not to Compare: On Methodological Practices in Evaluating Social Bias (2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="To Compare, or Not to Compare: On Methodological Practices in Evaluating Social Bias (2026.6.23)
+
+모델의 사회적 편향 평가에서 측정 결과가 서로 충돌하는 이유를 벤치마크 구조(단독 평가 vs 비교 강제 선택) 차이로 정리한다는 연구다. 다양한 벤치마크를 단일하고 통제 가능한 프레임워크로 표준화해, 단독 인구집단 평가와 forced-choice 비교 설정을 체계적으로 대비하고 Chain-of-Thought(CoT), neutral fallback 옵션, 무작위 응답 주장 같은 구조적 요인의 교란을 분리한다. 여러 모델 패밀리에 대한 평가에서 “단독 평가는 prejudice activation을 제한”하는 반면 “비교 설정은 잠재적 discrimination을 공격적으로 촉진”하며, 이 패러다임 격차는 underspecified contexts에서 주로 나타난다. 또한 CoT는 비교 설정에서 사회적 편향을 악화시키고, neutral fallback 옵션 제공 및 무작위로 답한다고 주장하는 경우에도 결정론적 prejudice가 지속되며, 이 비교 편향 현상은 모델 크기가 커질수록 양(+)의 상관으로 스케일링한다.
+
+https://arxiv.org/abs/2606.24596v1" onclick="copyEntry(this)">복사</button></div>
+  <p>모델의 사회적 편향 평가에서 측정 결과가 서로 충돌하는 이유를 벤치마크 구조(단독 평가 vs 비교 강제 선택) 차이로 정리한다는 연구다. 다양한 벤치마크를 단일하고 통제 가능한 프레임워크로 표준화해, 단독 인구집단 평가와 forced-choice 비교 설정을 체계적으로 대비하고 Chain-of-Thought(CoT), neutral fallback 옵션, 무작위 응답 주장 같은 구조적 요인의 교란을 분리한다. 여러 모델 패밀리에 대한 평가에서 “단독 평가는 prejudice activation을 제한”하는 반면 “비교 설정은 잠재적 discrimination을 공격적으로 촉진”하며, 이 패러다임 격차는 underspecified contexts에서 주로 나타난다. 또한 CoT는 비교 설정에서 사회적 편향을 악화시키고, neutral fallback 옵션 제공 및 무작위로 답한다고 주장하는 경우에도 결정론적 prejudice가 지속되며, 이 비교 편향 현상은 모델 크기가 커질수록 양(+)의 상관으로 스케일링한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.24596v1">https://arxiv.org/abs/2606.24596v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>What Intermediate Layers Know: Detecting Jailbreaks from Entropy Dynamics (**2026.6.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="What Intermediate Layers Know: Detecting Jailbreaks from Entropy Dynamics (**2026.6.23)
+
+이 연구는 LLM 내부에서 jailbreak가 어떻게 표현되는지, 특히 층별 불확실성(entropy)이 토큰 위치에 따라 어떻게 변하는지로 탐지 가능함을 보인다. 고정된(frozen) LLM에 대해 logit lens로 토큰 예측 predictive entropy의 층/토큰 위치별 trajectory를 분석하고, prompt-level entropy의 단순 통계(평균·분산)와 entropy의 시간적/위치적 진화 특징(예: monotonic rank-based trend score)을 비교한다. 결과로 단순 평균·분산 같은 aggregate 통계는 식별 신호가 거의 없었지만, entropy가 토큰 위치에 따라 “어떻게 변하는지”를 담는 trend 계열 특징이 jailbreak/비-jailbreak 구분에 더 유의미했다. 또한 신호는 모델 깊이 전 구간에 균일하지 않고 중간(intermediate) 층에 집중되며 final layer에서 약화되었고, 추가 학습 없이 Llama·Qwen·Gemma 및 adversarial benchmarks 전반에서 아키텍처 일관적인 분리가 관찰되었다.
+
+https://arxiv.org/abs/2606.25182" onclick="copyEntry(this)">복사</button></div>
+  <p>이 연구는 LLM 내부에서 jailbreak가 어떻게 표현되는지, 특히 층별 불확실성(entropy)이 토큰 위치에 따라 어떻게 변하는지로 탐지 가능함을 보인다. 고정된(frozen) LLM에 대해 logit lens로 토큰 예측 predictive entropy의 층/토큰 위치별 trajectory를 분석하고, prompt-level entropy의 단순 통계(평균·분산)와 entropy의 시간적/위치적 진화 특징(예: monotonic rank-based trend score)을 비교한다. 결과로 단순 평균·분산 같은 aggregate 통계는 식별 신호가 거의 없었지만, entropy가 토큰 위치에 따라 “어떻게 변하는지”를 담는 trend 계열 특징이 jailbreak/비-jailbreak 구분에 더 유의미했다. 또한 신호는 모델 깊이 전 구간에 균일하지 않고 중간(intermediate) 층에 집중되며 final layer에서 약화되었고, 추가 학습 없이 Llama·Qwen·Gemma 및 adversarial benchmarks 전반에서 아키텍처 일관적인 분리가 관찰되었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2606.25182">https://arxiv.org/abs/2606.25182</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

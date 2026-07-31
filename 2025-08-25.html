@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-08-25</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-08-25 · 3/3건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-company">
+  <h2>Chrome용 Claude를 파일럿으로 공개하며 prompt injection 위험을 줄이기 위한 권한·확인 절차와 분류기 개선을 진행(2025.8.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">앤트로픽(Anthropic) 공식 뉴스</span> · <span class="deadline">Anthropic은 Chrome 확장 프로그램을 Max 플랜 1,000명 대상으로 제한 테스트하며, waitlist(claude.ai/chrome)를 통해 참여자를 모집한다.</span></span><button type="button" class="copy-btn" data-copy="Chrome용 Claude를 파일럿으로 공개하며 prompt injection 위험을 줄이기 위한 권한·확인 절차와 분류기 개선을 진행(2025.8.25)
+
+Anthropic은 브라우저에서 Claude가 사용자의 화면을 보고 클릭·폼 입력 등 작업을 수행할 수 있도록 Chrome 확장 기능을 파일럿으로 테스트한다고 밝혔다. 다만 브라우저 환경에서는 웹사이트 등에 숨겨진 지시로 AI가 악의적 행동을 하게 만드는 prompt injection 공격이 가능하며, red-teaming 결과 안전장치가 없을 때 공격 성공률이 23.6%였다고 설명했다. 새 mitigations 적용 후 공격 성공률을 11.2%로 낮췄고, 브라우저 특화 공격 4종 “challenge” 세트에서는 35.7%에서 0%로 줄였다고 덧붙였다. 또한 사이트별 권한, 고위험 행동에 대한 action confirmations, 고위험 카테고리 차단, 의심 패턴 탐지 분류기 등을 현재 방어 체계로 제시했다.
+
+https://www.anthropic.com/news/claude-for-chrome" onclick="copyEntry(this)">복사</button></div>
+  <p>Anthropic은 브라우저에서 Claude가 사용자의 화면을 보고 클릭·폼 입력 등 작업을 수행할 수 있도록 Chrome 확장 기능을 파일럿으로 테스트한다고 밝혔다. 다만 브라우저 환경에서는 웹사이트 등에 숨겨진 지시로 AI가 악의적 행동을 하게 만드는 prompt injection 공격이 가능하며, red-teaming 결과 안전장치가 없을 때 공격 성공률이 23.6%였다고 설명했다. 새 mitigations 적용 후 공격 성공률을 11.2%로 낮췄고, 브라우저 특화 공격 4종 “challenge” 세트에서는 35.7%에서 0%로 줄였다고 덧붙였다. 또한 사이트별 권한, 고위험 행동에 대한 action confirmations, 고위험 카테고리 차단, 의심 패턴 탐지 분류기 등을 현재 방어 체계로 제시했다.</p>
+  <p class="url"><a href="https://www.anthropic.com/news/claude-for-chrome">https://www.anthropic.com/news/claude-for-chrome</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>AI 사고 보고에서 ‘safety’와 ‘security’는 다르다(2025.8.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">OECD-AI</span> · <span class="deadline">OECD AI 사고 공통 보고 프레임워크를 AI security 보고에 맞게 확장(취약점 분류 등)하거나, security 사건을 별도 병행 프로세스로 표시해 호환성을 유지하자는 제안이 제시됨</span></span><button type="button" class="copy-btn" data-copy="AI 사고 보고에서 ‘safety’와 ‘security’는 다르다(2025.8.25)
+
+OECD의 AI Incidents 공통 보고 프레임워크가 데이터 공유 기반을 빠르게 마련하고 있지만, 보안 커뮤니티의 광범위한 채택을 막는 장애로 ‘사이버보안 이슈를 더 잘 다루기 위한 정보 부족’이 지적된다. 글은 AI security 사건은 악의적 행위자와 취약점 악용 가능성 등 추가 데이터가 필요하며, 이를 모든 비(非)보안 AI 사고에 억지로 적용하면 오히려 핵심 요소가 가려질 수 있다고 설명한다. 해결책으로는 OECD 프레임워크에 AI security 전용 확장 필드를 추가하거나, security 사건을 명확히 플래그해 병행 프로세스를 운영하되 공통 기반은 유지하는 방안을 제안한다.
+
+https://oecd.ai/en/wonk/when-it-comes-to-ai-incidents-safety-and-security-are-not-the-same" onclick="copyEntry(this)">복사</button></div>
+  <p>OECD의 AI Incidents 공통 보고 프레임워크가 데이터 공유 기반을 빠르게 마련하고 있지만, 보안 커뮤니티의 광범위한 채택을 막는 장애로 ‘사이버보안 이슈를 더 잘 다루기 위한 정보 부족’이 지적된다. 글은 AI security 사건은 악의적 행위자와 취약점 악용 가능성 등 추가 데이터가 필요하며, 이를 모든 비(非)보안 AI 사고에 억지로 적용하면 오히려 핵심 요소가 가려질 수 있다고 설명한다. 해결책으로는 OECD 프레임워크에 AI security 전용 확장 필드를 추가하거나, security 사건을 명확히 플래그해 병행 프로세스를 운영하되 공통 기반은 유지하는 방안을 제안한다.</p>
+  <p class="url"><a href="https://oecd.ai/en/wonk/when-it-comes-to-ai-incidents-safety-and-security-are-not-the-same">https://oecd.ai/en/wonk/when-it-comes-to-ai-incidents-safety-and-security-are-not-the-same</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>The practical ‘human in the loop’ framework (기사·공고 게재일 2025.8.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">teybannerman.com</span></span><button type="button" class="copy-btn" data-copy="The practical ‘human in the loop’ framework (기사·공고 게재일 2025.8.25)
+
+인간이 AI 의사결정에 개입하는 “human in the loop”를 단순한 문구로만 보지 말고, 실제로 인간에게 권한·시간·상황 이해가 주어지는 구조가 필요하다고 강조한다. 소련의 스탠니슬라프 페트로프 사례를 들어, 컴퓨터 경보(미사일 5발, 28분)를 무시하고 “false alarm”을 선택한 판단이 핵전쟁을 막았다고 설명한다. 이어 조직이 AI를 만들 때 최적화 목표와 무엇이 걸려 있는지부터 묻고, 이를 바탕으로 되돌릴 수 없는 결정에는 circuit breaker, 저위험 자동화에는 feedback learning 등 16가지 접근을 제시하며, 목적은 “그럴듯한 분류”가 아니라 의도한 시스템을 구현하는 것이라고 말한다.
+
+https://teybannerman.com/ai/2025/08/25/human-in-the-loop-framework.html" onclick="copyEntry(this)">복사</button></div>
+  <p>인간이 AI 의사결정에 개입하는 “human in the loop”를 단순한 문구로만 보지 말고, 실제로 인간에게 권한·시간·상황 이해가 주어지는 구조가 필요하다고 강조한다. 소련의 스탠니슬라프 페트로프 사례를 들어, 컴퓨터 경보(미사일 5발, 28분)를 무시하고 “false alarm”을 선택한 판단이 핵전쟁을 막았다고 설명한다. 이어 조직이 AI를 만들 때 최적화 목표와 무엇이 걸려 있는지부터 묻고, 이를 바탕으로 되돌릴 수 없는 결정에는 circuit breaker, 저위험 자동화에는 feedback learning 등 16가지 접근을 제시하며, 목적은 “그럴듯한 분류”가 아니라 의도한 시스템을 구현하는 것이라고 말한다.</p>
+  <p class="url"><a href="https://teybannerman.com/ai/2025/08/25/human-in-the-loop-framework.html">https://teybannerman.com/ai/2025/08/25/human-in-the-loop-framework.html</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

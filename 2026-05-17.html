@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-05-17</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-05-17 · 4/4건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-research">
+  <h2>공공 시스템 AI 배치를 위한 제도적 준비도 프레임워크(IAR) 제안 (저자 외 2명, arXiv, 2026.5.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 거버넌스</span></span><button type="button" class="copy-btn" data-copy="공공 시스템 AI 배치를 위한 제도적 준비도 프레임워크(IAR) 제안 (저자 외 2명, arXiv, 2026.5.17)
+
+공공 교육 시스템에서 모델은 내부 테스트에서 기술적으로는 가능해도, 승인·데이터 체계·인간 감독·운영 역량·재정 지속성·법적 명확성 부족으로 확산 배치가 중단되는 문제를 다룬다. 두 개의 익명화된 운영 사례(영상 기반 인체계측 스크리닝 도구, 음성 분석 기반 조기 학습 위험 식별)에서 확산이 막힌 제도적 원인을 바탕으로, 배치 준비도를 5개 차원(제도/운영 적합성, 데이터 생태계 성숙도, 인간 감독 역량, 재정 지속가능성, 규제 정렬 준비도)으로 평가하는 IAR를 제시하고 no-go·pilot-only·광범위 배치 준비 같은 단계적 의사결정을 지원한다고 설명한다. 기존 책임 AI/모델 평가가 주로 모델·데이터·개발자 측을 다루는 한계를 보완해 “수용 기관”의 준비도를 평가하도록 설계되었다.
+
+https://arxiv.org/abs/2605.17203v1" onclick="copyEntry(this)">복사</button></div>
+  <p>공공 교육 시스템에서 모델은 내부 테스트에서 기술적으로는 가능해도, 승인·데이터 체계·인간 감독·운영 역량·재정 지속성·법적 명확성 부족으로 확산 배치가 중단되는 문제를 다룬다. 두 개의 익명화된 운영 사례(영상 기반 인체계측 스크리닝 도구, 음성 분석 기반 조기 학습 위험 식별)에서 확산이 막힌 제도적 원인을 바탕으로, 배치 준비도를 5개 차원(제도/운영 적합성, 데이터 생태계 성숙도, 인간 감독 역량, 재정 지속가능성, 규제 정렬 준비도)으로 평가하는 IAR를 제시하고 no-go·pilot-only·광범위 배치 준비 같은 단계적 의사결정을 지원한다고 설명한다. 기존 책임 AI/모델 평가가 주로 모델·데이터·개발자 측을 다루는 한계를 보완해 “수용 기관”의 준비도를 평가하도록 설계되었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.17203v1">https://arxiv.org/abs/2605.17203v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>동적 LLM 정렬에서 선호의 비순환성·순환성을 분해하는 HRC 및 DSPPO (저자 외 3명, arXiv, 2026.5.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="동적 LLM 정렬에서 선호의 비순환성·순환성을 분해하는 HRC 및 DSPPO (저자 외 3명, arXiv, 2026.5.17)
+
+RLHF의 단일 스칼라(전이적) 보상이 인간 선호의 순환적(cyclic) 성격을 반영하지 못하는 문제를 다루며, GPM류가 계층성과 순환성을 얽어 “dominant solution”을 보장하지 못한다는 이론적 한계를 제시한다. 게임이론적 분해로 선호를 직교한 전이적(스칼라) 성분과 순환적(벡터) 성분으로 명시적으로 분해하는 Hybrid Reward-Cyclic(HRC)와, 정렬을 시간가변 게임으로 보고 Nash equilibrium 쪽으로 점진 유도하는 Dynamic Self-Play Preference Optimization(DSPPO)를 제안하고 합성 데이터 및 RewardBench 2, AlpacaEval 2.0, Arena-Hard-v0.1, MT-Bench에서 실험한다. RewardBench 2에서 Gemma-2B-it 기준 +1.23% 개선을 포함해, AlpacaEval 2.0 length-controlled win-rate 44.75%, Arena-Hard-v0.1 46.8%의 peak 성능을 보고하며 BT·GPM 및 SPPO 변형 대비 우위를 보인다.
+
+https://arxiv.org/abs/2605.17342v1" onclick="copyEntry(this)">복사</button></div>
+  <p>RLHF의 단일 스칼라(전이적) 보상이 인간 선호의 순환적(cyclic) 성격을 반영하지 못하는 문제를 다루며, GPM류가 계층성과 순환성을 얽어 “dominant solution”을 보장하지 못한다는 이론적 한계를 제시한다. 게임이론적 분해로 선호를 직교한 전이적(스칼라) 성분과 순환적(벡터) 성분으로 명시적으로 분해하는 Hybrid Reward-Cyclic(HRC)와, 정렬을 시간가변 게임으로 보고 Nash equilibrium 쪽으로 점진 유도하는 Dynamic Self-Play Preference Optimization(DSPPO)를 제안하고 합성 데이터 및 RewardBench 2, AlpacaEval 2.0, Arena-Hard-v0.1, MT-Bench에서 실험한다. RewardBench 2에서 Gemma-2B-it 기준 +1.23% 개선을 포함해, AlpacaEval 2.0 length-controlled win-rate 44.75%, Arena-Hard-v0.1 46.8%의 peak 성능을 보고하며 BT·GPM 및 SPPO 변형 대비 우위를 보인다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.17342v1">https://arxiv.org/abs/2605.17342v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>연령 추정 모델은 생체인식 데이터를 처리하지 않음 (저자 외 0명, arXiv, 2026.5.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 거버넌스</span></span><button type="button" class="copy-btn" data-copy="연령 추정 모델은 생체인식 데이터를 처리하지 않음 (저자 외 0명, arXiv, 2026.5.17)
+
+연령을 사진에서 추정하는 모델이 추론 시 신원 식별에 필요한 생체인식(identification) 수준의 표상을 형성하는지, 그리고 그에 따른 규제 쟁점을 다룬다. 14개 연령 추정 모델을 3개의 얼굴 검증(verification) 벤치마크에서 평가해, 연령 추정이 식별 임계값에 비해 “자릿수(order of magnitude)” 수준으로 낮아 개인 식별을 수행하지 못함을 보였다. 핵심 결과로 연령 추정 모델은 식별(threshold) 수준에 도달하지 못하며, 규제 관점에서 일시적 처리와 템플릿 저장을 구분하는 투명성 제공을 요구한다.
+
+https://arxiv.org/abs/2605.17347v1" onclick="copyEntry(this)">복사</button></div>
+  <p>연령을 사진에서 추정하는 모델이 추론 시 신원 식별에 필요한 생체인식(identification) 수준의 표상을 형성하는지, 그리고 그에 따른 규제 쟁점을 다룬다. 14개 연령 추정 모델을 3개의 얼굴 검증(verification) 벤치마크에서 평가해, 연령 추정이 식별 임계값에 비해 “자릿수(order of magnitude)” 수준으로 낮아 개인 식별을 수행하지 못함을 보였다. 핵심 결과로 연령 추정 모델은 식별(threshold) 수준에 도달하지 못하며, 규제 관점에서 일시적 처리와 템플릿 저장을 구분하는 투명성 제공을 요구한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.17347v1">https://arxiv.org/abs/2605.17347v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>에이전트형 AI 보안 탐지·대응을 위한 에이전틱 디텍션 시스템 ADR(저자 외 11명, arXiv, 2026.5.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="에이전트형 AI 보안 탐지·대응을 위한 에이전틱 디텍션 시스템 ADR(저자 외 11명, arXiv, 2026.5.17)
+
+ADR은 Model Context Protocol(MCP)로 동작하는 엔터프라이즈 AI 에이전트에서 (1) 추론·프롬프트·의도-실행 인과흐름의 관측 부족, (2) 정적 규칙 기반 방어의 일반화 한계, (3) LLM 추론 기반 탐지의 비용 문제를 다룬다. ADR은 에이전틱 텔레메트리 수집(ADR Sensor), 사전 레드팀/하드 예제 생성(ADR Explorer), 빠른 1차 트리아지와 맥락 기반 추론을 결합한 2단계 온라인 탐지(ADR Detector)로 구성되며, Uber에서 10개월 이상 운영하며 7,200개 호스트와 일 10,000개 에이전트 세션을 처리했다. 핵심 결과로 97.2% precision으로 206개 자격증명 노출을 탐지했고, ADR-Bench에서는 zero false positives로 67% 공격을 탐지하며 F1-score에서 기존 3개 베이스라인 대비 2–4x, AgentDojo에서는 93개 태스크 중 3개 false alarm으로 모든 공격을 탐지했다.
+
+https://arxiv.org/abs/2605.17380v1" onclick="copyEntry(this)">복사</button></div>
+  <p>ADR은 Model Context Protocol(MCP)로 동작하는 엔터프라이즈 AI 에이전트에서 (1) 추론·프롬프트·의도-실행 인과흐름의 관측 부족, (2) 정적 규칙 기반 방어의 일반화 한계, (3) LLM 추론 기반 탐지의 비용 문제를 다룬다. ADR은 에이전틱 텔레메트리 수집(ADR Sensor), 사전 레드팀/하드 예제 생성(ADR Explorer), 빠른 1차 트리아지와 맥락 기반 추론을 결합한 2단계 온라인 탐지(ADR Detector)로 구성되며, Uber에서 10개월 이상 운영하며 7,200개 호스트와 일 10,000개 에이전트 세션을 처리했다. 핵심 결과로 97.2% precision으로 206개 자격증명 노출을 탐지했고, ADR-Bench에서는 zero false positives로 67% 공격을 탐지하며 F1-score에서 기존 3개 베이스라인 대비 2–4x, AgentDojo에서는 93개 태스크 중 3개 false alarm으로 모든 공격을 탐지했다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.17380v1">https://arxiv.org/abs/2605.17380v1</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

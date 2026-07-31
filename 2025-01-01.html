@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-01-01</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-01-01 · 5/6건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>(AISI Work) (2025.01.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="(AISI Work) (2025.01.01)
+
+요약불가
+
+https://www.aisi.gov.uk/blog/test-blog" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/blog/test-blog">https://www.aisi.gov.uk/blog/test-blog</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>(테러방지법 2000·2006 및 2011년 테러예방수사조치법 운영 점검 보고서, **2025.01.01**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">영국 정부(gov.uk)</span></span><button type="button" class="copy-btn" data-copy="(테러방지법 2000·2006 및 2011년 테러예방수사조치법 운영 점검 보고서, **2025.01.01**)
+
+테러 관련 법률(2000·2006년 Terrorism Acts, 2011년 Terrorism Prevention and Investigation Measures Act)의 2023년 운영을 점검한 독립 검토관 보고서다. 보고서는 생성형 AI가 텍스트·이미지·음성 등을 만들어 테러에 악용될 수 있으며, 그로 인한 잠재적 위해 7개 범주를 평가해 현행 법이 충분한지 검토한다고 밝혔다. 또한 챗봇 기반 급진화가 가장 어려운 문제이며, 인종혐오 기반의 새로운 범죄를 검토할 필요가 있다고 제안했다. 디지털 기기 압수·조사에 필요한 시간이 늘어나는 만큼 구금권한의 장기적 정당성도 고민해야 한다고 덧붙였다.
+
+https://www.gov.uk/government/publications/the-terrorism-acts-in-2023/the-terrorism-acts-in-2023-report-of-the-independent-reviewer-of-terrorism-legislation-accessible#annex-generative-ai" onclick="copyEntry(this)">복사</button></div>
+  <p>테러 관련 법률(2000·2006년 Terrorism Acts, 2011년 Terrorism Prevention and Investigation Measures Act)의 2023년 운영을 점검한 독립 검토관 보고서다. 보고서는 생성형 AI가 텍스트·이미지·음성 등을 만들어 테러에 악용될 수 있으며, 그로 인한 잠재적 위해 7개 범주를 평가해 현행 법이 충분한지 검토한다고 밝혔다. 또한 챗봇 기반 급진화가 가장 어려운 문제이며, 인종혐오 기반의 새로운 범죄를 검토할 필요가 있다고 제안했다. 디지털 기기 압수·조사에 필요한 시간이 늘어나는 만큼 구금권한의 장기적 정당성도 고민해야 한다고 덧붙였다.</p>
+  <p class="url"><a href="https://www.gov.uk/government/publications/the-terrorism-acts-in-2023/the-terrorism-acts-in-2023-report-of-the-independent-reviewer-of-terrorism-legislation-accessible#annex-generative-ai">https://www.gov.uk/government/publications/the-terrorism-acts-in-2023/the-terrorism-acts-in-2023-report-of-the-independent-reviewer-of-terrorism-legislation-accessible#annex-generative-ai</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>S.2714(119th Congress) CHAT Act(2025.01.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 의회 의안정보( congress.gov )</span> · <span class="deadline">확인 필요: 본문 내용(법안 조항·핵심 내용·일정·진행 단계)이 제공되지 않아 요약을 확정할 수 없습니다.</span></span><button type="button" class="copy-btn" data-copy="S.2714(119th Congress) CHAT Act(2025.01.01)
+
+확인 필요: S.2714 ‘CHAT Act’의 구체적 목적과 주요 조항, 발의자/공동발의자, 심사·표결 등 진행 상황은 본문 확인이 필요합니다. 또한 법안의 적용 범위와 시행 시점 등 세부 일정도 확인 필요입니다.
+
+https://www.congress.gov/bill/119th-congress/senate-bill/2714" onclick="copyEntry(this)">복사</button></div>
+  <p>확인 필요: S.2714 ‘CHAT Act’의 구체적 목적과 주요 조항, 발의자/공동발의자, 심사·표결 등 진행 상황은 본문 확인이 필요합니다. 또한 법안의 적용 범위와 시행 시점 등 세부 일정도 확인 필요입니다.</p>
+  <p class="url"><a href="https://www.congress.gov/bill/119th-congress/senate-bill/2714">https://www.congress.gov/bill/119th-congress/senate-bill/2714</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI 연구소의 biorisk 평가는 실제로 생물무기 개발 위험을 측정하나? (2025.01.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Epoch AI</span></span><button type="button" class="copy-btn" data-copy="AI 연구소의 biorisk 평가는 실제로 생물무기 개발 위험을 측정하나? (2025.01.01)
+
+Epoch AI는 8개 주요 AI 랩의 biorisk 평가(또는 미공개 평가)를 분석한 결과, 공개된 벤치마크는 존재하지만 빠르게 포화(saturate)되어 biorisk에 대한 해석이 불확실하다고 지적했다. 또한 비(非)공개 평가나 벤치마크가 아닌 평가들은 방법·채점 기준·측정 대상이 불투명한 경우가 많아 무엇을 실제로 측정하는지 알기 어렵다고 밝혔다. 종합적으로 현재 평가 세트는 LLM이 아마추어의 생물무기 개발을 “강하게” 뒷받침할 증거를 제공하진 못하며, 불확실성을 줄이려면 더 어려운(harder) 평가가 필요하다고 결론냈다.
+
+https://epoch.ai/gradient-updates/do-the-biorisk-evaluations-of-ai-labs-actually-measure-the-risk-of-developing-bioweapons" onclick="copyEntry(this)">복사</button></div>
+  <p>Epoch AI는 8개 주요 AI 랩의 biorisk 평가(또는 미공개 평가)를 분석한 결과, 공개된 벤치마크는 존재하지만 빠르게 포화(saturate)되어 biorisk에 대한 해석이 불확실하다고 지적했다. 또한 비(非)공개 평가나 벤치마크가 아닌 평가들은 방법·채점 기준·측정 대상이 불투명한 경우가 많아 무엇을 실제로 측정하는지 알기 어렵다고 밝혔다. 종합적으로 현재 평가 세트는 LLM이 아마추어의 생물무기 개발을 “강하게” 뒷받침할 증거를 제공하진 못하며, 불확실성을 줄이려면 더 어려운(harder) 평가가 필요하다고 결론냈다.</p>
+  <p class="url"><a href="https://epoch.ai/gradient-updates/do-the-biorisk-evaluations-of-ai-labs-actually-measure-the-risk-of-developing-bioweapons">https://epoch.ai/gradient-updates/do-the-biorisk-evaluations-of-ai-labs-actually-measure-the-risk-of-developing-bioweapons</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Anthropic, AI 상호작용을 위한 ‘AI Fluency: Framework &amp; Foundations’ 무료 과정(2025.01.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Anthropic Academy (anthropic.skilljar.com)</span></span><button type="button" class="copy-btn" data-copy="Anthropic, AI 상호작용을 위한 ‘AI Fluency: Framework &amp; Foundations’ 무료 과정(2025.01.01)
+
+AI Fluency: Framework &amp; Foundations 과정은 학계 전문가 Joseph Feller, Rick Dakan과의 파트너십을 통해 AI와의 상호작용을 효과적·효율적·윤리적·안전하게 하는 실무 역량을 가르친다고 안내한다. 과정은 AI Fluency 프레임워크와 4D Framework를 중심으로 생성형 AI 기초, 위임(Delegation), 설명(Description), 식별/판별(Discernment), 부지런함(Diligence) 등 핵심 개념과 함께 효과적인 프롬프트 기법을 다룬다. 수료 후 최종 평가를 통해 수료증을 받을 수 있으며, 학습 콘텐츠는 Skilljar에 호스팅되고 학습 진행·완료 상태·퀴즈 점수·학습 시간 등의 기본 학습 분석을 수집한다고 설명한다.
+
+https://anthropic.skilljar.com/ai-fluency-framework-foundations" onclick="copyEntry(this)">복사</button></div>
+  <p>AI Fluency: Framework &amp; Foundations 과정은 학계 전문가 Joseph Feller, Rick Dakan과의 파트너십을 통해 AI와의 상호작용을 효과적·효율적·윤리적·안전하게 하는 실무 역량을 가르친다고 안내한다. 과정은 AI Fluency 프레임워크와 4D Framework를 중심으로 생성형 AI 기초, 위임(Delegation), 설명(Description), 식별/판별(Discernment), 부지런함(Diligence) 등 핵심 개념과 함께 효과적인 프롬프트 기법을 다룬다. 수료 후 최종 평가를 통해 수료증을 받을 수 있으며, 학습 콘텐츠는 Skilljar에 호스팅되고 학습 진행·완료 상태·퀴즈 점수·학습 시간 등의 기본 학습 분석을 수집한다고 설명한다.</p>
+  <p class="url"><a href="https://anthropic.skilljar.com/ai-fluency-framework-foundations">https://anthropic.skilljar.com/ai-fluency-framework-foundations</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>MIT AI Incident Tracker, AI 위해·위험·피해 심각도 기준으로 1,400건 이상 사건 분류(2025.01.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">MIT FutureTech(airisk.mit.edu)</span> · <span class="deadline">이용·분류 도구는 AI Incident Database(AIID) 보고서를 LLM으로 처리해 MIT Risk Repository 및 CSET AI Harm Taxonomy 기반으로 재분류하며, EU AI Act의 위험 수준 정의도 함께 활용한다.</span></span><button type="button" class="copy-btn" data-copy="MIT AI Incident Tracker, AI 위해·위험·피해 심각도 기준으로 1,400건 이상 사건 분류(2025.01.01)
+
+MIT AI Incident Tracker는 AI Incident Database(AIID)에 보고된 1,400건 이상의 실제 사건을 위험, 원인, 피해 유형, 심각도 등 기준으로 분류해 탐색할 수 있게 한 도구다. MIT Risk Repository와 CSET의 AI Harm Taxonomy를 바탕으로 LLM이 원문 보고서를 처리해 사건을 체계적으로 범주화하며, 연도별 추이·도메인별 비중·원인 속성 경향·피해 심각도 분포 등을 시각화한다. 또한 데이터는 자발 제출과 보고 품질 편차로 인해 표본편향 가능성이 있어, 관찰된 패턴·추이는 참고용이며 추가 검증이 필요하다고 명시한다.
+
+https://airisk.mit.edu/ai-incident-tracker" onclick="copyEntry(this)">복사</button></div>
+  <p>MIT AI Incident Tracker는 AI Incident Database(AIID)에 보고된 1,400건 이상의 실제 사건을 위험, 원인, 피해 유형, 심각도 등 기준으로 분류해 탐색할 수 있게 한 도구다. MIT Risk Repository와 CSET의 AI Harm Taxonomy를 바탕으로 LLM이 원문 보고서를 처리해 사건을 체계적으로 범주화하며, 연도별 추이·도메인별 비중·원인 속성 경향·피해 심각도 분포 등을 시각화한다. 또한 데이터는 자발 제출과 보고 품질 편차로 인해 표본편향 가능성이 있어, 관찰된 패턴·추이는 참고용이며 추가 검증이 필요하다고 명시한다.</p>
+  <p class="url"><a href="https://airisk.mit.edu/ai-incident-tracker">https://airisk.mit.edu/ai-incident-tracker</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-07-10</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-07-10 · 9/11건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>AI 정보통: 7월 9일 15시 기준 국제 동향(2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Japan</span></span><button type="button" class="copy-btn" data-copy="AI 정보통: 7월 9일 15시 기준 국제 동향(2026.7.10)
+
+UN은 7월 6일부터 AI 안전·포용·신뢰를 위한 Global Dialogue on AI Governance를 열고, 참여국이 안전하고 포괄적인 AI를 촉구했다고 전했다. 또한 EU는 사이버보안과 AI를 연계한 EU Action Plan을 발표했으며, ITU·OpenAI 등도 AI 관련 이니셔티브와 코딩 평가·사례 연구 등 다양한 활동을 소개했다.
+
+https://aisi.go.jp/activity/activity_news/260710/" onclick="copyEntry(this)">복사</button></div>
+  <p>UN은 7월 6일부터 AI 안전·포용·신뢰를 위한 Global Dialogue on AI Governance를 열고, 참여국이 안전하고 포괄적인 AI를 촉구했다고 전했다. 또한 EU는 사이버보안과 AI를 연계한 EU Action Plan을 발표했으며, ITU·OpenAI 등도 AI 관련 이니셔티브와 코딩 평가·사례 연구 등 다양한 활동을 소개했다.</p>
+  <p class="url"><a href="https://aisi.go.jp/activity/activity_news/260710/">https://aisi.go.jp/activity/activity_news/260710/</a></p>
+</article>
+<article class="entry cat-intl-org">
+  <h2>유럽 집행위, Instagram·Facebook ‘중독적 설계’가 디지털서비스법 위반 혐의(2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-intl-org">국제기구</span> · <span class="source">유럽 집행위원회(EU Digital Strategy)</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, Instagram·Facebook ‘중독적 설계’가 디지털서비스법 위반 혐의(2026.7.10)
+
+유럽 집행위는 메타가 Instagram과 Facebook의 중독적 설계와 관련해 디지털서비스법(DSA)을 위반했을 가능성이 있다고 예비 판단했다. 조사 대상에는 무한 스크롤, 자동재생, 푸시 알림, 고도로 개인화된 추천시스템 등이 포함됐다. 집행위는 메타가 미성년자와 취약한 성인을 포함한 이용자의 신체·정신 건강에 대한 위험을 충분히 평가하지 못했으며, 현재의 완화 조치도 중독적 설계에서 비롯되는 위험을 효과적으로 줄이지 못했다고 밝혔다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-addictive-design-instagram-and-facebook-breach-digital-services-act" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위는 메타가 Instagram과 Facebook의 중독적 설계와 관련해 디지털서비스법(DSA)을 위반했을 가능성이 있다고 예비 판단했다. 조사 대상에는 무한 스크롤, 자동재생, 푸시 알림, 고도로 개인화된 추천시스템 등이 포함됐다. 집행위는 메타가 미성년자와 취약한 성인을 포함한 이용자의 신체·정신 건강에 대한 위험을 충분히 평가하지 못했으며, 현재의 완화 조치도 중독적 설계에서 비롯되는 위험을 효과적으로 줄이지 못했다고 밝혔다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-addictive-design-instagram-and-facebook-breach-digital-services-act">https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-addictive-design-instagram-and-facebook-breach-digital-services-act</a></p>
+</article>
+<article class="entry cat-media">
+  <h2>정부의 AI 모델 선택과 공공의 가치 반영 필요성 (2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-media">미디어</span> · <span class="source">AI-Frontiers</span></span><button type="button" class="copy-btn" data-copy="정부의 AI 모델 선택과 공공의 가치 반영 필요성 (2026.7.10)
+
+캘리포니아 주와 노스다코타 주, 로스앤젤레스 카운티 등 여러 정부 기관들이 AI를 다양한 업무에 도입하고 있으며, 향후 더 민감하고 중요한 업무에도 AI 활용이 확대될 것으로 예상됩니다. 그러나 현재 연방 정부는 AI 모델의 결정 과정과 공공의 가치 반영 여부를 평가하지 않고 있어, 이를 투명하게 공개하고 검증할 수 있는 기구의 필요성이 제기되고 있습니다. 제안된 &#x27;공공 추론 충실도&#x27;(Public Reasoning Fidelity, PRF) 프레임워크는 대표적인 공공 의견을 반영하여 AI 모델 선택에 있어 민주주의 원칙을 준수하도록 합니다. PRF는 모델의 결정 과정과 결과가 공공의 합리와 얼마나 일치하는지 평가하며, 이를 통해 특정 도메인에서의 모델 선택이 더욱 투명하고 책임감 있게 이루어질 수 있도록 합니다. 하지만 PRF의 적용은 모델의 정책 분석 품질 저하 위험과 정책 제안의 획일화 가능성 등의 문제점도 내포하고 있습니다.
+
+https://newsletter.ai-frontiers.org/p/the-government-is-choosing-ai-models" onclick="copyEntry(this)">복사</button></div>
+  <p>캘리포니아 주와 노스다코타 주, 로스앤젤레스 카운티 등 여러 정부 기관들이 AI를 다양한 업무에 도입하고 있으며, 향후 더 민감하고 중요한 업무에도 AI 활용이 확대될 것으로 예상됩니다. 그러나 현재 연방 정부는 AI 모델의 결정 과정과 공공의 가치 반영 여부를 평가하지 않고 있어, 이를 투명하게 공개하고 검증할 수 있는 기구의 필요성이 제기되고 있습니다. 제안된 &#x27;공공 추론 충실도&#x27;(Public Reasoning Fidelity, PRF) 프레임워크는 대표적인 공공 의견을 반영하여 AI 모델 선택에 있어 민주주의 원칙을 준수하도록 합니다. PRF는 모델의 결정 과정과 결과가 공공의 합리와 얼마나 일치하는지 평가하며, 이를 통해 특정 도메인에서의 모델 선택이 더욱 투명하고 책임감 있게 이루어질 수 있도록 합니다. 하지만 PRF의 적용은 모델의 정책 분석 품질 저하 위험과 정책 제안의 획일화 가능성 등의 문제점도 내포하고 있습니다.</p>
+  <p class="url"><a href="https://newsletter.ai-frontiers.org/p/the-government-is-choosing-ai-models">https://newsletter.ai-frontiers.org/p/the-government-is-choosing-ai-models</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>AI 2040 ‘Plan A’ 시나리오: 2040년까지 초지능 경쟁을 지연하고 AI 연구를 공개해 위험한 경쟁을 막는 국제합의 제안 (2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">본문은 초지능 개발을 2040년까지 늦추고, AI R&amp;D 전면 공개와 가드레일(규제·통제) 집행을 통해 여러 국가의 기업들이 비밀경쟁 대신 안전하게 점진적으로 역량을 키우는 ‘Plan A’를 제시한다. 또한 정책이 실제로 작동할지 ‘scenario scrutiny’로 검증해야 하며, 예시로 2029년 미-중 합의, 2030년 자동화된 AI R&amp;D 이후 2035년 top-human-expert 수준에서 일시정지, 2040년 재개 같은 타임라인을 제시한다. 아울러 투명성, 수출통제 집행, 검증 R&amp;D 투자, 컴퓨트 추적 등 “덜 야심찬” 정책 옵션들도 함께 열거한다.</span></span><button type="button" class="copy-btn" data-copy="AI 2040 ‘Plan A’ 시나리오: 2040년까지 초지능 경쟁을 지연하고 AI 연구를 공개해 위험한 경쟁을 막는 국제합의 제안 (2026.7.10)
+
+
+
+https://ai-2040.com" onclick="copyEntry(this)">복사</button></div>
+  
+  <p class="url"><a href="https://ai-2040.com">https://ai-2040.com</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Boko Haram Used AI Chatbots to Plan Motorcycle-Jump Attack (2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Boko Haram Used AI Chatbots to Plan Motorcycle-Jump Attack (2026.7.10)
+
+요약불가
+
+https://www.nytimes.com/2026/07/10/us/politics/ai-terrorism-boko-haram-nigeria.html" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.nytimes.com/2026/07/10/us/politics/ai-terrorism-boko-haram-nigeria.html">https://www.nytimes.com/2026/07/10/us/politics/ai-terrorism-boko-haram-nigeria.html</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>정부가 AI 모델을 고를 때 ‘공공의 가치’를 반영하는 절차가 필요하다는 주장 (2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">AI Frontiers</span> · <span class="deadline">빈 줄</span></span><button type="button" class="copy-btn" data-copy="정부가 AI 모델을 고를 때 ‘공공의 가치’를 반영하는 절차가 필요하다는 주장 (2026.7.10)
+
+
+
+https://aifrontiersmedia.substack.com/p/the-government-is-choosing-ai-models" onclick="copyEntry(this)">복사</button></div>
+  
+  <p class="url"><a href="https://aifrontiersmedia.substack.com/p/the-government-is-choosing-ai-models">https://aifrontiersmedia.substack.com/p/the-government-is-choosing-ai-models</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>정부 조달 AI의 “모델 선택”이 공공의 가치·판단을 좌우하며, 이를 반영하는 공개 점검 체계와 PRF(공공 추론 정합성) 프레임워크를 제안함 (2026.07.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">AI Frontiers</span> · <span class="deadline">​</span></span><button type="button" class="copy-btn" data-copy="정부 조달 AI의 “모델 선택”이 공공의 가치·판단을 좌우하며, 이를 반영하는 공개 점검 체계와 PRF(공공 추론 정합성) 프레임워크를 제안함 (2026.07.10)
+
+미국 캘리포니아·노스다코타·LA 상급법원 등에서 AI를 공공업무에 도입하는 흐름이 커지고, 앞으로 더 민감한 영역으로 확대될 수 있어 어떤 모델을 쓸지 결정이 중요하다고 지적한다. 연방정부는 배치된 모델의 추론이 대중의 판단과 어떻게 다른지 측정하거나 그 차이가 정당한지 묻지 않으므로, 공개적으로 검증·도전 가능하게 하는 별도 기구와 “public reasoning fidelity(PRF)”를 제안한다. PRF는 대표 표본에게 가상 시나리오를 검토하게 한 뒤 동일 시나리오에서 모델의 결과와 “이유(추론)”가 대중과 얼마나 가까운지 점수화해 조달에 반영하는 방식이며, 다만 Goodhart’s law로 인한 ‘정책 분석 아첨(sycophancy)’, 과도한 정책 동질화, 양극화 이슈에서 단일 평균이 생기는 문제 등을 보완장치로 설계해야 한다고 강조한다.
+
+https://aifrontiersmedia.substack.com/p/the-government-is-choosing-ai-models?publication_id=4633429&amp;post_id=206420746&amp;triggerShare=true&amp;isFreemail=true&amp;r=5jceei&amp;triedRedirect=true" onclick="copyEntry(this)">복사</button></div>
+  <p>미국 캘리포니아·노스다코타·LA 상급법원 등에서 AI를 공공업무에 도입하는 흐름이 커지고, 앞으로 더 민감한 영역으로 확대될 수 있어 어떤 모델을 쓸지 결정이 중요하다고 지적한다. 연방정부는 배치된 모델의 추론이 대중의 판단과 어떻게 다른지 측정하거나 그 차이가 정당한지 묻지 않으므로, 공개적으로 검증·도전 가능하게 하는 별도 기구와 “public reasoning fidelity(PRF)”를 제안한다. PRF는 대표 표본에게 가상 시나리오를 검토하게 한 뒤 동일 시나리오에서 모델의 결과와 “이유(추론)”가 대중과 얼마나 가까운지 점수화해 조달에 반영하는 방식이며, 다만 Goodhart’s law로 인한 ‘정책 분석 아첨(sycophancy)’, 과도한 정책 동질화, 양극화 이슈에서 단일 평균이 생기는 문제 등을 보완장치로 설계해야 한다고 강조한다.</p>
+  <p class="url"><a href="https://aifrontiersmedia.substack.com/p/the-government-is-choosing-ai-models?publication_id=4633429&amp;post_id=206420746&amp;triggerShare=true&amp;isFreemail=true&amp;r=5jceei&amp;triedRedirect=true">https://aifrontiersmedia.substack.com/p/the-government-is-choosing-ai-models?publication_id=4633429&amp;post_id=206420746&amp;triggerShare=true&amp;isFreemail=true&amp;r=5jceei&amp;triedRedirect=true</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI Safety × Philosophy Reading Group | Notion (2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">nous-ai-philosophy.notion.site</span></span><button type="button" class="copy-btn" data-copy="AI Safety × Philosophy Reading Group | Notion (2026.7.10)
+
+요약불가
+
+https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324">https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI 생성·편집 미디어의 진위 신뢰를 높이기 위한 정책·기술 표준 보고서 2건 공개(2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">국제전기통신연합(ITU) 공식 뉴스</span> · <span class="deadline">AI 및 멀티미디어 진위 표준 협업체는 생성형 AI로 만든·수정한 이미지·영상·음성·텍스트의 진위 신뢰 문제를 다루기 위해 정책보고서 1건과 기술표준보고서 1건을 새로 발표했다. 정책보고서는 지역별 생성형 AI 관련 신기능(합성 미디어)에 대한 정부 대응과 법·정책 접근의 수렴 방향을, 기술표준보고서는 글로벌 상호운용성과 구현, 책임 있는 혁신을 위한 기반을 강화하는 내용을 담고 있다. 아울러 단일 탐지 도구나 규제만으로는 한계가 있으며, 미디어 리터러시와 라벨링·워터마킹·프로비넌스 같은 기술, 플랫폼 책임과 공적 신뢰를 아우르는 협력 생태계 구축이 필요하다고 강조했다.</span></span><button type="button" class="copy-btn" data-copy="AI 생성·편집 미디어의 진위 신뢰를 높이기 위한 정책·기술 표준 보고서 2건 공개(2026.7.10)
+
+
+
+https://itu.int/hub/2026/07/building-trust-in-ai-generated-media" onclick="copyEntry(this)">복사</button></div>
+  
+  <p class="url"><a href="https://itu.int/hub/2026/07/building-trust-in-ai-generated-media">https://itu.int/hub/2026/07/building-trust-in-ai-generated-media</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Creativity, honesty and designed forgetting emerge in small hyperbolic language models (2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="Creativity, honesty and designed forgetting emerge in small hyperbolic language models (2026.7.10)
+
+작은 hyperbolic language models에서 creative frame-seeding, honesty 관련 거동, 그리고 designed forgetting 메커니즘이 함께 나타날 수 있음을 보여준다. 146M~3B 파라미터의 세 모델을 대상으로, 146M behavioural auditor(완전 학습)로 compliance gap을 탐지하고, frozen representation 선형 read-out과 style-controlled, leave-one-generator-out 평가로 companion-induced sycophancy·dependence-fostering·confabulated memories를 측정했다. 결과로 auditor의 compliance gap 탐지 정확도는 90.7%(binary-compliance accuracy)였고, AUROC는 0.804였으며 동일 항목에서 frontier zero-shot judge의 AUROC는 0.721로 더 낮았다; 또한 four prompting baselines 중 311개 pairwise 비교에서 creative frame-seeder가 100%로 선호되었다. 마지막으로 M(t)=S*exp(-lambda*t) 형태의 designed forgetting 예측 skeleton-wallpaper partition은 4조건 파일럿에서 selective retrieval gating 하에서만 관측되었다.
+
+https://arxiv.org/abs/2607.09306v1" onclick="copyEntry(this)">복사</button></div>
+  <p>작은 hyperbolic language models에서 creative frame-seeding, honesty 관련 거동, 그리고 designed forgetting 메커니즘이 함께 나타날 수 있음을 보여준다. 146M~3B 파라미터의 세 모델을 대상으로, 146M behavioural auditor(완전 학습)로 compliance gap을 탐지하고, frozen representation 선형 read-out과 style-controlled, leave-one-generator-out 평가로 companion-induced sycophancy·dependence-fostering·confabulated memories를 측정했다. 결과로 auditor의 compliance gap 탐지 정확도는 90.7%(binary-compliance accuracy)였고, AUROC는 0.804였으며 동일 항목에서 frontier zero-shot judge의 AUROC는 0.721로 더 낮았다; 또한 four prompting baselines 중 311개 pairwise 비교에서 creative frame-seeder가 100%로 선호되었다. 마지막으로 M(t)=S*exp(-lambda*t) 형태의 designed forgetting 예측 skeleton-wallpaper partition은 4조건 파일럿에서 selective retrieval gating 하에서만 관측되었다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.09306v1">https://arxiv.org/abs/2607.09306v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>TrustX Agent Risk Classification Framework (ARC): Risk-Tiering Internally Created Agentic AI Systems (2026.7.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span></span><button type="button" class="copy-btn" data-copy="TrustX Agent Risk Classification Framework (ARC): Risk-Tiering Internally Created Agentic AI Systems (2026.7.10)
+
+agentic AI 시스템을 조직 내에서 유형별로 분류하고 위험을 등급화해 거버넌스 통제를 연결하는 프레임워크를 제안한다. 7종의 agentic AI 시스템에 적용할 수 있으며, 12개 차원 채점 루브릭으로 위험을 정량화하고 이를 GPA + IAT 분류 모델과 기존 문헌에서 도출한 5단계 자율성 프레임워크와 결합해 거버넌스 의사결과를 만든다. 결과물은 3-tier 위험 등급과 각 tier에 매핑된 control recommendations로 제시되며, Coding Assistant 확장 모듈을 통해 해당 유형의 세부 뉘앙스를 반영한다. 예시 시연을 통해 실제 적용 절차를 보여준다.
+
+https://arxiv.org/abs/2607.09586v1" onclick="copyEntry(this)">복사</button></div>
+  <p>agentic AI 시스템을 조직 내에서 유형별로 분류하고 위험을 등급화해 거버넌스 통제를 연결하는 프레임워크를 제안한다. 7종의 agentic AI 시스템에 적용할 수 있으며, 12개 차원 채점 루브릭으로 위험을 정량화하고 이를 GPA + IAT 분류 모델과 기존 문헌에서 도출한 5단계 자율성 프레임워크와 결합해 거버넌스 의사결과를 만든다. 결과물은 3-tier 위험 등급과 각 tier에 매핑된 control recommendations로 제시되며, Coding Assistant 확장 모듈을 통해 해당 유형의 세부 뉘앙스를 반영한다. 예시 시연을 통해 실제 적용 절차를 보여준다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2607.09586v1">https://arxiv.org/abs/2607.09586v1</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

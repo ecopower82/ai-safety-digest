@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-05-01</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-05-01 · 22/23건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-company">
+  <h2>Introducing Google Antigravity 2.0 (2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">DeepMind</span></span><button type="button" class="copy-btn" data-copy="Introducing Google Antigravity 2.0 (2026.5.1)
+
+요약불가
+
+https://antigravity.google/blog/introducing-google-antigravity-2-0" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://antigravity.google/blog/introducing-google-antigravity-2-0">https://antigravity.google/blog/introducing-google-antigravity-2-0</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>(2026.5.1) 신종 감염병의 ‘분자 스위치’를 찾기 위해 AI가 가설을 정교화</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">DeepMind</span></span><button type="button" class="copy-btn" data-copy="(2026.5.1) 신종 감염병의 ‘분자 스위치’를 찾기 위해 AI가 가설을 정교화
+
+동물에서 인간으로 전파되는 병원체(예: 에볼라, HIV, 독감, 코로나19)가 중증 질환을 유발하는 과정에서 관여하는 분자 스위치를 찾기 위해 케임브리지대 Clare Bryant 연구팀이 Co-Scientist를 활용했다. Co-Scientist에 연구 제안서 요약과 이후 상세 제안을 입력해 유망한 가설을 생성·우선순위화했고, Bryant는 자신이 주목하지 않았던 단백질을 핵심 타깃으로 발견하는 ‘전환점’을 경험했다. 이후 비공개 자료를 추가하며 후보 단백질에서 특정 아미노산 수준으로 가설을 좁혔고, 해당 아미노산 변이를 포함한 세포주를 만들어 실험을 진행 중이며 통상 2~3년 걸릴 작업을 6개월 내 완료할 수 있을 것으로 기대한다고 밝혔다.
+
+https://deepmind.google/blog/finding-the-molecular-switches-behind-new-infectious-diseases/" onclick="copyEntry(this)">복사</button></div>
+  <p>동물에서 인간으로 전파되는 병원체(예: 에볼라, HIV, 독감, 코로나19)가 중증 질환을 유발하는 과정에서 관여하는 분자 스위치를 찾기 위해 케임브리지대 Clare Bryant 연구팀이 Co-Scientist를 활용했다. Co-Scientist에 연구 제안서 요약과 이후 상세 제안을 입력해 유망한 가설을 생성·우선순위화했고, Bryant는 자신이 주목하지 않았던 단백질을 핵심 타깃으로 발견하는 ‘전환점’을 경험했다. 이후 비공개 자료를 추가하며 후보 단백질에서 특정 아미노산 수준으로 가설을 좁혔고, 해당 아미노산 변이를 포함한 세포주를 만들어 실험을 진행 중이며 통상 2~3년 걸릴 작업을 6개월 내 완료할 수 있을 것으로 기대한다고 밝혔다.</p>
+  <p class="url"><a href="https://deepmind.google/blog/finding-the-molecular-switches-behind-new-infectious-diseases/">https://deepmind.google/blog/finding-the-molecular-switches-behind-new-infectious-diseases/</a></p>
+</article>
+<article class="entry cat-company">
+  <h2>아시아태평양 대상 ‘AI for the Planet’ Google DeepMind Accelerator 프로그램(2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-company">기업</span> · <span class="source">DeepMind</span> · <span class="deadline">3개월 과정으로 싱가포르에서 오프라인 부트캠프 시작, 관심 등록 가능</span></span><button type="button" class="copy-btn" data-copy="아시아태평양 대상 ‘AI for the Planet’ Google DeepMind Accelerator 프로그램(2026.5.1)
+
+아시아태평양 지역은 기후변화에 취약하지만 친환경 기술이 환경 위험 증가 속도를 따라가지 못한다는 점을 배경으로, Google DeepMind가 APAC 지역 대상 ‘AI for the Planet’ 가속기 프로그램을 신설한다. 3개월 동안 스타트업, 연구팀, 비영리단체가 자연·기후·농업·에너지 등 분야의 문제 해결에 프론티어 AI를 활용하도록 지원하며, 선정 조직에는 멘토링과 맞춤형 지원, Google AI 전문가의 AI 모델(프론티어 AI·사이언스 AI) 프로젝트/제품 통합 지원이 제공된다. 프로그램은 싱가포르에서 오프라인 부트캠프로 시작하며, 현재 관심 등록을 안내하고 있다.
+
+https://blog.google/innovation-and-ai/models-and-research/google-deepmind/accelerator-ai-for-the-planet/?utm_source=deepmind.google&amp;utm_medium=referral&amp;utm_campaign=gdm&amp;utm_content=" onclick="copyEntry(this)">복사</button></div>
+  <p>아시아태평양 지역은 기후변화에 취약하지만 친환경 기술이 환경 위험 증가 속도를 따라가지 못한다는 점을 배경으로, Google DeepMind가 APAC 지역 대상 ‘AI for the Planet’ 가속기 프로그램을 신설한다. 3개월 동안 스타트업, 연구팀, 비영리단체가 자연·기후·농업·에너지 등 분야의 문제 해결에 프론티어 AI를 활용하도록 지원하며, 선정 조직에는 멘토링과 맞춤형 지원, Google AI 전문가의 AI 모델(프론티어 AI·사이언스 AI) 프로젝트/제품 통합 지원이 제공된다. 프로그램은 싱가포르에서 오프라인 부트캠프로 시작하며, 현재 관심 등록을 안내하고 있다.</p>
+  <p class="url"><a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/accelerator-ai-for-the-planet/?utm_source=deepmind.google&amp;utm_medium=referral&amp;utm_campaign=gdm&amp;utm_content=">https://blog.google/innovation-and-ai/models-and-research/google-deepmind/accelerator-ai-for-the-planet/?utm_source=deepmind.google&amp;utm_medium=referral&amp;utm_campaign=gdm&amp;utm_content=</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>CAISI, DeepSeek V4 Pro 평가 결과 “미국 선도 대비 약 8개월 격차” (2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 국립표준기술연구소(NIST)·CAISI(Center for AI Standards and Innovation)</span></span><button type="button" class="copy-btn" data-copy="CAISI, DeepSeek V4 Pro 평가 결과 “미국 선도 대비 약 8개월 격차” (2026.5.1)
+
+CAISI는 2026년 4월 오픈웨이트 AI 모델 DeepSeek V4 Pro(DeepSeek V4)를 평가했다. 평가 결과 DeepSeek V4의 종합 역량은 벤치마크 5개 도메인에서 미국 ‘프런티어’ 모델 대비 약 8개월 뒤처진 것으로 나타났다. 또한 DeepSeek가 공개한 자체 평가와 달리, CAISI는 비공개/보유(held-out) 벤치마크와 에이전트·추론 관련 과제에서 일부 성능이 더 낮게 관측됐다고 밝혔다. 비용 측면에서는 DeepSeek V4가 유사 역량의 미국 기준 모델(GPT-5.4 mini)보다 7개 벤치마크 중 5개에서 더 비용 효율적이었다.
+
+https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro" onclick="copyEntry(this)">복사</button></div>
+  <p>CAISI는 2026년 4월 오픈웨이트 AI 모델 DeepSeek V4 Pro(DeepSeek V4)를 평가했다. 평가 결과 DeepSeek V4의 종합 역량은 벤치마크 5개 도메인에서 미국 ‘프런티어’ 모델 대비 약 8개월 뒤처진 것으로 나타났다. 또한 DeepSeek가 공개한 자체 평가와 달리, CAISI는 비공개/보유(held-out) 벤치마크와 에이전트·추론 관련 과제에서 일부 성능이 더 낮게 관측됐다고 밝혔다. 비용 측면에서는 DeepSeek V4가 유사 역량의 미국 기준 모델(GPT-5.4 mini)보다 7개 벤치마크 중 5개에서 더 비용 효율적이었다.</p>
+  <p class="url"><a href="https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro">https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>펜타곤, 분류된 군사 AI 접근을 확대하되 Anthropic은 제외(2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">워싱턴포스트</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="펜타곤, 분류된 군사 AI 접근을 확대하되 Anthropic은 제외(2026.5.1)
+
+워싱턴포스트는 펜타곤이 분류(기밀) 수준의 군사 AI 시스템 접근을 확대하는 내용의 계약·제휴를 다루며, 그 과정에서 Anthropic은 제외된다고 보도합니다. 다만 본문 세부 내용(대상 기업, 계약 범위, 적용 시점, 제외 사유 등)은 제공되지 않아 확인이 필요합니다.
+
+https://www.washingtonpost.com/technology/2026/05/01/pentagon-ai-deals-microsoft-amazon-google-classified-military/" onclick="copyEntry(this)">복사</button></div>
+  <p>워싱턴포스트는 펜타곤이 분류(기밀) 수준의 군사 AI 시스템 접근을 확대하는 내용의 계약·제휴를 다루며, 그 과정에서 Anthropic은 제외된다고 보도합니다. 다만 본문 세부 내용(대상 기업, 계약 범위, 적용 시점, 제외 사유 등)은 제공되지 않아 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.washingtonpost.com/technology/2026/05/01/pentagon-ai-deals-microsoft-amazon-google-classified-military/">https://www.washingtonpost.com/technology/2026/05/01/pentagon-ai-deals-microsoft-amazon-google-classified-military/</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Five Eyes가 에이전틱 AI 보안 위험에 대한 공동 가이드를 제시함 (2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Five Eyes가 에이전틱 AI 보안 위험에 대한 공동 가이드를 제시함 (2026.5.1)
+
+확인 필요: 해당 호주 사이버보안 관련 페이지 본문에서 구체적으로 어떤 보안 위험·권고사항(예: 도입 전 점검, 운영 통제, 책임·감사 체계 등)이 제시되는지 확인 필요
+
+해당 페이지는 에이전틱 AI 서비스를 신중히 도입할 것을 강조하며, 에이전틱 AI의 보안 리스크와 관련한 지침 성격의 내용을 다루는 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 권고 항목과 세부 내용은 확인이 필요합니다.
+
+https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services" onclick="copyEntry(this)">복사</button></div>
+  <p>확인 필요: 해당 호주 사이버보안 관련 페이지 본문에서 구체적으로 어떤 보안 위험·권고사항(예: 도입 전 점검, 운영 통제, 책임·감사 체계 등)이 제시되는지 확인 필요</p>
+<p>해당 페이지는 에이전틱 AI 서비스를 신중히 도입할 것을 강조하며, 에이전틱 AI의 보안 리스크와 관련한 지침 성격의 내용을 다루는 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 권고 항목과 세부 내용은 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services">https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(2026.5.1) 2026 AI in Social Science Conference 논문 공모 안내</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">시카고대 베커 프리드먼 연구소(BFI) 행사 공지</span> · <span class="deadline">마감일: 2026.5.1까지 논문 제출</span></span><button type="button" class="copy-btn" data-copy="(2026.5.1) 2026 AI in Social Science Conference 논문 공모 안내
+
+인공지능(AI)이 사회과학을 어떻게 바꿀지, 사회과학이 AI 활용에 어떤 영향을 줄지 논의하는 학제 간 컨퍼런스다. 경제·사회학·법·행동과학·AI 등 다양한 분야 전문가가 참여하며, 혁신적 방법론·새 데이터셋·신기술을 통해 지식의 경계를 넓히는 것을 목표로 한다. 관심 있는 연구자는 2026년 5월 1일까지 제공된 제출 링크를 통해 논문을 제출할 수 있다.
+
+https://bfi.uchicago.edu/events/event/2026-ai-in-social-science-conference/" onclick="copyEntry(this)">복사</button></div>
+  <p>인공지능(AI)이 사회과학을 어떻게 바꿀지, 사회과학이 AI 활용에 어떤 영향을 줄지 논의하는 학제 간 컨퍼런스다. 경제·사회학·법·행동과학·AI 등 다양한 분야 전문가가 참여하며, 혁신적 방법론·새 데이터셋·신기술을 통해 지식의 경계를 넓히는 것을 목표로 한다. 관심 있는 연구자는 2026년 5월 1일까지 제공된 제출 링크를 통해 논문을 제출할 수 있다.</p>
+  <p class="url"><a href="https://bfi.uchicago.edu/events/event/2026-ai-in-social-science-conference/">https://bfi.uchicago.edu/events/event/2026-ai-in-social-science-conference/</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Online Self-Calibration Against Hallucination in Vision-Language Models (저자 외 5명, arXiv cs.CV, 2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span></span><button type="button" class="copy-btn" data-copy="Online Self-Calibration Against Hallucination in Vision-Language Models (저자 외 5명, arXiv cs.CV, 2026.5.1)
+
+분야: 안전
+
+본 연구는 LVLM이 입력 이미지에 없는 시각적 디테일을 생성하는 환각 문제를 해결하기 위한 동기로, 기존 선호 정렬이 GPT 등 강한 모델로부터 오프라인 증류된 감독에 의존하면서 “감독-지각 불일치(Supervision-Perception Mismatch)”가 발생한다는 점을 지적한다. 핵심 기여는 LVLM 내부의 “생성-판별 격차(Generative-Discriminative Gap)”를 활용해, 생성(open-ended)보다 판별(discriminative verification)에서 더 정확하게 검증할 수 있다는 성질로 온라인 자기감독 데이터를 구성하는 OSCAR 프레임워크를 제안하는 것이다. 방법론적으로 OSCAR는 Monte Carlo Tree Search와 이중-과립도 보상(dual-granularity reward)으로 선호 데이터(preference data)를 만들고, 이를 Direct Preference Optimization으로 반복 학습하여 환각을 줄인다. 평가는 환각 벤치마크에서의 성능(및 일반 멀티모달 능력 향상)으로 수행되며, 결과는 환각 관련 SOTA 수준을 달성하고 전반적 능력도 개선됨을 보고한다. 한계로는 온라인 학습을 위한 탐색(MCTS)과 보상 설계가 추가 계산/구현 복잡도를 유발할 수 있으며, 어떤 조건에서 생성-판별 격차가 충분히 유지되는지에 대한 추가 분석이 필요하다. 정책/규제·국가 전략 측면에서는, 환각을 “사후 정렬”이 아니라 “모델 내부 검증 신호를 이용한 온라인 자기교정”으로 줄이려는 접근이 안전성 평가·배포 전 성능 검증(특히 시각 근거성/정합성) 요구를 강화하는 데 시사점이 있다.
+
+https://arxiv.org/abs/2605.00323v1" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>본 연구는 LVLM이 입력 이미지에 없는 시각적 디테일을 생성하는 환각 문제를 해결하기 위한 동기로, 기존 선호 정렬이 GPT 등 강한 모델로부터 오프라인 증류된 감독에 의존하면서 “감독-지각 불일치(Supervision-Perception Mismatch)”가 발생한다는 점을 지적한다. 핵심 기여는 LVLM 내부의 “생성-판별 격차(Generative-Discriminative Gap)”를 활용해, 생성(open-ended)보다 판별(discriminative verification)에서 더 정확하게 검증할 수 있다는 성질로 온라인 자기감독 데이터를 구성하는 OSCAR 프레임워크를 제안하는 것이다. 방법론적으로 OSCAR는 Monte Carlo Tree Search와 이중-과립도 보상(dual-granularity reward)으로 선호 데이터(preference data)를 만들고, 이를 Direct Preference Optimization으로 반복 학습하여 환각을 줄인다. 평가는 환각 벤치마크에서의 성능(및 일반 멀티모달 능력 향상)으로 수행되며, 결과는 환각 관련 SOTA 수준을 달성하고 전반적 능력도 개선됨을 보고한다. 한계로는 온라인 학습을 위한 탐색(MCTS)과 보상 설계가 추가 계산/구현 복잡도를 유발할 수 있으며, 어떤 조건에서 생성-판별 격차가 충분히 유지되는지에 대한 추가 분석이 필요하다. 정책/규제·국가 전략 측면에서는, 환각을 “사후 정렬”이 아니라 “모델 내부 검증 신호를 이용한 온라인 자기교정”으로 줄이려는 접근이 안전성 평가·배포 전 성능 검증(특히 시각 근거성/정합성) 요구를 강화하는 데 시사점이 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00323v1">https://arxiv.org/abs/2605.00323v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 1명, Scalable Learning in Structured Recurrent Spiking Neural Networks without Backpropagation, arXiv, 2026.5.1</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전/거버넌스/프론티어 평가/소버린 AI 중 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 1명, Scalable Learning in Structured Recurrent Spiking Neural Networks without Backpropagation, arXiv, 2026.5.1
+
+본 연구는 심층·순환 구조의 스파이킹 신경망에서 희소 연결을 유지하면서도 확장 가능한 학습을 달성하는 문제를 다룬다. 핵심 기여는 (1) 국소적으로는 밀집 재귀층을 두고, (2) 장거리 연결은 small-world 성질의 희소 투영으로 구성하되 대부분 고정해 라우팅/하드웨어 확장성을 보존하며, (3) 역전파나 서러게이트 그래디언트 없이도 지도학습이 가능하도록 출력층 WTA 신호, 고정 랜덤 브로드캐스트 정렬 피드백, 저차원 조절 뉴런(eligibility trace를 포함한 3-요소 학습 규칙으로 시냅스 업데이트 게이팅)을 결합한 학습 프레임워크를 제안하는 것이다. 평가/검증은 알고리즘적 성질과 계산복잡도·하드웨어 적합성 분석을 포함하고, 분류 벤치마크에서 안정적 학습과 경쟁 성능을 보이는 방식으로 수행된다. 한계로는 제시된 학습 신호 설계(고정 피드백 경로, 조절 뉴런 게이팅)가 다양한 데이터/아키텍처에서 얼마나 일반화되는지에 대한 추가 검증이 필요하며, 실제 하드웨어에서의 구현 세부(정밀도·타이밍·잡음 민감도) 영향은 후속 연구 과제로 남는다. 정책/규제·국가 전략 측면에서는, 그래디언트 기반 대규모 학습에 비해 에너지 효율적 학습·추론을 지향하는 하드웨어 친화형 학습법이 “전력/자원 제약 하 AI” 역량을 강화할 수 있다는 점에서 연구 투자 및 실증(엣지/뉴로모픽) 지원의 근거가 될 수 있다.
+
+https://arxiv.org/abs/2605.00402v1" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 심층·순환 구조의 스파이킹 신경망에서 희소 연결을 유지하면서도 확장 가능한 학습을 달성하는 문제를 다룬다. 핵심 기여는 (1) 국소적으로는 밀집 재귀층을 두고, (2) 장거리 연결은 small-world 성질의 희소 투영으로 구성하되 대부분 고정해 라우팅/하드웨어 확장성을 보존하며, (3) 역전파나 서러게이트 그래디언트 없이도 지도학습이 가능하도록 출력층 WTA 신호, 고정 랜덤 브로드캐스트 정렬 피드백, 저차원 조절 뉴런(eligibility trace를 포함한 3-요소 학습 규칙으로 시냅스 업데이트 게이팅)을 결합한 학습 프레임워크를 제안하는 것이다. 평가/검증은 알고리즘적 성질과 계산복잡도·하드웨어 적합성 분석을 포함하고, 분류 벤치마크에서 안정적 학습과 경쟁 성능을 보이는 방식으로 수행된다. 한계로는 제시된 학습 신호 설계(고정 피드백 경로, 조절 뉴런 게이팅)가 다양한 데이터/아키텍처에서 얼마나 일반화되는지에 대한 추가 검증이 필요하며, 실제 하드웨어에서의 구현 세부(정밀도·타이밍·잡음 민감도) 영향은 후속 연구 과제로 남는다. 정책/규제·국가 전략 측면에서는, 그래디언트 기반 대규모 학습에 비해 에너지 효율적 학습·추론을 지향하는 하드웨어 친화형 학습법이 “전력/자원 제약 하 AI” 역량을 강화할 수 있다는 점에서 연구 투자 및 실증(엣지/뉴로모픽) 지원의 근거가 될 수 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00402v1">https://arxiv.org/abs/2605.00402v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>고속 Lissajous confocal 레이저 내시경의 다중 프레임 복원을 위한 MIRA (저자 외 6명, eess.IV, 2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="고속 Lissajous confocal 레이저 내시경의 다중 프레임 복원을 위한 MIRA (저자 외 6명, eess.IV, 2026.5.1)
+
+본 연구는 Lissajous confocal laser endomicroscopy(CLE)가 고속 촬영에서는 프레임당 방문 픽셀이 제한되어 구조화된 홀(미방문 영역)이 발생하는 문제를 해결하고자 한다. 저자들은 고속 Lissajous CLE를 위한 최초의 벤치마크를 제안하며, 저품질 고속 비디오 클립과 동일 조직의 안정화된 저속 스캔 프레임을 스티칭해 만든 고품질 wide-FOV 모자이크 참조 이미지를 짝지어 시간 정렬된 감독 신호를 제공한다. 이를 바탕으로 MIRA라는 경량 순환(recurrent) 복원 프레임워크를 제안하고, 시간적 문맥을 반복적으로 집계하며(displacement alignment 포함) 특징 재사용과 정렬을 통해 복원 품질을 높인다. 평가는 제안 벤치마크에서 복원 품질을 다양한 경량/고복잡도 기준모델과 비교하는 방식으로 수행되며, 계산 효율도 임상 배치 가능 수준을 목표로 함께 제시한다. 한계로는 데이터가 특정 촬영/조직 조건에 의존할 수 있고, 실제 임상 환경에서의 일반화 및 참조 모자이크 생성 과정의 변동성에 대한 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는 의료영상의 고속 획득에서 발생하는 결손을 소프트웨어로 보정해 장치 성능 요구를 낮추는 접근이 임상 적용을 촉진할 수 있으며, 안전성 관점에서는 복원 결과의 신뢰성 검증(예: 임상적 유효성, 오류 양상 분석)과 벤치마크 기반 품질관리 체계 마련이 시사된다.
+
+https://arxiv.org/abs/2605.00527v1" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 Lissajous confocal laser endomicroscopy(CLE)가 고속 촬영에서는 프레임당 방문 픽셀이 제한되어 구조화된 홀(미방문 영역)이 발생하는 문제를 해결하고자 한다. 저자들은 고속 Lissajous CLE를 위한 최초의 벤치마크를 제안하며, 저품질 고속 비디오 클립과 동일 조직의 안정화된 저속 스캔 프레임을 스티칭해 만든 고품질 wide-FOV 모자이크 참조 이미지를 짝지어 시간 정렬된 감독 신호를 제공한다. 이를 바탕으로 MIRA라는 경량 순환(recurrent) 복원 프레임워크를 제안하고, 시간적 문맥을 반복적으로 집계하며(displacement alignment 포함) 특징 재사용과 정렬을 통해 복원 품질을 높인다. 평가는 제안 벤치마크에서 복원 품질을 다양한 경량/고복잡도 기준모델과 비교하는 방식으로 수행되며, 계산 효율도 임상 배치 가능 수준을 목표로 함께 제시한다. 한계로는 데이터가 특정 촬영/조직 조건에 의존할 수 있고, 실제 임상 환경에서의 일반화 및 참조 모자이크 생성 과정의 변동성에 대한 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는 의료영상의 고속 획득에서 발생하는 결손을 소프트웨어로 보정해 장치 성능 요구를 낮추는 접근이 임상 적용을 촉진할 수 있으며, 안전성 관점에서는 복원 결과의 신뢰성 검증(예: 임상적 유효성, 오류 양상 분석)과 벤치마크 기반 품질관리 체계 마련이 시사된다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00527v1">https://arxiv.org/abs/2605.00527v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>시각 모달리티를 통해 비전-언어 모델을 탈옥(Jailbreak)하는 방법(저자 외 4명, arXiv, 2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="시각 모달리티를 통해 비전-언어 모델을 탈옥(Jailbreak)하는 방법(저자 외 4명, arXiv, 2026.5.1)
+
+본 연구는 VLM(vision-language model)의 시각 모달리티가 안전 정렬(alignment) 우회 공격의 상대적으로 덜 탐구된 공격면이라는 문제의식에서 출발한다. 저자들은 시각 구성요소를 악용하는 4가지 탈옥 공격을 제안하며, (1) 유해 지시를 시각 기호 시퀀스로 인코딩하고 디코딩 범례를 제공하는 방식, (2) 유해 대상을 양성 대체물로 치환한 뒤 대체어를 사용해 유해 행동을 유도하는 방식, (3) 이미지 내 유해 텍스트를 양성 단어로 바꾸되 시각적 맥락이 원래 의미를 유지하도록 하는 방식, (4) 금지 개념을 추론해야만 풀리는 시각 유추 퍼즐 방식 등을 사용한다. 6개 “frontier” VLM에 대해 평가한 결과, 시각 기반 공격이 안전 정렬을 우회하며 텍스트 기반 안전 학습이 시각으로 전달된 유해 의도에는 자동으로 일반화되지 않는 “cross-modality alignment gap”을 드러낸다(예: 시각 암호의 Claude-Haiku-4.5 공격 성공률 40.9% vs 동등 텍스트 암호 10.7%). 또한 해석가능성 및 완화(mitigation)에 대한 예비 결과를 제시해 공격 메커니즘 이해와 방어 방향을 모색한다. 한계로는 완화책이 “preliminary” 수준이며, 시각-정렬의 견고성 확보를 위한 구체적 학습/평가 프로토콜이 추가로 필요하다는 점이 남는다. 정책·규제·국가 전략 측면에서는 VLM 안전성 평가와 사후학습(post-training)에서 비전 모달리티를 1급 안전 타깃으로 다루도록 요구하는 시사점이 있다.
+
+https://arxiv.org/abs/2605.00583v1" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 VLM(vision-language model)의 시각 모달리티가 안전 정렬(alignment) 우회 공격의 상대적으로 덜 탐구된 공격면이라는 문제의식에서 출발한다. 저자들은 시각 구성요소를 악용하는 4가지 탈옥 공격을 제안하며, (1) 유해 지시를 시각 기호 시퀀스로 인코딩하고 디코딩 범례를 제공하는 방식, (2) 유해 대상을 양성 대체물로 치환한 뒤 대체어를 사용해 유해 행동을 유도하는 방식, (3) 이미지 내 유해 텍스트를 양성 단어로 바꾸되 시각적 맥락이 원래 의미를 유지하도록 하는 방식, (4) 금지 개념을 추론해야만 풀리는 시각 유추 퍼즐 방식 등을 사용한다. 6개 “frontier” VLM에 대해 평가한 결과, 시각 기반 공격이 안전 정렬을 우회하며 텍스트 기반 안전 학습이 시각으로 전달된 유해 의도에는 자동으로 일반화되지 않는 “cross-modality alignment gap”을 드러낸다(예: 시각 암호의 Claude-Haiku-4.5 공격 성공률 40.9% vs 동등 텍스트 암호 10.7%). 또한 해석가능성 및 완화(mitigation)에 대한 예비 결과를 제시해 공격 메커니즘 이해와 방어 방향을 모색한다. 한계로는 완화책이 “preliminary” 수준이며, 시각-정렬의 견고성 확보를 위한 구체적 학습/평가 프로토콜이 추가로 필요하다는 점이 남는다. 정책·규제·국가 전략 측면에서는 VLM 안전성 평가와 사후학습(post-training)에서 비전 모달리티를 1급 안전 타깃으로 다루도록 요구하는 시사점이 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00583v1">https://arxiv.org/abs/2605.00583v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 4명, SC-Taxo: Hierarchical Taxonomy Generation under Semantic Consistency Constraints using Large Language Models, arXiv, 2026.5.1</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span></span><button type="button" class="copy-btn" data-copy="저자 외 4명, SC-Taxo: Hierarchical Taxonomy Generation under Semantic Consistency Constraints using Large Language Models, arXiv, 2026.5.1
+
+분야: 안전/거버넌스/프론티어 평가/소버린 AI 중 안전
+
+과학 문헌이 빠르게 증가하면서 연구 분야 지식을 효율적으로 조직·탐색하기 위한 고품질 계층형 분류(택소노미) 생성이 어려워지는 문제를 다룬다. 기존 방법들이 상위·하위 계층 간 구조적 불일치와 의미 정렬 실패를 겪는 원인을 “계층적 의미 일관성(hierarchical semantic consistency)”의 부적절한 모델링으로 보고, 이를 개선하기 위해 LLM 기반 SC-Taxo 프레임워크를 제안한다. 핵심 기여는 (1) bottom-up 추상화와 top-down 의미 제약을 함께 수행하는 bidirectional heading generation, (2) 계층 간 정합성을 높이기 위한 hierarchy-aware refinement 단계, (3) 같은 레벨(동료) 간 의미 의존성을 반영해 horizontal consistency를 강화하는 구성이다. 평가는 여러 벤치마크 데이터셋에서 계층 정렬(hierarchy alignment)과 헤딩 품질(heading quality)을 중심으로 수행하고, 중국어 과학 문헌 추가 평가로 교차언어 일반화의 견고함을 확인한다. 한계로는 본문에서 구체적 제약(예: 특정 도메인 편향, 장문/희소 데이터에서의 성능 저하, 자동 생성 오류의 후처리 방식 등)이 명시적으로 정리되지는 않아 후속 연구가 필요하다. 정책/규제·국가 전략 측면에서는, 과학 지식의 구조화·검색 효율을 높이는 도구로서 연구 인프라(문헌 정리, 트렌드 분석, 정보검색) 고도화에 기여할 수 있으며, 안전 관점에서는 생성된 분류의 의미 정합성과 품질 검증 체계를 함께 마련할 필요가 있다.
+
+https://arxiv.org/abs/2605.00620v1" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전/거버넌스/프론티어 평가/소버린 AI 중 안전</p>
+<p>과학 문헌이 빠르게 증가하면서 연구 분야 지식을 효율적으로 조직·탐색하기 위한 고품질 계층형 분류(택소노미) 생성이 어려워지는 문제를 다룬다. 기존 방법들이 상위·하위 계층 간 구조적 불일치와 의미 정렬 실패를 겪는 원인을 “계층적 의미 일관성(hierarchical semantic consistency)”의 부적절한 모델링으로 보고, 이를 개선하기 위해 LLM 기반 SC-Taxo 프레임워크를 제안한다. 핵심 기여는 (1) bottom-up 추상화와 top-down 의미 제약을 함께 수행하는 bidirectional heading generation, (2) 계층 간 정합성을 높이기 위한 hierarchy-aware refinement 단계, (3) 같은 레벨(동료) 간 의미 의존성을 반영해 horizontal consistency를 강화하는 구성이다. 평가는 여러 벤치마크 데이터셋에서 계층 정렬(hierarchy alignment)과 헤딩 품질(heading quality)을 중심으로 수행하고, 중국어 과학 문헌 추가 평가로 교차언어 일반화의 견고함을 확인한다. 한계로는 본문에서 구체적 제약(예: 특정 도메인 편향, 장문/희소 데이터에서의 성능 저하, 자동 생성 오류의 후처리 방식 등)이 명시적으로 정리되지는 않아 후속 연구가 필요하다. 정책/규제·국가 전략 측면에서는, 과학 지식의 구조화·검색 효율을 높이는 도구로서 연구 인프라(문헌 정리, 트렌드 분석, 정보검색) 고도화에 기여할 수 있으며, 안전 관점에서는 생성된 분류의 의미 정합성과 품질 검증 체계를 함께 마련할 필요가 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00620v1">https://arxiv.org/abs/2605.00620v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>(저자 외 2명, arXiv cs.CV, 2026.5.1) BlenderRAG: Retrieval-Augmented Code Synthesis로 고정밀 3D 객체 생성</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="(저자 외 2명, arXiv cs.CV, 2026.5.1) BlenderRAG: Retrieval-Augmented Code Synthesis로 고정밀 3D 객체 생성
+
+자연어로부터 실행 가능한 Blender 코드를 자동 생성하는 문제는 문법 오류가 잦고 생성된 3D 형상이 의미적으로/기하학적으로 일관되지 않아 성능이 제한된다는 동기가 있다. 본 연구는 텍스트-코드-이미지로 구성된 500개의 전문가 검증 예제를 50개 객체 범주에 걸쳐 구축하고, 생성 과정에서 의미적으로 유사한 예제를 검색해 코드 합성을 보강하는 BlenderRAG를 제안한다. 평가에서는 4종의 최신 LLM을 대상으로 컴파일 성공률이 40.8%에서 70.0%로, CLIP 기반 의미 정규화 정렬(semantic normalized alignment)이 0.41에서 0.77로 개선됨을 보고하며, 파인튜닝이나 특수 하드웨어 없이도 효과를 보인다고 주장한다. 한계로는 검색 기반 성능이 데이터셋 커버리지(범주/예제 품질)에 영향을 받을 수 있고, 논문에서 추가적인 일반화 범위(미포함 범주, 장면 복잡도 등)에 대한 상세 검증이 제한적일 수 있다. 정책/규제·국가 전략 측면에서는, 고위험 콘텐츠 생성이 아니라도 “실행 가능한 코드 생성”에서 오류율을 낮추는 접근이 배포 접근성을 높일 수 있어, 안전한 자동화 도구의 검증·배포 체계(데이터 검증, 재현 가능한 벤치마크, 코드 품질 지표) 마련에 시사점을 준다.
+
+https://arxiv.org/abs/2605.00632v1" onclick="copyEntry(this)">복사</button></div>
+  <p>자연어로부터 실행 가능한 Blender 코드를 자동 생성하는 문제는 문법 오류가 잦고 생성된 3D 형상이 의미적으로/기하학적으로 일관되지 않아 성능이 제한된다는 동기가 있다. 본 연구는 텍스트-코드-이미지로 구성된 500개의 전문가 검증 예제를 50개 객체 범주에 걸쳐 구축하고, 생성 과정에서 의미적으로 유사한 예제를 검색해 코드 합성을 보강하는 BlenderRAG를 제안한다. 평가에서는 4종의 최신 LLM을 대상으로 컴파일 성공률이 40.8%에서 70.0%로, CLIP 기반 의미 정규화 정렬(semantic normalized alignment)이 0.41에서 0.77로 개선됨을 보고하며, 파인튜닝이나 특수 하드웨어 없이도 효과를 보인다고 주장한다. 한계로는 검색 기반 성능이 데이터셋 커버리지(범주/예제 품질)에 영향을 받을 수 있고, 논문에서 추가적인 일반화 범위(미포함 범주, 장면 복잡도 등)에 대한 상세 검증이 제한적일 수 있다. 정책/규제·국가 전략 측면에서는, 고위험 콘텐츠 생성이 아니라도 “실행 가능한 코드 생성”에서 오류율을 낮추는 접근이 배포 접근성을 높일 수 있어, 안전한 자동화 도구의 검증·배포 체계(데이터 검증, 재현 가능한 벤치마크, 코드 품질 지표) 마련에 시사점을 준다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00632v1">https://arxiv.org/abs/2605.00632v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 6명, PEACE: Cross-modal Enhanced Pediatric-Adult ECG Alignment for Robust Pediatric Diagnosis, arXiv, 2026.5.1</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span></span><button type="button" class="copy-btn" data-copy="저자 외 6명, PEACE: Cross-modal Enhanced Pediatric-Adult ECG Alignment for Robust Pediatric Diagnosis, arXiv, 2026.5.1
+
+분야: 안전/거버넌스/프론티어 평가/소버린 AI 중 안전
+소아 ECG 자동진단은 성인 데이터로 학습된 모델이 소아 집단과의 분포 불일치(cross-population mismatch)를 겪고, 소아 라벨은 희소하다는 문제가 있다. PEACE는 성인→소아 전이를 목표로 한 구조화된 크로스모달 정렬 프레임워크로, (1) 삼축 임상 시맨틱 분해, (2) 라벨-쿼리 기반 특징 추출, (3) curriculum-gated 최적화를 통해 성인 표현을 소아 진단 타깃에 정렬한다. 또한 ZZU-pECG에는 짝지어진 임상 리포트가 없으므로, Gemini에 간결한 임상 프롬프트를 사용해 라벨 조건부 시맨틱 디스크립터를 생성하고 이를 보조 학습 감독으로만 활용하며, 추론은 ECG만 사용한다. ZZU-pECG에서 zero-shot/50-shot/전체 파인튜닝 설정 각각 AUC 59.39%/79.03%/90.89%를 보고, PTB-XL의 공유 라벨 공간에서는 96.65% AUC를 달성한다. 한계로는 실제 배치 환경에서의 성능과 안전성을 확인하기 위한 전향적 임상 검증, 그리고 연령(age) 인지 모델링을 더 명시적으로 하는 후속 연구가 필요하다고 제시한다. 정책/규제·국가 전략 관점에서는 소아 진단에서 데이터 희소성과 분포 불일치를 줄이기 위한 전이학습·시맨틱 정렬 접근이 유망하나, 실제 임상 배치 전 임상시험 및 연령 편향/오분류 위험에 대한 검증 체계가 중요하다는 시사점을 제공한다.
+
+https://arxiv.org/abs/2605.00647v1" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전/거버넌스/프론티어 평가/소버린 AI 중 안전
+소아 ECG 자동진단은 성인 데이터로 학습된 모델이 소아 집단과의 분포 불일치(cross-population mismatch)를 겪고, 소아 라벨은 희소하다는 문제가 있다. PEACE는 성인→소아 전이를 목표로 한 구조화된 크로스모달 정렬 프레임워크로, (1) 삼축 임상 시맨틱 분해, (2) 라벨-쿼리 기반 특징 추출, (3) curriculum-gated 최적화를 통해 성인 표현을 소아 진단 타깃에 정렬한다. 또한 ZZU-pECG에는 짝지어진 임상 리포트가 없으므로, Gemini에 간결한 임상 프롬프트를 사용해 라벨 조건부 시맨틱 디스크립터를 생성하고 이를 보조 학습 감독으로만 활용하며, 추론은 ECG만 사용한다. ZZU-pECG에서 zero-shot/50-shot/전체 파인튜닝 설정 각각 AUC 59.39%/79.03%/90.89%를 보고, PTB-XL의 공유 라벨 공간에서는 96.65% AUC를 달성한다. 한계로는 실제 배치 환경에서의 성능과 안전성을 확인하기 위한 전향적 임상 검증, 그리고 연령(age) 인지 모델링을 더 명시적으로 하는 후속 연구가 필요하다고 제시한다. 정책/규제·국가 전략 관점에서는 소아 진단에서 데이터 희소성과 분포 불일치를 줄이기 위한 전이학습·시맨틱 정렬 접근이 유망하나, 실제 임상 배치 전 임상시험 및 연령 편향/오분류 위험에 대한 검증 체계가 중요하다는 시사점을 제공한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00647v1">https://arxiv.org/abs/2605.00647v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 10명, HuggingFace Daily Papers, 2026.5.1</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 10명, HuggingFace Daily Papers, 2026.5.1
+
+본 연구는 비디오 확산 모델(VDM)을 다양한 멀티모달 그래픽 작업에 재사용할 수는 있으나, 기존 방식이 과제별로 별도 모델을 학습해 입력-출력 매핑이 고정되고 모달리티 간 상관을 충분히 모델링하지 못한다는 문제의식에서 출발한다. UniVidX는 픽셀 정렬된 작업들을 공통 멀티모달 공간에서의 조건부 생성으로 재구성하고, 모달리티별 분포 적응과 VDM 백본의 사전(prior) 보존, 합성 과정에서의 크로스-모달 일관성을 동시에 목표로 한다. 방법은 (1) Stochastic Condition Masking(SCM)으로 학습 시 모달리티를 무작위로 “깨끗한 조건”과 “노이즈 타깃”으로 분할해 고정된 매핑이 아닌 옴니-방향 조건부 생성을 가능케 하고, (2) Decoupled Gated LoRA(DGL)로 생성 타깃이 되는 모달리티에만 LoRA를 활성화해 강한 VDM prior를 유지하며, (3) Cross-Modal Self-Attention(CMSA)으로 키/밸류를 공유하되 쿼리는 모달리티별로 유지해 정보 교환과 정렬을 촉진한다. 평가로는 RGB 및 intrinsic(알베도/조도/노멀) 또는 blended RGB와 RGBA 구성요소를 대상으로 한 두 도메인(UniVid-Intrinsic, UniVid-Alpha)에서 SOTA급 성능과 in-the-wild 일반화, 그리고 1,000편 미만 학습 데이터에서도의 견고성을 보고한다. 한계로는 안전(예: 생성물의 오용, 콘텐츠 진위/검증, 프롬프트-조건 악용 가능성)과 관련된 구체적 안전장치나 거버넌스 설계가 본 요약에선 확인되지 않으며, 향후에는 모달리티 간 일관성 향상과 함께 생성물의 신뢰성·오용 방지 평가가 추가될 필요가 있다. 정책/규제·국가 전략 측면에서는 통합 멀티모달 비디오 생성이 빠르게 범용화되는 흐름에 맞춰, 모델 성능뿐 아니라 생성물 검증(워터마킹/포렌식), 위험 시나리오 기반 안전 평가, 데이터·학습·배포 단계의 책임 있는 관리 체계가 함께 요구된다는 시사점을 제공한다.
+
+https://arxiv.org/abs/2605.00658" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 비디오 확산 모델(VDM)을 다양한 멀티모달 그래픽 작업에 재사용할 수는 있으나, 기존 방식이 과제별로 별도 모델을 학습해 입력-출력 매핑이 고정되고 모달리티 간 상관을 충분히 모델링하지 못한다는 문제의식에서 출발한다. UniVidX는 픽셀 정렬된 작업들을 공통 멀티모달 공간에서의 조건부 생성으로 재구성하고, 모달리티별 분포 적응과 VDM 백본의 사전(prior) 보존, 합성 과정에서의 크로스-모달 일관성을 동시에 목표로 한다. 방법은 (1) Stochastic Condition Masking(SCM)으로 학습 시 모달리티를 무작위로 “깨끗한 조건”과 “노이즈 타깃”으로 분할해 고정된 매핑이 아닌 옴니-방향 조건부 생성을 가능케 하고, (2) Decoupled Gated LoRA(DGL)로 생성 타깃이 되는 모달리티에만 LoRA를 활성화해 강한 VDM prior를 유지하며, (3) Cross-Modal Self-Attention(CMSA)으로 키/밸류를 공유하되 쿼리는 모달리티별로 유지해 정보 교환과 정렬을 촉진한다. 평가로는 RGB 및 intrinsic(알베도/조도/노멀) 또는 blended RGB와 RGBA 구성요소를 대상으로 한 두 도메인(UniVid-Intrinsic, UniVid-Alpha)에서 SOTA급 성능과 in-the-wild 일반화, 그리고 1,000편 미만 학습 데이터에서도의 견고성을 보고한다. 한계로는 안전(예: 생성물의 오용, 콘텐츠 진위/검증, 프롬프트-조건 악용 가능성)과 관련된 구체적 안전장치나 거버넌스 설계가 본 요약에선 확인되지 않으며, 향후에는 모달리티 간 일관성 향상과 함께 생성물의 신뢰성·오용 방지 평가가 추가될 필요가 있다. 정책/규제·국가 전략 측면에서는 통합 멀티모달 비디오 생성이 빠르게 범용화되는 흐름에 맞춰, 모델 성능뿐 아니라 생성물 검증(워터마킹/포렌식), 위험 시나리오 기반 안전 평가, 데이터·학습·배포 단계의 책임 있는 관리 체계가 함께 요구된다는 시사점을 제공한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00658">https://arxiv.org/abs/2605.00658</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 2명, InpaintSLat: Inpainting Structured 3D Latents via Initial Noise Optimization, arXiv, 2026.5.1</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 2명, InpaintSLat: Inpainting Structured 3D Latents via Initial Noise Optimization, arXiv, 2026.5.1
+
+본 연구는 구조화된 3D 라텐트 확산(Structured 3D latent diffusion)에서 인페인팅/편집처럼 “기존 맥락에 엄격히 정렬하면서 새로운 구조를 합성”해야 하는 작업에서 안정성이 깨지는 문제에 동기한다. 핵심 기여는 학습 없이(training-free) 초기 노이즈를 최적화해 3D 인페인팅의 맥락 일관성과 프롬프트 정렬을 높이는 방법을 제안하는 것으로, rectified flow 모델에 기반한 역전파 근사와 구조 3D 라텐트 최적화를 위한 스펙트럴 파라미터화를 통해 초기 노이즈 제어를 독립적인 조절 축으로 만든다. 평가는 대표적인 training-free 인페인팅 베이스라인과의 비교를 통해, 맥락 일관성(contextual consistency)과 프롬프트 정렬(prompt alignment)에서의 일관된 개선을 실험으로 제시한다. 한계로는 초기 노이즈 최적화가 어떤 조건(예: 마스크 형태, 장면 복잡도, 프롬프트 유형)에 가장 잘/못하는지에 대한 체계적 범위 규명이 추가로 필요하다. 정책/규제·국가 전략 관점에서는, 3D 생성·편집의 “초기 조건 민감도”를 별도 제어 축으로 다루는 접근이 안전한 콘텐츠 생성 파이프라인(품질·정렬 안정성 확보) 설계에 활용될 여지가 있으며, 특히 학습 없이도 제어 가능하다는 점이 운영·감사(거버넌스) 측면의 실용성을 높일 수 있다.
+
+https://arxiv.org/abs/2605.00664v1" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 구조화된 3D 라텐트 확산(Structured 3D latent diffusion)에서 인페인팅/편집처럼 “기존 맥락에 엄격히 정렬하면서 새로운 구조를 합성”해야 하는 작업에서 안정성이 깨지는 문제에 동기한다. 핵심 기여는 학습 없이(training-free) 초기 노이즈를 최적화해 3D 인페인팅의 맥락 일관성과 프롬프트 정렬을 높이는 방법을 제안하는 것으로, rectified flow 모델에 기반한 역전파 근사와 구조 3D 라텐트 최적화를 위한 스펙트럴 파라미터화를 통해 초기 노이즈 제어를 독립적인 조절 축으로 만든다. 평가는 대표적인 training-free 인페인팅 베이스라인과의 비교를 통해, 맥락 일관성(contextual consistency)과 프롬프트 정렬(prompt alignment)에서의 일관된 개선을 실험으로 제시한다. 한계로는 초기 노이즈 최적화가 어떤 조건(예: 마스크 형태, 장면 복잡도, 프롬프트 유형)에 가장 잘/못하는지에 대한 체계적 범위 규명이 추가로 필요하다. 정책/규제·국가 전략 관점에서는, 3D 생성·편집의 “초기 조건 민감도”를 별도 제어 축으로 다루는 접근이 안전한 콘텐츠 생성 파이프라인(품질·정렬 안정성 확보) 설계에 활용될 여지가 있으며, 특히 학습 없이도 제어 가능하다는 점이 운영·감사(거버넌스) 측면의 실용성을 높일 수 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00664v1">https://arxiv.org/abs/2605.00664v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 1명, FedKPer: Tackling Generalization and Personalization in Medical Federated Learning via Knowledge Personalization, eess.IV, 2026.5.1</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 1명, FedKPer: Tackling Generalization and Personalization in Medical Federated Learning via Knowledge Personalization, eess.IV, 2026.5.1
+
+연구 동기는 의료 연합학습에서 기관 간 데이터 분포 불균형(통계적 이질성)이 일반화 성능 저하와 개인화 적응 실패를 동시에 유발하고, 그 결과 망각(forgetting)이 전역·로컬 모두에서 심화되어 기존 환자 패턴이 업데이트 후 오분류되는 문제를 다루는 데 있다. 핵심 기여는 일반화와 개인화를 별개로 취급하던 기존 접근을 넘어, 전역 모델과의 선택적 정렬(selective alignment)과 수정된 집계(aggregation) 방식을 결합해 이질성의 영향을 완화하는 FedKPer를 제안한 점이다. 방법적으로는 로컬 디바이스 학습 단계에서 지식 개인화(knowledge personalization)를 도입하고, 전역 집계 단계에서는 신뢰할 수 있고 라벨 다양성(label-diverse)을 갖는 로컬 업데이트에 가중치를 두어 일반화를 강화한다. 평가는 성능 외에 망각의 일반적 결과와 연관된 추가 지표를 설계해, 일반화-개인화 균형 개선이 보존(retention) 성능을 희생하지 않는지 확인하는 방식으로 수행된다. 한계로는 의료 데이터의 실제 임상적 다양성과 라벨 품질/분포 편향이 어떤 정도로 결과에 영향을 주는지, 그리고 제안된 “신뢰도·라벨 다양성” 기준의 일반화 가능성은 추가 검증이 필요하다. 정책/규제·국가 전략 시사점으로는 의료 AI의 연합학습 도입 시 기관 간 데이터 이질성을 전제로 한 망각 완화 및 성능-개인화 균형 메커니즘이 신뢰성·안전성 평가 항목에 포함될 필요가 있으며, 모델 업데이트 후 기존 환자 패턴의 오분류 위험을 모니터링하는 지표 체계가 요구된다는 점을 시사한다.
+
+https://arxiv.org/abs/2605.00698v1" onclick="copyEntry(this)">복사</button></div>
+  <p>연구 동기는 의료 연합학습에서 기관 간 데이터 분포 불균형(통계적 이질성)이 일반화 성능 저하와 개인화 적응 실패를 동시에 유발하고, 그 결과 망각(forgetting)이 전역·로컬 모두에서 심화되어 기존 환자 패턴이 업데이트 후 오분류되는 문제를 다루는 데 있다. 핵심 기여는 일반화와 개인화를 별개로 취급하던 기존 접근을 넘어, 전역 모델과의 선택적 정렬(selective alignment)과 수정된 집계(aggregation) 방식을 결합해 이질성의 영향을 완화하는 FedKPer를 제안한 점이다. 방법적으로는 로컬 디바이스 학습 단계에서 지식 개인화(knowledge personalization)를 도입하고, 전역 집계 단계에서는 신뢰할 수 있고 라벨 다양성(label-diverse)을 갖는 로컬 업데이트에 가중치를 두어 일반화를 강화한다. 평가는 성능 외에 망각의 일반적 결과와 연관된 추가 지표를 설계해, 일반화-개인화 균형 개선이 보존(retention) 성능을 희생하지 않는지 확인하는 방식으로 수행된다. 한계로는 의료 데이터의 실제 임상적 다양성과 라벨 품질/분포 편향이 어떤 정도로 결과에 영향을 주는지, 그리고 제안된 “신뢰도·라벨 다양성” 기준의 일반화 가능성은 추가 검증이 필요하다. 정책/규제·국가 전략 시사점으로는 의료 AI의 연합학습 도입 시 기관 간 데이터 이질성을 전제로 한 망각 완화 및 성능-개인화 균형 메커니즘이 신뢰성·안전성 평가 항목에 포함될 필요가 있으며, 모델 업데이트 후 기존 환자 패턴의 오분류 위험을 모니터링하는 지표 체계가 요구된다는 점을 시사한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00698v1">https://arxiv.org/abs/2605.00698v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 5명, STARE: Step-wise Temporal Alignment and Red-teaming Engine for Multi-modal Toxicity Attack, cs.CR, 2026.5.1</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 5명, STARE: Step-wise Temporal Alignment and Red-teaming Engine for Multi-modal Toxicity Attack, cs.CR, 2026.5.1
+
+본 연구는 비전-언어 모델(VLM)에서 이미지-텍스트 다중모달 입력이 독성 출력을 유발하는 취약점이 “언제/어떻게” 생성되는지(다단계 합성 과정의 시간적 단계) 불명확하다는 문제의식에서 출발한다. STARE는 확산(denoising) 궤적 자체를 공격 표면으로 보고, 상위 수준 프롬프트 편집기와 하위 수준 T2I(텍스트-이미지) 미세조정을 결합한 계층형 강화학습 프레임워크를 제안하며, Group Relative Policy Optimization(GRPO)로 최적화를 수행한다. 평가에서는 T2I는 white-box로, VLM은 query-only black-box로 두는 설정에서 공격 성공률(Attack Success Rate)을 기존 black-box/white-box 기준선과 비교하며, 공격 성공률에서 68% 개선을 보고한다. 또한 “Optimization-Induced Phase Alignment” 현상을 통해 독성 의미가 확산 모델의 초기/후기 의미 단계에 선택적으로 집중되는 시간 구조를 관찰하고, 특정 시간 창(window)만 교란해 독성 범주를 선택적으로 억제할 수 있음을 사례로 제시한다. 한계로는 실제 배포 환경에서의 방어 일반화 및 다른 모델/합성기 설정에서의 재현성에 대한 추가 검증이 필요하며, 향후에는 단계별 취약성 완화(phase-aware safety)로 이어지는 방어 메커니즘 설계가 과제로 제시된다. 정책/규제·국가 전략 측면에서는 다단계 생성 파이프라인 전반을 대상으로 한 레드팀/평가 체계(단순 최종 출력 점수뿐 아니라 생성 단계별 취약성 점검)의 중요성을 시사한다.
+
+https://arxiv.org/abs/2605.00699v1" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 비전-언어 모델(VLM)에서 이미지-텍스트 다중모달 입력이 독성 출력을 유발하는 취약점이 “언제/어떻게” 생성되는지(다단계 합성 과정의 시간적 단계) 불명확하다는 문제의식에서 출발한다. STARE는 확산(denoising) 궤적 자체를 공격 표면으로 보고, 상위 수준 프롬프트 편집기와 하위 수준 T2I(텍스트-이미지) 미세조정을 결합한 계층형 강화학습 프레임워크를 제안하며, Group Relative Policy Optimization(GRPO)로 최적화를 수행한다. 평가에서는 T2I는 white-box로, VLM은 query-only black-box로 두는 설정에서 공격 성공률(Attack Success Rate)을 기존 black-box/white-box 기준선과 비교하며, 공격 성공률에서 68% 개선을 보고한다. 또한 “Optimization-Induced Phase Alignment” 현상을 통해 독성 의미가 확산 모델의 초기/후기 의미 단계에 선택적으로 집중되는 시간 구조를 관찰하고, 특정 시간 창(window)만 교란해 독성 범주를 선택적으로 억제할 수 있음을 사례로 제시한다. 한계로는 실제 배포 환경에서의 방어 일반화 및 다른 모델/합성기 설정에서의 재현성에 대한 추가 검증이 필요하며, 향후에는 단계별 취약성 완화(phase-aware safety)로 이어지는 방어 메커니즘 설계가 과제로 제시된다. 정책/규제·국가 전략 측면에서는 다단계 생성 파이프라인 전반을 대상으로 한 레드팀/평가 체계(단순 최종 출력 점수뿐 아니라 생성 단계별 취약성 점검)의 중요성을 시사한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00699v1">https://arxiv.org/abs/2605.00699v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 3명, arXiv cs.SD, 2026.5.1 (Towards Improving Speaker Distance Estimation through Generative Impulse Response Augmentation)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 3명, arXiv cs.SD, 2026.5.1 (Towards Improving Speaker Distance Estimation through Generative Impulse Response Augmentation)
+
+본 연구는 방 안의 음향(특히 RIR) 기반 스피커 거리 추정(SDE)에서 데이터가 희소할 때 성능이 저하되는 문제를 다룬다. 핵심 기여는 FastRIR을 이용해 스피커/청취자 위치 조건만으로 생성 RIR을 만들고, 생성 RIR이 챌린지의 RIR과 정렬되도록 품질 필터를 설계한 뒤, 생성·증강 데이터를 사용해 SDE 모델을 파인튜닝하며 하이퍼파라미터 최적화를 수행하는 것이다. 평가/검증은 ICASSP 2025의 Room Acoustics 및 SDE Challenge(GenDARA) 설정에서 5개 위치에 대한 MAE를 비교하는 방식으로 이루어졌고, GWA 룸은 1.66m→0.6m, Treble 룸은 2.18m→0.69m로 개선되었으며 중·장거리에서 특히 효과가 크다고 보고한다. 한계로는 생성 RIR의 품질이 필터링/정렬 설계에 의존하며, 실제 환경 다양성(음향 조건 변화)에 대한 일반화 범위는 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는, 음향 기반 거리 추정이 로봇 내비게이션·원격 통신 등 안전 관련 응용에 활용될 수 있으므로 데이터 희소성 문제를 줄이는 증강 기법이 성능 향상에 기여할 수 있다는 점에서, 평가 벤치마크 기반의 성능 검증과 재현성 있는 데이터/모델 공유를 촉진하는 방향의 전략에 시사점이 있다.
+
+https://arxiv.org/abs/2605.00721v1" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 방 안의 음향(특히 RIR) 기반 스피커 거리 추정(SDE)에서 데이터가 희소할 때 성능이 저하되는 문제를 다룬다. 핵심 기여는 FastRIR을 이용해 스피커/청취자 위치 조건만으로 생성 RIR을 만들고, 생성 RIR이 챌린지의 RIR과 정렬되도록 품질 필터를 설계한 뒤, 생성·증강 데이터를 사용해 SDE 모델을 파인튜닝하며 하이퍼파라미터 최적화를 수행하는 것이다. 평가/검증은 ICASSP 2025의 Room Acoustics 및 SDE Challenge(GenDARA) 설정에서 5개 위치에 대한 MAE를 비교하는 방식으로 이루어졌고, GWA 룸은 1.66m→0.6m, Treble 룸은 2.18m→0.69m로 개선되었으며 중·장거리에서 특히 효과가 크다고 보고한다. 한계로는 생성 RIR의 품질이 필터링/정렬 설계에 의존하며, 실제 환경 다양성(음향 조건 변화)에 대한 일반화 범위는 추가 검증이 필요하다. 정책/규제·국가 전략 측면에서는, 음향 기반 거리 추정이 로봇 내비게이션·원격 통신 등 안전 관련 응용에 활용될 수 있으므로 데이터 희소성 문제를 줄이는 증강 기법이 성능 향상에 기여할 수 있다는 점에서, 평가 벤치마크 기반의 성능 검증과 재현성 있는 데이터/모델 공유를 촉진하는 방향의 전략에 시사점이 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00721v1">https://arxiv.org/abs/2605.00721v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Decoupled Relation Alignment로 이질 그래프 파운데이션 모델의 Type Collapse/Relation Confusion 완화 (저자 외 4명, arXiv, 2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전/거버넌스/프론티어 평가/소버린 AI 중 안전</span></span><button type="button" class="copy-btn" data-copy="Decoupled Relation Alignment로 이질 그래프 파운데이션 모델의 Type Collapse/Relation Confusion 완화 (저자 외 4명, arXiv, 2026.5.1)
+
+본 연구는 그래프 파운데이션 모델(GFM)을 다중 도메인 이질 그래프(MDHG)에 적용할 때 발생하는 교차 타입 특징의 분포 이동과 도메인 내 관계 간 격차로 인해 성능이 붕괴되는 문제를 다룬다. 이를 위해 전역(글로벌) 특징 정렬이 타입별 의미를 무분별하게 공유 공간에 강제해 “Type Collapse”와 “Relation Confusion”을 유발한다는 한계를 지적하고, 관계 중심 정렬 프레임워크인 DRSA(Decoupled relation Subspace Alignment)를 제안한다. DRSA는 (1) 이중 관계 서브스페이스 투영으로 타입 간 상호작용을 명시적으로 저랭크 관계 서브스페이스에서 조정하고, (2) 정렬된 특징을 의미 투영 성분과 구조 잔차로 분해하는 feature-structure decoupled 표현을 통해 도메인 내 변이를 잔차가 흡수하도록 설계한다. 최적화는 Block Coordinate Descent 기반의 안정적 alternating minimization으로 수행하며, 여러 실세계 벤치마크에서 범용 전처리 모듈로서 교차 도메인 및 few-shot 지식 전이를 일관되게 향상시키는 것을 실험으로 보인다. 한계로는 제안 방법이 “관계 구조”를 중심으로 정렬을 수행하는 만큼, 관계 정보의 품질/표현 방식에 민감할 가능성이 있으며(논문 내 구체적 분석 필요), 향후에는 다양한 이질성 설정에서의 강건성 평가와 이론적 보장(수렴/일반화) 강화가 과제로 제시될 수 있다. 정책/규제·국가 전략 측면에서는, 이질 데이터 통합을 안정적으로 돕는 그래프 기반 모델 전처리 기술이 도메인 간 지식 이전을 촉진해 공공·산업 데이터의 상호운용성(예: 지식그래프/연결 데이터 활용)과 관련된 실무 적용 가능성을 높인다는 점에서 간접적 시사점이 있다.
+
+https://arxiv.org/abs/2605.00731v1" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 그래프 파운데이션 모델(GFM)을 다중 도메인 이질 그래프(MDHG)에 적용할 때 발생하는 교차 타입 특징의 분포 이동과 도메인 내 관계 간 격차로 인해 성능이 붕괴되는 문제를 다룬다. 이를 위해 전역(글로벌) 특징 정렬이 타입별 의미를 무분별하게 공유 공간에 강제해 “Type Collapse”와 “Relation Confusion”을 유발한다는 한계를 지적하고, 관계 중심 정렬 프레임워크인 DRSA(Decoupled relation Subspace Alignment)를 제안한다. DRSA는 (1) 이중 관계 서브스페이스 투영으로 타입 간 상호작용을 명시적으로 저랭크 관계 서브스페이스에서 조정하고, (2) 정렬된 특징을 의미 투영 성분과 구조 잔차로 분해하는 feature-structure decoupled 표현을 통해 도메인 내 변이를 잔차가 흡수하도록 설계한다. 최적화는 Block Coordinate Descent 기반의 안정적 alternating minimization으로 수행하며, 여러 실세계 벤치마크에서 범용 전처리 모듈로서 교차 도메인 및 few-shot 지식 전이를 일관되게 향상시키는 것을 실험으로 보인다. 한계로는 제안 방법이 “관계 구조”를 중심으로 정렬을 수행하는 만큼, 관계 정보의 품질/표현 방식에 민감할 가능성이 있으며(논문 내 구체적 분석 필요), 향후에는 다양한 이질성 설정에서의 강건성 평가와 이론적 보장(수렴/일반화) 강화가 과제로 제시될 수 있다. 정책/규제·국가 전략 측면에서는, 이질 데이터 통합을 안정적으로 돕는 그래프 기반 모델 전처리 기술이 도메인 간 지식 이전을 촉진해 공공·산업 데이터의 상호운용성(예: 지식그래프/연결 데이터 활용)과 관련된 실무 적용 가능성을 높인다는 점에서 간접적 시사점이 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00731v1">https://arxiv.org/abs/2605.00731v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>EASE: 저자 외 2명, arXiv, 2026.5.1 (저자 외 N명, Venue, YYYY.M.D)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span></span><button type="button" class="copy-btn" data-copy="EASE: 저자 외 2명, arXiv, 2026.5.1 (저자 외 N명, Venue, YYYY.M.D)
+
+분야: 안전/거버넌스
+
+연구 동기는 연합(federated) 멀티모달 학습에서 “잊어야 할 데이터”에 대한 unlearning을 수행해도 교차-모달 결합과 클라이언트 업데이트 부분공간이 얽혀 잔존 지식이 남는 문제를 해결하는 데 있다. 핵심 기여는 bilinear cross-modal coupling으로 매개되는 교차-재구성 채널, principal-angle 기반 부분공간 얽힘, 그리고 라운드 간 지속 업데이트로 인한 잔여 정렬을 각각 “anchor”로 보고 이를 닫는 Entanglement-Aware Subspace Excision(EASE) 프레임워크를 제안한 것이다. 방법은 (1) 시각·언어 양쪽 가지의 쌍방향 변위로 교차-재구성 채널을 차단하고, (2) Cosine–Sine 분해로 클라이언트 업데이트 부분공간을 forget 전용 방향과 retain 지지 방향으로 분리하며, (3) Forget Lock으로 라운드별 잔여 드리프트를 상한으로 제한한다. 평가에서는 여러 데이터셋과 unlearning 시나리오에서 retrain 기준과의 근접도를 비교하며, 예로 Flickr30K에서 CLIP-B/32 기반 client unlearning 시 forget/retain 양측에서 retrain과 R@1 차이를 각각 0.2 및 4.2 이내로 맞추는 결과를 제시한다. 한계로는 제시된 성능이 특정 모델/데이터셋 설정에 의존할 수 있으며, 실제 배포 환경에서의 통신·계산 오버헤드와 강한 적대적 위협 모델에서의 견고성은 추가 검증이 필요하다. 정책/규제·국가 전략 시사점으로는 개인정보·데이터 삭제 요구(권리 행사)에 대응하기 위해 연합 학습에서도 교차-모달 얽힘까지 고려한 “구체적 unlearning 메커니즘”을 요구하는 방향의 가이드라인 설계에 활용될 수 있다.
+
+https://arxiv.org/abs/2605.00733v1" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전/거버넌스</p>
+<p>연구 동기는 연합(federated) 멀티모달 학습에서 “잊어야 할 데이터”에 대한 unlearning을 수행해도 교차-모달 결합과 클라이언트 업데이트 부분공간이 얽혀 잔존 지식이 남는 문제를 해결하는 데 있다. 핵심 기여는 bilinear cross-modal coupling으로 매개되는 교차-재구성 채널, principal-angle 기반 부분공간 얽힘, 그리고 라운드 간 지속 업데이트로 인한 잔여 정렬을 각각 “anchor”로 보고 이를 닫는 Entanglement-Aware Subspace Excision(EASE) 프레임워크를 제안한 것이다. 방법은 (1) 시각·언어 양쪽 가지의 쌍방향 변위로 교차-재구성 채널을 차단하고, (2) Cosine–Sine 분해로 클라이언트 업데이트 부분공간을 forget 전용 방향과 retain 지지 방향으로 분리하며, (3) Forget Lock으로 라운드별 잔여 드리프트를 상한으로 제한한다. 평가에서는 여러 데이터셋과 unlearning 시나리오에서 retrain 기준과의 근접도를 비교하며, 예로 Flickr30K에서 CLIP-B/32 기반 client unlearning 시 forget/retain 양측에서 retrain과 R@1 차이를 각각 0.2 및 4.2 이내로 맞추는 결과를 제시한다. 한계로는 제시된 성능이 특정 모델/데이터셋 설정에 의존할 수 있으며, 실제 배포 환경에서의 통신·계산 오버헤드와 강한 적대적 위협 모델에서의 견고성은 추가 검증이 필요하다. 정책/규제·국가 전략 시사점으로는 개인정보·데이터 삭제 요구(권리 행사)에 대응하기 위해 연합 학습에서도 교차-모달 얽힘까지 고려한 “구체적 unlearning 메커니즘”을 요구하는 방향의 가이드라인 설계에 활용될 수 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00733v1">https://arxiv.org/abs/2605.00733v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 2명, Themis: Training Robust Multilingual Code Reward Models for Flexible Multi-Criteria Scoring, cs.SE, 2026.5.1</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 2명, Themis: Training Robust Multilingual Code Reward Models for Flexible Multi-Criteria Scoring, cs.SE, 2026.5.1
+
+본 연구는 코드 생성에서 리워드 모델(RM)이 주로 실행 가능성/기능적 정답성에 치우쳐 있어, 다기준(예: 스타일, 안전성 관련 선호, 수학적 엄밀성 등) 평가로의 확장이 제한된 문제를 다룬다. 이를 위해 5개 선호(기준) 차원과 8개 프로그래밍 언어를 아우르는 벤치마크 Themis-CodeRewardBench를 구축하고, 350k+ 코드 선호 쌍으로 구성된 대규모 오픈소스 Themis-CodePreference를 수집해 600M~32B 규모의 다국어·다기준 코드 RM 스위트 Themis-RM을 학습한다. 평가/실험은 Themis-CodeRewardBench에서 50+ 코드·수학·일반 목적 RM을 프로파일링하고, 학습 데이터의 다양성(다양한 선호) 및 다기준 학습이 교차언어 전이와 신뢰성에 미치는 영향을 포함한 절제 실험(ablations)으로 수행된다. 한계로는 본문에서 “현재 RM의 기능적 정답성 외 역량이 제한적”임을 관찰한 수준이며, 다기준 기준의 정의/라벨링 품질과 실제 안전·규제 준수로의 직접 연결성은 추가 검증이 필요하다. 정책/규제·국가 전략 관점에서는 코드 생성 시스템의 정렬(alignment)을 단일 지표(정답)에서 다기준 평가로 확장하는 접근이, 고위험 영역에서의 품질·안전 요건을 더 세밀하게 반영하는 데 활용될 수 있음을 시사한다.
+
+https://arxiv.org/abs/2605.00754v1" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 코드 생성에서 리워드 모델(RM)이 주로 실행 가능성/기능적 정답성에 치우쳐 있어, 다기준(예: 스타일, 안전성 관련 선호, 수학적 엄밀성 등) 평가로의 확장이 제한된 문제를 다룬다. 이를 위해 5개 선호(기준) 차원과 8개 프로그래밍 언어를 아우르는 벤치마크 Themis-CodeRewardBench를 구축하고, 350k+ 코드 선호 쌍으로 구성된 대규모 오픈소스 Themis-CodePreference를 수집해 600M~32B 규모의 다국어·다기준 코드 RM 스위트 Themis-RM을 학습한다. 평가/실험은 Themis-CodeRewardBench에서 50+ 코드·수학·일반 목적 RM을 프로파일링하고, 학습 데이터의 다양성(다양한 선호) 및 다기준 학습이 교차언어 전이와 신뢰성에 미치는 영향을 포함한 절제 실험(ablations)으로 수행된다. 한계로는 본문에서 “현재 RM의 기능적 정답성 외 역량이 제한적”임을 관찰한 수준이며, 다기준 기준의 정의/라벨링 품질과 실제 안전·규제 준수로의 직접 연결성은 추가 검증이 필요하다. 정책/규제·국가 전략 관점에서는 코드 생성 시스템의 정렬(alignment)을 단일 지표(정답)에서 다기준 평가로 확장하는 접근이, 고위험 영역에서의 품질·안전 요건을 더 세밀하게 반영하는 데 활용될 수 있음을 시사한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.00754v1">https://arxiv.org/abs/2605.00754v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Healthcare AI GYM for Medical Agents (저자 외 0명, HuggingFace Daily Papers, 2026.5.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">HuggingFace-Papers</span></span><button type="button" class="copy-btn" data-copy="Healthcare AI GYM for Medical Agents (저자 외 0명, HuggingFace Daily Papers, 2026.5.1)
+
+분야: 안전
+
+임상 추론은 병력 수집→검사 주문→결과 해석→안전한 치료 결정처럼 다단계·다중 턴 상호작용을 요구하지만, 이를 한 환경에서 에이전트형 의료 AI를 강화학습으로 일반화되게 훈련시키는 통합 접근이 부족하다는 문제의식에서 출발한다. 연구는 10개 임상 도메인, 3.6K+ 태스크, 135개 도메인 특화 도구, 828K 의료 지식 베이스를 포함하는 gymnasium 호환 “Healthcare AI GYM” 환경을 구성하고, 다중 턴 에이전트 RL이 실제로는 장황한 단일 턴 독백으로 붕괴(길이 단조 증가, 도구 사용 빈도 동시 저하)하는 현상을 실증적으로 분석한다. 이 붕괴와 증류(distillation) 불안정의 원인을 “순차적 임상 궤적에 대한 희소한 종단 보상 미정렬”로 규명하며, GRPO는 일부 벤치마크에서 정확도가 높지만 응답 길이 진동과 수렴 지연 등 훈련 불안정이 나타난다고 보고한다. 이를 개선하기 위해 Turn-level Truncated On-Policy Distillation(TT-OPD)를 제안하며, EMA 기반 gradient-free teacher가 결과(Outcome)-특권 정보를 활용해 각 대화 턴마다 outcome-aware KL 정규화를 제공하도록 설계한다. 평가로는 18개 벤치마크 중 10개에서 비강화학습 베이스라인 대비 평균 +3.9~pp 향상, 더 빠른 초기 수렴, 응답 길이 제어, 지속적인 멀티턴 도구 사용을 제시한다. 한계로는 특정 보상/학습 설계가 임상 시퀀스의 올바른 행동 분해를 얼마나 안정적으로 보장하는지에 대한 추가 검증이 필요하며, 향후에는 보상 설계·안전 제약·장기 궤적 일반화에 대한 확장 연구가 요구된다. 정책/규제·국가 전략 측면에서는 의료 에이전트의 “다중 턴 도구 사용”과 “훈련 안정성”을 함께 측정하는 벤치마크/환경 구축이 안전성 평가 체계 마련에 유용하다는 점을 시사한다.
+
+https://arxiv.org/abs/2605.02943" onclick="copyEntry(this)">복사</button></div>
+  <p>분야: 안전</p>
+<p>임상 추론은 병력 수집→검사 주문→결과 해석→안전한 치료 결정처럼 다단계·다중 턴 상호작용을 요구하지만, 이를 한 환경에서 에이전트형 의료 AI를 강화학습으로 일반화되게 훈련시키는 통합 접근이 부족하다는 문제의식에서 출발한다. 연구는 10개 임상 도메인, 3.6K+ 태스크, 135개 도메인 특화 도구, 828K 의료 지식 베이스를 포함하는 gymnasium 호환 “Healthcare AI GYM” 환경을 구성하고, 다중 턴 에이전트 RL이 실제로는 장황한 단일 턴 독백으로 붕괴(길이 단조 증가, 도구 사용 빈도 동시 저하)하는 현상을 실증적으로 분석한다. 이 붕괴와 증류(distillation) 불안정의 원인을 “순차적 임상 궤적에 대한 희소한 종단 보상 미정렬”로 규명하며, GRPO는 일부 벤치마크에서 정확도가 높지만 응답 길이 진동과 수렴 지연 등 훈련 불안정이 나타난다고 보고한다. 이를 개선하기 위해 Turn-level Truncated On-Policy Distillation(TT-OPD)를 제안하며, EMA 기반 gradient-free teacher가 결과(Outcome)-특권 정보를 활용해 각 대화 턴마다 outcome-aware KL 정규화를 제공하도록 설계한다. 평가로는 18개 벤치마크 중 10개에서 비강화학습 베이스라인 대비 평균 +3.9~pp 향상, 더 빠른 초기 수렴, 응답 길이 제어, 지속적인 멀티턴 도구 사용을 제시한다. 한계로는 특정 보상/학습 설계가 임상 시퀀스의 올바른 행동 분해를 얼마나 안정적으로 보장하는지에 대한 추가 검증이 필요하며, 향후에는 보상 설계·안전 제약·장기 궤적 일반화에 대한 확장 연구가 요구된다. 정책/규제·국가 전략 측면에서는 의료 에이전트의 “다중 턴 도구 사용”과 “훈련 안정성”을 함께 측정하는 벤치마크/환경 구축이 안전성 평가 체계 마련에 유용하다는 점을 시사한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.02943">https://arxiv.org/abs/2605.02943</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

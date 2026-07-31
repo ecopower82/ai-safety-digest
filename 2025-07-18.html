@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-07-18</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-07-18 · 5/5건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>STACK: Adversarial attacks on LLM safeguard pipelines (2025.07.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="STACK: Adversarial attacks on LLM safeguard pipelines (2025.07.18)
+
+Frontier AI 개발자들이 LLM의 catastrophic misuse를 막기 위해 여러 safeguard pipeline을 도입하지만, 해당 파이프라인의 보안성은 불분명하다는 문제의식에서 연구가 진행됐다. 오픈소스 defense pipeline을 red-teaming해 few-shot prompt 기반 입력/출력 분류기가 ShieldGemma보다 세 가지 공격과 두 데이터셋에서 더 잘 작동하며 ClearHarm(치명적 오남용) 데이터셋에선 공격 성공률(ASR) 0%를 달성했다고 밝혔다. 또한 STaged AttaCK(STACK) 절차로 분류기 파이프라인에 대한 black-box 공격에서 ClearHarm ASR 71%, 전이(transfer) 설정에서는 ASR 33%를 기록했으며 이를 막기 위한 구체적 완화책을 제안한다.
+
+https://www.aisi.gov.uk/research/stack-adversarial-attacks-on-llm-safeguard-pipelines" onclick="copyEntry(this)">복사</button></div>
+  <p>Frontier AI 개발자들이 LLM의 catastrophic misuse를 막기 위해 여러 safeguard pipeline을 도입하지만, 해당 파이프라인의 보안성은 불분명하다는 문제의식에서 연구가 진행됐다. 오픈소스 defense pipeline을 red-teaming해 few-shot prompt 기반 입력/출력 분류기가 ShieldGemma보다 세 가지 공격과 두 데이터셋에서 더 잘 작동하며 ClearHarm(치명적 오남용) 데이터셋에선 공격 성공률(ASR) 0%를 달성했다고 밝혔다. 또한 STaged AttaCK(STACK) 절차로 분류기 파이프라인에 대한 black-box 공격에서 ClearHarm ASR 71%, 전이(transfer) 설정에서는 ASR 33%를 기록했으며 이를 막기 위한 구체적 완화책을 제안한다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/research/stack-adversarial-attacks-on-llm-safeguard-pipelines">https://www.aisi.gov.uk/research/stack-adversarial-attacks-on-llm-safeguard-pipelines</a></p>
+</article>
+<article class="entry cat-aisi">
+  <h2>대화형 AI를 활용한 정치적 설득의 ‘레버’(2025.7.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="대화형 AI를 활용한 정치적 설득의 ‘레버’(2025.7.18)
+
+세 건의 대규모 실험(N=76,977)에서 19개 LLM의 정치 이슈 설득력(707개 이슈)을 평가하고, 생성된 LLM 주장 466,769개의 사실 정확도를 점검했다. 그 결과 현재 및 근미래 AI의 설득력 증가는 개인화나 모델 규모 확대보다 post-training과 prompting 방법에 더 크게 좌우되며, persuasiveness는 post-training에서 최대 51%, prompting에서 최대 27%까지 증가한 것으로 제시됐다. 또한 이런 방법들은 LLM이 정보를 신속히 접근하고 전략적으로 활용하는 능력을 통해 설득을 강화했지만, 설득력이 높아진 구간에서 사실 정확도는 체계적으로 감소했다고 밝혔다.
+
+https://www.aisi.gov.uk/research/the-levers-of-political-persuasion-with-conversational-ai" onclick="copyEntry(this)">복사</button></div>
+  <p>세 건의 대규모 실험(N=76,977)에서 19개 LLM의 정치 이슈 설득력(707개 이슈)을 평가하고, 생성된 LLM 주장 466,769개의 사실 정확도를 점검했다. 그 결과 현재 및 근미래 AI의 설득력 증가는 개인화나 모델 규모 확대보다 post-training과 prompting 방법에 더 크게 좌우되며, persuasiveness는 post-training에서 최대 51%, prompting에서 최대 27%까지 증가한 것으로 제시됐다. 또한 이런 방법들은 LLM이 정보를 신속히 접근하고 전략적으로 활용하는 능력을 통해 설득을 강화했지만, 설득력이 높아진 구간에서 사실 정확도는 체계적으로 감소했다고 밝혔다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/research/the-levers-of-political-persuasion-with-conversational-ai">https://www.aisi.gov.uk/research/the-levers-of-political-persuasion-with-conversational-ai</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>유럽 집행위, 범용(general-purpose) AI 모델 제공자 대상 AI Act 의무 이행 가이드라인 공개 (2025.7.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">유럽 집행위원회(European Commission) 디지털 전략(Digital Strategy) 웹사이트</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, 범용(general-purpose) AI 모델 제공자 대상 AI Act 의무 이행 가이드라인 공개 (2025.7.18)
+
+AI Act 의무는 2025년 8월 2일부터 적용 예정이며, 가이드라인은 2025년 7월 18일 기준 업데이트됨
+
+유럽 집행위는 2025년 8월 2일부터 시행되는 AI Act 의무를 범용 AI 모델 제공자가 준수하는 데 도움을 주기 위한 가이드라인을 발표했다. 가이드라인은 범용 AI 모델의 정의(연산자원 10^23 FLOPs 초과, 텍스트·오디오 생성 및 텍스트-이미지/텍스트-비디오 생성 가능), ‘provider’와 ‘placing on the market’의 범위, 그리고 투명성 조건을 충족하는 자유·오픈소스 라이선스 모델에 대한 면제 등을 설명한다. 또한 General-Purpose AI Code of Practice 준수의 의미와, 특히 시스템적 위험(기본권·안전·모델 통제 상실 가능성 등)을 유발할 수 있는 가장 고도/영향력 있는 모델 제공자에 대한 위험 평가·완화 의무를 구체화했다.
+
+https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-providers-general-purpose-ai-models" onclick="copyEntry(this)">복사</button></div>
+  <p>AI Act 의무는 2025년 8월 2일부터 적용 예정이며, 가이드라인은 2025년 7월 18일 기준 업데이트됨</p>
+<p>유럽 집행위는 2025년 8월 2일부터 시행되는 AI Act 의무를 범용 AI 모델 제공자가 준수하는 데 도움을 주기 위한 가이드라인을 발표했다. 가이드라인은 범용 AI 모델의 정의(연산자원 10^23 FLOPs 초과, 텍스트·오디오 생성 및 텍스트-이미지/텍스트-비디오 생성 가능), ‘provider’와 ‘placing on the market’의 범위, 그리고 투명성 조건을 충족하는 자유·오픈소스 라이선스 모델에 대한 면제 등을 설명한다. 또한 General-Purpose AI Code of Practice 준수의 의미와, 특히 시스템적 위험(기본권·안전·모델 통제 상실 가능성 등)을 유발할 수 있는 가장 고도/영향력 있는 모델 제공자에 대한 위험 평가·완화 의무를 구체화했다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-providers-general-purpose-ai-models">https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-providers-general-purpose-ai-models</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>메타, EU AI Act ‘범용 AI 모델’ 자율준수 코드 서명 거부(**기사·공고 게재일** 2025.7.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">TechCrunch(테크크런치)</span></span><button type="button" class="copy-btn" data-copy="메타, EU AI Act ‘범용 AI 모델’ 자율준수 코드 서명 거부(**기사·공고 게재일** 2025.7.18)
+
+EU가 이달 초 발표한 범용 AI(GPAI) 모델 자율준수 코드에 대해 메타는 서명하지 않겠다고 밝혔다. 메타는 해당 코드가 AI Act 범위를 넘어 법적 불확실성을 키운다고 주장하며, 유럽의 AI 정책이 최첨단 모델의 개발·배치를 위축시킬 것이라고 비판했다. 한편 AI Act는 ‘허용 불가 위험’ 일부 용례를 금지하고, 생체인식·얼굴인식 등 ‘고위험’ 영역에 대해 등록 및 위험·품질관리 의무를 요구하며, EU는 8월 2일 시행 일정을 변경하지 않겠다는 입장이다.
+
+https://techcrunch.com/2025/07/18/meta-refuses-to-sign-eus-ai-code-of-practice" onclick="copyEntry(this)">복사</button></div>
+  <p>EU가 이달 초 발표한 범용 AI(GPAI) 모델 자율준수 코드에 대해 메타는 서명하지 않겠다고 밝혔다. 메타는 해당 코드가 AI Act 범위를 넘어 법적 불확실성을 키운다고 주장하며, 유럽의 AI 정책이 최첨단 모델의 개발·배치를 위축시킬 것이라고 비판했다. 한편 AI Act는 ‘허용 불가 위험’ 일부 용례를 금지하고, 생체인식·얼굴인식 등 ‘고위험’ 영역에 대해 등록 및 위험·품질관리 의무를 요구하며, EU는 8월 2일 시행 일정을 변경하지 않겠다는 입장이다.</p>
+  <p class="url"><a href="https://techcrunch.com/2025/07/18/meta-refuses-to-sign-eus-ai-code-of-practice">https://techcrunch.com/2025/07/18/meta-refuses-to-sign-eus-ai-code-of-practice</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>OpenAI, ChatGPT Agent를 ‘고(高) bio-risk’로 분류하고 생물·화학 무기 악용 방지 안전장치 강화(2025.7.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">IBTimes(ibtimes.co.uk)</span></span><button type="button" class="copy-btn" data-copy="OpenAI, ChatGPT Agent를 ‘고(高) bio-risk’로 분류하고 생물·화학 무기 악용 방지 안전장치 강화(2025.7.18)
+
+OpenAI는 ChatGPT Agent를 생물·화학 무기 제작 등 악용 가능성을 이유로 고(高) bio-risk로 처음 분류했다고 밝혔다. 내부 안전 연구와 테스트/감사에서, 모델이 비전문가에게도 위해 행위를 단계별로 돕는 등 실행 가능성을 높일 수 있다는 점이 확인됐으며, 이에 따라 생물무기 관련 프롬프트는 자동 거부하고 실시간 모니터링·2차 검토, 지식 오용 탐지, 사용 후 브라우징 데이터 삭제, 비밀번호 보안, takeover mode, 위험도 기반 동적 rate-limiting, 성인 대상의 검증 가능한 동의 없이는 고위험 명령을 차단하는 조치들을 적용했다. 또한 생물보안 전문가·학계·정부와 함께 공개 전 stress-test과 워크숍, 버그 바운티 및 지속 위험 감사 등을 준비 중이라고 설명했다.
+
+https://www.ibtimes.co.uk/openai-classifies-chatgpt-agent-high-bio-risk-strengthens-safety-measures-prevent-abuse-1738787" onclick="copyEntry(this)">복사</button></div>
+  <p>OpenAI는 ChatGPT Agent를 생물·화학 무기 제작 등 악용 가능성을 이유로 고(高) bio-risk로 처음 분류했다고 밝혔다. 내부 안전 연구와 테스트/감사에서, 모델이 비전문가에게도 위해 행위를 단계별로 돕는 등 실행 가능성을 높일 수 있다는 점이 확인됐으며, 이에 따라 생물무기 관련 프롬프트는 자동 거부하고 실시간 모니터링·2차 검토, 지식 오용 탐지, 사용 후 브라우징 데이터 삭제, 비밀번호 보안, takeover mode, 위험도 기반 동적 rate-limiting, 성인 대상의 검증 가능한 동의 없이는 고위험 명령을 차단하는 조치들을 적용했다. 또한 생물보안 전문가·학계·정부와 함께 공개 전 stress-test과 워크숍, 버그 바운티 및 지속 위험 감사 등을 준비 중이라고 설명했다.</p>
+  <p class="url"><a href="https://www.ibtimes.co.uk/openai-classifies-chatgpt-agent-high-bio-risk-strengthens-safety-measures-prevent-abuse-1738787">https://www.ibtimes.co.uk/openai-classifies-chatgpt-agent-high-bio-risk-strengthens-safety-measures-prevent-abuse-1738787</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-03-11</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-03-11 · 4/4건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-db">
+  <h2>이란 IRGC, 미국·이스라엘 연계 ‘경제 중심·은행’ 공격 위협 (2026.3.11)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">알자지라(Al Jazeera)</span></span><button type="button" class="copy-btn" data-copy="이란 IRGC, 미국·이스라엘 연계 ‘경제 중심·은행’ 공격 위협 (2026.3.11)
+
+이란 혁명수비대(IRGC) 산하 조직으로 알려진 카탐 알-안비야 본부가, 이란 은행에 대한 공격 이후 지역 내 미국·이스라엘(시온주의 정권) 관련 “경제 중심과 은행”을 표적할 수 있다고 위협했다. 또한 은행 반경 1km 내에 지역 주민이 있지 말라고 경고하며, 미국은 “대응 조치와 고통스러운 반응”을 기다리라고 밝혔다. 한편 이란 매체는 미국의 주요 기업(구글, 마이크로소프트, 팔란티어, IBM, 엔비디아, 오라클 등)과 이스라엘 연계 기술·인프라를 ‘새 표적’으로 거론했으며, 이스라엘의 레바논 내 금융기관(알-쿠르드 알-하산) 관련 폭격 이후 이러한 경고가 나왔다고 전했다.
+
+https://www.aljazeera.com/news/2026/3/11/iran-declares-us-israeli-economic-banking-interests-in-region-as-targets" onclick="copyEntry(this)">복사</button></div>
+  <p>이란 혁명수비대(IRGC) 산하 조직으로 알려진 카탐 알-안비야 본부가, 이란 은행에 대한 공격 이후 지역 내 미국·이스라엘(시온주의 정권) 관련 “경제 중심과 은행”을 표적할 수 있다고 위협했다. 또한 은행 반경 1km 내에 지역 주민이 있지 말라고 경고하며, 미국은 “대응 조치와 고통스러운 반응”을 기다리라고 밝혔다. 한편 이란 매체는 미국의 주요 기업(구글, 마이크로소프트, 팔란티어, IBM, 엔비디아, 오라클 등)과 이스라엘 연계 기술·인프라를 ‘새 표적’으로 거론했으며, 이스라엘의 레바논 내 금융기관(알-쿠르드 알-하산) 관련 폭격 이후 이러한 경고가 나왔다고 전했다.</p>
+  <p class="url"><a href="https://www.aljazeera.com/news/2026/3/11/iran-declares-us-israeli-economic-banking-interests-in-region-as-targets">https://www.aljazeera.com/news/2026/3/11/iran-declares-us-israeli-economic-banking-interests-in-region-as-targets</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Meta, AI 봇용 소셜 플랫폼 Moltbook 인수(2026.3.11)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">BBC</span></span><button type="button" class="copy-btn" data-copy="Meta, AI 봇용 소셜 플랫폼 Moltbook 인수(2026.3.11)
+
+메타는 인스타그램·페이스북 운영사로, AI 봇들이 서로 대화하는 소셜 네트워킹 플랫폼 Moltbook을 인수했다고 밝혔다. 인수 후 Moltbook 팀은 메타의 Superintelligence Labs로 이동하며, 메타는 “사람과 기업을 위해 AI 에이전트가 일하는 새로운 방식”을 기대한다고 설명했다. Moltbook은 2026년 1월 AI 프로그램들이 대화하고 인간 소유자에 대한 소문까지 나누는 실험에서 시작됐으며, 기술 업계에서는 관심과 함께 AI 자율성에 따른 사이버보안·윤리 우려도 제기됐다. 인수 금액은 공개되지 않았고, BBC는 Moltbook에 코멘트를 요청했으나 답변을 받지 못했다.
+
+https://www.bbc.com/news/articles/cvg1x788dreo" onclick="copyEntry(this)">복사</button></div>
+  <p>메타는 인스타그램·페이스북 운영사로, AI 봇들이 서로 대화하는 소셜 네트워킹 플랫폼 Moltbook을 인수했다고 밝혔다. 인수 후 Moltbook 팀은 메타의 Superintelligence Labs로 이동하며, 메타는 “사람과 기업을 위해 AI 에이전트가 일하는 새로운 방식”을 기대한다고 설명했다. Moltbook은 2026년 1월 AI 프로그램들이 대화하고 인간 소유자에 대한 소문까지 나누는 실험에서 시작됐으며, 기술 업계에서는 관심과 함께 AI 자율성에 따른 사이버보안·윤리 우려도 제기됐다. 인수 금액은 공개되지 않았고, BBC는 Moltbook에 코멘트를 요청했으나 답변을 받지 못했다.</p>
+  <p class="url"><a href="https://www.bbc.com/news/articles/cvg1x788dreo">https://www.bbc.com/news/articles/cvg1x788dreo</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>소버린 AI 담론이 국가 권력 확대를 정당화할 위험(2026.3.11)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">ai-ethics.kr</span> · <span class="deadline">빈 줄</span></span><button type="button" class="copy-btn" data-copy="소버린 AI 담론이 국가 권력 확대를 정당화할 위험(2026.3.11)
+
+기술패권 경쟁은 직접 충돌보다 상대를 배제하고 기술적 우위를 확보하기 위한 경제·비경제 수단의 경쟁이라는 관점에서, AI가 국가 패권의 핵심 수단으로 인식된다고 설명한다. 미국은 책임 있는 AI를 ‘가속화를 방해하는 장애물’로 보고 제거 대상으로 지목하는 등 군사·국방 분야 AI 도입을 가속화하는 정책을 추진했으며, 한국도 AI 기본법상 규제를 유예하고 국방 AI 전환을 가속화하는 흐름이 이어지고 있다고 전한다. 다만 ‘소버린 AI’가 국가를 유일무이한 행위자로 세우며 시민의 민주적 거버넌스와 숙의를 약화시킬 수 있다는 점을 문제로 제기한다.
+
+https://ai-ethics.kr/sovereign_ai_2026-03-11/?ref=ai-yunri-reteo-newsletter" onclick="copyEntry(this)">복사</button></div>
+  <p>기술패권 경쟁은 직접 충돌보다 상대를 배제하고 기술적 우위를 확보하기 위한 경제·비경제 수단의 경쟁이라는 관점에서, AI가 국가 패권의 핵심 수단으로 인식된다고 설명한다. 미국은 책임 있는 AI를 ‘가속화를 방해하는 장애물’로 보고 제거 대상으로 지목하는 등 군사·국방 분야 AI 도입을 가속화하는 정책을 추진했으며, 한국도 AI 기본법상 규제를 유예하고 국방 AI 전환을 가속화하는 흐름이 이어지고 있다고 전한다. 다만 ‘소버린 AI’가 국가를 유일무이한 행위자로 세우며 시민의 민주적 거버넌스와 숙의를 약화시킬 수 있다는 점을 문제로 제기한다.</p>
+  <p class="url"><a href="https://ai-ethics.kr/sovereign_ai_2026-03-11/?ref=ai-yunri-reteo-newsletter">https://ai-ethics.kr/sovereign_ai_2026-03-11/?ref=ai-yunri-reteo-newsletter</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>플로리다 하원, AI 데이터센터 규제 법안 통과(2026.3.11)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">WCTV(Gray Florida Capital Bureau)</span></span><button type="button" class="copy-btn" data-copy="플로리다 하원, AI 데이터센터 규제 법안 통과(2026.3.11)
+
+플로리다 하원이 AI 데이터센터를 규제하는 법안을 화요일 승인해 상원 심의로 넘겼다. 이 법안은 데이터센터 유틸리티 비용을 주민이 부담하지 않도록 하려는 취지로, 기술 기업이 사용한 유틸리티 비용을 전액 부담하도록 하고 시설 건립 가능 지역을 제한한다. 상원으로 넘어가는 법안에는 기업과 지방정부 간 비밀유지계약(NDA) 금지 조항을 완화하는 내용도 포함됐으며, 론 드샌티스 주지사는 이를 지지한다고 전했다.
+
+https://www.wctv.tv/2026/03/11/florida-house-passes-bill-regulate-ai-data-centers-measure-heads-senate/" onclick="copyEntry(this)">복사</button></div>
+  <p>플로리다 하원이 AI 데이터센터를 규제하는 법안을 화요일 승인해 상원 심의로 넘겼다. 이 법안은 데이터센터 유틸리티 비용을 주민이 부담하지 않도록 하려는 취지로, 기술 기업이 사용한 유틸리티 비용을 전액 부담하도록 하고 시설 건립 가능 지역을 제한한다. 상원으로 넘어가는 법안에는 기업과 지방정부 간 비밀유지계약(NDA) 금지 조항을 완화하는 내용도 포함됐으며, 론 드샌티스 주지사는 이를 지지한다고 전했다.</p>
+  <p class="url"><a href="https://www.wctv.tv/2026/03/11/florida-house-passes-bill-regulate-ai-data-centers-measure-heads-senate/">https://www.wctv.tv/2026/03/11/florida-house-passes-bill-regulate-ai-data-centers-measure-heads-senate/</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

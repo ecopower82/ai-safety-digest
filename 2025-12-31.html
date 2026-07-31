@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-12-31</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-12-31 · 1/25건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-kr-gov">
+  <h2>생성형 AI의 생산성 분석 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="생성형 AI의 생산성 분석 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935596" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935596">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935596</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 전환에 따른 소매패턴 변화와 정책 방향 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 전환에 따른 소매패턴 변화와 정책 방향 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935616" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935616">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935616</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>(플랫폼 확산의 인플레이션 영향에 대한 연구) (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="(플랫폼 확산의 인플레이션 영향에 대한 연구) (2025.12.31)
+
+빈 줄
+
+제공된 페이지 내용은 PDF 원문이지만, 본문 텍스트(제목/요약/결론 등)가 추출되지 않고 인코딩된 PDF 바이트 데이터로만 확인됩니다. 따라서 연구의 핵심 주장, 방법, 결과를 사실 기반으로 요약할 수 없습니다.
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935636" onclick="copyEntry(this)">복사</button></div>
+  <p>빈 줄</p>
+<p>제공된 페이지 내용은 PDF 원문이지만, 본문 텍스트(제목/요약/결론 등)가 추출되지 않고 인코딩된 PDF 바이트 데이터로만 확인됩니다. 따라서 연구의 핵심 주장, 방법, 결과를 사실 기반으로 요약할 수 없습니다.</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935636">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935636</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 혁신이 사회·경제에 미치는 영향 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 혁신이 사회·경제에 미치는 영향 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935637" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935637">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935637</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 기술주권과 국가경쟁력 제고 방안 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI 기술주권과 국가경쟁력 제고 방안 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1936576" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1936576">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1936576</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>2025년 북한 방송통신 이용실태조사 사업 결과보고서 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="2025년 북한 방송통신 이용실태조사 사업 결과보고서 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1937296" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1937296">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1937296</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>2025년 ICT 통계체계 기획 및 개선방안 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="2025년 ICT 통계체계 기획 및 개선방안 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942296" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942296">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942296</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>2025년 ICT 통합모집단 구축 및 운영 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="2025년 ICT 통합모집단 구축 및 운영 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942316" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942316">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942316</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 산업 고용분석체계 구축 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 산업 고용분석체계 구축 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942336" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942336">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942336</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 주요이슈 분석체계 구축 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 주요이슈 분석체계 구축 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942356" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942356">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942356</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>글로벌 미디어 플랫폼 확산 대응을 위한 국내 미디어 서비스 경쟁력 분석 및 강화 전략 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="글로벌 미디어 플랫폼 확산 대응을 위한 국내 미디어 서비스 경쟁력 분석 및 강화 전략 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1944056" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1944056">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1944056</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>경험적 근거마련을 위한 조사·연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="경험적 근거마련을 위한 조사·연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945656" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945656">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945656</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>정책 네트워크 구성·운영 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="정책 네트워크 구성·운영 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945696" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945696">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945696</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 규제개혁 기반연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 규제개혁 기반연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945796" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945796">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945796</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 기반 사회현안 해결방안 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 기반 사회현안 해결방안 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945856" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945856">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945856</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 대전환 메가트렌드 연구 총괄보고서 V: 2035 AI·디지털 대전환 메가트렌드 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 대전환 메가트렌드 연구 총괄보고서 V: 2035 AI·디지털 대전환 메가트렌드 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI·디지털 전환기 노동 구조의 재편과 노동권 보호를 위한 안전망 설계 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI·디지털 전환기 노동 구조의 재편과 노동권 보호를 위한 안전망 설계 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949076" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949076">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949076</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>지능정보사회 이용자 보호 정책개발 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="지능정보사회 이용자 보호 정책개발 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949077" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949077">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949077</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 전환기 민주주의 회복력 강화를 위한 정치제도의 변화 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 전환기 민주주의 회복력 강화를 위한 정치제도의 변화 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949096" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949096">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949096</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 전환에 대응하는 AI·데이터 기반 디지털 복지서비스 개발 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 전환에 대응하는 AI·데이터 기반 디지털 복지서비스 개발 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949116" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949116">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949116</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI·디지털 전환에 따른 공공부문 데이터 거버넌스 전략 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI·디지털 전환에 따른 공공부문 데이터 거버넌스 전략 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949136" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949136">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949136</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 저탄소 전환을 위한 기술적·제도적 방안 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 저탄소 전환을 위한 기술적·제도적 방안 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949156" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949156">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949156</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 전환기 AGI 기술 경쟁력 확보를 위한 중장기 전략 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 전환기 AGI 기술 경쟁력 확보를 위한 중장기 전략 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949176" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949176">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949176</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>지능정보사회 플랫폼 자율규제 활성화 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="지능정보사회 플랫폼 자율규제 활성화 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949196" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949196">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949196</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>인공지능 윤리 실천수단 확산 방안에 관한 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="인공지능 윤리 실천수단 확산 방안에 관한 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949216" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949216">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949216</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

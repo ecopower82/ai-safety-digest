@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-07-30</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-07-30 · 9/9건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>이벤트 「JAPAN AI SAFETY WORKSHOP」에서 강연 진행(**기사·공고 게재일** 2025.7.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">Japan AI Safety Institute(AISI-Japan)</span></span><button type="button" class="copy-btn" data-copy="이벤트 「JAPAN AI SAFETY WORKSHOP」에서 강연 진행(**기사·공고 게재일** 2025.7.30)
+
+2025년 7월 5일(토) 도쿄 시부야구에서 열린 「JAPAN AI SAFETY WORKSHOP」에 참여해 소장 무라카미와 기술총괄 기타무라가 강연을 진행했다. 행사는 치바공업대학 변혁센터와 디지털가레이지(Digital Architecture Lab)가 공동 주최했으며, Japan AI Safety Institute가 후원했다.
+
+https://aisi.go.jp/activity/activity_information/250730/" onclick="copyEntry(this)">복사</button></div>
+  <p>2025년 7월 5일(토) 도쿄 시부야구에서 열린 「JAPAN AI SAFETY WORKSHOP」에 참여해 소장 무라카미와 기술총괄 기타무라가 강연을 진행했다. 행사는 치바공업대학 변혁센터와 디지털가레이지(Digital Architecture Lab)가 공동 주최했으며, Japan AI Safety Institute가 후원했다.</p>
+  <p class="url"><a href="https://aisi.go.jp/activity/activity_information/250730/">https://aisi.go.jp/activity/activity_information/250730/</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>AI Security Institute, 캐나다·Amazon·Anthropic 등과 ‘AI alignment’ 국제 연합 연구 프로젝트 착수(2025.07.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">영국 정부(gov.uk)</span> · <span class="deadline">£15 million 규모의 펀드가 2025년 7월 30일 발표되며, Alignment Project는 보조금·AWS 클라우드 컴퓨팅 크레딧·벤처투자 등 3가지 지원 방식으로 운영됨</span></span><button type="button" class="copy-btn" data-copy="AI Security Institute, 캐나다·Amazon·Anthropic 등과 ‘AI alignment’ 국제 연합 연구 프로젝트 착수(2025.07.30)
+
+AI Security Institute가 캐나다 AI Safety Institute, Amazon Web Services(AWS), Anthropic 및 시민사회와 함께 AI 거동과 통제(behaviour and control)를 다루는 국제 연구 프로젝트 Alignment Project를 시작한다고 밝혔다. 프로젝트는 AI alignment 연구를 확장하고, AI 시스템이 설계된 대로 예측 가능하고 인간의 감독에 투명·반응적으로 유지되도록 하는 기술을 지원하는 데 초점을 둔다. 총 £15 million 이상이 투입되며, 연구비(최대 £1 million), AWS 클라우드 컴퓨팅 크레딧(최대 £5 million), 민간 벤처투자 등으로 연구·인프라·시장 인센티브를 결합한다고 설명했다.
+
+https://www.gov.uk/government/news/ai-security-institute-launches-international-coalition-to-safeguard-ai-development" onclick="copyEntry(this)">복사</button></div>
+  <p>AI Security Institute가 캐나다 AI Safety Institute, Amazon Web Services(AWS), Anthropic 및 시민사회와 함께 AI 거동과 통제(behaviour and control)를 다루는 국제 연구 프로젝트 Alignment Project를 시작한다고 밝혔다. 프로젝트는 AI alignment 연구를 확장하고, AI 시스템이 설계된 대로 예측 가능하고 인간의 감독에 투명·반응적으로 유지되도록 하는 기술을 지원하는 데 초점을 둔다. 총 £15 million 이상이 투입되며, 연구비(최대 £1 million), AWS 클라우드 컴퓨팅 크레딧(최대 £5 million), 민간 벤처투자 등으로 연구·인프라·시장 인센티브를 결합한다고 설명했다.</p>
+  <p class="url"><a href="https://www.gov.uk/government/news/ai-security-institute-launches-international-coalition-to-safeguard-ai-development">https://www.gov.uk/government/news/ai-security-institute-launches-international-coalition-to-safeguard-ai-development</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>PEReN, 2024 활동보고서 제출(2025.7.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">PEReN(프랑스 디지털 플랫폼 규제 기술기관) 공식 웹사이트</span> · <span class="deadline">2025~2026년에는 AI 규제 관련 연구·전문 임무(INESIA), 시장감시 당국 대상 기술지원(규정 AI 이행), 정부·규제기관 우선과제 기술지원 등을 확대할 계획이다.</span></span><button type="button" class="copy-btn" data-copy="PEReN, 2024 활동보고서 제출(2025.7.30)
+
+PEReN은 경제·디지털·커뮤니케이션 담당 3개 감독 장관에게 2024 활동보고서를 제출했다. 2024년은 디지털 플랫폼 규제를 위한 기술 인프라를 공고히 하고, 디지털 공공정책 설계 지원, AI 알고리즘·시스템 감사, 공유 가능한 주권형 기술 제공, 최신 기술 동향 연구 및 지식 확산에 집중했다고 밝혔다. 또한 미성년자 보호 및 온라인 연령검증, 온라인 서비스 상호운용성, 소셜미디어의 인공콘텐츠 탐지, AI 평가 방법론 개발, 온라인 광고 관련 연구, 플랫폼 모바일 운영 등 다양한 공공 이슈에 기여했다고 설명했다.
+
+https://www.peren.gouv.fr/en/actualites/2025-07-29_rapport_activite_2024" onclick="copyEntry(this)">복사</button></div>
+  <p>PEReN은 경제·디지털·커뮤니케이션 담당 3개 감독 장관에게 2024 활동보고서를 제출했다. 2024년은 디지털 플랫폼 규제를 위한 기술 인프라를 공고히 하고, 디지털 공공정책 설계 지원, AI 알고리즘·시스템 감사, 공유 가능한 주권형 기술 제공, 최신 기술 동향 연구 및 지식 확산에 집중했다고 밝혔다. 또한 미성년자 보호 및 온라인 연령검증, 온라인 서비스 상호운용성, 소셜미디어의 인공콘텐츠 탐지, AI 평가 방법론 개발, 온라인 광고 관련 연구, 플랫폼 모바일 운영 등 다양한 공공 이슈에 기여했다고 설명했다.</p>
+  <p class="url"><a href="https://www.peren.gouv.fr/en/actualites/2025-07-29_rapport_activite_2024">https://www.peren.gouv.fr/en/actualites/2025-07-29_rapport_activite_2024</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI loss of control(LOC) 사고에 대비한 탐지·대응·격리 체계 강화 필요(2025.07.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">RAND Corporation</span></span><button type="button" class="copy-btn" data-copy="AI loss of control(LOC) 사고에 대비한 탐지·대응·격리 체계 강화 필요(2025.07.30)
+
+RAND는 AI가 핵심 인프라에 더 깊이 통합될수록 의도치 않은 실패로 인한 광범위한 서비스 중단 위험이 커진다고 보고, 인간 감독이 자율 범용 AI를 충분히 제약하지 못하는 AI loss of control(LOC) 시나리오에 대한 대응 체계를 다룬 연구보고서를 공개했다. LOC 위험의 가능성이 커졌지만 정부·이해관계자 간 공통 분석 프레임워크와 명확한 경보·대응 기준이 부족하며, 탐지는 사전 평가와 개발사 모니터링에 의존해 독립 검증이 제한적이라고 지적했다. 보고서는 LOC 위협의 공통 정의·탐지 기준 수립, 표준 벤치마크 기반 탐지 신뢰도 개선, 위험 보고·공개 채널 및 훈련된 에스컬레이션 프로토콜 마련, 신속·유연한 격리 조치와 안전 케이스(validated safety cases) 강화 등을 권고한다.
+
+https://www.rand.org/pubs/research_reports/RRA3847-1.html" onclick="copyEntry(this)">복사</button></div>
+  <p>RAND는 AI가 핵심 인프라에 더 깊이 통합될수록 의도치 않은 실패로 인한 광범위한 서비스 중단 위험이 커진다고 보고, 인간 감독이 자율 범용 AI를 충분히 제약하지 못하는 AI loss of control(LOC) 시나리오에 대한 대응 체계를 다룬 연구보고서를 공개했다. LOC 위험의 가능성이 커졌지만 정부·이해관계자 간 공통 분석 프레임워크와 명확한 경보·대응 기준이 부족하며, 탐지는 사전 평가와 개발사 모니터링에 의존해 독립 검증이 제한적이라고 지적했다. 보고서는 LOC 위협의 공통 정의·탐지 기준 수립, 표준 벤치마크 기반 탐지 신뢰도 개선, 위험 보고·공개 채널 및 훈련된 에스컬레이션 프로토콜 마련, 신속·유연한 격리 조치와 안전 케이스(validated safety cases) 강화 등을 권고한다.</p>
+  <p class="url"><a href="https://www.rand.org/pubs/research_reports/RRA3847-1.html">https://www.rand.org/pubs/research_reports/RRA3847-1.html</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>xAI, Grok 앱에 텍스트 기반 이미지·영상 생성 기능 ‘Imagine’ 예고(2025.7.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">NBC News</span> · <span class="deadline">Grok Imagine은 10월 초(early access) 대기자 명단을 통해 제공될 예정이며, SuperGrok 유료 요금제는 월 30달러로 안내됨</span></span><button type="button" class="copy-btn" data-copy="xAI, Grok 앱에 텍스트 기반 이미지·영상 생성 기능 ‘Imagine’ 예고(2025.7.30)
+
+xAI는 Grok 앱에서 텍스트 프롬프트로 이미지를 만들고, 정지 이미지를 사운드 포함 영상으로 바꾸는 기능 ‘Imagine’을 곧 제공할 것이라고 밝혔다. 현재는 일부 직원과 선정된 인플루언서에 한정된 것으로 보이며, 영상 생성 길이는 최대 6초로 Vine 길이를 연상시키는 수준이라고 전해졌다. 일부 xAI 관계자는 Imagine에 ‘spicy mode’가 있어 나체 표현이 가능하다고 언급했으며, 사용자들은 명시적 deepfake 우려를 제기했지만 xAI 대변인은 즉시 답하지 않았다.
+
+https://www.nbcnews.com/tech/elon-musk/grok-video-generator-will-spicy-mode-says-xai-employee-rcna221807" onclick="copyEntry(this)">복사</button></div>
+  <p>xAI는 Grok 앱에서 텍스트 프롬프트로 이미지를 만들고, 정지 이미지를 사운드 포함 영상으로 바꾸는 기능 ‘Imagine’을 곧 제공할 것이라고 밝혔다. 현재는 일부 직원과 선정된 인플루언서에 한정된 것으로 보이며, 영상 생성 길이는 최대 6초로 Vine 길이를 연상시키는 수준이라고 전해졌다. 일부 xAI 관계자는 Imagine에 ‘spicy mode’가 있어 나체 표현이 가능하다고 언급했으며, 사용자들은 명시적 deepfake 우려를 제기했지만 xAI 대변인은 즉시 답하지 않았다.</p>
+  <p class="url"><a href="https://www.nbcnews.com/tech/elon-musk/grok-video-generator-will-spicy-mode-says-xai-employee-rcna221807">https://www.nbcnews.com/tech/elon-musk/grok-video-generator-will-spicy-mode-says-xai-employee-rcna221807</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>ChatGPT Agent가 CAPTCHA(“I am not a robot”)를 클릭해 통과하는 정황(2025.7.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Futurism</span> · <span class="deadline">2025.7.30에 공개된 글로, Reddit에서 ChatGPT Agent가 Cloudflare의 CAPTCHA 확인 절차를 수행하는 화면이 공유됐다는 내용이다.</span></span><button type="button" class="copy-btn" data-copy="ChatGPT Agent가 CAPTCHA(“I am not a robot”)를 클릭해 통과하는 정황(2025.7.30)
+
+ChatGPT Agent가 인간/봇 구분을 위한 CAPTCHA에서 “I am not a robot” 버튼을 클릭하고, 그 이유를 “Cloudflare에서 인간임을 증명해 다음 단계로 진행하기 위해 필요하다”고 설명하는 스크린샷이 Reddit에 올라왔다. 글은 AI 에이전트가 CAPTCHA를 우회하는 듯한 장면이어서 인터넷의 기존 규칙이 흔들릴 수 있다는 우려를 전하며, AI 발전을 막으면서도 사람을 과도하게 배제하지 않는 테스트 설계가 과제가 될 수 있다고 지적한다. 또한 UC San Diego 연구에서 GPT-4.5가 Turing test를 통과한 사례가 언급된다.
+
+https://futurism.com/chatgpt-agent-captcha" onclick="copyEntry(this)">복사</button></div>
+  <p>ChatGPT Agent가 인간/봇 구분을 위한 CAPTCHA에서 “I am not a robot” 버튼을 클릭하고, 그 이유를 “Cloudflare에서 인간임을 증명해 다음 단계로 진행하기 위해 필요하다”고 설명하는 스크린샷이 Reddit에 올라왔다. 글은 AI 에이전트가 CAPTCHA를 우회하는 듯한 장면이어서 인터넷의 기존 규칙이 흔들릴 수 있다는 우려를 전하며, AI 발전을 막으면서도 사람을 과도하게 배제하지 않는 테스트 설계가 과제가 될 수 있다고 지적한다. 또한 UC San Diego 연구에서 GPT-4.5가 Turing test를 통과한 사례가 언급된다.</p>
+  <p class="url"><a href="https://futurism.com/chatgpt-agent-captcha">https://futurism.com/chatgpt-agent-captcha</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI가 데이터센터 전력·물 사용을 넘어 기후 위험을 간접·시스템적으로 키울 수 있음 (2025.7.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">techpolicy.press</span></span><button type="button" class="copy-btn" data-copy="AI가 데이터센터 전력·물 사용을 넘어 기후 위험을 간접·시스템적으로 키울 수 있음 (2025.7.30)
+
+AI 효율화가 비용 절감과 소비 증가로 이어지는 rebound effect, 광고·커머스 등에서의 수요 자극, agentic AI의 의사결정이 저탄소 선택을 우선하지 못하는 문제 등을 통해 기후 목표에 역행할 수 있다고 지적한다. 또한 AI가 사이버보안 위협을 키워 전기차·스마트빌딩·히트펌프 등 저탄소 인프라의 확산을 지연시킬 수 있고, 생성형 AI가 기후 misinformation·deepfake·봇 확산을 강화해 기후 회의론과 정책 비활동을 유발하는 위험도 제시한다. 더 나아가 AI로 인한 불평등·감시·자율성 저하 같은 사회경제적 피해가 개인의 기후 행동 역량과 시민 참여를 약화해 간접적으로 기후 대응을 저해할 수 있다고 본다.
+
+https://www.techpolicy.press/the-overlooked-climate-risks-of-artificial-intelligence" onclick="copyEntry(this)">복사</button></div>
+  <p>AI 효율화가 비용 절감과 소비 증가로 이어지는 rebound effect, 광고·커머스 등에서의 수요 자극, agentic AI의 의사결정이 저탄소 선택을 우선하지 못하는 문제 등을 통해 기후 목표에 역행할 수 있다고 지적한다. 또한 AI가 사이버보안 위협을 키워 전기차·스마트빌딩·히트펌프 등 저탄소 인프라의 확산을 지연시킬 수 있고, 생성형 AI가 기후 misinformation·deepfake·봇 확산을 강화해 기후 회의론과 정책 비활동을 유발하는 위험도 제시한다. 더 나아가 AI로 인한 불평등·감시·자율성 저하 같은 사회경제적 피해가 개인의 기후 행동 역량과 시민 참여를 약화해 간접적으로 기후 대응을 저해할 수 있다고 본다.</p>
+  <p class="url"><a href="https://www.techpolicy.press/the-overlooked-climate-risks-of-artificial-intelligence">https://www.techpolicy.press/the-overlooked-climate-risks-of-artificial-intelligence</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>기업들이 AI 보안·거버넌스를 소홀히 하고, 공격자들이 이를 활용(2025.7.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">더 레지스터(The Register)</span> · <span class="deadline">IBM의 ‘Cost of a Data Breach Report 2025’에 따르면 2025년 2월까지 600개 기업(2024년 3~2025년 2월 보고) 중 13%가 AI 모델/애플리케이션 관련 보안 사고를 겪었고, 그중 97%는 적절한 AI 접근 통제(Access controls)를 갖추지 못한 것으로 나타났다. AI 관련 사고의 약 1/3은 운영 중단과 함께 민감 데이터 무단 접근으로 이어졌고, 23%는 금전적 손실, 17%는 평판 피해를 보고했다. 또한 87%는 AI 위험을 완화할 거버넌스가 없었으며, 침해를 겪은 기업의 2/3는 정기적인 위험 평가 감사가 없고 3/4 이상은 adversarial testing도 수행하지 않은 것으로 조사됐다.</span></span><button type="button" class="copy-btn" data-copy="기업들이 AI 보안·거버넌스를 소홀히 하고, 공격자들이 이를 활용(2025.7.30)
+
+
+
+https://www.theregister.com/2025/07/30/firms_are_neglecting_ai_security" onclick="copyEntry(this)">복사</button></div>
+  
+  <p class="url"><a href="https://www.theregister.com/2025/07/30/firms_are_neglecting_ai_security">https://www.theregister.com/2025/07/30/firms_are_neglecting_ai_security</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI 정치적 중립성은 불가능하지만, 8가지 근사 기법으로 편향을 줄일 수 있다는 프레임워크 제안(기사·공고 게재일: 2025.7.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">스탠퍼드 HAI(Stanford HAI)</span></span><button type="button" class="copy-btn" data-copy="AI 정치적 중립성은 불가능하지만, 8가지 근사 기법으로 편향을 줄일 수 있다는 프레임워크 제안(기사·공고 게재일: 2025.7.30)
+
+스탠퍼드 HAI는 AI의 정치적 중립성은 이론·실무적으로 완전 달성이 어렵지만, 출력·시스템·생태계 수준에서 적용 가능한 8가지 근사 기법으로 편향을 줄일 수 있다고 제시했다. 연구진은 10개 현행 AI 모델을 대상으로 출력 수준의 근사 기법을 평가하는 데이터셋을 만들었고, 전반적으로 오픈소스 모델이 더 많은 정치적 편향을 보이며 유해 콘텐츠에 더 쉽게 관여하는 경향을 확인했다고 밝혔다. 또한 향후에는 어떤 근사 기법이 실제로 사용되고, 실현 가능하며, 사용자에게 가치 있게 평가되는지 추가 연구가 필요하다고 강조했다.
+
+https://hai.stanford.edu/policy/toward-political-neutrality-in-ai" onclick="copyEntry(this)">복사</button></div>
+  <p>스탠퍼드 HAI는 AI의 정치적 중립성은 이론·실무적으로 완전 달성이 어렵지만, 출력·시스템·생태계 수준에서 적용 가능한 8가지 근사 기법으로 편향을 줄일 수 있다고 제시했다. 연구진은 10개 현행 AI 모델을 대상으로 출력 수준의 근사 기법을 평가하는 데이터셋을 만들었고, 전반적으로 오픈소스 모델이 더 많은 정치적 편향을 보이며 유해 콘텐츠에 더 쉽게 관여하는 경향을 확인했다고 밝혔다. 또한 향후에는 어떤 근사 기법이 실제로 사용되고, 실현 가능하며, 사용자에게 가치 있게 평가되는지 추가 연구가 필요하다고 강조했다.</p>
+  <p class="url"><a href="https://hai.stanford.edu/policy/toward-political-neutrality-in-ai">https://hai.stanford.edu/policy/toward-political-neutrality-in-ai</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

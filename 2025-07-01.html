@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-07-01</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-07-01 · 8/8건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>국제 워크숍 ‘WEIS 2025’에서 AISI-Japan 기술 총괄(이무라) 강연 (2025.7.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-Japan</span></span><button type="button" class="copy-btn" data-copy="국제 워크숍 ‘WEIS 2025’에서 AISI-Japan 기술 총괄(이무라) 강연 (2025.7.1)
+
+2025년 6월 25일(수) 도쿄대 생산기술연구소에서 열린 ‘WEIS 2025: The 24th Workshop on the Economics of Information Security’ 행사에 AISI-Japan이 참여했으며, 이무라 기술 총괄(수석 연구원)이 ‘Trends and risk of AI and how to mitigate them’ 주제로 강연을 진행했다.
+
+https://aisi.go.jp/activity/activity_information/250701/" onclick="copyEntry(this)">복사</button></div>
+  <p>2025년 6월 25일(수) 도쿄대 생산기술연구소에서 열린 ‘WEIS 2025: The 24th Workshop on the Economics of Information Security’ 행사에 AISI-Japan이 참여했으며, 이무라 기술 총괄(수석 연구원)이 ‘Trends and risk of AI and how to mitigate them’ 주제로 강연을 진행했다.</p>
+  <p class="url"><a href="https://aisi.go.jp/activity/activity_information/250701/">https://aisi.go.jp/activity/activity_information/250701/</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>UK Compute Roadmap(2025.07.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">영국 정부 gov.uk(과학·혁신·기술부, Department for Science, Innovation &amp; Technology)</span></span><button type="button" class="copy-btn" data-copy="UK Compute Roadmap(2025.07.01)
+
+영국 정부는 AI 발전을 뒷받침할 ‘현대적 공공 컴퓨트 생태계’ 구축을 목표로 한 로드맵을 발표했다. 2030년까지 최대 20억 파운드를 투입해 AI Research Resource(AIRR) 20배 확장(2030년까지)과 에든버러의 신규 국가 슈퍼컴퓨터 서비스(최대 7.5억 파운드) 등을 추진하며, 영국 전역에 AI Growth Zones(AIGZs)를 조성해 학습·추론 워크로드를 지원한다. 또한 컴퓨트 배분 모델을 고효율 연구·혁신 우선순위에 맞게 재정비하고, Sovereign AI Unit 및 AI Security Institute에 전용 컴퓨트 접근을 보장하는 등 ‘주권적·안전·지속가능’ 역량을 강화하는 10개 실행 과제를 제시했다.
+
+https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap" onclick="copyEntry(this)">복사</button></div>
+  <p>영국 정부는 AI 발전을 뒷받침할 ‘현대적 공공 컴퓨트 생태계’ 구축을 목표로 한 로드맵을 발표했다. 2030년까지 최대 20억 파운드를 투입해 AI Research Resource(AIRR) 20배 확장(2030년까지)과 에든버러의 신규 국가 슈퍼컴퓨터 서비스(최대 7.5억 파운드) 등을 추진하며, 영국 전역에 AI Growth Zones(AIGZs)를 조성해 학습·추론 워크로드를 지원한다. 또한 컴퓨트 배분 모델을 고효율 연구·혁신 우선순위에 맞게 재정비하고, Sovereign AI Unit 및 AI Security Institute에 전용 컴퓨트 접근을 보장하는 등 ‘주권적·안전·지속가능’ 역량을 강화하는 10개 실행 과제를 제시했다.</p>
+  <p class="url"><a href="https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap">https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>미국 상원, AI 관련 10년 유예(모라토리엄) 없이 ‘big, beautiful bill’ 통과(2025.7.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">NBC News</span> · <span class="deadline">상원 옴니버스 법안은 2025.7.1(현지시간) 51-50으로 통과했으며, 부통령 JD Vance가 동률을 깨는 표를 행사함</span></span><button type="button" class="copy-btn" data-copy="미국 상원, AI 관련 10년 유예(모라토리엄) 없이 ‘big, beautiful bill’ 통과(2025.7.1)
+
+미 공화당의 ‘big, beautiful bill’에서 논란이 된 10년간 AI 규제 관련 주(州) 법 제정·집행을 유예하는 조항이 상원 표결로 삭제됐다. 테네시 공화당 상원의원 마샤 블랙번이 해당 모라토리엄 삭제 수정안을 냈고, 99-1로 가결됐다. 법안은 주가 이미 시행 중인 딥페이크·선거 관련 오인 유발·음성 모방 등 특정 위해를 겨냥한 규제와, 주의 역할을 유지해야 한다는 반대 여론을 반영해 모라토리엄 없이 진행된다.
+
+https://www.nbcnews.com/tech/tech-news/big-beautiful-bill-ai-moratorium-ted-cruz-pass-vote-rcna215111" onclick="copyEntry(this)">복사</button></div>
+  <p>미 공화당의 ‘big, beautiful bill’에서 논란이 된 10년간 AI 규제 관련 주(州) 법 제정·집행을 유예하는 조항이 상원 표결로 삭제됐다. 테네시 공화당 상원의원 마샤 블랙번이 해당 모라토리엄 삭제 수정안을 냈고, 99-1로 가결됐다. 법안은 주가 이미 시행 중인 딥페이크·선거 관련 오인 유발·음성 모방 등 특정 위해를 겨냥한 규제와, 주의 역할을 유지해야 한다는 반대 여론을 반영해 모라토리엄 없이 진행된다.</p>
+  <p class="url"><a href="https://www.nbcnews.com/tech/tech-news/big-beautiful-bill-ai-moratorium-ted-cruz-pass-vote-rcna215111">https://www.nbcnews.com/tech/tech-news/big-beautiful-bill-ai-moratorium-ted-cruz-pass-vote-rcna215111</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>캐나다-영국, AI alignment 연구에 투자 협력 (2025.07.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">캐나다 혁신·과학·경제개발부(Canada.ca)</span> · <span class="deadline">확인 필요: 본문 내용(투자 규모, 연구 범위, 일정, 참여 기관) 확인 필요</span></span><button type="button" class="copy-btn" data-copy="캐나다-영국, AI alignment 연구에 투자 협력 (2025.07.01)
+
+캐나다 혁신·과학·경제개발부가 영국과 AI alignment 연구 분야에서 협력해 투자한다는 내용의 뉴스 페이지로 확인된다. 다만 제공된 정보에는 본문이 없어 구체적인 투자 금액, 연구 주제, 시행/마감 일정 등은 확인이 필요하다.
+
+https://www.canada.ca/en/innovation-science-economic-development/news/2025/07/government-of-canada-partners-with-united-kingdom-to-invest-in-groundbreaking-ai-alignment-research.html" onclick="copyEntry(this)">복사</button></div>
+  <p>캐나다 혁신·과학·경제개발부가 영국과 AI alignment 연구 분야에서 협력해 투자한다는 내용의 뉴스 페이지로 확인된다. 다만 제공된 정보에는 본문이 없어 구체적인 투자 금액, 연구 주제, 시행/마감 일정 등은 확인이 필요하다.</p>
+  <p class="url"><a href="https://www.canada.ca/en/innovation-science-economic-development/news/2025/07/government-of-canada-partners-with-united-kingdom-to-invest-in-groundbreaking-ai-alignment-research.html">https://www.canada.ca/en/innovation-science-economic-development/news/2025/07/government-of-canada-partners-with-united-kingdom-to-invest-in-groundbreaking-ai-alignment-research.html</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Google DeepMind 런던 본사서 ‘Gemini 안전성 약속’ 이행 촉구 시위(2025.7.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">테크타임즈(TechTimes)</span></span><button type="button" class="copy-btn" data-copy="Google DeepMind 런던 본사서 ‘Gemini 안전성 약속’ 이행 촉구 시위(2025.7.1)
+
+테크타임즈에 따르면 PauseAI 활동가들이 런던 DeepMind 본사에서 모의 재판 형태의 시위를 열고, Google이 Gemini의 투명성·외부평가 약속을 지키지 않았다고 비판했다. 2024년 서울 AI Safety Summit에서 Google이 고위 모델의 위험 평가를 외부 주체가 평가하고 상세 보고서를 내겠다고 약속했지만, Gemini 2.5 Pro 출시 후에는 ‘experimental’로 표시하고 이후 모호한 model card만 공개해 비판이 제기됐다. 시위 측은 안전 약속이 무시되면 업계에 나쁜 선례가 될 수 있다고 주장하며, “Stop the race, it’s unsafe”와 “Test, don’t guess” 등의 구호로 공개 압박을 요구했다.
+
+https://www.techtimes.com/articles/311120/20250701/google-deepmind-slammed-protesters-over-broken-ai-safety-promise.htm" onclick="copyEntry(this)">복사</button></div>
+  <p>테크타임즈에 따르면 PauseAI 활동가들이 런던 DeepMind 본사에서 모의 재판 형태의 시위를 열고, Google이 Gemini의 투명성·외부평가 약속을 지키지 않았다고 비판했다. 2024년 서울 AI Safety Summit에서 Google이 고위 모델의 위험 평가를 외부 주체가 평가하고 상세 보고서를 내겠다고 약속했지만, Gemini 2.5 Pro 출시 후에는 ‘experimental’로 표시하고 이후 모호한 model card만 공개해 비판이 제기됐다. 시위 측은 안전 약속이 무시되면 업계에 나쁜 선례가 될 수 있다고 주장하며, “Stop the race, it’s unsafe”와 “Test, don’t guess” 등의 구호로 공개 압박을 요구했다.</p>
+  <p class="url"><a href="https://www.techtimes.com/articles/311120/20250701/google-deepmind-slammed-protesters-over-broken-ai-safety-promise.htm">https://www.techtimes.com/articles/311120/20250701/google-deepmind-slammed-protesters-over-broken-ai-safety-promise.htm</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI 챗봇이 건강정보를 거짓으로 말하게 만드는 일이 쉽다는 연구 결과(2025.07.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">로이터 통신(Reuters)</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="AI 챗봇이 건강정보를 거짓으로 말하게 만드는 일이 쉽다는 연구 결과(2025.07.01)
+
+로이터는 AI 챗봇이 건강 관련 정보를 생성할 때 부정확하거나 거짓 응답을 낼 가능성이 크다는 연구를 소개합니다. 다만 제공된 내용에는 연구 방법, 대상 모델, 거짓 응답 비율 등 핵심 수치가 없어 구체 사실 확인이 필요합니다. refused(거절), complied(응답 수행), unclear(불명확) 같은 판정 기준이 기사에 어떻게 적용됐는지는 확인 필요입니다.
+
+https://www.reuters.com/business/healthcare-pharmaceuticals/its-too-easy-make-ai-chatbots-lie-about-health-information-study-finds-2025-07-01" onclick="copyEntry(this)">복사</button></div>
+  <p>로이터는 AI 챗봇이 건강 관련 정보를 생성할 때 부정확하거나 거짓 응답을 낼 가능성이 크다는 연구를 소개합니다. 다만 제공된 내용에는 연구 방법, 대상 모델, 거짓 응답 비율 등 핵심 수치가 없어 구체 사실 확인이 필요합니다. refused(거절), complied(응답 수행), unclear(불명확) 같은 판정 기준이 기사에 어떻게 적용됐는지는 확인 필요입니다.</p>
+  <p class="url"><a href="https://www.reuters.com/business/healthcare-pharmaceuticals/its-too-easy-make-ai-chatbots-lie-about-health-information-study-finds-2025-07-01">https://www.reuters.com/business/healthcare-pharmaceuticals/its-too-easy-make-ai-chatbots-lie-about-health-information-study-finds-2025-07-01</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>푸틴, AI를 활용해 영국 대상 허위정보 공세…RUSI “정보전 ‘arms race’” 경고 (기사·공고 게재일 2025.7.1)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">데일리메일(Daily Mail Online)</span> · <span class="deadline">RUSI는 보고서에서 영국의 AI 위협 모니터링 강화, 디지털 리터러시 투자, AI 거버넌스 프레임워크 개발 필요성을 권고했다.</span></span><button type="button" class="copy-btn" data-copy="푸틴, AI를 활용해 영국 대상 허위정보 공세…RUSI “정보전 ‘arms race’” 경고 (기사·공고 게재일 2025.7.1)
+
+러시아와 연계된 해킹·프로파간다 조직이 generative AI를 활용해 허위 기사, 소셜미디어 게시물, 딥페이크 등을 대량 생성하고 서방 내 불화를 조장하고 있다고 RUSI가 경고했다. 보고서는 ‘DoppelGänger’ 같은 캠페인을 예로 들며 AI가 서구 언론을 모방해 신뢰를 훼손하고 혼란을 확산시키는 방식이라고 설명했다. 또한 AI 기반 봇과 자동 계정이 여론을 ‘astroturfing’ 형태로 시뮬레이션하며, 정교해질수록 저비용·대규모 실험이 가능해져 허위정보 확산 위험이 커질 수 있다고 전했다.
+
+https://www.dailymail.co.uk/news/article-14861303/vladimir-putin-artificial-intelligence-disinformation-britain-rusi.html" onclick="copyEntry(this)">복사</button></div>
+  <p>러시아와 연계된 해킹·프로파간다 조직이 generative AI를 활용해 허위 기사, 소셜미디어 게시물, 딥페이크 등을 대량 생성하고 서방 내 불화를 조장하고 있다고 RUSI가 경고했다. 보고서는 ‘DoppelGänger’ 같은 캠페인을 예로 들며 AI가 서구 언론을 모방해 신뢰를 훼손하고 혼란을 확산시키는 방식이라고 설명했다. 또한 AI 기반 봇과 자동 계정이 여론을 ‘astroturfing’ 형태로 시뮬레이션하며, 정교해질수록 저비용·대규모 실험이 가능해져 허위정보 확산 위험이 커질 수 있다고 전했다.</p>
+  <p class="url"><a href="https://www.dailymail.co.uk/news/article-14861303/vladimir-putin-artificial-intelligence-disinformation-britain-rusi.html">https://www.dailymail.co.uk/news/article-14861303/vladimir-putin-artificial-intelligence-disinformation-britain-rusi.html</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>BSI, KI 학습데이터 품질을 위한 방법론 가이드 QUAIDAL 공개 (2025.07.01)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">독일 연방정보기술보안청(BSI)</span> · <span class="deadline">QUAIDAL 가이드 초안은 즉시 BSI 웹사이트와 2개 GitHub 저장소에서 제공되며, 커뮤니티 의견 참여를 받음</span></span><button type="button" class="copy-btn" data-copy="BSI, KI 학습데이터 품질을 위한 방법론 가이드 QUAIDAL 공개 (2025.07.01)
+
+유럽의 AI 규정은 KI 학습데이터에 대해 관련성, 오류 없음, 완전성 등 품질 요건을 요구한다. BSI는 이를 구체적인 구성요소, 조치, 지표·방법으로 전환한 문서 시리즈 Qualitycriteria for AI Trainingsdata in AI Lifecycle(QUAIDAL)을 발표했다. 특히 고위험 AI 시스템 제공자를 대상으로 문서화·데이터 관리·지속적 품질보증을 체계적으로 이행하고, 모듈형 구조로 개발 과정에서 조기 선택과 구현 증명이 가능하도록 했다.
+
+https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2025/250701_QUAIDAL.html" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽의 AI 규정은 KI 학습데이터에 대해 관련성, 오류 없음, 완전성 등 품질 요건을 요구한다. BSI는 이를 구체적인 구성요소, 조치, 지표·방법으로 전환한 문서 시리즈 Qualitycriteria for AI Trainingsdata in AI Lifecycle(QUAIDAL)을 발표했다. 특히 고위험 AI 시스템 제공자를 대상으로 문서화·데이터 관리·지속적 품질보증을 체계적으로 이행하고, 모듈형 구조로 개발 과정에서 조기 선택과 구현 증명이 가능하도록 했다.</p>
+  <p class="url"><a href="https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2025/250701_QUAIDAL.html">https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2025/250701_QUAIDAL.html</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

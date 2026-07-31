@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-07-15</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-07-15 · 5/5건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>Chain of thought monitorability: AI safety를 위한 새로운(그러나 취약한) 기회 (2025.7.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="Chain of thought monitorability: AI safety를 위한 새로운(그러나 취약한) 기회 (2025.7.15)
+
+AI가 인간 언어로 ‘생각’을 할 때, 해당 chains of thought(CoT)를 감시해 악의적 의도를 파악할 수 있는 기회가 있다고 설명한다. CoT 모니터링은 다른 감독 방법과 마찬가지로 완벽하지 않아 일부 위법 행위가 탐지되지 않을 수 있지만, 잠재력이 있어 추가 연구와 기존 안전 방법과의 병행 투자를 권고한다. 또한 CoT monitorability가 ‘fragile(취약)’할 수 있으므로, 프론티어 모델 개발자들이 개발 과정의 결정이 CoT monitorability에 미치는 영향을 고려해야 한다.
+
+https://www.aisi.gov.uk/research/chain-of-thought-monitorability-a-new-and-fragile-opportunity-for-ai-safety" onclick="copyEntry(this)">복사</button></div>
+  <p>AI가 인간 언어로 ‘생각’을 할 때, 해당 chains of thought(CoT)를 감시해 악의적 의도를 파악할 수 있는 기회가 있다고 설명한다. CoT 모니터링은 다른 감독 방법과 마찬가지로 완벽하지 않아 일부 위법 행위가 탐지되지 않을 수 있지만, 잠재력이 있어 추가 연구와 기존 안전 방법과의 병행 투자를 권고한다. 또한 CoT monitorability가 ‘fragile(취약)’할 수 있으므로, 프론티어 모델 개발자들이 개발 과정의 결정이 CoT monitorability에 미치는 영향을 고려해야 한다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/research/chain-of-thought-monitorability-a-new-and-fragile-opportunity-for-ai-safety">https://www.aisi.gov.uk/research/chain-of-thought-monitorability-a-new-and-fragile-opportunity-for-ai-safety</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>AI TEVV 표준(Zero Draft) 개요(2025.07.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 국립표준기술연구소(NIST)</span></span><button type="button" class="copy-btn" data-copy="AI TEVV 표준(Zero Draft) 개요(2025.07.15)
+
+본문은 AI TEVV(테스트·평가·검증) 관련 표준의 “Proposed Zero Draft” 문서 개요를 담은 PDF 파일로 보이며, 페이지 내에는 PDF 구조 정보(xref 등)만 추출되어 핵심 내용 문장이 확인되지 않습니다. 따라서 표준의 구체적 요구사항, 범위, 절차 등은 현재 제공된 텍스트만으로 요약할 수 없습니다.
+
+https://www.nist.gov/system/files/documents/2025/07/15/Outline_%20Proposed%20Zero%20Draft%20for%20a%20Standard%20on%20AI%20TEVV-for-web.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p>본문은 AI TEVV(테스트·평가·검증) 관련 표준의 “Proposed Zero Draft” 문서 개요를 담은 PDF 파일로 보이며, 페이지 내에는 PDF 구조 정보(xref 등)만 추출되어 핵심 내용 문장이 확인되지 않습니다. 따라서 표준의 구체적 요구사항, 범위, 절차 등은 현재 제공된 텍스트만으로 요약할 수 없습니다.</p>
+  <p class="url"><a href="https://www.nist.gov/system/files/documents/2025/07/15/Outline_%20Proposed%20Zero%20Draft%20for%20a%20Standard%20on%20AI%20TEVV-for-web.pdf">https://www.nist.gov/system/files/documents/2025/07/15/Outline_%20Proposed%20Zero%20Draft%20for%20a%20Standard%20on%20AI%20TEVV-for-web.pdf</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>미국 S&amp;P 500 기업, SEC 공시에서 AI 관련 위험요소를 대거 확대(기사·공고 게재일 2025.7.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">더 레지스터(theregister.com)</span></span><button type="button" class="copy-btn" data-copy="미국 S&amp;P 500 기업, SEC 공시에서 AI 관련 위험요소를 대거 확대(기사·공고 게재일 2025.7.15)
+
+S&amp;P 500 상장사 500곳의 Form 10-K를 분석한 결과, 지난 1년간 3/4 기업이 AI 관련 위험 공시를 확대·상세화한 것으로 나타났다. 산업 전반에서 절반 이상이 AI 위험을 늘렸고, IT 분야 증가폭이 가장 컸으며 금융·커뮤니케이션서비스가 뒤를 이었다. 특히 39%(193개사)는 범죄자 등이 AI를 이용해 디지털 사칭, 허위정보 확산, 악성코드 생성 등에 악용할 위험을 언급했고, 딥페이크(조작 이미지·영상·음성) 언급도 크게 늘었다. 한편 AI 투자에 대해 11%(57개사)는 지출을 회수하지 못하거나 기대효과를 얻지 못할 수 있다고 명시했으며, 데이터 프라이버시·지식재산권 위험은 19%만 공시를 확대한 것으로 조사됐다.
+
+https://www.theregister.com/2025/07/15/sec_risk_factors_ai" onclick="copyEntry(this)">복사</button></div>
+  <p>S&amp;P 500 상장사 500곳의 Form 10-K를 분석한 결과, 지난 1년간 3/4 기업이 AI 관련 위험 공시를 확대·상세화한 것으로 나타났다. 산업 전반에서 절반 이상이 AI 위험을 늘렸고, IT 분야 증가폭이 가장 컸으며 금융·커뮤니케이션서비스가 뒤를 이었다. 특히 39%(193개사)는 범죄자 등이 AI를 이용해 디지털 사칭, 허위정보 확산, 악성코드 생성 등에 악용할 위험을 언급했고, 딥페이크(조작 이미지·영상·음성) 언급도 크게 늘었다. 한편 AI 투자에 대해 11%(57개사)는 지출을 회수하지 못하거나 기대효과를 얻지 못할 수 있다고 명시했으며, 데이터 프라이버시·지식재산권 위험은 19%만 공시를 확대한 것으로 조사됐다.</p>
+  <p class="url"><a href="https://www.theregister.com/2025/07/15/sec_risk_factors_ai">https://www.theregister.com/2025/07/15/sec_risk_factors_ai</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI 연구자들, 추론 모델의 ‘thoughts(사고 과정)’ 모니터링 필요성 촉구(2025.7.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">TechCrunch</span></span><button type="button" class="copy-btn" data-copy="AI 연구자들, 추론 모델의 ‘thoughts(사고 과정)’ 모니터링 필요성 촉구(2025.7.15)
+
+AI 연구자들이 OpenAI·Google DeepMind·Anthropic 등과 함께 ‘추론 모델의 chain-of-thought(CoT)를 모니터링’하는 안전 연구를 더 깊게 조사하자고 촉구했다. 이들은 o3·R1 같은 추론 모델의 CoT가 에이전트 의사결정 과정을 들여다볼 수 있는 수단이 될 수 있지만, 현재의 가시성이 유지되지 않거나 신뢰성이 약해질 수 있어 투명성과 신뢰도를 떨어뜨리는 개입은 피해야 한다고 밝혔다. 또한 CoT가 얼마나 ‘monitorable(모니터 가능)’한지 결정하는 요인을 연구하고, 장기적으로 이를 안전 조치로 구현하는 방안도 검토하자고 제안했다.
+
+https://techcrunch.com/2025/07/15/research-leaders-urge-tech-industry-to-monitor-ais-thoughts" onclick="copyEntry(this)">복사</button></div>
+  <p>AI 연구자들이 OpenAI·Google DeepMind·Anthropic 등과 함께 ‘추론 모델의 chain-of-thought(CoT)를 모니터링’하는 안전 연구를 더 깊게 조사하자고 촉구했다. 이들은 o3·R1 같은 추론 모델의 CoT가 에이전트 의사결정 과정을 들여다볼 수 있는 수단이 될 수 있지만, 현재의 가시성이 유지되지 않거나 신뢰성이 약해질 수 있어 투명성과 신뢰도를 떨어뜨리는 개입은 피해야 한다고 밝혔다. 또한 CoT가 얼마나 ‘monitorable(모니터 가능)’한지 결정하는 요인을 연구하고, 장기적으로 이를 안전 조치로 구현하는 방안도 검토하자고 제안했다.</p>
+  <p class="url"><a href="https://techcrunch.com/2025/07/15/research-leaders-urge-tech-industry-to-monitor-ais-thoughts">https://techcrunch.com/2025/07/15/research-leaders-urge-tech-industry-to-monitor-ais-thoughts</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Prepare for the ‘coming wave’ of AI terrorism, top adviser warns UK government (2025.7.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">폴리티코 유럽(POLITICO Europe)</span></span><button type="button" class="copy-btn" data-copy="Prepare for the ‘coming wave’ of AI terrorism, top adviser warns UK government (2025.7.15)
+
+영국 정부의 테러 입법 독립 검토관 Jonathan Hall이 연례 보고서에서 생성형 AI가 테러 선전과 공격 준비를 “가속”할 수 있다고 경고했다. 그는 generative AI가 텍스트·이미지·오디오·비디오 등 새 콘텐츠를 만들어 테러에 악용될 수 있으며, 기업들이 모델 내부를 충분히 설명하지 않는 상황과 함께 이미 “jailbreaking” 산업이 존재한다고 지적했다. 또한 챗봇이 고립된 개인의 급진화를 돕는 “closed loop”를 만들거나, 잠재적 모집을 선별해 인간 단계로 넘기는 데 활용될 수 있다고 우려했다.
+
+https://www.politico.eu/article/ai-terrorism-uk-government-propaganda-jonathan-hall" onclick="copyEntry(this)">복사</button></div>
+  <p>영국 정부의 테러 입법 독립 검토관 Jonathan Hall이 연례 보고서에서 생성형 AI가 테러 선전과 공격 준비를 “가속”할 수 있다고 경고했다. 그는 generative AI가 텍스트·이미지·오디오·비디오 등 새 콘텐츠를 만들어 테러에 악용될 수 있으며, 기업들이 모델 내부를 충분히 설명하지 않는 상황과 함께 이미 “jailbreaking” 산업이 존재한다고 지적했다. 또한 챗봇이 고립된 개인의 급진화를 돕는 “closed loop”를 만들거나, 잠재적 모집을 선별해 인간 단계로 넘기는 데 활용될 수 있다고 우려했다.</p>
+  <p class="url"><a href="https://www.politico.eu/article/ai-terrorism-uk-government-propaganda-jonathan-hall">https://www.politico.eu/article/ai-terrorism-uk-government-propaganda-jonathan-hall</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

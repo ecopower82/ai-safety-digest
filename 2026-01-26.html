@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-01-26</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-01-26 · 4/4건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-db">
+  <h2>AISLE, 2026.1.26 OpenSSL 12개 제로데이(CVE) 취약점 발견 및 조치 완료</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span> · <span class="deadline">AI-Risk-Explorer에 따르면, AISLE의 자율 분석 결과는 2026년 1월 OpenSSL의 조정된 공개·패치 릴리스로 반영됨</span></span><button type="button" class="copy-btn" data-copy="AISLE, 2026.1.26 OpenSSL 12개 제로데이(CVE) 취약점 발견 및 조치 완료
+
+AISLE는 2025년 8월부터 자율 분석기로 OpenSSL을 추적해 2026년 1월의 조정된 공개 릴리스에서 12개 CVE를 확인했다고 밝혔다. 이 중 일부는 수십 년간 코드에 남아 있었던 것으로 설명되며, 원격 코드 실행 가능성(고위험)과 스택 버퍼 오버플로 등(중·고위험) 다양한 유형이 포함된다. 또한 CVE로 지정되지 않은 6건의 결함도 릴리스 전에 수정이 병합되도록 보고·반영했다고 전했다. OpenSSL 재단은 AISLE의 책임 있는 공개와 기술 보고 품질을 높이 평가하며, 유지보수팀이 검증·패치·다중 브랜치 릴리스 조율까지 수행했다고 언급했다.
+
+https://aisle.com/blog/aisle-discovered-12-out-of-12-openssl-vulnerabilities" onclick="copyEntry(this)">복사</button></div>
+  <p>AISLE는 2025년 8월부터 자율 분석기로 OpenSSL을 추적해 2026년 1월의 조정된 공개 릴리스에서 12개 CVE를 확인했다고 밝혔다. 이 중 일부는 수십 년간 코드에 남아 있었던 것으로 설명되며, 원격 코드 실행 가능성(고위험)과 스택 버퍼 오버플로 등(중·고위험) 다양한 유형이 포함된다. 또한 CVE로 지정되지 않은 6건의 결함도 릴리스 전에 수정이 병합되도록 보고·반영했다고 전했다. OpenSSL 재단은 AISLE의 책임 있는 공개와 기술 보고 품질을 높이 평가하며, 유지보수팀이 검증·패치·다중 브랜치 릴리스 조율까지 수행했다고 언급했다.</p>
+  <p class="url"><a href="https://aisle.com/blog/aisle-discovered-12-out-of-12-openssl-vulnerabilities">https://aisle.com/blog/aisle-discovered-12-out-of-12-openssl-vulnerabilities</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>제약사, AI로 임상시험과 규제 제출 속도 단축 (2026.01.26)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">로이터 통신(Reuters)</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="제약사, AI로 임상시험과 규제 제출 속도 단축 (2026.01.26)
+
+로이터는 제약사들이 AI를 활용해 임상시험 진행과 규제기관에 제출하는 자료 작성·제출 속도를 높이려는 흐름을 다루는 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 사례, 적용 범위(예: 데이터 분석·문서 작성·규제 대응), 관련 규제 변화나 인용된 당사자/수치가 무엇인지 확인이 필요합니다.
+
+https://www.reuters.com/legal/litigation/drugmakers-turn-ai-speed-trials-regulatory-submissions-2026-01-26/" onclick="copyEntry(this)">복사</button></div>
+  <p>로이터는 제약사들이 AI를 활용해 임상시험 진행과 규제기관에 제출하는 자료 작성·제출 속도를 높이려는 흐름을 다루는 것으로 보입니다. 다만 제공된 정보에는 본문 내용이 없어 구체적인 사례, 적용 범위(예: 데이터 분석·문서 작성·규제 대응), 관련 규제 변화나 인용된 당사자/수치가 무엇인지 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.reuters.com/legal/litigation/drugmakers-turn-ai-speed-trials-regulatory-submissions-2026-01-26/">https://www.reuters.com/legal/litigation/drugmakers-turn-ai-speed-trials-regulatory-submissions-2026-01-26/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>트럼프 행정부, Google Gemini로 연방 교통 규정 초안 작성 추진(2026.1.26)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">ProPublica</span></span><button type="button" class="copy-btn" data-copy="트럼프 행정부, Google Gemini로 연방 교통 규정 초안 작성 추진(2026.1.26)
+
+미 교통부(DOT)가 Google Gemini AI를 활용해 연방 교통 규정(Notice of Proposed Rulemaking 등) 초안을 수 분~수십 분 내 생성하는 방안을 내부 시연을 통해 추진 중이라고 ProPublica가 보도했다. DOT는 AI가 규정 작성 업무의 80~90%를 처리하고, 직원은 검토·교정 역할을 맡는다는 구상이며, 목표는 규정 생산 기간을 30일 내로 크게 단축하는 것이다. 다만 일부 DOT 직원과 외부 전문가들은 AI의 오류(hallucinations) 가능성과 책임성 문제로 인해 안전·법적 리스크가 커질 수 있다고 우려했다.
+
+https://www.propublica.org/article/trump-artificial-intelligence-google-gemini-transportation-regulations?%5C=" onclick="copyEntry(this)">복사</button></div>
+  <p>미 교통부(DOT)가 Google Gemini AI를 활용해 연방 교통 규정(Notice of Proposed Rulemaking 등) 초안을 수 분~수십 분 내 생성하는 방안을 내부 시연을 통해 추진 중이라고 ProPublica가 보도했다. DOT는 AI가 규정 작성 업무의 80~90%를 처리하고, 직원은 검토·교정 역할을 맡는다는 구상이며, 목표는 규정 생산 기간을 30일 내로 크게 단축하는 것이다. 다만 일부 DOT 직원과 외부 전문가들은 AI의 오류(hallucinations) 가능성과 책임성 문제로 인해 안전·법적 리스크가 커질 수 있다고 우려했다.</p>
+  <p class="url"><a href="https://www.propublica.org/article/trump-artificial-intelligence-google-gemini-transportation-regulations?%5C=">https://www.propublica.org/article/trump-artificial-intelligence-google-gemini-transportation-regulations?%5C=</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>POPE: Learning to Reason on Hard Problems via Privileged On-Policy Exploration (2026.01.26)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv.org</span></span><button type="button" class="copy-btn" data-copy="POPE: Learning to Reason on Hard Problems via Privileged On-Policy Exploration (2026.01.26)
+
+POPE는 어려운 문제에서 on-policy RL이 거의 정답 롤아웃을 탐색하지 못해 보상과 학습 신호가 0이 되는 문제를 다룹니다. 기존의 entropy bonus, importance ratio clipping 완화, pass@k 직접 최적화 등은 해결이 되지 않거나 최적화를 불안정하게 만들 수 있다고 보고합니다. 대신 인간/오라클 해답의 앞부분을 ‘privileged information’으로 어려운 문제에 결합해 guided rollout에서 non-zero 보상을 얻고, 그 행동이 instruction-following과 reasoning의 시너지로 원래(무가이드) 문제에도 전이된다고 설명합니다. 실험에서는 POPE가 해결 가능한 문제 범위를 넓히고 어려운 추론 벤치마크 성능을 크게 개선했다고 제시합니다.
+
+https://arxiv.org/abs/2601.18779?utm_source=substack&amp;utm_medium=email" onclick="copyEntry(this)">복사</button></div>
+  <p>POPE는 어려운 문제에서 on-policy RL이 거의 정답 롤아웃을 탐색하지 못해 보상과 학습 신호가 0이 되는 문제를 다룹니다. 기존의 entropy bonus, importance ratio clipping 완화, pass@k 직접 최적화 등은 해결이 되지 않거나 최적화를 불안정하게 만들 수 있다고 보고합니다. 대신 인간/오라클 해답의 앞부분을 ‘privileged information’으로 어려운 문제에 결합해 guided rollout에서 non-zero 보상을 얻고, 그 행동이 instruction-following과 reasoning의 시너지로 원래(무가이드) 문제에도 전이된다고 설명합니다. 실험에서는 POPE가 해결 가능한 문제 범위를 넓히고 어려운 추론 벤치마크 성능을 크게 개선했다고 제시합니다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2601.18779?utm_source=substack&amp;utm_medium=email">https://arxiv.org/abs/2601.18779?utm_source=substack&amp;utm_medium=email</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

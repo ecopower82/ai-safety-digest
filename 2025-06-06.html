@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-06-06</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-06-06 · 3/3건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-gov">
+  <h2>(연방정부의 AI 도입을 위한 도구·권한 확보 촉구) (**2025.6.6**)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 하원 감독·정부개혁위원회(United States House Committee on Oversight and Government Reform)</span></span><button type="button" class="copy-btn" data-copy="(연방정부의 AI 도입을 위한 도구·권한 확보 촉구) (**2025.6.6**)
+
+미 하원 감독·정부개혁위원회는 ‘The Federal Government in the Age of Artificial Intelligence’ 주제 청문회를 열고, 연방정부가 AI를 책임 있게 도입해 효율을 높이고 비용을 줄이며 공공서비스를 개선해야 한다고 강조했다. 위원들은 규제 중심 접근이 기술 진전을 저해했다는 취지로, 연방정부가 AI를 효과적으로 배치할 수 있는 도구와 권한이 필요하다고 결론냈다. 또한 AI를 사기·부정지급 탐지, 행정업무 간소화, 민간 상용기술 활용, 데이터센터·에너지 인프라 및 개인정보·보안 보호와 연계해 논의했으며, 생산성 향상 효과로 2028년까지 연간 최대 5320억 달러 규모의 ‘생산성 윈폴’ 가능성을 언급했다.
+
+https://oversight.house.gov/release/wrap-up-congress-must-ensure-the-federal-government-has-tools-to-deploy-artificial-intelligence-effectively-and-efficiently" onclick="copyEntry(this)">복사</button></div>
+  <p>미 하원 감독·정부개혁위원회는 ‘The Federal Government in the Age of Artificial Intelligence’ 주제 청문회를 열고, 연방정부가 AI를 책임 있게 도입해 효율을 높이고 비용을 줄이며 공공서비스를 개선해야 한다고 강조했다. 위원들은 규제 중심 접근이 기술 진전을 저해했다는 취지로, 연방정부가 AI를 효과적으로 배치할 수 있는 도구와 권한이 필요하다고 결론냈다. 또한 AI를 사기·부정지급 탐지, 행정업무 간소화, 민간 상용기술 활용, 데이터센터·에너지 인프라 및 개인정보·보안 보호와 연계해 논의했으며, 생산성 향상 효과로 2028년까지 연간 최대 5320억 달러 규모의 ‘생산성 윈폴’ 가능성을 언급했다.</p>
+  <p class="url"><a href="https://oversight.house.gov/release/wrap-up-congress-must-ensure-the-federal-government-has-tools-to-deploy-artificial-intelligence-effectively-and-efficiently">https://oversight.house.gov/release/wrap-up-congress-must-ensure-the-federal-government-has-tools-to-deploy-artificial-intelligence-effectively-and-efficiently</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>영국 고등법원이 가짜 판례 인용 등 AI 오남용을 막기 위해 변호사들에 긴급 조치 요구(기사·공고 게재일 2025.6.6)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">가디언(theguardian.com)</span></span><button type="button" class="copy-btn" data-copy="영국 고등법원이 가짜 판례 인용 등 AI 오남용을 막기 위해 변호사들에 긴급 조치 요구(기사·공고 게재일 2025.6.6)
+
+고등법원 킹스벤치부 빅토리아 샤프(Victoria Sharp) 법원장은 AI가 그럴듯하지만 사실이 아닌 답을 만들 수 있고, 존재하지 않는 출처나 잘못된 인용을 낳을 수 있다며 심각한 사법 신뢰 훼손을 경고했다. 기사에 따르면 올해 두 사건에서 AI 또는 AI 요약을 활용한 것으로 의심되는 가짜 판례 인용이 문제됐고, 법원은 변호사들에게 전문·윤리적 의무를 확인하고 정확성 검증을 강화하라고 촉구했다. 오남용 시 공적 질책부터 법정모독 절차 및 경찰 수사 의뢰까지 제재 가능성도 언급됐다.
+
+https://www.theguardian.com/technology/2025/jun/06/high-court-tells-uk-lawyers-to-urgently-stop-misuse-of-ai-in-legal-work" onclick="copyEntry(this)">복사</button></div>
+  <p>고등법원 킹스벤치부 빅토리아 샤프(Victoria Sharp) 법원장은 AI가 그럴듯하지만 사실이 아닌 답을 만들 수 있고, 존재하지 않는 출처나 잘못된 인용을 낳을 수 있다며 심각한 사법 신뢰 훼손을 경고했다. 기사에 따르면 올해 두 사건에서 AI 또는 AI 요약을 활용한 것으로 의심되는 가짜 판례 인용이 문제됐고, 법원은 변호사들에게 전문·윤리적 의무를 확인하고 정확성 검증을 강화하라고 촉구했다. 오남용 시 공적 질책부터 법정모독 절차 및 경찰 수사 의뢰까지 제재 가능성도 언급됐다.</p>
+  <p class="url"><a href="https://www.theguardian.com/technology/2025/jun/06/high-court-tells-uk-lawyers-to-urgently-stop-misuse-of-ai-in-legal-work">https://www.theguardian.com/technology/2025/jun/06/high-court-tells-uk-lawyers-to-urgently-stop-misuse-of-ai-in-legal-work</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>49款 국내외 AI 대형모델 안전 테스트 결과, 우리나라는 대체로 중간 수준(2025.6.6)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">남방도시보(南都)</span></span><button type="button" class="copy-btn" data-copy="49款 국내외 AI 대형모델 안전 테스트 결과, 우리나라는 대체로 중간 수준(2025.6.6)
+
+6월 5일 열린 2025 글로벌 디지털경제대회 디지털안전 주포럼 등에서 공개된 연구에 따르면, 국내 AI 대형모델의 공격 성공률은 약 5~6%로 국제 관점에서 ‘중위권’ 수준이며 개선 여지가 있다고 한다. 새로 개발된 ‘灵御(링위) 대형모델 안전 공방 평가 플랫폼’으로 49종 모델을 테스트한 결과, 모델의 AI 성능이 향상됐더라도 안전 위험 방어 수준은 크게 오르지 않았다고 설명했다. 또한 전문가들은 단일 방어를 넘어 운영자 책임 강화와 통합·연합 방어 체계 구축, SOAR 등 자동화된 대응 체계가 필요하다고 강조했다.
+
+https://m.mp.oeeee.com/a/BAAFRD0000202506061092840.html" onclick="copyEntry(this)">복사</button></div>
+  <p>6월 5일 열린 2025 글로벌 디지털경제대회 디지털안전 주포럼 등에서 공개된 연구에 따르면, 국내 AI 대형모델의 공격 성공률은 약 5~6%로 국제 관점에서 ‘중위권’ 수준이며 개선 여지가 있다고 한다. 새로 개발된 ‘灵御(링위) 대형모델 안전 공방 평가 플랫폼’으로 49종 모델을 테스트한 결과, 모델의 AI 성능이 향상됐더라도 안전 위험 방어 수준은 크게 오르지 않았다고 설명했다. 또한 전문가들은 단일 방어를 넘어 운영자 책임 강화와 통합·연합 방어 체계 구축, SOAR 등 자동화된 대응 체계가 필요하다고 강조했다.</p>
+  <p class="url"><a href="https://m.mp.oeeee.com/a/BAAFRD0000202506061092840.html">https://m.mp.oeeee.com/a/BAAFRD0000202506061092840.html</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

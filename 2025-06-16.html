@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-06-16</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-06-16 · 3/3건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-other">
+  <h2>(2025.6.16) 영국·캐나다 정상, 경제·안보·국방 협력 확대 공동성명</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">영국 10 Downing Street(총리실) 공식 보도자료</span></span><button type="button" class="copy-btn" data-copy="(2025.6.16) 영국·캐나다 정상, 경제·안보·국방 협력 확대 공동성명
+
+양국 정상은 2025년 6월 15일 회동 이후 오타와에서 우호와 공동가치를 재확인하며, 중동 및 인도·태평양 긴장, 러시아의 우크라이나 침공에 대한 지지 등을 논의했다. 경제 분야에서는 무역·반도체·양자·디지털·AI·바이오제조·민수핵·핵심광물 협력과 함께 6개월 내 보고를 포함한 Growth and Innovation Partnership을 발표했다. 안보 분야에서는 NATO 및 Five Eyes 틀에서 테러·폭력적 극단주의 대응, 정보수집·사이버 위협 대응, 국경·마약·불법이주 대응 강화와 함께 민간단체 지원을 위한 Joint Canada-UK Common Good Cyber Fund(초기 570만 달러, 5년 집행) 등을 추진하기로 했다.
+
+https://www.wired-gov.net/wg/news.nsf/articles/Joint+statement+between+the+Prime+Minister+of+the+United+Kingdom+and+the+Prime+Minister+of+Canada+16062025132000?open=" onclick="copyEntry(this)">복사</button></div>
+  <p>양국 정상은 2025년 6월 15일 회동 이후 오타와에서 우호와 공동가치를 재확인하며, 중동 및 인도·태평양 긴장, 러시아의 우크라이나 침공에 대한 지지 등을 논의했다. 경제 분야에서는 무역·반도체·양자·디지털·AI·바이오제조·민수핵·핵심광물 협력과 함께 6개월 내 보고를 포함한 Growth and Innovation Partnership을 발표했다. 안보 분야에서는 NATO 및 Five Eyes 틀에서 테러·폭력적 극단주의 대응, 정보수집·사이버 위협 대응, 국경·마약·불법이주 대응 강화와 함께 민간단체 지원을 위한 Joint Canada-UK Common Good Cyber Fund(초기 570만 달러, 5년 집행) 등을 추진하기로 했다.</p>
+  <p class="url"><a href="https://www.wired-gov.net/wg/news.nsf/articles/Joint+statement+between+the+Prime+Minister+of+the+United+Kingdom+and+the+Prime+Minister+of+Canada+16062025132000?open=">https://www.wired-gov.net/wg/news.nsf/articles/Joint+statement+between+the+Prime+Minister+of+the+United+Kingdom+and+the+Prime+Minister+of+Canada+16062025132000?open=</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>베트남, 디지털 기술 산업 관련 법률 제정(2025.6.16)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">MLex</span> · <span class="deadline">베트남 국회가 2025년 6월 16일(토) 디지털 기술 산업 법을 통과했으며, 92% 이상 찬성(441/445)으로 가결됐다.</span></span><button type="button" class="copy-btn" data-copy="베트남, 디지털 기술 산업 관련 법률 제정(2025.6.16)
+
+베트남 국회가 디지털 기술 산업 관련 ‘Law on the Digital Technology Industry’를 통과시켰다. 이 법은 반도체, 인공지능, 디지털 자산 등 분야의 발전을 위한 법적 틀을 마련하고, 민법상 디지털 자산의 법적 지위와 소유·거래·데이터 보안·분쟁 해결, 국가의 역할을 규정한다. 또한 다양한 산업·분야에서 AI의 개발·적용을 장려하고, 디지털 기술 인재를 유치·육성하기 위한 교육·직업훈련 기관 관련 정책도 포함한다.
+
+https://www.mlex.com/mlex/artificial-intelligence/articles/2353545?nl_pk=98f16633-c192-447e-8e63-104f9698e3f7" onclick="copyEntry(this)">복사</button></div>
+  <p>베트남 국회가 디지털 기술 산업 관련 ‘Law on the Digital Technology Industry’를 통과시켰다. 이 법은 반도체, 인공지능, 디지털 자산 등 분야의 발전을 위한 법적 틀을 마련하고, 민법상 디지털 자산의 법적 지위와 소유·거래·데이터 보안·분쟁 해결, 국가의 역할을 규정한다. 또한 다양한 산업·분야에서 AI의 개발·적용을 장려하고, 디지털 기술 인재를 유치·육성하기 위한 교육·직업훈련 기관 관련 정책도 포함한다.</p>
+  <p class="url"><a href="https://www.mlex.com/mlex/artificial-intelligence/articles/2353545?nl_pk=98f16633-c192-447e-8e63-104f9698e3f7">https://www.mlex.com/mlex/artificial-intelligence/articles/2353545?nl_pk=98f16633-c192-447e-8e63-104f9698e3f7</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>젠슨 황, 앤트로픽 비난…“방구석에서만 안전 주장” (2025.6.16)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">AI타임스</span></span><button type="button" class="copy-btn" data-copy="젠슨 황, 앤트로픽 비난…“방구석에서만 안전 주장” (2025.6.16)
+
+젠슨 황 엔비디아 CEO가 다리오 아모데이 앤트로픽 CEO의 “AI로 저숙련 화이트칼라 일자리 50%가 사라질 수 있다”는 발언에 대해 “거의 모든 것에 동의하지 않는다”고 반박했다. 황 CEO는 아모데이가 AI는 앤트로픽만 안전하게 다룰 수 있고, 비용이 너무 비싸며, 너무 강력해 모두가 일자리를 잃을 것이라고 주장한다며 “어두운 방에서 안전하다고 말하지 말라”고 비난했다. 앞서 아모데이는 미국의 칩 수출 통제 강화 지지를 밝힌 바 있고, 엔비디아는 이에 대해 “허풍”이라고 반박했으며 양사는 갈등을 이어갈 것으로 전망된다.
+
+https://www.aitimes.com/news/articleView.html?idxno=171350" onclick="copyEntry(this)">복사</button></div>
+  <p>젠슨 황 엔비디아 CEO가 다리오 아모데이 앤트로픽 CEO의 “AI로 저숙련 화이트칼라 일자리 50%가 사라질 수 있다”는 발언에 대해 “거의 모든 것에 동의하지 않는다”고 반박했다. 황 CEO는 아모데이가 AI는 앤트로픽만 안전하게 다룰 수 있고, 비용이 너무 비싸며, 너무 강력해 모두가 일자리를 잃을 것이라고 주장한다며 “어두운 방에서 안전하다고 말하지 말라”고 비난했다. 앞서 아모데이는 미국의 칩 수출 통제 강화 지지를 밝힌 바 있고, 엔비디아는 이에 대해 “허풍”이라고 반박했으며 양사는 갈등을 이어갈 것으로 전망된다.</p>
+  <p class="url"><a href="https://www.aitimes.com/news/articleView.html?idxno=171350">https://www.aitimes.com/news/articleView.html?idxno=171350</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

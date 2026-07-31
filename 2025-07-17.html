@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-07-17</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-07-17 · 6/6건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-aisi">
+  <h2>국제 네트워크가 ‘agentic testing’ 공동 실험을 통해 AI 에이전트 평가 공통 모범사례를 정교화(2025.7.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-aisi">AISI</span> · <span class="source">AISI-UK</span></span><button type="button" class="copy-btn" data-copy="국제 네트워크가 ‘agentic testing’ 공동 실험을 통해 AI 에이전트 평가 공통 모범사례를 정교화(2025.7.17)
+
+본 실험은 싱가포르·일본·호주·캐나다·유럽집행위원회·프랑스·케냐·대한민국·영국 등 국제 네트워크 참여자들이 agentic evaluations 접근법을 맞추기 위해 3번째로 진행됐다. 민감정보 유출·사기(싱가포르 주도)와 사이버보안 위협(영국 주도) 두 갈래로, 오픈/클로즈드 가중치 모델을 다양한 벤치마크 과제에 대해 평가했으며, 도구 사용·에이전트 궤적·판정 기준·judge LLM 프롬프트 검증 등 방법론 이슈를 중점 학습했다. 사이버보안 분야에서는 온도·시도 횟수·토큰 한도 등 변수가 성능과 행동에 미치는 영향을 분석하고, 대표 과제의 빠른 스윕, 토큰 한도 ‘수확체감’ 지점 설정, 환경/자원 버그로 인한 실패 과제 점검 등을 모범사례로 제시했다.
+
+https://www.aisi.gov.uk/work/international-joint-testing-exercise-agentic-testing" onclick="copyEntry(this)">복사</button></div>
+  <p>본 실험은 싱가포르·일본·호주·캐나다·유럽집행위원회·프랑스·케냐·대한민국·영국 등 국제 네트워크 참여자들이 agentic evaluations 접근법을 맞추기 위해 3번째로 진행됐다. 민감정보 유출·사기(싱가포르 주도)와 사이버보안 위협(영국 주도) 두 갈래로, 오픈/클로즈드 가중치 모델을 다양한 벤치마크 과제에 대해 평가했으며, 도구 사용·에이전트 궤적·판정 기준·judge LLM 프롬프트 검증 등 방법론 이슈를 중점 학습했다. 사이버보안 분야에서는 온도·시도 횟수·토큰 한도 등 변수가 성능과 행동에 미치는 영향을 분석하고, 대표 과제의 빠른 스윕, 토큰 한도 ‘수확체감’ 지점 설정, 환경/자원 버그로 인한 실패 과제 점검 등을 모범사례로 제시했다.</p>
+  <p class="url"><a href="https://www.aisi.gov.uk/work/international-joint-testing-exercise-agentic-testing">https://www.aisi.gov.uk/work/international-joint-testing-exercise-agentic-testing</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>(기사·공고 게재일 2025.07.17) AI와 혁신을 둘러싼 연준의 관점: 책임 있는 도입과 연구·정책 영향</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 연방준비제도(Federal Reserve, 연준)</span></span><button type="button" class="copy-btn" data-copy="(기사·공고 게재일 2025.07.17) AI와 혁신을 둘러싼 연준의 관점: 책임 있는 도입과 연구·정책 영향
+
+연준 리사 D. 쿡(이사)은 AI가 경제 전반에 빠르게 확산되며 생산성·고용·물가 안정에 모두 영향을 줄 수 있어, 통화정책 판단을 위해 시간에 따른 순효과를 연구해야 한다고 밝혔다. 동시에 연준 내부에서는 FOMC가 정책 수립에 AI를 직접 쓰는 것은 아니지만, 직원의 글쓰기·코딩·연구 등 업무를 돕고 LLM의 경제적 통찰 생성 가능성과 한계를 검토 중이라고 설명했다. AI 도입과 관련해서는 ‘사람이 고리(humans are in the loop) 안에 있는 거버넌스·리스크 관리’, 개인정보·사이버보안·기밀 유출 방지, 교육·훈련, 통제된 환경에서의 실습과 실험을 핵심 원칙으로 제시했다.
+
+https://www.federalreserve.gov/newsevents/speech/cook20250717a.htm" onclick="copyEntry(this)">복사</button></div>
+  <p>연준 리사 D. 쿡(이사)은 AI가 경제 전반에 빠르게 확산되며 생산성·고용·물가 안정에 모두 영향을 줄 수 있어, 통화정책 판단을 위해 시간에 따른 순효과를 연구해야 한다고 밝혔다. 동시에 연준 내부에서는 FOMC가 정책 수립에 AI를 직접 쓰는 것은 아니지만, 직원의 글쓰기·코딩·연구 등 업무를 돕고 LLM의 경제적 통찰 생성 가능성과 한계를 검토 중이라고 설명했다. AI 도입과 관련해서는 ‘사람이 고리(humans are in the loop) 안에 있는 거버넌스·리스크 관리’, 개인정보·사이버보안·기밀 유출 방지, 교육·훈련, 통제된 환경에서의 실습과 실험을 핵심 원칙으로 제시했다.</p>
+  <p class="url"><a href="https://www.federalreserve.gov/newsevents/speech/cook20250717a.htm">https://www.federalreserve.gov/newsevents/speech/cook20250717a.htm</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>유럽 집행위, AI Act 자문포럼 참여 신청 공모(2025.7.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">유럽연합 집행위원회(European Commission) 디지털 전략(Digital Strategy)</span> · <span class="deadline">접수마감 2025.9.14, 결과 발표 2026년 초</span></span><button type="button" class="copy-btn" data-copy="유럽 집행위, AI Act 자문포럼 참여 신청 공모(2025.7.17)
+
+유럽 집행위원회는 AI Act 자문포럼(Advisory Forum) 참여를 위한 신청 공모를 시작했다. 시민사회·학계·산업계·중소기업·스타트업 등 이해관계자가 AI 규정의 책임 있고 효과적인 이행에 기여하도록 초청하며, 포럼은 일반 자문기구로서 AI Office 및 필요 시 국가 시장감시 당국에 조언하는 과학 패널의 역할을 보완한다. 자문포럼은 표준화와 이행상의 과제 등 다양한 쟁점에 대해 독립적인 기술 전문성과 균형 잡힌 이해관계자 대표성을 제공하도록 설계됐고, FRA·ENISA 등 EU 기관과 CEN·CENELEC·ETSI 같은 표준화 기관이 영구 위원으로 포함된다. 위원 임기는 2년(1회 연임 가능)이며 무보수로 활동하고, 신청 결과는 2026년 초 발표될 예정이다.
+
+https://digital-strategy.ec.europa.eu/en/funding/european-commission-launches-call-applications-join-ai-act-advisory-forum" onclick="copyEntry(this)">복사</button></div>
+  <p>유럽 집행위원회는 AI Act 자문포럼(Advisory Forum) 참여를 위한 신청 공모를 시작했다. 시민사회·학계·산업계·중소기업·스타트업 등 이해관계자가 AI 규정의 책임 있고 효과적인 이행에 기여하도록 초청하며, 포럼은 일반 자문기구로서 AI Office 및 필요 시 국가 시장감시 당국에 조언하는 과학 패널의 역할을 보완한다. 자문포럼은 표준화와 이행상의 과제 등 다양한 쟁점에 대해 독립적인 기술 전문성과 균형 잡힌 이해관계자 대표성을 제공하도록 설계됐고, FRA·ENISA 등 EU 기관과 CEN·CENELEC·ETSI 같은 표준화 기관이 영구 위원으로 포함된다. 위원 임기는 2년(1회 연임 가능)이며 무보수로 활동하고, 신청 결과는 2026년 초 발표될 예정이다.</p>
+  <p class="url"><a href="https://digital-strategy.ec.europa.eu/en/funding/european-commission-launches-call-applications-join-ai-act-advisory-forum">https://digital-strategy.ec.europa.eu/en/funding/european-commission-launches-call-applications-join-ai-act-advisory-forum</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>2025 AI Safety Index(2025.7.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Future of Life Institute</span> · <span class="deadline">2025년 7월 초(early July) 기준으로 점수 산정되며, xAI의 Grok 4 출시 등 이후 이슈는 반영되지 않음</span></span><button type="button" class="copy-btn" data-copy="2025 AI Safety Index(2025.7.17)
+
+Future of Life Institute가 ‘AI Safety Index - Summer 2025’를 통해 주요 AI 기업을 위험평가, 현재 위해, 안전 프레임워크, 존재론적 안전, 거버넌스·책임성, 정보공유 등 영역에서 평가했다. 전체 등급은 Anthropic이 C+ (2.64)로 가장 높았고, OpenAI가 C (2.10)로 2위를 차지했으며, Zhipu AI와 DeepSeek는 각각 F(0.62), F(0.37)로 가장 낮았다. 보고서는 기업들이 AGI 목표 시점을 제시하지만 존재론적 안전 계획에서 D 이상을 넘지 못하는 등 안전 준비가 목표와 괴리가 크다고 지적하며, 위험한 능력에 대한 실질적 테스트가 7개 중 3개사(Anthropic·OpenAI·Google DeepMind)에 그친다고 밝혔다. 또한 공개 whistleblowing 정책 투명성은 약점으로, OpenAI만 전체 정책을 공개했으며 그 시점은 언론 보도 이후였다고 설명했다.
+
+https://futureoflife.org/ai-safety-index-summer-2025" onclick="copyEntry(this)">복사</button></div>
+  <p>Future of Life Institute가 ‘AI Safety Index - Summer 2025’를 통해 주요 AI 기업을 위험평가, 현재 위해, 안전 프레임워크, 존재론적 안전, 거버넌스·책임성, 정보공유 등 영역에서 평가했다. 전체 등급은 Anthropic이 C+ (2.64)로 가장 높았고, OpenAI가 C (2.10)로 2위를 차지했으며, Zhipu AI와 DeepSeek는 각각 F(0.62), F(0.37)로 가장 낮았다. 보고서는 기업들이 AGI 목표 시점을 제시하지만 존재론적 안전 계획에서 D 이상을 넘지 못하는 등 안전 준비가 목표와 괴리가 크다고 지적하며, 위험한 능력에 대한 실질적 테스트가 7개 중 3개사(Anthropic·OpenAI·Google DeepMind)에 그친다고 밝혔다. 또한 공개 whistleblowing 정책 투명성은 약점으로, OpenAI만 전체 정책을 공개했으며 그 시점은 언론 보도 이후였다고 설명했다.</p>
+  <p class="url"><a href="https://futureoflife.org/ai-safety-index-summer-2025">https://futureoflife.org/ai-safety-index-summer-2025</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>선도 AI 기업들 “용인할 수 없는” 수준의 위험관리…SaferAI·FLI 연구 (기사·공고 게재일 2025.7.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">TIME</span></span><button type="button" class="copy-btn" data-copy="선도 AI 기업들 “용인할 수 없는” 수준의 위험관리…SaferAI·FLI 연구 (기사·공고 게재일 2025.7.17)
+
+TIME에 따르면 SaferAI와 Future of Life Institute(FLI)가 발표한 두 연구에서 주요 AI 기업들의 안전 관련 위험관리 수준이 전반적으로 낮다고 평가됐다. SaferAI 평정에서 최고 점수는 Anthropic(35%)이었고 OpenAI(33%), Meta(22%), Google DeepMind(20%), xAI(18%) 순이었으며, 어떤 회사도 ‘weak’보다 높지 않았다. FLI 평정에서는 Anthropic이 C+로 가장 높았고 OpenAI은 C, Google은 C-였으며, ‘existential safety’ 항목에서는 모든 회사가 D 이하로 평가됐다.
+
+https://time.com/7302757/anthropic-xai-meta-openai-risk-management-2" onclick="copyEntry(this)">복사</button></div>
+  <p>TIME에 따르면 SaferAI와 Future of Life Institute(FLI)가 발표한 두 연구에서 주요 AI 기업들의 안전 관련 위험관리 수준이 전반적으로 낮다고 평가됐다. SaferAI 평정에서 최고 점수는 Anthropic(35%)이었고 OpenAI(33%), Meta(22%), Google DeepMind(20%), xAI(18%) 순이었으며, 어떤 회사도 ‘weak’보다 높지 않았다. FLI 평정에서는 Anthropic이 C+로 가장 높았고 OpenAI은 C, Google은 C-였으며, ‘existential safety’ 항목에서는 모든 회사가 D 이하로 평가됐다.</p>
+  <p class="url"><a href="https://time.com/7302757/anthropic-xai-meta-openai-risk-management-2">https://time.com/7302757/anthropic-xai-meta-openai-risk-management-2</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>AI와 암호화폐에 부과금 검토…기후대응 재원 마련 주장 (2025.7.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">가디언(theguardian.com)</span></span><button type="button" class="copy-btn" data-copy="AI와 암호화폐에 부과금 검토…기후대응 재원 마련 주장 (2025.7.17)
+
+Global Solidarity Levies Task Force의 공동 리더인 로렌스 튜비아나가 에너지 소비가 큰 AI와 암호화폐에 과세해 기후위기 대응 재원을 마련하자고 촉구했다. 특히 비트코인 등 암호화폐는 규제가 거의 없고 에너지 사용이 크며, AI 역시 막대한 자원 소비로 전기 확보 경쟁이 벌어진다고 설명했다. 항공권·전용기(비즈니스/퍼스트 클래스) 신규 부과금에 대해 일부 국가가 합의한 성과가 있었고, 추가로 해운 탄소세·주식 매입 관련 세금 등도 검토 중이라고 전했다. 한편 튜비아나는 프랑스가 2040년 온실가스 감축 목표를 늦추려는 움직임에 우려를 표하며, 지연은 Cop30에서 강한 성과를 어렵게 만들 수 있다고 경고했다.
+
+https://www.theguardian.com/environment/2025/jul/17/tax-ai-crypto-climate-action-paris-accords-envoy-energy-technology" onclick="copyEntry(this)">복사</button></div>
+  <p>Global Solidarity Levies Task Force의 공동 리더인 로렌스 튜비아나가 에너지 소비가 큰 AI와 암호화폐에 과세해 기후위기 대응 재원을 마련하자고 촉구했다. 특히 비트코인 등 암호화폐는 규제가 거의 없고 에너지 사용이 크며, AI 역시 막대한 자원 소비로 전기 확보 경쟁이 벌어진다고 설명했다. 항공권·전용기(비즈니스/퍼스트 클래스) 신규 부과금에 대해 일부 국가가 합의한 성과가 있었고, 추가로 해운 탄소세·주식 매입 관련 세금 등도 검토 중이라고 전했다. 한편 튜비아나는 프랑스가 2040년 온실가스 감축 목표를 늦추려는 움직임에 우려를 표하며, 지연은 Cop30에서 강한 성과를 어렵게 만들 수 있다고 경고했다.</p>
+  <p class="url"><a href="https://www.theguardian.com/environment/2025/jul/17/tax-ai-crypto-climate-action-paris-accords-envoy-energy-technology">https://www.theguardian.com/environment/2025/jul/17/tax-ai-crypto-climate-action-paris-accords-envoy-energy-technology</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-05-24</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-05-24 · 6/6건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-research">
+  <h2>RouteScan: MoE LLM 안전 감사를 GPU expert routing 텔레메트리로 수행 (저자 외 6명, arXiv, 2026.5.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="RouteScan: MoE LLM 안전 감사를 GPU expert routing 텔레메트리로 수행 (저자 외 6명, arXiv, 2026.5.24)
+
+MoE LLM 운영 중 유해 행동을 감사하되, 기존 콘텐츠 기반 감사가 프롬프트/출력 접근으로 개인정보 노출 위험을 갖는 문제를 다룬다. RouteScan은 프리필링 단계에서 expert 모듈에 할당된 활성 GPU 스레드 수를 마이크로아키텍처 지문으로 사용하고, 경량 탐지 파이프라인으로 악성 프롬프트를 식별하도록 실험했다. 공개 MoE LLM들에서 AUROC가 미지 유해 도메인에서 0.93을 초과하고, 새로운 jailbreak wrapper에서는 0.96을 달성했으며, 텔레메트리 기반 프롬프트 복원(inversion) 정보는 제한적이라고 보고했다.
+
+https://arxiv.org/abs/2605.24817v1" onclick="copyEntry(this)">복사</button></div>
+  <p>MoE LLM 운영 중 유해 행동을 감사하되, 기존 콘텐츠 기반 감사가 프롬프트/출력 접근으로 개인정보 노출 위험을 갖는 문제를 다룬다. RouteScan은 프리필링 단계에서 expert 모듈에 할당된 활성 GPU 스레드 수를 마이크로아키텍처 지문으로 사용하고, 경량 탐지 파이프라인으로 악성 프롬프트를 식별하도록 실험했다. 공개 MoE LLM들에서 AUROC가 미지 유해 도메인에서 0.93을 초과하고, 새로운 jailbreak wrapper에서는 0.96을 달성했으며, 텔레메트리 기반 프롬프트 복원(inversion) 정보는 제한적이라고 보고했다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.24817v1">https://arxiv.org/abs/2605.24817v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>Reflect-Guard: 저자 외 6명, arXiv, 2026.5.24</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="Reflect-Guard: 저자 외 6명, arXiv, 2026.5.24
+
+Reflect-Guard는 Llama Guard류 안전 분류기가 역할극/허구 프레이밍/간접 요청 등으로 악의 의도를 숨기는 적대적 프롬프트에 취약한 문제를 다룬다. GPT-4o-mini의 분석을 구조화된 논리적 self-reflection 어노테이션으로 증류한 뒤, QLoRA로 Llama-Guard-3-8B를 1000개 학습 예시와 약 0.5% 파라미터 업데이트(약 42M)로 파인튜닝하여 verdict 전 self-reflection을 생성하게 한다. WildGuardTest에서 F1 0.770→0.842(+7.2pp), 적대적 프롬프트 recall 0.513→0.921(+40.8pp)로 개선되고, JailbreakBench에서 공격 성공률 10.3%→1.8%로 82.5% 상대 감소한다.
+
+https://arxiv.org/abs/2605.24834v1" onclick="copyEntry(this)">복사</button></div>
+  <p>Reflect-Guard는 Llama Guard류 안전 분류기가 역할극/허구 프레이밍/간접 요청 등으로 악의 의도를 숨기는 적대적 프롬프트에 취약한 문제를 다룬다. GPT-4o-mini의 분석을 구조화된 논리적 self-reflection 어노테이션으로 증류한 뒤, QLoRA로 Llama-Guard-3-8B를 1000개 학습 예시와 약 0.5% 파라미터 업데이트(약 42M)로 파인튜닝하여 verdict 전 self-reflection을 생성하게 한다. WildGuardTest에서 F1 0.770→0.842(+7.2pp), 적대적 프롬프트 recall 0.513→0.921(+40.8pp)로 개선되고, JailbreakBench에서 공격 성공률 10.3%→1.8%로 82.5% 상대 감소한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.24834v1">https://arxiv.org/abs/2605.24834v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>정책 명세로부터 안전 테스트를 체계적으로 생성하는 POLARIS (저자 외 6명, arXiv, 2026.5.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="정책 명세로부터 안전 테스트를 체계적으로 생성하는 POLARIS (저자 외 6명, arXiv, 2026.5.24)
+
+POLARIS는 자연어 정책을 FOL로 변환해 정책 규칙과 구체적 테스트 케이스 간 추적 가능성을 만들고, 이를 바탕으로 안전 정책 위반 시나리오를 탐색·생성하는 문제를 다룬다. Semantic Policy Graph를 구성한 뒤 그래프 경로를 체계적으로 탐색해 조합적 위반 패턴을 찾아, 이를 실행 가능한 자연어 테스트 쿼리로 인스턴스화하는 방식으로 커버리지 기반·재현 가능한 안전 평가를 수행한다. 실험에서 POLARIS는 기존 베이스라인 대비 더 높은 정책 커버리지와 더 많은 공격 성공 건수를 보였다.
+
+https://arxiv.org/abs/2605.24883v1" onclick="copyEntry(this)">복사</button></div>
+  <p>POLARIS는 자연어 정책을 FOL로 변환해 정책 규칙과 구체적 테스트 케이스 간 추적 가능성을 만들고, 이를 바탕으로 안전 정책 위반 시나리오를 탐색·생성하는 문제를 다룬다. Semantic Policy Graph를 구성한 뒤 그래프 경로를 체계적으로 탐색해 조합적 위반 패턴을 찾아, 이를 실행 가능한 자연어 테스트 쿼리로 인스턴스화하는 방식으로 커버리지 기반·재현 가능한 안전 평가를 수행한다. 실험에서 POLARIS는 기존 베이스라인 대비 더 높은 정책 커버리지와 더 많은 공격 성공 건수를 보였다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.24883v1">https://arxiv.org/abs/2605.24883v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>대규모 언어모델 파인튜닝 라이프사이클의 보안 위협·방어·평가·향후과제 (저자 외 3명, arXiv, 2026.5.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="대규모 언어모델 파인튜닝 라이프사이클의 보안 위협·방어·평가·향후과제 (저자 외 3명, arXiv, 2026.5.24)
+
+파인튜닝이 학습데이터·파라미터 업데이트·재사용 컴포넌트에 의존한다는 점에서, 공격이 라이프사이클 전 단계(프리-튜닝/듀링-튜닝/포스트-튜닝)에 걸쳐 어떻게 달라지는지와 방어가 어떻게 비교·평가되어야 하는지를 다룬다. 개입 시점에 따라 공격·방어를 3단계로 분류하는 프레임워크를 제시하고, 동일한 모델/하드웨어/프로토콜 하에서 단일 단계 및 교차 단계(서로 다른 단계의 공격-방어 조합) 실험으로 통합 평가를 수행한다. 결과로 가중치 편집 공격은 초기 모델에서 효과적이었으나 현대 오픈소스 LLM에서는 영향이 사라지고, 교차언어 백도어 전이는 더 큰 스케일에서 “거의 완벽”으로 보고되었지만 테스트된 1B-4B 모델에서는 완전히 실패했으며, 단일 단계 방어는 단계 간 일반화가 거의 되지 않는다고 보고한다.
+
+https://arxiv.org/abs/2605.25073v1" onclick="copyEntry(this)">복사</button></div>
+  <p>파인튜닝이 학습데이터·파라미터 업데이트·재사용 컴포넌트에 의존한다는 점에서, 공격이 라이프사이클 전 단계(프리-튜닝/듀링-튜닝/포스트-튜닝)에 걸쳐 어떻게 달라지는지와 방어가 어떻게 비교·평가되어야 하는지를 다룬다. 개입 시점에 따라 공격·방어를 3단계로 분류하는 프레임워크를 제시하고, 동일한 모델/하드웨어/프로토콜 하에서 단일 단계 및 교차 단계(서로 다른 단계의 공격-방어 조합) 실험으로 통합 평가를 수행한다. 결과로 가중치 편집 공격은 초기 모델에서 효과적이었으나 현대 오픈소스 LLM에서는 영향이 사라지고, 교차언어 백도어 전이는 더 큰 스케일에서 “거의 완벽”으로 보고되었지만 테스트된 1B-4B 모델에서는 완전히 실패했으며, 단일 단계 방어는 단계 간 일반화가 거의 되지 않는다고 보고한다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.25073v1">https://arxiv.org/abs/2605.25073v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>미디어 추천에서 자살 유발 에코체인을 차단하는 RankAid (저자 외 3명, arXiv, 2026.5.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="미디어 추천에서 자살 유발 에코체인을 차단하는 RankAid (저자 외 3명, arXiv, 2026.5.24)
+
+취약 사용자의 자살사고 징후가 있을 때 추천 시스템이 위험 콘텐츠 에코체인에 가두는 문제를 다루며, 기존 모델의 예측 관련성은 유지하면서 임상 안전을 우선하는 재랭킹을 제안한다. MovieLens 1M에서 LLM으로 임상 위험/치료 가치 라벨을 만든 뒤, RankAid를 기존 추천 모델 위의 add-on 레이어로 적용해 위기 피크 시 위험 아이템 추천을 차단하고 감정 완화를 돕는 피드 재구성을 시뮬레이션했다. 핵심 결과로 위기 피크 동안 유해 콘텐츠 추천을 성공적으로 차단하면서 NDCG 같은 표준 정확도 지표에서 “통제된 허용 수준의 하락”이 나타났고, 비대칭 하이퍼파라미터로 개입 강도를 임상 가이드라인에 맞춰 조정할 수 있다.
+
+https://arxiv.org/abs/2605.25258v1" onclick="copyEntry(this)">복사</button></div>
+  <p>취약 사용자의 자살사고 징후가 있을 때 추천 시스템이 위험 콘텐츠 에코체인에 가두는 문제를 다루며, 기존 모델의 예측 관련성은 유지하면서 임상 안전을 우선하는 재랭킹을 제안한다. MovieLens 1M에서 LLM으로 임상 위험/치료 가치 라벨을 만든 뒤, RankAid를 기존 추천 모델 위의 add-on 레이어로 적용해 위기 피크 시 위험 아이템 추천을 차단하고 감정 완화를 돕는 피드 재구성을 시뮬레이션했다. 핵심 결과로 위기 피크 동안 유해 콘텐츠 추천을 성공적으로 차단하면서 NDCG 같은 표준 정확도 지표에서 “통제된 허용 수준의 하락”이 나타났고, 비대칭 하이퍼파라미터로 개입 강도를 임상 가이드라인에 맞춰 조정할 수 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.25258v1">https://arxiv.org/abs/2605.25258v1</a></p>
+</article>
+<article class="entry cat-research">
+  <h2>저자 외 2명, Furina: Fragmented Uncertainty-Driven Refusal Instability Attack, arXiv, 2026.5.24</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-research">연구</span> · <span class="source">arXiv</span> · <span class="deadline">분야: 안전</span></span><button type="button" class="copy-btn" data-copy="저자 외 2명, Furina: Fragmented Uncertainty-Driven Refusal Instability Attack, arXiv, 2026.5.24
+
+LLM/MLLM의 안전 정렬이 이진 임계값처럼 동작한다는 가정을 깨고, 안전 거부가 “불안정 영역”에서 섬세한 교란에 의해 확률적으로 흔들리는 세팅을 다룬다. 외부/내부 신호를 함께 쓰는 다중 지표 진단 프레임워크로 불안정 입력에서 출력 불확실성은 증가하지만 내부 안전 활성은 감소하는 “디커플링” 시그니처를 실험적으로 식별하고, 이를 유도하는 장면-앵커드(fragmented) 프롬프트 기반 재잘브레이크 Furina를 제안한다. HarmBench에서 강한 단일/다중 턴 기준선을 능가하며, MM-SafetyBench에서도 경쟁 성능을 보였고, 코드가 공개되어 있다.
+
+https://arxiv.org/abs/2605.26158v1" onclick="copyEntry(this)">복사</button></div>
+  <p>LLM/MLLM의 안전 정렬이 이진 임계값처럼 동작한다는 가정을 깨고, 안전 거부가 “불안정 영역”에서 섬세한 교란에 의해 확률적으로 흔들리는 세팅을 다룬다. 외부/내부 신호를 함께 쓰는 다중 지표 진단 프레임워크로 불안정 입력에서 출력 불확실성은 증가하지만 내부 안전 활성은 감소하는 “디커플링” 시그니처를 실험적으로 식별하고, 이를 유도하는 장면-앵커드(fragmented) 프롬프트 기반 재잘브레이크 Furina를 제안한다. HarmBench에서 강한 단일/다중 턴 기준선을 능가하며, MM-SafetyBench에서도 경쟁 성능을 보였고, 코드가 공개되어 있다.</p>
+  <p class="url"><a href="https://arxiv.org/abs/2605.26158v1">https://arxiv.org/abs/2605.26158v1</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

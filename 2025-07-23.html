@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2025-07-23</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2025-07-23 · 6/6건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-gov">
+  <h2>백악관, ‘America’s AI Action Plan’ 공개(2025.7.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 백악관(White House)</span></span><button type="button" class="copy-btn" data-copy="백악관, ‘America’s AI Action Plan’ 공개(2025.7.23)
+
+백악관은 트럼프 대통령의 AI 관련 행정명령에 따라 ‘Winning the AI Race: America’s AI Action Plan’을 발표했다. 이 계획은 Accelerating Innovation, Building American AI Infrastructure, Leading in International Diplomacy and Security 등 3개 축에서 90개 이상 연방 정책 과제를 제시하며, 미국의 AI 수출 패키지 제공, 데이터센터·반도체 공장 인허가 신속화, AI 개발·도입을 가로막는 규제 완화, 프론티어 모델 조달 가이드라인 업데이트 등을 포함한다. 백악관은 이를 통해 미국의 AI 경쟁력과 국가안보를 강화하고 동맹과의 글로벌 협력을 확대하겠다고 밝혔다.
+
+https://www.whitehouse.gov/articles/2025/07/white-house-unveils-americas-ai-action-plan" onclick="copyEntry(this)">복사</button></div>
+  <p>백악관은 트럼프 대통령의 AI 관련 행정명령에 따라 ‘Winning the AI Race: America’s AI Action Plan’을 발표했다. 이 계획은 Accelerating Innovation, Building American AI Infrastructure, Leading in International Diplomacy and Security 등 3개 축에서 90개 이상 연방 정책 과제를 제시하며, 미국의 AI 수출 패키지 제공, 데이터센터·반도체 공장 인허가 신속화, AI 개발·도입을 가로막는 규제 완화, 프론티어 모델 조달 가이드라인 업데이트 등을 포함한다. 백악관은 이를 통해 미국의 AI 경쟁력과 국가안보를 강화하고 동맹과의 글로벌 협력을 확대하겠다고 밝혔다.</p>
+  <p class="url"><a href="https://www.whitehouse.gov/articles/2025/07/white-house-unveils-americas-ai-action-plan">https://www.whitehouse.gov/articles/2025/07/white-house-unveils-americas-ai-action-plan</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>미국 AI 기술 ‘풀스택’ 수출을 위한 American AI Exports Program 추진(2025.7.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 백악관(whitehouse.gov)</span></span><button type="button" class="copy-btn" data-copy="미국 AI 기술 ‘풀스택’ 수출을 위한 American AI Exports Program 추진(2025.7.23)
+
+대상 일정: 본 행정명령일로부터 90일 내 상무부가 American AI Exports Program을 수립·시행, 제안 공모는 공고 후 90일 이내 제출
+
+미국 백악관은 2025년 7월 23일자 행정명령으로 미국 AI 기술의 해외 채택을 확대하고, 적대국이 개발한 AI에 대한 국제 의존을 줄이기 위한 정책을 제시했다. 상무부는 외교·OSTP 등과 협의해 산업 주도 컨소시엄의 제안을 받아 미국의 AI-최적 하드웨어·데이터 파이프라인·AI 모델·보안조치·응용사례를 포함한 ‘풀스택’ 수출 패키지를 선정하고, 특정 국가/지역을 대상으로 배치하도록 한다. 또한 Economic Diplomacy Action Group(EDAG)이 우선 수출 패키지에 연계할 연방 금융수단을 조정하며, 상무부·국무부·국방부·에너지부·OSTP가 제안 평가 및 우선 패키지 지정을 담당한다.
+
+https://www.whitehouse.gov/presidential-actions/2025/07/promoting-the-export-of-the-american-ai-technology-stack" onclick="copyEntry(this)">복사</button></div>
+  <p>대상 일정: 본 행정명령일로부터 90일 내 상무부가 American AI Exports Program을 수립·시행, 제안 공모는 공고 후 90일 이내 제출</p>
+<p>미국 백악관은 2025년 7월 23일자 행정명령으로 미국 AI 기술의 해외 채택을 확대하고, 적대국이 개발한 AI에 대한 국제 의존을 줄이기 위한 정책을 제시했다. 상무부는 외교·OSTP 등과 협의해 산업 주도 컨소시엄의 제안을 받아 미국의 AI-최적 하드웨어·데이터 파이프라인·AI 모델·보안조치·응용사례를 포함한 ‘풀스택’ 수출 패키지를 선정하고, 특정 국가/지역을 대상으로 배치하도록 한다. 또한 Economic Diplomacy Action Group(EDAG)이 우선 수출 패키지에 연계할 연방 금융수단을 조정하며, 상무부·국무부·국방부·에너지부·OSTP가 제안 평가 및 우선 패키지 지정을 담당한다.</p>
+  <p class="url"><a href="https://www.whitehouse.gov/presidential-actions/2025/07/promoting-the-export-of-the-american-ai-technology-stack">https://www.whitehouse.gov/presidential-actions/2025/07/promoting-the-export-of-the-american-ai-technology-stack</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>AI 데이터센터·전력 등 인프라의 연방 인허가를 신속화(2025.7.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 백악관(whitehouse.gov)</span></span><button type="button" class="copy-btn" data-copy="AI 데이터센터·전력 등 인프라의 연방 인허가를 신속화(2025.7.23)
+
+연방 규제 부담을 줄이고, 연방 소유 토지·자원을 활용해 AI 데이터센터 및 관련 전력·반도체·네트워크·저장 인프라의 신속한 구축을 추진하는 내용의 행정명령이다. 상무부 주도로 ‘Qualifying Project’에 대해 대출·보증·보조금·세제 인센티브·오프테이크 계약 등 금융지원을 마련하고, NEPA 환경검토의 효율화를 위해 범주적 면제(categorical exclusions) 확대 및 FAST-41(신속 검토) 적용 절차를 정한다. 또한 EPA가 브라운필드·슈퍼펀드 부지의 활용을 돕는 지침을 마련하고, 내륙수역·생물종 등 관련 인허가 절차도 프로그램 수준 협의·전국 허가 검토 등을 통해 단축하도록 했다.
+
+https://www.whitehouse.gov/presidential-actions/2025/07/accelerating-federal-permitting-of-data-center-infrastructure" onclick="copyEntry(this)">복사</button></div>
+  <p>연방 규제 부담을 줄이고, 연방 소유 토지·자원을 활용해 AI 데이터센터 및 관련 전력·반도체·네트워크·저장 인프라의 신속한 구축을 추진하는 내용의 행정명령이다. 상무부 주도로 ‘Qualifying Project’에 대해 대출·보증·보조금·세제 인센티브·오프테이크 계약 등 금융지원을 마련하고, NEPA 환경검토의 효율화를 위해 범주적 면제(categorical exclusions) 확대 및 FAST-41(신속 검토) 적용 절차를 정한다. 또한 EPA가 브라운필드·슈퍼펀드 부지의 활용을 돕는 지침을 마련하고, 내륙수역·생물종 등 관련 인허가 절차도 프로그램 수준 협의·전국 허가 검토 등을 통해 단축하도록 했다.</p>
+  <p class="url"><a href="https://www.whitehouse.gov/presidential-actions/2025/07/accelerating-federal-permitting-of-data-center-infrastructure">https://www.whitehouse.gov/presidential-actions/2025/07/accelerating-federal-permitting-of-data-center-infrastructure</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>연방정부 조달에서 DEI 등 이념 편향을 배제한 “unbiased AI” LLM만 구매하도록 지침·계약 의무화(2025.7.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 백악관(whitehouse.gov)</span></span><button type="button" class="copy-btn" data-copy="연방정부 조달에서 DEI 등 이념 편향을 배제한 “unbiased AI” LLM만 구매하도록 지침·계약 의무화(2025.7.23)
+
+발행일로부터 120일 내 OMB 등이 이행지침을 발행, 이후 각 기관은 90일 내 준수 절차를 마련하도록 함
+
+본문 요약: 백악관은 연방정부가 대형언어모델(LLM)을 조달할 때 사실성(truth-seeking)과 이념 중립(ideological neutrality)을 원칙으로 삼아, DEI 등 이념 의제가 정확성과 진실성을 훼손하지 않도록 하겠다고 밝혔다. 이를 위해 OMB 등이 120일 내 이행지침을 내고, 각 기관은 해당 지침 이후 체결하는 LLM 계약에 준수 조항과 미준수 시 종료·해지 비용을 공급자에 부과하는 조건을 포함하도록 요구한다. 또한 국가안보 시스템 사용 등에는 예외를 둘 수 있으며, 법령과 예산 집행 가능성에 따라 시행된다고 명시했다.
+
+https://www.whitehouse.gov/presidential-actions/2025/07/preventing-woke-ai-in-the-federal-government" onclick="copyEntry(this)">복사</button></div>
+  <p>발행일로부터 120일 내 OMB 등이 이행지침을 발행, 이후 각 기관은 90일 내 준수 절차를 마련하도록 함</p>
+<p>본문 요약: 백악관은 연방정부가 대형언어모델(LLM)을 조달할 때 사실성(truth-seeking)과 이념 중립(ideological neutrality)을 원칙으로 삼아, DEI 등 이념 의제가 정확성과 진실성을 훼손하지 않도록 하겠다고 밝혔다. 이를 위해 OMB 등이 120일 내 이행지침을 내고, 각 기관은 해당 지침 이후 체결하는 LLM 계약에 준수 조항과 미준수 시 종료·해지 비용을 공급자에 부과하는 조건을 포함하도록 요구한다. 또한 국가안보 시스템 사용 등에는 예외를 둘 수 있으며, 법령과 예산 집행 가능성에 따라 시행된다고 명시했다.</p>
+  <p class="url"><a href="https://www.whitehouse.gov/presidential-actions/2025/07/preventing-woke-ai-in-the-federal-government">https://www.whitehouse.gov/presidential-actions/2025/07/preventing-woke-ai-in-the-federal-government</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>트럼프, AI 법 ‘모라토리엄’ 부활(2025.7.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">더버지(The Verge)</span> · <span class="deadline">연방 예산 집행에서 주(州)의 AI 규제가 ‘혁신을 저해’한다고 판단되면 해당 주에 대한 AI 관련 연방 자금이 제한될 수 있으며, FCC는 주(州) AI 규제가 통신법상 권한 수행을 방해하는지 평가할 계획이다.</span></span><button type="button" class="copy-btn" data-copy="트럼프, AI 법 ‘모라토리엄’ 부활(2025.7.23)
+
+백악관이 ‘AI Action Plan’을 공개하며, 주(州)의 AI 규제가 연방 AI 관련 재정 지원에 불리하게 작용할 수 있는 조항을 포함했다. 구체적으로 OMB가 AI 관련 재량(Discretionary) 자금 프로그램에서 주의 규제 환경을 고려해, 규제가 자금의 효과를 저해할 수 있다고 판단되면 자금을 제한하도록 했다. 또한 FCC가 주의 AI 규제가 1934년 통신법에 따른 연방의 의무·권한 수행을 방해하는지 평가하되, 제재 방식은 아직 언급되지 않았다.
+
+https://www.theverge.com/ai-artificial-intelligence/712537/trump-ai-action-plan-white-house-ai-law-moratorium" onclick="copyEntry(this)">복사</button></div>
+  <p>백악관이 ‘AI Action Plan’을 공개하며, 주(州)의 AI 규제가 연방 AI 관련 재정 지원에 불리하게 작용할 수 있는 조항을 포함했다. 구체적으로 OMB가 AI 관련 재량(Discretionary) 자금 프로그램에서 주의 규제 환경을 고려해, 규제가 자금의 효과를 저해할 수 있다고 판단되면 자금을 제한하도록 했다. 또한 FCC가 주의 AI 규제가 1934년 통신법에 따른 연방의 의무·권한 수행을 방해하는지 평가하되, 제재 방식은 아직 언급되지 않았다.</p>
+  <p class="url"><a href="https://www.theverge.com/ai-artificial-intelligence/712537/trump-ai-action-plan-white-house-ai-law-moratorium">https://www.theverge.com/ai-artificial-intelligence/712537/trump-ai-action-plan-white-house-ai-law-moratorium</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>FDA AI ‘Elsa’가 존재하지 않는 연구를 만들어내고 검증 부담을 늘렸다는 지적 (2025.7.23)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">CNN</span> · <span class="deadline">FDA는 6월 출시 당시 “ahead of schedule and under budget” 및 임상 프로토콜 검토·과학 평가 기간 단축 등을 내세웠으나, 내부적으로는 AI hallucination(허위 연구 생성)과 문서 접근 한계로 인해 신뢰성 문제가 제기됨</span></span><button type="button" class="copy-btn" data-copy="FDA AI ‘Elsa’가 존재하지 않는 연구를 만들어내고 검증 부담을 늘렸다는 지적 (2025.7.23)
+
+CNN에 따르면 미국 FDA의 AI 도구 ‘Elsa’는 회의록·요약·이메일 템플릿 작성에는 활용될 수 있지만, 일부 직원들은 존재하지 않는 연구를 만들어내거나 연구를 잘못 표현하는 AI hallucination 문제가 있다고 전했다. 또한 Elsa가 업계 제출자료 등 핵심 문서에 충분히 접근하지 못해 의약품 승인 관련 세부 확인 등 검토 업무에는 현재로선 제한적이며, 사용자가 결과를 이중·삼중으로 확인해야 해 오히려 시간 낭비가 늘 수 있다고 지적했다. FDA 측은 Elsa 사용이 선택적이고, 향후 개인 문서 라이브러리 기능 등 개선과 함께 요약에 인용된 근거 확인 기능이 확대될 것이라고 설명했다.
+
+https://edition.cnn.com/2025/07/23/politics/fda-ai-elsa-drug-regulation-makary" onclick="copyEntry(this)">복사</button></div>
+  <p>CNN에 따르면 미국 FDA의 AI 도구 ‘Elsa’는 회의록·요약·이메일 템플릿 작성에는 활용될 수 있지만, 일부 직원들은 존재하지 않는 연구를 만들어내거나 연구를 잘못 표현하는 AI hallucination 문제가 있다고 전했다. 또한 Elsa가 업계 제출자료 등 핵심 문서에 충분히 접근하지 못해 의약품 승인 관련 세부 확인 등 검토 업무에는 현재로선 제한적이며, 사용자가 결과를 이중·삼중으로 확인해야 해 오히려 시간 낭비가 늘 수 있다고 지적했다. FDA 측은 Elsa 사용이 선택적이고, 향후 개인 문서 라이브러리 기능 등 개선과 함께 요약에 인용된 근거 확인 기능이 확대될 것이라고 설명했다.</p>
+  <p class="url"><a href="https://edition.cnn.com/2025/07/23/politics/fda-ai-elsa-drug-regulation-makary">https://edition.cnn.com/2025/07/23/politics/fda-ai-elsa-drug-regulation-makary</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>

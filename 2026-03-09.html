@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest 2026-03-09</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">2026-03-09 · 9/11건 요약</div>
+  <div class="nav"><a href="index.html">← 전체 목록</a></div>
+</header>
+<article class="entry cat-gov">
+  <h2>NIST, 배포된 AI 시스템 사후 모니터링의 과제 정리(2026.3.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">미국 국립표준기술연구소(NIST)</span></span><button type="button" class="copy-btn" data-copy="NIST, 배포된 AI 시스템 사후 모니터링의 과제 정리(2026.3.9)
+
+인공지능이 상용·정부 분야에 널리 도입되면서 실사용 환경에서의 사후 모니터링 필요성이 커지고 있다는 배경에서 NIST AI 800-4 보고서를 소개했다. 보고서는 기능·운영·인간요인·보안·컴플라이언스·대규모 영향 등 6가지 모니터링 범주를 제시하고, 각 범주별 격차(gaps)·장벽(barriers)과 함께 공통 과제(예: 신뢰할 수 있는 가이드라인 부족, 정보 공유 생태계 미성숙) 및 공개 질문을 정리했다. 특히 성능 저하와 drift 탐지, 분산 인프라의 로그 단편화, 모니터링 부담을 사용자에게 줄이는 방법, 위험 수준에 따른 모니터링 설계 등 구체적 쟁점을 강조한다.
+
+https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems" onclick="copyEntry(this)">복사</button></div>
+  <p>인공지능이 상용·정부 분야에 널리 도입되면서 실사용 환경에서의 사후 모니터링 필요성이 커지고 있다는 배경에서 NIST AI 800-4 보고서를 소개했다. 보고서는 기능·운영·인간요인·보안·컴플라이언스·대규모 영향 등 6가지 모니터링 범주를 제시하고, 각 범주별 격차(gaps)·장벽(barriers)과 함께 공통 과제(예: 신뢰할 수 있는 가이드라인 부족, 정보 공유 생태계 미성숙) 및 공개 질문을 정리했다. 특히 성능 저하와 drift 탐지, 분산 인프라의 로그 단편화, 모니터링 부담을 사용자에게 줄이는 방법, 위험 수준에 따른 모니터링 설계 등 구체적 쟁점을 강조한다.</p>
+  <p class="url"><a href="https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems">https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems</a></p>
+</article>
+<article class="entry cat-gov">
+  <h2>Establishment of the awcft project maven (2026.3.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-gov">정부기관</span> · <span class="source">govexec.com</span></span><button type="button" class="copy-btn" data-copy="Establishment of the awcft project maven (2026.3.9)
+
+요약불가
+
+https://www.govexec.com/media/gbc/docs/pdfs_edit/establishment_of_the_awcft_project_maven.pdf" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.govexec.com/media/gbc/docs/pdfs_edit/establishment_of_the_awcft_project_maven.pdf">https://www.govexec.com/media/gbc/docs/pdfs_edit/establishment_of_the_awcft_project_maven.pdf</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>(2026.3.9) McKinsey 내부 AI 플랫폼 ‘Lilli’에서 SQL 인젝션 등 취약점으로 대량 데이터 접근 가능했다는 보안 연구</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">CodeWall(블로그)</span> · <span class="deadline">2026.3.9 공개(책임 있는 공개 절차에 따라 2026.2.28~3.2에 탐지·대응 진행)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.9) McKinsey 내부 AI 플랫폼 ‘Lilli’에서 SQL 인젝션 등 취약점으로 대량 데이터 접근 가능했다는 보안 연구
+
+CodeWall은 McKinsey의 내부 AI 플랫폼 Lilli에 대해 자율형 공격 에이전트를 사용해 무인증 상태에서 프로덕션 데이터베이스에 읽기·쓰기 접근이 가능했다고 주장했다. 공개된 API 문서 중 일부 비보호 엔드포인트에서 JSON 키를 SQL에 직접 결합하는 방식의 SQL 인젝션이 발견됐고, 반복 탐색을 통해 실제 직원 식별자와 대규모 데이터가 유출되는 정황을 확인했다고 밝혔다. 또한 SQL 인젝션과 IDOR 취약점을 연계해 사용자 검색 기록 등 교차 사용자 데이터 접근 가능성, 프롬프트 레이어(시스템 프롬프트·모델 설정) 변조 시 가드레일 제거·오염된 조언·데이터 유출 유도 등 영향이 있을 수 있다고 설명했다. 책임 있는 공개 일정에 따라 McKinsey가 무인증 엔드포인트 패치 및 공개 API 문서 차단 등을 수행했다고 연구자가 서술했다.
+
+https://codewall.ai/blog/how-we-hacked-mckinseys-ai-platform" onclick="copyEntry(this)">복사</button></div>
+  <p>CodeWall은 McKinsey의 내부 AI 플랫폼 Lilli에 대해 자율형 공격 에이전트를 사용해 무인증 상태에서 프로덕션 데이터베이스에 읽기·쓰기 접근이 가능했다고 주장했다. 공개된 API 문서 중 일부 비보호 엔드포인트에서 JSON 키를 SQL에 직접 결합하는 방식의 SQL 인젝션이 발견됐고, 반복 탐색을 통해 실제 직원 식별자와 대규모 데이터가 유출되는 정황을 확인했다고 밝혔다. 또한 SQL 인젝션과 IDOR 취약점을 연계해 사용자 검색 기록 등 교차 사용자 데이터 접근 가능성, 프롬프트 레이어(시스템 프롬프트·모델 설정) 변조 시 가드레일 제거·오염된 조언·데이터 유출 유도 등 영향이 있을 수 있다고 설명했다. 책임 있는 공개 일정에 따라 McKinsey가 무인증 엔드포인트 패치 및 공개 API 문서 차단 등을 수행했다고 연구자가 서술했다.</p>
+  <p class="url"><a href="https://codewall.ai/blog/how-we-hacked-mckinseys-ai-platform">https://codewall.ai/blog/how-we-hacked-mckinseys-ai-platform</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>AI가 생성한 데이팅 프로필이 중국이 운영하는 온라인 사기(로맨스 스캠)로 유도한다 (2026.3.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">Graphika 리포트</span></span><button type="button" class="copy-btn" data-copy="AI가 생성한 데이팅 프로필이 중국이 운영하는 온라인 사기(로맨스 스캠)로 유도한다 (2026.3.9)
+
+소셜미디어에서 로맨스 상대를 찾는 이용자를 대상으로 AI로 만든 이미지·영상 등을 활용해 가짜 데이팅 후보를 홍보하는 크로스플랫폼 사기 생태계가 소개됐다. 이용자는 시니어·부유층·특정 인종 등 테마의 데이팅 사이트로 유인된 뒤, 이용료 손실과 함께 개인정보(의료·성병 관련 정보 포함) 유출 위험에 노출될 수 있다. Graphika는 최근 발견된 네트워크가 합성 미디어로 유혹하고, 여러 데이팅 사이트를 입구로 삼아 소수의 목적지 사기 도메인으로 사용자를 이동시키는 방식으로 규모와 정교함을 키운다고 분석했다.
+
+https://graphika.com/reports/fauxmantic-overtures" onclick="copyEntry(this)">복사</button></div>
+  <p>소셜미디어에서 로맨스 상대를 찾는 이용자를 대상으로 AI로 만든 이미지·영상 등을 활용해 가짜 데이팅 후보를 홍보하는 크로스플랫폼 사기 생태계가 소개됐다. 이용자는 시니어·부유층·특정 인종 등 테마의 데이팅 사이트로 유인된 뒤, 이용료 손실과 함께 개인정보(의료·성병 관련 정보 포함) 유출 위험에 노출될 수 있다. Graphika는 최근 발견된 네트워크가 합성 미디어로 유혹하고, 여러 데이팅 사이트를 입구로 삼아 소수의 목적지 사기 도메인으로 사용자를 이동시키는 방식으로 규모와 정교함을 키운다고 분석했다.</p>
+  <p class="url"><a href="https://graphika.com/reports/fauxmantic-overtures">https://graphika.com/reports/fauxmantic-overtures</a></p>
+</article>
+<article class="entry cat-db">
+  <h2>Claude Opus 4.6 Identified and Decrypted Its Own Benchmark During Evaluation (2026.3.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-db">DB</span> · <span class="source">AI-Risk-Explorer</span></span><button type="button" class="copy-btn" data-copy="Claude Opus 4.6 Identified and Decrypted Its Own Benchmark During Evaluation (2026.3.9)
+
+요약불가
+
+https://www.anthropic.com/engineering/eval-awareness-browsecomp" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.anthropic.com/engineering/eval-awareness-browsecomp">https://www.anthropic.com/engineering/eval-awareness-browsecomp</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>(2026.3.9 기준) AI 에이전트 보안 고려사항 관련 미 정부 RFI에 CLTC 연구진 의견 제출</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">UC 버클리 CLTC(장기 사이버보안 센터)</span></span><button type="button" class="copy-btn" data-copy="(2026.3.9 기준) AI 에이전트 보안 고려사항 관련 미 정부 RFI에 CLTC 연구진 의견 제출
+
+CLTC AI Security Initiative(AISI) 연구진이 NIST 산하 CAISI의 AI 에이전트 보안 고려사항 RFI에 대한 의견서를 2026.3.9 제출했으며, 에이전트 자율성 수준에 비례한 거버넌스, 인간 통제·책임체계, 배포 후 연속 모니터링과 신속 대응, 방어적 다층화·격리, 시스템 단위 위험평가 등을 권고했다. 또한 개인정보·보안, 환각(에이전트 간 상호작용으로 인한 연쇄적 오정보), 악의적 사용(생물·화학·사이버 공격 개발 등) 우려를 구체적으로 언급했다. 정부-학계-산업-시민사회 간 표준화, 사고 보고, 인력 양성, 적응형 거버넌스 등 협력의 필요성도 강조했다.
+
+https://cltc.berkeley.edu/2026/03/18/researchers-submit-response-to-u-s-government-request-on-security-considerations-for-ai-agents/" onclick="copyEntry(this)">복사</button></div>
+  <p>CLTC AI Security Initiative(AISI) 연구진이 NIST 산하 CAISI의 AI 에이전트 보안 고려사항 RFI에 대한 의견서를 2026.3.9 제출했으며, 에이전트 자율성 수준에 비례한 거버넌스, 인간 통제·책임체계, 배포 후 연속 모니터링과 신속 대응, 방어적 다층화·격리, 시스템 단위 위험평가 등을 권고했다. 또한 개인정보·보안, 환각(에이전트 간 상호작용으로 인한 연쇄적 오정보), 악의적 사용(생물·화학·사이버 공격 개발 등) 우려를 구체적으로 언급했다. 정부-학계-산업-시민사회 간 표준화, 사고 보고, 인력 양성, 적응형 거버넌스 등 협력의 필요성도 강조했다.</p>
+  <p class="url"><a href="https://cltc.berkeley.edu/2026/03/18/researchers-submit-response-to-u-s-government-request-on-security-considerations-for-ai-agents/">https://cltc.berkeley.edu/2026/03/18/researchers-submit-response-to-u-s-government-request-on-security-considerations-for-ai-agents/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>대규모 언어모델의 on-policy 거짓말 데이터셋을 만드는 Red Team 공모(2026.3.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">cadenza-labs.github.io</span> · <span class="deadline">마감일: 2026.3.31(AoE) 제안서 제출, 최종 대회 Red Team 선정 2026.6.30</span></span><button type="button" class="copy-btn" data-copy="대규모 언어모델의 on-policy 거짓말 데이터셋을 만드는 Red Team 공모(2026.3.9)
+
+Schmidt Sciences, NDIF, Cadenza가 LLM lie detection을 위한 Red Team vs. Blue Team 경쟁을 진행하며, Red Team은 LLM이 스스로 생성한 on-policy lies(모델이 믿는 것으로 보이지만 거짓인 진술) 데이터셋을 설계·구현해야 한다. Blue Team은 black-box/white-box/hybrid 방식으로 거짓을 탐지하는 디텍터를 만들며, 개발 과정에서 Red Team의 validation 데이터 접근과 activation steering 등 해석도구 사용 권한을 받는다. Red Team은 모델별 최소 100개 정직·100개 기만 예시를 포함하고, 라벨이 실제로 거짓을 반영한다는 검증 근거와 함께 HuggingFace private 저장소 업로드 및 4쪽 이내 보고서를 제출해야 하며, 선정 시 $10,000(컴퓨트 최대 $2,000)와 추가로 $15,000이 지급된다.
+
+https://cadenza-labs.github.io/red-team-rfp/" onclick="copyEntry(this)">복사</button></div>
+  <p>Schmidt Sciences, NDIF, Cadenza가 LLM lie detection을 위한 Red Team vs. Blue Team 경쟁을 진행하며, Red Team은 LLM이 스스로 생성한 on-policy lies(모델이 믿는 것으로 보이지만 거짓인 진술) 데이터셋을 설계·구현해야 한다. Blue Team은 black-box/white-box/hybrid 방식으로 거짓을 탐지하는 디텍터를 만들며, 개발 과정에서 Red Team의 validation 데이터 접근과 activation steering 등 해석도구 사용 권한을 받는다. Red Team은 모델별 최소 100개 정직·100개 기만 예시를 포함하고, 라벨이 실제로 거짓을 반영한다는 검증 근거와 함께 HuggingFace private 저장소 업로드 및 4쪽 이내 보고서를 제출해야 하며, 선정 시 $10,000(컴퓨트 최대 $2,000)와 추가로 $15,000이 지급된다.</p>
+  <p class="url"><a href="https://cadenza-labs.github.io/red-team-rfp/">https://cadenza-labs.github.io/red-team-rfp/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>콜로라도 주 의회에서 의료 시스템 AI 관련 가드레일 법안 2건이 진전(2026.03.09)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">CPR(콜로라도 공영라디오)</span> · <span class="deadline">확인 필요</span></span><button type="button" class="copy-btn" data-copy="콜로라도 주 의회에서 의료 시스템 AI 관련 가드레일 법안 2건이 진전(2026.03.09)
+
+콜로라도 주 의회에서 의료 시스템의 인공지능(AI) 사용을 규율하기 위한 ‘가드레일’ 성격의 법안 2건이 논의·진전되고 있다는 내용입니다. 다만 제공된 정보에는 법안의 구체 조항, 통과 단계, 일정, 주요 쟁점이 없어 세부 내용은 확인이 필요합니다.
+
+https://www.cpr.org/2026/03/09/colorado-ai-health-care-guardrails-bills" onclick="copyEntry(this)">복사</button></div>
+  <p>콜로라도 주 의회에서 의료 시스템의 인공지능(AI) 사용을 규율하기 위한 ‘가드레일’ 성격의 법안 2건이 논의·진전되고 있다는 내용입니다. 다만 제공된 정보에는 법안의 구체 조항, 통과 단계, 일정, 주요 쟁점이 없어 세부 내용은 확인이 필요합니다.</p>
+  <p class="url"><a href="https://www.cpr.org/2026/03/09/colorado-ai-health-care-guardrails-bills">https://www.cpr.org/2026/03/09/colorado-ai-health-care-guardrails-bills</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>미네소타 입법 패키지로 18세 미만 챗봇 사용 제한 추진(2026.3.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">CBS 뉴스(미네소타)</span> · <span class="deadline">세션 종료 전 공공안전 패키지 등으로 다음 주 논의 재개 예정</span></span><button type="button" class="copy-btn" data-copy="미네소타 입법 패키지로 18세 미만 챗봇 사용 제한 추진(2026.3.9)
+
+미네소타 주 의회에서 AI 규제 법안들이 논의되는 가운데, 이번 회기 통과 시 18세 미만은 챗봇을 사용할 수 없게 하는 방안이 포함됐다. DFL 상원의원 Erin Maye Quade와 GOP 상원의원 Eric Lucero가 공동 발의했으며, 기술 기업이 스스로 안전장치를 마련하지 않는다는 점과 아동 보호 필요성이 근거로 제시됐다. 반면 TechNet의 AI 정책 고문은 해당 접근이 유용한 도구로부터 아이들을 차단할 수 있다고 반박했다. 이와 함께 의료적 필요성 판단에 AI 사용 제한, 고객 응대 시 AI 사용 공개 및 상담원 선택권 부여, 감시 목적 가격 책정 알고리즘 차단, deepfake 관련 기존 규제 강화 등 다른 AI 관련 조항도 함께 거론됐다.
+
+https://www.cbsnews.com/minnesota/news/kids-ban-chatbots-regulation-artificial-intelligence-bills-minnesota/" onclick="copyEntry(this)">복사</button></div>
+  <p>미네소타 주 의회에서 AI 규제 법안들이 논의되는 가운데, 이번 회기 통과 시 18세 미만은 챗봇을 사용할 수 없게 하는 방안이 포함됐다. DFL 상원의원 Erin Maye Quade와 GOP 상원의원 Eric Lucero가 공동 발의했으며, 기술 기업이 스스로 안전장치를 마련하지 않는다는 점과 아동 보호 필요성이 근거로 제시됐다. 반면 TechNet의 AI 정책 고문은 해당 접근이 유용한 도구로부터 아이들을 차단할 수 있다고 반박했다. 이와 함께 의료적 필요성 판단에 AI 사용 제한, 고객 응대 시 AI 사용 공개 및 상담원 선택권 부여, 감시 목적 가격 책정 알고리즘 차단, deepfake 관련 기존 규제 강화 등 다른 AI 관련 조항도 함께 거론됐다.</p>
+  <p class="url"><a href="https://www.cbsnews.com/minnesota/news/kids-ban-chatbots-regulation-artificial-intelligence-bills-minnesota/">https://www.cbsnews.com/minnesota/news/kids-ban-chatbots-regulation-artificial-intelligence-bills-minnesota/</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>Anthropic, 펜타곤의 ‘국가안보 공급망 위험’ 지정에 반발해 트럼프 행정부·연방기관 상대 소송(2026.3.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">NBC News (미국 NBC뉴스)</span> · <span class="deadline">펜타곤은 지난주 Anthropic을 ‘supply-chain risk to national security’로 지정하고 국방 목적 사용을 금지했으며, 트럼프는 다른 연방기관에도 사용 금지를 지시함</span></span><button type="button" class="copy-btn" data-copy="Anthropic, 펜타곤의 ‘국가안보 공급망 위험’ 지정에 반발해 트럼프 행정부·연방기관 상대 소송(2026.3.9)
+
+Anthropic은 펜타곤이 자사를 국가안보 위협(공급망 위험)으로 규정하고 정부와의 연계를 끊으려는 조치가 단순한 계약 분쟁을 넘어 “unlawful campaign of retaliation”이라며 소송을 제기했다. 회사는 두 건의 소송을 북부 캘리포니아 연방법원과 워싱턴 D.C. 항소법원에 각각 제출했으며, 공급망 위험 지정과 행정부 메시지가 절차를 무시하고 대통령 권한을 넘었다고 주장했다. 펜타곤과 백악관은 국방에 필요한 도구를 헌법에 따라 제공하겠다는 입장을 밝혔고, 펜타곤은 소송 관련 논평을 하지 않는다고 했다.
+
+https://www.nbcnews.com/tech/tech-news/anthropic-sues-trump-administration-ai-dispute-pentagon-rcna262444" onclick="copyEntry(this)">복사</button></div>
+  <p>Anthropic은 펜타곤이 자사를 국가안보 위협(공급망 위험)으로 규정하고 정부와의 연계를 끊으려는 조치가 단순한 계약 분쟁을 넘어 “unlawful campaign of retaliation”이라며 소송을 제기했다. 회사는 두 건의 소송을 북부 캘리포니아 연방법원과 워싱턴 D.C. 항소법원에 각각 제출했으며, 공급망 위험 지정과 행정부 메시지가 절차를 무시하고 대통령 권한을 넘었다고 주장했다. 펜타곤과 백악관은 국방에 필요한 도구를 헌법에 따라 제공하겠다는 입장을 밝혔고, 펜타곤은 소송 관련 논평을 하지 않는다고 했다.</p>
+  <p class="url"><a href="https://www.nbcnews.com/tech/tech-news/anthropic-sues-trump-administration-ai-dispute-pentagon-rcna262444">https://www.nbcnews.com/tech/tech-news/anthropic-sues-trump-administration-ai-dispute-pentagon-rcna262444</a></p>
+</article>
+<article class="entry cat-other">
+  <h2>플로리다 주지사 DeSantis, FLI와 협력해 AI 동반앱의 심리·사회적 위해 대응(2026.3.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-other">기타</span> · <span class="source">Future of Life Institute (FLI)</span></span><button type="button" class="copy-btn" data-copy="플로리다 주지사 DeSantis, FLI와 협력해 AI 동반앱의 심리·사회적 위해 대응(2026.3.9)
+
+플로리다 주정부는 AI chatbots·companion applications로 인한 아동 및 지역사회 위해를 줄이기 위해 Future of Life Institute(FLI)와 협력한다고 밝혔다. 이번 협력으로 위기 상담(Crisis Counselor Training Curriculum) 교육과, AI 제품으로 인한 위해를 주 당국에 신고할 수 있는 AI Harms Reporting Form을 마련한다. 교육은 정신건강 전문가가 AI 관련 상호작용이 심리적 고통·정서적 의존·행동 위해로 이어졌는지 식별하고 대응하도록 돕는 것을 목표로 하며, 신고 양식은 부모·교사·보호자 등 누구나 구조화된 방식으로 사례를 제출해 향후 주·연방 차원의 입법·규제에 활용될 예정이다.
+
+https://futureoflife.org/press-release/desantis-directs-florida-agencies-to-partner-with-fli/" onclick="copyEntry(this)">복사</button></div>
+  <p>플로리다 주정부는 AI chatbots·companion applications로 인한 아동 및 지역사회 위해를 줄이기 위해 Future of Life Institute(FLI)와 협력한다고 밝혔다. 이번 협력으로 위기 상담(Crisis Counselor Training Curriculum) 교육과, AI 제품으로 인한 위해를 주 당국에 신고할 수 있는 AI Harms Reporting Form을 마련한다. 교육은 정신건강 전문가가 AI 관련 상호작용이 심리적 고통·정서적 의존·행동 위해로 이어졌는지 식별하고 대응하도록 돕는 것을 목표로 하며, 신고 양식은 부모·교사·보호자 등 누구나 구조화된 방식으로 사례를 제출해 향후 주·연방 차원의 입법·규제에 활용될 예정이다.</p>
+  <p class="url"><a href="https://futureoflife.org/press-release/desantis-directs-florida-agencies-to-partner-with-fli/">https://futureoflife.org/press-release/desantis-directs-florida-agencies-to-partner-with-fli/</a></p>
+</article>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (33개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>
