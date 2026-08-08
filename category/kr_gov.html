@@ -1,0 +1,1590 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Safety Digest — 한국 기관</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb;
+    --card-bg: #f9fafb; --link: #2563eb; --accent: #7c3aed;
+    --cat-research: #4f46e5; --cat-aisi: #16a34a; --cat-company: #ea580c;
+    --cat-kr-gov: #0d9488; --cat-intl: #7c3aed; --cat-notice: #dc2626;
+    --cat-other: #6b7280;
+    --cat-intl-org: #0369a1; --cat-gov: #a16207; --cat-research-org: #1d4ed8;
+    --cat-ngo: #4d7c0f; --cat-media: #a21caf; --cat-db: #57534e;
+    --cat-news-rss: #be123c; --cat-scrapmaster: #ca8a04;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a; --fg: #e8e8ea; --muted: #9498a3; --border: #2a2c33;
+      --card-bg: #1c1e24; --link: #7aa2f7; --accent: #b794f6;
+      --cat-research: #818cf8; --cat-aisi: #4ade80; --cat-company: #fb923c;
+      --cat-kr-gov: #2dd4bf; --cat-intl: #c084fc; --cat-notice: #f87171;
+      --cat-other: #9ca3af;
+      --cat-intl-org: #7dd3fc; --cat-gov: #fde047; --cat-research-org: #93c5fd;
+      --cat-ngo: #bef264; --cat-media: #e879f9; --cat-db: #a8a29e;
+      --cat-news-rss: #fb7185; --cat-scrapmaster: #facc15;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; overflow-x: hidden;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.page-head { margin-bottom: 28px; }
+  header.page-head h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  header.page-head .sub { color: var(--muted); font-size: 0.9rem; }
+  header.page-head .nav { margin-top: 10px; font-size: 0.85rem; }
+  header.page-head .nav a { color: var(--muted); text-decoration: none; }
+  header.page-head .nav a:hover { color: var(--link); }
+  .entry {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px; padding: 18px 20px 18px 18px; margin-bottom: 16px;
+  }
+  .entry.cat-research { border-left-color: var(--cat-research); }
+  .entry.cat-aisi { border-left-color: var(--cat-aisi); }
+  .entry.cat-company { border-left-color: var(--cat-company); }
+  .entry.cat-kr-gov { border-left-color: var(--cat-kr-gov); }
+  .entry.cat-intl { border-left-color: var(--cat-intl); }
+  .entry.cat-notice { border-left-color: var(--cat-notice); }
+  .entry.cat-other { border-left-color: var(--cat-other); }
+  .entry.cat-intl-org { border-left-color: var(--cat-intl-org); }
+  .entry.cat-gov { border-left-color: var(--cat-gov); }
+  .entry.cat-research-org { border-left-color: var(--cat-research-org); }
+  .entry.cat-ngo { border-left-color: var(--cat-ngo); }
+  .entry.cat-media { border-left-color: var(--cat-media); }
+  .entry.cat-news-rss { border-left-color: var(--cat-news-rss); }
+  .entry.cat-scrapmaster { border-left-color: var(--cat-scrapmaster); }
+  .entry.cat-db { border-left-color: var(--cat-db); border-left-style: dashed; }
+  .entry h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; color: var(--fg); }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; }
+  .meta-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .copy-btn {
+    flex-shrink: 0; margin-left: auto; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); border-radius: 999px;
+    padding: 4px 12px; font-size: 0.75rem; font-family: inherit; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:hover, .copy-btn:active { color: var(--link); border-color: var(--link); }
+  .copy-btn.copied { color: var(--cat-aisi); border-color: var(--cat-aisi); }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; color: #fff;
+  }
+  .badge.cat-research { background: var(--cat-research); }
+  .badge.cat-aisi { background: var(--cat-aisi); }
+  .badge.cat-company { background: var(--cat-company); }
+  .badge.cat-kr-gov { background: var(--cat-kr-gov); }
+  .badge.cat-intl { background: var(--cat-intl); }
+  .badge.cat-notice { background: var(--cat-notice); }
+  .badge.cat-other { background: var(--cat-other); }
+  .badge.cat-intl-org { background: var(--cat-intl-org); }
+  .badge.cat-gov { background: var(--cat-gov); }
+  .badge.cat-research-org { background: var(--cat-research-org); }
+  .badge.cat-ngo { background: var(--cat-ngo); }
+  .badge.cat-media { background: var(--cat-media); }
+  .badge.cat-news-rss { background: var(--cat-news-rss); }
+  .badge.cat-scrapmaster { background: var(--cat-scrapmaster); }
+  .badge.cat-db {
+    background: transparent; color: var(--cat-db);
+    border: 1.5px solid var(--cat-db);
+  }
+  .entry p {
+    margin: 0 0 10px; font-size: 0.94rem; white-space: pre-line;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .entry p:last-child { margin-bottom: 0; }
+  .entry p a { color: var(--link); }
+  .unavailable { color: var(--muted); font-style: italic; }
+  .url { margin-top: 12px; font-size: 0.78rem; word-break: break-all; }
+  .url a { color: var(--muted); text-decoration: none; }
+  .url a:hover { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.78rem; text-align: center; margin-top: 32px; line-height: 1.8; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--link); }
+  footer details { margin-top: 10px; text-align: left; display: inline-block; }
+  footer summary { cursor: pointer; text-align: center; }
+  footer .source-list { margin-top: 8px; max-width: 640px; }
+  footer .source-list b { color: var(--fg); }
+  .archive-list a { display: block; padding: 10px 0; border-bottom: 1px solid var(--border);
+    color: var(--fg); text-decoration: none; }
+  .archive-list a:hover { color: var(--link); }
+  .archive-count { color: var(--muted); font-size: 0.85em; }
+  .archive-month { margin-top: 4px; }
+  .archive-month summary {
+    cursor: pointer; padding: 10px 0; border-bottom: 1px solid var(--border);
+    list-style: none;
+  }
+  .archive-month summary::-webkit-details-marker { display: none; }
+  .archive-month summary::before { content: "▸ "; color: var(--muted); }
+  .archive-month[open] summary::before { content: "▾ "; }
+  .archive-month .archive-list { padding-left: 14px; }
+
+  .trend-section { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .trend-title { font-size: 1.05rem; margin: 0 0 2px; }
+  .trend-sub { color: var(--muted); font-size: 0.82rem; margin-bottom: 10px; }
+  .trend-chart-wrap { overflow-x: auto; }
+  .trend-svg { display: block; width: 100%; min-width: 480px; height: auto; }
+  .trend-grid { stroke: var(--border); stroke-width: 1; }
+  .trend-axis { fill: var(--muted); font-size: 9px; font-family: inherit; }
+  .trend-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 10px; font-size: 0.78rem; color: var(--muted); }
+  .trend-legend-item { display: inline-flex; align-items: center; gap: 5px; }
+  .trend-swatch { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+  .trend-count { color: var(--fg); font-weight: 600; }
+  .trend-table-toggle { margin-top: 8px; }
+  .trend-table-toggle summary { cursor: pointer; font-size: 0.8rem; color: var(--link); list-style: none; }
+  .trend-table-toggle summary::-webkit-details-marker { display: none; }
+  .trend-table-scroll { overflow-x: auto; }
+  .trend-table { border-collapse: collapse; font-size: 0.78rem; margin-top: 8px; width: 100%; }
+  .trend-table th, .trend-table td {
+    text-align: right; padding: 4px 8px; border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  .trend-table th:first-child, .trend-table td:first-child { text-align: left; }
+
+  .ribbon-nav { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .ribbon-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .ribbon-link { text-decoration: none; font-size: 0.82rem; cursor: pointer; }
+  .ribbon-link:hover { opacity: 0.85; }
+  .ribbon-count { font-weight: 800; margin-left: 2px; }
+  .cat-date-heading { font-size: 0.85rem; color: var(--muted); margin: 22px 0 10px; padding-top: 4px; }
+  .cat-date-heading:first-child { margin-top: 0; }
+  .cat-month-body { padding-top: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="page-head">
+  <h1>AI Safety Daily Digest</h1>
+  <div class="sub">한국 기관 · 총 131건</div>
+  <div class="nav"><a href="../index.html">← 전체 목록</a></div>
+</header>
+<section class="cat-recent"><h3 class="cat-date-heading">2026-08-07 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>AI 융합 인재 양성 전략 및 해외 사례 분석 (2026.08.06)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">SPRi</span></span><button type="button" class="copy-btn" data-copy="AI 융합 인재 양성 전략 및 해외 사례 분석 (2026.08.06)
+
+주요국의 대학들이 AI 인재 양성을 위해 전공 간 융합 교육과 책임 있는 AI 교육을 강화하고 있다. 분석 대상인 미국, 중국, 영국, 캐나다, 스위스의 주요 대학들은 AI 역량을 단순히 기술 개발에 국한하지 않고, 다양한 산업 도메인 지식과 결합한 융합형 인재 양성에 초점을 맞추고 있다. 또한, 윤리적 고려사항과 AI 산출물의 검증 능력을 교육 과정에 필수 요소로 포함하고 있다. 국내 정책은 이러한 방향성을 반영하여, 전공별 AI 역량 확산을 위한 공동 교과 과정 구축, AI+X/X+AI 복수 전공 제도화, 산업 및 공공 문제 기반 프로젝트 통합 등을 통해 융합형 인재 양성 체계를 고도화해야 한다는 제언이 제기되었다.
+
+https://www.spri.kr/posts/view/24008?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>주요국의 대학들이 AI 인재 양성을 위해 전공 간 융합 교육과 책임 있는 AI 교육을 강화하고 있다. 분석 대상인 미국, 중국, 영국, 캐나다, 스위스의 주요 대학들은 AI 역량을 단순히 기술 개발에 국한하지 않고, 다양한 산업 도메인 지식과 결합한 융합형 인재 양성에 초점을 맞추고 있다. 또한, 윤리적 고려사항과 AI 산출물의 검증 능력을 교육 과정에 필수 요소로 포함하고 있다. 국내 정책은 이러한 방향성을 반영하여, 전공별 AI 역량 확산을 위한 공동 교과 과정 구축, AI+X/X+AI 복수 전공 제도화, 산업 및 공공 문제 기반 프로젝트 통합 등을 통해 융합형 인재 양성 체계를 고도화해야 한다는 제언이 제기되었다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/24008?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/24008?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article></section><details class="archive-month" open><summary>2026년 7월 <span class="archive-count">(9건)</span></summary><div class="cat-month-body"><h3 class="cat-date-heading">2026-07-31 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>공공부문 AI 통제를 위한 해외 사례 분석 및 시사점 (2026.7.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원 (NIA)</span></span><button type="button" class="copy-btn" data-copy="공공부문 AI 통제를 위한 해외 사례 분석 및 시사점 (2026.7.31)
+
+본 보고서는 공공부문의 AI 활용과 통제를 위한 사람 감독 체계의 필요성을 강조하며, 해외의 성공적인 사례들을 분석하여 시사점을 제시한다. 특히 공공 AI 시스템의 윤리적 운영과 안전성을 확보하기 위한 다양한 감독 방안을 소개하고 있다. 문의 및 제안은 NIA의 담당 팀으로 연락 가능하다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29770" onclick="copyEntry(this)">복사</button></div>
+  <p>본 보고서는 공공부문의 AI 활용과 통제를 위한 사람 감독 체계의 필요성을 강조하며, 해외의 성공적인 사례들을 분석하여 시사점을 제시한다. 특히 공공 AI 시스템의 윤리적 운영과 안전성을 확보하기 위한 다양한 감독 방안을 소개하고 있다. 문의 및 제안은 NIA의 담당 팀으로 연락 가능하다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29770">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29770</a></p>
+</article>
+<h3 class="cat-date-heading">2026-07-30 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>AI 시대 생존과 번영을 위한 해저 광케이블 인프라 전략 제시 (2026.07.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원 (NIA)</span></span><button type="button" class="copy-btn" data-copy="AI 시대 생존과 번영을 위한 해저 광케이블 인프라 전략 제시 (2026.07.30)
+
+한국지능정보사회진흥원(NIA)은 글로벌 AI 시대에 국가 경쟁력을 강화하기 위한 핵심 인프라로 부상하고 있는 해저 광케이블의 중요성을 강조하며, 아시아의 AI 허브로의 도약을 위한 전략을 담은 보고서를 발표했습니다. 보고서는 해저 광케이블의 환경 변화 분석과 함께 주권 확보를 위한 추진 전략, 구체적인 과제 제안, 그리고 기대 효과 등을 포함하고 있습니다. 특히, 아시아 지역의 AI 허브 구축을 위한 정책적 접근 방안과 관련 사례 연구를 통해 실질적인 방향성을 제시하고 있습니다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=39485&amp;bcIdx=29763" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원(NIA)은 글로벌 AI 시대에 국가 경쟁력을 강화하기 위한 핵심 인프라로 부상하고 있는 해저 광케이블의 중요성을 강조하며, 아시아의 AI 허브로의 도약을 위한 전략을 담은 보고서를 발표했습니다. 보고서는 해저 광케이블의 환경 변화 분석과 함께 주권 확보를 위한 추진 전략, 구체적인 과제 제안, 그리고 기대 효과 등을 포함하고 있습니다. 특히, 아시아 지역의 AI 허브 구축을 위한 정책적 접근 방안과 관련 사례 연구를 통해 실질적인 방향성을 제시하고 있습니다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=39485&amp;bcIdx=29763">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=39485&amp;bcIdx=29763</a></p>
+</article>
+<h3 class="cat-date-heading">2026-07-15 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>다이어리 조사 방법론에 따른 미디어 이용량 편차 분석 (2026.7.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="다이어리 조사 방법론에 따른 미디어 이용량 편차 분석 (2026.7.15)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952676" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952676">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952676</a></p>
+</article>
+<h3 class="cat-date-heading">2026-07-13 <span class="archive-count">(4건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>인공지능 전환(AX) 비전·추진전략 영문본 소개(2026.7.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="인공지능 전환(AX) 비전·추진전략 영문본 소개(2026.7.13)
+
+본문은 NIA의 「인공지능 전환 추진전략」 영문본을 소개하며, AX를 위한 비전과 추진전략을 담았다고 설명합니다. AI를 활용한 경영혁신과 공공기관 AI 전환의 선도모델 구축을 목표로 중장기 전략과 핵심 추진과제를 소개한다고 적혀 있습니다. 또한 이 영문본은 LLM(대규모 언어모델) 기술을 활용해 번역되었다고 안내합니다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29643" onclick="copyEntry(this)">복사</button></div>
+  <p>본문은 NIA의 「인공지능 전환 추진전략」 영문본을 소개하며, AX를 위한 비전과 추진전략을 담았다고 설명합니다. AI를 활용한 경영혁신과 공공기관 AI 전환의 선도모델 구축을 목표로 중장기 전략과 핵심 추진과제를 소개한다고 적혀 있습니다. 또한 이 영문본은 LLM(대규모 언어모델) 기술을 활용해 번역되었다고 안내합니다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29643">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29643</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>한국형 데이터 스페이스(Korea’s Data Space) 영문본 소개(2026.7.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="한국형 데이터 스페이스(Korea’s Data Space) 영문본 소개(2026.7.13)
+
+본문은 AX 시대의 데이터 공유·활용 패러다임 전환 전략을 담은 「한국형 데이터 스페이스(K-Data Space)」의 영문본을 제공한다고 밝힌다. 국내외 데이터 정책 및 기술 동향을 바탕으로 데이터 스페이스 기반의 미래 데이터 생태계 구축 방향과 정책 과제를 소개하며, 해당 영문본은 LLM(대규모 언어모델) 기술로 번역되었다고 안내한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29644" onclick="copyEntry(this)">복사</button></div>
+  <p>본문은 AX 시대의 데이터 공유·활용 패러다임 전환 전략을 담은 「한국형 데이터 스페이스(K-Data Space)」의 영문본을 제공한다고 밝힌다. 국내외 데이터 정책 및 기술 동향을 바탕으로 데이터 스페이스 기반의 미래 데이터 생태계 구축 방향과 정책 과제를 소개하며, 해당 영문본은 LLM(대규모 언어모델) 기술로 번역되었다고 안내한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29644">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29644</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>제5차(2026~2028) 공공데이터 기본계획 영문본 공개(2026.7.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="제5차(2026~2028) 공공데이터 기본계획 영문본 공개(2026.7.13)
+
+본 자료는 공공데이터 제공 및 이용 활성화를 위한 「제5차(2026~2028) 공공데이터 기본계획」의 영문본으로, 공공데이터 개방·활용 확대, 품질관리, 제도 개선 등 향후 3년의 정책 방향과 주요 추진과제를 담고 있다. 해당 영문본은 LLM(대규모 언어모델) 기술을 활용해 번역되었다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29645" onclick="copyEntry(this)">복사</button></div>
+  <p>본 자료는 공공데이터 제공 및 이용 활성화를 위한 「제5차(2026~2028) 공공데이터 기본계획」의 영문본으로, 공공데이터 개방·활용 확대, 품질관리, 제도 개선 등 향후 3년의 정책 방향과 주요 추진과제를 담고 있다. 해당 영문본은 LLM(대규모 언어모델) 기술을 활용해 번역되었다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29645">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29645</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>공공데이터 적극 제공에 따른 면책 제도 이해·적용 기준 담은 가이드라인(공공데이터 면책 가이드라인) (2026.07.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="공공데이터 적극 제공에 따른 면책 제도 이해·적용 기준 담은 가이드라인(공공데이터 면책 가이드라인) (2026.07.13)
+
+한국지능정보사회진흥원은 공공데이터 적극 제공에 따른 면책 제도 이해와 적용 기준을 담은 「공공데이터 면책 가이드라인」의 영문본을 제공했다. 공공기관이 관련 규정과 사례를 참고해 면책 제도를 일관되게 적용하고 법적 불확실성을 줄이는 데 목적이 있다. 해당 영문본은 LLM(대규모 언어모델) 기술을 활용해 번역되었다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29646" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원은 공공데이터 적극 제공에 따른 면책 제도 이해와 적용 기준을 담은 「공공데이터 면책 가이드라인」의 영문본을 제공했다. 공공기관이 관련 규정과 사례를 참고해 면책 제도를 일관되게 적용하고 법적 불확실성을 줄이는 데 목적이 있다. 해당 영문본은 LLM(대규모 언어모델) 기술을 활용해 번역되었다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29646">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29646</a></p>
+</article>
+<h3 class="cat-date-heading">2026-07-07 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[동향] BEREC, 5G 네트워크 슬라이싱 기반 신규서비스에 대한 망 중립성 정책방향(안) 발표</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[동향] BEREC, 5G 네트워크 슬라이싱 기반 신규서비스에 대한 망 중립성 정책방향(안) 발표
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951496" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951496">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951496</a></p>
+</article>
+<h3 class="cat-date-heading">2026-07-06 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>AI 프로젝트에서 Function Point가 ‘숨은 공학 범위’를 못 잡아 예산 산정이 과소될 수 있어 기술 범위 정량화 프레임워크 제안 (2026.07.06)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="AI 프로젝트에서 Function Point가 ‘숨은 공학 범위’를 못 잡아 예산 산정이 과소될 수 있어 기술 범위 정량화 프레임워크 제안 (2026.07.06)
+
+소프트웨어정책연구소는 AI 프로젝트가 챗봇이나 RAG처럼 겉보기 UI는 단순해도 데이터 전처리·임베딩 생성·벡터스토어 구축 등 복잡한 백엔드 공학 작업이 크게 존재한다고 설명했다. 기존 Function Point(FP) 방식은 이러한 비가시적 기술 범위를 측정하지 못해 AI 사업 예산이 과소 산정될 위험이 있다고 지적했다. 이를 보완하기 위해 AI 모델 개발이 아닌 AI Application Service Construction(Engineering) 중심으로, 백엔드 기술 복잡도를 정량화할 수 있는 국제 SNAP(Software Non-functional Assessment Process) 표준 도입을 제안하고 자동 측정 도구 개발, AI 사업 데이터 축적, AI 엔지니어링 기업 생태계 육성 방향을 제시했다.
+
+https://www.spri.kr/posts/view/24004?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>소프트웨어정책연구소는 AI 프로젝트가 챗봇이나 RAG처럼 겉보기 UI는 단순해도 데이터 전처리·임베딩 생성·벡터스토어 구축 등 복잡한 백엔드 공학 작업이 크게 존재한다고 설명했다. 기존 Function Point(FP) 방식은 이러한 비가시적 기술 범위를 측정하지 못해 AI 사업 예산이 과소 산정될 위험이 있다고 지적했다. 이를 보완하기 위해 AI 모델 개발이 아닌 AI Application Service Construction(Engineering) 중심으로, 백엔드 기술 복잡도를 정량화할 수 있는 국제 SNAP(Software Non-functional Assessment Process) 표준 도입을 제안하고 자동 측정 도구 개발, AI 사업 데이터 축적, AI 엔지니어링 기업 생태계 육성 방향을 제시했다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/24004?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/24004?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article></div></details><details class="archive-month"><summary>2026년 6월 <span class="archive-count">(21건)</span></summary><div class="cat-month-body"><h3 class="cat-date-heading">2026-06-30 <span class="archive-count">(8건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[정보화정책 저널 제33권 제2호] 생성형 AI의 일상화가 인간-인공지능 관계를 ‘관계화’로 바꾸며 새 정책 쟁점을 제기한다 (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[정보화정책 저널 제33권 제2호] 생성형 AI의 일상화가 인간-인공지능 관계를 ‘관계화’로 바꾸며 새 정책 쟁점을 제기한다 (2026.6.30)
+
+생성형 인공지능의 확산으로 인간–기술 관계가 도구적 사용을 넘어 정서적·지속적 관계 경험으로 전환되는 현상을 ‘관계화(relationalization)’로 재개념화한 연구다. 이용자 경험에서 존재론적 애착, 인지적 경계 붕괴, 소통 역량 퇴행, 관계적 고립의 역설 등 네 가지 양상을 분석했으며, 정서적 웰빙 영향은 단기 완화와 장기 저하처럼 조건에 따라 상반된 결과가 나타난다고 밝혔다. 또한 국내 AI 정책 담론이 기술 성능·산업 경쟁력 중심으로 구성되면서 인간–AI의 정서적·사회적 차원을 충분히 반영하지 못하는 ‘관계적 공백’이 존재한다고 지적하고, 관계적 투명성·취약집단 보호·실증 연구·관계형 AI 거버넌스 구축 등을 과제로 제안한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29593" onclick="copyEntry(this)">복사</button></div>
+  <p>생성형 인공지능의 확산으로 인간–기술 관계가 도구적 사용을 넘어 정서적·지속적 관계 경험으로 전환되는 현상을 ‘관계화(relationalization)’로 재개념화한 연구다. 이용자 경험에서 존재론적 애착, 인지적 경계 붕괴, 소통 역량 퇴행, 관계적 고립의 역설 등 네 가지 양상을 분석했으며, 정서적 웰빙 영향은 단기 완화와 장기 저하처럼 조건에 따라 상반된 결과가 나타난다고 밝혔다. 또한 국내 AI 정책 담론이 기술 성능·산업 경쟁력 중심으로 구성되면서 인간–AI의 정서적·사회적 차원을 충분히 반영하지 못하는 ‘관계적 공백’이 존재한다고 지적하고, 관계적 투명성·취약집단 보호·실증 연구·관계형 AI 거버넌스 구축 등을 과제로 제안한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29593">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29593</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[제33권 제2호] 인공지능확산의 국가별 비교연구: 기술혁신, 정책체계, 사회적수용의 삼각구조 분석 (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제2호] 인공지능확산의 국가별 비교연구: 기술혁신, 정책체계, 사회적수용의 삼각구조 분석 (2026.6.30)
+
+한국지능정보사회진흥원 정보화정책 저널 제33권 제2호는 기술혁신-정책체계-사회적 수용(T-P-S) 삼각구조 분석틀을 개발해 미국·EU·중국·한국의 AI 확산 전략을 비교했다. Rogers의 혁신확산이론과 Geels의 사회기술체계 이론을 결합해 2019~2024년 발간 문헌 35편을 PRISMA 절차의 내러티브 리뷰로 분석했으며, 미국은 혁신주도형, EU는 규제중심형, 중국은 정부주도형, 한국은 혼합형 모델을 지향하는 것으로 나타났다. 또한 정책프레임워크가 기술혁신과 사회적 수용을 매개하며 확산 경로를 차별화하는 핵심 요인이라고 제시했다. 한국은 디지털 인프라와 수용성은 높지만 기술혁신역량과 원천기술·글로벌 표준 선점 과제가 남아 있다고 밝혔다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29594" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원 정보화정책 저널 제33권 제2호는 기술혁신-정책체계-사회적 수용(T-P-S) 삼각구조 분석틀을 개발해 미국·EU·중국·한국의 AI 확산 전략을 비교했다. Rogers의 혁신확산이론과 Geels의 사회기술체계 이론을 결합해 2019~2024년 발간 문헌 35편을 PRISMA 절차의 내러티브 리뷰로 분석했으며, 미국은 혁신주도형, EU는 규제중심형, 중국은 정부주도형, 한국은 혼합형 모델을 지향하는 것으로 나타났다. 또한 정책프레임워크가 기술혁신과 사회적 수용을 매개하며 확산 경로를 차별화하는 핵심 요인이라고 제시했다. 한국은 디지털 인프라와 수용성은 높지만 기술혁신역량과 원천기술·글로벌 표준 선점 과제가 남아 있다고 밝혔다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29594">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29594</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[제33권 제2호] 인공지능의 국가안보화: 글로벌 동향과 정책적 함의 (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제2호] 인공지능의 국가안보화: 글로벌 동향과 정책적 함의 (2026.6.30)
+
+본 연구는 AI가 기술혁신을 넘어 국가안보의 핵심 전략 자산으로 부상하는 흐름을 ‘안보화(securitization)’ 관점에서 분석한다. 군사·사이버·정보·CBRN 등 다양한 분야에서 AI가 전략적 변화를 유발하고, 미국과 중국 중심의 기술 패권 경쟁이 국제질서 재편을 가속한다고 설명한다. 자율무기, 생성형 AI 기반 정보 조작, AI-CBRN, AI 기반 사이버전 등을 복합적 위협으로 지목하며, AI 안전·보안과 구분되는 ‘AI 국가안보’ 개념과 다차원 정책 대응, 글로벌 규범 형성의 필요성을 강조한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29595" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 AI가 기술혁신을 넘어 국가안보의 핵심 전략 자산으로 부상하는 흐름을 ‘안보화(securitization)’ 관점에서 분석한다. 군사·사이버·정보·CBRN 등 다양한 분야에서 AI가 전략적 변화를 유발하고, 미국과 중국 중심의 기술 패권 경쟁이 국제질서 재편을 가속한다고 설명한다. 자율무기, 생성형 AI 기반 정보 조작, AI-CBRN, AI 기반 사이버전 등을 복합적 위협으로 지목하며, AI 안전·보안과 구분되는 ‘AI 국가안보’ 개념과 다차원 정책 대응, 글로벌 규범 형성의 필요성을 강조한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29595">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29595</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[제33권 제2호] AI Ready Data의 개념적 구조와 한국의 AI Ready 공공데이터 정책 분석 (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA) 정보화정책 저널</span></span><button type="button" class="copy-btn" data-copy="[제33권 제2호] AI Ready Data의 개념적 구조와 한국의 AI Ready 공공데이터 정책 분석 (2026.6.30)
+
+AI 기술 확산에 따라 데이터 관리 패러다임이 ‘양적 확대’에서 ‘AI 활용 적합성 확보’로 전환되고 있다는 배경에서 AI Ready Data(AIRD) 개념을 정립하고, 한국의 AI Ready 공공데이터 정책을 분석했다. AIRD의 핵심 구성요소로 품질·신뢰성, 표준화·상호운용성, 거버넌스·책임성, 다양성·포용성, 지속적 운영 가능성을 도출하고, 원천데이터(TL0)–기관 내부 가공데이터(TL1)–개방데이터(TL2) 전환계층 모델과 통합 프레임워크를 제시했다. 분석 결과 한국 정책은 긍정적 방향성이 있으나 국제 기준 대비 표준화·거버넌스·포용성 측면은 초기 단계로 평가했으며, 개방데이터 중심 품질 개선 체계와 생애주기 전반의 순환적 관리 체계를 주요 대안으로 제안했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29596" onclick="copyEntry(this)">복사</button></div>
+  <p>AI 기술 확산에 따라 데이터 관리 패러다임이 ‘양적 확대’에서 ‘AI 활용 적합성 확보’로 전환되고 있다는 배경에서 AI Ready Data(AIRD) 개념을 정립하고, 한국의 AI Ready 공공데이터 정책을 분석했다. AIRD의 핵심 구성요소로 품질·신뢰성, 표준화·상호운용성, 거버넌스·책임성, 다양성·포용성, 지속적 운영 가능성을 도출하고, 원천데이터(TL0)–기관 내부 가공데이터(TL1)–개방데이터(TL2) 전환계층 모델과 통합 프레임워크를 제시했다. 분석 결과 한국 정책은 긍정적 방향성이 있으나 국제 기준 대비 표준화·거버넌스·포용성 측면은 초기 단계로 평가했으며, 개방데이터 중심 품질 개선 체계와 생애주기 전반의 순환적 관리 체계를 주요 대안으로 제안했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29596">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29596</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[제33권 제2호] 장애인 웹 접근성과 웹 편의도구를 활용한 장애통계데이터시스템 구축 연구 (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제2호] 장애인 웹 접근성과 웹 편의도구를 활용한 장애통계데이터시스템 구축 연구 (2026.6.30)
+
+본 논문은 장애통계데이터시스템 구축 사례를 바탕으로, 장애인 등의 웹 접근성 준수를 토대로 적용 가능한 웹 접근성 준수 프레임워크를 제시한다. 웹 편의도구를 개발하고, 구축 과정에서 고려해야 할 웹 접근성 요소와 구현 사례를 함께 다룬다. 이를 통해 통계데이터 시스템 개발 계획 수립과 웹 접근성 확보를 위한 구체적 방향성을 제시하는 데 의의가 있다고 소개한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29597" onclick="copyEntry(this)">복사</button></div>
+  <p>본 논문은 장애통계데이터시스템 구축 사례를 바탕으로, 장애인 등의 웹 접근성 준수를 토대로 적용 가능한 웹 접근성 준수 프레임워크를 제시한다. 웹 편의도구를 개발하고, 구축 과정에서 고려해야 할 웹 접근성 요소와 구현 사례를 함께 다룬다. 이를 통해 통계데이터 시스템 개발 계획 수립과 웹 접근성 확보를 위한 구체적 방향성을 제시하는 데 의의가 있다고 소개한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29597">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29597</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 기반 자율무기 체계의 발전과 시사점: 군사적 효용과 통제 가능성을 중심으로 (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI 기반 자율무기 체계의 발전과 시사점: 군사적 효용과 통제 가능성을 중심으로 (2026.6.30)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953196" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953196">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953196</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>고령자들의 혁신성과 디지털 리터러시가 AI 기반 디지털 기술 수용에 미치는 영향 (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="고령자들의 혁신성과 디지털 리터러시가 AI 기반 디지털 기술 수용에 미치는 영향 (2026.6.30)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953216" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953216">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953216</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 에이전트 시대의 국가전략 (2026.6.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI 에이전트 시대의 국가전략 (2026.6.30)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953236" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953236">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1953236</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-29 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[AI_Policy_Insights_2026-4] 2026 스탠포드 AI INDEX로 살펴본 우리나라 AI 현황 분석 (2026.6.29)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[AI_Policy_Insights_2026-4] 2026 스탠포드 AI INDEX로 살펴본 우리나라 AI 현황 분석 (2026.6.29)
+
+한국은 2026년 Stanford HAI의 「AI Index 2026」을 바탕으로 AI 현황을 점검했다. 인구 대비 AI 특허 등록 건수 세계 1위, 2025년 주목할 만한 AI 모델 8개로 미국·중국에 이어 3위, SK하이닉스·삼성전자의 HBM 주요 제조사 지위, 산업용 로봇 신규 설치 30,600대로 세계 4위 등 성과가 제시됐다. AI 확산률도 2025년 상반기 25.9%에서 하반기 30.7%로 상승하며 조사 대상 30개국 중 가장 큰 상승폭을 보였다. 다만 민간 AI 투자 규모, 데이터센터 인프라, AI 인재 순유출, 특허의 후속 인용 영향력은 보완 과제로 지적됐다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29588" onclick="copyEntry(this)">복사</button></div>
+  <p>한국은 2026년 Stanford HAI의 「AI Index 2026」을 바탕으로 AI 현황을 점검했다. 인구 대비 AI 특허 등록 건수 세계 1위, 2025년 주목할 만한 AI 모델 8개로 미국·중국에 이어 3위, SK하이닉스·삼성전자의 HBM 주요 제조사 지위, 산업용 로봇 신규 설치 30,600대로 세계 4위 등 성과가 제시됐다. AI 확산률도 2025년 상반기 25.9%에서 하반기 30.7%로 상승하며 조사 대상 30개국 중 가장 큰 상승폭을 보였다. 다만 민간 AI 투자 규모, 데이터센터 인프라, AI 인재 순유출, 특허의 후속 인용 영향력은 보완 과제로 지적됐다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29588">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29588</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-26 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[초점] 해외 주요국의 최적요금제 고지 제도 운영 현황과 국내 도입에 따른 시사점 (2026.6.26)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[초점] 해외 주요국의 최적요금제 고지 제도 운영 현황과 국내 도입에 따른 시사점 (2026.6.26)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951716" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951716">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951716</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-25 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[동향] 캐나다, 모두를 위한 AI 국가 전략 발표 (2026.6.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[동향] 캐나다, 모두를 위한 AI 국가 전략 발표 (2026.6.25)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951696" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951696">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951696</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-24 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>(IT&amp;Future Strategy 2026-1) 에이전틱 AI 자율성 확대를 위한 신뢰 확보 정책 과제(2026.6.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(IT&amp;Future Strategy 2026-1) 에이전틱 AI 자율성 확대를 위한 신뢰 확보 정책 과제(2026.6.24)
+
+에이전틱 AI가 스스로 판단·계획·실행하는 단계로 전환되며, 기존의 결과 확인 중심 승인 방식만으로는 외부 시스템 접근·실행에 따른 되돌리기 어려운 피해 위험에 대한 우려가 커진다고 설명한다. EU AI Act, 한국 AI 기본법, 싱가포르 MGF, 미국 AI RMF 등 주요 제도를 비교하고, 위험 관리를 위해 인간 감독·투명성·지속 모니터링 같은 공통 요건을 다룬다고 밝혔다. 또한 Harness Engineering을 통해 안전장치 설정, 최소 권한, 인간 개입 지점, 관측 가능성 등을 설계·구현하는 방안을 제시하며, 사후 승인에서 ‘작동 환경과 범위의 사전 구조 설계·관리’로 정책 패러다임 전환, 검증 체계 구축, 에이전틱 AI 얼라이언스 등 생태계 논의 확산의 필요성을 제시했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=25932&amp;bcIdx=29577" onclick="copyEntry(this)">복사</button></div>
+  <p>에이전틱 AI가 스스로 판단·계획·실행하는 단계로 전환되며, 기존의 결과 확인 중심 승인 방식만으로는 외부 시스템 접근·실행에 따른 되돌리기 어려운 피해 위험에 대한 우려가 커진다고 설명한다. EU AI Act, 한국 AI 기본법, 싱가포르 MGF, 미국 AI RMF 등 주요 제도를 비교하고, 위험 관리를 위해 인간 감독·투명성·지속 모니터링 같은 공통 요건을 다룬다고 밝혔다. 또한 Harness Engineering을 통해 안전장치 설정, 최소 권한, 인간 개입 지점, 관측 가능성 등을 설계·구현하는 방안을 제시하며, 사후 승인에서 ‘작동 환경과 범위의 사전 구조 설계·관리’로 정책 패러다임 전환, 검증 체계 구축, 에이전틱 AI 얼라이언스 등 생태계 논의 확산의 필요성을 제시했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=25932&amp;bcIdx=29577">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=25932&amp;bcIdx=29577</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-22 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[동향] 저궤도 위성 D2D 시장 및 정책 동향 (2026.6.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[동향] 저궤도 위성 D2D 시장 및 정책 동향 (2026.6.22)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951456" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951456">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1951456</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-15 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>AI 기본법 시대의 공론과 입법 지형 (2026.6.15)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI 기본법 시대의 공론과 입법 지형 (2026.6.15)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952656" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952656">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1952656</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-11 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>공공부문 AI 도입·활용 가이드(2026.5월 기준) 공개(2026.6.11)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="공공부문 AI 도입·활용 가이드(2026.5월 기준) 공개(2026.6.11)
+
+가이드가 「인공지능 및 데이터 기반 행정 활성화에 관한 법률」의 8월 28일 시행에 선제 대응하기 위해 마련됐다고 안내했다. 공공기관의 개별 AI 인프라 구축으로 인한 예산 중복투자와 기술 파편화 문제를 줄이기 위해 ‘범정부 AI 공통기반’을 우선 활용하는 방향을 제시한다. 주요 내용으로는 AI서비스 컨셉 정의, 예산 수립·확보, 이용 계약, 서비스 구현, 운영 및 고도화(성능 모니터링·데이터 업데이트) 절차를 포함한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29526" onclick="copyEntry(this)">복사</button></div>
+  <p>가이드가 「인공지능 및 데이터 기반 행정 활성화에 관한 법률」의 8월 28일 시행에 선제 대응하기 위해 마련됐다고 안내했다. 공공기관의 개별 AI 인프라 구축으로 인한 예산 중복투자와 기술 파편화 문제를 줄이기 위해 ‘범정부 AI 공통기반’을 우선 활용하는 방향을 제시한다. 주요 내용으로는 AI서비스 컨셉 정의, 예산 수립·확보, 이용 계약, 서비스 구현, 운영 및 고도화(성능 모니터링·데이터 업데이트) 절차를 포함한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29526">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29526</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-10 <span class="archive-count">(2건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[The LENS 2026-9] 「미국 AI 리더십법」 발의안으로 본 연방의회 초당적 AI 정책 의제 (2026.6.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[The LENS 2026-9] 「미국 AI 리더십법」 발의안으로 본 연방의회 초당적 AI 정책 의제 (2026.6.10)
+
+미국 연방 차원에서 양당이 수렴하는 AI 정책 의제를 파악하기 위해, 2026년 4월 발의된 「미국 AI 리더십법(American Leadership in AI Act)」(H.R.8516)을 분석했다. 분석 결과, 핵심 조항은 바이든·트럼프 행정부를 거쳐 행정 재량으로 운영 중인 AI 표준·혁신센터, 국가AI연구자원, 최고AI책임자 체계 등에 법적 근거를 부여하는 방식으로 설계되어 있었다. 또한 범부처 기반 조성 분야는 반영도가 높지만, 시민 보호(청소년·선거·허위정보 등)와 민간 영역 규제는 상대적으로 협소하게 다뤄졌으며, 장기 연구개발·표준화·인재 양성의 법률·재정 권한 확보와 주별 규제 파편화 방지 필요성을 시사했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29519" onclick="copyEntry(this)">복사</button></div>
+  <p>미국 연방 차원에서 양당이 수렴하는 AI 정책 의제를 파악하기 위해, 2026년 4월 발의된 「미국 AI 리더십법(American Leadership in AI Act)」(H.R.8516)을 분석했다. 분석 결과, 핵심 조항은 바이든·트럼프 행정부를 거쳐 행정 재량으로 운영 중인 AI 표준·혁신센터, 국가AI연구자원, 최고AI책임자 체계 등에 법적 근거를 부여하는 방식으로 설계되어 있었다. 또한 범부처 기반 조성 분야는 반영도가 높지만, 시민 보호(청소년·선거·허위정보 등)와 민간 영역 규제는 상대적으로 협소하게 다뤄졌으며, 장기 연구개발·표준화·인재 양성의 법률·재정 권한 확보와 주별 규제 파편화 방지 필요성을 시사했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29519">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29519</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[초점] BBC 송출 중단 예고와 방송의 미래 (2026.6.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[초점] BBC 송출 중단 예고와 방송의 미래 (2026.6.10)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1947276" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1947276">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1947276</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-09 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[Digital Inclusion Report 26-2] 모두를 위한 AI 리터러시 정책 방향 (2026.6.9)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[Digital Inclusion Report 26-2] 모두를 위한 AI 리터러시 정책 방향 (2026.6.9)
+
+한국지능정보사회진흥원(NIA)은 AI 네이티브 시대에 전 국민이 AI의 기회와 위험을 이해하고 책임·윤리적으로 활용할 수 있도록 AI 리터러시 정책 방향을 제시하는 보고서를 공개했다. 보고서는 AI 리터러시 역량의 의미 변화와 국내 AI 활용 현황·제약 요인을 살펴본 뒤, 미국·영국·호주·프랑스·핀란드의 해외 정책 및 프로그램 사례를 분석해 정책 시사점을 도출한다. 종합 결론으로는 기존 디지털 취약계층 외에 AI 시대의 신규 취약계층과 정책 사각지대를 반영해 지원 범위를 재설계하고, 이해·판단·책임 중심의 역량 체계를 교육과정·직업훈련·진단 체계와 연계하는 맞춤형 지원을 강조한다. 또한 민관협력을 통한 인증·직무훈련 인정, 강사·멘토 양성 및 교육 품질관리를 통해 확산 기반을 구축하자는 방향을 제시한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=39485&amp;bcIdx=29512" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원(NIA)은 AI 네이티브 시대에 전 국민이 AI의 기회와 위험을 이해하고 책임·윤리적으로 활용할 수 있도록 AI 리터러시 정책 방향을 제시하는 보고서를 공개했다. 보고서는 AI 리터러시 역량의 의미 변화와 국내 AI 활용 현황·제약 요인을 살펴본 뒤, 미국·영국·호주·프랑스·핀란드의 해외 정책 및 프로그램 사례를 분석해 정책 시사점을 도출한다. 종합 결론으로는 기존 디지털 취약계층 외에 AI 시대의 신규 취약계층과 정책 사각지대를 반영해 지원 범위를 재설계하고, 이해·판단·책임 중심의 역량 체계를 교육과정·직업훈련·진단 체계와 연계하는 맞춤형 지원을 강조한다. 또한 민관협력을 통한 인증·직무훈련 인정, 강사·멘토 양성 및 교육 품질관리를 통해 확산 기반을 구축하자는 방향을 제시한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=39485&amp;bcIdx=29512">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=39485&amp;bcIdx=29512</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-08 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>(The LENS 2026-8) 중국 AI 기반 교육 체계 전환 전략 분석: 「‘AI+ 교육’ 행동계획」을 중심으로 (2026.6.8)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(The LENS 2026-8) 중국 AI 기반 교육 체계 전환 전략 분석: 「‘AI+ 교육’ 행동계획」을 중심으로 (2026.6.8)
+
+중국이 AI를 교육 체계 전반을 재설계하는 수단으로 격상하고, 단계적 발전을 거쳐 ‘AI+ 교육’ 행동계획으로 제도화하는 흐름을 분석한 연구보고서다. 학생 평가·교육 행정의 AI 기반 지능화, 산업 수요 연계형 AI 인재 양성, 물리·디지털 융합 미래 교육 공간 구현, 중앙-지방 연계형 확산 구조를 주요 결과로 제시한다. 정책적 시사점으로 위계적 정책 설계, 범부처 통합 거버넌스, 학제별 목표 체계 구체화, 시범-확산을 통한 실증 기반 제도화를 강조한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29504" onclick="copyEntry(this)">복사</button></div>
+  <p>중국이 AI를 교육 체계 전반을 재설계하는 수단으로 격상하고, 단계적 발전을 거쳐 ‘AI+ 교육’ 행동계획으로 제도화하는 흐름을 분석한 연구보고서다. 학생 평가·교육 행정의 AI 기반 지능화, 산업 수요 연계형 AI 인재 양성, 물리·디지털 융합 미래 교육 공간 구현, 중앙-지방 연계형 확산 구조를 주요 결과로 제시한다. 정책적 시사점으로 위계적 정책 설계, 범부처 통합 거버넌스, 학제별 목표 체계 구체화, 시범-확산을 통한 실증 기반 제도화를 강조한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29504">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29504</a></p>
+</article>
+<h3 class="cat-date-heading">2026-06-02 <span class="archive-count">(2건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[The LENS 2026-7] EU AI 옴니버스 주요 동향 및 시사점: 「AI법」 개정 합의문서(9247/26)를 중심으로 (2026.6.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[The LENS 2026-7] EU AI 옴니버스 주요 동향 및 시사점: 「AI법」 개정 합의문서(9247/26)를 중심으로 (2026.6.2)
+
+본 보고서는 EU 이사회·의회·집행위원회 3자 협상(Trilogue)으로 최종 타결된 「AI법」 개정 합의문서(9247/26, AI 옴니버스)의 주요 내용을 분석하고, 규제 이행의 유연성과 혁신 친화적 전환의 의미를 짚는다. 고위험 AI 규제 의무 적용 시점을 유형별로 연장하고 표준·감독기관 지정 등 인프라 마련과 연동해 기업의 제도 안착을 유도하며, 기존 법령 중복 해소와 상호 인정 체계 도입으로 법적 불확실성과 이중 준수 부담을 줄이는 방향을 제시한다. 또한 소형·중견기업 규제 완화와 기술문서 제출 의무 간소화, AI 사무국 권한 강화 및 준수 확약 제도 도입을 통해 실효성을 확보하려는 내용을 포함한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29480" onclick="copyEntry(this)">복사</button></div>
+  <p>본 보고서는 EU 이사회·의회·집행위원회 3자 협상(Trilogue)으로 최종 타결된 「AI법」 개정 합의문서(9247/26, AI 옴니버스)의 주요 내용을 분석하고, 규제 이행의 유연성과 혁신 친화적 전환의 의미를 짚는다. 고위험 AI 규제 의무 적용 시점을 유형별로 연장하고 표준·감독기관 지정 등 인프라 마련과 연동해 기업의 제도 안착을 유도하며, 기존 법령 중복 해소와 상호 인정 체계 도입으로 법적 불확실성과 이중 준수 부담을 줄이는 방향을 제시한다. 또한 소형·중견기업 규제 완화와 기술문서 제출 의무 간소화, AI 사무국 권한 강화 및 준수 확약 제도 도입을 통해 실효성을 확보하려는 내용을 포함한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29480">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29480</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[NIA 미래전략 정책자료집] AGI 전환과 한국의 과제 : 글로벌 미래 시나리오 연구 비교 분석을 중심으로 (2026.6.2)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[NIA 미래전략 정책자료집] AGI 전환과 한국의 과제 : 글로벌 미래 시나리오 연구 비교 분석을 중심으로 (2026.6.2)
+
+한국지능정보사회진흥원(NIA)은 2024년 이후 발간된 AGI 시나리오 연구 8편을 비교 문헌 분석해 담론·변수·방법론·정책 함의를 정리한 정책자료집을 공개했다. AGI는 주로 인간 역량을 기준으로 정의되며 도달 시점은 2027~2030년 구간에 모이지만, 모델 구조의 대전환 가능성 등 불확실성이 남아 있다고 본다. 39개 시나리오는 기술 궤적, 소수 집중·불평등, 지정학 경쟁, 거버넌스 위기·협력, 정렬 실패·실존 위협의 다섯 서사 패턴으로 분류되며 비관적 시나리오가 다수를 차지해 위협 요인 편중 양상이 나타난다고 제시한다. 정책적으로는 국제 협력, 안전 평가, 민관 협력이 공통 권고로 가장 많이 언급되며, 어떤 시나리오에도 적용 가능한 유연한 정책 설계와 범부처 통합 거버넌스 구축 필요성을 강조한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29481" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원(NIA)은 2024년 이후 발간된 AGI 시나리오 연구 8편을 비교 문헌 분석해 담론·변수·방법론·정책 함의를 정리한 정책자료집을 공개했다. AGI는 주로 인간 역량을 기준으로 정의되며 도달 시점은 2027~2030년 구간에 모이지만, 모델 구조의 대전환 가능성 등 불확실성이 남아 있다고 본다. 39개 시나리오는 기술 궤적, 소수 집중·불평등, 지정학 경쟁, 거버넌스 위기·협력, 정렬 실패·실존 위협의 다섯 서사 패턴으로 분류되며 비관적 시나리오가 다수를 차지해 위협 요인 편중 양상이 나타난다고 제시한다. 정책적으로는 국제 협력, 안전 평가, 민관 협력이 공통 권고로 가장 많이 언급되며, 어떤 시나리오에도 적용 가능한 유연한 정책 설계와 범부처 통합 거버넌스 구축 필요성을 강조한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29481">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29481</a></p>
+</article></div></details><details class="archive-month"><summary>2026년 5월 <span class="archive-count">(23건)</span></summary><div class="cat-month-body"><h3 class="cat-date-heading">2026-05-30 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">월드 모델, 물리 세계 이해·미래 예측 기반으로 피지컬AI 핵심 기술 부상(2026.05.26)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+월드 모델은 데이터 부족과 사전 검증 문제를 합성 데이터·가상 시뮬레이션으로 보완해 로봇·자율 시스템의 학습 비용과 위험한 실제 검증을 줄일 수 있다고 설명한다. 기술적으로는 명시적·암묵적·시뮬레이터 기반·하이브리드 등 다양한 접근이 발전 중이며, 비디오 생성·자율주행·자율 에이전트 등 분야별로도 세분화되고 있다. 정책적으로는 한국이 제조업 데이터를 활용해 제조 특화 물리 데이터셋과 고충실도 가상환경을 구축하고 Sim-to-Real 정합성 및 도메인 특화 월드 모델 개발을 추진해야 한다고 제안한다.
+
+https://www.spri.kr/posts/view/23991?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>출처: 소프트웨어정책연구소(SPRi)</p>
+<p>월드 모델은 데이터 부족과 사전 검증 문제를 합성 데이터·가상 시뮬레이션으로 보완해 로봇·자율 시스템의 학습 비용과 위험한 실제 검증을 줄일 수 있다고 설명한다. 기술적으로는 명시적·암묵적·시뮬레이터 기반·하이브리드 등 다양한 접근이 발전 중이며, 비디오 생성·자율주행·자율 에이전트 등 분야별로도 세분화되고 있다. 정책적으로는 한국이 제조업 데이터를 활용해 제조 특화 물리 데이터셋과 고충실도 가상환경을 구축하고 Sim-to-Real 정합성 및 도메인 특화 월드 모델 개발을 추진해야 한다고 제안한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23991?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23991?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-29 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>「AI.GOV 해외동향」 2026-2호 발간 안내 (2026.5.29)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="「AI.GOV 해외동향」 2026-2호 발간 안내 (2026.5.29)
+
+「AI.GOV 해외동향」 2026-2호는 해외 주요국의 인공지능 정책 및 산업 동향을 파악·분석하기 위해 NIA가 기획·발간한 보고서입니다. 수록 내용으로는 Mythos 쇼크와 AI 사이버보안, 에이전틱 AI 시대 작업 구조 전환, 하네스 엔지니어링 및 자율형 AI 에이전트 혁신, EU ‘AI 대륙 행동 계획’ 1년 성과 등이 포함됩니다. 보고서 작성은 생성형 AI를 활용했으며, 내부 검수 후에도 정확성·신뢰성 확보를 위해 참고문헌을 통한 원문 확인을 권고합니다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29463" onclick="copyEntry(this)">복사</button></div>
+  <p>「AI.GOV 해외동향」 2026-2호는 해외 주요국의 인공지능 정책 및 산업 동향을 파악·분석하기 위해 NIA가 기획·발간한 보고서입니다. 수록 내용으로는 Mythos 쇼크와 AI 사이버보안, 에이전틱 AI 시대 작업 구조 전환, 하네스 엔지니어링 및 자율형 AI 에이전트 혁신, EU ‘AI 대륙 행동 계획’ 1년 성과 등이 포함됩니다. 보고서 작성은 생성형 AI를 활용했으며, 내부 검수 후에도 정확성·신뢰성 확보를 위해 참고문헌을 통한 원문 확인을 권고합니다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29463">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29463</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-28 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>2025 지능정보사회 이용자 패널조사 (2026.5.28)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="2025 지능정보사회 이용자 패널조사 (2026.5.28)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945676" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945676">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945676</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-26 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>월드 모델은 물리 세계를 이해·예측해 로봇/자율주행/가상융합의 핵심 기반기술로 부상(2026.05.26)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="월드 모델은 물리 세계를 이해·예측해 로봇/자율주행/가상융합의 핵심 기반기술로 부상(2026.05.26)
+
+SPRi는 월드 모델(World Model)이 언어·이미지 처리 단계를 넘어 물리 세계의 구조와 동역학을 이해하고 미래 상태를 예측하는 기술로 확산되고 있다고 설명했다. 데이터 부족과 사전 검증 문제를 합성 데이터·가상 시뮬레이션으로 보완해 로봇 및 자율 시스템의 학습·검증 비용을 낮추고 안전성을 높일 수 있다는 점을 강조했다. 정책적으로는 한국이 제조업 기반 산업 데이터를 활용해 제조 특화 물리 데이터셋과 고충실도 가상환경을 구축하고 Sim-to-Real 정합성 및 도메인 특화 월드 모델 개발, VLA·시뮬레이션·제조 데이터를 통합한 국가 R&amp;D 체계 마련이 필요하다고 제안했다.
+
+https://www.spri.kr/posts/view/23991?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>SPRi는 월드 모델(World Model)이 언어·이미지 처리 단계를 넘어 물리 세계의 구조와 동역학을 이해하고 미래 상태를 예측하는 기술로 확산되고 있다고 설명했다. 데이터 부족과 사전 검증 문제를 합성 데이터·가상 시뮬레이션으로 보완해 로봇 및 자율 시스템의 학습·검증 비용을 낮추고 안전성을 높일 수 있다는 점을 강조했다. 정책적으로는 한국이 제조업 기반 산업 데이터를 활용해 제조 특화 물리 데이터셋과 고충실도 가상환경을 구축하고 Sim-to-Real 정합성 및 도메인 특화 월드 모델 개발, VLA·시뮬레이션·제조 데이터를 통합한 국가 R&amp;D 체계 마련이 필요하다고 제안했다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23991?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23991?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-20 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>아동·청소년의 소셜미디어 중독, 누구의 책임인가?: 개인의 책임을 넘어 플랫폼의 설계 책임을 묻다 (2026.5.20)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="아동·청소년의 소셜미디어 중독, 누구의 책임인가?: 개인의 책임을 넘어 플랫폼의 설계 책임을 묻다 (2026.5.20)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025536&amp;arrMasterId=3934550&amp;id=1945616" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025536&amp;arrMasterId=3934550&amp;id=1945616">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025536&amp;arrMasterId=3934550&amp;id=1945616</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-19 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>ICT 산업 중장기 전망(2026~2030) 및 대응 전략</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 산업 중장기 전망(2026~2030) 및 대응 전략
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1943576" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1943576">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1943576</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-18 <span class="archive-count">(4건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>디지털 플랫폼의  인플레이션 유발효과 검증:  OTT와 배달앱을 중심으로 (2026.5.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 플랫폼의  인플레이션 유발효과 검증:  OTT와 배달앱을 중심으로 (2026.5.18)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025536&amp;arrMasterId=3934550&amp;id=1943596" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025536&amp;arrMasterId=3934550&amp;id=1943596">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025536&amp;arrMasterId=3934550&amp;id=1943596</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>글로벌 AI 경쟁력 강화를 위해 오픈소스AI 확산·내재화·인재양성 등 정책 제언 (2026.05.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="글로벌 AI 경쟁력 강화를 위해 오픈소스AI 확산·내재화·인재양성 등 정책 제언 (2026.05.18)
+
+소프트웨어정책연구소는 오픈소스 생태계가 생성형 AI 혁신과 산업 영향력 확대를 이끌고 있으며, 이를 바탕으로 우리나라의 AI 경쟁력 강화를 위한 오픈소스AI 활성화 방안을 제시한다. 깃허브·허깅페이스 성장, 오픈소스 모델의 확산, OSI 정의 및 리눅스재단의 모델 개방성 프레임워크 등 개념 정립과 함께 국내외 기업 동향을 조사했다. 또한 EpochAI 모델 데이터와 국내 AI 개발자 설문(371명)을 통해 오픈소스AI의 활용 동기·저해요인(저작권 침해, 인력·인프라 부족 등)과 촉진 조건(인프라·전문가 양성·거버넌스 등)을 분석하고, 선진기술 수용 지원, 기술 내재화, 전문가 교육·컨설팅, 전문기업 육성 등의 정책을 제안한다.
+
+https://www.spri.kr/posts/view/23990?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>소프트웨어정책연구소는 오픈소스 생태계가 생성형 AI 혁신과 산업 영향력 확대를 이끌고 있으며, 이를 바탕으로 우리나라의 AI 경쟁력 강화를 위한 오픈소스AI 활성화 방안을 제시한다. 깃허브·허깅페이스 성장, 오픈소스 모델의 확산, OSI 정의 및 리눅스재단의 모델 개방성 프레임워크 등 개념 정립과 함께 국내외 기업 동향을 조사했다. 또한 EpochAI 모델 데이터와 국내 AI 개발자 설문(371명)을 통해 오픈소스AI의 활용 동기·저해요인(저작권 침해, 인력·인프라 부족 등)과 촉진 조건(인프라·전문가 양성·거버넌스 등)을 분석하고, 선진기술 수용 지원, 기술 내재화, 전문가 교육·컨설팅, 전문기업 육성 등의 정책을 제안한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23990?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23990?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>글로벌 AI 경쟁력 강화를 위한 오픈소스AI 활성화 방안(2026.05.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="글로벌 AI 경쟁력 강화를 위한 오픈소스AI 활성화 방안(2026.05.18)
+
+오픈소스AI 생태계의 성장 배경과 개념을 정리하고, 국내외 기업·모델 데이터를 비교 분석한 뒤 정책 시사점을 제시하는 연구이다. GitHub·Hugging Face 성장, 오픈소스 채택 비율(인프라 89%)과 비용 절감 효과(예: chatGPT 대비 1/30) 등 오픈소스AI의 확산 동인을 설명하며, OSI의 4가지 자유 및 리눅스 재단의 모델 개방성 프레임워크 등 개념 정립 움직임을 소개한다. EpochAI 모델 데이터(1950~2025.6, 964개 유명 모델 중 오픈소스 269개)와 국내 AI 개발자 설문(371명)을 바탕으로 오픈소스 모델 영향력 증가, 데이터/코드 공개 수준의 차이, 저작권 침해 우려와 인력·거버넌스 부족 같은 저해요인을 도출하고, 선진 기술 수용 지원·내재화·전문가 양성·전문기업 육성 등을 정책 제언으로 제시한다.
+
+https://www.spri.kr/posts/view/23990?code=research&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>오픈소스AI 생태계의 성장 배경과 개념을 정리하고, 국내외 기업·모델 데이터를 비교 분석한 뒤 정책 시사점을 제시하는 연구이다. GitHub·Hugging Face 성장, 오픈소스 채택 비율(인프라 89%)과 비용 절감 효과(예: chatGPT 대비 1/30) 등 오픈소스AI의 확산 동인을 설명하며, OSI의 4가지 자유 및 리눅스 재단의 모델 개방성 프레임워크 등 개념 정립 움직임을 소개한다. EpochAI 모델 데이터(1950~2025.6, 964개 유명 모델 중 오픈소스 269개)와 국내 AI 개발자 설문(371명)을 바탕으로 오픈소스 모델 영향력 증가, 데이터/코드 공개 수준의 차이, 저작권 침해 우려와 인력·거버넌스 부족 같은 저해요인을 도출하고, 선진 기술 수용 지원·내재화·전문가 양성·전문기업 육성 등을 정책 제언으로 제시한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23990?code=research&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23990?code=research&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[초점] 국내 중고폰 시장 규모 추정 및 시사점 (2026.5.18)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[초점] 국내 중고폰 시장 규모 추정 및 시사점 (2026.5.18)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1946836" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1946836">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1946836</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-14 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>생성형 인공지능(AI) 이용자 집단 분석: 이용의 심화 vs. 실질적 인지도 정체</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="생성형 인공지능(AI) 이용자 집단 분석: 이용의 심화 vs. 실질적 인지도 정체
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1942416" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1942416">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1942416</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-12 <span class="archive-count">(2건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>(2026.5.12) Transformer 모델 혁신과 AI Full Stack 중심의 공공 AX 전략</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(2026.5.12) Transformer 모델 혁신과 AI Full Stack 중심의 공공 AX 전략
+
+한국지능정보사회진흥원(NIA) 공공AI전환지원센터가 「AX ISSUE BLENDER 2026-01」 보고서를 발간하며, Transformer 아키텍처 이후 생성형 AI 확산에 따른 공공 AX(인공지능 전환) 전략을 제시했다. 보고서는 성공적 AX가 ‘AX 대상·서비스’, ‘AX 구현’, ‘AX 운영·거버넌스’의 3요소 통합을 통해 작동한다고 설명하며, AI Full Stack 관점에서 인프라·데이터·모델·오케스트레이션·응용을 아우르는 7단계 방법론을 안내한다. 단편적 솔루션 도입이 아니라 표준화, 종속 회피, 민첩 대응이 가능한 접근이 핵심이라고 강조한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=82618&amp;bcIdx=29373" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원(NIA) 공공AI전환지원센터가 「AX ISSUE BLENDER 2026-01」 보고서를 발간하며, Transformer 아키텍처 이후 생성형 AI 확산에 따른 공공 AX(인공지능 전환) 전략을 제시했다. 보고서는 성공적 AX가 ‘AX 대상·서비스’, ‘AX 구현’, ‘AX 운영·거버넌스’의 3요소 통합을 통해 작동한다고 설명하며, AI Full Stack 관점에서 인프라·데이터·모델·오케스트레이션·응용을 아우르는 7단계 방법론을 안내한다. 단편적 솔루션 도입이 아니라 표준화, 종속 회피, 민첩 대응이 가능한 접근이 핵심이라고 강조한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=82618&amp;bcIdx=29373">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=82618&amp;bcIdx=29373</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[초점] 이동전화 번호이동 추이와 시사점 (2026.5.12)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[초점] 이동전화 번호이동 추이와 시사점 (2026.5.12)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1945116" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1945116">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1945116</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-11 <span class="archive-count">(3건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>(AI 윤리 확산 기반조성) AI 윤리 확보를 위한 실천 방안 및 정책연구</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="(AI 윤리 확산 기반조성) AI 윤리 확보를 위한 실천 방안 및 정책연구
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1941936" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1941936">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1941936</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>통신시장 경쟁상황 평가(2025년도)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="통신시장 경쟁상황 평가(2025년도)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1941956" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1941956">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1941956</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">소프트웨어정책연구소, SDV 전환 수준·인력 미스매치 진단 및 SW·AI 인력양성 정책 제시 (2026.05.06)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+본 연구는 디지털 전환과 SDx 확산으로 자동차 산업이 SDV(Software-Defined Vehicle)로 전환되는 과정에서 SW·AI 인력 공급이 부족한 문제를, 단순 인력 부족이 아닌 구조적 질적 미스매치로 규정하고 실증 분석했다. 자동차·부품 제조는 SW 내재화가 초기 단계에 머물러 핵심 SW 인력 비중이 낮고, SW·서비스 부문은 중견기업 중심으로 핵심 SW 인력 확보와 성과 창출이 충분치 않은 병목이 확인됐다. 소프트웨어중심혁신역량지수(SDICI)를 활용해 기업을 전환 수준에 따라 4유형으로 구분하고, 임계 구간(약 50점 전후) 기업을 집중 지원하는 등 성숙도별 차등 정책과 기술·인력·사업화 지원의 통합 설계를 제안한다.
+
+https://www.spri.kr/posts/view/23985?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>출처: 소프트웨어정책연구소(SPRi)</p>
+<p>본 연구는 디지털 전환과 SDx 확산으로 자동차 산업이 SDV(Software-Defined Vehicle)로 전환되는 과정에서 SW·AI 인력 공급이 부족한 문제를, 단순 인력 부족이 아닌 구조적 질적 미스매치로 규정하고 실증 분석했다. 자동차·부품 제조는 SW 내재화가 초기 단계에 머물러 핵심 SW 인력 비중이 낮고, SW·서비스 부문은 중견기업 중심으로 핵심 SW 인력 확보와 성과 창출이 충분치 않은 병목이 확인됐다. 소프트웨어중심혁신역량지수(SDICI)를 활용해 기업을 전환 수준에 따라 4유형으로 구분하고, 임계 구간(약 50점 전후) 기업을 집중 지원하는 등 성숙도별 차등 정책과 기술·인력·사업화 지원의 통합 설계를 제안한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23985?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23985?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-08 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[AI Policy Insights] 美 AI 활용 사례 목록을 통한 공공 AX 현황 분석 및 정책 시사점 (2026.5.8)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[AI Policy Insights] 美 AI 활용 사례 목록을 통한 공공 AX 현황 분석 및 정책 시사점 (2026.5.8)
+
+미 예산관리국(OMB)이 연방정부 AI 운영 효율화와 대국민 서비스 개선을 위해 ‘AI 거버넌스·혁신·위험관리’ 지침(M-24-10)을 발표했으며, 이에 따라 각 기관은 AI 활용 사례 목록을 매년 작성해 OMB에 제출하고 공개용 버전을 공시하도록 규정했다. 2023~2025년 공개된 AI 활용 사례 수가 709개→2,133개→3,611개로 크게 늘었고, 보고 기관 수도 확대되는 등 공공부문의 AI 도입·확산이 빠르게 진행 중인 것으로 정리됐다. 또한 AI 안전·신뢰성 확보를 위해 데이터·소스코드·고영향 AI 여부와 리스크 관리 방안을 포함하도록 작성 체계를 개선하고 있으며, 한국도 AI 부작용 완화와 명료한 거버넌스 정립을 통해 공공 AX 전반을 관리·감독할 필요가 있다는 시사점을 제시한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29360" onclick="copyEntry(this)">복사</button></div>
+  <p>미 예산관리국(OMB)이 연방정부 AI 운영 효율화와 대국민 서비스 개선을 위해 ‘AI 거버넌스·혁신·위험관리’ 지침(M-24-10)을 발표했으며, 이에 따라 각 기관은 AI 활용 사례 목록을 매년 작성해 OMB에 제출하고 공개용 버전을 공시하도록 규정했다. 2023~2025년 공개된 AI 활용 사례 수가 709개→2,133개→3,611개로 크게 늘었고, 보고 기관 수도 확대되는 등 공공부문의 AI 도입·확산이 빠르게 진행 중인 것으로 정리됐다. 또한 AI 안전·신뢰성 확보를 위해 데이터·소스코드·고영향 AI 여부와 리스크 관리 방안을 포함하도록 작성 체계를 개선하고 있으며, 한국도 AI 부작용 완화와 명료한 거버넌스 정립을 통해 공공 AX 전반을 관리·감독할 필요가 있다는 시사점을 제시한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29360">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29360</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-06 <span class="archive-count">(3건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>개방형 AI 생태계 구축을 위한 상호운용성 정책방향 및 과제 (2026.5.6)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="개방형 AI 생태계 구축을 위한 상호운용성 정책방향 및 과제 (2026.5.6)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025536&amp;arrMasterId=3934550&amp;id=1942076" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025536&amp;arrMasterId=3934550&amp;id=1942076">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025536&amp;arrMasterId=3934550&amp;id=1942076</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[초점] EU의 통신정책 방향 변화 분석: BEREC strategy 2026-2030을 중심으로 (2026.5.6)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[초점] EU의 통신정책 방향 변화 분석: BEREC strategy 2026-2030을 중심으로 (2026.5.6)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1945096" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1945096">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1945096</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>SDV 산업 전환 단계별 SW·AI 인력 미스매치를 진단하고 맞춤형 인력양성·지원체계 고도화 제안(2026.05.06)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="SDV 산업 전환 단계별 SW·AI 인력 미스매치를 진단하고 맞춤형 인력양성·지원체계 고도화 제안(2026.05.06)
+
+본 연구는 디지털 전환과 SDx 확산으로 자동차가 SDV(Software-Defined Vehicle)로 전환되는 과정에서 SW·AI 인력 공급이 부족한 문제를 넘어, 전환 단계·직무·숙련·기업유형 간 구조적 미스매치로 규정하고 실증 분석했다. 분석 결과 자동차산업은 SDV 관련 R&amp;D 비중과 인력 투입이 확산 단계에 있으나, 소프트웨어 중심 내재화 수준은 초기 단계에 머물러 핵심 SW 인력 비중이 낮게 유지되는 것으로 나타났다. 또한 SDV 전체 인력 부족률보다 SW·AI 인력 부족률이 더 높아 질적 미스매치가 핵심 병목임을 확인했으며, SDICI를 활용해 기업을 4개 유형으로 구분하고 임계 구간(50점 전후) 기업을 집중 지원하는 등 성과 기반의 정책 고도화를 제안한다.
+
+https://www.spri.kr/posts/view/23985?code=research&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 디지털 전환과 SDx 확산으로 자동차가 SDV(Software-Defined Vehicle)로 전환되는 과정에서 SW·AI 인력 공급이 부족한 문제를 넘어, 전환 단계·직무·숙련·기업유형 간 구조적 미스매치로 규정하고 실증 분석했다. 분석 결과 자동차산업은 SDV 관련 R&amp;D 비중과 인력 투입이 확산 단계에 있으나, 소프트웨어 중심 내재화 수준은 초기 단계에 머물러 핵심 SW 인력 비중이 낮게 유지되는 것으로 나타났다. 또한 SDV 전체 인력 부족률보다 SW·AI 인력 부족률이 더 높아 질적 미스매치가 핵심 병목임을 확인했으며, SDICI를 활용해 기업을 4개 유형으로 구분하고 임계 구간(50점 전후) 기업을 집중 지원하는 등 성과 기반의 정책 고도화를 제안한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23985?code=research&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23985?code=research&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<h3 class="cat-date-heading">2026-05-04 <span class="archive-count">(3건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>(The LENS 2026-4) AI 주도권 확보를 위한 미국의 조달 전략(2026.5.4)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(The LENS 2026-4) AI 주도권 확보를 위한 미국의 조달 전략(2026.5.4)
+
+한국지능정보사회진흥원은 2026년 4월 기준 미국 연방의 AI 조달 지침 3건과 표준 계약 조항 초안 1건을 분석해 정책 특징과 시사점을 정리했다. 분석 결과, 정부 데이터 보호를 위해 공급업체의 상업용 AI 훈련에 정부 데이터 활용을 계약상 영구 금지하고 데이터 현지화·완전 삭제 등 보안 의무를 구체화했다. 또한 오픈 API·개방형 데이터 형식 의무로 특정 공급업체 의존 구조를 줄이고, 고영향 AI 판정을 단일 개념으로 통합해 조달 전 과정의 기준으로 활용하도록 설계했으며, LLM 조달 시 모델 카드·편향 평가 문서 제출과 변경 시 사전 통보 등 검증·책임 체계를 명문화했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29344" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원은 2026년 4월 기준 미국 연방의 AI 조달 지침 3건과 표준 계약 조항 초안 1건을 분석해 정책 특징과 시사점을 정리했다. 분석 결과, 정부 데이터 보호를 위해 공급업체의 상업용 AI 훈련에 정부 데이터 활용을 계약상 영구 금지하고 데이터 현지화·완전 삭제 등 보안 의무를 구체화했다. 또한 오픈 API·개방형 데이터 형식 의무로 특정 공급업체 의존 구조를 줄이고, 고영향 AI 판정을 단일 개념으로 통합해 조달 전 과정의 기준으로 활용하도록 설계했으며, LLM 조달 시 모델 카드·편향 평가 문서 제출과 변경 시 사전 통보 등 검증·책임 체계를 명문화했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29344">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29344</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>(The LENS 2026-5) 중국 AI-에너지 통합 인프라 정책 현황: 컴퓨팅·전력 협동 전략(2026.5.4)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(The LENS 2026-5) 중국 AI-에너지 통합 인프라 정책 현황: 컴퓨팅·전력 협동 전략(2026.5.4)
+
+본문은 AI 인프라 확대에 따른 전력 수요 급증에 대응하기 위해 컴퓨팅 파워와 전력을 통합 설계하는 중국의 ‘산전협동’ 전략을 분석한다. 2020년 통합 빅데이터센터 협동 혁신 체계 구축 가속화 지도 의견을 출발로, 2021년 실행 계획에서 ‘동수서산’ 개념이 정립된 뒤 국가 전략 문서들을 통해 구체화되었으며, 핵심 정책으로는 「AI+ 에너지 고품질 발전 추진에 관한 실시 의견」을 제시한다. 분석 결과 산전협동은 배치된 인프라와 전력망의 작동·운용 최적화를 중심으로 정책 패러다임을 전환하고, 에너지 자립과 AI 인프라 경쟁력을 연계한 안보·탄소중립 선순환 생태계 구축에 기여하는 것으로 평가한다. 아울러 AI 컴퓨팅 수요를 전력 수급 계획에 반영하고 재생에너지 공급 조건을 데이터센터 설립과 연계하는 범부처 이행체계 마련 등 정책 시사점을 제시한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29345" onclick="copyEntry(this)">복사</button></div>
+  <p>본문은 AI 인프라 확대에 따른 전력 수요 급증에 대응하기 위해 컴퓨팅 파워와 전력을 통합 설계하는 중국의 ‘산전협동’ 전략을 분석한다. 2020년 통합 빅데이터센터 협동 혁신 체계 구축 가속화 지도 의견을 출발로, 2021년 실행 계획에서 ‘동수서산’ 개념이 정립된 뒤 국가 전략 문서들을 통해 구체화되었으며, 핵심 정책으로는 「AI+ 에너지 고품질 발전 추진에 관한 실시 의견」을 제시한다. 분석 결과 산전협동은 배치된 인프라와 전력망의 작동·운용 최적화를 중심으로 정책 패러다임을 전환하고, 에너지 자립과 AI 인프라 경쟁력을 연계한 안보·탄소중립 선순환 생태계 구축에 기여하는 것으로 평가한다. 아울러 AI 컴퓨팅 수요를 전력 수급 계획에 반영하고 재생에너지 공급 조건을 데이터센터 설립과 연계하는 범부처 이행체계 마련 등 정책 시사점을 제시한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29345">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29345</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>영국 「스마트 데이터 2035」 전략의 핵심과 제도·실증 기반 이행 시사점(2026.5.4)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="영국 「스마트 데이터 2035」 전략의 핵심과 제도·실증 기반 이행 시사점(2026.5.4)
+
+영국 기업통상부의 「스마트 데이터 2035」 전략을 요약하고, 「데이터(사용 및 접근)법」 및 관련 경제효과 분석을 바탕으로 의미와 과제를 정리한 정책연구 보고서다. 오픈 뱅킹의 성공 모델을 에너지·교통·통신 등으로 확산해 2035년까지 20개 이상 분야에서 데이터 이동권을 보장하는 ‘영국형 스마트 데이터 경제’를 추진한다. 또한 법 제정을 통해 기업 참여 의무를 강화하고, 분야별 로드맵·투자계획·정량 목표를 명시해 성과를 객관적으로 평가하며, 분야별 파일럿과 챌린지 등 실증을 정책 설계에 반영하고 범정부 정책과 연계해 시너지를 노린다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29346" onclick="copyEntry(this)">복사</button></div>
+  <p>영국 기업통상부의 「스마트 데이터 2035」 전략을 요약하고, 「데이터(사용 및 접근)법」 및 관련 경제효과 분석을 바탕으로 의미와 과제를 정리한 정책연구 보고서다. 오픈 뱅킹의 성공 모델을 에너지·교통·통신 등으로 확산해 2035년까지 20개 이상 분야에서 데이터 이동권을 보장하는 ‘영국형 스마트 데이터 경제’를 추진한다. 또한 법 제정을 통해 기업 참여 의무를 강화하고, 분야별 로드맵·투자계획·정량 목표를 명시해 성과를 객관적으로 평가하며, 분야별 파일럿과 챌린지 등 실증을 정책 설계에 반영하고 범정부 정책과 연계해 시너지를 노린다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29346">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29346</a></p>
+</article></div></details><details class="archive-month"><summary>2026년 4월 <span class="archive-count">(23건)</span></summary><div class="cat-month-body"><h3 class="cat-date-heading">2026-04-30 <span class="archive-count">(14건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>국내 주력산업의 SW융합 경쟁력 진단체계 마련(2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="국내 주력산업의 SW융합 경쟁력 진단체계 마련(2026.04.30)
+
+국내 주력산업의 SW융합 경쟁력을 기술·조직·환경(TOE) 관점에서 진단할 수 있는 지표체계를 제안했다. 제조업은 업무 자동화·최적화 수준이 핵심 요소로, 서비스업은 SW 기술 간 연계·통합 수준이 핵심 요소로 나타나 업종별로 경쟁력 형성 경로가 다름을 분석했다. 델파이와 AHP를 통해 지표의 타당성과 가중치를 산정했으며, 정책은 업종 특성에 맞춘 맞춤형 지원과 현장 체감도 제고가 필요하다고 제시했다.
+
+https://www.spri.kr/posts/view/23973?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>국내 주력산업의 SW융합 경쟁력을 기술·조직·환경(TOE) 관점에서 진단할 수 있는 지표체계를 제안했다. 제조업은 업무 자동화·최적화 수준이 핵심 요소로, 서비스업은 SW 기술 간 연계·통합 수준이 핵심 요소로 나타나 업종별로 경쟁력 형성 경로가 다름을 분석했다. 델파이와 AHP를 통해 지표의 타당성과 가중치를 산정했으며, 정책은 업종 특성에 맞춘 맞춤형 지원과 현장 체감도 제고가 필요하다고 제시했다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23973?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23973?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>(메타버스-인공지능 융합 활성화 연구) (2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="(메타버스-인공지능 융합 활성화 연구) (2026.04.30)
+
+본 연구는 메타버스와 AI의 결합 구조를 기술·산업·정책 관점에서 분석하고, 양 기술의 공진화를 촉진하기 위한 시사점을 제시한다. 메타버스는 공간컴퓨팅·디지털 트윈 등으로 초실감·개인화·멀티모달화를 확장하고, AI는 생성형 AI와 멀티모달/에이전트로 콘텐츠 생산과 지능화를 가속한다. 또한 융합 확산에 따른 데이터·저작권 등 사회·제도 과제와 함께, 인재·데이터·AI 인프라·표준·초기 도입·법제 정비 등 정부 지원 필요성을 제안한다.
+
+https://www.spri.kr/posts/view/23974?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 메타버스와 AI의 결합 구조를 기술·산업·정책 관점에서 분석하고, 양 기술의 공진화를 촉진하기 위한 시사점을 제시한다. 메타버스는 공간컴퓨팅·디지털 트윈 등으로 초실감·개인화·멀티모달화를 확장하고, AI는 생성형 AI와 멀티모달/에이전트로 콘텐츠 생산과 지능화를 가속한다. 또한 융합 확산에 따른 데이터·저작권 등 사회·제도 과제와 함께, 인재·데이터·AI 인프라·표준·초기 도입·법제 정비 등 정부 지원 필요성을 제안한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23974?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23974?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">(2026.04.30) 2025년 공공부문 AI 도입현황 연구 결과 요약</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+본 연구는 2015~2024년 공공부문 AI 도입 조달계약 6,975건과 2023~2024년 생성형 AI 도입 66건, 그리고 클라우드 방식 도입 현황을 함께 분석했다.
+
+공공부문 조달계약 기준으로 2015~2024년 AI 도입 계약은 6,975건이며, 412개 공공기관 중 65.0%(268개 기관)가 AI를 도입한 것으로 나타났다. 용도는 대민서비스 44.9%, 업무효율화 55.1%로 업무효율화 비중이 더 높고, 기술유형은 언어지능(36.0%), 전문가시스템(34.5%), 시각지능(19.2%) 순이었다. 생성형 AI는 2023년 24건에서 2024년 42건으로 늘었고(계약금액도 478억→695억), 클라우드 방식은 AI SaaS 도입이 2021년 7건에서 2024년 65건, 2025년 73건으로 증가하는 추세로 제시됐다.
+
+https://www.spri.kr/posts/view/23975?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>출처: 소프트웨어정책연구소(SPRi)</p>
+<p>본 연구는 2015~2024년 공공부문 AI 도입 조달계약 6,975건과 2023~2024년 생성형 AI 도입 66건, 그리고 클라우드 방식 도입 현황을 함께 분석했다.</p>
+<p>공공부문 조달계약 기준으로 2015~2024년 AI 도입 계약은 6,975건이며, 412개 공공기관 중 65.0%(268개 기관)가 AI를 도입한 것으로 나타났다. 용도는 대민서비스 44.9%, 업무효율화 55.1%로 업무효율화 비중이 더 높고, 기술유형은 언어지능(36.0%), 전문가시스템(34.5%), 시각지능(19.2%) 순이었다. 생성형 AI는 2023년 24건에서 2024년 42건으로 늘었고(계약금액도 478억→695억), 클라우드 방식은 AI SaaS 도입이 2021년 7건에서 2024년 65건, 2025년 73건으로 증가하는 추세로 제시됐다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23975?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23975?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span> · <span class="deadline">인공지능 산업의 가치사슬을 반영한 분류체계 개선 연구(2026.04.30)</span></span><button type="button" class="copy-btn" data-copy="
+
+본 연구는 현행 한국표준산업분류(KSIC) 및 기존 AI 관련 분류체계가 AI 기술·서비스의 산업 전반 확산과 가치사슬 변화를 충분히 반영하지 못해 통계 파악과 정책 활용에 한계가 있다고 보고, 개선 방안을 제시한다. AI 산업을 ‘AI 소프트웨어 산업’, ‘AI 서비스 산업’, ‘AI 하드웨어 산업’으로 구분하는 다층적 분류 기준을 설계하고, 시범 적용과 전문가 검토를 통해 활용 가능성을 검증했다. 또한 OECD·EU·미국 등 주요국의 정의·분류 동향을 분석해 국제적 정합성을 확보하는 데 중점을 두며, 향후 AI 산업 실태조사·정책 수립·평가 및 표준 분류체계 개편의 기초자료로 활용될 수 있음을 기대효과로 제시한다.
+
+https://www.spri.kr/posts/view/23978?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 현행 한국표준산업분류(KSIC) 및 기존 AI 관련 분류체계가 AI 기술·서비스의 산업 전반 확산과 가치사슬 변화를 충분히 반영하지 못해 통계 파악과 정책 활용에 한계가 있다고 보고, 개선 방안을 제시한다. AI 산업을 ‘AI 소프트웨어 산업’, ‘AI 서비스 산업’, ‘AI 하드웨어 산업’으로 구분하는 다층적 분류 기준을 설계하고, 시범 적용과 전문가 검토를 통해 활용 가능성을 검증했다. 또한 OECD·EU·미국 등 주요국의 정의·분류 동향을 분석해 국제적 정합성을 확보하는 데 중점을 두며, 향후 AI 산업 실태조사·정책 수립·평가 및 표준 분류체계 개편의 기초자료로 활용될 수 있음을 기대효과로 제시한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23978?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23978?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">AI시대 데이터 상호운용성 및 이동권 활성화 전략 연구(2026.04.30)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+본 연구는 능동형 AI 확산에 따라 데이터를 ‘데이터 제품’으로 재정의하고, 국내 산업의 데이터 파편화와 AI-Ready 데이터 부족 문제를 해결하기 위해 상호운용성(Interoperability)과 데이터 이동권(Right to Data Portability)의 실질 구현을 목표로 한다. 데이터 생애주기 순환 모델과 STS 관점(기술, 제도·거버넌스, 경제·사회)을 활용해 주요국 정책·표준·법제 및 산업별 적용 사례를 분석했으며, 데이터 고립, 연계체계 미흡, 품질·신뢰성 부족, 플랫폼 독점 및 흐름 단절, 지속가능성·책임 거버넌스 부재 등 5대 핵심 쟁점을 도출했다. 추진 전략으로 전담 거버넌스 통합, 범용 표준 API 의무화 및 이행 가이드, 국가 데이터 허브 구조 설계·API 확산 로드맵, 정보주체 친화 UX/UI 표준과 국제 협력 등을 제안한다.
+
+https://www.spri.kr/posts/view/23979?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>출처: 소프트웨어정책연구소(SPRi)</p>
+<p>본 연구는 능동형 AI 확산에 따라 데이터를 ‘데이터 제품’으로 재정의하고, 국내 산업의 데이터 파편화와 AI-Ready 데이터 부족 문제를 해결하기 위해 상호운용성(Interoperability)과 데이터 이동권(Right to Data Portability)의 실질 구현을 목표로 한다. 데이터 생애주기 순환 모델과 STS 관점(기술, 제도·거버넌스, 경제·사회)을 활용해 주요국 정책·표준·법제 및 산업별 적용 사례를 분석했으며, 데이터 고립, 연계체계 미흡, 품질·신뢰성 부족, 플랫폼 독점 및 흐름 단절, 지속가능성·책임 거버넌스 부재 등 5대 핵심 쟁점을 도출했다. 추진 전략으로 전담 거버넌스 통합, 범용 표준 API 의무화 및 이행 가이드, 국가 데이터 허브 구조 설계·API 확산 로드맵, 정보주체 친화 UX/UI 표준과 국제 협력 등을 제안한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23979?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23979?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI시대 SW산업 성장동력 확충방안 연구(2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="AI시대 SW산업 성장동력 확충방안 연구(2026.04.30)
+
+본 연구는 글로벌 시장이 AI 중심으로 재편되는 전환기에 국내 SW 기업의 재성장을 견인할 성장동력 확충 방안을 마련하는 것을 목적으로 한다. SW를 ‘처방적 지식’의 집합으로 보고 생성형 AI가 실행·해결 가치를 증폭시키며, 경쟁력이 단순 숙련을 넘어 데이터를 자본화하고 재현하는 엔지니어링 역량으로 전이된다고 분석한다. 정량 분석에서는 팬데믹 이후 SW 생산체계에서 노동보다 자본 투입의 성장 기여가 커졌고, 매출 성장률은 투자 유치 활동과 창업 초기 규모에 민감하며, 투자 유치 성공은 SaaS 모델과 특허 등 원천 기술 보유 기업에서 높게 나타났다. 또한 수평적 SaaS보다 특정 산업의 데이터·워크플로우를 장악하는 수직적 AI(Vertical AI)와 보안 기반 ‘프라이빗 AI’ 수요, 기술 복잡성을 반영한 과금체계 고도화 필요성을 제시한다.
+
+https://www.spri.kr/posts/view/23980?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 글로벌 시장이 AI 중심으로 재편되는 전환기에 국내 SW 기업의 재성장을 견인할 성장동력 확충 방안을 마련하는 것을 목적으로 한다. SW를 ‘처방적 지식’의 집합으로 보고 생성형 AI가 실행·해결 가치를 증폭시키며, 경쟁력이 단순 숙련을 넘어 데이터를 자본화하고 재현하는 엔지니어링 역량으로 전이된다고 분석한다. 정량 분석에서는 팬데믹 이후 SW 생산체계에서 노동보다 자본 투입의 성장 기여가 커졌고, 매출 성장률은 투자 유치 활동과 창업 초기 규모에 민감하며, 투자 유치 성공은 SaaS 모델과 특허 등 원천 기술 보유 기업에서 높게 나타났다. 또한 수평적 SaaS보다 특정 산업의 데이터·워크플로우를 장악하는 수직적 AI(Vertical AI)와 보안 기반 ‘프라이빗 AI’ 수요, 기술 복잡성을 반영한 과금체계 고도화 필요성을 제시한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23980?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23980?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">메타버스-인공지능 융합 활성화 및 SW 해외진출 지원·평가체계 개선 연구(2026.04.30)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+본문은 메타버스와 AI의 기술 요소(공간컴퓨팅, 디지털 트윈, 생성형 AI 등)와 상호 시너지를 분석하고, 제조·교육·유통·의료 등 산업별 활용 확산 전망을 제시한다. 또한 융합을 저해하는 인재·데이터·AI 인프라·표준·법제도 불확실성 등의 장애요인을 정리하고, 인재양성, 데이터 생태계 구축, 공용 인프라 지원, 초기 도입지원, 정책금융·R&amp;D 실증, 글로벌 파트너십, 법·제도 정비 등 대응방안을 제안한다. 아울러 SW 해외진출 지원사업의 현황과 지원사업·평가체계 개선 방향을 다루는 구성(해외진출 지원사업 개선연구 및 평가체계 AHP-IPA 분석 등)을 포함한다.
+
+https://www.spri.kr/posts/view/23981?code=research&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>출처: 소프트웨어정책연구소(SPRi)</p>
+<p>본문은 메타버스와 AI의 기술 요소(공간컴퓨팅, 디지털 트윈, 생성형 AI 등)와 상호 시너지를 분석하고, 제조·교육·유통·의료 등 산업별 활용 확산 전망을 제시한다. 또한 융합을 저해하는 인재·데이터·AI 인프라·표준·법제도 불확실성 등의 장애요인을 정리하고, 인재양성, 데이터 생태계 구축, 공용 인프라 지원, 초기 도입지원, 정책금융·R&amp;D 실증, 글로벌 파트너십, 법·제도 정비 등 대응방안을 제안한다. 아울러 SW 해외진출 지원사업의 현황과 지원사업·평가체계 개선 방향을 다루는 구성(해외진출 지원사업 개선연구 및 평가체계 AHP-IPA 분석 등)을 포함한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23981?code=research&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23981?code=research&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>국내 주력산업 SW융합 경쟁력 진단체계 마련(2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="국내 주력산업 SW융합 경쟁력 진단체계 마련(2026.04.30)
+
+본 연구는 제조업과 서비스업을 포함한 주력산업의 SW융합 경쟁력을 객관적으로 진단하기 위한 지표체계를 제안한다. TOE(기술·조직·환경) 관점을 바탕으로 델파이 조사로 지표를 확정하고, AHP로 가중치를 산출해 산업별 진단모형을 구축했으며, 그 결과 제조업은 내부 운영 고도화·생산성 향상 중심, 서비스업은 서비스 혁신·비즈니스모델 창출로 경쟁력 격차가 확대되는 양상이 나타났다. 정책적으로는 업종별 맞춤형 지원(제조업은 자동화·인프라 부담 완화, 서비스업은 API 연동·통합 지원 및 무형자산 지원 확대), 업종 특성에 맞는 인력 양성, 수요 기반 정책 환경 개선을 제시한다.
+
+https://www.spri.kr/posts/view/23973?code=research&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 제조업과 서비스업을 포함한 주력산업의 SW융합 경쟁력을 객관적으로 진단하기 위한 지표체계를 제안한다. TOE(기술·조직·환경) 관점을 바탕으로 델파이 조사로 지표를 확정하고, AHP로 가중치를 산출해 산업별 진단모형을 구축했으며, 그 결과 제조업은 내부 운영 고도화·생산성 향상 중심, 서비스업은 서비스 혁신·비즈니스모델 창출로 경쟁력 격차가 확대되는 양상이 나타났다. 정책적으로는 업종별 맞춤형 지원(제조업은 자동화·인프라 부담 완화, 서비스업은 API 연동·통합 지원 및 무형자산 지원 확대), 업종 특성에 맞는 인력 양성, 수요 기반 정책 환경 개선을 제시한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23973?code=research&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23973?code=research&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>메타버스-인공지능 융합 활성화 연구(2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="메타버스-인공지능 융합 활성화 연구(2026.04.30)
+
+본 연구는 메타버스와 AI의 공진화를 촉진하기 위해 기술·산업·정책 관점에서 융합 구조와 시사점을 분석한다. 메타버스는 공간컴퓨팅·디지털 트윈 등으로 초실감·초개인화·멀티모달화 방향을 형성하고, AI는 생성형 AI와 멀티모달 AI·AI 에이전트로 콘텐츠 생산과 지능화를 가속한다고 설명한다. 또한 AI는 메타버스의 사용자 행동 데이터와 시뮬레이션 환경을 활용해 학습·개인화를 강화하고, 융합이 인프라부터 경험까지 가치사슬 전 단계에 확산되며 데이터·저작권 등 제도 과제가 동반된다고 제시한다. 인재·데이터·AI 인프라·표준·초기 도입·정책금융·R&amp;D 실증·법·제도 정비 등 활성화 방안을 제안한다.
+
+https://www.spri.kr/posts/view/23974?code=research&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 메타버스와 AI의 공진화를 촉진하기 위해 기술·산업·정책 관점에서 융합 구조와 시사점을 분석한다. 메타버스는 공간컴퓨팅·디지털 트윈 등으로 초실감·초개인화·멀티모달화 방향을 형성하고, AI는 생성형 AI와 멀티모달 AI·AI 에이전트로 콘텐츠 생산과 지능화를 가속한다고 설명한다. 또한 AI는 메타버스의 사용자 행동 데이터와 시뮬레이션 환경을 활용해 학습·개인화를 강화하고, 융합이 인프라부터 경험까지 가치사슬 전 단계에 확산되며 데이터·저작권 등 제도 과제가 동반된다고 제시한다. 인재·데이터·AI 인프라·표준·초기 도입·정책금융·R&amp;D 실증·법·제도 정비 등 활성화 방안을 제안한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23974?code=research&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23974?code=research&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>공공부문 AI 도입은 2015~2024년 빠르게 확대, 생성형 AI는 2023~2024년 본격화(2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="공공부문 AI 도입은 2015~2024년 빠르게 확대, 생성형 AI는 2023~2024년 본격화(2026.04.30)
+
+소프트웨어정책연구소(SPRi)는 2015~2024년 공공부문 조달 용역 데이터를 바탕으로 AI 도입 현황을 분석하고, 2023~2024년 생성형 AI 및 클라우드 방식 도입 현황도 별도로 조사했다. 분석 결과 공공기관의 AI 도입 계약은 2015년 221건에서 2024년 1,215건으로 약 5.5배 증가했으며, 활용은 대민서비스와 업무효율화가 함께 나타났다. 생성형 AI 도입 계약은 2023년 24건에서 2024년 42건으로 늘었고, GPT·생성형 AI·LLM·RAG 등 키워드 사용도 변화했다. 클라우드 방식은 AI SaaS와 클라우드지원서비스 이용이 증가 추세이나, 공공기관의 클라우드 전환이 느려 정착이 더딘 점을 시사점으로 제시했다.
+
+https://www.spri.kr/posts/view/23975?code=research&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>소프트웨어정책연구소(SPRi)는 2015~2024년 공공부문 조달 용역 데이터를 바탕으로 AI 도입 현황을 분석하고, 2023~2024년 생성형 AI 및 클라우드 방식 도입 현황도 별도로 조사했다. 분석 결과 공공기관의 AI 도입 계약은 2015년 221건에서 2024년 1,215건으로 약 5.5배 증가했으며, 활용은 대민서비스와 업무효율화가 함께 나타났다. 생성형 AI 도입 계약은 2023년 24건에서 2024년 42건으로 늘었고, GPT·생성형 AI·LLM·RAG 등 키워드 사용도 변화했다. 클라우드 방식은 AI SaaS와 클라우드지원서비스 이용이 증가 추세이나, 공공기관의 클라우드 전환이 느려 정착이 더딘 점을 시사점으로 제시했다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23975?code=research&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23975?code=research&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>인공지능 산업의 가치사슬을 반영한 분류체계 개선 연구(2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="인공지능 산업의 가치사슬을 반영한 분류체계 개선 연구(2026.04.30)
+
+본 연구는 현행 한국표준산업분류(KSIC) 및 기존 AI 관련 분류체계가 AI 기술·데이터 처리·서비스 제공 등 핵심 활동을 여러 코드에 분산해 통계 파악과 정책 연계에 한계가 있다고 보고, 이를 개선하기 위한 새로운 AI 산업 분류체계를 설계했다. AI 산업을 ‘AI 소프트웨어 산업’, ‘AI 서비스 산업’, ‘AI 하드웨어 산업’으로 구분하고, 시범 적용과 전문가 검토를 통해 산업 실태조사·정책평가·투자통계 등에 활용 가능성을 확인했다. 또한 OECD·EU·미국 등 주요국의 정의·분류 동향을 분석해 국제적 정합성 확보를 목표로 하며, 향후 표준산업분류 개편과 AI 산업 실태조사 제도화의 기초자료로 활용될 수 있다고 밝혔다.
+
+https://www.spri.kr/posts/view/23978?code=research&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 현행 한국표준산업분류(KSIC) 및 기존 AI 관련 분류체계가 AI 기술·데이터 처리·서비스 제공 등 핵심 활동을 여러 코드에 분산해 통계 파악과 정책 연계에 한계가 있다고 보고, 이를 개선하기 위한 새로운 AI 산업 분류체계를 설계했다. AI 산업을 ‘AI 소프트웨어 산업’, ‘AI 서비스 산업’, ‘AI 하드웨어 산업’으로 구분하고, 시범 적용과 전문가 검토를 통해 산업 실태조사·정책평가·투자통계 등에 활용 가능성을 확인했다. 또한 OECD·EU·미국 등 주요국의 정의·분류 동향을 분석해 국제적 정합성 확보를 목표로 하며, 향후 표준산업분류 개편과 AI 산업 실태조사 제도화의 기초자료로 활용될 수 있다고 밝혔다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23978?code=research&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23978?code=research&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI시대 데이터 상호운용성과 데이터 이동권을 위한 국가·산업 실행전략 제시(2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="AI시대 데이터 상호운용성과 데이터 이동권을 위한 국가·산업 실행전략 제시(2026.04.30)
+
+본 연구는 능동형 AI 확산에 따라 데이터를 ‘데이터 제품(Data Product)’으로 재정의하고, 국내 현장의 데이터 파편화와 AI-Ready Data 부족 문제를 상호운용성(Interoperability)과 데이터 이동권(Right to Data Portability) 실질 구현으로 해결해야 한다고 제안한다. 글로벌 주요국 정책 동향과 산업별 적용 사례를 분석해 데이터 생태계 흐름을 저해하는 5대 핵심 쟁점(데이터 고립·초기확보 격차, 연계체계 미흡, 품질·신뢰성 부족, 플랫폼 독점 및 흐름 단절, 지속가능성·책임 거버넌스 부재)을 도출했다. 추진 전략으로는 국가데이터처 등 거버넌스 통합, 데이터 산업법·특별법 개정 시 범용 표준 API 제공 의무화 및 이행 가이드, 국가 데이터 허브 구조·API 확산 로드맵, 정보주체 친화 UX/UI 표준과 DFFT 대응 국제협력 등을 제시한다.
+
+https://www.spri.kr/posts/view/23979?code=research&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 능동형 AI 확산에 따라 데이터를 ‘데이터 제품(Data Product)’으로 재정의하고, 국내 현장의 데이터 파편화와 AI-Ready Data 부족 문제를 상호운용성(Interoperability)과 데이터 이동권(Right to Data Portability) 실질 구현으로 해결해야 한다고 제안한다. 글로벌 주요국 정책 동향과 산업별 적용 사례를 분석해 데이터 생태계 흐름을 저해하는 5대 핵심 쟁점(데이터 고립·초기확보 격차, 연계체계 미흡, 품질·신뢰성 부족, 플랫폼 독점 및 흐름 단절, 지속가능성·책임 거버넌스 부재)을 도출했다. 추진 전략으로는 국가데이터처 등 거버넌스 통합, 데이터 산업법·특별법 개정 시 범용 표준 API 제공 의무화 및 이행 가이드, 국가 데이터 허브 구조·API 확산 로드맵, 정보주체 친화 UX/UI 표준과 DFFT 대응 국제협력 등을 제시한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23979?code=research&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23979?code=research&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI시대 SW산업 성장동력 확충방안 연구(2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="AI시대 SW산업 성장동력 확충방안 연구(2026.04.30)
+
+SPRi는 글로벌 시장이 AI 중심으로 재편되는 전환기에 국내 SW 기업의 재성장을 견인할 성장동력 확충 방안을 제시하기 위해 연구를 수행했다. 연구는 SW 기업의 기술력·비즈니스 모델과 수요 산업을 연계해 분석했으며, 팬데믹 이후에는 노동 투입보다 자본 투입의 성장 기여도가 유의미하게 높아졌다고 밝혔다. 또한 범용 수평적 SaaS보다 특정 산업의 데이터·워크플로우를 장악하는 Vertical AI 전망이 더 크고, 제조기업의 데이터 유출 우려로 프라이빗 AI 및 보안 기반 SI 수요가 늘며 과금체계도 기술 복잡성을 반영해 고도화될 필요가 있다고 제안했다. 정책적으로는 수출 주력 제조업 경쟁력 유지를 위한 Physical AI·제조 설계용 SW 육성 근거와, 기능점수(FP) 중심 대가체계 개선을 위한 기초자료로 활용 가능하다고 밝혔다.
+
+https://www.spri.kr/posts/view/23980?code=research&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>SPRi는 글로벌 시장이 AI 중심으로 재편되는 전환기에 국내 SW 기업의 재성장을 견인할 성장동력 확충 방안을 제시하기 위해 연구를 수행했다. 연구는 SW 기업의 기술력·비즈니스 모델과 수요 산업을 연계해 분석했으며, 팬데믹 이후에는 노동 투입보다 자본 투입의 성장 기여도가 유의미하게 높아졌다고 밝혔다. 또한 범용 수평적 SaaS보다 특정 산업의 데이터·워크플로우를 장악하는 Vertical AI 전망이 더 크고, 제조기업의 데이터 유출 우려로 프라이빗 AI 및 보안 기반 SI 수요가 늘며 과금체계도 기술 복잡성을 반영해 고도화될 필요가 있다고 제안했다. 정책적으로는 수출 주력 제조업 경쟁력 유지를 위한 Physical AI·제조 설계용 SW 육성 근거와, 기능점수(FP) 중심 대가체계 개선을 위한 기초자료로 활용 가능하다고 밝혔다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23980?code=research&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23980?code=research&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>SW 해외진출 역량강화 정책 연구(2026.04.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="SW 해외진출 역량강화 정책 연구(2026.04.30)
+
+본 연구는 SW 산업의 해외진출 역량을 강화하기 위해 지원사업과 평가체계를 효율화하는 정책 개선방안을 제시한다. 글로벌 SW 시장은 2024~2029년 연평균 9.7% 성장, 패키지SW와 SaaS가 성장을 주도하는 흐름을 분석했으며, 국내 SW는 IT서비스 중심 구조로 남아 있어 패키지SW·SaaS 경쟁력 보완이 필요하다고 본다. 지원사업 평가는 AHP·IPA를 활용해 기술·혁신, 시장성과, 경영역량, 글로벌 준비도 등 중요 요인을 재정의하고, 지표 통합·정량 중심 평가 개편, 성장단계·비즈니스모델·잠재력 반영 등 개선방향을 제안한다.
+
+https://www.spri.kr/posts/view/23981?code=research&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 SW 산업의 해외진출 역량을 강화하기 위해 지원사업과 평가체계를 효율화하는 정책 개선방안을 제시한다. 글로벌 SW 시장은 2024~2029년 연평균 9.7% 성장, 패키지SW와 SaaS가 성장을 주도하는 흐름을 분석했으며, 국내 SW는 IT서비스 중심 구조로 남아 있어 패키지SW·SaaS 경쟁력 보완이 필요하다고 본다. 지원사업 평가는 AHP·IPA를 활용해 기술·혁신, 시장성과, 경영역량, 글로벌 준비도 등 중요 요인을 재정의하고, 지표 통합·정량 중심 평가 개편, 성장단계·비즈니스모델·잠재력 반영 등 개선방향을 제안한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23981?code=research&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23981?code=research&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<h3 class="cat-date-heading">2026-04-29 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[동향] 글로벌 빅테크의 주요 온라인 플랫폼 서비스 동향 (2026.4.29)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[동향] 글로벌 빅테크의 주요 온라인 플랫폼 서비스 동향 (2026.4.29)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1943556" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1943556">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1943556</a></p>
+</article>
+<h3 class="cat-date-heading">2026-04-22 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>AI 포용 관점에서 본 생성형 인공지능(AI) 이용 격차: 인지, 이용, 활용</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI 포용 관점에서 본 생성형 인공지능(AI) 이용 격차: 인지, 이용, 활용
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1938416" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1938416">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1938416</a></p>
+</article>
+<h3 class="cat-date-heading">2026-04-20 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[초점] 수요자의 AI 기술 수용도 향상과 기술 프리미엄의 소멸: 프리랜서 노동 시장의 과업 재편 실증 분석 (2026.4.20)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[초점] 수요자의 AI 기술 수용도 향상과 기술 프리미엄의 소멸: 프리랜서 노동 시장의 과업 재편 실증 분석 (2026.4.20)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1939756" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1939756">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1939756</a></p>
+</article>
+<h3 class="cat-date-heading">2026-04-17 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>글로벌 AI·디지털 전략 경쟁 주요국 정책 동향(2022~2025) 분석(2026.4.17)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="글로벌 AI·디지털 전략 경쟁 주요국 정책 동향(2022~2025) 분석(2026.4.17)
+
+본 보고서는 미국·캐나다·중국·싱가포르·EU 및 독일·프랑스·영국 등 8개국의 AI·디지털 전략과 법령·투자 계획을 2022년 1월~2025년 10월 기준으로 종합 분석한다. 주요국은 AI를 국가 경쟁력의 핵심 동력으로 규정하되, 미국은 안전·규제 중심에서 혁신·탈규제 중심으로 전환, EU는 위험 기반 「AI법」(2024년 발효)과 대규모 인프라 투자를 병행하는 등 정책 기조가 다르게 전개된다. 또한 컴퓨팅 인프라 투자 확대, 기초연구-산업화 연계 강화, 전 생애 AI 교육 체계 구축, 활용·응용 중심으로의 우선순위 재편, 국제 규범·표준 경쟁 속 다자 협력과 진영화 전략의 공존을 주요 특징으로 제시한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29279" onclick="copyEntry(this)">복사</button></div>
+  <p>본 보고서는 미국·캐나다·중국·싱가포르·EU 및 독일·프랑스·영국 등 8개국의 AI·디지털 전략과 법령·투자 계획을 2022년 1월~2025년 10월 기준으로 종합 분석한다. 주요국은 AI를 국가 경쟁력의 핵심 동력으로 규정하되, 미국은 안전·규제 중심에서 혁신·탈규제 중심으로 전환, EU는 위험 기반 「AI법」(2024년 발효)과 대규모 인프라 투자를 병행하는 등 정책 기조가 다르게 전개된다. 또한 컴퓨팅 인프라 투자 확대, 기초연구-산업화 연계 강화, 전 생애 AI 교육 체계 구축, 활용·응용 중심으로의 우선순위 재편, 국제 규범·표준 경쟁 속 다자 협력과 진영화 전략의 공존을 주요 특징으로 제시한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29279">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29279</a></p>
+</article>
+<h3 class="cat-date-heading">2026-04-13 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>「DIR26-1」 정보화에서 디지털포용까지 디지털포용 30년사(2026.4.13)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="「DIR26-1」 정보화에서 디지털포용까지 디지털포용 30년사(2026.4.13)
+
+본 보고서는 「정보화촉진 기본법」부터 「디지털포용법」까지의 법과 사업을 종합 분석해 AI시대 전환에 대응한 디지털포용 정책 추진 방향을 도출하는 것을 목적으로 한다. 지난 30년간 디지털포용 관련 법률과 정책 대상·추진체계의 변화를 살펴보고, 데이터 기반 운영과 제도적 기반 강화를 통해 지속가능한 정책 추진체계를 구축할 필요가 있음을 제시한다. 디지털 기술 확산이 새로운 격차와 위험을 동반하므로 사전 예방적·통합적 정책 접근과 민관 협력 기반의 정책 전환이 필요하다고 결론 내린다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=39485&amp;bcIdx=29254" onclick="copyEntry(this)">복사</button></div>
+  <p>본 보고서는 「정보화촉진 기본법」부터 「디지털포용법」까지의 법과 사업을 종합 분석해 AI시대 전환에 대응한 디지털포용 정책 추진 방향을 도출하는 것을 목적으로 한다. 지난 30년간 디지털포용 관련 법률과 정책 대상·추진체계의 변화를 살펴보고, 데이터 기반 운영과 제도적 기반 강화를 통해 지속가능한 정책 추진체계를 구축할 필요가 있음을 제시한다. 디지털 기술 확산이 새로운 격차와 위험을 동반하므로 사전 예방적·통합적 정책 접근과 민관 협력 기반의 정책 전환이 필요하다고 결론 내린다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=39485&amp;bcIdx=29254">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=39485&amp;bcIdx=29254</a></p>
+</article>
+<h3 class="cat-date-heading">2026-04-10 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">AI 인프라 경쟁에서 소프트웨어 최적화·생태계가 ‘잠금(lock-in)’을 만든다 (2026.04.09)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+본 보고서는 2026년 전 세계 AI 지출이 2.5조 달러에 이를 전망이며, 그중 절반 이상이 서버·가속기·데이터센터 등 인프라에 집중된다고 설명한다. NVIDIA GPU 지배력은 하드웨어 성능뿐 아니라 CUDA 이후 축적된 소프트웨어 생태계와 최적화 격차로 인해 동일 칩에서도 처리량이 3배 이상 달라질 수 있다고 분석한다. AI 소프트웨어 스택을 프레임워크·컴파일러·가속 라이브러리·드라이버/런타임 4계층으로 나누고, 성능 종속·설계 종속·구조적 종속 등 3가지 잠금 메커니즘이 중첩될수록 전환비용이 커진다고 제시한다. 이를 K-NPU에 적용하면 프레임워크 진입은 이뤘지만 컴파일러·라이브러리 성능 격차 해소와 운영 생태계 규모 확보가 과제로 남아 있으며, 이를 위해 SW 생태계 R&amp;D 확대, 글로벌 오픈소스 표준 참여, 공공 실증환경 제공, TCO 기반 평가, 전문 인력 양성을 제언한다.
+
+https://www.spri.kr/posts/view/23966?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>출처: 소프트웨어정책연구소(SPRi)</p>
+<p>본 보고서는 2026년 전 세계 AI 지출이 2.5조 달러에 이를 전망이며, 그중 절반 이상이 서버·가속기·데이터센터 등 인프라에 집중된다고 설명한다. NVIDIA GPU 지배력은 하드웨어 성능뿐 아니라 CUDA 이후 축적된 소프트웨어 생태계와 최적화 격차로 인해 동일 칩에서도 처리량이 3배 이상 달라질 수 있다고 분석한다. AI 소프트웨어 스택을 프레임워크·컴파일러·가속 라이브러리·드라이버/런타임 4계층으로 나누고, 성능 종속·설계 종속·구조적 종속 등 3가지 잠금 메커니즘이 중첩될수록 전환비용이 커진다고 제시한다. 이를 K-NPU에 적용하면 프레임워크 진입은 이뤘지만 컴파일러·라이브러리 성능 격차 해소와 운영 생태계 규모 확보가 과제로 남아 있으며, 이를 위해 SW 생태계 R&amp;D 확대, 글로벌 오픈소스 표준 참여, 공공 실증환경 제공, TCO 기반 평가, 전문 인력 양성을 제언한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23966?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23966?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<h3 class="cat-date-heading">2026-04-09 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>AI 인프라 경쟁에서 소프트웨어의 구조적 역할(2026.04.09)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="AI 인프라 경쟁에서 소프트웨어의 구조적 역할(2026.04.09)
+
+전 세계 AI 지출이 2026년 2.5조 달러로 전망되며, 그중 절반 이상이 서버·가속기·데이터센터 등 인프라에 집중된다고 설명한다. NVIDIA는 CUDA 이후 축적된 소프트웨어 생태계와 최적화 격차로 인해 동일 칩에서도 처리량이 3배 이상 달라질 수 있고, 이를 성능 종속·구조적 종속의 이중 장벽으로 분석한다. 보고서는 AI SW 스택을 프레임워크-컴파일러-가속 라이브러리-드라이버/런타임 4계층으로 보고, 성능 종속·설계 종속·구조적 종속 3가지 잠금(lock-in) 메커니즘이 중첩될 때 전환비용이 커진다고 제시한다. K-NPU에 적용하면 프레임워크 계층 진입은 PyTorch 네이티브 지원과 vLLM 통합으로 이뤘으나, 컴파일러·라이브러리 성능 격차 해소와 운영 생태계 규모 확보가 각각 진행 중/초기 단계이며, 이를 위해 HW-SW 균형 R&amp;D, OpenXLA·MLIR 등 오픈소스 표준 참여, 공공 실증환경 제공, TCO 기반 평가와 전문 인력 양성을 제언한다.
+
+https://www.spri.kr/posts/view/23966?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>전 세계 AI 지출이 2026년 2.5조 달러로 전망되며, 그중 절반 이상이 서버·가속기·데이터센터 등 인프라에 집중된다고 설명한다. NVIDIA는 CUDA 이후 축적된 소프트웨어 생태계와 최적화 격차로 인해 동일 칩에서도 처리량이 3배 이상 달라질 수 있고, 이를 성능 종속·구조적 종속의 이중 장벽으로 분석한다. 보고서는 AI SW 스택을 프레임워크-컴파일러-가속 라이브러리-드라이버/런타임 4계층으로 보고, 성능 종속·설계 종속·구조적 종속 3가지 잠금(lock-in) 메커니즘이 중첩될 때 전환비용이 커진다고 제시한다. K-NPU에 적용하면 프레임워크 계층 진입은 PyTorch 네이티브 지원과 vLLM 통합으로 이뤘으나, 컴파일러·라이브러리 성능 격차 해소와 운영 생태계 규모 확보가 각각 진행 중/초기 단계이며, 이를 위해 HW-SW 균형 R&amp;D, OpenXLA·MLIR 등 오픈소스 표준 참여, 공공 실증환경 제공, TCO 기반 평가와 전문 인력 양성을 제언한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23966?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23966?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article>
+<h3 class="cat-date-heading">2026-04-07 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span> · <span class="deadline">AI 기본사회 구현을 위한 가상융합 활용 방안(2026.04.06)</span></span><button type="button" class="copy-btn" data-copy="
+
+가상융합(XR, 디지털 트윈 등)은 현실과 디지털을 연결해 AI 정책의 영향을 가상에서 시뮬레이션하고 검증할 수 있으며, 몰입형 환경을 통해 공공서비스의 보편적 접근성을 높일 수 있다고 설명한다. 과거에는 게임·이벤트 중심 활용과 고가 장비·콘텐츠·비즈니스 모델 부족 등으로 확산이 제한됐으나, 생성형 AI와 XR 디바이스 개선으로 개인화·몰입도가 높아지고 교육·제조·국방·의료 등에서 실질 활용 사례가 늘고 있다고 본다. 보고서는 AI 기본사회 관련 과제로 공론장 구축, 리빙랩 기반 실험, 가상 오피스·직무훈련을 통한 일자리 전환 대응, 돌봄·의료·범죄 대응·교육 격차 완화 등 분야별 적용 방안을 제시하면서, 일회성 전시를 반복하지 않기 위해 지속 가능한 운영모델과 성과 중심 설계가 필요하다고 강조한다.
+
+https://www.spri.kr/posts/view/23965?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>가상융합(XR, 디지털 트윈 등)은 현실과 디지털을 연결해 AI 정책의 영향을 가상에서 시뮬레이션하고 검증할 수 있으며, 몰입형 환경을 통해 공공서비스의 보편적 접근성을 높일 수 있다고 설명한다. 과거에는 게임·이벤트 중심 활용과 고가 장비·콘텐츠·비즈니스 모델 부족 등으로 확산이 제한됐으나, 생성형 AI와 XR 디바이스 개선으로 개인화·몰입도가 높아지고 교육·제조·국방·의료 등에서 실질 활용 사례가 늘고 있다고 본다. 보고서는 AI 기본사회 관련 과제로 공론장 구축, 리빙랩 기반 실험, 가상 오피스·직무훈련을 통한 일자리 전환 대응, 돌봄·의료·범죄 대응·교육 격차 완화 등 분야별 적용 방안을 제시하면서, 일회성 전시를 반복하지 않기 위해 지속 가능한 운영모델과 성과 중심 설계가 필요하다고 강조한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23965?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23965?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<h3 class="cat-date-heading">2026-04-06 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>AI 기본사회 구현을 위한 가상융합(XR·디지털 트윈) 활용 방안 제시 (2026.04.06)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="AI 기본사회 구현을 위한 가상융합(XR·디지털 트윈) 활용 방안 제시 (2026.04.06)
+
+SPRi는 AI가 전기·수도·인터넷처럼 보편 인프라로 기능하는 ‘AI 기본사회’를 목표로, XR과 디지털 트윈 등 가상융합이 실행 인프라·정책 실험 플랫폼 역할을 할 수 있다고 설명했다. 가상공간에서 AI 정책 영향을 시뮬레이션하고 아바타 토론 공론장을 구축해 사회적 합의를 높이며, 디지털 트윈 기반 리빙랩으로 사회문제 해결을 검증할 수 있다고 제안했다. 또한 가상 직무훈련·가상 오피스로 일자리 전환과 재교육을 지원하고, 의료·돌봄(인지훈련, 원격 협진, 환자 디지털 트윈) 및 범죄 대응 교육(딥페이크·금융사기 상황 체험)과 교육 격차 완화(가상 캠퍼스·산업 공정 디지털 트윈)까지 활용 가능하다고 밝혔다. 다만 과거 일회성·전시성 사업 반복을 피하기 위해 지속 가능한 운영모델과 성과 중심 설계가 필요하다고 강조했다.
+
+https://www.spri.kr/posts/view/23965?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0" onclick="copyEntry(this)">복사</button></div>
+  <p>SPRi는 AI가 전기·수도·인터넷처럼 보편 인프라로 기능하는 ‘AI 기본사회’를 목표로, XR과 디지털 트윈 등 가상융합이 실행 인프라·정책 실험 플랫폼 역할을 할 수 있다고 설명했다. 가상공간에서 AI 정책 영향을 시뮬레이션하고 아바타 토론 공론장을 구축해 사회적 합의를 높이며, 디지털 트윈 기반 리빙랩으로 사회문제 해결을 검증할 수 있다고 제안했다. 또한 가상 직무훈련·가상 오피스로 일자리 전환과 재교육을 지원하고, 의료·돌봄(인지훈련, 원격 협진, 환자 디지털 트윈) 및 범죄 대응 교육(딥페이크·금융사기 상황 체험)과 교육 격차 완화(가상 캠퍼스·산업 공정 디지털 트윈)까지 활용 가능하다고 밝혔다. 다만 과거 일회성·전시성 사업 반복을 피하기 위해 지속 가능한 운영모델과 성과 중심 설계가 필요하다고 강조했다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23965?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0">https://www.spri.kr/posts/view/23965?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=0</a></p>
+</article></div></details><details class="archive-month"><summary>2026년 3월 <span class="archive-count">(21건)</span></summary><div class="cat-month-body"><h3 class="cat-date-heading">2026-03-31 <span class="archive-count">(12건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>인공지능서비스 이용자보호 관련 이슈·법제 검토와 향후 과제 (2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="인공지능서비스 이용자보호 관련 이슈·법제 검토와 향후 과제 (2026.3.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1932896" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1932896">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1932896</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 학습을 위한 저작물 이용은 공정이용인가 (2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI 학습을 위한 저작물 이용은 공정이용인가 (2026.3.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1932897" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1932897">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1932897</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI와 사회적 감지 기반의 재난 정보 공유 체계 구축을 위한 데이터 윤리 (2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI와 사회적 감지 기반의 재난 정보 공유 체계 구축을 위한 데이터 윤리 (2026.3.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1932916" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1932916">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&amp;arrMasterId=4333446&amp;id=1932916</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[초점] 중국 미단극(숏폼 드라마) 산업의 생성형 AI 활용에 따른 콘텐츠 제작 생태계 변화 분석</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[초점] 중국 미단극(숏폼 드라마) 산업의 생성형 AI 활용에 따른 콘텐츠 제작 생태계 변화 분석
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1935156" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1935156">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1935156</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[제33권 제1호] 에이전틱 AI 시대의 인간-기계 상호작용 재구성에 관한 이론적 고찰 (2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제1호] 에이전틱 AI 시대의 인간-기계 상호작용 재구성에 관한 이론적 고찰 (2026.3.31)
+
+생성형 AI 이후 등장한 에이전틱 AI가 목표 설정과 자율적 인지 과정을 통해 인간-기계 상호작용 양상을 바꾼다는 내용을 다룹니다. 기존의 ‘도구적 통제’ 중심 이론이 자율성을 가진 AI 환경에서 한계에 직면함을 문헌 고찰로 비판하고, CASA와 행위자-네트워크 이론(ANT)을 통합해 인간이 AI를 파트너로 인식하는 심리적·구조적 기제를 정리합니다. 또한 최신 협업 프레임워크들을 구조·소통·행위자성 차원에서 범주화해 분석 틀을 제안하며, 인간-AI 관계가 명령-수행에서 권한 위임과 상호 조율 기반의 공진화 파트너십으로 전환된다고 결론냅니다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29192" onclick="copyEntry(this)">복사</button></div>
+  <p>생성형 AI 이후 등장한 에이전틱 AI가 목표 설정과 자율적 인지 과정을 통해 인간-기계 상호작용 양상을 바꾼다는 내용을 다룹니다. 기존의 ‘도구적 통제’ 중심 이론이 자율성을 가진 AI 환경에서 한계에 직면함을 문헌 고찰로 비판하고, CASA와 행위자-네트워크 이론(ANT)을 통합해 인간이 AI를 파트너로 인식하는 심리적·구조적 기제를 정리합니다. 또한 최신 협업 프레임워크들을 구조·소통·행위자성 차원에서 범주화해 분석 틀을 제안하며, 인간-AI 관계가 명령-수행에서 권한 위임과 상호 조율 기반의 공진화 파트너십으로 전환된다고 결론냅니다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29192">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29192</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>(정보화정책 저널 제33권 제1호) 국민의 공공데이터 인식 및 데이터 리터러시가 데이터 기반 행정 인식에 미치는 영향(2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(정보화정책 저널 제33권 제1호) 국민의 공공데이터 인식 및 데이터 리터러시가 데이터 기반 행정 인식에 미치는 영향(2026.3.31)
+
+한국지능정보사회진흥원 정보화정책 저널 제33권 제1호 논문은 국민 관점에서 데이터 기반 행정 인식에 영향을 주는 요인을 실증했다. 분석 결과 공공데이터 개방 인식, 공공데이터 품질 인식, 공공데이터 이용현황, 데이터 리터러시는 데이터 기반 행정 인식에 긍정적 영향을 미쳤다. 또한 데이터 기반 정책 및 공공서비스 인식은 데이터 기반 행정 인식에 직접적으로도, 공공데이터 개방 인식과의 관계에서도 긍정적으로 조절하는 것으로 나타났다. 연구는 수요자 중심의 활용도 높은 공공데이터 발굴과 국민의 데이터 역량 증진, 양질의 데이터 기반 산출물 확대를 제언했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29193" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원 정보화정책 저널 제33권 제1호 논문은 국민 관점에서 데이터 기반 행정 인식에 영향을 주는 요인을 실증했다. 분석 결과 공공데이터 개방 인식, 공공데이터 품질 인식, 공공데이터 이용현황, 데이터 리터러시는 데이터 기반 행정 인식에 긍정적 영향을 미쳤다. 또한 데이터 기반 정책 및 공공서비스 인식은 데이터 기반 행정 인식에 직접적으로도, 공공데이터 개방 인식과의 관계에서도 긍정적으로 조절하는 것으로 나타났다. 연구는 수요자 중심의 활용도 높은 공공데이터 발굴과 국민의 데이터 역량 증진, 양질의 데이터 기반 산출물 확대를 제언했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29193">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29193</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[제33권 제1호] 프라이버시 규제와 디지털 담론의 구조적 전환: GDPR 전후 이용자 집단의 참여 구조 변화와 이슈–관심 주기 분석 (2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제1호] 프라이버시 규제와 디지털 담론의 구조적 전환: GDPR 전후 이용자 집단의 참여 구조 변화와 이슈–관심 주기 분석 (2026.3.31)
+
+한국지능정보사회진흥원 정보화정책 저널 제33권 제1호에 실린 논문으로, GDPR 시행이 온라인 프라이버시 담론의 참여 구조에 미친 영향을 Reddit r/privacy 커뮤니티 게시글·댓글(2016~2023년) 분석으로 살폈다. GDPR 이후 댓글 수의 유의한 증가는 없었지만, 댓글 점수는 참여 규모와 긍정적으로 상호작용하며 질적 집중성이 강화된 것으로 나타났다. 또한 댓글 길이는 짧아지는 경향이 관찰되며, GDPR이 법·기술·인식 수준에서 담론 구조를 재편하는 사회기술적 사건임을 시사한다고 정리했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29194" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원 정보화정책 저널 제33권 제1호에 실린 논문으로, GDPR 시행이 온라인 프라이버시 담론의 참여 구조에 미친 영향을 Reddit r/privacy 커뮤니티 게시글·댓글(2016~2023년) 분석으로 살폈다. GDPR 이후 댓글 수의 유의한 증가는 없었지만, 댓글 점수는 참여 규모와 긍정적으로 상호작용하며 질적 집중성이 강화된 것으로 나타났다. 또한 댓글 길이는 짧아지는 경향이 관찰되며, GDPR이 법·기술·인식 수준에서 담론 구조를 재편하는 사회기술적 사건임을 시사한다고 정리했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29194">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29194</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[제33권 제1호] GovTech 기업의 공공가치 창출 모델 사례 연구: 공공문제 해결, 기술, 거버넌스를 중심으로 (2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제1호] GovTech 기업의 공공가치 창출 모델 사례 연구: 공공문제 해결, 기술, 거버넌스를 중심으로 (2026.3.31)
+
+본 연구는 GovTech(정부+기술) 개념과 작동 메커니즘을 규명하고, 국내 GovTech 기업 사례를 통해 공공문제 해결 기여도와 민간기술 활용 수준, 이해관계자 참여 수준을 종합 분석했다. 분석 결과 교통약자 이동권 보장, 해양오염 방제, 장애인 디지털 접근성 강화, 돌봄 서비스 혁신, 규제 대응 지원 등 다양한 공공문제 해결 성과가 제시된다. 또한 AI·클라우드·빅데이터·자율주행 등 민간기술이 공공서비스 혁신의 핵심 도구로 작동하며, 정부·지자체·기업·시민의 다층 참여와 거버넌스가 성과 확산에 필수 조건임을 확인한다. 연구는 스타트업 지원, 공공조달 혁신, 데이터 기반 협력체계 확립 등 정책 보완 필요성을 시사한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29195" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 GovTech(정부+기술) 개념과 작동 메커니즘을 규명하고, 국내 GovTech 기업 사례를 통해 공공문제 해결 기여도와 민간기술 활용 수준, 이해관계자 참여 수준을 종합 분석했다. 분석 결과 교통약자 이동권 보장, 해양오염 방제, 장애인 디지털 접근성 강화, 돌봄 서비스 혁신, 규제 대응 지원 등 다양한 공공문제 해결 성과가 제시된다. 또한 AI·클라우드·빅데이터·자율주행 등 민간기술이 공공서비스 혁신의 핵심 도구로 작동하며, 정부·지자체·기업·시민의 다층 참여와 거버넌스가 성과 확산에 필수 조건임을 확인한다. 연구는 스타트업 지원, 공공조달 혁신, 데이터 기반 협력체계 확립 등 정책 보완 필요성을 시사한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29195">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29195</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[제33권 제1호] 중국 웨이보 소프트 선전 확산 메커니즘 분석(2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[제33권 제1호] 중국 웨이보 소프트 선전 확산 메커니즘 분석(2026.3.31)
+
+본 연구는 2023년 후쿠시마 핵오염수 방류 사건을 중심으로, 중국 웨이보에서 형성된 소프트 선전 담론의 전파 구조를 네트워크 관점과 의제설정 이론으로 분석했다. 259,494건 게시글을 수집해 정보 통제자·정보 확산자·의견 주도자·일반공중 등 전파 주체를 구분하고 토픽 모델링과 상관·시기 교차 분석을 수행했으며, 의제는 ‘사건보도’와 ‘방류반대’를 중심으로 전개된 것으로 나타났다. 또한 2차 방류 시기에 감정형 의제 속성이 강화되고, 엘리트 계정의 의제 속성이 정보 확산자를 매개로 공중 담론으로 전이되는 구조적 전파 사슬이 확인됐다. 의견 주도자는 의제설정 과정에서 상대적으로 고립되는 양상이 보고됐다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29196" onclick="copyEntry(this)">복사</button></div>
+  <p>본 연구는 2023년 후쿠시마 핵오염수 방류 사건을 중심으로, 중국 웨이보에서 형성된 소프트 선전 담론의 전파 구조를 네트워크 관점과 의제설정 이론으로 분석했다. 259,494건 게시글을 수집해 정보 통제자·정보 확산자·의견 주도자·일반공중 등 전파 주체를 구분하고 토픽 모델링과 상관·시기 교차 분석을 수행했으며, 의제는 ‘사건보도’와 ‘방류반대’를 중심으로 전개된 것으로 나타났다. 또한 2차 방류 시기에 감정형 의제 속성이 강화되고, 엘리트 계정의 의제 속성이 정보 확산자를 매개로 공중 담론으로 전이되는 구조적 전파 사슬이 확인됐다. 의견 주도자는 의제설정 과정에서 상대적으로 고립되는 양상이 보고됐다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29196">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=29196</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>(The LENS 2026-1) 미국 AI 관련 인력개발 정책 현황 분석(2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(The LENS 2026-1) 미국 AI 관련 인력개발 정책 현황 분석(2026.3.31)
+
+한국지능정보사회진흥원은 제119대 미국 의회(2025년~) 발의 AI 관련 인력개발 법안 6건을 분석해 정책 쟁점과 시사점을 정리했다. 분석 결과, 세액공제 등 간접 지원은 비교적 합의가 있었으나 취약계층 대상 직접 보조금 방식은 입법화 가능성이 낮을 수 있다고 본다. 또한 AI 고용 충격을 측정·예측하고 직무·역량 표준화를 구축하는 것이 실증적 인력개발 정책의 선결 조건으로 제시되며, 연방-주 분절로 인한 지원 공백과 AI 대체 고위험 직종 재훈련 체계의 부재가 문제로 지적된다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29205" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원은 제119대 미국 의회(2025년~) 발의 AI 관련 인력개발 법안 6건을 분석해 정책 쟁점과 시사점을 정리했다. 분석 결과, 세액공제 등 간접 지원은 비교적 합의가 있었으나 취약계층 대상 직접 보조금 방식은 입법화 가능성이 낮을 수 있다고 본다. 또한 AI 고용 충격을 측정·예측하고 직무·역량 표준화를 구축하는 것이 실증적 인력개발 정책의 선결 조건으로 제시되며, 연방-주 분절로 인한 지원 공백과 AI 대체 고위험 직종 재훈련 체계의 부재가 문제로 지적된다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29205">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29205</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>(The LENS 2026-2) 중국 「‘AI+ 제조’ 특별 행동계획」: AI 기반 제조 전환과 기술 자립 전략 (2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(The LENS 2026-2) 중국 「‘AI+ 제조’ 특별 행동계획」: AI 기반 제조 전환과 기술 자립 전략 (2026.3.31)
+
+중국은 2027년까지 안전·신뢰성 확보 AI 기술을 산업 전반에 공급하고, 산업 규모와 활용 수준을 세계 최고 수준으로 끌어올리는 목표를 제시함
+
+중국은 국무원 「’AI+‘ 행동 심화 실시 의견」을 이행하기 위해 ‘AI+ 제조’ 특별 행동계획 실시 의견을 발표하고, AI-제조 융합을 가속해 신질 생산력과 신형 공업화를 추진한다. 핵심은 2027년까지 안전성과 신뢰성을 갖춘 AI 기술을 산업 전반에 공급하고, 개발부터 정책 지원까지 전 주기를 포괄하는 과제를 제시하는 것이다. NIA는 중국의 국무원 주도 하향식 통합 구조와 함께 미국(안보·공급망 중심 분산형 생태계), 한국(국가 AI 전략 중심 통합 추진 및 민관 협력·실증 확산)을 비교하고, 표준 체계화·K-제조 특화 모델 개발·제조 데이터 확보·중소기업 진입장벽 완화 등 시사점을 도출했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29206" onclick="copyEntry(this)">복사</button></div>
+  <p>중국은 2027년까지 안전·신뢰성 확보 AI 기술을 산업 전반에 공급하고, 산업 규모와 활용 수준을 세계 최고 수준으로 끌어올리는 목표를 제시함</p>
+<p>중국은 국무원 「’AI+‘ 행동 심화 실시 의견」을 이행하기 위해 ‘AI+ 제조’ 특별 행동계획 실시 의견을 발표하고, AI-제조 융합을 가속해 신질 생산력과 신형 공업화를 추진한다. 핵심은 2027년까지 안전성과 신뢰성을 갖춘 AI 기술을 산업 전반에 공급하고, 개발부터 정책 지원까지 전 주기를 포괄하는 과제를 제시하는 것이다. NIA는 중국의 국무원 주도 하향식 통합 구조와 함께 미국(안보·공급망 중심 분산형 생태계), 한국(국가 AI 전략 중심 통합 추진 및 민관 협력·실증 확산)을 비교하고, 표준 체계화·K-제조 특화 모델 개발·제조 데이터 확보·중소기업 진입장벽 완화 등 시사점을 도출했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29206">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29206</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>(The LENS 2026-3) 「호라이즌 유럽」 디지털 분야 변화 동향과 한-EU 협력 시사점 (2026.3.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(The LENS 2026-3) 「호라이즌 유럽」 디지털 분야 변화 동향과 한-EU 협력 시사점 (2026.3.31)
+
+한국지능정보사회진흥원은 호라이즌 유럽 준회원국 가입 이후 연구 과제 참여 기회 확대에 맞춰, 2026~2027년 주요 변화와 2028~2034년 차기 프로그램(FP10) 논의 현황을 분석했다. 분석 결과, 기술 개발 중심에서 현장 문제 해결에 즉각 투입하는 실행 중심 체계로의 패러다임 전환과 함께, FP10의 예산 확대에 더해 EU 역외 국가에 대한 상호주의 및 안보 강화가 주요 쟁점으로 부상할 것으로 전망했다. 이에 따라 차기 프로그램 기획 단계부터 한국 강점 기술이 반영될 수 있는 선제적 의제 설정, 상호주의 강화에 대응한 전략적 R&amp;D 개방, 유럽 디지털 공급망 내재화를 위한 지원, 급변하는 연구 행정에 대한 밀착형 전문 지원이 필요하다고 제시했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29207" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원은 호라이즌 유럽 준회원국 가입 이후 연구 과제 참여 기회 확대에 맞춰, 2026~2027년 주요 변화와 2028~2034년 차기 프로그램(FP10) 논의 현황을 분석했다. 분석 결과, 기술 개발 중심에서 현장 문제 해결에 즉각 투입하는 실행 중심 체계로의 패러다임 전환과 함께, FP10의 예산 확대에 더해 EU 역외 국가에 대한 상호주의 및 안보 강화가 주요 쟁점으로 부상할 것으로 전망했다. 이에 따라 차기 프로그램 기획 단계부터 한국 강점 기술이 반영될 수 있는 선제적 의제 설정, 상호주의 강화에 대응한 전략적 R&amp;D 개방, 유럽 디지털 공급망 내재화를 위한 지원, 급변하는 연구 행정에 대한 밀착형 전문 지원이 필요하다고 제시했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29207">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=66361&amp;bcIdx=29207</a></p>
+</article>
+<h3 class="cat-date-heading">2026-03-30 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>Use Cases of Public AI Service, Vol.2 공공AI서비스 실증사례집(영문본) 발간 (2026.3.30)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="Use Cases of Public AI Service, Vol.2 공공AI서비스 실증사례집(영문본) 발간 (2026.3.30)
+
+한국지능정보사회진흥원은 공공부문 초거대 AI 서비스 개발 사업을 통해 발굴·기획된 과제들을 번역한 영문 자료집 「Use Cases of Public AI Service, Vol.2」를 공개했다. 2022년부터 정부가 추진한 총 110건의 주요 AI 서비스 실증사례 중 ‘대국민 서비스 혁신’과 ‘일하는 방식 개선’ 관련 과제 56건을 수록했으며, ‘사회문제 해결’ 54건은 1권에서 소개된다고 안내했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29181" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원은 공공부문 초거대 AI 서비스 개발 사업을 통해 발굴·기획된 과제들을 번역한 영문 자료집 「Use Cases of Public AI Service, Vol.2」를 공개했다. 2022년부터 정부가 추진한 총 110건의 주요 AI 서비스 실증사례 중 ‘대국민 서비스 혁신’과 ‘일하는 방식 개선’ 관련 과제 56건을 수록했으며, ‘사회문제 해결’ 54건은 1권에서 소개된다고 안내했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29181">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99984&amp;bcIdx=29181</a></p>
+</article>
+<h3 class="cat-date-heading">2026-03-27 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>신뢰 기반 데이터 유통·활용을 위한 「한국형 데이터 스페이스 참조모델(V1.0)」 발간 (2026.3.27)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="신뢰 기반 데이터 유통·활용을 위한 「한국형 데이터 스페이스 참조모델(V1.0)」 발간 (2026.3.27)
+
+과학기술정보통신부와 한국지능정보사회진흥원은 신뢰 기반 데이터 유통·활용 생태계 조성을 위해 데이터 스페이스 조성 및 확산을 추진하고, 이를 위한 「한국형 데이터 스페이스 참조모델(V1.0)」을 발간했다. 참조모델은 데이터 스페이스 개념을 바탕으로 구성요소와 설계 원칙, 거버넌스·운영체계, 분산형 아키텍처 및 공통 서비스 등 핵심 기준을 제시한다. 또한 데이터 스페이스 구축 시 최소 공통 기준과 방향을 제공하며, 향후 데이터 스페이스 구축·확산의 기준으로 활용될 예정이다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=26537&amp;bcIdx=29174" onclick="copyEntry(this)">복사</button></div>
+  <p>과학기술정보통신부와 한국지능정보사회진흥원은 신뢰 기반 데이터 유통·활용 생태계 조성을 위해 데이터 스페이스 조성 및 확산을 추진하고, 이를 위한 「한국형 데이터 스페이스 참조모델(V1.0)」을 발간했다. 참조모델은 데이터 스페이스 개념을 바탕으로 구성요소와 설계 원칙, 거버넌스·운영체계, 분산형 아키텍처 및 공통 서비스 등 핵심 기준을 제시한다. 또한 데이터 스페이스 구축 시 최소 공통 기준과 방향을 제공하며, 향후 데이터 스페이스 구축·확산의 기준으로 활용될 예정이다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=26537&amp;bcIdx=29174">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=26537&amp;bcIdx=29174</a></p>
+</article>
+<h3 class="cat-date-heading">2026-03-26 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="deadline">AI 스마트 글래스의 ‘시선 중심 컴퓨팅’과 정책 과제(2026.03.25)</span></span><button type="button" class="copy-btn" data-copy="
+
+출처: 소프트웨어정책연구소(SPRi)
+
+AI 스마트 글래스는 사용자의 시선과 주변 환경을 AI가 실시간 인식·해석해 디지털 정보와 현실을 연결하는 차세대 컴퓨팅 인터페이스로 소개된다. 시장은 메타·삼성·구글 등 빅테크의 생태계 경쟁과 중국 기업의 제조 기반 진입 확대가 진행 중이며, 음성 중심 제품에서 디스플레이 탑재형으로 발전이 예상된다고 본다. 다만 배터리·경량화·시야각 등 기술 과제와 함께 개인정보 보호, 디지털 격차 심화, 사회적 수용성 확보가 필요해 정책적 균형이 중요하다고 강조한다.
+
+https://www.spri.kr/posts/view/23961?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>출처: 소프트웨어정책연구소(SPRi)</p>
+<p>AI 스마트 글래스는 사용자의 시선과 주변 환경을 AI가 실시간 인식·해석해 디지털 정보와 현실을 연결하는 차세대 컴퓨팅 인터페이스로 소개된다. 시장은 메타·삼성·구글 등 빅테크의 생태계 경쟁과 중국 기업의 제조 기반 진입 확대가 진행 중이며, 음성 중심 제품에서 디스플레이 탑재형으로 발전이 예상된다고 본다. 다만 배터리·경량화·시야각 등 기술 과제와 함께 개인정보 보호, 디지털 격차 심화, 사회적 수용성 확보가 필요해 정책적 균형이 중요하다고 강조한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23961?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23961?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<h3 class="cat-date-heading">2026-03-25 <span class="archive-count">(3건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>AI 정부 서비스 도입·활용 지원을 위한 ‘AI 정부 서비스 사례집’ 발간(2026.3.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="AI 정부 서비스 도입·활용 지원을 위한 ‘AI 정부 서비스 사례집’ 발간(2026.3.25)
+
+한국지능정보사회진흥원(NIA)은 행정안전부와 함께 공공부문 AI 서비스 도입·활용을 지원하는 실무 참고자료인 ‘AI 정부 서비스 사례집’을 발간했다. AI 서비스 전수조사와 전문가 검토를 거쳐 환경·고용·복지 등 6개 분야 16개 사례를 선정해 수록했으며, 단순 소개를 넘어 도입 과정의 시행착오·기술 규격·현장 애로사항 등도 담아 기관의 검토를 돕는 것을 목적으로 한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29161" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원(NIA)은 행정안전부와 함께 공공부문 AI 서비스 도입·활용을 지원하는 실무 참고자료인 ‘AI 정부 서비스 사례집’을 발간했다. AI 서비스 전수조사와 전문가 검토를 거쳐 환경·고용·복지 등 6개 분야 16개 사례를 선정해 수록했으며, 단순 소개를 넘어 도입 과정의 시행착오·기술 규격·현장 애로사항 등도 담아 기관의 검토를 돕는 것을 목적으로 한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29161">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29161</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 확산에 따른 AI 인력 수요 변화 반영을 위해 가치사슬·역할 기반 분류체계 재정립 제안 (2026.03.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span></span><button type="button" class="copy-btn" data-copy="AI 확산에 따른 AI 인력 수요 변화 반영을 위해 가치사슬·역할 기반 분류체계 재정립 제안 (2026.03.25)
+
+SPRi는 산업 현장의 AI 인력 부족이 단순한 개발 인력의 양적 부족이 아니라, AI 확산 과정에서 역할 구조가 바뀌며 발생하는 구조적 문제라고 보고 있다. 현행 분류체계가 개발자·직무 중심으로 설계돼 검증·신뢰, 운영(MLOps), 산업(도메인) 적용, 비개발 직무 기반 활용 인력 등 병목 역할을 충분히 반영하지 못한다고 지적한다. 이에 AI 기획·데이터·모델 개발부터 검증·평가·운영·확산·산업 적용까지 전 과정을 가치사슬 단계와 역할 중심으로 재구성하고, 이를 유형·수준 체계와 연계해 수급 전망 및 교육·훈련 정책 설계에 활용할 수 있는 분석 틀을 제안한다.
+
+https://www.spri.kr/posts/view/23960?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>SPRi는 산업 현장의 AI 인력 부족이 단순한 개발 인력의 양적 부족이 아니라, AI 확산 과정에서 역할 구조가 바뀌며 발생하는 구조적 문제라고 보고 있다. 현행 분류체계가 개발자·직무 중심으로 설계돼 검증·신뢰, 운영(MLOps), 산업(도메인) 적용, 비개발 직무 기반 활용 인력 등 병목 역할을 충분히 반영하지 못한다고 지적한다. 이에 AI 기획·데이터·모델 개발부터 검증·평가·운영·확산·산업 적용까지 전 과정을 가치사슬 단계와 역할 중심으로 재구성하고, 이를 유형·수준 체계와 연계해 수급 전망 및 교육·훈련 정책 설계에 활용할 수 있는 분석 틀을 제안한다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23960?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23960?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[초점] 스타링크 요금 수준 결정요인 및 국내 출시에 따른 통신시장에 대한 영향 (2026.3.25)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[초점] 스타링크 요금 수준 결정요인 및 국내 출시에 따른 통신시장에 대한 영향 (2026.3.25)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1935576" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1935576">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1935576</a></p>
+</article>
+<h3 class="cat-date-heading">2026-03-23 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2></h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">소프트웨어정책연구소(SPRi)</span> · <span class="deadline">고급 AI 인재의 기업가정신·창업 의지 현황 분석(2026.3.20)</span></span><button type="button" class="copy-btn" data-copy="
+
+고급 AI 인재(석·박사급, 715명 설문)와 계량경제학 실증을 통해 창업 의지 영향요인을 분석한 결과, 기술역량 기반 혁신 지향성은 높지만 기술을 사업화로 연결하는 실행 역량·경험과 심리적 기반이 부족한 것으로 나타났다. 기업가적 특성·태도·창업 경험·주변 환경 등이 창업 의지에 영향을 미치며, 기회 탐색 성향이 실행 역량 및 환경 제약에 민감하게 반응할 가능성을 시사한다. 이에 실전 경험 기회와 기업가 활동 노출 확대, 창업 친화 문화 조성, 창업-취업 기회비용 격차 해소, 정책 융합 및 창업 네트워크 지원 강화 등의 정책 시사점을 제시했다.
+
+https://www.spri.kr/posts/view/23957?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=" onclick="copyEntry(this)">복사</button></div>
+  <p>고급 AI 인재(석·박사급, 715명 설문)와 계량경제학 실증을 통해 창업 의지 영향요인을 분석한 결과, 기술역량 기반 혁신 지향성은 높지만 기술을 사업화로 연결하는 실행 역량·경험과 심리적 기반이 부족한 것으로 나타났다. 기업가적 특성·태도·창업 경험·주변 환경 등이 창업 의지에 영향을 미치며, 기회 탐색 성향이 실행 역량 및 환경 제약에 민감하게 반응할 가능성을 시사한다. 이에 실전 경험 기회와 기업가 활동 노출 확대, 창업 친화 문화 조성, 창업-취업 기회비용 격차 해소, 정책 융합 및 창업 네트워크 지원 강화 등의 정책 시사점을 제시했다.</p>
+  <p class="url"><a href="https://www.spri.kr/posts/view/23957?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=">https://www.spri.kr/posts/view/23957?code=issue_reports&amp;study_type=&amp;board_type=&amp;flg=</a></p>
+</article>
+<h3 class="cat-date-heading">2026-03-16 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>OECD AI Index와 국가별 AI 역량 (2026.3.16)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="OECD AI Index와 국가별 AI 역량 (2026.3.16)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1932376" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1932376">https://www.kisdi.re.kr/report/fileView.do?key=m2101113025790&amp;arrMasterId=4333447&amp;id=1932376</a></p>
+</article>
+<h3 class="cat-date-heading">2026-03-10 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[동향] 지능의 역설과 새로운 경제, “2028·2030 AI 노동시장 시나리오 분석” (2026.3.10)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="[동향] 지능의 역설과 새로운 경제, “2028·2030 AI 노동시장 시나리오 분석” (2026.3.10)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1932356" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1932356">https://www.kisdi.re.kr/report/fileView.do?key=m2102058837181&amp;arrMasterId=4334696&amp;id=1932356</a></p>
+</article></div></details><details class="archive-month"><summary>2026년 1월 <span class="archive-count">(1건)</span></summary><div class="cat-month-body"><h3 class="cat-date-heading">2026-01-22 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>(2025 국민 AI 인식 보고서) AI 이해도·활용 경험에 따른 국민 인식 특성 분석(2026.1.22)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="(2025 국민 AI 인식 보고서) AI 이해도·활용 경험에 따른 국민 인식 특성 분석(2026.1.22)
+
+한국지능정보사회진흥원은 ‘2025 국민 AI 인식 보고서’를 통해 국민의 AI 이해도(고·중·저)와 활용 경험에 따른 기대·우려·대응 태도를 비교 분석했다. 조사 결과, 국민은 AI에 대해 호기심·놀라움 등 중립적·긍정적 감정을 주로 보였고, 이해도가 높을수록 AI 활성화에 대한 기대가 높았다. 기대 이유는 일상 편리 증대와 생산성 향상, 우려 이유는 가짜뉴스·인간 주도 통제 약화·일자리 감소로 나타났으며, 저이해군은 기대·우려를 느낄 때 ‘무대응’ 응답이 높아 기술 변화에 소극적으로 대응하는 경향이 확인됐다. 또한 누구나 AI 혜택을 공평하게 누리기 위해 비용 부담을 줄이고 교육 지원을 강화하는 것이 중요하다고 응답했다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=82618&amp;bcIdx=28988" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원은 ‘2025 국민 AI 인식 보고서’를 통해 국민의 AI 이해도(고·중·저)와 활용 경험에 따른 기대·우려·대응 태도를 비교 분석했다. 조사 결과, 국민은 AI에 대해 호기심·놀라움 등 중립적·긍정적 감정을 주로 보였고, 이해도가 높을수록 AI 활성화에 대한 기대가 높았다. 기대 이유는 일상 편리 증대와 생산성 향상, 우려 이유는 가짜뉴스·인간 주도 통제 약화·일자리 감소로 나타났으며, 저이해군은 기대·우려를 느낄 때 ‘무대응’ 응답이 높아 기술 변화에 소극적으로 대응하는 경향이 확인됐다. 또한 누구나 AI 혜택을 공평하게 누리기 위해 비용 부담을 줄이고 교육 지원을 강화하는 것이 중요하다고 응답했다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=82618&amp;bcIdx=28988">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=82618&amp;bcIdx=28988</a></p>
+</article></div></details><details class="archive-month"><summary>2025년 12월 <span class="archive-count">(29건)</span></summary><div class="cat-month-body"><h3 class="cat-date-heading">2025-12-31 <span class="archive-count">(29건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>생성형 AI의 생산성 분석 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="생성형 AI의 생산성 분석 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935596" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935596">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935596</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 전환에 따른 소매패턴 변화와 정책 방향 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 전환에 따른 소매패턴 변화와 정책 방향 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935616" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935616">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935616</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>(플랫폼 확산의 인플레이션 영향에 대한 연구) (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="(플랫폼 확산의 인플레이션 영향에 대한 연구) (2025.12.31)
+
+빈 줄
+
+제공된 페이지 내용은 PDF 원문이지만, 본문 텍스트(제목/요약/결론 등)가 추출되지 않고 인코딩된 PDF 바이트 데이터로만 확인됩니다. 따라서 연구의 핵심 주장, 방법, 결과를 사실 기반으로 요약할 수 없습니다.
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935636" onclick="copyEntry(this)">복사</button></div>
+  <p>빈 줄</p>
+<p>제공된 페이지 내용은 PDF 원문이지만, 본문 텍스트(제목/요약/결론 등)가 추출되지 않고 인코딩된 PDF 바이트 데이터로만 확인됩니다. 따라서 연구의 핵심 주장, 방법, 결과를 사실 기반으로 요약할 수 없습니다.</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935636">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935636</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 혁신이 사회·경제에 미치는 영향 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 혁신이 사회·경제에 미치는 영향 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935637" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935637">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1935637</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 기술주권과 국가경쟁력 제고 방안 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI 기술주권과 국가경쟁력 제고 방안 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1936576" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1936576">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1936576</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>2025년 북한 방송통신 이용실태조사 사업 결과보고서 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="2025년 북한 방송통신 이용실태조사 사업 결과보고서 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1937296" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1937296">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1937296</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>2025년 ICT 통계체계 기획 및 개선방안 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="2025년 ICT 통계체계 기획 및 개선방안 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942296" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942296">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942296</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>2025년 ICT 통합모집단 구축 및 운영 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="2025년 ICT 통합모집단 구축 및 운영 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942316" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942316">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942316</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 산업 고용분석체계 구축 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 산업 고용분석체계 구축 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942336" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942336">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942336</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 주요이슈 분석체계 구축 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 주요이슈 분석체계 구축 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942356" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942356">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1942356</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>글로벌 미디어 플랫폼 확산 대응을 위한 국내 미디어 서비스 경쟁력 분석 및 강화 전략 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="글로벌 미디어 플랫폼 확산 대응을 위한 국내 미디어 서비스 경쟁력 분석 및 강화 전략 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1944056" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1944056">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&amp;arrMasterId=3934560&amp;id=1944056</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>경험적 근거마련을 위한 조사·연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="경험적 근거마련을 위한 조사·연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945656" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945656">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945656</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>정책 네트워크 구성·운영 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="정책 네트워크 구성·운영 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945696" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945696">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945696</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 규제개혁 기반연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 규제개혁 기반연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945796" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945796">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945796</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>ICT 기반 사회현안 해결방안 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="ICT 기반 사회현안 해결방안 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945856" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945856">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1945856</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 대전환 메가트렌드 연구 총괄보고서 V: 2035 AI·디지털 대전환 메가트렌드 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 대전환 메가트렌드 연구 총괄보고서 V: 2035 AI·디지털 대전환 메가트렌드 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1947776</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI·디지털 전환기 노동 구조의 재편과 노동권 보호를 위한 안전망 설계 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI·디지털 전환기 노동 구조의 재편과 노동권 보호를 위한 안전망 설계 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949076" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949076">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949076</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>지능정보사회 이용자 보호 정책개발 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="지능정보사회 이용자 보호 정책개발 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949077" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949077">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949077</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 전환기 민주주의 회복력 강화를 위한 정치제도의 변화 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 전환기 민주주의 회복력 강화를 위한 정치제도의 변화 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949096" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949096">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949096</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 전환에 대응하는 AI·데이터 기반 디지털 복지서비스 개발 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 전환에 대응하는 AI·데이터 기반 디지털 복지서비스 개발 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949116" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949116">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949116</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI·디지털 전환에 따른 공공부문 데이터 거버넌스 전략 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="AI·디지털 전환에 따른 공공부문 데이터 거버넌스 전략 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949136" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949136">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949136</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 저탄소 전환을 위한 기술적·제도적 방안 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 저탄소 전환을 위한 기술적·제도적 방안 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949156" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949156">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949156</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>디지털 전환기 AGI 기술 경쟁력 확보를 위한 중장기 전략 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="디지털 전환기 AGI 기술 경쟁력 확보를 위한 중장기 전략 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949176" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949176">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949176</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>지능정보사회 플랫폼 자율규제 활성화 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="지능정보사회 플랫폼 자율규제 활성화 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949196" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949196">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949196</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>인공지능 윤리 실천수단 확산 방안에 관한 연구 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">KISDI</span></span><button type="button" class="copy-btn" data-copy="인공지능 윤리 실천수단 확산 방안에 관한 연구 (2025.12.31)
+
+요약불가
+
+https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949216" onclick="copyEntry(this)">복사</button></div>
+  <p class="unavailable">요약불가 (본문 확인 필요)</p>
+  <p class="url"><a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949216">https://www.kisdi.re.kr/report/fileView.do?key=m2101113024770&amp;arrMasterId=3934580&amp;id=1949216</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>[AI.GOV 이슈리포트 2025-2호] 공공부문 MCP 도입 이해와 활용 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원 (NIA)</span></span><button type="button" class="copy-btn" data-copy="[AI.GOV 이슈리포트 2025-2호] 공공부문 MCP 도입 이해와 활용 (2025.12.31)
+
+본 리포트는 공공부문에서 MCP(Machine Comprehensible Platform)를 도입하고 활용하는 방법과 그 이해를 설명한다. 리포트는 MCP의 기술적 배경을 소개하고, 해외에서의 성공적인 활용 사례를 통해 업무 혁신의 가능성을 제시한다. 또한 공공부문의 MCP 도입 및 적용 방안에 대해 구체적으로 다룬다. 보고서는 무단 복제나 재인용을 금지하며, 문의 사항은 NIA 정책기획팀으로 연락할 것을 권장한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29766" onclick="copyEntry(this)">복사</button></div>
+  <p>본 리포트는 공공부문에서 MCP(Machine Comprehensible Platform)를 도입하고 활용하는 방법과 그 이해를 설명한다. 리포트는 MCP의 기술적 배경을 소개하고, 해외에서의 성공적인 활용 사례를 통해 업무 혁신의 가능성을 제시한다. 또한 공공부문의 MCP 도입 및 적용 방안에 대해 구체적으로 다룬다. 보고서는 무단 복제나 재인용을 금지하며, 문의 사항은 NIA 정책기획팀으로 연락할 것을 권장한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29766">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29766</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI 중심의 GovTech 혁신 생태계 조성 및 활성화 방안 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">NIA</span></span><button type="button" class="copy-btn" data-copy="AI 중심의 GovTech 혁신 생태계 조성 및 활성화 방안 (2025.12.31)
+
+본 보고서는 한국지능정보사회진흥원(NIA)이 발행한 [AI.GOV 이슈리포트 2025-3호]로, 공공기술(GovTech) 분야에서 AI 기술의 활용을 통한 혁신 생태계 조성과 활성화 방안을 제시하고 있다. 보고서는 AI 도입의 필요성, 국내외 사례 분석, 그리고 구체적인 실행 방안을 포함하고 있으며, 공공부문의 디지털 전환을 위한 정책적 시사점을 제공한다. 문의 및 제안은 NIA 디지털플랫폼정부본부 정책기획팀으로 연락 가능하다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29767" onclick="copyEntry(this)">복사</button></div>
+  <p>본 보고서는 한국지능정보사회진흥원(NIA)이 발행한 [AI.GOV 이슈리포트 2025-3호]로, 공공기술(GovTech) 분야에서 AI 기술의 활용을 통한 혁신 생태계 조성과 활성화 방안을 제시하고 있다. 보고서는 AI 도입의 필요성, 국내외 사례 분석, 그리고 구체적인 실행 방안을 포함하고 있으며, 공공부문의 디지털 전환을 위한 정책적 시사점을 제공한다. 문의 및 제안은 NIA 디지털플랫폼정부본부 정책기획팀으로 연락 가능하다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29767">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29767</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>인공지능정부 전환을 위한 법제도 고려사항 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">NIA</span></span><button type="button" class="copy-btn" data-copy="인공지능정부 전환을 위한 법제도 고려사항 (2025.12.31)
+
+본 리포트는 인공지능 기반 정부 시스템 도입을 위한 법제도 개선 방안을 제시한다. 리포트는 디지털 정부와 인공지능 정부 간의 구조적 차이를 분석하고, 기존 공공 정보 시스템 구축 절차와 공공 AI 서비스 도입 관련 법제도의 현황 및 문제점을 다룬다. 또한 해외 사례를 통해 법제도 개선 방안을 제안하며, 정책적 제언을 포함하고 있다. 한국지능정보사회진흥원의 공식 견해와 다를 수 있으니 참고 바란다. 문의 사항은 정책기획팀으로 연락 가능하다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29768" onclick="copyEntry(this)">복사</button></div>
+  <p>본 리포트는 인공지능 기반 정부 시스템 도입을 위한 법제도 개선 방안을 제시한다. 리포트는 디지털 정부와 인공지능 정부 간의 구조적 차이를 분석하고, 기존 공공 정보 시스템 구축 절차와 공공 AI 서비스 도입 관련 법제도의 현황 및 문제점을 다룬다. 또한 해외 사례를 통해 법제도 개선 방안을 제안하며, 정책적 제언을 포함하고 있다. 한국지능정보사회진흥원의 공식 견해와 다를 수 있으니 참고 바란다. 문의 사항은 정책기획팀으로 연락 가능하다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29768">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29768</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>AI정부 시대 국민 서비스 이용 실태 분석 및 시사점 (2025.12.31)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원 (NIA)</span></span><button type="button" class="copy-btn" data-copy="AI정부 시대 국민 서비스 이용 실태 분석 및 시사점 (2025.12.31)
+
+본 리포트는 2025년 기준으로 국민들이 AI정부 서비스를 어떻게 이용하고 있는지 분석하며, 그 결과를 바탕으로 향후 AI정부 서비스 발전 방향과 실천 과제를 제시한다. 보고서는 무단 복제나 재인용 시 출처 명시를 요구하며, 문의 사항은 NIA 정책기획팀 수석 이용건에게 연락할 것을 권장한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29769" onclick="copyEntry(this)">복사</button></div>
+  <p>본 리포트는 2025년 기준으로 국민들이 AI정부 서비스를 어떻게 이용하고 있는지 분석하며, 그 결과를 바탕으로 향후 AI정부 서비스 발전 방향과 실천 과제를 제시한다. 보고서는 무단 복제나 재인용 시 출처 명시를 요구하며, 문의 사항은 NIA 정책기획팀 수석 이용건에게 연락할 것을 권장한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29769">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=37989&amp;bcIdx=29769</a></p>
+</article></div></details><details class="archive-month"><summary>2025년 7월 <span class="archive-count">(1건)</span></summary><div class="cat-month-body"><h3 class="cat-date-heading">2025-07-24 <span class="archive-count">(1건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>정보화정책 저널(Guide for authors) 논문 투고·심사 절차 및 필수 서류 안내(2025.7.24)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="정보화정책 저널(Guide for authors) 논문 투고·심사 절차 및 필수 서류 안내(2025.7.24)
+
+정보화정책 저널은 정보화 정책 분야 전문 학술지로, 연 4회 발간하며 회당 5편 게재를 안내한다. 논문 투고 시 심사용 논문(저자 유추 정보 삭제), 논문투고신청서, 연구윤리 준수 확인서, 저자점검표, 저작권위임서, 표절검사 확인서(KCI 유사도 검사 등)를 필수 제출서류로 제시한다. 심사는 온라인 논문투고 시스템 접수 후 접수 승인, 편집위원 지정 및 외부 심사위원 풀 구성(3~5일), 심사위원 3인 선정 후 심사 의뢰(약 2주)와 심사 결과 통보(게재가/수정후게재/재심/게재불가) 순으로 진행되며 통상 1.5~2개월가량 소요될 수 있다고 명시한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=28376" onclick="copyEntry(this)">복사</button></div>
+  <p>정보화정책 저널은 정보화 정책 분야 전문 학술지로, 연 4회 발간하며 회당 5편 게재를 안내한다. 논문 투고 시 심사용 논문(저자 유추 정보 삭제), 논문투고신청서, 연구윤리 준수 확인서, 저자점검표, 저작권위임서, 표절검사 확인서(KCI 유사도 검사 등)를 필수 제출서류로 제시한다. 심사는 온라인 논문투고 시스템 접수 후 접수 승인, 편집위원 지정 및 외부 심사위원 풀 구성(3~5일), 심사위원 3인 선정 후 심사 의뢰(약 2주)와 심사 결과 통보(게재가/수정후게재/재심/게재불가) 순으로 진행되며 통상 1.5~2개월가량 소요될 수 있다고 명시한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=28376">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=28376</a></p>
+</article></div></details><details class="archive-month"><summary>2009년 9월 <span class="archive-count">(2건)</span></summary><div class="cat-month-body"><h3 class="cat-date-heading">2009-09-08 <span class="archive-count">(2건)</span></h3>
+<article class="entry cat-kr-gov">
+  <h2>[정보화정책 발간 규정] (2009.9.8)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="[정보화정책 발간 규정] (2009.9.8)
+
+한국지능정보사회진흥원의 학술논문집 「정보화정책」에 대한 투고, 심사, 편집 및 발간 절차를 규정한 「정보화정책 발간 규정」을 게시했다. 「정보화정책」은 연 4회 발간을 원칙으로 하며, 리뷰논문과 연구논문을 심사를 통해 게재 여부를 확정한다. 심사 결과는 “게재가”, “부분수정”, “근본수정”, “게재불가”로 구분하고, 수정·재심 절차와 기한(통상 2주/1주, 제출 14일 및 재투고 제한 등) 및 이의신청, 저작재산권 침해 처리, 비밀유지, 판권 귀속 원칙 등을 포함한다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=5189" onclick="copyEntry(this)">복사</button></div>
+  <p>한국지능정보사회진흥원의 학술논문집 「정보화정책」에 대한 투고, 심사, 편집 및 발간 절차를 규정한 「정보화정책 발간 규정」을 게시했다. 「정보화정책」은 연 4회 발간을 원칙으로 하며, 리뷰논문과 연구논문을 심사를 통해 게재 여부를 확정한다. 심사 결과는 “게재가”, “부분수정”, “근본수정”, “게재불가”로 구분하고, 수정·재심 절차와 기한(통상 2주/1주, 제출 14일 및 재투고 제한 등) 및 이의신청, 저작재산권 침해 처리, 비밀유지, 판권 귀속 원칙 등을 포함한다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=5189">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=5189</a></p>
+</article>
+<article class="entry cat-kr-gov">
+  <h2>정보화정책 저널 연구윤리규정(국/영문) 공개(2009.9.8)</h2>
+  <div class="meta"><span class="meta-tags"><span class="badge cat-kr-gov">한국 기관</span> · <span class="source">한국지능정보사회진흥원(NIA)</span></span><button type="button" class="copy-btn" data-copy="정보화정책 저널 연구윤리규정(국/영문) 공개(2009.9.8)
+
+정보화정책 저널의 연구윤리규정 파일(국문 HWP 및 영문 HWP)을 게시했다. 첨부파일은 각각 “정보화정책_연구윤리규정.hwp”와 “Regulations_on_‘Informatization_Policy’_Research_Ethics.hwp”이며 내려받기/미리보기 기능이 제공된다.
+
+https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=5191" onclick="copyEntry(this)">복사</button></div>
+  <p>정보화정책 저널의 연구윤리규정 파일(국문 HWP 및 영문 HWP)을 게시했다. 첨부파일은 각각 “정보화정책_연구윤리규정.hwp”와 “Regulations_on_‘Informatization_Policy’_Research_Ethics.hwp”이며 내려받기/미리보기 기능이 제공된다.</p>
+  <p class="url"><a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=5191">https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=65684&amp;bcIdx=5191</a></p>
+</article></div></details>
+<footer>만든 사람: 인공지능안전연구소 송경호 · 문의/오류제보: <a href="mailto:songkyungho@etri.re.kr">songkyungho@etri.re.kr</a><br>요약 모델: EXAONE-3.5-7.8B-Instruct-4bit · AI Safety pipeline<details><summary>수집 대상 (36개)</summary><div class="source-list"><b>AISI</b> — AISI-UK, AISI-Japan, AISI-Korea, SG-AISI<br><b>국제기구</b> — EU Digital Strategy, OECD-AI<br><b>정부기관</b> — NIST<br><b>연구기관</b> — Stanford HAI, CHAI, METR, RAND, CSET Georgetown, Epoch (Substack), Institute for Law &amp; AI<br><b>NGO</b> — Partnership on AI, The Future Society<br><b>미디어</b> — GeopoliTechs, AI Frontiers, Tech Policy Press, AI Governance Library, AI-Ethics-KR<br><b>DB</b> — GlobalAIRegTracker, AI Risk Explorer<br><b>기업</b> — Anthropic, DeepMind<br><b>한국 기관</b> — MSIT, IITP, NIA, KISA, SPRi, KISDI<br><b>한국 언론 클리핑</b> — 스크랩마스터(IITP 뉴스클리핑), 뉴스RSS(국내 언론 24개사 합본)<br><b>연구 논문/보고서</b> — arXiv, OpenAlex, HuggingFace Daily Papers</div></details></footer>
+</div>
+<script>
+function _copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyEntry(btn) {
+  var text = btn.getAttribute('data-copy');
+  var onDone = function () {
+    var original = btn.textContent;
+    btn.textContent = '복사됨!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onDone, function () {
+      _copyFallback(text);
+      onDone();
+    });
+  } else {
+    _copyFallback(text);
+    onDone();
+  }
+}
+</script>
+</body>
+</html>
